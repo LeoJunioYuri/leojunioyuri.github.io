@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Cases from "@/components/Cases.astro";
+import Highlight from "@/components/Highlight.astro";
+import About from "@/components/About.astro";
+import Interests from "@/components/Interests.astro";
+import WritingPreview from "@/components/WritingPreview.astro";
+import { useTranslations } from "@/i18n/utils";
+import { getPosts, slugOf } from "@/content-utils";
+import type { Lang } from "@/consts";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const featuredSlug =
+  lang === "pt" ? "20-meses-de-metaads" : "20-months-of-metaads";
+const posts = await getPosts(lang);
+const featuredAvailable = posts.some((p) => slugOf(p.id) === featuredSlug);
+
+const path = lang === "pt" ? "/" : "/en/";
+
+// First-visit language detection. Honors a stored choice, otherwise the browser
+// language. Only the root pages redirect, and never loop.
+const detectScript =
+  lang === "pt"
+    ? `(function(){try{var s=localStorage.getItem('lang');if(s==='en'){location.replace('/en/');}else if(!s){var n=(navigator.language||'').toLowerCase();if(n&&!n.startsWith('pt')){localStorage.setItem('lang','en');location.replace('/en/');}else{localStorage.setItem('lang','pt');}}}catch(e){}})();`
+    : `(function(){try{if(localStorage.getItem('lang')==='pt'){location.replace('/');}}catch(e){}})();`;
+---
+
+<BaseLayout
+  lang={lang}
+  title="Leonardo Basso — Product Engineer"
+  description={t("hero.lede")}
+  path={path}
+>
+  <script is:inline set:html={detectScript} />
+
+  <Hero lang={lang} />
+  <Cases lang={lang} />
+  <Highlight
+    lang={lang}
+    postSlug={featuredAvailable ? featuredSlug : undefined}
+  />
+  <About lang={lang} />
+  <Interests lang={lang} />
+  <WritingPreview lang={lang} />
+</BaseLayout>

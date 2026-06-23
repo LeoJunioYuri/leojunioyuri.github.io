@@ -1,0 +1,53 @@
+---
+import type { Lang } from "@/consts";
+import { useTranslations } from "@/i18n/utils";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const stack = [
+  "TypeScript",
+  "React",
+  "Node.js",
+  "C#",
+  "Azure",
+  "Meta Marketing API",
+  "AI / LLMs",
+];
+---
+
+<section id="about" class="scroll-mt-20 border-t border-[var(--border)]">
+  <div class="mx-auto max-w-3xl px-5 py-20 sm:px-6">
+    <h2 data-reveal-scroll class="text-2xl font-bold tracking-tight sm:text-3xl">
+      {t("about.title")}
+    </h2>
+    <div
+      data-reveal-scroll
+      class="mt-6 space-y-4 text-lg leading-relaxed text-[var(--fg)]"
+    >
+      <p>{t("about.body")}</p>
+      <p class="text-[var(--muted)]">{t("about.body2")}</p>
+      <p class="border-l-2 border-[var(--accent)] pl-4 text-[var(--fg)]">
+        {t("about.body3")}
+      </p>
+    </div>
+
+    <p
+      data-reveal-scroll
+      class="mt-8 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]"
+    >
+      {t("about.stack")}
+    </p>
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {
+        stack.map((s) => (
+          <li class="rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 py-1 text-sm font-medium">
+            {s}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { useTranslations } from "@/i18n/utils";
+import type { Lang } from "@/consts";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const items: Record<Lang, string[]> = {
+  pt: [
+    "Construindo um agente de IA que gere os anúncios dos clientes de ponta a ponta — decisão, criativo e otimização.",
+    "Aprofundando a camada de atribuição: ligar cada real investido à venda que ele gerou.",
+    "Escrevendo aqui sobre os desafios de escalar tráfego pago para milhares de restaurantes.",
+  ],
+  en: [
+    "Building an AI agent that manages clients' ads end to end — decision, creative, and optimization.",
+    "Going deeper on the attribution layer: tying every real spent to the sale it generated.",
+    "Writing here about the challenges of scaling paid traffic to thousands of restaurants.",
+  ],
+};
+
+const path = lang === "pt" ? "/now" : "/en/now";
+const nowLabel = lang === "pt" ? "Inspirado na ideia de" : "Inspired by the";
+const nowSuffix = lang === "pt" ? "." : " page idea.";
+---
+
+<BaseLayout
+  lang={lang}
+  title={t("now.title")}
+  description={t("now.subtitle")}
+  path={path}
+>
+  <section class="mx-auto max-w-3xl px-5 py-20 sm:px-6">
+    <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+      {t("now.title")}
+    </h1>
+    <p class="mt-3 text-lg text-[var(--muted)]">{t("now.subtitle")}</p>
+    <ul data-reveal-scroll class="mt-10 flex flex-col gap-4">
+      {
+        items[lang].map((i) => (
+          <li class="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
+            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
+            <span class="text-[var(--fg)]">{i}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-8 text-sm text-[var(--muted)]">
+      {nowLabel}{" "}
+      <a
+        href="https://nownownow.com/about"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-[var(--accent)] hover:underline">/now</a
+      >{nowSuffix}
+    </p>
+  </section>
+</BaseLayout>

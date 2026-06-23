@@ -1,0 +1,52 @@
+---
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const steps =
+  lang === "pt"
+    ? [
+        { n: "1", t: "Coleta", d: "performance da semana" },
+        { n: "2", t: "Decide", d: "orçamento e segmentação" },
+        { n: "3", t: "Cria", d: "novos criativos" },
+        { n: "4", t: "Publica", d: "campanhas no Meta" },
+        { n: "5", t: "Mede", d: "ROAS e atribuição" },
+      ]
+    : [
+        { n: "1", t: "Collect", d: "the week's performance" },
+        { n: "2", t: "Decide", d: "budget and targeting" },
+        { n: "3", t: "Create", d: "new creatives" },
+        { n: "4", t: "Publish", d: "campaigns on Meta" },
+        { n: "5", t: "Measure", d: "ROAS and attribution" },
+      ];
+const title =
+  lang === "pt"
+    ? "Loop autônomo semanal"
+    : "Weekly autonomous loop";
+---
+
+<figure
+  class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]"
+>
+  <figcaption
+    class="border-b border-[var(--border)] px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[var(--muted)]"
+  >
+    {title}
+  </figcaption>
+  <ol class="flex flex-col gap-px bg-[var(--border)] sm:flex-row">
+    {
+      steps.map((s) => (
+        <li class="flex flex-1 items-start gap-3 bg-[var(--surface)] p-4">
+          <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[var(--accent)] text-xs font-bold text-[var(--accent-fg)]">
+            {s.n}
+          </span>
+          <span>
+            <span class="block text-sm font-semibold">{s.t}</span>
+            <span class="block text-xs text-[var(--muted)]">{s.d}</span>
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+</figure>

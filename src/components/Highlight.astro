@@ -1,0 +1,74 @@
+---
+import type { Lang } from "@/consts";
+import { useTranslations, localizedPath } from "@/i18n/utils";
+interface Props {
+  lang: Lang;
+  /** Slug of the case-study post to link to, if published. */
+  postSlug?: string;
+}
+const { lang, postSlug } = Astro.props;
+const t = useTranslations(lang);
+const href = postSlug ? localizedPath(lang, `writing/${postSlug}`) : undefined;
+---
+
+<section class="mx-auto max-w-3xl px-5 pb-4 sm:px-6">
+  <div
+    data-reveal-scroll
+    class="overflow-hidden rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)]"
+  >
+    <div class="grid gap-6 p-7 sm:grid-cols-[1fr_auto] sm:items-center sm:p-9">
+      <div>
+        <p
+          class="text-xs font-semibold uppercase tracking-wide text-[var(--accent)]"
+        >
+          {t("highlight.label")}
+        </p>
+        <h3 class="mt-2 text-xl font-bold tracking-tight sm:text-2xl">
+          {t("highlight.title")}
+        </h3>
+        <p class="mt-3 text-[var(--fg)]">{t("highlight.body")}</p>
+        {
+          href && (
+            <a
+              href={href}
+              class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
+            >
+              {t("highlight.read")}
+              <span aria-hidden="true">→</span>
+            </a>
+          )
+        }
+      </div>
+
+      <!-- Before/after metric -->
+      <div class="flex items-center gap-4 sm:flex-col sm:gap-2">
+        <div class="text-center">
+          <div class="text-3xl font-extrabold text-[var(--muted)] line-through">
+            50%
+          </div>
+          <div class="text-[11px] uppercase tracking-wide text-[var(--muted)]">
+            {t("highlight.metricBefore")}
+          </div>
+        </div>
+        <svg
+          class="h-5 w-5 text-[var(--accent)] sm:rotate-90"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+        <div class="text-center">
+          <div class="text-4xl font-extrabold text-[var(--accent)]">4%</div>
+          <div class="text-[11px] uppercase tracking-wide text-[var(--muted)]">
+            {t("highlight.metricAfter")}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

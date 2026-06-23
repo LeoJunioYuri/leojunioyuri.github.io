@@ -1,0 +1,227 @@
+---
+import { SITE, type Lang } from "@/consts";
+import { useTranslations, localizedPath } from "@/i18n/utils";
+import HeroChart from "@/components/HeroChart.astro";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const stats = [
+  { value: "2.000+", label: t("stats.restaurants") },
+  { value: "R$4M+", label: t("stats.media") },
+  { value: "R$20M+", label: t("stats.sales") },
+  { value: "20", label: t("stats.months") },
+];
+---
+
+<section class="relative isolate overflow-hidden border-b border-[var(--border)]">
+  <!-- Background: solid base + soft accent glow. Readable on mobile because the
+       text sits on the base color, not on a transparent image. -->
+  <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <HeroChart />
+    <div
+      data-parallax="glow"
+      class="absolute -top-24 left-1/2 h-[38rem] w-[38rem] rounded-full opacity-50 blur-3xl"
+      style="background: radial-gradient(circle, var(--accent), transparent 70%); transform: translate(calc(-50% + var(--gx, 0px)), var(--gy, 0px));"
+    >
+    </div>
+    <div
+      data-parallax="grid"
+      class="absolute -inset-16 opacity-[0.05]"
+      style="background-image: linear-gradient(var(--fg) 1px, transparent 1px), linear-gradient(90deg, var(--fg) 1px, transparent 1px); background-size: 56px 56px; transform: translate(var(--grx, 0px), var(--gry, 0px));"
+    >
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-5 py-20 sm:px-6 sm:py-28">
+    <p
+      data-reveal
+      class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1 text-xs font-medium text-[var(--muted)]"
+    >
+      <span class="relative flex h-2 w-2">
+        <span
+          class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75"
+        ></span>
+        <span
+          class="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]"
+        ></span>
+      </span>
+      {t("hero.role")} · Brendi
+    </p>
+
+    <h1
+      data-reveal
+      style="animation-delay: 60ms"
+      class="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl"
+    >
+      {SITE.name}
+    </h1>
+
+    <p
+      data-reveal
+      style="animation-delay: 90ms"
+      class="mt-3 flex items-center gap-2 text-sm text-[var(--muted)]"
+    >
+      <svg
+        class="h-4 w-4 text-[var(--accent)]"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      {t("hero.location")}
+    </p>
+
+    <p
+      data-reveal
+      style="animation-delay: 120ms"
+      class="mt-5 max-w-2xl text-lg font-medium text-[var(--fg)] sm:text-xl"
+    >
+      {t("hero.tagline")}
+    </p>
+    <p
+      data-reveal
+      style="animation-delay: 180ms"
+      class="mt-3 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg"
+    >
+      {t("hero.lede")}
+    </p>
+
+    <div
+      data-reveal
+      style="animation-delay: 240ms"
+      class="mt-8 flex flex-wrap gap-3"
+    >
+      <a
+        href={`${localizedPath(lang) === "/" ? "" : localizedPath(lang)}/#work`}
+        class="rounded-lg bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] transition-transform hover:-translate-y-0.5"
+      >
+        {t("hero.cta.work")}
+      </a>
+      <a
+        href={localizedPath(lang, "writing")}
+        class="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:bg-[var(--surface)]"
+      >
+        {t("hero.cta.writing")}
+      </a>
+    </div>
+
+    <!-- Stats strip -->
+    <dl
+      data-reveal
+      style="animation-delay: 300ms"
+      class="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-4"
+    >
+      {
+        stats.map((s) => (
+          <div class="bg-[var(--bg)] px-4 py-5">
+            <dt class="text-2xl font-bold tracking-tight sm:text-3xl">
+              {s.value}
+            </dt>
+            <dd class="mt-1 text-xs text-[var(--muted)] sm:text-sm">
+              {s.label}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <!-- Easter egg: my UFLA nickname was "Parallax". Trigger overdrive by typing
+       "parallax" or visiting with #parallax (great to send to friends). -->
+  <div
+    id="parallax-toast"
+    hidden
+    role="status"
+    class="flex items-center gap-3 rounded-xl border border-[var(--accent)] bg-[var(--surface)] px-4 py-3 text-sm shadow-lg"
+  >
+    <span class="text-lg" aria-hidden="true">🌌</span>
+    <span class="text-[var(--fg)]">{t("parallax.toast")}</span>
+  </div>
+</section>
+
+<script>
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const glow  = document.querySelector<HTMLElement>('[data-parallax="glow"]');
+  const grid  = document.querySelector<HTMLElement>('[data-parallax="grid"]');
+  const chart = document.querySelector<HTMLElement>('[data-parallax="chart"]');
+  const toast = document.getElementById("parallax-toast");
+
+  let px = 0,
+    py = 0,
+    sy = 0,
+    raf = 0,
+    overdrive = false,
+    tid = 0;
+
+  const apply = () => {
+    const m = overdrive ? 2.8 : 1;
+    document.documentElement.style.setProperty("--px", String(px));
+    document.documentElement.style.setProperty("--py", String(py));
+    if (glow) {
+      glow.style.setProperty("--gx", `${px * 28 * m}px`);
+      glow.style.setProperty("--gy", `${py * 28 * m - sy * 0.15}px`);
+    }
+    if (grid) {
+      grid.style.setProperty("--grx", `${px * 14 * m}px`);
+      grid.style.setProperty("--gry", `${py * 14 * m - sy * 0.06 * m}px`);
+    }
+    if (chart) {
+      chart.style.transform = `translate(${px * 6 * m}px, ${py * 6 * m - sy * 0.03 * m}px)`;
+    }
+    raf = 0;
+  };
+  const schedule = () => {
+    if (!raf) raf = requestAnimationFrame(apply);
+  };
+
+  if (!reduce) {
+    window.addEventListener(
+      "pointermove",
+      (e) => {
+        px = (e.clientX / window.innerWidth - 0.5) * 2;
+        py = (e.clientY / window.innerHeight - 0.5) * 2;
+        schedule();
+      },
+      { passive: true },
+    );
+    window.addEventListener(
+      "scroll",
+      () => {
+        sy = window.scrollY;
+        schedule();
+      },
+      { passive: true },
+    );
+  }
+
+  const activate = () => {
+    overdrive = true;
+    document.documentElement.classList.add("parallax-overdrive");
+    if (toast) {
+      toast.hidden = false;
+      clearTimeout(tid);
+      tid = window.setTimeout(() => (toast.hidden = true), 7000);
+    }
+    schedule();
+  };
+
+  if (location.hash === "#parallax") activate();
+
+  let typed = "";
+  window.addEventListener("keydown", (e) => {
+    if (e.key && e.key.length === 1) {
+      typed = (typed + e.key.toLowerCase()).slice(-8);
+      if (typed.includes("parallax")) activate();
+    }
+  });
+  toast?.addEventListener("click", () => (toast.hidden = true));
+</script>

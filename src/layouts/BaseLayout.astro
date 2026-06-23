@@ -1,0 +1,139 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import ParallaxOverdrive from "@/components/ParallaxOverdrive.astro";
+import { SITE, type Lang } from "@/consts";
+import { alternatePath } from "@/i18n/utils";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Current path without origin, e.g. "/writing". */
+  path: string;
+  /** Optional OG image (absolute or root-relative). */
+  image?: string;
+  type?: "website" | "article";
+}
+
+const {
+  lang,
+  title,
+  description,
+  path,
+  image = "/og.png",
+  type = "website",
+} = Astro.props;
+
+const canonical = new URL(path, SITE.url).href;
+const ogImage = new URL(image, SITE.url).href;
+const altLang: Lang = lang === "pt" ? "en" : "pt";
+const altHref = new URL(alternatePath(lang, path), SITE.url).href;
+const fullTitle =
+  path === "/" || path === "/en/" ? title : `${title} — ${SITE.name}`;
+---
+
+<!doctype html>
+<html lang={lang === "pt" ? "pt-BR" : "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.name} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={altLang} href={altHref} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE.name}
+      href="/rss.xml"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={lang === "pt" ? "pt_BR" : "en_US"} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Set theme before first paint to avoid a flash. -->
+    <script is:inline>
+      (function () {
+        try {
+          document.documentElement.classList.add("js");
+          var t = localStorage.getItem("theme");
+          if (!t) {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          if (t === "dark") document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[var(--bg)] text-[var(--fg)] antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--accent)] focus:px-4 focus:py-2 focus:text-[var(--accent-fg)]"
+    >
+      {lang === "pt" ? "Pular para o conteúdo" : "Skip to content"}
+    </a>
+    <Header lang={lang} path={path} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <ParallaxOverdrive />
+
+    <script>
+      // Reveal elements as they scroll into view. Falls back to "always
+      // visible" when IntersectionObserver is missing or motion is reduced.
+      const els = document.querySelectorAll<HTMLElement>("[data-reveal-scroll]");
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!("IntersectionObserver" in window) || reduce) {
+        els.forEach((el) => el.classList.add("is-visible"));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+        );
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

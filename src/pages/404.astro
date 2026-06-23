@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const lang = "pt" as const;
+---
+
+<BaseLayout
+  lang={lang}
+  title="404"
+  description="Página não encontrada · Page not found"
+  path="/404"
+>
+  <section
+    class="mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center px-5 py-20 text-center sm:px-6"
+  >
+    <p class="font-mono text-6xl font-extrabold text-[var(--accent)]">404</p>
+
+    <div class="mt-5 space-y-1">
+      <p class="text-xl font-bold tracking-tight">
+        Esta página se perdeu no caminho.
+      </p>
+      <p class="text-xl font-bold tracking-tight text-[var(--muted)]">
+        This page got lost along the way.
+      </p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a
+        href="/"
+        class="rounded-lg bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] transition-transform hover:-translate-y-0.5"
+        >Início</a
+      >
+      <a
+        href="/en/"
+        class="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-[var(--surface)]"
+        >Home (EN)</a
+      >
+      <a
+        href="/writing"
+        class="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-[var(--surface)]"
+        >Escrita · Writing</a
+      >
+    </div>
+  </section>
+</BaseLayout>

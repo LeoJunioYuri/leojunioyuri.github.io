@@ -1,0 +1,17 @@
+---
+import type { GetStaticPaths } from "astro";
+import PostBody from "@/components/pages/PostBody.astro";
+import { getPosts } from "@/content-utils";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts("pt");
+  return posts.map((entry) => ({
+    params: { slug: entry.id.replace(/^pt\//, "") },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+---
+
+<PostBody lang="pt" entry={entry} />

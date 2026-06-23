@@ -1,0 +1,140 @@
+---
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { categoryLabel, categoryColor } from "@/i18n/categories";
+import {
+  useTranslations,
+  localizedPath,
+  formatDate,
+  readingTime,
+} from "@/i18n/utils";
+import { slugOf } from "@/content-utils";
+import type { Lang } from "@/consts";
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<"blog">;
+}
+const { lang, entry } = Astro.props;
+const t = useTranslations(lang);
+const { Content } = await render(entry);
+
+const slug = slugOf(entry.id);
+const minutes = readingTime(entry.body ?? "");
+const color = categoryColor[entry.data.category];
+const path = `${lang === "pt" ? "/writing" : "/en/writing"}/${slug}`;
+---
+
+<BaseLayout
+  lang={lang}
+  title={entry.data.title}
+  description={entry.data.description}
+  path={path}
+  image={`/og/${lang}-${slug}.png`}
+  type="article"
+>
+  <div
+    id="read-progress"
+    class="fixed left-0 top-0 z-50 h-1 w-0 bg-[var(--accent)]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <article class="mx-auto max-w-3xl px-5 py-16 sm:px-6 sm:py-20">
+    <a
+      href={localizedPath(lang, "writing")}
+      class="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--fg)]"
+    >
+      <span aria-hidden="true">←</span>
+      {t("writing.back")}
+    </a>
+
+    <header class="mt-8">
+      <div
+        class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-[var(--muted)]"
+      >
+        <span
+          class="rounded-full border px-2.5 py-0.5 text-xs font-medium"
+          style={`color:${color};border-color:${color}55;background:${color}14`}
+        >
+          {categoryLabel[lang][entry.data.category]}
+        </span>
+        <time datetime={entry.data.date.toISOString()}>
+          {formatDate(entry.data.date, lang)}
+        </time>
+        <span aria-hidden="true">·</span>
+        <span>{minutes} {t("writing.readingTime")}</span>
+        {
+          entry.data.draft && (
+            <span class="rounded bg-[var(--accent-soft)] px-1.5 py-0.5 text-xs font-medium text-[var(--accent)]">
+              {t("writing.draft")}
+            </span>
+          )
+        }
+      </div>
+      <h1
+        class="mt-3 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl"
+      >
+        {entry.data.title}
+      </h1>
+      <p class="mt-4 text-lg text-[var(--muted)]">{entry.data.description}</p>
+      {
+        entry.data.tags.length > 0 && (
+          <ul class="mt-5 flex flex-wrap gap-2">
+            {entry.data.tags.map((tag) => (
+              <li class="rounded-md border border-[var(--border)] px-2 py-0.5 text-xs text-[var(--muted)]">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <hr class="my-10 border-[var(--border)]" />
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <button
+    id="to-top"
+    type="button"
+    aria-label={lang === "pt" ? "Voltar ao topo" : "Back to top"}
+    class="fixed bottom-6 right-6 z-40 grid h-11 w-11 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--fg)] opacity-0 shadow-lg transition-opacity duration-300 hover:bg-[var(--surface-2)]"
+  >
+    <svg
+      class="h-5 w-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </button>
+
+  <script>
+    const bar = document.getElementById("read-progress");
+    const toTop = document.getElementById("to-top");
+
+    const onScroll = () => {
+      const h =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? (window.scrollY / h) * 100 : 0;
+      if (bar) bar.style.width = `${p}%`;
+      if (toTop) toTop.style.opacity = window.scrollY > 600 ? "1" : "0";
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    toTop?.addEventListener("click", () =>
+      window.scrollTo({ top: 0, behavior: "smooth" }),
+    );
+  </script>
+</BaseLayout>

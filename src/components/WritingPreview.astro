@@ -1,0 +1,62 @@
+---
+import type { Lang } from "@/consts";
+import { useTranslations, localizedPath, readingTime } from "@/i18n/utils";
+import { getPosts, slugOf } from "@/content-utils";
+import PostCard from "@/components/PostCard.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const posts = (await getPosts(lang)).slice(0, 3);
+---
+
+<section
+  id="writing"
+  class="scroll-mt-20 border-t border-[var(--border)] bg-[var(--surface)]"
+>
+  <div class="mx-auto max-w-3xl px-5 py-20 sm:px-6">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+          {t("writing.title")}
+        </h2>
+        <p class="mt-2 max-w-xl text-[var(--muted)]">{t("writing.subtitle")}</p>
+      </div>
+      <a
+        href={localizedPath(lang, "writing")}
+        class="hidden shrink-0 text-sm font-semibold text-[var(--accent)] hover:underline sm:inline"
+      >
+        {t("writing.all")} →
+      </a>
+    </div>
+
+    <div data-reveal-scroll class="mt-10 flex flex-col gap-10">
+      {
+        posts.length === 0 ? (
+          <p class="text-[var(--muted)]">{t("writing.empty")}</p>
+        ) : (
+          posts.map((p) => {
+            const slug = slugOf(p.id);
+            return (
+              <PostCard
+                lang={lang}
+                slug={slug}
+                title={p.data.title}
+                description={p.data.description}
+                date={p.data.date}
+                category={p.data.category}
+                tags={p.data.tags}
+                readingTime={readingTime(p.body ?? "")}
+                pinned={p.data.pinned}
+                draft={p.data.draft}
+              />
+            );
+          })
+        )
+      }
+    </div>
+  </div>
+</section>

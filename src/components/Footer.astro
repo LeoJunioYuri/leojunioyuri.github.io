@@ -1,0 +1,45 @@
+---
+import { SITE, type Lang } from "@/consts";
+import { useTranslations } from "@/i18n/utils";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const socials = [
+  { href: SITE.socials.github, label: "GitHub" },
+  { href: SITE.socials.linkedin, label: "LinkedIn" },
+  { href: SITE.socials.instagram, label: "Instagram" },
+  { href: SITE.socials.youtube, label: "YouTube" },
+  { href: `mailto:${SITE.email}`, label: "Email" },
+];
+---
+
+<footer class="border-t border-[var(--border)]">
+  <div
+    class="mx-auto flex max-w-3xl flex-col gap-4 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+  >
+    <div class="text-sm text-[var(--muted)]">
+      <p>© {year} {SITE.name}. {t("footer.rights")}</p>
+      <p class="mt-1 text-xs">{t("footer.built")}</p>
+    </div>
+    <ul class="flex flex-wrap gap-4 text-sm">
+      {
+        socials.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[var(--muted)] transition-colors hover:text-[var(--fg)]"
+            >
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

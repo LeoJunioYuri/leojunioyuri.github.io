@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leojunioyuri.github.io/sitemap-index.xml

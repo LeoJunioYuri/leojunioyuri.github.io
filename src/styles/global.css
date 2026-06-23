@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a `.dark` class on <html> (set before paint). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ----------------------------------------------------------------------------
+   Design tokens
+   Semantic CSS variables that flip between light and dark. Components reference
+   them via arbitrary-value utilities, e.g. `bg-[var(--bg)] text-[var(--fg)]`.
+---------------------------------------------------------------------------- */
+/* Editorial palette: warm paper + deep garnet accent (a sober nod to the
+   templar cross / gothic register), with a warm charcoal dark mode. */
+:root {
+  --bg: #faf8f5;
+  --surface: #f1ede7;
+  --surface-2: #e9e3da;
+  --fg: #1c1815;
+  --muted: #6b6258;
+  --border: #e4ded4;
+  --accent: #9c1f33;
+  --accent-soft: #f6e7e9;
+  --accent-fg: #ffffff;
+  --ring: rgba(156, 31, 51, 0.35);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0e0c0d;
+  --surface: #171416;
+  --surface-2: #211d20;
+  --fg: #ece7e1;
+  --muted: #a59b92;
+  --border: #2a2529;
+  --accent: #e0758a;
+  --accent-soft: #241619;
+  --accent-fg: #14080b;
+  --ring: rgba(224, 117, 138, 0.4);
+  color-scheme: dark;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+    monospace;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--fg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}
+
+/* Display serif on all headings — the editorial / gothic character.
+   Font-weight and tracking still come from utility classes per component. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  /* Apple-clean headlines: avoid orphan words. */
+  text-wrap: balance;
+}
+
+/* Comfortable, non-ragged paragraphs. */
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Prose (blog post body)
+---------------------------------------------------------------------------- */
+.prose {
+  color: var(--fg);
+  line-height: 1.75;
+  font-size: 1.0625rem;
+}
+.prose > * + * {
+  margin-top: 1.25em;
+}
+.prose h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2.4em;
+  margin-bottom: 0.2em;
+  scroll-margin-top: 6rem;
+}
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin-top: 1.8em;
+  scroll-margin-top: 6rem;
+}
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  color: var(--fg);
+}
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li::marker {
+  color: var(--muted);
+}
+.prose strong {
+  font-weight: 680;
+}
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.2em 0 0.2em 1.25em;
+  color: var(--muted);
+  font-style: italic;
+}
+.prose code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+}
+.prose pre {
+  background: var(--surface) !important;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5em 0;
+}
+.prose img {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* Apple-style sticky nav: a hairline + soft elevation appear after scroll. */
+#site-header.is-scrolled {
+  box-shadow: 0 1px 0 0 var(--border), 0 12px 28px -22px rgba(0, 0, 0, 0.55);
+}
+
+/* Parallax layers (hero). Movement is driven by --gx/--gy vars from JS;
+   the transition smooths it. Honors reduced-motion via the JS guard. */
+[data-parallax] {
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+.parallax-overdrive [data-parallax="glow"] {
+  opacity: 0.55;
+}
+
+/* Easter-egg toast for the "Parallax" nickname. */
+#parallax-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 60;
+  max-width: min(92vw, 30rem);
+  cursor: pointer;
+  animation: reveal-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll-reveal: elements fade/slide in as they enter the viewport. Gated by
+   the `.js` class so content is never hidden when JS is off, and disabled
+   entirely under reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal-scroll] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .js [data-reveal-scroll].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Subtle entrance used by [data-reveal] elements. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+[data-reveal] {
+  animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

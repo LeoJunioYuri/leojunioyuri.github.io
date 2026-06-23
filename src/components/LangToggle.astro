@@ -1,0 +1,49 @@
+---
+import { useTranslations, alternatePath } from "@/i18n/utils";
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = useTranslations(lang);
+const target = alternatePath(lang, path);
+const targetLang: Lang = lang === "pt" ? "en" : "pt";
+---
+
+<a
+  href={target}
+  id="lang-toggle"
+  data-target-lang={targetLang}
+  aria-label={t("lang.toggle")}
+  title={t("lang.toggle")}
+  class="flex h-10 items-center gap-1.5 rounded-md border border-[var(--border)] px-2.5 text-sm font-medium text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)]"
+>
+  <svg
+    class="h-[15px] w-[15px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path>
+  </svg>
+  <span>{targetLang.toUpperCase()}</span>
+</a>
+
+<script>
+  // Persist the chosen language so the homepage auto-redirect respects it.
+  const toggle = document.getElementById("lang-toggle");
+  toggle?.addEventListener("click", () => {
+    try {
+      localStorage.setItem(
+        "lang",
+        toggle.getAttribute("data-target-lang") || "pt",
+      );
+    } catch (e) {}
+  });
+</script>

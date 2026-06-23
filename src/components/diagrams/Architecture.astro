@@ -1,0 +1,115 @@
+---
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const labels =
+  lang === "pt"
+    ? {
+        title: "MetaAds em 30 segundos",
+        owner: "Dono do restaurante",
+        platform: "MetaAds Platform",
+        platformSub: "onboarding · billing · dashboard",
+        ai: "Campaign AI",
+        aiSub: "decide · cria · otimiza",
+        meta: "Meta Ads",
+        data: "Data & Attribution",
+        dataSub: "ROAS · coortes · atribuição",
+      }
+    : {
+        title: "MetaAds in 30 seconds",
+        owner: "Restaurant owner",
+        platform: "MetaAds Platform",
+        platformSub: "onboarding · billing · dashboard",
+        ai: "Campaign AI",
+        aiSub: "decides · creates · optimizes",
+        meta: "Meta Ads",
+        data: "Data & Attribution",
+        dataSub: "ROAS · cohorts · attribution",
+      };
+---
+
+<figure
+  class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]"
+>
+  <figcaption
+    class="border-b border-[var(--border)] px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[var(--muted)]"
+  >
+    {labels.title}
+  </figcaption>
+  <div class="p-4 sm:p-6">
+    <svg
+      viewBox="0 0 720 230"
+      class="h-auto w-full"
+      role="img"
+      aria-label={labels.title}
+      style="color: var(--fg);"
+    >
+      <defs>
+        <marker
+          id="arrow"
+          markerWidth="9"
+          markerHeight="9"
+          refX="7"
+          refY="3"
+          orient="auto"
+        >
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--muted)"></path>
+        </marker>
+      </defs>
+      <style>
+        .box { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+        .accentbox { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+        .lbl { fill: var(--fg); font: 600 14px var(--font-sans, sans-serif); }
+        .sub { fill: var(--muted); font: 400 11px var(--font-sans, sans-serif); }
+        .flow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+      </style>
+
+      <!-- Owner -->
+      <rect class="box" x="10" y="90" width="120" height="50" rx="10"></rect>
+      <text class="lbl" x="70" y="120" text-anchor="middle">{labels.owner}</text>
+
+      <!-- Platform -->
+      <rect class="accentbox" x="180" y="80" width="160" height="70" rx="12"
+      ></rect>
+      <text class="lbl" x="260" y="108" text-anchor="middle"
+        >{labels.platform}</text
+      >
+      <text class="sub" x="260" y="128" text-anchor="middle"
+        >{labels.platformSub}</text
+      >
+
+      <!-- AI -->
+      <rect class="accentbox" x="400" y="20" width="160" height="70" rx="12"
+      ></rect>
+      <text class="lbl" x="480" y="48" text-anchor="middle">{labels.ai}</text>
+      <text class="sub" x="480" y="68" text-anchor="middle">{labels.aiSub}</text
+      >
+
+      <!-- Meta -->
+      <rect class="box" x="610" y="90" width="100" height="50" rx="10"></rect>
+      <text class="lbl" x="660" y="120" text-anchor="middle">{labels.meta}</text>
+
+      <!-- Data -->
+      <rect class="accentbox" x="400" y="150" width="160" height="60" rx="12"
+      ></rect>
+      <text class="lbl" x="480" y="178" text-anchor="middle">{labels.data}</text
+      >
+      <text class="sub" x="480" y="196" text-anchor="middle"
+        >{labels.dataSub}</text
+      >
+
+      <!-- Flows -->
+      <path class="flow" d="M130,115 H180" marker-end="url(#arrow)"></path>
+      <path class="flow" d="M340,100 C370,90 372,70 400,58"
+        marker-end="url(#arrow)"></path>
+      <path class="flow" d="M560,55 C595,65 600,90 610,108"
+        marker-end="url(#arrow)"></path>
+      <path class="flow" d="M660,140 C660,200 600,180 562,180"
+        marker-end="url(#arrow)"></path>
+      <path class="flow" d="M400,180 C370,180 360,150 340,138"
+        marker-end="url(#arrow)"></path>
+    </svg>
+  </div>
+</figure>

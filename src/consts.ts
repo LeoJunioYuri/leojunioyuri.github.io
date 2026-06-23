@@ -12,7 +12,7 @@ export const SITE = {
   },
   // External profiles for the /life page. Leave empty ("") to hide the link.
   links: {
-    imdb: "https://letterboxd.com/leojunioyuri/",
+    imdb: "https://letterboxd.com/leojunioyuri/films/",
     youtube: "https://youtube.com/@leojunioyuri",
   },
 } as const;

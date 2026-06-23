@@ -38,8 +38,31 @@ const topGames = (ownedData.response?.games || [])
   .slice(0, 8)
   .map(gameShape);
 
+// Wishlist — public endpoint, no key needed (requires profile "Game details: Public")
+let wishlist = [];
+try {
+  const wRes = await fetch(
+    `https://store.steampowered.com/wishlist/profiles/${STEAM_ID}/wishlistdata/`,
+    { headers: { "Accept": "application/json", "Referer": "https://store.steampowered.com/" } },
+  );
+  const wData = await wRes.json();
+  if (wData && typeof wData === "object") {
+    wishlist = Object.entries(wData)
+      .map(([appid, g]) => ({
+        name: g.name,
+        appid: Number(appid),
+        url: `https://store.steampowered.com/app/${appid}`,
+        capsule: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/capsule_231x87.jpg`,
+      }))
+      .slice(0, 12);
+  }
+  console.log(`Wishlist: ${wishlist.length} games.`);
+} catch (e) {
+  console.error("fetch-steam wishlist:", e.message);
+}
+
 writeFileSync(
   new URL("../src/data/steam.json", import.meta.url),
-  JSON.stringify({ updatedAt: new Date().toISOString(), games, topGames }, null, 2) + "\n",
+  JSON.stringify({ updatedAt: new Date().toISOString(), games, topGames, wishlist }, null, 2) + "\n",
 );
-console.log(`Recent: ${games.length} games. Top: ${topGames.length} games.`);
+console.log(`Recent: ${games.length} | Top: ${topGames.length} | Wishlist: ${wishlist.length}`);

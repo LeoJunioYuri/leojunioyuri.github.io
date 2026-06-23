@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T23:48:38.693Z",
+  "updatedAt": "2026-06-23T23:55:03.239Z",
   "games": [
     {
       "name": "It Takes Two",
@@ -83,5 +83,6 @@
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1286830/cee1e2970e9535767d963bf3c2c4011adb100609.jpg",
       "url": "https://store.steampowered.com/app/1286830"
     }
-  ]
+  ],
+  "wishlist": []
 }

@@ -1,193 +1,306 @@
 ---
-// Liquid-glass orbs — visible only during the "parallax" easter egg overdrive.
+// Parallax overdrive easter egg — activated by typing "parallax" or visiting /#parallax.
+// Layer 1: Full-page grid that scrolls at 0.4× speed (depth parallax).
+// Layer 2: Liquid Glass on cards — SVG feDisplacementMap + chromatic aberration (Chromium).
+// Layer 3: Element parallax — cards shift at different scroll speeds.
 ---
 
-<div id="parallax-overdrive-layer" aria-hidden="true">
-  <div class="lg-orb"></div>
-  <div class="lg-orb"></div>
-  <div class="lg-orb"></div>
-  <div class="lg-orb"></div>
-  <div class="lg-orb"></div>
-</div>
+<!-- SVG filter for Liquid Glass refraction (Chromium / Edge only) -->
+<svg id="lg-svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;">
+  <defs>
+    <filter id="lg-filter" x="-5%" y="-5%" width="110%" height="110%"
+            color-interpolation-filters="sRGB">
+      <feImage id="lg-map" result="dispMap" preserveAspectRatio="none"/>
+      <!-- 3-pass chromatic aberration: R/G/B channels displaced at decreasing scales -->
+      <feDisplacementMap in="BackgroundImage" in2="dispMap"
+        scale="14" xChannelSelector="R" yChannelSelector="G" result="dispR"/>
+      <feColorMatrix in="dispR" type="matrix"
+        values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chR"/>
+
+      <feDisplacementMap in="BackgroundImage" in2="dispMap"
+        scale="10" xChannelSelector="R" yChannelSelector="G" result="dispG"/>
+      <feColorMatrix in="dispG" type="matrix"
+        values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chG"/>
+
+      <feDisplacementMap in="BackgroundImage" in2="dispMap"
+        scale="6" xChannelSelector="R" yChannelSelector="G" result="dispB"/>
+      <feColorMatrix in="dispB" type="matrix"
+        values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="chB"/>
+
+      <feBlend in="chR"  in2="chG" mode="screen" result="rgBlend"/>
+      <feBlend in="rgBlend" in2="chB" mode="screen"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- Full-page parallax grid -->
+<canvas id="pov-grid" aria-hidden="true"></canvas>
 
 <style is:global>
-  #parallax-overdrive-layer {
+  #pov-grid {
     position: fixed;
     inset: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
-    z-index: 49;
+    z-index: 2;
     opacity: 0;
     transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .parallax-overdrive #parallax-overdrive-layer {
-    opacity: 1;
-  }
+  .parallax-overdrive #pov-grid { opacity: 1; }
 
-  .lg-orb {
-    position: absolute;
-    border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
-    backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
-    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.16) 0%,
-      rgba(255, 255, 255, 0.04) 55%,
-      rgba(255, 255, 255, 0.10) 100%
-    );
-    border: 1px solid rgba(255, 255, 255, 0.30);
+  /* Liquid Glass base — works in all browsers */
+  .lg-glass {
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.06) url(#lg-filter) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.06) !important;
+    background: rgba(255, 255, 255, 0.10) !important;
+    border-color: rgba(255, 255, 255, 0.30) !important;
     box-shadow:
       inset 0 1.5px 0 rgba(255, 255, 255, 0.55),
       inset 0 -1px 0 rgba(0, 0, 0, 0.04),
-      0 12px 48px rgba(0, 0, 0, 0.08);
-    will-change: transform, border-radius;
-    animation: lg-morph var(--dur, 10s) ease-in-out infinite;
-    animation-delay: var(--delay, 0s);
+      0 16px 48px rgba(0, 0, 0, 0.12) !important;
+    transition:
+      backdrop-filter 0.8s ease,
+      background 0.8s ease,
+      border-color 0.8s ease,
+      box-shadow 0.8s ease !important;
+    overflow: hidden;
+  }
+  .dark .lg-glass {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow:
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.18),
+      0 16px 48px rgba(0, 0, 0, 0.40) !important;
   }
 
-  /* Specular highlight — bright spot that makes it look like glass catching light */
-  .lg-orb::before {
+  /* Specular highlight — top-left catch light */
+  .lg-glass::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(
-      ellipse at 28% 22%,
-      rgba(255, 255, 255, 0.42) 0%,
-      rgba(255, 255, 255, 0.08) 40%,
-      transparent 65%
+      ellipse at 22% 18%,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.10) 35%,
+      transparent 60%
     );
+    pointer-events: none;
+    z-index: 0;
   }
 
-  /* Iridescent tint — garnet + blue + violet like glass prism */
-  .lg-orb::after {
+  /* Iridescent border shimmer */
+  .lg-glass::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(156, 31, 51, 0.07) 0%,
-      rgba(90, 160, 255, 0.06) 50%,
-      rgba(160, 90, 255, 0.06) 100%
+      rgba(156, 31,  51, 0.08) 0%,
+      rgba(90,  160, 255, 0.07) 40%,
+      rgba(160, 90,  255, 0.07) 80%,
+      rgba(156, 31,  51, 0.05) 100%
     );
-    animation: lg-iridescent var(--dur, 10s) ease-in-out infinite alternate;
-    animation-delay: var(--delay, 0s);
+    animation: lg-iri 6s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes lg-iri {
+    from { opacity: 0.5; filter: hue-rotate(0deg);  }
+    to   { opacity: 1;   filter: hue-rotate(25deg); }
   }
 
-  /* Dark mode glass */
-  .dark .lg-orb {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.09) 0%,
-      rgba(255, 255, 255, 0.02) 55%,
-      rgba(255, 255, 255, 0.06) 100%
-    );
-    border-color: rgba(255, 255, 255, 0.14);
-    box-shadow:
-      inset 0 1.5px 0 rgba(255, 255, 255, 0.22),
-      0 12px 48px rgba(0, 0, 0, 0.35);
-  }
-  .dark .lg-orb::after {
-    background: linear-gradient(
-      135deg,
-      rgba(224, 117, 138, 0.10) 0%,
-      rgba(90, 160, 255, 0.07) 50%,
-      rgba(160, 90, 255, 0.07) 100%
-    );
-  }
+  .lg-glass > * { position: relative; z-index: 1; }
 
-  @keyframes lg-morph {
-    0%,  100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%; }
-    20%       { border-radius: 45% 55% 35% 65% / 65% 35% 65% 35%; }
-    40%       { border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%; }
-    60%       { border-radius: 35% 65% 60% 40% / 55% 45% 55% 45%; }
-    80%       { border-radius: 55% 45% 40% 60% / 40% 60% 60% 40%; }
-  }
-
-  @keyframes lg-iridescent {
-    from { opacity: 0.6; filter: hue-rotate(0deg); }
-    to   { opacity: 1;   filter: hue-rotate(30deg); }
-  }
+  /* Parallax layers */
+  .pov-near, .pov-far { will-change: transform; }
 </style>
 
 <script>
-  const layer = document.getElementById("parallax-overdrive-layer");
+  // ── Displacement map (SVG data URI) ──────────────────────────────────────
+  function makeDispMap(w: number, h: number): string {
+    const edge = Math.round(Math.min(w, h) * 0.18);
+    const r    = 14;
+    const blur = edge * 0.65;
+    const s = [
+      `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">`,
+      `<defs>`,
+      `<filter id="b"><feGaussianBlur stdDeviation="${blur}"/></filter>`,
+      `<linearGradient id="yg" x1="0" y1="0" x2="0" y2="1">`,
+        `<stop offset="0%" stop-color="#00ff00"/>`,
+        `<stop offset="100%" stop-color="#000"/>`,
+      `</linearGradient>`,
+      `<linearGradient id="xg" x1="0" y1="0" x2="1" y2="0">`,
+        `<stop offset="0%" stop-color="#ff0000"/>`,
+        `<stop offset="100%" stop-color="#000"/>`,
+      `</linearGradient>`,
+      `</defs>`,
+      `<rect width="${w}" height="${h}" fill="url(#yg)"/>`,
+      `<rect width="${w}" height="${h}" fill="url(#xg)" style="mix-blend-mode:screen"/>`,
+      `<rect x="${edge}" y="${edge}"`,
+        ` width="${w - edge * 2}" height="${h - edge * 2}"`,
+        ` rx="${Math.max(0, r - edge / 2)}"`,
+        ` fill="#808080" filter="url(#b)"/>`,
+      `</svg>`,
+    ].join('');
+    return 'data:image/svg+xml;base64,' + btoa(s);
+  }
 
-  if (layer) {
-    const orbs = Array.from(layer.querySelectorAll<HTMLElement>(".lg-orb"));
+  // ── Setup ─────────────────────────────────────────────────────────────────
+  const canvas  = document.getElementById('pov-grid') as HTMLCanvasElement | null;
+  const lgMap   = document.getElementById('lg-map');
 
-    const CONFIG = [
-      { x: 0.12, y: 0.14, w: 340, h: 270, spd: 0.006, dur: 11,  delay: 0    },
-      { x: 0.70, y: 0.52, w: 260, h: 320, spd: 0.007, dur: 9,   delay: -2.5 },
-      { x: 0.44, y: 0.74, w: 400, h: 250, spd: 0.005, dur: 13,  delay: -5   },
-      { x: 0.82, y: 0.20, w: 220, h: 220, spd: 0.008, dur: 8,   delay: -1.5 },
-      { x: 0.24, y: 0.62, w: 300, h: 360, spd: 0.006, dur: 10,  delay: -3.5 },
-    ];
+  if (canvas) {
+    const ctx = canvas.getContext('2d')!;
+    let W = 0, H = 0, dpr = 1;
 
-    // Apply fixed styles
-    CONFIG.forEach((c, i) => {
-      const el = orbs[i];
-      el.style.width  = c.w + "px";
-      el.style.height = c.h + "px";
-      el.style.setProperty("--dur",   c.dur   + "s");
-      el.style.setProperty("--delay", c.delay + "s");
-    });
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      W = window.innerWidth; H = window.innerHeight;
+      canvas!.style.width  = W + 'px';
+      canvas!.style.height = H + 'px';
+      canvas!.width  = W * dpr;
+      canvas!.height = H * dpr;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
 
-    type State = { x: number; y: number; tx: number; ty: number };
-    const states: State[] = CONFIG.map(c => ({ x: c.x, y: c.y, tx: c.x, ty: c.y }));
+    // ── Grid ────────────────────────────────────────────────────────────────
+    function accentRgb() {
+      const hex = getComputedStyle(document.documentElement)
+        .getPropertyValue('--accent').trim();
+      return `${parseInt(hex.slice(1,3),16)},${parseInt(hex.slice(3,5),16)},${parseInt(hex.slice(5,7),16)}`;
+    }
 
-    let px = 0, py = 0;
-    document.addEventListener("mousemove", (e) => {
-      px = (e.clientX / window.innerWidth  - 0.5) * 2;
-      py = (e.clientY / window.innerHeight - 0.5) * 2;
+    function drawGrid(scrollY: number, mouseX: number) {
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, W, H);
+
+      const rgb  = accentRgb();
+      const step = 56;
+      const oy   = ((scrollY * 0.4) % step + step) % step;
+      const ox   = ((mouseX  * 0.08) % step + step) % step;
+
+      // Faint accent-colored grid
+      ctx.strokeStyle = `rgba(${rgb}, 0.07)`;
+      ctx.lineWidth   = 0.8;
+      ctx.beginPath();
+      for (let x = -step + ox; x < W + step; x += step) {
+        ctx.moveTo(x, 0); ctx.lineTo(x, H);
+      }
+      for (let y = -step + oy; y < H + step; y += step) {
+        ctx.moveTo(0, y); ctx.lineTo(W, y);
+      }
+      ctx.stroke();
+
+      // Slightly brighter intersection dots
+      ctx.fillStyle = `rgba(${rgb}, 0.12)`;
+      for (let x = -step + ox; x < W + step; x += step) {
+        for (let y = -step + oy; y < H + step; y += step) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      ctx.restore();
+    }
+
+    // ── Glass elements ──────────────────────────────────────────────────────
+    const TARGETS = [
+      'article[class*="rounded"]',
+      'section [class*="rounded-xl"][class*="border"]',
+      'section [class*="rounded-2xl"][class*="border"]',
+    ].join(', ');
+
+    let glassEls: HTMLElement[] = [];
+
+    function applyGlass() {
+      glassEls = Array.from(
+        document.querySelectorAll<HTMLElement>(TARGETS)
+      );
+      glassEls.forEach((el, i) => {
+        el.classList.add('lg-glass', i % 2 === 0 ? 'pov-near' : 'pov-far');
+        el.dataset.povY = '0';
+
+        // Generate displacement map sized to this element
+        if (lgMap) {
+          const r = el.getBoundingClientRect();
+          const w = Math.max(Math.round(r.width),  40);
+          const h = Math.max(Math.round(r.height), 40);
+          lgMap.setAttribute('href', makeDispMap(w, h));
+        }
+      });
+    }
+
+    function removeGlass() {
+      glassEls.forEach(el => {
+        el.classList.remove('lg-glass', 'pov-near', 'pov-far');
+        el.style.transform = '';
+        delete el.dataset.povY;
+      });
+      glassEls = [];
+    }
+
+    // ── Parallax rAF ────────────────────────────────────────────────────────
+    let mouseX = 0, scrollY = 0, prevScrollY = 0;
+    let rafId = 0, active = false;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
     }, { passive: true });
 
-    function pickTarget(s: State) {
-      s.tx = 0.06 + Math.random() * 0.88;
-      s.ty = 0.06 + Math.random() * 0.88;
-    }
-    function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
-
-    let rafId = 0, active = false;
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+    }, { passive: true });
 
     function tick() {
       if (!active) return;
 
-      states.forEach((s, i) => {
-        const c = CONFIG[i];
+      drawGrid(scrollY, mouseX);
 
-        // Float toward target + subtle mouse pull
-        const etx = s.tx + px * 0.05;
-        const ety = s.ty + py * 0.03;
+      const delta = scrollY - prevScrollY;
+      prevScrollY = scrollY;
 
-        s.x = lerp(s.x, etx, c.spd);
-        s.y = lerp(s.y, ety, c.spd);
-
-        if (Math.abs(s.x - s.tx) < 0.01 && Math.abs(s.y - s.ty) < 0.01) {
-          pickTarget(s);
-        }
-
-        const sx = s.x * window.innerWidth  - c.w / 2;
-        const sy = s.y * window.innerHeight - c.h / 2;
-        orbs[i].style.transform = `translate(${sx}px, ${sy}px)`;
+      glassEls.forEach(el => {
+        const speed = el.classList.contains('pov-near') ? 0.07 : -0.05;
+        const prev  = parseFloat(el.dataset.povY ?? '0');
+        const next  = prev + delta * speed;
+        el.dataset.povY   = String(next);
+        el.style.transform = `translateY(${next}px)`;
       });
 
       rafId = requestAnimationFrame(tick);
     }
 
+    // ── Overdrive toggle ────────────────────────────────────────────────────
     new MutationObserver(() => {
-      const on = document.documentElement.classList.contains("parallax-overdrive");
+      const on = document.documentElement.classList.contains('parallax-overdrive');
       if (on && !active) {
         active = true;
-        states.forEach(s => pickTarget(s));
+        scrollY = window.scrollY;
+        prevScrollY = scrollY;
+        applyGlass();
         rafId = requestAnimationFrame(tick);
       } else if (!on && active) {
         active = false;
         cancelAnimationFrame(rafId);
+        removeGlass();
+        ctx.clearRect(0, 0, canvas!.width, canvas!.height);
       }
     }).observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class"],
+      attributeFilter: ['class'],
+    });
+
+    // Redraw grid on theme change
+    new MutationObserver(() => {
+      if (active) drawGrid(scrollY, mouseX);
+    }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
     });
   }
 </script>

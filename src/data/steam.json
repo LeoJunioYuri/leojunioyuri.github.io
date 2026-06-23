@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T23:47:32.038Z",
+  "updatedAt": "2026-06-23T23:48:38.693Z",
   "games": [
     {
       "name": "It Takes Two",
@@ -16,6 +16,72 @@
       "minutesTotal": 30,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/2807960/a758cc85720fc89b5c97995bd8eafb38b3604e47.jpg",
       "url": "https://store.steampowered.com/app/2807960"
+    }
+  ],
+  "topGames": [
+    {
+      "name": "Counter-Strike 2",
+      "appid": 730,
+      "minutes2weeks": 0,
+      "minutesTotal": 103559,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
+      "url": "https://store.steampowered.com/app/730"
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "appid": 1174180,
+      "minutes2weeks": 0,
+      "minutesTotal": 6893,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1174180/5106abd9c1187a97f23295a0ba9470c94804ec6c.jpg",
+      "url": "https://store.steampowered.com/app/1174180"
+    },
+    {
+      "name": "The Elder Scrolls V: Skyrim Special Edition",
+      "appid": 489830,
+      "minutes2weeks": 0,
+      "minutesTotal": 6391,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/489830/0dfe3eed5658f9fbd8b62f8021038c0a4190f21d.jpg",
+      "url": "https://store.steampowered.com/app/489830"
+    },
+    {
+      "name": "The Witcher 3: Wild Hunt",
+      "appid": 292030,
+      "minutes2weeks": 0,
+      "minutesTotal": 5135,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
+      "url": "https://store.steampowered.com/app/292030"
+    },
+    {
+      "name": "The Wolf Among Us",
+      "appid": 250320,
+      "minutes2weeks": 0,
+      "minutesTotal": 1799,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/250320/dee5f1476ddd237ed9faab86b59cb9ca9b275faa.jpg",
+      "url": "https://store.steampowered.com/app/250320"
+    },
+    {
+      "name": "Paladins",
+      "appid": 444090,
+      "minutes2weeks": 0,
+      "minutesTotal": 1594,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/444090/1565119c17f532338a0645b98e69e1fc1df0c29e.jpg",
+      "url": "https://store.steampowered.com/app/444090"
+    },
+    {
+      "name": "Mirror's Edge™ Catalyst",
+      "appid": 1233570,
+      "minutes2weeks": 0,
+      "minutesTotal": 1384,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1233570/a5583fa5e07defaeb3a3ade0b4936767265dd660.jpg",
+      "url": "https://store.steampowered.com/app/1233570"
+    },
+    {
+      "name": "STAR WARS™: The Old Republic™",
+      "appid": 1286830,
+      "minutes2weeks": 0,
+      "minutesTotal": 1376,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1286830/cee1e2970e9535767d963bf3c2c4011adb100609.jpg",
+      "url": "https://store.steampowered.com/app/1286830"
     }
   ]
 }

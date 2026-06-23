@@ -17,6 +17,7 @@ const path = lang === "pt" ? "/life" : "/en/life";
 
 const tracks = spotify.tracks ?? [];
 const recentGames = steam.games ?? [];
+const topGames = (steam as any).topGames ?? [];
 const videos = youtube.videos ?? [];
 const watched = letterboxd.watched ?? [];
 const watchlist = letterboxd.watchlist ?? [];
@@ -149,6 +150,31 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       )
     }
     <p class="mt-2 text-xs text-[var(--muted)]">{t("life.games.note")}</p>
+
+    {topGames.length > 0 && (
+      <div data-reveal-scroll class="mt-8">
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+          {t("life.games.top")}
+        </h3>
+        <ul class="mt-3 grid gap-2">
+          {topGames.map((g: any) => (
+            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+              {g.image && (
+                <img src={g.image} alt="" width="32" height="32" loading="lazy"
+                  class="h-8 w-8 rounded" />
+              )}
+              <a href={g.url} target="_blank" rel="noopener noreferrer"
+                class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">
+                {g.name}
+              </a>
+              <span class="shrink-0 text-xs text-[var(--muted)]">
+                {Math.round(g.minutesTotal / 60)}h
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
 
     {
       playedGames.length > 0 && (

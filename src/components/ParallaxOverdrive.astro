@@ -49,9 +49,9 @@
   }
   .parallax-overdrive #pov-grid { opacity: 1; }
 
-  /* Liquid Glass base — works in all browsers */
+  /* Liquid Glass base — GPU-accelerated blur (no url() to avoid Chrome software rendering) */
   .lg-glass {
-    backdrop-filter: blur(20px) saturate(180%) brightness(1.06) url(#lg-filter) !important;
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.06) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.06) !important;
     background: rgba(255, 255, 255, 0.10) !important;
     border-color: rgba(255, 255, 255, 0.30) !important;
@@ -90,26 +90,28 @@
     z-index: 0;
   }
 
-  /* Iridescent border shimmer */
+  /* Iridescent shimmer + chromatic aberration edge glow */
   .lg-glass::after {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(156, 31,  51, 0.08) 0%,
-      rgba(90,  160, 255, 0.07) 40%,
-      rgba(160, 90,  255, 0.07) 80%,
-      rgba(156, 31,  51, 0.05) 100%
+      rgba(156, 31,  51, 0.10) 0%,
+      rgba(90,  160, 255, 0.09) 40%,
+      rgba(160, 90,  255, 0.09) 80%,
+      rgba(156, 31,  51, 0.06) 100%
     );
+    /* Chromatic aberration on the overlay itself — GPU filter, not backdrop */
+    filter: blur(0.4px) url(#lg-filter);
     animation: lg-iri 6s ease-in-out infinite alternate;
     pointer-events: none;
     z-index: 0;
   }
   @keyframes lg-iri {
-    from { opacity: 0.5; filter: hue-rotate(0deg);  }
-    to   { opacity: 1;   filter: hue-rotate(25deg); }
+    from { opacity: 0.6; filter: blur(0.4px) hue-rotate(0deg);  }
+    to   { opacity: 1;   filter: blur(0.4px) hue-rotate(25deg); }
   }
 
   .lg-glass > * { position: relative; z-index: 1; }

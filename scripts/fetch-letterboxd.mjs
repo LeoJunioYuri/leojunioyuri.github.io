@@ -3,8 +3,9 @@ import { writeFileSync } from "node:fs";
 const USERNAME = "leojunioyuri";
 const HEADERS = {
   "User-Agent":
-    "Mozilla/5.0 (compatible; RSS reader; +https://leojunioyuri.github.io)",
+    "Feedly/1.0 (+http://www.feedly.com/fetcher.html; like FeedFetcher-Google)",
   Accept: "application/rss+xml, application/xml, text/xml, */*",
+  "Cache-Control": "no-cache",
 };
 
 async function fetchRss(url) {

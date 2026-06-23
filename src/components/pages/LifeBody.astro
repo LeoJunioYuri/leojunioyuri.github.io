@@ -250,6 +250,16 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
         </ul>
       )
     }
+    {SITE.links.youtube && (
+      <a
+        href={SITE.links.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
+      >
+        {t("life.video.cta")} →
+      </a>
+    )}
 
     {/* —— Filmes favoritos / Favorite films —— */}
     <h2 data-reveal-scroll class="mt-14 text-xl font-bold tracking-tight">

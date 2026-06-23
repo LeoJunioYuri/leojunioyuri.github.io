@@ -31,11 +31,12 @@ function poster(descHtml) {
   return m ? m[1] : null;
 }
 
-// ── Watched films (with ratings) ──────────────────────────────────────────────
+// ── Watched films (with ratings) — uses profile diary RSS (/rss/) not /films/rss/
+// The /films/rss/ and /watchlist/rss/ are Cloudflare-gated; /rss/ is public.
 let watched = [];
 try {
   const xml = await fetchRss(
-    `https://letterboxd.com/${USERNAME}/films/rss/`,
+    `https://letterboxd.com/${USERNAME}/rss/`,
   );
   watched = items(xml).map((item) => {
     const title = tag(item, "letterboxd:filmTitle") ?? tag(item, "title");

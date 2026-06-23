@@ -266,7 +266,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                 href={f.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="group block overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] transition-transform hover:-translate-y-1 hover:border-[var(--accent)]"
+                class="group relative block aspect-[2/3] overflow-hidden rounded-lg border border-[var(--border)] transition-transform hover:-translate-y-1 hover:border-[var(--accent)]"
                 title={`${f.title}${f.year ? ` (${f.year})` : ''}`}
               >
                 {f.poster ? (
@@ -274,16 +274,17 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                     src={f.poster}
                     alt={f.title}
                     loading="lazy"
-                    class="aspect-[2/3] w-full object-cover"
+                    class="h-full w-full object-cover"
                   />
                 ) : (
-                  <div class="aspect-[2/3] w-full flex items-center justify-center bg-[var(--surface-2)] text-xs text-[var(--muted)] p-2 text-center">
+                  <div class="h-full w-full flex items-center justify-center bg-[var(--surface-2)] text-xs text-[var(--muted)] p-2 text-center leading-snug">
                     {f.title}
                   </div>
                 )}
-                <div class="px-2 py-1.5">
-                  <p class="truncate text-xs font-medium">{f.title}</p>
-                  {f.year && <p class="text-xs text-[var(--muted)]">{f.year}</p>}
+                <!-- Hover overlay with title -->
+                <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-2 opacity-0 transition-opacity group-hover:opacity-100">
+                  <p class="text-xs font-semibold leading-snug text-white">{f.title}</p>
+                  {f.year && <p class="text-xs text-white/70">{f.year}</p>}
                 </div>
               </a>
             </li>

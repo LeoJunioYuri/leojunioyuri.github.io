@@ -175,6 +175,16 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
         </ul>
       </div>
     )}
+    {SITE.links.steam && (
+      <a
+        href={SITE.links.steam}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
+      >
+        {t("life.games.steam")} →
+      </a>
+    )}
 
     {
       playedGames.length > 0 && (

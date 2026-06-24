@@ -123,7 +123,7 @@ const highlight = pt
 const engItems = pt
   ? [
       "Migração Firestore → PostgreSQL/AlloyDB: 220+ migrations Prisma, leituras híbridas durante cutover, zero downtime",
-      "Arquitetura Controller → Service → Repository com Zod para validação de entrada — separação total de domínio e dados",
+      "Layered Architecture (Controller → Service → Repository) com Zod na entrada — cada camada tem responsabilidade única e testável",
       "PostHog: feature flags por storeId para rollouts sem deploy + event tracking de cohorts e conversões",
       "Sentry: monitoramento com gauge metrics, 10% trace sampling, context tags por módulo",
       "Padrão Trigger → Worker com Cloud Tasks: crons disparam batches de lojas, workers processam com backoff exponencial",
@@ -133,7 +133,7 @@ const engItems = pt
     ]
   : [
       "Firestore → PostgreSQL/AlloyDB migration: 220+ Prisma migrations, hybrid reads during cutover, zero downtime",
-      "Controller → Service → Repository architecture with Zod input validation — full domain/data separation",
+      "Layered Architecture (Controller → Service → Repository) with Zod at input layer — each layer has a single, testable responsibility",
       "PostHog: per-store feature flags for no-deploy rollouts + event tracking for cohorts and conversions",
       "Sentry: monitoring with gauge metrics, 10% trace sampling, per-module context tags",
       "Trigger → Worker pattern with Cloud Tasks: crons fan-out 50-store batches, workers process with exponential backoff",

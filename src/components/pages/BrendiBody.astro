@@ -122,24 +122,24 @@ const highlight = pt
 
 const engItems = pt
   ? [
-      "Anderson V2: memória pgvector (1536d) + loop de atribuição com ROAS real",
-      "7 guardrails determinísticos para proteger decisões do agente",
-      "Migração de MySQL para AlloyDB (GCP) sem downtime",
-      "Creative Studio: geração de vídeo com Veo 3.1 + banners com GPT-Image",
-      "Meta Pixel: rastreamento clique → cardápio → add to cart → pedido",
-      "Cloud Tasks para orquestração assíncrona de campanhas em escala",
-      "Wallet interna: investimento, estorno e conciliação financeira automática",
-      "A/B testing de prompts: PromptExperiment + PostHog feature flags por loja",
+      "Migração Firestore → PostgreSQL/AlloyDB: 220+ migrations Prisma, leituras híbridas durante cutover, zero downtime",
+      "Arquitetura Controller → Service → Repository com Zod para validação de entrada — separação total de domínio e dados",
+      "PostHog: feature flags por storeId para rollouts sem deploy + event tracking de cohorts e conversões",
+      "Sentry: monitoramento com gauge metrics (ex: ads.stores.active), 10% trace sampling, context tags por módulo",
+      "Padrão Trigger → Worker com Cloud Tasks: crons disparam batches de 50 lojas, workers processam com backoff exponencial",
+      "Anderson V2: memória pgvector (1536d) + loop de atribuição — ROAS real alimenta decisão da semana seguinte",
+      "Connection pooling context-aware: API (10 conexões) vs workers (3) — sem vazamento de pool em funções serverless",
+      "Creative Studio: geração de vídeo com Veo 3.1 + banners GPT-Image com aprovação do dono",
     ]
   : [
-      "Anderson V2: pgvector memory (1536d) + attribution loop with real ROAS",
-      "7 deterministic guardrails to protect agent decisions",
-      "MySQL → AlloyDB (GCP) migration with zero downtime",
-      "Creative Studio: video generation with Veo 3.1 + banners with GPT-Image",
-      "Meta Pixel: tracking click → menu → add to cart → order",
-      "Cloud Tasks for async campaign orchestration at scale",
-      "Internal wallet: investment, refunds and automatic financial reconciliation",
-      "Prompt A/B testing: PromptExperiment + PostHog feature flags per store",
+      "Firestore → PostgreSQL/AlloyDB migration: 220+ Prisma migrations, hybrid reads during cutover, zero downtime",
+      "Controller → Service → Repository architecture with Zod input validation — full domain/data separation",
+      "PostHog: per-store feature flags for no-deploy rollouts + event tracking for cohorts and conversions",
+      "Sentry: monitoring with gauge metrics (e.g. ads.stores.active), 10% trace sampling, per-module context tags",
+      "Trigger → Worker pattern with Cloud Tasks: crons fan-out 50-store batches, workers process with exponential backoff",
+      "Anderson V2: pgvector memory (1536d) + attribution loop — real ROAS feeds next week's decisions",
+      "Context-aware connection pooling: API (10 conns) vs workers (3) — no pool leaks in serverless functions",
+      "Creative Studio: video generation with Veo 3.1 + GPT-Image banners with owner approval flow",
     ];
 ---
 

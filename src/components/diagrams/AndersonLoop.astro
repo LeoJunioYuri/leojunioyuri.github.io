@@ -1,0 +1,103 @@
+---
+import type { Lang } from "@/consts";
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const pt = lang === "pt";
+
+const labels = {
+  title:      pt ? "Anderson — ciclo semanal" : "Anderson — weekly cycle",
+  observe:    pt ? "Observar" : "Observe",
+  observeSub: pt ? "métricas · ads · baseline" : "metrics · ads · baseline",
+  deliberate: pt ? "Deliberar" : "Deliberate",
+  deliberateSub: "GPT-5 · reasoning high",
+  validate:   pt ? "Validar" : "Validate",
+  validateSub: pt ? "7 guardrails" : "7 guardrails",
+  apply:      pt ? "Aplicar" : "Apply",
+  applySub:   pt ? "Meta API" : "Meta API",
+  report:     pt ? "Reportar" : "Report",
+  reportSub:  "Slack · log",
+  memory:     pt ? "Memória pgvector" : "pgvector memory",
+  attribution:pt ? "Atribuição" : "Attribution",
+  attrSub:    pt ? "ROAS real → próximo ciclo" : "real ROAS → next cycle",
+  veto:       pt ? "vetado" : "vetoed",
+};
+---
+
+<figure class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]">
+  <figcaption class="border-b border-[var(--border)] px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
+    {labels.title}
+  </figcaption>
+  <div class="p-4 sm:p-6">
+    <svg viewBox="0 0 720 200" class="h-auto w-full" role="img" aria-label={labels.title} style="color: var(--fg);">
+      <defs>
+        <marker id="al-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--muted)" />
+        </marker>
+      </defs>
+      <style>
+        .al-box   { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+        .al-accent{ fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+        .al-muted { fill: var(--surface-2); stroke: var(--border); stroke-width: 1.2; stroke-dasharray: 4 3; }
+        .al-lbl   { fill: var(--fg);   font: 600 12px var(--font-sans, sans-serif); }
+        .al-sub   { fill: var(--muted); font: 400 10px var(--font-sans, sans-serif); }
+        .al-flow  { stroke: var(--muted); stroke-width: 1.4; fill: none; marker-end: url(#al-arrow); }
+        .al-feed  { stroke: var(--accent); stroke-width: 1.2; fill: none; stroke-dasharray: 5 3; marker-end: url(#al-arrow); }
+        .al-veto  { fill: #ef4444; font: 600 9px var(--font-sans, sans-serif); }
+      </style>
+
+      <!-- Main flow boxes -->
+      <!-- Observe -->
+      <rect class="al-accent" x="10"  y="70" width="110" height="58" rx="10"/>
+      <text class="al-lbl" x="65"  y="95"  text-anchor="middle">{labels.observe}</text>
+      <text class="al-sub" x="65"  y="113" text-anchor="middle">{labels.observeSub}</text>
+
+      <!-- Deliberate -->
+      <rect class="al-accent" x="160" y="70" width="110" height="58" rx="10"/>
+      <text class="al-lbl" x="215" y="95"  text-anchor="middle">{labels.deliberate}</text>
+      <text class="al-sub" x="215" y="113" text-anchor="middle">{labels.deliberateSub}</text>
+
+      <!-- Validate -->
+      <rect class="al-accent" x="310" y="70" width="110" height="58" rx="10"/>
+      <text class="al-lbl" x="365" y="95"  text-anchor="middle">{labels.validate}</text>
+      <text class="al-sub" x="365" y="113" text-anchor="middle">{labels.validateSub}</text>
+
+      <!-- Apply -->
+      <rect class="al-accent" x="460" y="70" width="110" height="58" rx="10"/>
+      <text class="al-lbl" x="515" y="95"  text-anchor="middle">{labels.apply}</text>
+      <text class="al-sub" x="515" y="113" text-anchor="middle">{labels.applySub}</text>
+
+      <!-- Report -->
+      <rect class="al-box"   x="610" y="70" width="100" height="58" rx="10"/>
+      <text class="al-lbl" x="660" y="95"  text-anchor="middle">{labels.report}</text>
+      <text class="al-sub" x="660" y="113" text-anchor="middle">{labels.reportSub}</text>
+
+      <!-- Arrows between main boxes -->
+      <path class="al-flow" d="M120,99 H160"/>
+      <path class="al-flow" d="M270,99 H310"/>
+      <path class="al-flow" d="M420,99 H460"/>
+      <path class="al-flow" d="M570,99 H610"/>
+
+      <!-- Veto label on validate arrow -->
+      <text class="al-veto" x="432" y="91">✕ {labels.veto}</text>
+
+      <!-- Memory box (bottom) -->
+      <rect class="al-muted" x="135" y="155" width="130" height="38" rx="8"/>
+      <text class="al-lbl" x="200" y="172" text-anchor="middle" style="font-size:11px">{labels.memory}</text>
+
+      <!-- Attribution box (bottom right) -->
+      <rect class="al-muted" x="435" y="155" width="150" height="38" rx="8"/>
+      <text class="al-lbl" x="510" y="170" text-anchor="middle" style="font-size:11px">{labels.attribution}</text>
+      <text class="al-sub" x="510" y="184" text-anchor="middle">{labels.attrSub}</text>
+
+      <!-- Memory feedback arrows -->
+      <path class="al-feed" d="M200,155 C200,140 215,128 215,128"/>
+      <path class="al-feed" d="M215,128 C215,155 200,155 200,155"/>
+      <!-- Deliberate ↔ Memory -->
+      <path class="al-feed" d="M215,128 L200,155" style="stroke-dasharray:none; opacity:0"/>
+
+      <!-- Attribution arrows -->
+      <path class="al-feed" d="M510,155 C510,140 515,128 515,128"/>
+      <path class="al-feed" d="M200,155 H160 C140,155 130,140 130,128 C130,40 200,40 200,70" />
+    </svg>
+  </div>
+</figure>

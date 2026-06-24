@@ -160,230 +160,160 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       <p data-reveal-scroll class="mt-4 text-sm text-[var(--muted)]">{t("life.music.empty")}</p>
     )}
 
-    {/* —— Jogos / Games —— */}
+    {/* —— Jogos / Games — tabbed Steam / Xbox ——*/}
     <h2 data-reveal-scroll class="mt-14 text-xl font-bold tracking-tight">
       🎮 {t("life.games.title")}
     </h2>
 
-    <h3
-      data-reveal-scroll
-      class="mt-5 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]"
-    >
-      {t("life.games.recent")}
-    </h3>
-    {
-      recentGames.length === 0 ? (
-        <p data-reveal-scroll class="mt-3 text-sm text-[var(--muted)]">
-          {t("life.games.empty")}
-        </p>
-      ) : (
-        <ul data-reveal-scroll class="mt-3 grid gap-2 sm:grid-cols-2">
-          {recentGames.map((g: any) => (
-            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
-              {g.image && (
-                <img
-                  src={g.image}
-                  alt=""
-                  width="32"
-                  height="32"
-                  loading="lazy"
-                  class="h-8 w-8 rounded"
-                />
-              )}
-              <span class="min-w-0">
-                <a
-                  href={g.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block truncate text-sm font-medium hover:text-[var(--accent)]"
-                >
-                  {g.name}
-                </a>
-                {g.minutes2weeks > 0 ? (
-                  <span class="block text-xs text-[var(--muted)]">
-                    {Math.round(g.minutes2weeks)} {t("life.minutes")}
-                  </span>
-                ) : g.lastPlayed ? (
-                  <span class="block text-xs text-[var(--muted)]">
-                    {new Date(g.lastPlayed).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en', { month: 'short', day: 'numeric' })}
-                  </span>
-                ) : null}
-              </span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-    <p class="mt-2 text-xs text-[var(--muted)]">{t("life.games.note")}</p>
-
-    {topGames.length > 0 && (
-      <div data-reveal-scroll class="mt-8">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-          {t("life.games.top")}
-        </h3>
-        <ul class="mt-3 grid gap-2">
-          {topGames.map((g: any) => (
-            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
-              {g.image && (
-                <img src={g.image} alt="" width="32" height="32" loading="lazy"
-                  class="h-8 w-8 rounded" />
-              )}
-              <a href={g.url} target="_blank" rel="noopener noreferrer"
-                class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">
-                {g.name}
-              </a>
-              <span class="shrink-0 text-xs text-[var(--muted)]">
-                {Math.round(g.minutesTotal / 60)}h
-              </span>
-            </li>
-          ))}
-        </ul>
+    <div data-reveal-scroll class="mt-5">
+      <!-- Tab switcher -->
+      <div class="flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-1 w-fit">
+        <button data-game-tab="steam"
+          class="game-tab rounded-md px-3 py-1.5 text-xs font-medium transition-colors bg-[var(--bg)] text-[var(--fg)] shadow-sm">
+          Steam
+        </button>
+        <button data-game-tab="xbox"
+          class="game-tab rounded-md px-3 py-1.5 text-xs font-medium transition-colors text-[var(--muted)] hover:text-[var(--fg)]">
+          Xbox / PC
+        </button>
       </div>
-    )}
-    {SITE.links.steam && (
-      <a
-        href={SITE.links.steam}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
-      >
-        {t("life.games.steam")} →
-      </a>
-    )}
 
-    {
-      playedGames.length > 0 && (
-        <div data-reveal-scroll class="mt-8">
-          <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-            {t("life.games.played")}
-          </h3>
-          <ul class="mt-3 grid gap-2">
-            {playedGames.map((g) => (
-              <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5">
-                <span class="font-medium">
-                  {g.favorite && <span class="text-[var(--accent)]">♥ </span>}
-                  {g.title}
-                </span>
-                {g.platform && (
-                  <span class="text-xs text-[var(--muted)]">{g.platform}</span>
-                )}
-                <span
-                  class="ml-auto whitespace-nowrap text-sm"
-                  aria-label={`${g.rating ?? 0}/5`}
-                >
-                  {stars(g.rating).map((s) => (
-                    <span
-                      class={
-                        s === "empty"
-                          ? "text-[var(--border)]"
-                          : "text-[var(--accent)]"
-                      }
-                    >
-                      {s === "half" ? "⯪" : "★"}
-                    </span>
-                  ))}
-                </span>
-                {g.note && (
-                  <span class="w-full text-xs text-[var(--muted)]">{g.note}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
-    {steamWishlist.length > 0 && (
-      <div data-reveal-scroll class="mt-6">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-          {t("life.games.wishlist")}
-        </h3>
-        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
-          {steamWishlist.map((g: any) => (
-            <li>
-              <a
-                href={g.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group flex items-center gap-3 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] transition-colors hover:border-[var(--accent)]"
-              >
-                {g.header && (
-                  <img
-                    src={g.header}
-                    alt=""
-                    loading="lazy"
-                    class="h-12 w-[88px] shrink-0 object-cover"
-                  />
-                )}
-                <span class="truncate pr-3 text-sm font-medium group-hover:text-[var(--accent)]">
-                  {g.name}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a
-          href={`https://store.steampowered.com/wishlist/profiles/76561198115976638/`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
-        >
-          {t("life.games.wishlist.cta")} →
-        </a>
-      </div>
-    )}
+      <!-- Steam panel -->
+      <div data-game-panel="steam" class="mt-5 space-y-8">
+        {steamRecent.length > 0 && (
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.recent")}</h3>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+              {steamRecent.map((g: any) => (
+                <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+                  {g.image && <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 rounded" />}
+                  <span class="min-w-0">
+                    <a href={g.url} target="_blank" rel="noopener noreferrer"
+                      class="block truncate text-sm font-medium hover:text-[var(--accent)]">{g.name}</a>
+                    {g.minutes2weeks > 0 && (
+                      <span class="block text-xs text-[var(--muted)]">{Math.round(g.minutes2weeks)} {t("life.minutes")}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-2 text-xs text-[var(--muted)]">{t("life.games.note")}</p>
+          </div>
+        )}
 
+        {topGames.length > 0 && (
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.top")}</h3>
+            <ul class="mt-3 grid gap-2">
+              {topGames.map((g: any) => (
+                <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+                  {g.image && <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 rounded" />}
+                  <a href={g.url} target="_blank" rel="noopener noreferrer"
+                    class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">{g.name}</a>
+                  <span class="shrink-0 text-xs text-[var(--muted)]">{Math.round(g.minutesTotal / 60)}h</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-    {/* —— Xbox top gamerscore —— */}
-    {xboxTopGamerscore.length > 0 && (
-      <div data-reveal-scroll class="mt-8">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-          {t("life.xbox.top")}
-        </h3>
-        <ul class="mt-3 grid gap-2">
-          {xboxTopGamerscore.slice(0, 6).map((g: any) => (
-            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
-              {g.image ? (
-                <img src={g.image} alt="" width="32" height="32" loading="lazy"
-                  class="h-8 w-8 shrink-0 rounded object-cover" />
-              ) : (
-                <div class="h-8 w-8 shrink-0 rounded bg-[var(--surface-2)]"/>
-              )}
-              <a href={g.url} target="_blank" rel="noopener noreferrer"
-                class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">
-                {g.name}
-              </a>
-              <span class="shrink-0 text-xs text-[var(--muted)] tabular-nums">
-                {g.gamerscore}<span class="text-[var(--border)]">/{g.gamerscoreTotal}</span>G
-              </span>
-            </li>
-          ))}
-        </ul>
-        <div class="mt-4 flex flex-wrap items-center gap-4">
-          {xboxTopGamerscore.length > 6 && (
-            <button
-              id="xbox-dialog-btn"
-              class="text-sm font-semibold text-[var(--accent)] hover:underline"
-            >
-              {lang === 'pt' ? `Ver todos os ${xboxTopGamerscore.length} jogos →` : `See all ${xboxTopGamerscore.length} games →`}
-            </button>
-          )}
-          <a
-            href="https://www.xbox.com/pt-BR/play/user/Leonardo%20Yuri"
-            target="_blank" rel="noopener noreferrer"
-            class="text-sm font-semibold text-[var(--accent)] hover:underline"
-          >
-            {t("life.xbox.cta")} →
+        {steamWishlist.length > 0 && (
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.wishlist")}</h3>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+              {steamWishlist.map((g: any) => (
+                <li>
+                  <a href={g.url} target="_blank" rel="noopener noreferrer"
+                    class="group flex items-center gap-3 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] transition-colors hover:border-[var(--accent)]">
+                    {g.header && <img src={g.header} alt="" loading="lazy" class="h-12 w-[88px] shrink-0 object-cover" />}
+                    <span class="truncate pr-3 text-sm font-medium group-hover:text-[var(--accent)]">{g.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href="https://store.steampowered.com/wishlist/profiles/76561198115976638/"
+              target="_blank" rel="noopener noreferrer"
+              class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">
+              {t("life.games.wishlist.cta")} →
+            </a>
+          </div>
+        )}
+
+        {SITE.links.steam && (
+          <a href={SITE.links.steam} target="_blank" rel="noopener noreferrer"
+            class="inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">
+            {t("life.games.steam")} →
           </a>
-        </div>
+        )}
       </div>
-    )}
+
+      <!-- Xbox/PC panel -->
+      <div data-game-panel="xbox" class="mt-5 space-y-8 hidden">
+        {xboxRaw.length > 0 && (
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.recent")}</h3>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+              {xboxRaw.map((g: any) => (
+                <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+                  {g.image ? (
+                    <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 shrink-0 rounded object-cover" />
+                  ) : (
+                    <div class="h-8 w-8 shrink-0 rounded bg-[var(--surface-2)]" />
+                  )}
+                  <span class="min-w-0">
+                    <a href={g.url} target="_blank" rel="noopener noreferrer"
+                      class="block truncate text-sm font-medium hover:text-[var(--accent)]">{g.name}</a>
+                    <span class="block text-xs text-[var(--muted)]">
+                      {new Date(g.lastPlayed).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en', { month: 'short', day: 'numeric' })}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {xboxTopGamerscore.length > 0 && (
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.xbox.top")}</h3>
+            <ul class="mt-3 grid gap-2">
+              {xboxTopGamerscore.slice(0, 6).map((g: any) => (
+                <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+                  {g.image ? (
+                    <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 shrink-0 rounded object-cover" />
+                  ) : (
+                    <div class="h-8 w-8 shrink-0 rounded bg-[var(--surface-2)]" />
+                  )}
+                  <a href={g.url} target="_blank" rel="noopener noreferrer"
+                    class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">{g.name}</a>
+                  <span class="shrink-0 text-xs text-[var(--muted)] tabular-nums">
+                    {g.gamerscore}<span class="text-[var(--border)]">/{g.gamerscoreTotal}</span>G
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-4 flex flex-wrap gap-4">
+              {xboxTopGamerscore.length > 6 && (
+                <button id="xbox-dialog-btn"
+                  class="text-sm font-semibold text-[var(--accent)] hover:underline">
+                  {lang === 'pt' ? `Ver todos os ${xboxTopGamerscore.length} jogos →` : `See all ${xboxTopGamerscore.length} games →`}
+                </button>
+              )}
+              <a href="https://www.xbox.com/pt-BR/play/user/Leonardo%20Yuri"
+                target="_blank" rel="noopener noreferrer"
+                class="text-sm font-semibold text-[var(--accent)] hover:underline">
+                {t("life.xbox.cta")} →
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
 
     <!-- Xbox full games dialog -->
     {xboxTopGamerscore.length > 6 && (
-      <dialog
-        id="xbox-dialog"
-        class="m-auto w-full max-w-lg rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-0 shadow-2xl backdrop:bg-black/50"
-      >
+      <dialog id="xbox-dialog"
+        class="m-auto w-full max-w-lg rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-0 shadow-2xl backdrop:bg-black/50">
         <div class="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
           <h2 class="text-base font-bold">{t("life.xbox.top")} ({xboxTopGamerscore.length})</h2>
           <button id="xbox-dialog-close" class="rounded-lg p-1 hover:bg-[var(--surface)] text-[var(--muted)]" aria-label="Fechar">✕</button>
@@ -392,15 +322,12 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           {xboxTopGamerscore.map((g: any) => (
             <li class="flex items-center gap-3 px-5 py-3 hover:bg-[var(--surface)]">
               {g.image ? (
-                <img src={g.image} alt="" width="28" height="28" loading="lazy"
-                  class="h-7 w-7 shrink-0 rounded" />
+                <img src={g.image} alt="" width="28" height="28" loading="lazy" class="h-7 w-7 shrink-0 rounded" />
               ) : (
-                <div class="h-7 w-7 shrink-0 rounded bg-[var(--surface-2)]"/>
+                <div class="h-7 w-7 shrink-0 rounded bg-[var(--surface-2)]" />
               )}
               <a href={g.url} target="_blank" rel="noopener noreferrer"
-                class="min-w-0 flex-1 truncate text-sm hover:text-[var(--accent)]">
-                {g.name}
-              </a>
+                class="min-w-0 flex-1 truncate text-sm hover:text-[var(--accent)]">{g.name}</a>
               <span class="shrink-0 text-xs text-[var(--muted)] tabular-nums">
                 {g.gamerscore}<span class="opacity-40">/{g.gamerscoreTotal}</span>G
               </span>
@@ -519,6 +446,23 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
 </BaseLayout>
 
 <script>
+  // Games tabs (Steam / Xbox)
+  const gameTabs   = document.querySelectorAll<HTMLButtonElement>('[data-game-tab]');
+  const gamePanels = document.querySelectorAll<HTMLElement>('[data-game-panel]');
+  gameTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const p = tab.dataset.gameTab!;
+      gameTabs.forEach((t) => {
+        const active = t.dataset.gameTab === p;
+        t.classList.toggle('bg-[var(--bg)]', active);
+        t.classList.toggle('shadow-sm', active);
+        t.classList.toggle('text-[var(--fg)]', active);
+        t.classList.toggle('text-[var(--muted)]', !active);
+      });
+      gamePanels.forEach((panel) => panel.classList.toggle('hidden', panel.dataset.gamePanel !== p));
+    });
+  });
+
   // Music tabs
   const musicTabs   = document.querySelectorAll<HTMLButtonElement>('[data-music-tab]');
   const musicPanels = document.querySelectorAll<HTMLElement>('[data-music-panel]');

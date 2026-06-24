@@ -1,4 +1,61 @@
 {
-  "updatedAt": null,
-  "tracks": []
+  "updatedAt": "2026-06-24T00:41:52.267Z",
+  "tracks": [
+    {
+      "name": "10 Anos",
+      "artist": "Gusttavo Lima",
+      "url": "https://open.spotify.com/track/3FhiTLwRqUUvWopBISTyGZ",
+      "image": "https://i.scdn.co/image/ab67616d0000485159b4c8deacf8c91fd150847e",
+      "playedAt": "2026-06-24T00:34:04.192Z"
+    },
+    {
+      "name": "Pra Sempre Com Você - Ao Vivo",
+      "artist": "Jorge & Mateus",
+      "url": "https://open.spotify.com/track/2KGv51jgAz8OTjNPyRryfq",
+      "image": "https://i.scdn.co/image/ab67616d000048516871f3c5c8238f18a9ba88f7",
+      "playedAt": "2026-06-24T00:27:36.388Z"
+    },
+    {
+      "name": "A Rosa E O Beija-Flor - Na Praia / Ao Vivo",
+      "artist": "Matheus & Kauan",
+      "url": "https://open.spotify.com/track/4XrAf0Z1J2NunZXl4BMjlA",
+      "image": "https://i.scdn.co/image/ab67616d000048517d96c3456ae2572847148954",
+      "playedAt": "2026-06-24T00:24:08.285Z"
+    },
+    {
+      "name": "Romance - Ao Vivo",
+      "artist": "Humberto & Ronaldo, Jorge e Mateus",
+      "url": "https://open.spotify.com/track/2bjUb6brYmvOXkMboRENLa",
+      "image": "https://i.scdn.co/image/ab67616d000048513b5da8e0b9e08d8f1b13b5d3",
+      "playedAt": "2026-06-24T00:19:59.963Z"
+    },
+    {
+      "name": "Jejum de Amor",
+      "artist": "Gusttavo Lima",
+      "url": "https://open.spotify.com/track/5xqIgcyKUoBdSwqFcHVpD3",
+      "image": "https://i.scdn.co/image/ab67616d00004851b7ecf91104ae77d8abbe25c8",
+      "playedAt": "2026-06-24T00:16:57.024Z"
+    },
+    {
+      "name": "10 Minutos Longe de Você",
+      "artist": "Victor & Leo, Henrique & Juliano",
+      "url": "https://open.spotify.com/track/4eRxnTvf8kXwbpnodjbjla",
+      "image": "https://i.scdn.co/image/ab67616d000048510ec6d8ef23ed040635f0b038",
+      "playedAt": "2026-06-24T00:14:09.354Z"
+    },
+    {
+      "name": "MEIO TERMO - Ao Vivo",
+      "artist": "Luan Santana",
+      "url": "https://open.spotify.com/track/23IebZSNZ8VzwUr4rJNGRG",
+      "image": "https://i.scdn.co/image/ab67616d00004851c69674f2d0e6457183db8fa4",
+      "playedAt": "2026-06-24T00:10:07.468Z"
+    },
+    {
+      "name": "O Que É Que Tem - Ao Vivo",
+      "artist": "Jorge & Mateus",
+      "url": "https://open.spotify.com/track/1p6dBmCdP7xh3OMTYJDZPK",
+      "image": "https://i.scdn.co/image/ab67616d000048517541a7dd6385ccb55185c2ce",
+      "playedAt": "2026-06-24T00:07:11.437Z"
+    }
+  ]
 }

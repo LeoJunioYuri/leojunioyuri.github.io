@@ -18,8 +18,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const featuredSlug =
-  lang === "pt" ? "20-meses-de-metaads" : "20-months-of-metaads";
+const featuredSlug = "metaads-v3-turnaround";
 const posts = await getPosts(lang);
 const featuredAvailable = posts.some((p) => slugOf(p.id) === featuredSlug);
 

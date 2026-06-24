@@ -30,9 +30,17 @@ export const ui = {
     "stats.months": "meses construindo",
 
     "work.title": "O que construí",
-    "work.subtitle":
-      "Três frentes que, juntas, formam um sistema de tráfego pago autônomo.",
+    "work.subtitle": "Sistema de tráfego pago autônomo para restaurantes.",
     "work.cta": "Ver o case completo na Brendi →",
+
+    "case.metaads.title": "MetaAds — Tráfego pago autônomo para restaurantes",
+    "case.metaads.desc": "Construí do zero o sistema end-to-end que gerencia campanhas de tráfego pago para 2.000+ restaurantes — do onboarding à IA que decide e otimiza, ao rastreamento de cada venda gerada.",
+    "case.bullets": [
+      "Plataforma SaaS: painel, billing, onboarding e backoffice",
+      "Campaign AI: IA que decide orçamento, cria criativos e otimiza",
+      "Data & Attribution: R$20M+ em vendas rastreadas ponta a ponta",
+      "2.000+ restaurantes · R$4M+ em mídia gerida por mês",
+    ],
 
     "stack.title": "Stack",
     "stack.subtitle": "Ferramentas que uso no dia a dia.",
@@ -68,11 +76,13 @@ export const ui = {
     ],
 
     "highlight.label": "Estudo de caso em destaque",
-    "highlight.title": "ICP errado → churn de 50% para 4%",
+    "highlight.title": "MetaAds v3: como mudar o destino do anúncio fez vender 10× mais",
     "highlight.body":
-      "A análise de coortes revelou que estávamos atraindo o ICP errado. Adicionamos um fee gate no onboarding e a taxa de cancelamento despencou de 50% para 4%.",
-    "highlight.metricBefore": "antes",
-    "highlight.metricAfter": "depois",
+      "A versão 3 do MetaAds mudou o destino dos anúncios do WhatsApp para o cardápio digital. Uma mudança técnica pequena que gerou um impacto desproporcional: clientes vendendo 10× mais, retenção subindo e o faturamento da Brendi crescendo semana a semana de forma constante.",
+    "highlight.metricBefore": "WhatsApp",
+    "highlight.metricAfter": "Cardápio",
+    "highlight.metricValueBefore": "1×",
+    "highlight.metricValueAfter": "10×",
     "highlight.read": "Ler o estudo completo",
 
     "about.title": "Sobre",
@@ -177,9 +187,17 @@ export const ui = {
     "stats.months": "months building",
 
     "work.title": "What I shipped",
-    "work.subtitle":
-      "Three pillars that together make an autonomous paid-traffic system.",
+    "work.subtitle": "Autonomous paid-traffic system for restaurants.",
     "work.cta": "See the full Brendi case →",
+
+    "case.metaads.title": "MetaAds — Autonomous paid traffic for restaurants",
+    "case.metaads.desc": "Built from scratch the end-to-end system that manages paid-traffic campaigns for 2,000+ restaurants — from onboarding to the AI that decides and optimizes, to tracking every sale generated.",
+    "case.bullets": [
+      "SaaS platform: dashboard, billing, onboarding, backoffice",
+      "Campaign AI: AI that decides budget, creates creatives, optimizes",
+      "Data & Attribution: R$20M+ in sales tracked end-to-end",
+      "2,000+ restaurants · R$4M+ in media managed per month",
+    ],
 
     "stack.title": "Stack",
     "stack.subtitle": "Tools I use day to day.",
@@ -215,11 +233,13 @@ export const ui = {
     ],
 
     "highlight.label": "Featured case study",
-    "highlight.title": "Wrong ICP → churn from 50% to 4%",
+    "highlight.title": "MetaAds v3: changing the ad destination drove 10× more sales",
     "highlight.body":
-      "Cohort analysis revealed we were attracting the wrong ICP. We added a fee gate at onboarding and the disable rate dropped from 50% to 4%.",
-    "highlight.metricBefore": "before",
-    "highlight.metricAfter": "after",
+      "MetaAds v3 redirected ads from WhatsApp to the digital menu. A small technical change that had a disproportionate impact: clients selling 10× more, retention climbing, and Brendi's revenue growing week over week consistently.",
+    "highlight.metricBefore": "WhatsApp",
+    "highlight.metricAfter": "Menu",
+    "highlight.metricValueBefore": "1×",
+    "highlight.metricValueAfter": "10×",
     "highlight.read": "Read the full case study",
 
     "about.title": "About",

@@ -14,9 +14,9 @@ export const ui = {
 
     "hero.role": "Product Engineer",
     "hero.tagline":
-      "Product Engineer construindo automação com IA para o crescimento de restaurantes.",
+      "Product Engineer construindo automação com IA para fazer o delivery vender mais.",
     "hero.lede":
-      "Criei o MetaAds na Brendi do zero a 2.000+ restaurantes, gerindo R$4M+ em mídia e gerando R$20M+ em vendas rastreadas.",
+      "Criei o Tráfego Pago Automatizado na Brendi do zero a 2.000+ restaurantes, gerindo R$4M+ em mídia e gerando R$20M+ em vendas rastreadas.",
     "hero.location": "São José dos Campos, Brasil",
     "parallax.toast":
       "Modo Parallax — meu apelido na UFLA. Dizem que eu usava o efeito até demais.",
@@ -32,31 +32,30 @@ export const ui = {
     "work.subtitle":
       "Três frentes que, juntas, formam um sistema de tráfego pago autônomo.",
 
-    "case.platform.title": "MetaAds Platform",
+    "case.platform.title": "Tráfego Pago Automatizado",
     "case.platform.desc":
-      "O produto que restaurantes usam: dashboard, billing, onboarding self-service e operação em escala.",
+      "O produto que restaurantes usam: Painel com métricas, investimento automatizado, cadastro e operação em escala.",
     "case.platform.points": [
-      "Onboarding self-service que reduziu o tempo de ativação",
-      "Billing e cobrança recorrente integrados",
-      "Dashboard de resultados pensado para o dono do restaurante, não para o mídia",
+      "Investimento e cobrança recorrente integrados",
+      "Painel de resultados pensado para o dono do restaurante, não para o gestores",
     ],
 
-    "case.ai.title": "Campaign AI",
+    "case.ai.title": "Campanhas de anúncios com IA",
     "case.ai.desc":
       "A camada autônoma: decide, cria e otimiza campanhas de tráfego pago sem intervenção manual.",
     "case.ai.points": [
       "Decisão autônoma de orçamento e segmentação",
       "Geração e rotação de criativos",
-      "Loop de otimização semanal por restaurante",
+      "Rotina de otimização semanal por restaurante",
     ],
 
     "case.data.title": "Data & Attribution Layer",
     "case.data.desc":
-      "A fonte da verdade: ROAS, coortes, atribuição de clientes e tracking ponta a ponta.",
+      "A fonte da verdade: Dados como ROAS, cohorts, atribuição de vendas e rastreamento ponta a ponta.",
     "case.data.points": [
       "Atribuição de vendas a campanhas (R$20M+ rastreados)",
-      "Análise de coortes e churn por ICP",
-      "Tracking ponta a ponta do clique à venda",
+      "Análise de cohorts e churns por ICP",
+      "Rastreamento ponta a ponta do clique à venda",
     ],
 
     "highlight.label": "Estudo de caso em destaque",
@@ -69,25 +68,25 @@ export const ui = {
 
     "about.title": "Sobre",
     "about.body":
-      "Sou o Leonardo — nascido em Belo Horizonte, hoje em São José dos Campos. Gosto de trabalhar onde produto, engenharia e distribuição se encontram: ficar perto dos usuários, entregar rápido, medir impacto e transformar problemas operacionais bagunçados em sistemas que escalam.",
+      "Sou o Leonardo — nascido em Belo Horizonte, criado em Lavras - Minas Gerais e hoje em São José dos Campos. Gosto de trabalhar onde produto, engenharia e distribuição se encontram: ficar perto dos usuários, entregar rápido, medir impacto e trazer resultados por sistemas que escalam.",
     "about.body2":
-      "Cidadão italiano, construo com horizonte internacional. Sou movido por números reais e por entregas que chegam à mão de quem usa — e por aprender em público, escrevendo o que enfrento pelo caminho.",
+      "Sou Brasileiro e cidadão italiano. Sou movido por números reais e por entregas que chegam à mão de quem usa — e por aprender em público, escrevendo o que enfrento pelo caminho.",
     "about.body3":
-      "No fundo, persigo as duas metades: construir coisas que escalam e construir uma vida que seja minha — menos status, mais liberdade.",
+      "No fundo, persigo as duas metades: construir coisas que escalam e construir uma vida que seja minha",
     "about.stack": "Trabalho com",
     "interests.title": "Fora do trabalho",
     "interests.subtitle": "O que me forma além do código.",
     "interests.metal.title": "Metal sinfônico & gótico",
     "interests.metal.desc":
       "Theatre of Tragedy, Therion. Gosto de destrinchar letra, contexto e simbolismo.",
-    "interests.tkd.title": "Taekwondo",
-    "interests.tkd.desc": "Disciplina e ritmo que levo pra dentro do trabalho.",
+    "interests.tkd.title": "Artes Marciais",
+    "interests.tkd.desc": "Taekwondo, Boxe, Muay Thai. Disciplina e ritmo que levo pra dentro do trabalho.",
     "interests.intl.title": "lorem ipsildur",
     "interests.intl.desc":
       "lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur",
     "interests.writing.title": "Escrita manual",
     "interests.writing.desc":
-      "Escrevo pra aprender e lembrar — sem IA, no capricho.",
+      "Escrevo pra aprender e lembrar — sem IA.",
 
     "writing.title": "Escrita",
     "writing.subtitle":
@@ -153,9 +152,9 @@ export const ui = {
 
     "hero.role": "Product Engineer",
     "hero.tagline":
-      "Product Engineer building AI automation for restaurant growth.",
+      "Product Engineer building AI automation to make delivery sell more.",
     "hero.lede":
-      "I built MetaAds at Brendi from zero to 2,000+ restaurants, managing R$4M+ in media and generating R$20M+ in tracked sales.",
+      "I built Automated Paid Traffic at Brendi from zero to 2,000+ restaurants, managing R$4M+ in media and generating R$20M+ in tracked sales.",
     "hero.location": "São José dos Campos, Brazil · EU citizen",
     "parallax.toast":
       "Parallax mode — my UFLA nickname. They say I overused the effect.",
@@ -171,27 +170,26 @@ export const ui = {
     "work.subtitle":
       "Three pillars that together make an autonomous paid-traffic system.",
 
-    "case.platform.title": "MetaAds Platform",
+    "case.platform.title": "Automated Paid Traffic",
     "case.platform.desc":
-      "The product restaurants use: dashboard, billing, self-service onboarding, and operation at scale.",
+      "The product restaurants use: metrics dashboard, automated investment, onboarding, and operation at scale.",
     "case.platform.points": [
-      "Self-service onboarding that cut time-to-activation",
-      "Integrated recurring billing",
-      "A results dashboard built for restaurant owners, not media buyers",
+      "Integrated investment and recurring billing",
+      "A results dashboard built for restaurant owners, not managers",
     ],
 
-    "case.ai.title": "Campaign AI",
+    "case.ai.title": "AI-Powered Ad Campaigns",
     "case.ai.desc":
       "The autonomous layer: it decides, creates, and optimizes paid-traffic campaigns with no manual work.",
     "case.ai.points": [
       "Autonomous budget and targeting decisions",
       "Creative generation and rotation",
-      "Weekly optimization loop, per restaurant",
+      "Weekly optimization routine, per restaurant",
     ],
 
     "case.data.title": "Data & Attribution Layer",
     "case.data.desc":
-      "The source of truth: ROAS, cohorts, customer attribution, and end-to-end tracking.",
+      "The source of truth: data like ROAS, cohorts, sales attribution, and end-to-end tracking.",
     "case.data.points": [
       "Sales attributed to campaigns (R$20M+ tracked)",
       "Cohort and churn analysis by ICP",
@@ -208,25 +206,25 @@ export const ui = {
 
     "about.title": "About",
     "about.body":
-      "I'm Leonardo — born in Belo Horizonte, now based in São José dos Campos. I like working where product, engineering and distribution meet: staying close to users, shipping fast, measuring impact, and turning messy operational problems into systems that scale.",
+      "I'm Leonardo — born in Belo Horizonte, raised in Lavras, Minas Gerais, now based in São José dos Campos. I like working where product, engineering and distribution meet: staying close to users, shipping fast, measuring impact, and delivering results through systems that scale.",
     "about.body2":
-      "An Italian citizen, I build with an international horizon. I'm driven by real numbers and by work that reaches the people who use it — and by learning in public, writing about what I face along the way.",
+      "I'm Brazilian and an Italian citizen. I'm driven by real numbers and by work that reaches the people who use it — and by learning in public, writing about what I face along the way.",
     "about.body3":
-      "At heart, I chase both halves: building things that scale, and building a life that's my own — less status, more freedom.",
+      "At heart, I chase both halves: building things that scale, and building a life that's my own.",
     "about.stack": "I work with",
     "interests.title": "Off the clock",
     "interests.subtitle": "What shapes me beyond the code.",
     "interests.metal.title": "Symphonic & gothic metal",
     "interests.metal.desc":
       "Theatre of Tragedy, Therion. I love digging into lyrics, context and symbolism.",
-    "interests.tkd.title": "Taekwondo",
-    "interests.tkd.desc": "Discipline and rhythm I carry into the work.",
-    "interests.intl.title": "Italian roots, global aim",
+    "interests.tkd.title": "Martial Arts",
+    "interests.tkd.desc": "Taekwondo, Boxing, Muay Thai. Discipline and rhythm I carry into the work.",
+    "interests.intl.title": "lorem ipsildur",
     "interests.intl.desc":
-      "An EU citizen building with an international horizon.",
+      "lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur",
     "interests.writing.title": "Writing by hand",
     "interests.writing.desc":
-      "I write to learn and remember — no AI, done with care.",
+      "I write to learn and remember — no AI.",
 
     "writing.title": "Writing",
     "writing.subtitle":

@@ -17,7 +17,7 @@ export const ui = {
     "hero.tagline":
       "Product Engineer construindo automação com IA para fazer restaurantes venderem mais.",
     "hero.lede":
-      "Construí partes centrais do MetaAds na Brendi — do zero a 2.000+ restaurantes, com R$4M+ em mídia gerida e R$20M+ em vendas rastreadas.",
+      "Construí o MetaAds na Brendi — do zero a 2.000+ restaurantes, com R$4M+ em mídia gerida e R$20M+ em vendas para os restaurantes.",
     "hero.location": "São José dos Campos, Brasil",
     "parallax.toast":
       "Modo Parallax — meu apelido na UFLA. Dizem que eu usava o efeito até demais.",
@@ -26,7 +26,7 @@ export const ui = {
 
     "stats.restaurants": "restaurantes",
     "stats.media": "em mídia gerida",
-    "stats.sales": "em vendas rastreadas",
+    "stats.sales": "em vendas",
     "stats.months": "meses construindo",
 
     "work.title": "O que construí",
@@ -36,7 +36,7 @@ export const ui = {
     "case.metaads.title": "MetaAds — Tráfego pago autônomo para restaurantes",
     "case.metaads.desc": "Construí do zero o sistema end-to-end que gerencia campanhas de tráfego pago para 2.000+ restaurantes — do onboarding à IA que decide e otimiza, ao rastreamento de cada venda gerada.",
     "case.bullets": [
-      "Plataforma SaaS: painel, billing, onboarding e backoffice",
+      "Plataforma SaaS: painel, investimento, onboarding e backoffice",
       "Campaign AI: IA que decide orçamento, cria criativos e otimiza",
       "Data & Attribution: R$20M+ em vendas rastreadas ponta a ponta",
       "2.000+ restaurantes · R$4M+ em mídia gerida",
@@ -87,11 +87,11 @@ export const ui = {
 
     "about.title": "Sobre",
     "about.body":
-      "Tenho mais interesse por produtos vivos do que por sistemas bonitos no papel. Gosto de ficar perto da operação, entender onde as coisas quebram, criar a primeira versão, medir o impacto e melhorar até virar máquina. Foi assim que construí partes centrais do MetaAds: juntando engenharia, IA, mídia paga, dados e a realidade nada organizada de milhares de restaurantes.",
+      "Builder com cérebro de estrategista e espinha de operador. Trabalho na interseção entre código, produto, crescimento e dinheiro — e me sinto bem aí. No MetaAds, não escrevi software: construí um sistema que move números. Obsessão com ROI, churn, ativação e escala com a mesma intensidade que a maioria reserva para side projects.",
     "about.body2":
-      "Sou Brasileiro e cidadão italiano, nascido em Belo Horizonte, criado em Lavras - MG, hoje em São José dos Campos. Sou movido por números reais e por entregas que chegam à mão de quem usa.",
+      "Sou movido por dados, mas sem academicismo. Métricas só importam se mudam decisões. Penso em funis, cohorts, guardrails e modos de falha — e quando algo quebra, o instinto não é pânico, é 'qual é o gargalo real?'",
     "about.body3":
-      "No fundo, persigo as duas metades: construir coisas que escalam e construir uma vida que seja minha.",
+      "Em resumo: product engineer que pensa como fundador, executa como operador e planeja como quem não tem pressa — mas absolutamente não está desperdiçando tempo.",
     "about.stack": "Trabalho com",
     "interests.title": "Fora do trabalho",
     "interests.subtitle": "O que me forma além do código.",
@@ -244,11 +244,11 @@ export const ui = {
 
     "about.title": "About",
     "about.body":
-      "I care more about living products than beautiful systems on paper. I like staying close to operations, understanding where things break, shipping the first version, measuring impact, and iterating until it becomes a machine. That's how I built core parts of MetaAds: combining engineering, AI, paid media, data, and the messy reality of thousands of restaurants.",
+      "Builder with a strategist's brain and an operator's spine. I sit at the intersection of code, product, growth, and money — and I'm comfortable there. At MetaAds, I didn't just write software; I shipped a system that moves numbers. Obsessing over ROI, churn, activation, and scale with the same intensity most people reserve for side projects.",
     "about.body2":
-      "I'm Brazilian and an Italian citizen, born in Belo Horizonte, raised in Lavras - MG, now in São José dos Campos. I'm driven by real numbers and by work that reaches the people who use it.",
+      "Data-driven to the core, but not academic about it. Metrics only matter if they change decisions. I think in funnels, cohorts, guardrails, and failure modes — and when something breaks, my instinct isn't panic, it's 'where's the real bottleneck?'",
     "about.body3":
-      "At heart, I chase both halves: building things that scale, and building a life that's my own.",
+      "In short: a product engineer who thinks like a founder, executes like an operator, and plans like someone who's not in a hurry — but is absolutely not wasting time.",
     "about.stack": "I work with",
     "interests.title": "Off the clock",
     "interests.subtitle": "What shapes me beyond the code.",

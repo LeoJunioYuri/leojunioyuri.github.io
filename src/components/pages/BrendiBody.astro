@@ -21,7 +21,7 @@ const metrics = pt
   ? [
       { value: "2.000+", label: "restaurantes ativos" },
       { value: "R$4M+", label: "em mídia gerida" },
-      { value: "R$20M+", label: "em vendas rastreadas" },
+      { value: "R$20M+", label: "em vendas" },
       { value: "10M+", label: "requests / mês" },
       { value: "20", label: "meses construindo" },
       { value: "~5×", label: "de crescimento no faturamento" },
@@ -160,12 +160,12 @@ const engItems = pt
         Brendi · {pt ? "2024 — hoje" : "2024 — present"}
       </p>
       <h1 class="mt-2 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-        {pt ? "Construindo o MetaAds" : "Building MetaAds"}
+        {pt ? "MetaAds: um sistema que move números" : "MetaAds: a system that moves numbers"}
       </h1>
       <p class="mt-4 max-w-2xl text-xl text-[var(--muted)]">
         {pt
-          ? "Como levamos tráfego pago de 2 lojas ativas para 2.000+ restaurantes — com IA gerindo campanhas de forma autônoma."
-          : "How we grew paid traffic from 2 active stores to 2,000+ restaurants — with AI running campaigns autonomously."}
+          ? "De 2 lojas ativas para 2.000+ restaurantes, R$4M+ em mídia gerida e R$20M+ em vendas rastreadas — com IA gerindo campanhas de forma autônoma."
+          : "From 2 active stores to 2,000+ restaurants, R$4M+ in media managed and R$20M+ in tracked sales — with AI running campaigns autonomously."}
       </p>
     </header>
 
@@ -187,15 +187,15 @@ const engItems = pt
       <div class="prose mt-4">
         {pt ? (
           <>
-            <p>A Brendi é uma SaaS brasileira de tráfego pago para restaurantes. O problema que resolve: donos de restaurante não têm tempo nem conhecimento para gerir anúncios no Meta — e contratar uma agência custa caro e não escala.</p>
-            <p>Quando entrei, o produto existia mas era operado manualmente. Cada campanha exigia intervenção humana. O time de operações era o gargalo. A visão era clara: transformar isso num produto autônomo, onde a IA faz o trabalho do gestor.</p>
-            <p>Fui responsável pela maior parte da arquitetura técnica e pela evolução do produto ao longo de 20 meses — do backend ao produto, da infra ao modelo de negócio.</p>
+            <p>A Brendi resolve um problema real: donos de restaurante não têm tempo nem conhecimento para gerir anúncios — e contratar agência custa caro e não escala. O MetaAds é a resposta: um sistema que faz o trabalho do gestor de tráfego de forma autônoma.</p>
+            <p>Quando entrei, o produto existia mas dependia de operação manual. Cada campanha exigia intervenção humana. O time de ops era o gargalo. Identifiquei onde estava o bottleneck real e transformei isso num produto que escala sozinho.</p>
+            <p>Fui responsável pela arquitetura técnica, evolução do produto e decisões de negócio ao longo de 20 meses — do primeiro commit ao modelo que gerou R$20M+ em vendas rastreadas para clientes.</p>
           </>
         ) : (
           <>
-            <p>Brendi is a Brazilian paid-traffic SaaS for restaurants. The problem it solves: restaurant owners don't have the time or knowledge to manage Meta ads — and hiring an agency is expensive and doesn't scale.</p>
-            <p>When I joined, the product existed but was operated manually. Every campaign required human intervention. The ops team was the bottleneck. The vision was clear: turn it into an autonomous product where AI does the work of the media buyer.</p>
-            <p>I was responsible for most of the technical architecture and product evolution over 20 months — from backend to product, from infra to business model.</p>
+            <p>Brendi solves a real problem: restaurant owners don't have the time or knowledge to manage ads — and hiring an agency is expensive and doesn't scale. MetaAds is the answer: a system that does the media buyer's work autonomously.</p>
+            <p>When I joined, the product existed but relied on manual operations. Every campaign required human intervention. The ops team was the bottleneck. I identified where the real bottleneck was and turned it into a product that scales on its own.</p>
+            <p>I owned the technical architecture, product evolution, and business decisions over 20 months — from the first commit to the model that generated R$20M+ in tracked sales for clients.</p>
           </>
         )}
       </div>

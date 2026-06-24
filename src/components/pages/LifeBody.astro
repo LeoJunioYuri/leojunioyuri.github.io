@@ -233,22 +233,32 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
         <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
           {t("life.games.wishlist")}
         </h3>
-        <ul class="mt-3 flex flex-wrap gap-2">
+        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
           {steamWishlist.map((g: any) => (
             <li>
               <a
                 href={g.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                class="group flex items-center gap-3 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] transition-colors hover:border-[var(--accent)]"
               >
-                {g.name}
+                {g.header && (
+                  <img
+                    src={g.header}
+                    alt=""
+                    loading="lazy"
+                    class="h-12 w-[88px] shrink-0 object-cover"
+                  />
+                )}
+                <span class="truncate pr-3 text-sm font-medium group-hover:text-[var(--accent)]">
+                  {g.name}
+                </span>
               </a>
             </li>
           ))}
         </ul>
         <a
-          href={`https://store.steampowered.com/wishlist/profiles/${76561198115976638}/`}
+          href={`https://store.steampowered.com/wishlist/profiles/76561198115976638/`}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"

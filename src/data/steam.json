@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T23:55:03.239Z",
+  "updatedAt": "2026-06-24T00:01:38.491Z",
   "games": [
     {
       "name": "It Takes Two",
@@ -84,5 +84,78 @@
       "url": "https://store.steampowered.com/app/1286830"
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "name": "Sekiro™: Shadows Die Twice - GOTY Edition",
+      "appid": 814380,
+      "url": "https://store.steampowered.com/app/814380",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662"
+    },
+    {
+      "name": "Life is Strange: Before the Storm",
+      "appid": 554620,
+      "url": "https://store.steampowered.com/app/554620",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/554620/header.jpg?t=1773409621"
+    },
+    {
+      "name": "Lords Of The Fallen™ 2014",
+      "appid": 265300,
+      "url": "https://store.steampowered.com/app/265300",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265300/header.jpg?t=1728377554"
+    },
+    {
+      "name": "Teenage Mutant Ninja Turtles™: Out of the Shadows",
+      "appid": 228560,
+      "url": "https://store.steampowered.com/app/228560",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/228560/header.jpg?t=1684348603"
+    },
+    {
+      "name": "Call of Duty®: Black Ops II",
+      "appid": 202970,
+      "url": "https://store.steampowered.com/app/202970",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/202970/header.jpg?t=1780962925"
+    },
+    {
+      "name": "007 First Light",
+      "appid": 3768760,
+      "url": "https://store.steampowered.com/app/3768760",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/dbe86ebd2edb4c77d113e9e2feefeb90189fabc9/header.jpg?t=1780990824"
+    },
+    {
+      "name": "Assassin's Creed Black Flag Resynced",
+      "appid": 3751950,
+      "url": "https://store.steampowered.com/app/3751950",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3751950/9b046115b1663a4be2b252712328e4f6c162da68/header.jpg?t=1781197729"
+    },
+    {
+      "name": "Drakantos",
+      "appid": 2454980,
+      "url": "https://store.steampowered.com/app/2454980",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2454980/header.jpg?t=1781028069"
+    },
+    {
+      "name": "Life is Strange: Reunion",
+      "appid": 2624870,
+      "url": "https://store.steampowered.com/app/2624870",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2624870/09c486f1ebf7c30ebf3abf5df054833b03c3367d/header.jpg?t=1777999087"
+    },
+    {
+      "name": "The Elder Scrolls IV: Oblivion Remastered",
+      "appid": 2623190,
+      "url": "https://store.steampowered.com/app/2623190",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1761681073"
+    },
+    {
+      "name": "Metro: Last Light Redux",
+      "appid": 287390,
+      "url": "https://store.steampowered.com/app/287390",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/287390/header.jpg?t=1725444535"
+    },
+    {
+      "name": "Borderlands 4",
+      "appid": 1285190,
+      "url": "https://store.steampowered.com/app/1285190",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/615adb744c2d351ba3bbf92c2a1953039c5f8c8a/header_alt_assets_2.jpg?t=1781800410"
+    }
+  ]
 }

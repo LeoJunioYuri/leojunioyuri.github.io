@@ -38,24 +38,42 @@ const topGames = (ownedData.response?.games || [])
   .slice(0, 8)
   .map(gameShape);
 
-// Wishlist — public endpoint, no key needed (requires profile "Game details: Public")
+// Wishlist — via IWishlistService API (requires "Game details: Public")
 let wishlist = [];
 try {
   const wRes = await fetch(
-    `https://store.steampowered.com/wishlist/profiles/${STEAM_ID}/wishlistdata/`,
-    { headers: { "Accept": "application/json", "Referer": "https://store.steampowered.com/" } },
+    `https://api.steampowered.com/IWishlistService/GetWishlist/v1/?key=${STEAM_API_KEY}&steamid=${STEAM_ID}`,
   );
   const wData = await wRes.json();
-  if (wData && typeof wData === "object") {
-    wishlist = Object.entries(wData)
-      .map(([appid, g]) => ({
-        name: g.name,
-        appid: Number(appid),
-        url: `https://store.steampowered.com/app/${appid}`,
-        capsule: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/capsule_231x87.jpg`,
-      }))
-      .slice(0, 12);
-  }
+  const items = wData.response?.items ?? [];
+
+  // Sort: prioritized items first, then by most recently added
+  const sorted = [...items].sort((a, b) =>
+    b.priority !== a.priority ? b.priority - a.priority : b.date_added - a.date_added
+  );
+  const top = sorted.slice(0, 12).map((i) => i.appid);
+
+  // Batch-fetch names + header images (filters=basic keeps it fast)
+  // Fetch each game individually (batch requests are unreliable)
+  const results = await Promise.all(
+    top.map(async (appid) => {
+      try {
+        const r = await fetch(
+          `https://store.steampowered.com/api/appdetails?appids=${appid}&filters=basic`,
+        );
+        const json = await r.json();
+        const d = json?.[String(appid)]?.data;
+        if (!d) return null;
+        return {
+          name: d.name,
+          appid,
+          url: `https://store.steampowered.com/app/${appid}`,
+          header: d.header_image ?? `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`,
+        };
+      } catch { return null; }
+    }),
+  );
+  wishlist = results.filter(Boolean);
   console.log(`Wishlist: ${wishlist.length} games.`);
 } catch (e) {
   console.error("fetch-steam wishlist:", e.message);

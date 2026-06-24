@@ -37,7 +37,7 @@ export const ui = {
     "case.metaads.desc": "Construí do zero o sistema end-to-end que gerencia campanhas de tráfego pago para 2.000+ restaurantes — do onboarding à IA que decide e otimiza, ao rastreamento de cada venda gerada.",
     "case.bullets": [
       "Plataforma SaaS: painel, investimento, onboarding e backoffice",
-      "Campaign AI: IA que decide orçamento, cria criativos e otimiza",
+      "Anderson: IA que decide orçamento, cria criativos e otimiza",
       "Data & Attribution: R$20M+ em vendas rastreadas ponta a ponta",
       "2.000+ restaurantes · R$4M+ em mídia gerida",
     ],
@@ -194,7 +194,7 @@ export const ui = {
     "case.metaads.desc": "Built from scratch the end-to-end system that manages paid-traffic campaigns for 2,000+ restaurants — from onboarding to the AI that decides and optimizes, to tracking every sale generated.",
     "case.bullets": [
       "SaaS platform: dashboard, billing, onboarding, backoffice",
-      "Campaign AI: AI that decides budget, creates creatives, optimizes",
+      "Anderson: AI that decides budget, creates creatives, optimizes",
       "Data & Attribution: R$20M+ in sales tracked end-to-end",
       "2,000+ restaurants · R$4M+ in media managed",
     ],

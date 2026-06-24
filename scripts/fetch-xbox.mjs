@@ -50,7 +50,6 @@ try {
     .sort((a, b) =>
       (b.achievement?.currentGamerscore ?? 0) - (a.achievement?.currentGamerscore ?? 0)
     )
-    .slice(0, 8)
     .map((t) => ({
       name: t.name,
       titleId: t.titleId,

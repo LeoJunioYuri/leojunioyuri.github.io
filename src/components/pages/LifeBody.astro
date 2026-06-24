@@ -297,7 +297,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           {t("life.xbox.top")}
         </h3>
         <ul class="mt-3 grid gap-2">
-          {xboxTopGamerscore.map((g: any) => (
+          {xboxTopGamerscore.slice(0, 6).map((g: any) => (
             <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
               {g.image ? (
                 <img src={g.image} alt="" width="32" height="32" loading="lazy"
@@ -315,14 +315,64 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
             </li>
           ))}
         </ul>
-        <a
-          href="https://www.xbox.com/pt-BR/play/user/Leonardo%20Yuri"
-          target="_blank" rel="noopener noreferrer"
-          class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
-        >
-          {t("life.xbox.cta")} →
-        </a>
+        <div class="mt-4 flex flex-wrap items-center gap-4">
+          {xboxTopGamerscore.length > 6 && (
+            <button
+              id="xbox-dialog-btn"
+              class="text-sm font-semibold text-[var(--accent)] hover:underline"
+            >
+              {lang === 'pt' ? `Ver todos os ${xboxTopGamerscore.length} jogos →` : `See all ${xboxTopGamerscore.length} games →`}
+            </button>
+          )}
+          <a
+            href="https://www.xbox.com/pt-BR/play/user/Leonardo%20Yuri"
+            target="_blank" rel="noopener noreferrer"
+            class="text-sm font-semibold text-[var(--accent)] hover:underline"
+          >
+            {t("life.xbox.cta")} →
+          </a>
+        </div>
       </div>
+    )}
+
+    <!-- Xbox full games dialog -->
+    {xboxTopGamerscore.length > 6 && (
+      <dialog
+        id="xbox-dialog"
+        class="m-auto w-full max-w-lg rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-0 shadow-2xl backdrop:bg-black/50"
+      >
+        <div class="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
+          <h2 class="text-base font-bold">{t("life.xbox.top")} ({xboxTopGamerscore.length})</h2>
+          <button id="xbox-dialog-close" class="rounded-lg p-1 hover:bg-[var(--surface)] text-[var(--muted)]" aria-label="Fechar">✕</button>
+        </div>
+        <ul class="max-h-[60vh] overflow-y-auto divide-y divide-[var(--border)]">
+          {xboxTopGamerscore.map((g: any) => (
+            <li class="flex items-center gap-3 px-5 py-3 hover:bg-[var(--surface)]">
+              {g.image ? (
+                <img src={g.image} alt="" width="28" height="28" loading="lazy"
+                  class="h-7 w-7 shrink-0 rounded" />
+              ) : (
+                <div class="h-7 w-7 shrink-0 rounded bg-[var(--surface-2)]"/>
+              )}
+              <a href={g.url} target="_blank" rel="noopener noreferrer"
+                class="min-w-0 flex-1 truncate text-sm hover:text-[var(--accent)]">
+                {g.name}
+              </a>
+              <span class="shrink-0 text-xs text-[var(--muted)] tabular-nums">
+                {g.gamerscore}<span class="opacity-40">/{g.gamerscoreTotal}</span>G
+              </span>
+            </li>
+          ))}
+        </ul>
+      </dialog>
+      <script>
+        const btn   = document.getElementById('xbox-dialog-btn');
+        const dlg   = document.getElementById('xbox-dialog') as HTMLDialogElement | null;
+        const close = document.getElementById('xbox-dialog-close');
+        btn?.addEventListener('click', () => dlg?.showModal());
+        close?.addEventListener('click', () => dlg?.close());
+        dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      </script>
     )}
 
     {/* —— YouTube —— */}

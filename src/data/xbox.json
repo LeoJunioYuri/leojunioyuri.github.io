@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T00:08:34.505Z",
+  "updatedAt": "2026-06-24T00:25:57.629Z",
   "recent": [
     {
       "name": "World of Warcraft",
@@ -64,6 +64,72 @@
       "image": null,
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1693534474"
+    }
+  ],
+  "topGamerscore": [
+    {
+      "name": "Assassin's Creed® The Ezio Collection",
+      "titleId": "514291876",
+      "image": "http://store-images.s-microsoft.com/image/apps.37308.69011092827716296.e9190db7-6f4c-478c-8555-3edad4336a39.3b1b1f2a-5764-4818-8e36-0027b533bd64",
+      "gamerscore": 1710,
+      "gamerscoreTotal": 3000,
+      "url": "https://www.xbox.com/games/store/-/514291876"
+    },
+    {
+      "name": "Tacoma",
+      "titleId": "1725136156",
+      "image": "http://store-images.s-microsoft.com/image/apps.3615.14580847963455900.277186a0-7763-4237-8a63-6694f941f9f2.a29ba789-8e84-49c8-b2b1-0e2eb181b655",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/1725136156"
+    },
+    {
+      "name": "The Walking Dead: A New Frontier - Episode 1",
+      "titleId": "282062756",
+      "image": "http://store-images.s-microsoft.com/image/apps.25445.69944040449015757.88ed9171-ea66-47e4-927d-f5946cb0deff.8d634520-0362-4fbc-8012-f4bfd33e6ff6",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/282062756"
+    },
+    {
+      "name": "The Walking Dead: Michonne - Ep. 1, In Too Deep",
+      "titleId": "635298240",
+      "image": "http://store-images.s-microsoft.com/image/apps.34716.63117477798842663.9d75c437-1857-4273-859c-e36a5c74b7f0.a63b30f2-e94e-472a-bcc1-d735dc351b70",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/635298240"
+    },
+    {
+      "name": "The Walking Dead: Season Two",
+      "titleId": "231674300",
+      "image": "http://store-images.s-microsoft.com/image/apps.34948.65440315593285086.25acafbc-307e-448a-a7f5-999e7cc0c672.7c50a8dd-9a0b-4209-b5bf-a34ad0c24366",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/231674300"
+    },
+    {
+      "name": "Batman: O Inimigo Dentro - Episode 1",
+      "titleId": "338995079",
+      "image": "http://store-images.s-microsoft.com/image/apps.60211.65500171164579046.1a7abf1b-5051-48d9-a5a5-f6f9ae7914a7.3a24a1ed-98c6-43e5-81da-26c94494111a",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/338995079"
+    },
+    {
+      "name": "Batman - The Telltale Series - Episode 1: Realm of Shadows",
+      "titleId": "23570566",
+      "image": "http://store-images.s-microsoft.com/image/apps.11306.67433678066110144.f1f106f8-bb02-4d00-b081-acdb140635ad.85c6674e-ea00-4620-8289-2f074a5e324c",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/23570566"
+    },
+    {
+      "name": "The Walking Dead: The Complete First Season",
+      "titleId": "1795379754",
+      "image": "http://store-images.s-microsoft.com/image/apps.64194.71901737879009236.c4798d79-4139-4e57-bb07-d252b6ca567c.10c48ea9-4aa3-4672-b9f7-ac8087d4526f",
+      "gamerscore": 1000,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/1795379754"
     }
   ]
 }

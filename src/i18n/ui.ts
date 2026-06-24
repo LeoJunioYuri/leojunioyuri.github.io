@@ -82,9 +82,9 @@ export const ui = {
       "Theatre of Tragedy, Therion. Gosto de destrinchar letra, contexto e simbolismo.",
     "interests.tkd.title": "Taekwondo",
     "interests.tkd.desc": "Disciplina e ritmo que levo pra dentro do trabalho.",
-    "interests.intl.title": "Raiz italiana, mira global",
+    "interests.intl.title": "lorem ipsildur",
     "interests.intl.desc":
-      "Cidadão europeu construindo com horizonte internacional.",
+      "lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lo",
     "interests.writing.title": "Escrita manual",
     "interests.writing.desc":
       "Escrevo pra aprender e lembrar — sem IA, no capricho.",

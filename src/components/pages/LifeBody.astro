@@ -378,31 +378,21 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
               {wow.guild && <span class="text-[var(--fg)] font-medium">&lt;{wow.guild}&gt;</span>}{wow.guild && ' · '}
               {wow.realm} · Lv {wow.level}
             </p>
-            <div class="mt-3 flex flex-wrap gap-3 text-sm">
-              <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2.5 py-1">
-                <span class="text-[var(--muted)] text-xs">ilvl </span>
-                <span class="font-semibold">{wow.ilvl}</span>
-              </span>
-              <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2.5 py-1">
-                <span class="text-[var(--muted)] text-xs">conquistas </span>
-                <span class="font-semibold">{wow.achievementPoints?.toLocaleString()}</span>
-              </span>
+            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+              {[
+                { label: 'ilvl', value: wow.ilvl },
+                { label: lang === 'pt' ? 'montarias' : 'mounts', value: wow.mountsCount },
+                { label: lang === 'pt' ? 'mascotes' : 'pets', value: wow.petsCount },
+                { label: lang === 'pt' ? 'conquistas' : 'achievements', value: wow.totalAchievements?.toLocaleString() },
+                { label: 'pts', value: wow.achievementPoints?.toLocaleString() },
+              ].map(s => (
+                <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2.5 py-1">
+                  <span class="font-semibold">{s.value}</span>
+                  <span class="ml-1 text-[var(--muted)] text-xs">{s.label}</span>
+                </span>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Stats row: mounts, pets, achievements */}
-        <div class="mt-4 flex flex-wrap gap-3">
-          {[
-            { label: lang === 'pt' ? 'montarias' : 'mounts', value: wow.mountsCount },
-            { label: lang === 'pt' ? 'mascotes' : 'pets',    value: wow.petsCount },
-            { label: lang === 'pt' ? 'conquistas' : 'achievements', value: wow.totalAchievements?.toLocaleString() },
-          ].map(s => (
-            <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-sm">
-              <span class="font-semibold">{s.value}</span>
-              <span class="ml-1 text-[var(--muted)] text-xs">{s.label}</span>
-            </span>
-          ))}
         </div>
 
 

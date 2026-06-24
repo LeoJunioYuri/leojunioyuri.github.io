@@ -87,11 +87,11 @@ export const ui = {
 
     "about.title": "Sobre",
     "about.body":
-      "Builder com cérebro de estrategista e espinha de operador. Trabalho na interseção entre código, produto, crescimento e dinheiro — e me sinto bem aí. No MetaAds, não escrevi software: construí um sistema que move números. Obsessão com ROI, churn, ativação e escala com a mesma intensidade que a maioria reserva para side projects.",
+      "Sou Leonardo Basso, engenheiro de software e product engineer, formado em Ciência da Computação pela Universidade Federal de Lavras. Gosto de trabalhar no ponto onde produto, engenharia, IA e escala se encontram — com foco em resultados reais: entender problemas operacionais, transformá-los em sistemas simples de usar e medir se eles realmente ajudam o negócio a crescer.",
     "about.body2":
-      "Sou movido por dados, mas sem academicismo. Métricas só importam se mudam decisões. Penso em funis, cohorts, guardrails e modos de falha — e quando algo quebra, o instinto não é pânico, é 'qual é o gargalo real?'",
+      "Nos últimos anos, tenho construído produtos que conectam tecnologia e resultado — especialmente em restaurantes, delivery e tráfego pago. Na Brendi, com o MetaAds, trabalho em uma camada que une IA, dados, integrações e marketing para escalar negócios locais de forma automática, com o mínimo de intervenção humana.",
     "about.body3":
-      "Em resumo: product engineer que pensa como fundador, executa como operador e planeja como quem não tem pressa — mas absolutamente não está desperdiçando tempo.",
+      "Fora do código: música, história, artes marciais, filmes, jogos, investimentos, vinho — e discussões sobre crescimento em todos os âmbitos da vida, sempre com muito humor.",
     "about.stack": "Trabalho com",
     "interests.title": "Fora do trabalho",
     "interests.subtitle": "O que me forma além do código.",
@@ -244,11 +244,11 @@ export const ui = {
 
     "about.title": "About",
     "about.body":
-      "Builder with a strategist's brain and an operator's spine. I sit at the intersection of code, product, growth, and money — and I'm comfortable there. At MetaAds, I didn't just write software; I shipped a system that moves numbers. Obsessing over ROI, churn, activation, and scale with the same intensity most people reserve for side projects.",
+      "I'm Leonardo Basso, a software and product engineer with a degree in Computer Science from the Federal University of Lavras. I like working at the intersection of product, engineering, AI and scale — focused on real results: understanding operational problems, turning them into simple systems, and measuring whether they actually move the business.",
     "about.body2":
-      "Data-driven to the core, but not academic about it. Metrics only matter if they change decisions. I think in funnels, cohorts, guardrails, and failure modes — and when something breaks, my instinct isn't panic, it's 'where's the real bottleneck?'",
+      "Over the last few years, I've been building products that connect technology and outcomes — especially in restaurants, delivery and paid traffic. At Brendi, with MetaAds, I work on a layer that combines AI, data, integrations and marketing to scale local businesses automatically, with minimal human intervention.",
     "about.body3":
-      "In short: a product engineer who thinks like a founder, executes like an operator, and plans like someone who's not in a hurry — but is absolutely not wasting time.",
+      "Outside the code: music, history, martial arts, films, games, investments, wine — and conversations about growth in all areas of life, always with a lot of humor.",
     "about.stack": "I work with",
     "interests.title": "Off the clock",
     "interests.subtitle": "What shapes me beyond the code.",

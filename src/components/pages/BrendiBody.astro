@@ -1,0 +1,277 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Architecture from "@/components/diagrams/Architecture.astro";
+import CampaignLoop from "@/components/diagrams/CampaignLoop.astro";
+import type { Lang } from "@/consts";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const pt = lang === "pt";
+
+const path = pt ? "/brendi" : "/en/brendi";
+
+const meta = {
+  title: pt ? "Brendi — Case completo" : "Brendi — Full case study",
+  description: pt
+    ? "Como construí o MetaAds na Brendi: de 2 lojas a 2.000+ restaurantes com IA gerindo campanhas de forma autônoma."
+    : "How I built MetaAds at Brendi: from 2 stores to 2,000+ restaurants with AI running campaigns autonomously.",
+};
+
+const metrics = pt
+  ? [
+      { value: "2.000+", label: "restaurantes ativos" },
+      { value: "R$4M+", label: "em mídia gerida / mês" },
+      { value: "R$20M+", label: "em vendas rastreadas" },
+      { value: "10M+", label: "requests / mês" },
+      { value: "20", label: "meses construindo" },
+      { value: "~5×", label: "de crescimento no faturamento" },
+    ]
+  : [
+      { value: "2,000+", label: "active restaurants" },
+      { value: "R$4M+", label: "media managed / month" },
+      { value: "R$20M+", label: "tracked restaurant sales" },
+      { value: "10M+", label: "requests / month" },
+      { value: "20", label: "months building" },
+      { value: "~5×", label: "revenue growth" },
+    ];
+
+const pillars = pt
+  ? [
+      {
+        n: "01",
+        title: "Tráfego Pago Automatizado",
+        desc: "O produto que os restaurantes usam no dia a dia. Painel com métricas de resultado, investimento automatizado com base em performance, onboarding self-service e operação em escala com pouquíssima intervenção manual.",
+        items: [
+          "Investimento e cobrança recorrente integrados",
+          "Dashboard pensado para o dono do restaurante — não para o gestor de mídia",
+          "Onboarding em minutos, sem suporte humano",
+          "Backoffice para operação da Brendi",
+        ],
+      },
+      {
+        n: "02",
+        title: "Campaign AI",
+        desc: "A camada autônoma do produto. Um agente de IA que toma decisões de orçamento, cria criativos e otimiza campanhas semanalmente por restaurante — sem precisar de um gestor de tráfego humano.",
+        items: [
+          "Decisão autônoma de orçamento e segmentação",
+          "Geração e rotação de criativos via GPT-Image + regras de negócio",
+          "Rotina de otimização semanal por restaurante",
+          "Guardrails: limites de gasto, alertas de anomalia, rollback automático",
+        ],
+      },
+      {
+        n: "03",
+        title: "Data & Attribution Layer",
+        desc: "A fonte da verdade. Conecta cada real investido à venda que ele gerou, com rastreamento ponta a ponta do clique até o pedido entregue.",
+        items: [
+          "Atribuição de vendas a campanhas (R$20M+ rastreados)",
+          "Análise de cohorts e churns por ICP",
+          "ROAS, CAC e métricas financeiras em tempo real",
+          "Rastreamento ponta a ponta: clique → sessão → venda → retenção",
+        ],
+      },
+    ]
+  : [
+      {
+        n: "01",
+        title: "Automated Paid Traffic",
+        desc: "The product restaurants use every day. A results dashboard, performance-based automated investment, self-service onboarding, and at-scale operation with minimal manual intervention.",
+        items: [
+          "Integrated investment and recurring billing",
+          "Dashboard built for restaurant owners — not media buyers",
+          "Onboarding in minutes, no human support needed",
+          "Internal backoffice for Brendi operations",
+        ],
+      },
+      {
+        n: "02",
+        title: "Campaign AI",
+        desc: "The autonomous layer of the product. An AI agent that makes budget decisions, creates ad creatives, and optimizes campaigns weekly per restaurant — without a human traffic manager.",
+        items: [
+          "Autonomous budget and targeting decisions",
+          "Creative generation and rotation via GPT-Image + business rules",
+          "Weekly optimization routine per restaurant",
+          "Guardrails: spend limits, anomaly alerts, automatic rollback",
+        ],
+      },
+      {
+        n: "03",
+        title: "Data & Attribution Layer",
+        desc: "The source of truth. Connects every real invested to the sale it generated, with end-to-end tracking from click to delivered order.",
+        items: [
+          "Sales attributed to campaigns (R$20M+ tracked)",
+          "Cohort and churn analysis by ICP",
+          "ROAS, CAC, and financial metrics in real time",
+          "End-to-end tracking: click → session → sale → retention",
+        ],
+      },
+    ];
+
+const highlight = pt
+  ? {
+      label: "Decisão que mais impactou",
+      title: "ICP errado → churn de 50% para 4%",
+      body: "Análise de coortes mostrou que estávamos atraindo restaurantes fora do ICP ideal — pequenos demais, sem histórico de anúncio, com expectativa errada. Adicionamos um fee gate no onboarding: apenas restaurantes com faturamento mínimo passavam. O churn despencou de 50% para 4% no mês seguinte. A base ficou menor, mas muito mais saudável.",
+    }
+  : {
+      label: "Highest-impact decision",
+      title: "Wrong ICP → churn from 50% to 4%",
+      body: "Cohort analysis showed we were attracting restaurants outside the ideal ICP — too small, no advertising history, wrong expectations. We added a fee gate at onboarding: only restaurants above a minimum revenue threshold could proceed. Churn dropped from 50% to 4% the following month. The base got smaller, but far healthier.",
+    };
+
+const engItems = pt
+  ? [
+      "Migração de MySQL para AlloyDB (GCP) sem downtime",
+      "Cache em múltiplas camadas para reduzir latência de dashboard",
+      "Sistema de Cloud Tasks para orquestração de campanhas assíncronas",
+      "Refatoração da Ads API: modularização por ad set, ad creative e campaign",
+      "Wallet e saldo interno: transações, estornos e conciliação financeira",
+      "Gamificação de onboarding para aumentar ativação",
+      "Content Hub: geração de criativos em escala com aprovação do dono",
+      "Sistema de atribuição multi-touch para rastrear conversões",
+    ]
+  : [
+      "MySQL → AlloyDB (GCP) migration with zero downtime",
+      "Multi-layer caching to reduce dashboard latency",
+      "Cloud Tasks system for async campaign orchestration",
+      "Ads API refactor: modularization per ad set, creative, and campaign",
+      "Internal wallet: transactions, refunds, and financial reconciliation",
+      "Onboarding gamification to improve activation rates",
+      "Content Hub: at-scale creative generation with owner approval flow",
+      "Multi-touch attribution system to track conversions",
+    ];
+---
+
+<BaseLayout lang={lang} title={meta.title} description={meta.description} path={path}>
+  <article class="mx-auto max-w-3xl px-5 py-20 sm:px-6">
+
+    <!-- Breadcrumb -->
+    <nav class="mb-8 flex items-center gap-2 text-sm text-[var(--muted)]">
+      <a href={pt ? "/" : "/en/"} class="hover:text-[var(--fg)]">
+        {pt ? "Início" : "Home"}
+      </a>
+      <span>·</span>
+      <span class="text-[var(--fg)]">Brendi</span>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <p class="text-sm font-medium text-[var(--accent)]">
+        Brendi · {pt ? "2024 — hoje" : "2024 — present"}
+      </p>
+      <h1 class="mt-2 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+        {pt ? "Construindo o MetaAds" : "Building MetaAds"}
+      </h1>
+      <p class="mt-4 max-w-2xl text-xl text-[var(--muted)]">
+        {pt
+          ? "Como levamos tráfego pago de 2 lojas ativas para 2.000+ restaurantes — com IA gerindo campanhas de forma autônoma."
+          : "How we grew paid traffic from 2 active stores to 2,000+ restaurants — with AI running campaigns autonomously."}
+      </p>
+    </header>
+
+    <!-- Metrics grid -->
+    <dl class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-3">
+      {metrics.map((m) => (
+        <div class="bg-[var(--bg)] px-5 py-5">
+          <dt class="text-3xl font-bold tracking-tight">{m.value}</dt>
+          <dd class="mt-1 text-sm text-[var(--muted)]">{m.label}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <!-- Context -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold tracking-tight">
+        {pt ? "O contexto" : "The context"}
+      </h2>
+      <div class="prose mt-4">
+        {pt ? (
+          <>
+            <p>A Brendi é uma SaaS brasileira de tráfego pago para restaurantes. O problema que resolve: donos de restaurante não têm tempo nem conhecimento para gerir anúncios no Meta — e contratar uma agência custa caro e não escala.</p>
+            <p>Quando entrei, o produto existia mas era operado manualmente. Cada campanha exigia intervenção humana. O time de operações era o gargalo. A visão era clara: transformar isso num produto autônomo, onde a IA faz o trabalho do gestor.</p>
+            <p>Fui responsável pela maior parte da arquitetura técnica e pela evolução do produto ao longo de 20 meses — do backend ao produto, da infra ao modelo de negócio.</p>
+          </>
+        ) : (
+          <>
+            <p>Brendi is a Brazilian paid-traffic SaaS for restaurants. The problem it solves: restaurant owners don't have the time or knowledge to manage Meta ads — and hiring an agency is expensive and doesn't scale.</p>
+            <p>When I joined, the product existed but was operated manually. Every campaign required human intervention. The ops team was the bottleneck. The vision was clear: turn it into an autonomous product where AI does the work of the media buyer.</p>
+            <p>I was responsible for most of the technical architecture and product evolution over 20 months — from backend to product, from infra to business model.</p>
+          </>
+        )}
+      </div>
+    </section>
+
+    <!-- Architecture diagram -->
+    <div class="mt-10">
+      <Architecture lang={lang} />
+    </div>
+
+    <!-- 3 Pillars -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold tracking-tight">
+        {pt ? "Os três pilares" : "The three pillars"}
+      </h2>
+      <div class="mt-6 flex flex-col gap-6">
+        {pillars.map((p) => (
+          <div class="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 sm:p-7">
+            <div class="flex items-baseline gap-3">
+              <span class="font-mono text-sm text-[var(--accent)]">{p.n}</span>
+              <h3 class="text-xl font-bold tracking-tight">{p.title}</h3>
+            </div>
+            <p class="mt-3 text-[var(--muted)]">{p.desc}</p>
+            <ul class="mt-4 space-y-2">
+              {p.items.map((item) => (
+                <li class="flex items-start gap-2 text-sm">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Campaign Loop diagram -->
+    <div class="mt-8">
+      <CampaignLoop lang={lang} />
+    </div>
+
+    <!-- Highlight: key decision -->
+    <section class="mt-16 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 sm:p-8">
+      <p class="text-xs font-semibold uppercase tracking-wide text-[var(--accent)]">
+        {highlight.label}
+      </p>
+      <h2 class="mt-2 text-xl font-bold tracking-tight">{highlight.title}</h2>
+      <p class="mt-3 text-[var(--fg)]">{highlight.body}</p>
+    </section>
+
+    <!-- Engineering highlights -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold tracking-tight">
+        {pt ? "Engineering highlights" : "Engineering highlights"}
+      </h2>
+      <ul class="mt-5 grid gap-2 sm:grid-cols-2">
+        {engItems.map((item) => (
+          <li class="flex items-start gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm">
+            <span class="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Back -->
+    <div class="mt-16 flex gap-4">
+      <a href={pt ? "/" : "/en/"} class="text-sm font-semibold text-[var(--accent)] hover:underline">
+        ← {pt ? "Voltar" : "Back"}
+      </a>
+      <a href={pt ? "/writing" : "/en/writing"} class="text-sm font-semibold text-[var(--muted)] hover:text-[var(--fg)]">
+        {pt ? "Ler os bastidores →" : "Read behind the scenes →"}
+      </a>
+    </div>
+
+  </article>
+</BaseLayout>

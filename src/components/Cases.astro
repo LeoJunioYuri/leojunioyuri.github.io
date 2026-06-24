@@ -1,9 +1,6 @@
 ---
 import type { Lang } from "@/consts";
 import { useTranslations } from "@/i18n/utils";
-import Architecture from "@/components/diagrams/Architecture.astro";
-import CampaignLoop from "@/components/diagrams/CampaignLoop.astro";
-
 interface Props {
   lang: Lang;
 }
@@ -79,8 +76,12 @@ const cases = [
     }
   </div>
 
-  <div class="mt-8 grid gap-4">
-    <Architecture lang={lang} />
-    <CampaignLoop lang={lang} />
+  <div class="mt-8">
+    <a
+      href={lang === "pt" ? "/brendi" : "/en/brendi"}
+      class="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+    >
+      {t("work.cta")}
+    </a>
   </div>
 </section>

@@ -1,0 +1,35 @@
+---
+import { SITE, type Lang } from "@/consts";
+import { useTranslations } from "@/i18n/utils";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="border-t border-[var(--border)]">
+  <div class="mx-auto max-w-3xl px-5 py-16 sm:px-6">
+    <h2 data-reveal-scroll class="text-2xl font-bold tracking-tight sm:text-3xl">
+      {t("contact.title")}
+    </h2>
+    <p data-reveal-scroll class="mt-3 max-w-xl text-lg text-[var(--muted)]">
+      {t("contact.body")}
+    </p>
+    <div data-reveal-scroll class="mt-6 flex flex-wrap gap-3">
+      <a
+        href={`mailto:${SITE.email}`}
+        class="rounded-lg bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fg)] transition-transform hover:-translate-y-0.5"
+      >
+        {t("contact.email")}
+      </a>
+      <a
+        href={SITE.socials.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:bg-[var(--surface)]"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>

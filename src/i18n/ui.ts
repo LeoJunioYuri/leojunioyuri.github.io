@@ -7,6 +7,7 @@ import type { Lang } from "@/consts";
 export const ui = {
   pt: {
     "nav.work": "Trabalho",
+    "nav.brendi": "Brendi",
     "nav.writing": "Escrita",
     "nav.about": "Sobre",
     "nav.now": "Agora",
@@ -31,6 +32,14 @@ export const ui = {
     "work.title": "O que construí",
     "work.subtitle":
       "Três frentes que, juntas, formam um sistema de tráfego pago autônomo.",
+    "work.cta": "Ver o case completo na Brendi →",
+
+    "stack.title": "Stack",
+    "stack.subtitle": "Ferramentas que uso no dia a dia.",
+
+    "contact.title": "Vamos conversar",
+    "contact.body": "Disponível para conversas sobre engenharia de produto, automação com IA, sistemas de crescimento e startups early-stage.",
+    "contact.email": "Enviar email",
 
     "case.platform.title": "Tráfego Pago Automatizado",
     "case.platform.desc":
@@ -145,6 +154,7 @@ export const ui = {
 
   en: {
     "nav.work": "Work",
+    "nav.brendi": "Brendi",
     "nav.writing": "Writing",
     "nav.about": "About",
     "nav.now": "Now",
@@ -169,6 +179,14 @@ export const ui = {
     "work.title": "What I shipped",
     "work.subtitle":
       "Three pillars that together make an autonomous paid-traffic system.",
+    "work.cta": "See the full Brendi case →",
+
+    "stack.title": "Stack",
+    "stack.subtitle": "Tools I use day to day.",
+
+    "contact.title": "Let's talk",
+    "contact.body": "Open to conversations about product engineering, AI automation, growth systems and early-stage startups.",
+    "contact.email": "Send email",
 
     "case.platform.title": "Automated Paid Traffic",
     "case.platform.desc":

@@ -1,0 +1,63 @@
+---
+import type { Lang } from "@/consts";
+import { useTranslations } from "@/i18n/utils";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories = [
+  {
+    name: lang === "pt" ? "IA & LLMs" : "AI & LLMs",
+    items: ["OpenAI", "LLM Agents", "GPT-Image", "Meta AI"],
+  },
+  {
+    name: "Backend",
+    items: ["TypeScript", "Node.js", "C#", ".NET", "REST APIs"],
+  },
+  {
+    name: "Frontend",
+    items: ["React", "Next.js", "Tailwind CSS", "Astro"],
+  },
+  {
+    name: lang === "pt" ? "Banco de dados" : "Database",
+    items: ["PostgreSQL", "MySQL", "AlloyDB", "Supabase"],
+  },
+  {
+    name: lang === "pt" ? "Integrações" : "Integrations",
+    items: ["Meta Marketing API", "WhatsApp API", "Stripe", "Asaas"],
+  },
+  {
+    name: "Infra / Cloud",
+    items: ["Azure", "GCP", "Cloud Tasks", "GitHub Actions", "Docker"],
+  },
+];
+---
+
+<section id="stack" class="border-t border-[var(--border)]">
+  <div class="mx-auto max-w-3xl px-5 py-16 sm:px-6">
+    <h2 data-reveal-scroll class="text-2xl font-bold tracking-tight sm:text-3xl">
+      {t("stack.title")}
+    </h2>
+    <p data-reveal-scroll class="mt-2 text-[var(--muted)]">
+      {t("stack.subtitle")}
+    </p>
+
+    <div data-reveal-scroll class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((cat) => (
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+            {cat.name}
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {cat.items.map((item) => (
+              <span class="rounded-md border border-[var(--border)] bg-[var(--surface)] px-2.5 py-1 text-sm font-medium">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

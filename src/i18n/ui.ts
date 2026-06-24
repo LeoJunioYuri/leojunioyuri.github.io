@@ -87,11 +87,11 @@ export const ui = {
 
     "about.title": "Sobre",
     "about.body":
-      "Sou Leonardo Basso, engenheiro de software e product engineer, formado em Ciência da Computação pela Universidade Federal de Lavras. Gosto de trabalhar no ponto onde produto, engenharia, IA e escala se encontram — com foco em resultados reais: entender problemas operacionais, transformá-los em sistemas simples de usar e medir se eles realmente ajudam o negócio a crescer.",
+      "Sou Leonardo Basso, engenheiro de software e product engineer, formado em Ciência da Computação pela Universidade Federal de Lavras e com interesse especial pelo ponto em que produto, engenharia, IA e escala se encontram. Gosto de trabalhar com foco em resultado: entender problemas operacionais reais, transformar esses problemas em sistemas simples de usar e medir se eles realmente ajudam o negócio a crescer.",
     "about.body2":
-      "Nos últimos anos, tenho construído produtos que conectam tecnologia e resultado — especialmente em restaurantes, delivery e tráfego pago. Na Brendi, com o MetaAds, trabalho em uma camada que une IA, dados, integrações e marketing para escalar negócios locais de forma automática, com o mínimo de intervenção humana.",
+      "Nos últimos anos, meu foco tem sido construir produtos que conectam tecnologia e impacto — especialmente no mercado de restaurantes, delivery e tráfego pago. Na Brendi, com o nosso MetaAds interno, trabalho em uma camada que une IA, dados, integrações e marketing para ajudar negócios locais a conquistarem novos clientes em escala, tudo de forma automática, com o mínimo de intervenção humana.",
     "about.body3":
-      "Fora do código: música, história, artes marciais, filmes, jogos, investimentos, vinho — e discussões sobre crescimento em todos os âmbitos da vida, sempre com muito humor.",
+      "Fora do código, também me interesso por música, história, artes marciais, filmes, jogos, investimentos, vinho e discussões sobre crescimento em todos os âmbitos da vida — claro, sempre com muito humor.",
     "about.stack": "Trabalho com",
     "interests.title": "Fora do trabalho",
     "interests.subtitle": "O que me forma além do código.",
@@ -244,11 +244,11 @@ export const ui = {
 
     "about.title": "About",
     "about.body":
-      "I'm Leonardo Basso, a software and product engineer with a degree in Computer Science from the Federal University of Lavras. I like working at the intersection of product, engineering, AI and scale — focused on real results: understanding operational problems, turning them into simple systems, and measuring whether they actually move the business.",
+      "I'm Leonardo Basso, a software and product engineer with a degree in Computer Science from the Federal University of Lavras, with a particular interest in the intersection of product, engineering, AI and scale. I like working with a focus on outcomes: understanding real operational problems, turning them into simple systems, and measuring whether they actually help the business grow.",
     "about.body2":
-      "Over the last few years, I've been building products that connect technology and outcomes — especially in restaurants, delivery and paid traffic. At Brendi, with MetaAds, I work on a layer that combines AI, data, integrations and marketing to scale local businesses automatically, with minimal human intervention.",
+      "Over the last few years, my focus has been building products that connect technology and impact — especially in the restaurant, delivery and paid-traffic space. At Brendi, with our internal MetaAds, I work on a layer that combines AI, data, integrations and marketing to help local businesses acquire new customers at scale, fully automated, with minimal human intervention.",
     "about.body3":
-      "Outside the code: music, history, martial arts, films, games, investments, wine — and conversations about growth in all areas of life, always with a lot of humor.",
+      "Outside the code, I'm also into music, history, martial arts, films, games, investments, wine and conversations about growth in all areas of life — always with a lot of humor.",
     "about.stack": "I work with",
     "interests.title": "Off the clock",
     "interests.subtitle": "What shapes me beyond the code.",

@@ -39,10 +39,10 @@ const links = [
       href={home}
       class="group flex items-center gap-2 font-semibold tracking-tight"
     >
-      <span
-        class="grid h-7 w-7 place-items-center rounded-md bg-[var(--accent)] text-[13px] font-bold text-[var(--accent-fg)]"
-        >LB</span
-      >
+      <img src="/favicon-light.png" alt="LB" width="32" height="32"
+        class="h-8 w-8 rounded-lg block dark:hidden" />
+      <img src="/favicon.png" alt="LB" width="32" height="32"
+        class="h-8 w-8 rounded-lg hidden dark:block" />
       <span class="hidden sm:inline">{SITE.name}</span>
     </a>
 

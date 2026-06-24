@@ -35,7 +35,9 @@ const detectScript =
 <BaseLayout
   lang={lang}
   title="Leonardo Basso — Product Engineer"
-  description={t("hero.lede")}
+  description={lang === "pt"
+    ? "Leonardo Basso é Product Engineer construindo automação com IA para restaurantes. Construiu partes centrais do MetaAds na Brendi — 2.000+ restaurantes, R$4M+ em mídia gerida e R$20M+ em vendas rastreadas."
+    : "Leonardo Basso is a Product Engineer building AI automation for restaurant growth. He built core parts of MetaAds at Brendi, scaling to 2,000+ restaurants, R$4M+ in media managed and R$20M+ in tracked sales."}
   path={path}
 >
   <script is:inline set:html={detectScript} />

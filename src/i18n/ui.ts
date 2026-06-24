@@ -15,9 +15,9 @@ export const ui = {
 
     "hero.role": "Product Engineer",
     "hero.tagline":
-      "Product Engineer construindo automação com IA para fazer o delivery vender mais.",
+      "Product Engineer construindo automação com IA para fazer restaurantes venderem mais.",
     "hero.lede":
-      "Criei o Tráfego Pago Automatizado na Brendi do zero a 2.000+ restaurantes, gerindo R$4M+ em mídia e gerando R$20M+ em vendas rastreadas.",
+      "Construí partes centrais do MetaAds na Brendi — do zero a 2.000+ restaurantes, com R$4M+ em mídia gerida e R$20M+ em vendas rastreadas.",
     "hero.location": "São José dos Campos, Brasil",
     "parallax.toast":
       "Modo Parallax — meu apelido na UFLA. Dizem que eu usava o efeito até demais.",
@@ -39,14 +39,14 @@ export const ui = {
       "Plataforma SaaS: painel, billing, onboarding e backoffice",
       "Campaign AI: IA que decide orçamento, cria criativos e otimiza",
       "Data & Attribution: R$20M+ em vendas rastreadas ponta a ponta",
-      "2.000+ restaurantes · R$4M+ em mídia gerida por mês",
+      "2.000+ restaurantes · R$4M+ em mídia gerida",
     ],
 
     "stack.title": "Stack",
     "stack.subtitle": "Ferramentas que uso no dia a dia.",
 
     "contact.title": "Vamos conversar",
-    "contact.body": "Disponível para conversas sobre engenharia de produto, automação com IA, sistemas de crescimento e startups early-stage.",
+    "contact.body": "Aberto a conversas sobre product engineering, automação com IA, sistemas de growth e startups em estágio inicial.",
     "contact.email": "Enviar email",
 
     "case.platform.title": "Tráfego Pago Automatizado",
@@ -87,11 +87,11 @@ export const ui = {
 
     "about.title": "Sobre",
     "about.body":
-      "Sou o Leonardo — nascido em Belo Horizonte, criado em Lavras - Minas Gerais e hoje em São José dos Campos. Gosto de trabalhar onde produto, engenharia e distribuição se encontram: ficar perto dos usuários, entregar rápido, medir impacto e trazer resultados por sistemas que escalam.",
+      "Tenho mais interesse por produtos vivos do que por sistemas bonitos no papel. Gosto de ficar perto da operação, entender onde as coisas quebram, criar a primeira versão, medir o impacto e melhorar até virar máquina. Foi assim que construí partes centrais do MetaAds: juntando engenharia, IA, mídia paga, dados e a realidade nada organizada de milhares de restaurantes.",
     "about.body2":
-      "Sou Brasileiro e cidadão italiano. Sou movido por números reais e por entregas que chegam à mão de quem usa — e por aprender em público, escrevendo o que enfrento pelo caminho.",
+      "Sou Brasileiro e cidadão italiano, nascido em Belo Horizonte, criado em Lavras - MG, hoje em São José dos Campos. Sou movido por números reais e por entregas que chegam à mão de quem usa.",
     "about.body3":
-      "No fundo, persigo as duas metades: construir coisas que escalam e construir uma vida que seja minha",
+      "No fundo, persigo as duas metades: construir coisas que escalam e construir uma vida que seja minha.",
     "about.stack": "Trabalho com",
     "interests.title": "Fora do trabalho",
     "interests.subtitle": "O que me forma além do código.",
@@ -100,12 +100,12 @@ export const ui = {
       "Theatre of Tragedy, Therion. Gosto de destrinchar letra, contexto e simbolismo.",
     "interests.tkd.title": "Artes Marciais",
     "interests.tkd.desc": "Taekwondo, Boxe, Muay Thai. Disciplina e ritmo que levo pra dentro do trabalho.",
-    "interests.intl.title": "lorem ipsildur",
+    "interests.intl.title": "História & estratégia",
     "interests.intl.desc":
-      "lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur",
+      "Quando não estou construindo produto, costumo estar treinando, lendo ou estudando história. Tenho interesse por civilizações, estratégia e disciplina — de Roma ao Brasil Imperial, das artes marciais aos jogos com mundos bem construídos. No fundo, gosto de entender como sistemas nascem, evoluem, quebram e podem ser melhorados.",
     "interests.writing.title": "Escrita manual",
     "interests.writing.desc":
-      "Escrevo pra aprender e lembrar — sem IA.",
+      "Escrevo para aprender, lembrar e registrar decisões enquanto os produtos ainda estão vivos.",
 
     "writing.title": "Escrita",
     "writing.subtitle":
@@ -172,9 +172,9 @@ export const ui = {
 
     "hero.role": "Product Engineer",
     "hero.tagline":
-      "Product Engineer building AI automation to make delivery sell more.",
+      "Product Engineer building AI automation to make restaurants sell more.",
     "hero.lede":
-      "I built Automated Paid Traffic at Brendi from zero to 2,000+ restaurants, managing R$4M+ in media and generating R$20M+ in tracked sales.",
+      "I built core parts of MetaAds at Brendi — from zero to 2,000+ restaurants, with R$4M+ in media managed and R$20M+ in tracked sales.",
     "hero.location": "São José dos Campos, Brazil · EU citizen",
     "parallax.toast":
       "Parallax mode — my UFLA nickname. They say I overused the effect.",
@@ -196,7 +196,7 @@ export const ui = {
       "SaaS platform: dashboard, billing, onboarding, backoffice",
       "Campaign AI: AI that decides budget, creates creatives, optimizes",
       "Data & Attribution: R$20M+ in sales tracked end-to-end",
-      "2,000+ restaurants · R$4M+ in media managed per month",
+      "2,000+ restaurants · R$4M+ in media managed",
     ],
 
     "stack.title": "Stack",
@@ -244,9 +244,9 @@ export const ui = {
 
     "about.title": "About",
     "about.body":
-      "I'm Leonardo — born in Belo Horizonte, raised in Lavras, Minas Gerais, now based in São José dos Campos. I like working where product, engineering and distribution meet: staying close to users, shipping fast, measuring impact, and delivering results through systems that scale.",
+      "I care more about living products than beautiful systems on paper. I like staying close to operations, understanding where things break, shipping the first version, measuring impact, and iterating until it becomes a machine. That's how I built core parts of MetaAds: combining engineering, AI, paid media, data, and the messy reality of thousands of restaurants.",
     "about.body2":
-      "I'm Brazilian and an Italian citizen. I'm driven by real numbers and by work that reaches the people who use it — and by learning in public, writing about what I face along the way.",
+      "I'm Brazilian and an Italian citizen, born in Belo Horizonte, raised in Lavras - MG, now in São José dos Campos. I'm driven by real numbers and by work that reaches the people who use it.",
     "about.body3":
       "At heart, I chase both halves: building things that scale, and building a life that's my own.",
     "about.stack": "I work with",
@@ -257,12 +257,12 @@ export const ui = {
       "Theatre of Tragedy, Therion. I love digging into lyrics, context and symbolism.",
     "interests.tkd.title": "Martial Arts",
     "interests.tkd.desc": "Taekwondo, Boxing, Muay Thai. Discipline and rhythm I carry into the work.",
-    "interests.intl.title": "lorem ipsildur",
+    "interests.intl.title": "History & strategy",
     "interests.intl.desc":
-      "lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur lorem ipsildur",
+      "When I'm not building product, I'm usually training, reading, or studying history. I'm drawn to civilizations, strategy and discipline — from Rome to Imperial Brazil, from martial arts to games with well-crafted worlds. At the core, I like understanding how systems are born, evolve, break and can be improved.",
     "interests.writing.title": "Writing by hand",
     "interests.writing.desc":
-      "I write to learn and remember — no AI.",
+      "I write to learn, remember, and document decisions while the products are still alive.",
 
     "writing.title": "Writing",
     "writing.subtitle":

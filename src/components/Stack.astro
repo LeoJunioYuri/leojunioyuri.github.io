@@ -8,20 +8,20 @@ const t = useTranslations(lang);
 
 const categories = [
   {
+    name: "Backend",
+    items: ["TypeScript", "Node.js", "C#", ".NET"],
+  },
+  {
+    name: "Frontend",
+    items: ["Vue 3", "Nuxt", "Tailwind CSS", "Astro"],
+  },
+  {
     name: lang === "pt" ? "IA & LLMs" : "AI & LLMs",
     items: ["OpenAI", "LLM Agents", "GPT-Image", "Meta AI"],
   },
   {
-    name: "Backend",
-    items: ["TypeScript", "Node.js", "C#", ".NET", "REST APIs"],
-  },
-  {
-    name: "Frontend",
-    items: ["Vue 3", "Next.js", "Tailwind CSS", "Astro"],
-  },
-  {
     name: lang === "pt" ? "Banco de dados" : "Database",
-    items: ["PostgreSQL", "MySQL", "AlloyDB", "Supabase", "Firebase"],
+    items: ["PostgreSQL", "MySQL", "AlloyDB", "BigQuery", "Firebase"],
   },
   {
     name: lang === "pt" ? "Integrações" : "Integrations",

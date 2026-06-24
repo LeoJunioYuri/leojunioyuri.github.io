@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T00:29:33.300Z",
+  "updatedAt": "2026-06-24T02:12:16.093Z",
   "recent": [
     {
       "name": "World of Warcraft",
@@ -260,14 +260,6 @@
       "url": "https://www.xbox.com/games/store/-/502034863"
     },
     {
-      "name": "Star Wars: The Force Unleashed II",
-      "titleId": "1279330290",
-      "image": "http://store-images.s-microsoft.com/image/apps.15969.70150884927435795.96c7e3bf-e29a-464f-b969-faf5cc06de1f.f1c0dfe3-0df8-4a8b-98d1-1daa72c7ac92",
-      "gamerscore": 540,
-      "gamerscoreTotal": 1200,
-      "url": "https://www.xbox.com/games/store/-/1279330290"
-    },
-    {
       "name": "Terra-média™: Sombras de Mordor™ – Edição Jogo do Ano",
       "titleId": "1009393042",
       "image": "http://store-images.s-microsoft.com/image/apps.21322.68460258964057960.66d06666-90f8-48e6-8808-a3f7dbd1fa23.80e14a8d-48e3-42fd-9c28-48a909a645b9",
@@ -314,14 +306,6 @@
       "gamerscore": 455,
       "gamerscoreTotal": 1600,
       "url": "https://www.xbox.com/games/store/-/1484511986"
-    },
-    {
-      "name": "Star Wars: The Force Unleashed",
-      "titleId": "1279330258",
-      "image": "http://store-images.s-microsoft.com/image/apps.7832.67732770333599620.d5320f04-72d6-4b5d-abfa-ec46d2dfa584.a571c1ac-d1c7-48e3-9a77-efdccc509edb",
-      "gamerscore": 450,
-      "gamerscoreTotal": 1345,
-      "url": "https://www.xbox.com/games/store/-/1279330258"
     },
     {
       "name": "Rise of the Tomb Raider",
@@ -410,14 +394,6 @@
       "gamerscore": 285,
       "gamerscoreTotal": 1250,
       "url": "https://www.xbox.com/games/store/-/585771792"
-    },
-    {
-      "name": "Assassin's Creed® Rogue",
-      "titleId": "1431505102",
-      "image": "http://store-images.s-microsoft.com/image/apps.31403.65085476200656299.23ed482b-54cf-4d9a-b325-0dc2a6c443d3.fea36640-1143-47d8-991d-1589a09b7719",
-      "gamerscore": 280,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1431505102"
     },
     {
       "name": "Call of Duty®: Advanced Warfare",
@@ -540,28 +516,12 @@
       "url": "https://www.xbox.com/games/store/-/558797228"
     },
     {
-      "name": "LEGO Star Wars: TCS",
-      "titleId": "1279330263",
-      "image": "http://store-images.s-microsoft.com/image/apps.6207.70527735771150709.4384318c-4020-4dc0-a05e-3164e04d5d24.d3c47cd2-0e7e-4c5d-8282-d9ef536fad6f",
-      "gamerscore": 70,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1279330263"
-    },
-    {
       "name": "Ori and the Blind Forest: Definitive Edition",
       "titleId": "559544937",
       "image": "http://store-images.s-microsoft.com/image/apps.56463.13510798886186647.e6e27e80-a0e4-4365-a31b-5c4a7b6b91a8.9b1ed462-08c2-43bc-bf97-98ce43ad61be",
       "gamerscore": 60,
       "gamerscoreTotal": 1250,
       "url": "https://www.xbox.com/games/store/-/559544937"
-    },
-    {
-      "name": "Dante's Inferno™",
-      "titleId": "1161889999",
-      "image": "http://store-images.s-microsoft.com/image/apps.31024.65125427675965946.9a11f22d-d015-4e5d-8fe2-d22c387be19c.2d19934c-0c07-4f87-8a6f-3732c94120c5",
-      "gamerscore": 50,
-      "gamerscoreTotal": 1290,
-      "url": "https://www.xbox.com/games/store/-/1161889999"
     },
     {
       "name": "resident evil 4 (2005)",
@@ -612,14 +572,6 @@
       "url": "https://www.xbox.com/games/store/-/1033012343"
     },
     {
-      "name": "The Witcher 2",
-      "titleId": "1313671253",
-      "image": "http://store-images.s-microsoft.com/image/apps.41269.70867093870260904.399850fc-4cdc-400b-826e-2d7f8c3faceb.45bb5e6d-8e49-4878-9941-eba76da1f224",
-      "gamerscore": 35,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1313671253"
-    },
-    {
       "name": "Wolfenstein: The New Order",
       "titleId": "1981403899",
       "image": "http://store-images.s-microsoft.com/image/apps.5170.70764866595776237.49bcb933-4bfd-4b64-a764-f2ef10fde8d5.a78a2b99-81e7-4ed0-8d98-c1f2dc453506",
@@ -660,14 +612,6 @@
       "url": "https://www.xbox.com/games/store/-/308190374"
     },
     {
-      "name": "Burnout Paradise",
-      "titleId": "1161889798",
-      "image": "http://store-images.s-microsoft.com/image/apps.2810.64576497656315800.af343067-0820-400d-aa48-cc23e6c86a4b.ecf65199-1e6b-430e-8bad-b4284941eb3e",
-      "gamerscore": 25,
-      "gamerscoreTotal": 1250,
-      "url": "https://www.xbox.com/games/store/-/1161889798"
-    },
-    {
       "name": "Paladins",
       "titleId": "682404126",
       "image": "http://store-images.s-microsoft.com/image/apps.15088.67319741566234733.1e93db81-bfbb-458e-b3d8-7d90b032d59d.4075d242-aeee-4004-88a6-c2d0a217c0d4",
@@ -684,36 +628,12 @@
       "url": "https://www.xbox.com/games/store/-/1144039928"
     },
     {
-      "name": "Adera",
-      "titleId": "1297290206",
-      "image": "http://store-images.microsoft.com/image/apps.24003.9007199266251906.01e7a69d-c687-4d87-832c-95eb67648271.dd95b776-3383-427c-b8ce-756e595acf6f",
-      "gamerscore": 25,
-      "gamerscoreTotal": 800,
-      "url": "https://www.xbox.com/games/store/-/1297290206"
-    },
-    {
       "name": "RESIDENT EVIL 2",
       "titleId": "374621264",
       "image": "http://store-images.s-microsoft.com/image/apps.38246.71571739681700792.c61fa2d7-3d69-4edf-8e51-accc41d47823.9197ae9d-181d-44ff-a98d-7f64086f509e",
       "gamerscore": 20,
       "gamerscoreTotal": 1070,
       "url": "https://www.xbox.com/games/store/-/374621264"
-    },
-    {
-      "name": "LEGO Star Wars III ",
-      "titleId": "1279330291",
-      "image": "http://store-images.s-microsoft.com/image/apps.61131.65336223521854929.1beffc00-2dec-412c-8387-fcc1cd1a5709.55e15991-2cae-4ec6-935b-fc67186f95e1",
-      "gamerscore": 20,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1279330291"
-    },
-    {
-      "name": "Assassin's Creed",
-      "titleId": "1431504852",
-      "image": "http://store-images.s-microsoft.com/image/apps.47824.64148876922571625.4747b43e-3d86-49fc-aa97-ee00c70af4e5.263a3060-8cb8-4299-9028-a9f94150d516",
-      "gamerscore": 20,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1431504852"
     },
     {
       "name": "Sleeping Dogs™ Definitive Edition",
@@ -756,22 +676,6 @@
       "url": "https://www.xbox.com/games/store/-/2030093255"
     },
     {
-      "name": "FIGHT NIGHT CHAMPION",
-      "titleId": "1161890069",
-      "image": "http://store-images.s-microsoft.com/image/apps.43877.69068534869269909.2e5bd713-07e4-4ab3-ab98-5c3b344e3c50.bee59007-7def-4791-b9e7-891669c1465d",
-      "gamerscore": 10,
-      "gamerscoreTotal": 1150,
-      "url": "https://www.xbox.com/games/store/-/1161890069"
-    },
-    {
-      "name": "Gears of War",
-      "titleId": "1297287125",
-      "image": "http://store-images.s-microsoft.com/image/apps.37229.68631123789499032.6299bbb9-6778-40d5-965f-080b552baa15.be2992c1-0236-4fd3-983a-9a9d9df0877e",
-      "gamerscore": 10,
-      "gamerscoreTotal": 1250,
-      "url": "https://www.xbox.com/games/store/-/1297287125"
-    },
-    {
       "name": "Vampyr",
       "titleId": "449394673",
       "image": "http://store-images.s-microsoft.com/image/apps.62528.66109053219718297.55ffe300-0d5b-4e9b-9463-3e4ad119e1c6.159b7ad3-affa-4fa7-94c2-54d52cef40e6",
@@ -788,28 +692,12 @@
       "url": "https://www.xbox.com/games/store/-/831141864"
     },
     {
-      "name": "DEUS EX: HUMAN REVOLUTION",
-      "titleId": "1397819386",
-      "image": "http://store-images.s-microsoft.com/image/apps.14317.70396586997272050.84a38935-1b74-49ec-96d1-1408692c347e.7b462250-262a-45e6-a814-b4d62f94beae",
-      "gamerscore": 10,
-      "gamerscoreTotal": 1250,
-      "url": "https://www.xbox.com/games/store/-/1397819386"
-    },
-    {
       "name": "Project Cars",
       "titleId": "1907381044",
       "image": "http://store-images.s-microsoft.com/image/apps.51340.70869877619715256.cb566fe1-68fa-4994-950e-8f92d951cab5.69b45414-4e12-4f6e-98d0-59a0f0b356bf",
       "gamerscore": 10,
       "gamerscoreTotal": 1000,
       "url": "https://www.xbox.com/games/store/-/1907381044"
-    },
-    {
-      "name": "Microsoft Minesweeper",
-      "titleId": "1297290226",
-      "image": "http://store-images.s-microsoft.com/image/apps.61649.9007199266246757.db625ec8-a024-470e-a413-924515c64b2c.d794ea6d-219b-45dc-a2eb-073dc9526610",
-      "gamerscore": 5,
-      "gamerscoreTotal": 200,
-      "url": "https://www.xbox.com/games/store/-/1297290226"
     }
   ]
 }

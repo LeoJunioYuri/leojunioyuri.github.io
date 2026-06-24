@@ -36,26 +36,30 @@ async function get(path) {
 }
 
 // Fetch in parallel
-const [char, media, encounters] = await Promise.all([
+const [char, media, achievements, mounts, pets] = await Promise.all([
   get(""),
   get("/character-media"),
-  get("/encounters/raids"),
+  get("/achievements"),
+  get("/collections/mounts"),
+  get("/collections/pets"),
 ]);
 
 const avatar = media?.assets?.find((a) => a.key === "avatar")?.value ?? null;
-const inset  = media?.assets?.find((a) => a.key === "inset")?.value ?? null;
 
-// Recent raids: last 2 expansions, first 3 instances each
-const raids = (encounters?.expansions ?? [])
-  .slice(-2)
-  .flatMap((ex) =>
-    (ex.instances ?? []).slice(0, 4).map((inst) => ({
-      name: inst.instance?.name,
-      kills: (inst.modes ?? []).reduce((s, m) => s + (m.progress?.completed_count ?? 0), 0),
-    }))
-  )
-  .filter((r) => r.kills > 0)
-  .slice(0, 6);
+// Recent achievements (last 5)
+const recentAchievements = (achievements?.recent_events ?? [])
+  .slice(0, 5)
+  .map((e) => ({
+    name: e.achievement?.name,
+    id: e.achievement?.id,
+    date: e.timestamp,
+  }));
+
+// Top achievement categories by points
+const topCategories = (achievements?.category_progress ?? [])
+  .sort((a, b) => b.points - a.points)
+  .slice(0, 3)
+  .map((c) => ({ name: c.category?.name, points: c.points, quantity: c.quantity }));
 
 const wow = {
   name: char?.name,
@@ -65,12 +69,15 @@ const wow = {
   spec: char?.active_spec?.name,
   ilvl: char?.equipped_item_level,
   achievementPoints: char?.achievement_points,
+  totalAchievements: achievements?.total_quantity,
   faction: char?.faction?.name,
   realm: char?.realm?.name,
   guild: char?.guild?.name,
   avatar,
-  inset,
-  raids,
+  mountsCount: mounts?.mounts?.length ?? 0,
+  petsCount: pets?.pets?.length ?? 0,
+  recentAchievements,
+  topCategories,
   profileUrl: `https://worldofwarcraft.blizzard.com/pt-br/character/${CHARACTER.region}/${CHARACTER.realm}/${CHARACTER.name}`,
 };
 

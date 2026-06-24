@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T00:56:45.663Z",
+  "updatedAt": "2026-06-24T01:01:57.370Z",
   "wow": {
     "name": "Lyonys",
     "level": 89,
@@ -8,27 +8,55 @@
     "spec": "Andarilho do Vento",
     "ilvl": 176,
     "achievementPoints": 18610,
+    "totalAchievements": 2260,
     "faction": "Aliança",
     "realm": "Goldrinn",
     "guild": "Mesa de Buteco",
     "avatar": "https://render.worldofwarcraft.com/us/character/goldrinn/75/99069515-avatar.jpg",
-    "inset": "https://render.worldofwarcraft.com/us/character/goldrinn/75/99069515-inset.jpg",
-    "raids": [
+    "mountsCount": 390,
+    "petsCount": 283,
+    "recentAchievements": [
       {
-        "name": "Manaforge Omega",
-        "kills": 8
+        "name": "Arator's Journey",
+        "id": 41805,
+        "date": 1781751060000
       },
       {
-        "name": "Nerub-ar Palace",
-        "kills": 17
+        "name": "For Zul'Aman!",
+        "id": 41803,
+        "date": 1780617240000
       },
       {
-        "name": "Liberation of Undermine",
-        "kills": 8
+        "name": "Explore Zul'Aman",
+        "id": 61856,
+        "date": 1780617180000
       },
       {
-        "name": "Manaforge Omega",
-        "kills": 8
+        "name": "Den of Nalorakk",
+        "id": 61638,
+        "date": 1780615734000
+      },
+      {
+        "name": "Void Assault: Zul'Aman",
+        "id": 62499,
+        "date": 1780545360000
+      }
+    ],
+    "topCategories": [
+      {
+        "name": "Dungeons & Raids",
+        "points": 8960,
+        "quantity": 854
+      },
+      {
+        "name": "Exploration",
+        "points": 1915,
+        "quantity": 173
+      },
+      {
+        "name": "Expansion Features",
+        "points": 1785,
+        "quantity": 204
       }
     ],
     "profileUrl": "https://worldofwarcraft.blizzard.com/pt-br/character/us/goldrinn/lyonys"

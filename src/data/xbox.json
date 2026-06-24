@@ -1,0 +1,69 @@
+{
+  "updatedAt": "2026-06-24T00:08:34.505Z",
+  "recent": [
+    {
+      "name": "World of Warcraft",
+      "titleId": "1664882211",
+      "lastPlayed": "2026-06-23T02:11:34.398526Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKBDd29XwvB8IeLHBOGxr0X773.93tldyMe_l6Dia9sf1HAQZM9fP5Me2EuGVCS3aVMzt93X3fwem0H5Gp67Q9Rw--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1664882211"
+    },
+    {
+      "name": "It Takes Two",
+      "titleId": "1918682910",
+      "lastPlayed": "2026-06-17T00:32:41.8101601Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1918682910"
+    },
+    {
+      "name": "Battlefield™ 6",
+      "titleId": "1786930119",
+      "lastPlayed": "2026-06-12T02:24:33.1146734Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1786930119"
+    },
+    {
+      "name": "Grand Theft Auto IV",
+      "titleId": "1759230317",
+      "lastPlayed": "2026-05-17T03:02:48.7890311Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKl7ukqMtB8ocJOttJZMS2WvkiZYqF3kZuMmsKqFkMfNsvWqiMyaCXZfSt1ThXsbfT.T2Zozs5.9PW.PD9B1TBfQ--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1759230317"
+    },
+    {
+      "name": "Overwatch",
+      "titleId": "1635723607",
+      "lastPlayed": "2026-03-17T02:59:41.5237817Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKdXirYFFxI_Ppjd8g5DK1M.2p8Dea5.WrF94jnQrkG_H3NPRL7m2yqsvSCoH0of79GFKCkk4NbjnSBWpzhKFq2A--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1635723607"
+    },
+    {
+      "name": "Counter-Strike 2",
+      "titleId": "2076696971",
+      "lastPlayed": "2026-03-15T05:22:11.9338835Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/2076696971"
+    },
+    {
+      "name": "Hearthstone: Heroes of Warcraft",
+      "titleId": "1873961403",
+      "lastPlayed": "2026-02-10T02:29:40.7867109Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKHB8qkPpSP2vRUbpw4cEDCGaYhmwh0vnD5kpbgrSr4Wu0yelBrLp.Pb.8UtHU5LwV_zL2z7QR.A0lpBVJTQ4gAg--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1873961403"
+    },
+    {
+      "name": "Where Winds Meet",
+      "titleId": "1693534474",
+      "lastPlayed": "2025-12-07T03:32:40.656869Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1693534474"
+    }
+  ]
+}

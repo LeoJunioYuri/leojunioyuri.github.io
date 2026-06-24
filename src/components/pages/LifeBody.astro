@@ -6,6 +6,7 @@ import letterboxd from "@/data/letterboxd.json";
 import { games as gameList } from "@/data/games";
 import spotify from "@/data/spotify.json";
 import steam from "@/data/steam.json";
+import xbox from "@/data/xbox.json";
 import youtube from "@/data/youtube.json";
 
 interface Props {
@@ -19,6 +20,7 @@ const tracks = spotify.tracks ?? [];
 const recentGames = steam.games ?? [];
 const topGames = (steam as any).topGames ?? [];
 const steamWishlist = (steam as any).wishlist ?? [];
+const xboxRecent = xbox.recent ?? [];
 const videos = youtube.videos ?? [];
 const watched = letterboxd.watched ?? [];
 const watchlist = letterboxd.watchlist ?? [];
@@ -264,6 +266,39 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
         >
           {t("life.games.wishlist.cta")} →
+        </a>
+      </div>
+    )}
+
+    {/* —— Xbox —— */}
+    {xboxRecent.length > 0 && (
+      <div class="mt-14">
+        <h2 data-reveal-scroll class="text-xl font-bold tracking-tight">
+          🎮 {t("life.xbox.title")}
+        </h2>
+        <ul data-reveal-scroll class="mt-4 grid gap-2 sm:grid-cols-2">
+          {(xboxRecent as any[]).map((g) => (
+            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+              {g.image ? (
+                <img src={g.image} alt="" width="40" height="40" loading="lazy"
+                  class="h-10 w-10 shrink-0 rounded object-cover" />
+              ) : (
+                <div class="h-10 w-10 shrink-0 rounded bg-[var(--surface-2)] flex items-center justify-center text-lg">🎮</div>
+              )}
+              <span class="min-w-0 flex-1 truncate text-sm font-medium">{g.name}</span>
+              <span class="shrink-0 text-xs text-[var(--muted)]">
+                {new Date(g.lastPlayed).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en', { month: 'short', day: 'numeric' })}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="https://www.xbox.com/pt-BR/play/user/Leonardo%20Yuri"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
+        >
+          {t("life.xbox.cta")} →
         </a>
       </div>
     )}

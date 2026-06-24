@@ -365,14 +365,6 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           ))}
         </ul>
       </dialog>
-      <script>
-        const btn   = document.getElementById('xbox-dialog-btn');
-        const dlg   = document.getElementById('xbox-dialog') as HTMLDialogElement | null;
-        const close = document.getElementById('xbox-dialog-close');
-        btn?.addEventListener('click', () => dlg?.showModal());
-        close?.addEventListener('click', () => dlg?.close());
-        dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-      </script>
     )}
 
     {/* —— YouTube —— */}
@@ -482,3 +474,12 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
     }
   </section>
 </BaseLayout>
+
+<script>
+  const btn   = document.getElementById('xbox-dialog-btn');
+  const dlg   = document.getElementById('xbox-dialog') as HTMLDialogElement | null;
+  const close = document.getElementById('xbox-dialog-close');
+  btn?.addEventListener('click', () => dlg?.showModal());
+  close?.addEventListener('click', () => dlg?.close());
+  dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+</script>

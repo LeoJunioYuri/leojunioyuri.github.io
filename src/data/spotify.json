@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T00:41:52.267Z",
+  "updatedAt": "2026-06-24T00:43:54.228Z",
   "tracks": [
     {
       "name": "10 Anos",
@@ -56,6 +56,92 @@
       "url": "https://open.spotify.com/track/1p6dBmCdP7xh3OMTYJDZPK",
       "image": "https://i.scdn.co/image/ab67616d000048517541a7dd6385ccb55185c2ce",
       "playedAt": "2026-06-24T00:07:11.437Z"
+    }
+  ],
+  "topTracks": [
+    {
+      "rank": 1,
+      "name": "Rivers Between Us",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+    },
+    {
+      "rank": 2,
+      "name": "Pale Tortured Blue",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+    },
+    {
+      "rank": 3,
+      "name": "Stellar Tombs",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+    },
+    {
+      "rank": 4,
+      "name": "IGYEIH",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+    },
+    {
+      "rank": 5,
+      "name": "Stained",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/0J1IJsMbKWb5g2sJArTkGF",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+    },
+    {
+      "rank": 6,
+      "name": "No Lonelier Star",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+    },
+    {
+      "rank": 7,
+      "name": "Poppaea",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
+    },
+    {
+      "rank": 8,
+      "name": "Cut the Bridge",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+    },
+    {
+      "rank": 9,
+      "name": "Sonne",
+      "artist": "Rammstein",
+      "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
+      "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
+    },
+    {
+      "rank": 10,
+      "name": "Good Things Go",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/6aCBjSb87RizdH8lVBIRW7",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+    },
+    {
+      "rank": 11,
+      "name": "Pretty When You Cry",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/6PnluwP0fjGnpIBsqTdUTq",
+      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
+    },
+    {
+      "rank": 12,
+      "name": "Dishearten",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
     }
   ]
 }

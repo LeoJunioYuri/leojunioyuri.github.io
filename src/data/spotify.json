@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-06-24T08:52:40.680Z",
+  "updatedAt": "2026-06-24T14:05:47.450Z",
   "tracks": [
+    {
+      "name": "Sanctuary",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/2T8m3LGBXAw4HL6R4hjLR2",
+      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
+      "playedAt": "2026-06-24T14:03:31.343Z"
+    },
+    {
+      "name": "Without You",
+      "artist": "Mariah Carey",
+      "url": "https://open.spotify.com/track/0pkIJFV6mviH9dmBYsFwTM",
+      "image": "https://i.scdn.co/image/ab67616d000048514b509947e48d592bfd0d237b",
+      "playedAt": "2026-06-24T13:59:24.895Z"
+    },
+    {
+      "name": "Tour of Venice",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/1mjGi3lwIFdnAsQJ8HtdDK",
+      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
+      "playedAt": "2026-06-24T13:54:29.820Z"
+    },
     {
       "name": "Dreams of Venice",
       "artist": "Jesper Kyd, Assassin's Creed",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/3X6iIrFuQoCshIWBseEKPl",
       "image": "https://i.scdn.co/image/ab67616d00004851f1157b7dcd21bae0c2c75d89",
       "playedAt": "2026-06-24T05:17:53.870Z"
-    },
-    {
-      "name": "Money",
-      "artist": "Pink Floyd",
-      "url": "https://open.spotify.com/track/0vFOzaXqZHahrZp6enQwQb",
-      "image": "https://i.scdn.co/image/ab67616d00004851db216ca805faf5fe35df4ee6",
-      "playedAt": "2026-06-24T05:13:28.474Z"
-    },
-    {
-      "name": "Lonely Boy - 2021 Remaster",
-      "artist": "The Black Keys",
-      "url": "https://open.spotify.com/track/6OQWPkRPWVMzTQsHOjIZVD",
-      "image": "https://i.scdn.co/image/ab67616d000048511984ae05d586371351e056d7",
-      "playedAt": "2026-06-24T05:07:07.971Z"
-    },
-    {
-      "name": "Brave New World",
-      "artist": "Greta Van Fleet",
-      "url": "https://open.spotify.com/track/0HwdiT4MVRzY0OALcjq0Oh",
-      "image": "https://i.scdn.co/image/ab67616d000048517b9e5a9d697bcb8bf86a83b4",
-      "playedAt": "2026-06-24T05:03:53.855Z"
     }
   ],
   "topTracks": {

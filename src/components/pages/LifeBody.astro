@@ -76,62 +76,23 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       )
     }
 
-    {/* —— Ouvindo / Listening —— */}
+    {/* —— Música / Music —— */}
     <h2 data-reveal-scroll class="mt-16 text-xl font-bold tracking-tight">
       🎧 {t("life.music.title")}
     </h2>
-    {
-      tracks.length === 0 ? (
-        <p data-reveal-scroll class="mt-4 text-sm text-[var(--muted)]">
-          {t("life.music.empty")}
-        </p>
-      ) : (
-        <ul data-reveal-scroll class="mt-4 grid gap-2 sm:grid-cols-2">
-          {tracks.map((tr: any) => (
-            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
-              {tr.image && (
-                <img
-                  src={tr.image}
-                  alt=""
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                  class="h-10 w-10 rounded object-cover"
-                />
-              )}
-              <span class="min-w-0">
-                <a
-                  href={tr.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block truncate text-sm font-medium hover:text-[var(--accent)]"
-                >
-                  {tr.name}
-                </a>
-                <span class="block truncate text-xs text-[var(--muted)]">
-                  {tr.artist}
-                </span>
-              </span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
 
-    {topTracks.length > 0 && (
-      <div data-reveal-scroll class="mt-8">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-          {t("life.music.top")}
+    {/* Últimas ouvidas */}
+    {tracks.length > 0 && (
+      <div data-reveal-scroll>
+        <h3 class="mt-5 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+          {t("life.music.recent")}
         </h3>
         <ul class="mt-3 grid gap-2 sm:grid-cols-2">
-          {topTracks.map((tr: any) => (
+          {tracks.slice(0, 4).map((tr: any) => (
             <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
-              <span class="shrink-0 w-5 text-center text-xs font-bold text-[var(--muted)]">
-                {tr.rank}
-              </span>
               {tr.image && (
-                <img src={tr.image} alt="" width="36" height="36" loading="lazy"
-                  class="h-9 w-9 shrink-0 rounded object-cover" />
+                <img src={tr.image} alt="" width="40" height="40" loading="lazy"
+                  class="h-10 w-10 rounded object-cover" />
               )}
               <span class="min-w-0">
                 <a href={tr.url} target="_blank" rel="noopener noreferrer"
@@ -144,6 +105,59 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           ))}
         </ul>
       </div>
+    )}
+
+    {/* Mais ouvidas — abas por período */}
+    {(topTracks.short?.length > 0 || topTracks.medium?.length > 0 || topTracks.long?.length > 0) && (
+      <div data-reveal-scroll class="mt-8">
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+          {t("life.music.top")}
+        </h3>
+        <!-- Tab buttons -->
+        <div class="mt-3 flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-1 w-fit">
+          {(['short','medium','long'] as const).map((range) => (
+            <button
+              data-music-tab={range}
+              class:list={[
+                'music-tab rounded-md px-3 py-1.5 text-xs font-medium transition-colors',
+                range === 'short'
+                  ? 'bg-[var(--bg)] text-[var(--fg)] shadow-sm'
+                  : 'text-[var(--muted)] hover:text-[var(--fg)]'
+              ]}
+            >
+              {range === 'short' ? t("life.music.tab.short") : range === 'medium' ? t("life.music.tab.medium") : t("life.music.tab.long")}
+            </button>
+          ))}
+        </div>
+        <!-- Tab panels -->
+        {(['short','medium','long'] as const).map((range) => (
+          <ul
+            data-music-panel={range}
+            class:list={['mt-3 grid gap-2 sm:grid-cols-2', range !== 'short' && 'hidden']}
+          >
+            {(topTracks[range] ?? []).map((tr: any) => (
+              <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+                <span class="shrink-0 w-5 text-center text-xs font-bold text-[var(--muted)]">{tr.rank}</span>
+                {tr.image && (
+                  <img src={tr.image} alt="" width="36" height="36" loading="lazy"
+                    class="h-9 w-9 shrink-0 rounded object-cover" />
+                )}
+                <span class="min-w-0">
+                  <a href={tr.url} target="_blank" rel="noopener noreferrer"
+                    class="block truncate text-sm font-medium hover:text-[var(--accent)]">
+                    {tr.name}
+                  </a>
+                  <span class="block truncate text-xs text-[var(--muted)]">{tr.artist}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    )}
+
+    {tracks.length === 0 && topTracks.short?.length === 0 && (
+      <p data-reveal-scroll class="mt-4 text-sm text-[var(--muted)]">{t("life.music.empty")}</p>
     )}
 
     {/* —— Jogos / Games —— */}
@@ -505,6 +519,21 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
 </BaseLayout>
 
 <script>
+  // Music tabs
+  const musicTabs   = document.querySelectorAll<HTMLButtonElement>('[data-music-tab]');
+  const musicPanels = document.querySelectorAll<HTMLElement>('[data-music-panel]');
+  musicTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const range = tab.dataset.musicTab!;
+      musicTabs.forEach((t) => t.classList.toggle('bg-[var(--bg)]', t.dataset.musicTab === range));
+      musicTabs.forEach((t) => t.classList.toggle('shadow-sm', t.dataset.musicTab === range));
+      musicTabs.forEach((t) => t.classList.toggle('text-[var(--fg)]', t.dataset.musicTab === range));
+      musicTabs.forEach((t) => t.classList.toggle('text-[var(--muted)]', t.dataset.musicTab !== range));
+      musicPanels.forEach((p) => p.classList.toggle('hidden', p.dataset.musicPanel !== range));
+    });
+  });
+
+  // Xbox dialog
   const btn   = document.getElementById('xbox-dialog-btn');
   const dlg   = document.getElementById('xbox-dialog') as HTMLDialogElement | null;
   const close = document.getElementById('xbox-dialog-close');

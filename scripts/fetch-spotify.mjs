@@ -30,19 +30,31 @@ const tracks = (recentData.items || []).map((i) => ({
   playedAt: i.played_at,
 }));
 
-// All-time top tracks
-const topRes = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=12&time_range=long_term", { headers });
-const topData = await topRes.json();
-const topTracks = (topData.items || []).map((t, i) => ({
-  rank: i + 1,
-  name: t.name,
-  artist: t.artists.map((a) => a.name).join(", "),
-  url: t.external_urls?.spotify,
-  image: t.album?.images?.at(-1)?.url,
-}));
+// Top tracks — 3 time ranges
+function mapTracks(items) {
+  return (items || []).map((t, i) => ({
+    rank: i + 1,
+    name: t.name,
+    artist: t.artists.map((a) => a.name).join(", "),
+    url: t.external_urls?.spotify,
+    image: t.album?.images?.at(-1)?.url,
+  }));
+}
+
+const [shortRes, medRes, longRes] = await Promise.all([
+  fetch("https://api.spotify.com/v1/me/top/tracks?limit=12&time_range=short_term", { headers }),
+  fetch("https://api.spotify.com/v1/me/top/tracks?limit=12&time_range=medium_term", { headers }),
+  fetch("https://api.spotify.com/v1/me/top/tracks?limit=12&time_range=long_term", { headers }),
+]);
+
+const topTracks = {
+  short:  mapTracks((await shortRes.json()).items),
+  medium: mapTracks((await medRes.json()).items),
+  long:   mapTracks((await longRes.json()).items),
+};
 
 writeFileSync(
   new URL("../src/data/spotify.json", import.meta.url),
   JSON.stringify({ updatedAt: new Date().toISOString(), tracks, topTracks }, null, 2) + "\n",
 );
-console.log(`Recent: ${tracks.length} | Top all-time: ${topTracks.length} tracks.`);
+console.log(`Recent: ${tracks.length} | Top short/medium/long: ${topTracks.short.length}/${topTracks.medium.length}/${topTracks.long.length}`);

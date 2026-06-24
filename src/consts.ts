@@ -15,6 +15,7 @@ export const SITE = {
     imdb: "https://letterboxd.com/leojunioyuri/films/",
     youtube: "https://youtube.com/@leojunioyuri",
     steam: "https://steamcommunity.com/id/leojunioyuri/",
+    spotify: "https://open.spotify.com/user/12152000462",
   },
 } as const;
 

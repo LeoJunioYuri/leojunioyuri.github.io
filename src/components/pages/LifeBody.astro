@@ -161,6 +161,12 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
     {tracks.length === 0 && topTracks.short?.length === 0 && (
       <p data-reveal-scroll class="mt-4 text-sm text-[var(--muted)]">{t("life.music.empty")}</p>
     )}
+    {SITE.links.spotify && (
+      <a href={SITE.links.spotify} target="_blank" rel="noopener noreferrer"
+        class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">
+        {lang === 'pt' ? 'Ver perfil no Spotify' : 'View Spotify profile'} →
+      </a>
+    )}
 
     {/* —— Jogos / Games ——*/}
     <h2 data-reveal-scroll class="mt-14 text-xl font-bold tracking-tight">

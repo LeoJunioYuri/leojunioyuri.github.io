@@ -7,6 +7,7 @@ import { games as gameList } from "@/data/games";
 import spotify from "@/data/spotify.json";
 import steam from "@/data/steam.json";
 import xbox from "@/data/xbox.json";
+import wowData from "@/data/wow.json";
 import youtube from "@/data/youtube.json";
 
 interface Props {
@@ -31,6 +32,7 @@ const steamRecent = (steam.games ?? []).map((g: any) => ({
 }));
 const xboxRaw = (xbox.recent ?? []) as any[];
 const xboxTopGamerscore = (xbox as any).topGamerscore ?? [];
+const wow = (wowData as any).wow ?? null;
 const steamNames = new Set(steamRecent.map((g: any) => normName(g.name)));
 const xboxOnly = xboxRaw.filter((g) => !steamNames.has(normName(g.name))).map((g) => ({
   name: g.name, image: g.image, url: g.url, minutes2weeks: 0,
@@ -345,6 +347,60 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           ))}
         </ul>
       </dialog>
+    )}
+
+    {/* —— WoW / Battle.net —— */}
+    {wow?.name && (
+      <div data-reveal-scroll class="mt-14">
+        <h2 class="text-xl font-bold tracking-tight">⚔️ World of Warcraft</h2>
+        <div class="mt-5 flex gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
+          {wow.avatar && (
+            <img src={wow.avatar} alt={wow.name} width="80" height="80"
+              loading="lazy" class="h-20 w-20 shrink-0 rounded-xl object-cover" />
+          )}
+          <div class="min-w-0">
+            <p class="text-lg font-bold">{wow.name}</p>
+            <p class="text-sm text-[var(--muted)]">
+              {wow.race} {wow.class} · {wow.spec}
+            </p>
+            <p class="text-sm text-[var(--muted)]">
+              {wow.guild && <span class="text-[var(--fg)] font-medium">&lt;{wow.guild}&gt;</span>}{wow.guild && ' · '}
+              {wow.realm} · Lv {wow.level}
+            </p>
+            <div class="mt-3 flex flex-wrap gap-3 text-sm">
+              <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2.5 py-1">
+                <span class="text-[var(--muted)] text-xs">ilvl </span>
+                <span class="font-semibold">{wow.ilvl}</span>
+              </span>
+              <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2.5 py-1">
+                <span class="text-[var(--muted)] text-xs">conquistas </span>
+                <span class="font-semibold">{wow.achievementPoints?.toLocaleString()}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {wow.raids?.length > 0 && (
+          <div class="mt-5">
+            <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+              {lang === 'pt' ? 'Progressão recente' : 'Recent progression'}
+            </h3>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+              {wow.raids.map((r: any) => (
+                <li class="flex items-center justify-between rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5">
+                  <span class="text-sm font-medium">{r.name}</span>
+                  <span class="text-xs text-[var(--muted)]">{r.kills} kills</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <a href={wow.profileUrl} target="_blank" rel="noopener noreferrer"
+          class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">
+          {lang === 'pt' ? 'Ver perfil no Armory' : 'View Armory profile'} →
+        </a>
+      </div>
     )}
 
     {/* —— YouTube —— */}

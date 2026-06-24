@@ -1,0 +1,36 @@
+{
+  "updatedAt": "2026-06-24T00:56:45.663Z",
+  "wow": {
+    "name": "Lyonys",
+    "level": 89,
+    "race": "Pandaren",
+    "class": "Monge",
+    "spec": "Andarilho do Vento",
+    "ilvl": 176,
+    "achievementPoints": 18610,
+    "faction": "Aliança",
+    "realm": "Goldrinn",
+    "guild": "Mesa de Buteco",
+    "avatar": "https://render.worldofwarcraft.com/us/character/goldrinn/75/99069515-avatar.jpg",
+    "inset": "https://render.worldofwarcraft.com/us/character/goldrinn/75/99069515-inset.jpg",
+    "raids": [
+      {
+        "name": "Manaforge Omega",
+        "kills": 8
+      },
+      {
+        "name": "Nerub-ar Palace",
+        "kills": 17
+      },
+      {
+        "name": "Liberation of Undermine",
+        "kills": 8
+      },
+      {
+        "name": "Manaforge Omega",
+        "kills": 8
+      }
+    ],
+    "profileUrl": "https://worldofwarcraft.blizzard.com/pt-br/character/us/goldrinn/lyonys"
+  }
+}

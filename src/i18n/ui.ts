@@ -17,7 +17,7 @@ export const ui = {
     "hero.tagline":
       "Product Engineer construindo automação com IA para fazer restaurantes venderem mais.",
     "hero.lede":
-      "Construí o MetaAds na Brendi — do zero a 2.000+ restaurantes, com R$4M+ em mídia gerida e R$20M+ em vendas para os restaurantes.",
+      "Construí o MetaAds na Brendi — do zero a 2.000+ restaurantes, com R$4M+ em mídia gerida e R$20M+ em vendas rastreadas para restaurantes.",
     "hero.location": "São José dos Campos, Brasil",
     "parallax.toast":
       "Modo Parallax — meu apelido na UFLA. Dizem que eu usava o efeito até demais.",
@@ -37,7 +37,7 @@ export const ui = {
     "case.metaads.desc": "Construí do zero o sistema end-to-end que gerencia campanhas de tráfego pago para 2.000+ restaurantes — do onboarding à IA que decide e otimiza, ao rastreamento de cada venda gerada.",
     "case.bullets": [
       "Plataforma SaaS: painel, investimento, onboarding e backoffice",
-      "Anderson: IA que decide orçamento, cria criativos e otimiza",
+      "Gestor de Tráfego por IA: cria novos anúncios, ajusta orçamentos e otimiza",
       "Data & Attribution: R$20M+ em vendas rastreadas ponta a ponta",
       "2.000+ restaurantes · R$4M+ em mídia gerida",
     ],
@@ -174,7 +174,7 @@ export const ui = {
     "hero.tagline":
       "Product Engineer building AI automation to make restaurants sell more.",
     "hero.lede":
-      "I built core parts of MetaAds at Brendi — from zero to 2,000+ restaurants, with R$4M+ in media managed and R$20M+ in tracked sales.",
+      "I built MetaAds at Brendi — from zero to 2,000+ restaurants, with R$4M+ in media managed and R$20M+ in tracked sales for restaurants.",
     "hero.location": "São José dos Campos, Brazil · EU citizen",
     "parallax.toast":
       "Parallax mode — my UFLA nickname. They say I overused the effect.",
@@ -194,7 +194,7 @@ export const ui = {
     "case.metaads.desc": "Built from scratch the end-to-end system that manages paid-traffic campaigns for 2,000+ restaurants — from onboarding to the AI that decides and optimizes, to tracking every sale generated.",
     "case.bullets": [
       "SaaS platform: dashboard, billing, onboarding, backoffice",
-      "Anderson: AI that decides budget, creates creatives, optimizes",
+      "AI Traffic Manager: creates new ads, adjusts budgets and optimizes",
       "Data & Attribution: R$20M+ in sales tracked end-to-end",
       "2,000+ restaurants · R$4M+ in media managed",
     ],

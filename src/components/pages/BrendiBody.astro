@@ -246,71 +246,57 @@ const engItems = pt
         {pt ? "O produto em ação" : "The product in action"}
       </p>
 
-      {/* Hero: dashboard de métricas */}
-      <figure class="overflow-hidden rounded-xl border border-[var(--border)]">
-        <img
-          src="/metaads-dashboard.png"
-          alt={pt ? "Dashboard de resultados — Retorno 31.7x" : "Results dashboard — 31.7x return"}
-          loading="lazy"
-          class="w-full"
-        />
-        <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
-          {pt
-            ? "Resultados · R$441 investidos → R$14k em vendas · 231 pedidos · 388 novos clientes · 31.7× retorno"
-            : "Results · R$441 invested → R$14k in sales · 231 orders · 388 new customers · 31.7× return"}
-        </figcaption>
-      </figure>
+      {/* All screenshots — clickable lightbox */}
+      {[
+        {
+          src: "/metaads-dashboard.png",
+          captionPt: "Resultados · R$441 investidos → R$14k em vendas · 231 pedidos · 388 novos clientes · 31.7× retorno",
+          captionEn: "Results · R$441 invested → R$14k in sales · 231 orders · 388 new customers · 31.7× return",
+          wide: true,
+        },
+        {
+          src: "/metaads-anderson.png",
+          captionPt: "Gestor Anderson · relatório semanal + chat IA — o dono tira dúvidas, entende o ROI e aprende sobre o tráfego da sua loja",
+          captionEn: "Anderson Manager · weekly report + AI chat — owner asks questions, understands ROI and learns about their store's traffic",
+          wide: true,
+        },
+        {
+          src: "/metaads-curso.png",
+          captionPt: "Ajuda · curso gravado integrado ao produto — o dono aprende sobre tráfego pago diretamente na plataforma",
+          captionEn: "Help · recorded course integrated into the product — owner learns about paid traffic directly on the platform",
+          wide: true,
+        },
+      ].map(s => (
+        <figure
+          data-lb-src={s.src}
+          data-lb-caption={pt ? s.captionPt : s.captionEn}
+          class="lb-trigger mt-3 cursor-zoom-in overflow-hidden rounded-xl border border-[var(--border)] transition-opacity hover:opacity-90"
+        >
+          <img src={s.src} alt={pt ? s.captionPt : s.captionEn} loading="lazy" class="w-full" />
+          <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
+            {pt ? s.captionPt : s.captionEn}
+          </figcaption>
+        </figure>
+      ))}
 
-      {/* Anderson: gestor conversacional */}
-      <figure class="mt-3 overflow-hidden rounded-xl border border-[var(--border)]">
-        <img
-          src="/metaads-anderson.png"
-          alt={pt ? "Gestor Anderson — relatórios e chat conversacional" : "Anderson Manager — reports and conversational chat"}
-          loading="lazy"
-          class="w-full"
-        />
-        <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
-          {pt
-            ? "Gestor Anderson · relatório semanal + chat IA — o dono tira dúvidas, entende o ROI e aprende sobre o tráfego da sua loja"
-            : "Anderson Manager · weekly report + AI chat — the owner asks questions, understands ROI and learns about their store's traffic"}
-        </figcaption>
-      </figure>
-
-      {/* Curso integrado */}
-      <figure class="mt-3 overflow-hidden rounded-xl border border-[var(--border)]">
-        <img
-          src="/metaads-curso.png"
-          alt={pt ? "Curso de tráfego pago integrado ao produto" : "Paid traffic course integrated into the product"}
-          loading="lazy"
-          class="w-full"
-        />
-        <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
-          {pt
-            ? "Ajuda · curso gravado integrado ao produto — o dono aprende sobre tráfego pago diretamente na plataforma"
-            : "Help · recorded course integrated into the product — the owner learns about paid traffic directly on the platform"}
-        </figcaption>
-      </figure>
-
-      {/* Grid: anúncios + fluxo de criação */}
+      {/* Grid de 3 */}
       <div class="mt-3 grid gap-3 sm:grid-cols-3">
         {[
-          {
-            src: "/metaads-ads.png",
+          { src: "/metaads-ads.png",
             captionPt: "Aba de anúncios — criativos reais com resultados por anúncio",
-            captionEn: "Ads tab — real creatives with per-ad results",
-          },
-          {
-            src: "/metaads-create-1.png",
+            captionEn: "Ads tab — real creatives with per-ad results" },
+          { src: "/metaads-create-1.png",
             captionPt: "Criação de anúncio — mídia pronta, preview ao vivo",
-            captionEn: "Ad creation — media ready, live preview",
-          },
-          {
-            src: "/metaads-create-2.png",
+            captionEn: "Ad creation — media ready, live preview" },
+          { src: "/metaads-create-2.png",
             captionPt: "Revisão antes de publicar — link de cardápio + preview final",
-            captionEn: "Review before publishing — menu link + final preview",
-          },
+            captionEn: "Review before publishing — menu link + final preview" },
         ].map(s => (
-          <figure class="overflow-hidden rounded-xl border border-[var(--border)]">
+          <figure
+            data-lb-src={s.src}
+            data-lb-caption={pt ? s.captionPt : s.captionEn}
+            class="lb-trigger cursor-zoom-in overflow-hidden rounded-xl border border-[var(--border)] transition-opacity hover:opacity-90"
+          >
             <img src={s.src} alt={pt ? s.captionPt : s.captionEn} loading="lazy" class="w-full" />
             <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-xs text-[var(--muted)]">
               {pt ? s.captionPt : s.captionEn}
@@ -319,6 +305,22 @@ const engItems = pt
         ))}
       </div>
     </div>
+
+    <!-- Lightbox dialog -->
+    <dialog
+      id="lb-dialog"
+      class="m-auto w-full max-w-4xl rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-0 shadow-2xl backdrop:bg-black/70"
+    >
+      <div class="relative">
+        <button
+          id="lb-close"
+          aria-label={pt ? "Fechar" : "Close"}
+          class="absolute right-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full bg-black/50 text-white hover:bg-black/70"
+        >✕</button>
+        <img id="lb-img" src="" alt="" class="w-full rounded-t-2xl" />
+        <p id="lb-caption" class="px-5 py-3 text-sm text-[var(--muted)]"></p>
+      </div>
+    </dialog>
 
     <!-- Anderson decision loop diagram -->
     <div class="mt-8">
@@ -379,3 +381,39 @@ const engItems = pt
 
   </article>
 </BaseLayout>
+
+<style is:global>
+  #lb-dialog {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  #lb-dialog[open] {
+    opacity: 1;
+    transform: scale(1);
+  }
+  #lb-dialog::backdrop {
+    transition: background-color 0.22s ease;
+  }
+</style>
+
+<script>
+  const dlg    = document.getElementById('lb-dialog') as HTMLDialogElement | null;
+  const lbImg  = document.getElementById('lb-img') as HTMLImageElement | null;
+  const lbCap  = document.getElementById('lb-caption');
+  const lbClose= document.getElementById('lb-close');
+
+  document.querySelectorAll<HTMLElement>('.lb-trigger').forEach(fig => {
+    fig.addEventListener('click', () => {
+      if (!dlg || !lbImg || !lbCap) return;
+      lbImg.src = fig.dataset.lbSrc ?? '';
+      lbImg.alt = fig.dataset.lbCaption ?? '';
+      lbCap.textContent = fig.dataset.lbCaption ?? '';
+      dlg.showModal();
+    });
+  });
+
+  lbClose?.addEventListener('click', () => dlg?.close());
+  dlg?.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') dlg?.close(); });
+</script>

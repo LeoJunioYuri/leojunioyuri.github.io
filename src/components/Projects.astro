@@ -1,0 +1,150 @@
+---
+import type { Lang } from "@/consts";
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const pt = lang === "pt";
+
+const projects = pt
+  ? [
+      {
+        name: "Beta Gun",
+        year: "2017",
+        emoji: "🎮",
+        desc: "Jogo 2D de plataforma e shooter feito aos 17 anos durante a Game Jam da UFLA, em equipe de 5. Mundo futurista, pixel art, feito com Construct engine. Disponível grátis no itch.io.",
+        tags: ["Game Jam", "Construct", "Pixel Art", "HTML5"],
+        url: "https://leojunioyuri.itch.io/beta-gun",
+        cta: "Jogar no itch.io →",
+        highlight: true,
+      },
+      {
+        name: "Pensão Mansão Azul",
+        year: "2023",
+        emoji: "🏠",
+        desc: "Site desenvolvido para uma pensão estudantil em Lavras, MG. React no front-end, .NET no back-end. Totalmente responsivo e otimizado — atingiu ~3.000 pessoas na primeira semana.",
+        tags: ["React", "TypeScript", "Next.js", ".NET", "Tailwind"],
+        url: "https://github.com/LeoJunioYuri/pensao-mansao-azul",
+        cta: "Ver no GitHub →",
+        highlight: false,
+      },
+      {
+        name: "Goal Invest",
+        year: "2024",
+        emoji: "📈",
+        desc: "PWA para calcular a rentabilidade de investimentos com aportes iniciais, contribuições mensais e metas financeiras. Projeto pessoal alinhado com a experiência no CIMVEST.",
+        tags: ["PWA", "React", "TypeScript", "Investimentos"],
+        url: "https://github.com/LeoJunioYuri/goal-invest",
+        cta: "Ver no GitHub →",
+        highlight: false,
+      },
+      {
+        name: "Bear Classifier AI",
+        year: "2024",
+        emoji: "🐻",
+        desc: "Classificador de imagens com rede neural pré-treinada MobileNet. Usuário seleciona uma imagem e o modelo classifica em tempo real. Um dos primeiros experimentos práticos com ML.",
+        tags: ["React", "TypeScript", "MobileNet", "Machine Learning"],
+        url: "https://github.com/LeoJunioYuri/bear-classifier-AI",
+        cta: "Ver no GitHub →",
+        highlight: false,
+      },
+    ]
+  : [
+      {
+        name: "Beta Gun",
+        year: "2017",
+        emoji: "🎮",
+        desc: "2D platformer/shooter made at 17 during UFLA's Game Jam, with a team of 5. Futuristic world, pixel art, built with Construct engine. Free to play on itch.io.",
+        tags: ["Game Jam", "Construct", "Pixel Art", "HTML5"],
+        url: "https://leojunioyuri.itch.io/beta-gun",
+        cta: "Play on itch.io →",
+        highlight: true,
+      },
+      {
+        name: "Pensão Mansão Azul",
+        year: "2023",
+        emoji: "🏠",
+        desc: "Website built for a student accommodation in Lavras, MG. React frontend, .NET backend. Fully responsive and optimized — reached ~3,000 people in the first week.",
+        tags: ["React", "TypeScript", "Next.js", ".NET", "Tailwind"],
+        url: "https://github.com/LeoJunioYuri/pensao-mansao-azul",
+        cta: "View on GitHub →",
+        highlight: false,
+      },
+      {
+        name: "Goal Invest",
+        year: "2024",
+        emoji: "📈",
+        desc: "PWA to calculate investment returns with initial contributions, monthly investments and financial goals. Personal project aligned with my CIMVEST background.",
+        tags: ["PWA", "React", "TypeScript", "Finance"],
+        url: "https://github.com/LeoJunioYuri/goal-invest",
+        cta: "View on GitHub →",
+        highlight: false,
+      },
+      {
+        name: "Bear Classifier AI",
+        year: "2024",
+        emoji: "🐻",
+        desc: "Image classifier using a pre-trained MobileNet neural network. User selects an image and the model classifies it in real time. One of the first practical ML experiments.",
+        tags: ["React", "TypeScript", "MobileNet", "Machine Learning"],
+        url: "https://github.com/LeoJunioYuri/bear-classifier-AI",
+        cta: "View on GitHub →",
+        highlight: false,
+      },
+    ];
+---
+
+<section class="border-t border-[var(--border)]">
+  <div class="mx-auto max-w-3xl px-5 py-16 sm:px-6">
+    <h2 data-reveal-scroll class="text-2xl font-bold tracking-tight sm:text-3xl">
+      {pt ? "🚀 Projetos" : "🚀 Projects"}
+    </h2>
+    <p data-reveal-scroll class="mt-2 text-[var(--muted)]">
+      {pt
+        ? "Experimentos, freelances e side projects ao longo do caminho."
+        : "Experiments, freelance work and side projects along the way."}
+    </p>
+
+    <div data-reveal-scroll class="mt-8 grid gap-4 sm:grid-cols-2">
+      {projects.map((p) => (
+        <div class:list={[
+          "flex flex-col rounded-2xl border p-5 transition-colors hover:border-[var(--accent)]",
+          p.highlight
+            ? "border-[var(--accent)] bg-[var(--accent-soft)]"
+            : "border-[var(--border)] bg-[var(--surface)]"
+        ]}>
+          <div class="flex items-center gap-2">
+            <span class="text-xl" aria-hidden="true">{p.emoji}</span>
+            <div>
+              <h3 class="font-bold text-[var(--fg)]">{p.name}</h3>
+              <span class="text-xs text-[var(--muted)]">{p.year}</span>
+            </div>
+          </div>
+          <p class="mt-3 flex-1 text-sm text-[var(--muted)]">{p.desc}</p>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            {p.tags.map(tag => (
+              <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2 py-0.5 text-xs text-[var(--muted)]">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 text-sm font-semibold text-[var(--accent)] hover:underline"
+          >
+            {p.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <a
+      data-reveal-scroll
+      href="https://github.com/LeoJunioYuri"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-6 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
+    >
+      {pt ? "Ver todos no GitHub →" : "See all on GitHub →"}
+    </a>
+  </div>
+</section>

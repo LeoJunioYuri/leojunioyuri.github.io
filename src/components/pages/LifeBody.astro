@@ -4,6 +4,7 @@ import { SITE, type Lang } from "@/consts";
 import { useTranslations, formatDate } from "@/i18n/utils";
 import letterboxd from "@/data/letterboxd.json";
 import Career from "@/components/Career.astro";
+import Projects from "@/components/Projects.astro";
 import { games as gameList } from "@/data/games";
 import spotify from "@/data/spotify.json";
 import steam from "@/data/steam.json";
@@ -74,6 +75,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
   </section>
 
   <Career lang={lang} />
+  <Projects lang={lang} />
 
   <section class="mx-auto max-w-3xl px-5 pb-20 sm:px-6">
     {

@@ -97,15 +97,15 @@ export const ui = {
     "interests.subtitle": "O que me forma além do código.",
     "interests.metal.title": "Metal sinfônico & gótico",
     "interests.metal.desc":
-      "Theatre of Tragedy, Therion. Gosto de destrinchar letra, contexto e simbolismo.",
+      "Nightwish, Theatre of Tragedy, Therion. Gosto de destrinchar letra, contexto e simbolismo.",
     "interests.tkd.title": "Artes Marciais",
     "interests.tkd.desc": "Taekwondo, Boxe, Muay Thai. Disciplina e ritmo que levo pra dentro do trabalho.",
-    "interests.intl.title": "História & estratégia",
+    "interests.intl.title": "História",
     "interests.intl.desc":
       "Quando não estou construindo produto, costumo estar treinando, lendo ou estudando história. Tenho interesse por civilizações, estratégia e disciplina — de Roma ao Brasil Imperial, das artes marciais aos jogos com mundos bem construídos. No fundo, gosto de entender como sistemas nascem, evoluem, quebram e podem ser melhorados.",
     "interests.writing.title": "Escrita manual",
     "interests.writing.desc":
-      "Escrevo para aprender, lembrar e registrar decisões enquanto os produtos ainda estão vivos.",
+      "Começando a escrever para aprender, lembrar e registrar decisões enquanto os produtos ainda estão vivos.",
 
     "writing.title": "Escrita",
     "writing.subtitle":
@@ -254,10 +254,10 @@ export const ui = {
     "interests.subtitle": "What shapes me beyond the code.",
     "interests.metal.title": "Symphonic & gothic metal",
     "interests.metal.desc":
-      "Theatre of Tragedy, Therion. I love digging into lyrics, context and symbolism.",
+      "Nightwish,Theatre of Tragedy, Therion. I love digging into lyrics, context and symbolism.",
     "interests.tkd.title": "Martial Arts",
     "interests.tkd.desc": "Taekwondo, Boxing, Muay Thai. Discipline and rhythm I carry into the work.",
-    "interests.intl.title": "History & strategy",
+    "interests.intl.title": "History",
     "interests.intl.desc":
       "When I'm not building product, I'm usually training, reading, or studying history. I'm drawn to civilizations, strategy and discipline — from Rome to Imperial Brazil, from martial arts to games with well-crafted worlds. At the core, I like understanding how systems are born, evolve, break and can be improved.",
     "interests.writing.title": "Writing by hand",

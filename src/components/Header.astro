@@ -17,7 +17,7 @@ const current = norm(path);
 const links = [
   { href: localizedPath(lang, "brendi"), label: t("nav.brendi") },
   { href: localizedPath(lang, "writing"), label: t("nav.writing") },
-  { href: `${home === "/" ? "" : home}/#about`, label: t("nav.about") },
+  { href: localizedPath(lang, "life"), label: t("nav.about") },
   { href: localizedPath(lang, "now"), label: t("nav.now") },
 ].map((l) => ({
   ...l,

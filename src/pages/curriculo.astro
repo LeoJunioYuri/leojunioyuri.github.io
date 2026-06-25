@@ -14,8 +14,8 @@ const experiences = [
       "Liderei o desenvolvimento do MetaAds, plataforma autônoma de tráfego pago para restaurantes, escalando de 0 até operação em produção na base da Brendi — R$20M+ em vendas rastreadas e ROAS médio de 10×.",
       "Atuei como principal engenheiro responsável pela arquitetura, implementação e evolução do produto; reduzi o custo operacional a zero construindo camada financeira própria — R$500k+/mês em verba gerida autonomamente.",
       "Projetei e implementei APIs serverless que chegam a 10M+ requests/mês, p95 < 200ms e 0,1% error rate, em GCP + PostgreSQL/AlloyDB com Layered Architecture.",
-      "Implementei agente LLM (GPT-5) para gestão autônoma de campanhas: cria criativos, pausa anúncios de baixo ROAS e reativa o que performa, com memória pgvector e 7 guardrails determinísticos.",
-      "Desenvolvi sistema de atribuição clique → cardápio → pedido via Meta Pixel + CAPI, conectando cada R$1 investido à venda gerada — base do R$20M+ rastreado.",
+      "Implementei agente LLM (OpenAI) para gestão autônoma de campanhas: cria criativos, pausa anúncios de baixo ROAS e reativa o que performa, com memória pgvector e 7 guardrails determinísticos.",
+      "Desenvolvi sistema de atribuição clique → cardápio → pedido via Meta Pixel + CAPI, conectando investimento, campanhas, consumidores e pedidos para métricas de ROAS, CAC e receita por loja.",
       "Configurei stack de observabilidade: PostHog para feature flags e rollouts sem deploy, Sentry para monitoramento em produção e Metabase para analytics e decisões movidas a dados.",
     ],
     current: true,
@@ -26,8 +26,8 @@ const experiences = [
     period: "Ago 2023 — Jul 2024",
     location: "Remoto",
     bullets: [
-      "Desenvolveu para grande organização educacional no Brasil sistema que atingiu 100.000+ interações em 4 meses.",
-      "Plataformas all-in-one (BPM, ECM, CRM) — modelagem de processos e integração com sistemas legados para clientes enterprise.",
+      "Desenvolvi funcionalidades para plataforma enterprise de organização educacional no Brasil, atingindo 100.000+ interações em 4 meses.",
+      "Modelei processos e integrações em plataformas all-in-one (BPM, ECM, CRM), conectando fluxos de negócio a sistemas legados para clientes enterprise.",
     ],
     current: false,
   },
@@ -37,8 +37,8 @@ const experiences = [
     period: "Mar 2021 — Jan 2023",
     location: "Belo Horizonte, MG",
     bullets: [
-      "Desenvolveu componentes da reformulação de plataforma integrada de gestão para o maior cliente de mineração do Brasil.",
-      "Stack: JavaScript, TypeScript, React, C#, .NET, Java e Spring Boot. Testes com Jest, xUnit e CI/CD no Azure.",
+      "Desenvolvi componentes frontend e backend na reformulação de plataforma integrada de gestão para o maior cliente de mineração do Brasil.",
+      "Atuei com JavaScript, TypeScript, React, C#, .NET, Java e Spring Boot, incluindo testes com Jest/xUnit e pipelines CI/CD no Azure.",
     ],
     current: false,
   },
@@ -55,18 +55,18 @@ const experiences = [
 ];
 
 const skills = [
-  { label: "Linguagens", items: "TypeScript · JavaScript · C# · Node.js" },
+  { label: "Linguagens", items: "TypeScript · JavaScript · C# · SQL" },
   { label: "Frontend", items: "Vue.js · Nuxt · React · Next.js · Tailwind CSS" },
-  { label: "Backend / Cloud", items: "GCP · Cloud Functions · Cloud Tasks · Firebase · Docker · GitHub Actions" },
-  { label: "Banco de Dados", items: "PostgreSQL · AlloyDB · MySQL · Supabase · pgvector · Firebase" },
-  { label: "IA & Integrações", items: "OpenAI · LLMs · Meta Marketing API · WhatsApp API · Starkbank API" },
-  { label: "Observabilidade", items: "PostHog · Sentry · Metabase" },
-  { label: "Ferramentas", items: "Prisma · Zod · Git · CI/CD (GitHub Actions)" },
+  { label: "Backend / Cloud", items: "Node.js · GCP · Cloud Functions · Cloud Tasks · Firebase · Docker · GitHub Actions" },
+  { label: "Banco de Dados", items: "PostgreSQL · AlloyDB · MySQL · Firestore · Supabase · pgvector" },
+  { label: "IA & Integrações", items: "OpenAI · LLMs · Meta Marketing API · Meta Pixel / CAPI · WhatsApp API · Starkbank API" },
+  { label: "Observabilidade & Analytics", items: "PostHog · Sentry · Metabase" },
+  { label: "Ferramentas", items: "Prisma · Zod · Git · CI/CD" },
   { label: "Idiomas", items: "Português (nativo) · Inglês (avançado) · Espanhol (intermediário) · Italiano (básico)" },
 ];
 
 const projects = [
-  { name: "Site Pessoal & Portfólio", url: "https://leojunioyuri.github.io", year: "2026", desc: "Portfólio bilíngue em Astro 7 + Tailwind CSS v4 com integrações ao vivo: Spotify, Steam, Xbox, Battle.net, Letterboxd. Parallax, dark/light mode, case study completo e currículo web." },
+  { name: "Site Pessoal & Portfólio", url: "https://leojunioyuri.github.io", year: "2026", desc: "Portfólio bilíngue em Astro + Tailwind CSS com integrações ao vivo: Spotify, Steam, Xbox, Battle.net, Letterboxd. Dark/light mode, case study completo do MetaAds e currículo web." },
   { name: "Pensão Mansão Azul", url: "https://www.pensaomansaoazul.com.br/", year: "2023", desc: "Site em React, TypeScript, Next.js e .NET para pensão estudantil. ~3.000 pessoas na primeira semana." },
 ];
 ---

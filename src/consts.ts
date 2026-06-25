@@ -2,7 +2,7 @@
 export const SITE = {
   name: "Leonardo Basso",
   url: "https://leojunioyuri.github.io",
-  email: "leojunioyuri@hotmail.com",
+  email: "leojunioyuri@gmail.com",
   socials: {
     github: "https://github.com/leojunioyuri",
     linkedin: "https://www.linkedin.com/in/leojunioyuri/",

@@ -1,12 +1,12 @@
 ---
 import type { Lang } from "@/consts";
-import { useTranslations } from "@/i18n/utils";
+import { useTranslations, localizedPath } from "@/i18n/utils";
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-
+const lifePath = localizedPath(lang, "life");
 ---
 
 <section id="about" class="scroll-mt-20 border-t border-[var(--border)]">
@@ -20,9 +20,13 @@ const t = useTranslations(lang);
     >
       <p>{t("about.body")}</p>
       <p class="text-[var(--muted)]">{t("about.body2")}</p>
-      <p class="border-l-2 border-[var(--accent)] pl-4 text-[var(--fg)]">
-        {t("about.body3")}
-      </p>
     </div>
+    <a
+      data-reveal-scroll
+      href={lifePath}
+      class="mt-6 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
+    >
+      {lang === "pt" ? "Vida fora do código →" : "Life outside the code →"}
+    </a>
   </div>
 </section>

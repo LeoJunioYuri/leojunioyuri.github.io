@@ -17,16 +17,16 @@ export const ui = {
     "hero.tagline":
       "Product Engineer construindo automação com IA para fazer restaurantes venderem mais.",
     "hero.lede":
-      "Construí o MetaAds na Brendi — do zero a 2.000+ restaurantes, com R$4M+ em mídia gerida e R$20M+ em vendas rastreadas para restaurantes.",
+      "Construí o MetaAds na Brendi — 2.000+ restaurantes atendidos, 600+ ativos hoje, com R$4M+ em mídia gerida e R$20M+ em vendas rastreadas.",
     "hero.location": "São José dos Campos, Brasil",
     "parallax.toast":
       "Modo Parallax — meu apelido na UFLA. Dizem que eu usava o efeito até demais.",
     "hero.cta.work": "Ver o que construí",
     "hero.cta.writing": "Ler os bastidores",
 
-    "stats.restaurants": "restaurantes",
-    "stats.media": "em mídia gerida",
-    "stats.sales": "em vendas",
+    "stats.restaurants": "restaurantes atendidos",
+    "stats.media": "em mídia gerida (acum.)",
+    "stats.sales": "em vendas rastreadas (acum.)",
     "stats.months": "meses construindo",
 
     "work.title": "O que construí",
@@ -174,16 +174,16 @@ export const ui = {
     "hero.tagline":
       "Product Engineer building AI automation to make restaurants sell more.",
     "hero.lede":
-      "I built MetaAds at Brendi — from zero to 2,000+ restaurants, with R$4M+ in media managed and R$20M+ in tracked sales for restaurants.",
+      "I built MetaAds at Brendi — 2,000+ restaurants served, 600+ active today, with R$4M+ in media managed and R$20M+ in tracked sales.",
     "hero.location": "São José dos Campos, Brazil · EU citizen",
     "parallax.toast":
       "Parallax mode — my UFLA nickname. They say I overused the effect.",
     "hero.cta.work": "See what I shipped",
     "hero.cta.writing": "Read behind the scenes",
 
-    "stats.restaurants": "restaurants",
-    "stats.media": "in media managed",
-    "stats.sales": "in tracked sales",
+    "stats.restaurants": "restaurants served",
+    "stats.media": "in media managed (cum.)",
+    "stats.sales": "in tracked sales (cum.)",
     "stats.months": "months building",
 
     "work.title": "What I shipped",

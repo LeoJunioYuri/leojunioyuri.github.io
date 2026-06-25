@@ -9,13 +9,14 @@ const experiences = [
     role: "Product Engineer · Founding Team",
     company: "Brendi",
     period: "Oct 2024 — present",
-    location: "São José dos Campos, SP",
+    location: "São José dos Campos, Brazil",
     bullets: [
-      "Lead the consumer acquisition area, where I developed MetaAds — autonomous AI-powered paid traffic system that grew from zero to 2,000+ restaurants served, with R$20M+ in tracked sales and an average 10× return on investment for our clients.",
-      "Serverless architecture in TypeScript/Node.js/Vue.js + GCP Cloud Functions, built from scratch with PostgreSQL/AlloyDB, Prisma ORM and Layered Architecture.",
-      "Anderson: autonomous LLM agent (GPT-5, reasoning=high) with 5-phase weekly cycle, pgvector memory (1536d), real ROAS attribution loop and 7 deterministic guardrails.",
-      "Own financial ledger: R$500k+/month in client budget managed autonomously via PIX + Meta API, no human operator in the loop.",
-      "PostHog (feature flags), Sentry (monitoring, gauge metrics), Metabase with 150+ analytics cards.",
+      "Led the development of MetaAds, an autonomous paid-traffic platform for restaurants, scaling from 0 to 2,000+ active restaurants across Brendi's base — R$20M+ in attributed sales and average 10× ROAS.",
+      "Served as primary engineer owning architecture, implementation and product evolution, eliminating all manual intervention in the financial flow with a custom billing layer managing R$500k+/month autonomously.",
+      "Designed and implemented serverless APIs handling 10M+ requests/month, p95 < 200ms and 0.1% error rate on GCP + PostgreSQL/AlloyDB with layered backend architecture.",
+      "Built an LLM agent for autonomous campaign management: generates data-driven creatives, pauses underperforming ads and reactivates winning campaigns using pgvector memory and 7 deterministic guardrails.",
+      "Developed end-to-end sales tracking — ad → click → menu → order — via Meta Pixel + CAPI, connecting ad spend, campaigns, consumers and orders for ROAS, CAC and per-store revenue metrics.",
+      "Set up observability stack with PostHog for feature flags and zero-deploy rollouts, Sentry for production monitoring and Metabase for data-driven analytics and decisions.",
     ],
     current: true,
   },
@@ -25,9 +26,8 @@ const experiences = [
     period: "Aug 2023 — Jul 2024",
     location: "Remote",
     bullets: [
-      "Specialized in all-in-one platforms (BPM, ECM, CRM) for large organizations.",
-      "Contributed to a transition project for a major Brazilian educational organization, reaching 100,000+ interactions in 4 months.",
-      "Process modelling and implementation for enterprise clients; technical requirement meetings.",
+      "Developed features for an enterprise platform serving a large Brazilian educational organization, reaching 100,000+ interactions in 4 months.",
+      "Modelled processes and integrations across all-in-one platforms (BPM, ECM, CRM), connecting business workflows to legacy systems for enterprise clients.",
     ],
     current: false,
   },
@@ -35,41 +35,24 @@ const experiences = [
     role: "Full Stack Intern",
     company: "dti digital",
     period: "Mar 2021 — Jan 2023",
-    location: "Belo Horizonte, MG",
+    location: "Remote",
     bullets: [
-      "Development in JavaScript, TypeScript, React, C#, .NET, Java and Spring Boot.",
-      "Participated in the redesign of an integrated management platform for Brazil's largest mining client.",
-      "Testing with Jest, React Testing Library and xUnit. CI/CD and micro-frontends on Azure Cloud.",
-    ],
-    current: false,
-  },
-  {
-    role: "Tech Lead & Frontend Developer",
-    company: "Comp Júnior · UFLA",
-    period: "Jun 2019 — Jan 2021",
-    location: "Lavras, MG",
-    bullets: [
-      "Tech Lead: technical knowledge distribution, team health and agile culture.",
-      "Frontend development in a junior company with real clients and Scrum methodology.",
+      "Developed frontend and backend components for the redesign of an integrated management platform for Brazil's largest mining client.",
+      "Worked with JavaScript, TypeScript, React, C#, .NET, Java and Spring Boot, including Jest/xUnit testing and CI/CD pipelines on Azure.",
     ],
     current: false,
   },
 ];
 
 const skills = [
-  { label: "Languages", items: "TypeScript · JavaScript · C# · Node.js" },
-  { label: "Frontend", items: "Vue.js · Nuxt · React · Next.js · Tailwind CSS · Astro" },
-  { label: "Backend / Cloud", items: "GCP · Cloud Functions · Cloud Tasks · Firebase · Docker · GitHub Actions" },
-  { label: "Database", items: "PostgreSQL · AlloyDB · MySQL · Supabase · pgvector · Firebase" },
-  { label: "AI & Integrations", items: "OpenAI · LLMs · Meta Marketing API · WhatsApp API · Starkbank API" },
-  { label: "Observability", items: "PostHog · Sentry · Metabase · Replit" },
-  { label: "Tools", items: "Prisma · Zod · Biome · Git · Scrum" },
-  { label: "Languages (spoken)", items: "Portuguese (native) · English (full professional) · Italian (elementary) · Spanish (basic)" },
-];
-
-const projects = [
-  { name: "Personal Site & Portfolio", url: "https://leojunioyuri.github.io", year: "2026", desc: "Bilingual portfolio in Astro 7 + Tailwind CSS v4 with live integrations: Spotify, Steam, Xbox, Battle.net, Letterboxd." },
-  { name: "Pensão Mansão Azul", url: "https://www.pensaomansaoazul.com.br/", year: "2023", desc: "Site in React, TypeScript, Next.js and .NET. ~3,000 people in the first week." },
+  { label: "Languages", items: "TypeScript · JavaScript · C# · SQL" },
+  { label: "Frontend", items: "Vue.js · Nuxt · React · Next.js · Tailwind CSS" },
+  { label: "Backend / Cloud", items: "Node.js · GCP · Cloud Functions · Cloud Tasks · Firebase · Docker · GitHub Actions" },
+  { label: "Databases", items: "PostgreSQL · AlloyDB · MySQL · Firestore · Supabase · pgvector" },
+  { label: "AI & Integrations", items: "OpenAI · LLMs · Meta Marketing API · Meta Pixel / CAPI · WhatsApp API · Starkbank API" },
+  { label: "Observability & Analytics", items: "PostHog · Sentry · Metabase" },
+  { label: "Tools", items: "Prisma · Zod · Git · CI/CD" },
+  { label: "Languages (spoken)", items: "Portuguese (native) · English (full professional) · Spanish (intermediate) · Italian (elementary)" },
 ];
 ---
 
@@ -163,12 +146,16 @@ const projects = [
         <span>·</span>
         <a href={SITE.url}>leojunioyuri.github.io</a>
       </div>
+      <p style="margin-top:6px;font-size:9pt;font-family:system-ui,sans-serif;color:#555;">
+        São José dos Campos, Brazil · <strong style="color:#111;">Italian citizen (EU)</strong> — eligible to work in the EU without visa sponsorship
+      </p>
     </header>
 
     <section>
       <h2>Summary</h2>
       <p style="font-size:9.5pt;">
-        Software and Product Engineer with 4+ years of experience, with a degree in Computer Science from UFLA. At Brendi, I lead the consumer acquisition area, where I developed MetaAds — an autonomous AI-powered paid traffic system that grew from zero to 2,000+ restaurants served, with R$20M+ in tracked sales and an average 10× return on investment for our clients.
+        Product Engineer with experience building full-stack products, AI systems, data platforms and financial automations at scale.
+        Lead engineer of MetaAds at Brendi — R$20M+ in tracked sales, R$500k+/month in managed ad budget and 10M+ requests/month in production.
       </p>
     </section>
 
@@ -193,8 +180,8 @@ const projects = [
           <div class="exp-meta"><div>Aug 2018 — Dec 2023</div><div>Lavras, MG</div></div>
         </div>
         <ul>
-          <li>President of CIMVEST (2021): first investment & financial education hub at UFLA, grew from 10 to 40 members, 1st Symposium with 300+ attendees.</li>
-          <li>Tech Lead at Comp Júnior (2019–2021): technical leadership in a junior company with agile culture.</li>
+          <li>President of CIMVEST (2021): built the first investment & financial education hub at UFLA, growing from 10 to 40 members. 1st Symposium with 300+ attendees.</li>
+          <li>Tech Lead & Frontend Developer at Comp Júnior (2019–2021): junior software company at UFLA, technical leadership and project delivery for real clients.</li>
         </ul>
       </div>
     </section>
@@ -204,19 +191,6 @@ const projects = [
       <div class="skills-grid">
         {skills.map(s => <p class="skill-row"><strong>{s.label}:</strong> {s.items}</p>)}
       </div>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      {projects.map(p => (
-        <div class="project">
-          <div class="project-header">
-            <a href={p.url} target="_blank" rel="noopener noreferrer">{p.name}</a>
-            <span class="project-year">{p.year}</span>
-          </div>
-          <p class="project-desc">{p.desc}</p>
-        </div>
-      ))}
     </section>
 
     </div>

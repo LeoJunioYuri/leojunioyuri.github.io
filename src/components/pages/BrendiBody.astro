@@ -240,24 +240,54 @@ const engItems = pt
       </div>
     </section>
 
-    <!-- Dashboard screenshot -->
-    <div class="mt-8">
-      <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
-        {pt ? "O painel em ação — resultado real de um cliente" : "The dashboard in action — real client result"}
+    <!-- Product screenshots gallery -->
+    <div class="mt-10">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+        {pt ? "O produto em ação" : "The product in action"}
       </p>
+
+      {/* Hero: dashboard de métricas */}
       <figure class="overflow-hidden rounded-xl border border-[var(--border)]">
         <img
           src="/metaads-dashboard.png"
-          alt={pt ? "Dashboard MetaAds — Retorno 31.7x sobre investimento" : "MetaAds Dashboard — 31.7x return on investment"}
+          alt={pt ? "Dashboard de resultados — Retorno 31.7x" : "Results dashboard — 31.7x return"}
           loading="lazy"
           class="w-full"
         />
         <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
           {pt
-            ? "R$441 investidos → R$14k em vendas · 231 pedidos · 388 novos clientes · 31.7× de retorno"
-            : "R$441 invested → R$14k in sales · 231 orders · 388 new customers · 31.7× return"}
+            ? "Resultados · R$441 investidos → R$14k em vendas · 231 pedidos · 388 novos clientes · 31.7× retorno"
+            : "Results · R$441 invested → R$14k in sales · 231 orders · 388 new customers · 31.7× return"}
         </figcaption>
       </figure>
+
+      {/* Grid: anúncios + fluxo de criação */}
+      <div class="mt-3 grid gap-3 sm:grid-cols-3">
+        {[
+          {
+            src: "/metaads-ads.png",
+            captionPt: "Aba de anúncios — criativos reais com resultados por anúncio",
+            captionEn: "Ads tab — real creatives with per-ad results",
+          },
+          {
+            src: "/metaads-create-1.png",
+            captionPt: "Criação de anúncio — mídia pronta, preview ao vivo",
+            captionEn: "Ad creation — media ready, live preview",
+          },
+          {
+            src: "/metaads-create-2.png",
+            captionPt: "Revisão antes de publicar — link de cardápio + preview final",
+            captionEn: "Review before publishing — menu link + final preview",
+          },
+        ].map(s => (
+          <figure class="overflow-hidden rounded-xl border border-[var(--border)]">
+            <img src={s.src} alt={pt ? s.captionPt : s.captionEn} loading="lazy" class="w-full" />
+            <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-xs text-[var(--muted)]">
+              {pt ? s.captionPt : s.captionEn}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
     </div>
 
     <!-- Anderson decision loop diagram -->

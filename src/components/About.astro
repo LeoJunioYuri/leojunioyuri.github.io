@@ -17,12 +17,12 @@ const lifePath = localizedPath(lang, "life");
 
     <div data-reveal-scroll class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-10">
       <!-- Foto — estica para igualar a altura do texto -->
-      <div class="sm:w-52 sm:shrink-0">
+      <div class="h-56 overflow-hidden rounded-2xl shadow-lg ring-2 ring-[var(--border)] sm:h-full sm:w-52 sm:shrink-0">
         <img
           src={SITE.photo}
           alt="Leonardo Basso"
           loading="lazy"
-          class="h-56 w-full rounded-2xl object-cover object-top shadow-lg ring-2 ring-[var(--border)] sm:h-full"
+          class="h-full w-full object-cover object-top transition-transform duration-500 ease-out hover:scale-[1.06]"
         />
       </div>
 

@@ -15,16 +15,14 @@ const lifePath = localizedPath(lang, "life");
       {t("about.title")}
     </h2>
 
-    <div data-reveal-scroll class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
-      <!-- Foto -->
-      <div class="shrink-0">
+    <div data-reveal-scroll class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-10">
+      <!-- Foto — estica para igualar a altura do texto -->
+      <div class="sm:w-44 sm:shrink-0">
         <img
           src={SITE.photo}
           alt="Leonardo Basso"
-          width="160"
-          height="160"
           loading="lazy"
-          class="h-40 w-40 rounded-2xl object-cover object-top shadow-lg ring-2 ring-[var(--border)]"
+          class="h-56 w-full rounded-2xl object-cover object-top shadow-lg ring-2 ring-[var(--border)] sm:h-full"
         />
       </div>
 

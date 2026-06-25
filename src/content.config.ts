@@ -4,7 +4,7 @@ import { CATEGORIES } from "./i18n/categories";
 
 const blog = defineCollection({
   // Posts live in src/content/blog/<lang>/<slug>.md
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  loader: glob({ pattern: ["**/*.md", "**/*.mdx"], base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

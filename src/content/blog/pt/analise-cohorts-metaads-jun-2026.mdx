@@ -1,0 +1,110 @@
+---
+title: "1.115 lojas, ROAS 9,31× e churn que desapareceu"
+description: "Análise de cohorts do MetaAds em junho de 2026: como a taxa de desativação colapsou de 53% para 1,4% e o que isso significa sobre PMF, ICP e crescimento sustentável."
+date: 2026-06-22
+lang: "pt"
+category: "produto"
+draft: false
+tags: ["MetaAds", "Cohort Analytics", "PMF", "Growth", "Dados"]
+---
+
+import DisableChart from "@/components/charts/DisableChart.astro";
+import RoasBuildup from "@/components/charts/RoasBuildup.astro";
+import HvTable from "@/components/charts/HvTable.astro";
+import GrowthChart from "@/components/charts/GrowthChart.astro";
+
+Rodei o cohort do MetaAds semana passada e o dado que mais me surpreendeu não foi o ROAS — foi o colapso da taxa de desativação.
+
+Em fevereiro, 53% das lojas de um cohort tinham saído antes de completar um mês. Em junho/15, apenas **1,4%**. Isso não é flutuação estatística. É um produto diferente.
+
+---
+
+## Os números do snapshot (22/06/2026)
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:1.5rem 0;">
+  <div style="background:var(--bg);padding:20px 24px;">
+    <p style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Lojas na base</p>
+    <p style="font-size:28px;font-weight:700;font-family:var(--font-mono);line-height:1;">1.115</p>
+    <p style="font-size:11px;color:var(--muted);margin-top:4px;">+160 vs 08/06</p>
+  </div>
+  <div style="background:var(--bg);padding:20px 24px;">
+    <p style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Enabled agora</p>
+    <p style="font-size:28px;font-weight:700;font-family:var(--font-mono);line-height:1;color:var(--accent);">841</p>
+    <p style="font-size:11px;color:var(--muted);margin-top:4px;">75,4% da base</p>
+  </div>
+  <div style="background:var(--bg);padding:20px 24px;">
+    <p style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">ROAS geral</p>
+    <p style="font-size:28px;font-weight:700;font-family:var(--font-mono);line-height:1;color:var(--accent);">9,31×</p>
+    <p style="font-size:11px;color:var(--muted);margin-top:4px;">+0,23× vs 08/06</p>
+  </div>
+  <div style="background:var(--bg);padding:20px 24px;">
+    <p style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">GMV gerado</p>
+    <p style="font-size:28px;font-weight:700;font-family:var(--font-mono);line-height:1;">R$ 9,8M</p>
+    <p style="font-size:11px;color:var(--muted);margin-top:4px;">155.975 pedidos via ads</p>
+  </div>
+</div>
+
+---
+
+## O sinal de PMF: a taxa de desativação colapsou
+
+Em fevereiro/16, 53% das lojas daquele cohort já tinham saído. Hoje, cohorts de junho chegam com 1,4–5,7% de disable rate.
+
+Não é só que as lojas que entram melhoraram. O produto em si se tornou mais difícil de abandonar. O gate de prepaid R$500 + fee fixo R$60 filtraram quem não estava comprometido. O que sobrou, ficou.
+
+<DisableChart />
+
+O ponto de virada foi **abril/27**: antes disso, toda semana nova de cohort vinha com 30–53% de disable. Depois, nenhum cohort ultrapassou 22%. Em junho, a média ficou abaixo de 5%.
+
+---
+
+## O ROAS real só aparece depois da semana 8
+
+O erro mais comum ao avaliar o MetaAds é olhar o ROAS da semana 0 como proxy de qualidade. É um erro estrutural.
+
+No cohort de fev/02 — o maior e mais maduro, com 206 lojas e 19 semanas de histórico — a semana 0 entregou apenas **2,9×**. Quem decidisse sair nessa semana estaria abandonando um produto que chegaria a **12,6×** em regime estacionário.
+
+<RoasBuildup />
+
+O padrão é consistente: cold start nas primeiras 4 semanas (2,9×–6×), compounding entre semanas 5–10 (6×–10×), e steady state acima de 10× depois disso. O MetaAds amplifica tração orgânica pré-existente, e essa tração leva tempo para se manifestar.
+
+---
+
+## ICP: qual é o sweet spot de tração orgânica?
+
+Cruzei os cohorts com o histórico de pedidos orgânicos dos 90 dias antes de ativar os ads. A correlação é clara: lojas com mais pedidos orgânicos entregam ROAS materialmente maior.
+
+<HvTable />
+
+O gate atual do v3 (≥1.000 pedidos/90d) captura as lojas com ROAS ≥13,9×. Mas o **sweet spot é ≥600**: cobre 395 lojas (35% da base) com ROAS 12,8× — aumentar o gate de 600→1.000 remove 143 lojas (–36%) mas melhora o ROAS em apenas +1,1×. O retorno marginal não justifica a redução de TAM.
+
+---
+
+## Aceleração de aquisição: fevereiro foi o big bang
+
+<GrowthChart />
+
+Fevereiro/26 entrou 320 lojas em um mês — 2× qualquer mês anterior. O gate de R$500 + fee R$60 entraram juntos e criaram um funil que qualificava por intenção antes mesmo do primeiro resultado. Depois do pico, a velocidade se estabilizou em 160–200 lojas/mês. Junho está em 169 lojas em 3 semanas, caminhando para ~250.
+
+---
+
+## O que precisa de atenção
+
+**Alarme — Cohort Jun/15: 36,6% never-ordered.** O maior cohort da série (n=71 lojas) abriu a semana com mais de um terço das lojas sem nenhuma semana com pedidos via ads. ROAS wk0 = 6,0×, abaixo dos 8–9× que cohorts recentes entregam em wk0. Pode ser imaturidade (só 1 semana de dados), mas pode indicar um batch de lojas com tração orgânica mais fraca. Monitorar na próxima run (29/06) antes de agir.
+
+**Atenção — 274 lojas desativadas (24,6% da base).** A maioria vem dos cohorts pré-PMF (fev/16–abr/20). Não é deterioração atual — é a cauda de uma era anterior. Mas são 274 lojas que já provaram intenção e podem ser reativadas.
+
+---
+
+## Conclusão
+
+O que esses dados mostram, juntos:
+
+1. **O produto encontrou PMF.** A disable rate de 1,4% em cohorts recentes é um comportamento que não acontece por acidente.
+2. **O ROAS precisa de tempo.** Qualquer análise que usa wk0 como métrica de decisão está errada.
+3. **O ICP atual está bom, mas não perfeito.** O gate ≥600 captura mais valor por loja adicionada do que o gate ≥1.000.
+4. **Crescimento sustentável.** O pico de fevereiro não foi um outlier — foi a base para o regime atual de 160–200 lojas/mês.
+
+---
+
+*Dados referentes ao snapshot de 22/06/2026 · 1.115 lojas · 31 cohorts · R$1,05M invested*

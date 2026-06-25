@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build
@@ -9,7 +10,7 @@ export default defineConfig({
   site: "https://leojunioyuri.github.io",
   base: "/",
   trailingSlash: "ignore",
-  integrations: [sitemap()],
+  integrations: [sitemap(), mdx()],
   i18n: {
     defaultLocale: "pt",
     locales: ["pt", "en"],

@@ -1,0 +1,31 @@
+---
+const data = [
+  { month: 'nov/25', n: 30,  pmf: false },
+  { month: 'dez/25', n: 25,  pmf: false },
+  { month: 'jan/26', n: 41,  pmf: false },
+  { month: 'fev/26', n: 320, pmf: true  },
+  { month: 'mar/26', n: 170, pmf: false },
+  { month: 'abr/26', n: 164, pmf: false },
+  { month: 'mai/26', n: 196, pmf: false },
+  { month: 'jun/26', n: 169, pmf: false },
+];
+const max = 320;
+---
+
+<div class="not-prose my-6 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
+  <p class="mb-4 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+    Novas lojas por mês de onboarding
+  </p>
+  <div class="space-y-2">
+    {data.map(d => (
+      <div class="flex items-center gap-3">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--muted);width:52px;flex-shrink:0;">{d.month}</span>
+        <div style="flex:1;height:20px;background:var(--bg);border:1px solid var(--border);position:relative;border-radius:2px;">
+          <div style={`position:absolute;inset:0;width:${(d.n/max*100).toFixed(1)}%;background:var(--accent);border-radius:2px;opacity:${d.pmf ? 1 : 0.6};`}/>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;width:32px;flex-shrink:0;text-align:right;color:var(--fg);font-weight:600;">{d.n}</span>
+        {d.pmf && <span style="font-size:10px;color:var(--accent);font-weight:600;white-space:nowrap;">← PMF</span>}
+      </div>
+    ))}
+  </div>
+</div>

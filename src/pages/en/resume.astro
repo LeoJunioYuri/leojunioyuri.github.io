@@ -1,0 +1,225 @@
+---
+import { SITE } from "@/consts";
+
+const title = "Resume — Leonardo Basso";
+const description = "Product Engineer · Brendi · leojunioyuri.github.io";
+
+const experiences = [
+  {
+    role: "Product Engineer · Founding Team",
+    company: "Brendi",
+    period: "Oct 2024 — present",
+    location: "São José dos Campos, SP",
+    bullets: [
+      "Lead the consumer acquisition area, where I developed MetaAds — autonomous AI-powered paid traffic system that grew from zero to 2,000+ restaurants served, with R$20M+ in tracked sales and an average 10× return on investment for our clients.",
+      "Serverless architecture in TypeScript/Node.js/Vue.js + GCP Cloud Functions, with Firestore → PostgreSQL/AlloyDB migration (220+ Prisma migrations, zero downtime).",
+      "Anderson: AI agent with weekly cycle (Observe → Deliberate → Validate → Apply → Report), pgvector memory, attribution loop and 7 safety guardrails.",
+      "Own financial ledger: R$500k+/month in client budget managed autonomously via PIX + Meta API, no human operator in the loop.",
+      "PostHog (feature flags), Sentry (monitoring, gauge metrics), Metabase with 150+ analytics cards.",
+    ],
+    current: true,
+  },
+  {
+    role: "Software Engineer",
+    company: "LEVTY",
+    period: "Aug 2023 — Jul 2024",
+    location: "Remote",
+    bullets: [
+      "Specialized in all-in-one platforms (BPM, ECM, CRM) for large organizations.",
+      "Contributed to a transition project for a major Brazilian educational organization, reaching 100,000+ interactions in 4 months.",
+      "Process modelling and implementation for enterprise clients; technical requirement meetings.",
+    ],
+    current: false,
+  },
+  {
+    role: "Full Stack Intern",
+    company: "dti digital",
+    period: "Mar 2021 — Jan 2023",
+    location: "Belo Horizonte, MG",
+    bullets: [
+      "Development in JavaScript, TypeScript, React, C#, .NET, Java and Spring Boot.",
+      "Participated in the redesign of an integrated management platform for Brazil's largest mining client.",
+      "Testing with Jest, React Testing Library and xUnit. CI/CD and micro-frontends on Azure Cloud.",
+    ],
+    current: false,
+  },
+  {
+    role: "Tech Lead & Frontend Developer",
+    company: "Comp Júnior · UFLA",
+    period: "Jun 2019 — Jan 2021",
+    location: "Lavras, MG",
+    bullets: [
+      "Tech Lead: technical knowledge distribution, team health and agile culture.",
+      "Frontend development in a junior company with real clients and Scrum methodology.",
+    ],
+    current: false,
+  },
+];
+
+const skills = [
+  { label: "Languages", items: "TypeScript · JavaScript · C# · Node.js" },
+  { label: "Frontend", items: "Vue.js · Nuxt · React · Next.js · Tailwind CSS · Astro" },
+  { label: "Backend / Cloud", items: "GCP · Cloud Functions · Cloud Tasks · Firebase · Docker · GitHub Actions" },
+  { label: "Database", items: "PostgreSQL · AlloyDB · MySQL · Supabase · pgvector · Firebase" },
+  { label: "AI & Integrations", items: "OpenAI · LLMs · Meta Marketing API · WhatsApp API · Starkbank API" },
+  { label: "Observability", items: "PostHog · Sentry · Metabase · Replit" },
+  { label: "Tools", items: "Prisma · Zod · Biome · Git · Scrum" },
+  { label: "Languages (spoken)", items: "Portuguese (native) · English (full professional) · Italian (elementary) · Spanish (basic)" },
+];
+
+const projects = [
+  { name: "Pensão Mansão Azul", url: "https://www.pensaomansaoazul.com.br/", year: "2023", desc: "Site in React, TypeScript, Next.js and .NET. ~3,000 people in the first week." },
+  { name: "Goal Invest", url: "https://goal-invest.vercel.app/", year: "2024", desc: "PWA to calculate investment returns with initial contributions and financial goals." },
+  { name: "Beta Gun", url: "https://leojunioyuri.itch.io/beta-gun", year: "2017", desc: "2D platformer/shooter made at a UFLA Game Jam with a team of 5. Free on itch.io." },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root { --text: #111; --muted: #555; --border: #ddd; --bg: #fff; --accent: #9c1f33; }
+      html, body { min-height: 100%; }
+      body {
+        font-family: Charter, Georgia, serif;
+        font-size: 10.5pt;
+        color: var(--text);
+        background: #e8e8e8;
+        line-height: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px 60px;
+      }
+      .cv-page { background: #fff; max-width: 780px; width: 100%; padding: 48px 56px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+      .lang-btn {
+        position: fixed; top: 20px; left: 20px;
+        background: white; color: var(--text); border: 1px solid #ccc;
+        border-radius: 8px; padding: 8px 16px; font-size: 13px;
+        font-family: system-ui, sans-serif; cursor: pointer; font-weight: 600;
+        z-index: 99; text-decoration: none; display: inline-block;
+      }
+      .lang-btn:hover { border-color: #999; }
+      .print-btn {
+        position: fixed; top: 20px; right: 20px;
+        background: var(--accent); color: white; border: none;
+        border-radius: 8px; padding: 8px 16px; font-size: 13px;
+        font-family: system-ui, sans-serif; cursor: pointer; font-weight: 600; z-index: 99;
+      }
+      .print-btn:hover { opacity: 0.9; }
+      .cv-header { text-align: center; margin-bottom: 20px; }
+      .cv-name { font-size: 26pt; font-weight: 700; letter-spacing: -0.02em; }
+      .cv-contacts { margin-top: 6px; font-size: 9pt; color: var(--muted); font-family: system-ui, sans-serif; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; }
+      .cv-contacts a { color: var(--text); text-decoration: none; }
+      .cv-contacts a:hover { text-decoration: underline; }
+      section { margin-top: 18px; }
+      h2 { font-size: 11.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1.5px solid var(--text); padding-bottom: 2px; margin-bottom: 10px; }
+      .exp { margin-bottom: 14px; }
+      .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 2px; }
+      .exp-title { font-weight: 700; font-size: 10.5pt; }
+      .exp-company { font-weight: 400; }
+      .exp-meta { font-size: 9pt; color: var(--muted); font-family: system-ui, sans-serif; text-align: right; }
+      .exp ul { margin-top: 4px; padding-left: 14px; list-style: disc; }
+      .exp li { margin-bottom: 2px; font-size: 9.5pt; }
+      .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; font-size: 9.5pt; }
+      .skill-row strong { font-weight: 700; }
+      .project { margin-bottom: 8px; font-size: 9.5pt; }
+      .project-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .project a { font-weight: 700; color: var(--text); text-decoration: none; }
+      .project a:hover { text-decoration: underline; }
+      .project-year { font-size: 9pt; color: var(--muted); font-family: system-ui, sans-serif; }
+      .project-desc { color: var(--muted); margin-top: 1px; }
+      @media print {
+        body { padding: 0; font-size: 9.5pt; background: #fff; }
+        .cv-page { box-shadow: none; padding: 0; }
+        .print-btn, .lang-btn { display: none !important; }
+        @page { margin: 1.8cm 1.6cm; size: A4; }
+        section { margin-top: 14px; }
+        .exp { margin-bottom: 10px; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="lang-btn" href="/curriculo">PT</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download PDF</button>
+
+    <div class="cv-page">
+
+    <header class="cv-header">
+      <p class="cv-name">Leonardo Basso</p>
+      <div class="cv-contacts">
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        <span>·</span>
+        <a href="tel:+5535998794471">+55 35 99879 4471</a>
+        <span>·</span>
+        <a href={SITE.socials.linkedin}>linkedin.com/in/leojunioyuri</a>
+        <span>·</span>
+        <a href={SITE.socials.github}>github.com/leojunioyuri</a>
+        <span>·</span>
+        <a href={SITE.url}>leojunioyuri.github.io</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p style="font-size:9.5pt;">
+        Software and Product Engineer with 4+ years of experience, with a degree in Computer Science from UFLA. At Brendi, I lead the consumer acquisition area, where I developed MetaAds — an autonomous AI-powered paid traffic system that grew from zero to 2,000+ restaurants served, with R$20M+ in tracked sales and an average 10× return on investment for our clients.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      {experiences.map(exp => (
+        <div class="exp">
+          <div class="exp-header">
+            <span class="exp-title">{exp.role} <span class="exp-company">· {exp.company}</span></span>
+            <div class="exp-meta"><div>{exp.period}</div><div>{exp.location}</div></div>
+          </div>
+          <ul>{exp.bullets.map(b => <li>{b}</li>)}</ul>
+        </div>
+      ))}
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="exp">
+        <div class="exp-header">
+          <span class="exp-title">B.Sc. Computer Science <span class="exp-company">· UFLA</span></span>
+          <div class="exp-meta"><div>Aug 2018 — Dec 2023</div><div>Lavras, MG</div></div>
+        </div>
+        <ul>
+          <li>President of CIMVEST (2021): first investment & financial education hub at UFLA, grew from 10 to 40 members, 1st Symposium with 300+ attendees.</li>
+          <li>Tech Lead at Comp Júnior (2019–2021): technical leadership in a junior company with agile culture.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        {skills.map(s => <p class="skill-row"><strong>{s.label}:</strong> {s.items}</p>)}
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      {projects.map(p => (
+        <div class="project">
+          <div class="project-header">
+            <a href={p.url} target="_blank" rel="noopener noreferrer">{p.name}</a>
+            <span class="project-year">{p.year}</span>
+          </div>
+          <p class="project-desc">{p.desc}</p>
+        </div>
+      ))}
+    </section>
+
+    </div>
+  </body>
+</html>

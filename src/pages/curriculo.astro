@@ -11,9 +11,9 @@ const experiences = [
     period: "Out 2024 — presente",
     location: "São José dos Campos, SP",
     bullets: [
-      "Lidero o MetaAds: sistema end-to-end de tráfego pago automatizado com IA para 2.000+ restaurantes atendidos (600+ ativos). R$20M+ em vendas rastreadas e retorno médio de 10× sobre o investimento.",
-      "Arquitetura serverless em TypeScript/Node.js/Vue.js + GCP Cloud Functions, com migração Firestore → PostgreSQL/AlloyDB (220+ migrations Prisma, zero downtime).",
-      "Anderson: agente de IA com ciclo semanal (Observar → Deliberar → Validar → Aplicar → Reportar), memória pgvector, loop de atribuição e 7 guardrails de segurança.",
+      "Lidero o MetaAds: sistema end-to-end de tráfego pago automatizado com IA para 2.000+ restaurantes atendidos. R$20M+ em vendas rastreadas e retorno médio de 10× sobre o investimento aos nossos clientes.",
+      "Arquitetura serverless em TypeScript/Node.js/Vue.js + GCP Cloud Functions, com migração Firestore → PostgreSQL/AlloyDB.",
+      "Agente de IA , memória pgvector, loop de atribuição e 7 guardrails de segurança.",
       "Financial ledger próprio: R$500k+/mês em verba de clientes gerida via PIX + Meta API, sem operador humano no loop.",
       "PostHog (feature flags), Sentry (monitoramento, gauge metrics), Metabase com 150+ cards de analytics.",
     ],
@@ -117,7 +117,26 @@ const projects = [
         box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       }
 
-      /* ── PRINT BUTTON ── */
+      /* ── BUTTONS ── */
+      .lang-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        color: var(--text);
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-family: system-ui, sans-serif;
+        cursor: pointer;
+        font-weight: 600;
+        z-index: 99;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .lang-btn:hover { border-color: #999; }
+
       .print-btn {
         position: fixed;
         top: 20px;
@@ -211,6 +230,7 @@ const projects = [
     </style>
   </head>
   <body>
+    <a class="lang-btn" href="/en/resume">EN</a>
     <button class="print-btn" onclick="window.print()">⬇ Baixar PDF</button>
 
     <div class="cv-page">
@@ -235,7 +255,7 @@ const projects = [
     <section>
       <h2>Descrição</h2>
       <p style="font-size:9.5pt;">
-        Engenheiro de Software e Product Engineer com 4+ anos de experiência, formado em Ciência da Computação pela UFLA. Na Brendi, lidero a área de aquisição de consumidores, onde desenvolvi o MetaAds — sistema de tráfego pago autônomo com IA que levou de zero a 2.000+ restaurantes atendidos, com R$20M+ em vendas rastreadas e retorno médio de 10× sobre o investimento.
+        Engenheiro de Software e Product Engineer com 4+ anos de experiência, formado em Ciência da Computação pela UFLA. Na Brendi, lidero a área de aquisição de consumidores, onde desenvolvi o MetaAds — sistema de tráfego pago autônomo com IA que levou de zero a 2.000+ restaurantes atendidos, com R$20M+ em vendas rastreadas e retorno médio de 10× sobre o investimento aos nossos clientes.
       </p>
     </section>
 

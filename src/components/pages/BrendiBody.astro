@@ -276,6 +276,21 @@ const engItems = pt
         </figcaption>
       </figure>
 
+      {/* Curso integrado */}
+      <figure class="mt-3 overflow-hidden rounded-xl border border-[var(--border)]">
+        <img
+          src="/metaads-curso.png"
+          alt={pt ? "Curso de tráfego pago integrado ao produto" : "Paid traffic course integrated into the product"}
+          loading="lazy"
+          class="w-full"
+        />
+        <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
+          {pt
+            ? "Ajuda · curso gravado integrado ao produto — o dono aprende sobre tráfego pago diretamente na plataforma"
+            : "Help · recorded course integrated into the product — the owner learns about paid traffic directly on the platform"}
+        </figcaption>
+      </figure>
+
       {/* Grid: anúncios + fluxo de criação */}
       <div class="mt-3 grid gap-3 sm:grid-cols-3">
         {[

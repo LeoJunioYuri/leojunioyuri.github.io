@@ -1,5 +1,5 @@
 ---
-import type { Lang } from "@/consts";
+import { SITE, type Lang } from "@/consts";
 import { useTranslations, localizedPath } from "@/i18n/utils";
 interface Props {
   lang: Lang;
@@ -14,19 +14,31 @@ const lifePath = localizedPath(lang, "life");
     <h2 data-reveal-scroll class="text-2xl font-bold tracking-tight sm:text-3xl">
       {t("about.title")}
     </h2>
-    <div
-      data-reveal-scroll
-      class="mt-6 space-y-4 text-lg leading-relaxed text-[var(--fg)]"
-    >
-      <p>{t("about.body")}</p>
-      <p class="text-[var(--muted)]">{t("about.body2")}</p>
+
+    <div data-reveal-scroll class="mt-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
+      <!-- Foto -->
+      <div class="shrink-0">
+        <img
+          src={SITE.photo}
+          alt="Leonardo Basso"
+          width="160"
+          height="160"
+          loading="lazy"
+          class="h-40 w-40 rounded-2xl object-cover object-top shadow-lg ring-2 ring-[var(--border)]"
+        />
+      </div>
+
+      <!-- Texto -->
+      <div class="space-y-4 text-lg leading-relaxed text-[var(--fg)]">
+        <p>{t("about.body")}</p>
+        <p class="text-[var(--muted)]">{t("about.body2")}</p>
+        <a
+          href={lifePath}
+          class="inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
+        >
+          {lang === "pt" ? "Vida fora do código →" : "Life outside the code →"}
+        </a>
+      </div>
     </div>
-    <a
-      data-reveal-scroll
-      href={lifePath}
-      class="mt-6 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline"
-    >
-      {lang === "pt" ? "Vida fora do código →" : "Life outside the code →"}
-    </a>
   </div>
 </section>

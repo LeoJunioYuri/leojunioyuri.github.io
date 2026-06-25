@@ -1,0 +1,211 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[
+    ignoreheadfoot,
+    top=0.5 in,
+    bottom=0.5 in,
+    left=0.65 in,
+    right=0.65 in,
+    footskip=0.3 in,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Resume — Leonardo Basso},
+    pdfauthor={Leonardo Basso},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage{multicol}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.18 cm
+}{
+    0.12 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.05 cm,
+        parsep=0.05 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\begin{document}
+
+    \begin{center}
+        {\fontsize{25pt}{25pt}\selectfont \textbf{Leonardo Basso}}
+
+        \vspace{5pt}
+
+        \normalsize
+        \href{mailto:leojunioyuri@gmail.com}{leojunioyuri@gmail.com}
+        \quad|\quad
+        \href{tel:+5535998794471}{+55 35 99879 4471}
+        \quad|\quad
+        \href{https://linkedin.com/in/leojunioyuri}{linkedin.com/in/leojunioyuri}
+        \quad|\quad
+        \href{https://github.com/leojunioyuri}{github.com/leojunioyuri}
+        \quad|\quad
+        \href{https://leojunioyuri.github.io}{leojunioyuri.github.io}
+
+        \vspace{3pt}
+        {\small São José dos Campos, Brazil \quad $\cdot$ \quad \textbf{Italian citizen (EU)} — eligible to work in EU without visa sponsorship}
+    \end{center}
+
+    \vspace{3pt}
+
+    % ─── SUMMARY ─────────────────────────────────────────────────────────────
+    \section{Summary}
+    \vspace{0.1 cm}
+    \begin{onecolentry}
+        Product Engineer with experience building full-stack products, AI systems, data platforms and financial automations at scale.
+        Lead engineer of MetaAds at Brendi --- R\$20M+ in tracked sales, R\$500k+/month in managed ad budget and 10M+ requests/month in production.
+    \end{onecolentry}
+
+    \vspace{0.18 cm}
+
+    % ─── EXPERIENCE ──────────────────────────────────────────────────────────
+    \section{Experience}
+
+    \begin{twocolentry}{Oct 2024 -- Present}
+        \textbf{Product Engineer · Founding Team}, Brendi -- São José dos Campos, Brazil
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Led the development of MetaAds, an autonomous paid-traffic platform for restaurants, scaling from 0 to 2,000+ active restaurants across Brendi's base --- R\$20M+ in attributed sales and average 10$\times$ ROAS.
+            \item Served as primary engineer owning architecture, implementation and product evolution, eliminating all manual intervention in the financial flow with a custom billing layer managing R\$500k+/month autonomously.
+            \item Designed and implemented serverless APIs handling 10M+ requests/month, p95 $<$ 200ms and 0.1\% error rate on GCP + PostgreSQL/AlloyDB with layered backend architecture.
+            \item Built an LLM agent for autonomous campaign management: generates data-driven creatives, pauses underperforming ads and reactivates winning campaigns using pgvector memory and 7 deterministic guardrails.
+            \item Developed an end-to-end sales tracking system — ad $\rightarrow$ click $\rightarrow$ menu $\rightarrow$ order — via Meta Pixel + CAPI, connecting ad spend, campaigns, consumers and orders for ROAS, CAC and per-store revenue metrics.
+            \item Set up observability stack with PostHog for feature flags and zero-deploy rollouts, Sentry for production monitoring and Metabase for data-driven analytics and decisions.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.18 cm}
+
+    \begin{twocolentry}{Aug 2023 -- Jul 2024}
+        \textbf{Software Engineer}, LEVTY -- Remote
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Developed features for an enterprise platform serving a large Brazilian educational organization, reaching 100,000+ interactions in 4 months.
+            \item Modelled processes and integrations across all-in-one platforms (BPM, ECM, CRM), connecting business workflows to legacy systems for enterprise clients.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.18 cm}
+
+    \begin{twocolentry}{Mar 2021 -- Jan 2023}
+        \textbf{Full Stack Intern}, dti digital -- Remote
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Developed frontend and backend components for the redesign of an integrated management platform for Brazil's largest mining client.
+            \item Worked with JavaScript, TypeScript, React, C\#, .NET, Java and Spring Boot, including Jest/xUnit testing and CI/CD pipelines on Azure.
+        \end{highlights}
+    \end{onecolentry}
+
+    % ─── EDUCATION ───────────────────────────────────────────────────────────
+    \section{Education}
+
+    \begin{twocolentry}{Aug 2018 -- Dec 2023}
+        \textbf{Federal University of Lavras (UFLA)}, B.Sc. Computer Science -- Lavras, Brazil
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item President of CIMVEST (2021): built the first investment \& financial education hub at UFLA, growing from 10 to 40 members. 1st Symposium with 300+ attendees.
+            \item Tech Lead \& Frontend Developer at Comp Júnior (2019--2021): junior software company at UFLA, technical leadership and project delivery for real clients.
+        \end{highlights}
+    \end{onecolentry}
+
+    % ─── SKILLS ──────────────────────────────────────────────────────────────
+    \section{Skills}
+    \vspace{0.1 cm}
+    \begin{onecolentry}
+        \setlength{\columnsep}{0.5cm}
+        \begin{multicols}{2}
+        \begin{itemize}[topsep=0.04cm, parsep=0.04cm, partopsep=0pt, itemsep=0pt, leftmargin=0cm+10pt]
+            \item \textbf{Languages:} TypeScript, JavaScript, C\#, SQL
+            \item \textbf{Frontend:} Vue.js, Nuxt, React, Next.js, Tailwind CSS
+            \item \textbf{Backend / Cloud:} Node.js, GCP, Cloud Functions, Cloud Tasks, Firebase, Docker, GitHub Actions
+            \item \textbf{Databases:} PostgreSQL, AlloyDB, MySQL, Firestore, Supabase, pgvector
+            \columnbreak
+            \item \textbf{AI \& Integrations:} OpenAI / LLMs, Meta Marketing API, Meta Pixel / CAPI, WhatsApp API, Starkbank API
+            \item \textbf{Observability \& Analytics:} PostHog, Sentry, Metabase
+            \item \textbf{Tools:} Prisma, Zod, Git, CI/CD
+            \item \textbf{Languages (spoken):} Portuguese (native), English (full professional), Spanish (intermediate), Italian (elementary)
+        \end{itemize}
+        \end{multicols}
+    \end{onecolentry}
+
+\end{document}

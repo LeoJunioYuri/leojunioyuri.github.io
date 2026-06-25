@@ -93,15 +93,28 @@ const projects = [
         --accent: #9c1f33;
       }
 
+      html, body {
+        min-height: 100%;
+      }
+
       body {
         font-family: Charter, Georgia, serif;
         font-size: 10.5pt;
         color: var(--text);
-        background: var(--bg);
+        background: #e8e8e8;
         line-height: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px 60px;
+      }
+
+      .cv-page {
+        background: #fff;
         max-width: 780px;
-        margin: 0 auto;
-        padding: 40px 32px;
+        width: 100%;
+        padding: 48px 56px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       }
 
       /* ── PRINT BUTTON ── */
@@ -188,7 +201,8 @@ const projects = [
 
       /* ── PRINT ── */
       @media print {
-        body { padding: 0; font-size: 9.5pt; }
+        body { padding: 0; font-size: 9.5pt; background: #fff; }
+        .cv-page { box-shadow: none; padding: 0; }
         .print-btn { display: none !important; }
         @page { margin: 1.8cm 1.6cm; size: A4; }
         section { margin-top: 14px; }
@@ -198,6 +212,8 @@ const projects = [
   </head>
   <body>
     <button class="print-btn" onclick="window.print()">⬇ Baixar PDF</button>
+
+    <div class="cv-page">
 
     <!-- Header -->
     <header class="cv-header">
@@ -283,5 +299,7 @@ const projects = [
         </div>
       ))}
     </section>
+
+    </div> <!-- /cv-page -->
   </body>
 </html>

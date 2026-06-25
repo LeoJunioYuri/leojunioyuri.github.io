@@ -240,6 +240,26 @@ const engItems = pt
       </div>
     </section>
 
+    <!-- Dashboard screenshot -->
+    <div class="mt-8">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
+        {pt ? "O painel em ação — resultado real de um cliente" : "The dashboard in action — real client result"}
+      </p>
+      <figure class="overflow-hidden rounded-xl border border-[var(--border)]">
+        <img
+          src="/metaads-dashboard.png"
+          alt={pt ? "Dashboard MetaAds — Retorno 31.7x sobre investimento" : "MetaAds Dashboard — 31.7x return on investment"}
+          loading="lazy"
+          class="w-full"
+        />
+        <figcaption class="border-t border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-xs text-[var(--muted)]">
+          {pt
+            ? "R$441 investidos → R$14k em vendas · 231 pedidos · 388 novos clientes · 31.7× de retorno"
+            : "R$441 invested → R$14k in sales · 231 orders · 388 new customers · 31.7× return"}
+        </figcaption>
+      </figure>
+    </div>
+
     <!-- Anderson decision loop diagram -->
     <div class="mt-8">
       <AndersonLoop lang={lang} />

@@ -157,8 +157,8 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
             data-music-panel={range}
             class:list={['mt-3 grid gap-2 sm:grid-cols-2', range !== 'short' && 'hidden']}
           >
-            {(topTracks[range] ?? []).map((tr: any) => (
-              <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+            {(topTracks[range] ?? []).map((tr: any, i: number) => (
+              <li class:list={["flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3", i >= 6 && "hidden sm:flex"]}>
                 <span class="shrink-0 w-5 text-center text-xs font-bold text-[var(--muted)]">{tr.rank}</span>
                 {tr.image && (
                   <img src={tr.image} alt="" width="36" height="36" loading="lazy"
@@ -200,8 +200,8 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           {t("life.games.recent")}
         </h3>
         <ul class="mt-3 grid gap-2 sm:grid-cols-2">
-          {recentGames.map((g: any) => (
-            <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+          {recentGames.map((g: any, i: number) => (
+            <li class:list={["flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3", i >= 4 && "hidden sm:flex"]}>
               {g.image ? (
                 <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 rounded object-cover" />
               ) : (
@@ -257,8 +257,8 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                   <span class="shrink-0 text-xs text-[var(--muted)]">3.000h</span>
                 </li>
               )}
-              {topGames.map((g: any) => (
-                <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+              {topGames.map((g: any, i: number) => (
+                <li class:list={["flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3", i >= 4 && "hidden sm:flex"]}>
                   {g.image && <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 rounded" />}
                   <a href={g.url} target="_blank" rel="noopener noreferrer"
                     class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">{g.name}</a>
@@ -273,8 +273,8 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.wishlist")}</h3>
             <ul class="mt-3 grid gap-2 sm:grid-cols-2">
-              {steamWishlist.map((g: any) => (
-                <li>
+              {steamWishlist.map((g: any, i: number) => (
+                <li class:list={[i >= 4 && "hidden sm:block"]}>
                   <a href={g.url} target="_blank" rel="noopener noreferrer"
                     class="group flex items-center gap-3 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] transition-colors hover:border-[var(--accent)]">
                     {g.header && <img src={g.header} alt="" loading="lazy" class="h-12 w-[88px] shrink-0 object-cover" />}
@@ -329,8 +329,8 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.xbox.top")}</h3>
             <ul class="mt-3 grid gap-2">
-              {xboxTopGamerscore.slice(0, 6).map((g: any) => (
-                <li class="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3">
+              {xboxTopGamerscore.slice(0, 6).map((g: any, i: number) => (
+                <li class:list={["flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3", i >= 4 && "hidden sm:flex"]}>
                   {g.image ? (
                     <img src={g.image} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 shrink-0 rounded object-cover" />
                   ) : (
@@ -492,9 +492,9 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       favorites.length === 0 ? (
         <p class="mt-4 text-sm text-[var(--muted)]">{t("life.films.empty")}</p>
       ) : (
-        <ul data-reveal-scroll class="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
-          {favorites.map((f: any) => (
-            <li>
+        <ul data-reveal-scroll class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+          {favorites.map((f: any, i: number) => (
+            <li class:list={[i >= 6 && "hidden sm:block"]}>
               <a
                 href={f.url}
                 target="_blank"

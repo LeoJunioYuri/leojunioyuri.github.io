@@ -1,0 +1,215 @@
+---
+import type { Lang } from "@/consts";
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const pt = lang === "pt";
+
+const jobs = pt
+  ? [
+      {
+        company: "Brendi",
+        role: "Product Engineer · Founding Team",
+        period: "Out 2024 — hoje",
+        location: "São José dos Campos, SP",
+        bullets: [
+          "Lidero o MetaAds — tráfego pago automatizado com IA para 2.000+ restaurantes atendidos",
+          "Arquitetura serverless em TypeScript/Node.js/Vue.js + GCP Cloud Functions + Meta Graph API",
+          "Anderson: agente de IA com ciclo semanal, memória pgvector e 7 guardrails de segurança",
+          "R$20M+ em vendas rastreadas · R$500k+/mês em verba de clientes gerida de forma autônoma",
+        ],
+        stack: ["TypeScript", "Node.js", "Vue.js", "GCP", "Meta API", "OpenAI", "PostgreSQL"],
+        current: true,
+      },
+      {
+        company: "LEVTY",
+        role: "Engenheiro de Software Trainee",
+        period: "Ago 2023 — Jul 2024",
+        location: "Remoto",
+        bullets: [
+          "Plataformas all-in-one: BPM, ECM e CRM para grandes organizações",
+          "100k+ atendimentos em 4 meses em projeto para organização educacional",
+          "Modelagem de processos, JavaScript e integração com sistemas legados",
+        ],
+        stack: ["JavaScript", "BPM", "ECM", "CRM"],
+        current: false,
+      },
+      {
+        company: "dti digital",
+        role: "Desenvolvedor Full Stack",
+        period: "Mar 2021 — Jan 2023",
+        location: "Belo Horizonte, MG",
+        bullets: [
+          "Reformulação de plataforma integrada de gestão e visualização para empresa do setor de mineração",
+          "Stack: JavaScript, TypeScript, React, C#, .NET, Java, Spring Boot",
+          "Testes com Jest, React Testing Library e xUnit · CI/CD no Azure",
+        ],
+        stack: ["React", "TypeScript", "C#", ".NET", "Azure"],
+        current: false,
+      },
+      {
+        company: "CIMVEST · UFLA",
+        role: "Presidente",
+        period: "Ago 2019 — Dez 2021",
+        location: "Lavras, MG",
+        bullets: [
+          "Transformei o CIMVEST no 1º núcleo de educação financeira da UFLA e região",
+          "Crescimento de 10 → 40 membros · 1º Simpósio com 300+ espectadores",
+          "Palestras sobre educação financeira em escolas e no exército",
+        ],
+        stack: [],
+        current: false,
+      },
+      {
+        company: "Comp Júnior · UFLA",
+        role: "Tech Lead & Desenvolvedor Frontend",
+        period: "Jun 2019 — Jan 2021",
+        location: "Lavras, MG",
+        bullets: [
+          "Tech Lead: distribuição de conhecimento técnico e saúde das equipes",
+          "Desenvolvimento frontend em empresa júnior com cultura ágil e metodologia Scrum",
+        ],
+        stack: ["JavaScript", "React", "Scrum"],
+        current: false,
+      },
+    ]
+  : [
+      {
+        company: "Brendi",
+        role: "Product Engineer · Founding Team",
+        period: "Oct 2024 — present",
+        location: "São José dos Campos, SP",
+        bullets: [
+          "Leading MetaAds — AI-powered paid traffic for 2,000+ restaurants served",
+          "Serverless architecture in TypeScript/Node.js/Vue.js + GCP Cloud Functions + Meta Graph API",
+          "Anderson: AI agent with weekly cycle, pgvector memory and 7 safety guardrails",
+          "R$20M+ in tracked sales · R$500k+/month in client budget managed autonomously",
+        ],
+        stack: ["TypeScript", "Node.js", "Vue.js", "GCP", "Meta API", "OpenAI", "PostgreSQL"],
+        current: true,
+      },
+      {
+        company: "LEVTY",
+        role: "Software Engineer Trainee",
+        period: "Aug 2023 — Jul 2024",
+        location: "Remote",
+        bullets: [
+          "All-in-one platforms: BPM, ECM and CRM for large organizations",
+          "100k+ service interactions in 4 months for an educational organization",
+          "Process modelling, JavaScript, and legacy system integration",
+        ],
+        stack: ["JavaScript", "BPM", "ECM", "CRM"],
+        current: false,
+      },
+      {
+        company: "dti digital",
+        role: "Full Stack Developer",
+        period: "Mar 2021 — Jan 2023",
+        location: "Belo Horizonte, MG",
+        bullets: [
+          "Rebuilt an integrated management and visualization platform for a mining sector client",
+          "Stack: JavaScript, TypeScript, React, C#, .NET, Java, Spring Boot",
+          "Testing with Jest, React Testing Library and xUnit · CI/CD on Azure",
+        ],
+        stack: ["React", "TypeScript", "C#", ".NET", "Azure"],
+        current: false,
+      },
+      {
+        company: "CIMVEST · UFLA",
+        role: "President",
+        period: "Aug 2019 — Dec 2021",
+        location: "Lavras, MG",
+        bullets: [
+          "Turned CIMVEST into the first investment & financial education hub at UFLA",
+          "Grew from 10 → 40 members · 1st Symposium with 300+ attendees",
+          "Talks on financial education at schools and in the army",
+        ],
+        stack: [],
+        current: false,
+      },
+      {
+        company: "Comp Júnior · UFLA",
+        role: "Tech Lead & Frontend Developer",
+        period: "Jun 2019 — Jan 2021",
+        location: "Lavras, MG",
+        bullets: [
+          "Tech Lead: knowledge distribution and team health in a junior company",
+          "Frontend development with agile culture and Scrum methodology",
+        ],
+        stack: ["JavaScript", "React", "Scrum"],
+        current: false,
+      },
+    ];
+
+const education = pt
+  ? { degree: "Bacharelado em Ciência da Computação", school: "Universidade Federal de Lavras — UFLA", period: "2019 — 2023", location: "Lavras, MG" }
+  : { degree: "B.Sc. Computer Science", school: "Federal University of Lavras — UFLA", period: "2019 — 2023", location: "Lavras, MG" };
+---
+
+<section class="border-t border-[var(--border)]">
+  <div class="mx-auto max-w-3xl px-5 py-16 sm:px-6">
+    <h2 data-reveal-scroll class="text-2xl font-bold tracking-tight sm:text-3xl">
+      {pt ? "💼 Carreira" : "💼 Career"}
+    </h2>
+
+    <div class="mt-8 space-y-0">
+      {jobs.map((job, i) => (
+        <div data-reveal-scroll class="relative pl-6 pb-10 last:pb-0">
+          {/* Timeline line */}
+          {i < jobs.length - 1 && (
+            <div class="absolute left-[7px] top-3 bottom-0 w-px bg-[var(--border)]" />
+          )}
+          {/* Timeline dot */}
+          <div class:list={[
+            "absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2",
+            job.current
+              ? "border-[var(--accent)] bg-[var(--accent)]"
+              : "border-[var(--border)] bg-[var(--bg)]"
+          ]} />
+
+          <div class="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
+            <div class="flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <p class="font-bold text-[var(--fg)]">{job.company}</p>
+                <p class="text-sm text-[var(--muted)]">{job.role}</p>
+              </div>
+              <div class="text-right shrink-0">
+                <p class:list={["text-xs font-medium", job.current ? "text-[var(--accent)]" : "text-[var(--muted)]"]}>
+                  {job.period}
+                </p>
+                <p class="text-xs text-[var(--muted)]">{job.location}</p>
+              </div>
+            </div>
+
+            <ul class="mt-3 space-y-1.5">
+              {job.bullets.map(b => (
+                <li class="flex items-start gap-2 text-sm text-[var(--muted)]">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)] opacity-60" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            {job.stack.length > 0 && (
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                {job.stack.map(s => (
+                  <span class="rounded-md border border-[var(--border)] bg-[var(--bg)] px-2 py-0.5 text-xs text-[var(--muted)]">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Education */}
+    <div data-reveal-scroll class="mt-6 flex items-center gap-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
+      <span class="text-2xl" aria-hidden="true">🎓</span>
+      <div>
+        <p class="font-semibold text-[var(--fg)]">{education.degree}</p>
+        <p class="text-sm text-[var(--muted)]">{education.school} · {education.period}</p>
+      </div>
+    </div>
+  </div>
+</section>

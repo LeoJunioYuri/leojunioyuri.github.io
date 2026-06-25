@@ -46,7 +46,7 @@ export const ui = {
     "stack.subtitle": "Ferramentas que uso no dia a dia.",
 
     "contact.title": "Vamos conversar",
-    "contact.body": "Gosto de conversar sobre produto, IA e crescimento. Se está construindo algo interessante ou tem uma pergunta, chega junto.",
+    "contact.body": "Gosto de conversar sobre produto, IA e crescimento. Se está construindo algo interessante ou tem uma pergunta, fique a vontade.",
     "contact.email": "Enviar email",
 
     "case.platform.title": "Tráfego Pago Automatizado",

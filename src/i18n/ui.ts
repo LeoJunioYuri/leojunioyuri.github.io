@@ -46,7 +46,7 @@ export const ui = {
     "stack.subtitle": "Ferramentas que uso no dia a dia.",
 
     "contact.title": "Vamos conversar",
-    "contact.body": "Aberto a conversas sobre product engineering, automação com IA, sistemas de growth e startups em estágio inicial.",
+    "contact.body": "Gosto de conversar sobre produto, IA e crescimento. Se está construindo algo interessante ou tem uma pergunta, chega junto.",
     "contact.email": "Enviar email",
 
     "case.platform.title": "Tráfego Pago Automatizado",
@@ -203,7 +203,7 @@ export const ui = {
     "stack.subtitle": "Tools I use day to day.",
 
     "contact.title": "Let's talk",
-    "contact.body": "Open to conversations about product engineering, AI automation, growth systems and early-stage startups.",
+    "contact.body": "I like talking about product, AI and growth. If you're building something interesting or have a question, reach out.",
     "contact.email": "Send email",
 
     "case.platform.title": "Automated Paid Traffic",

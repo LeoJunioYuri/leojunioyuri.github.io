@@ -30,6 +30,12 @@ const t = useTranslations(lang);
       >
         LinkedIn
       </a>
+      <a
+        href={lang === "pt" ? "/curriculo" : "/en/resume"}
+        class="rounded-lg border border-[var(--border)] px-5 py-2.5 text-sm font-semibold text-[var(--fg)] transition-colors hover:bg-[var(--surface)]"
+      >
+        {lang === "pt" ? "Ver currículo →" : "View resume →"}
+      </a>
     </div>
   </div>
 </section>

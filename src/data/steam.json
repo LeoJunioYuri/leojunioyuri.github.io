@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T02:14:14.581Z",
+  "updatedAt": "2026-06-26T08:49:32.962Z",
   "games": [
     {
       "name": "It Takes Two",
@@ -8,14 +8,6 @@
       "minutesTotal": 423,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1426210/6b15f6d81c4fc52056f4928b363b7fac591a945b.jpg",
       "url": "https://store.steampowered.com/app/1426210"
-    },
-    {
-      "name": "Battlefield™ 6",
-      "appid": 2807960,
-      "minutes2weeks": 30,
-      "minutesTotal": 30,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/2807960/a758cc85720fc89b5c97995bd8eafb38b3604e47.jpg",
-      "url": "https://store.steampowered.com/app/2807960"
     }
   ],
   "topGames": [
@@ -155,7 +147,7 @@
       "name": "Borderlands 4",
       "appid": 1285190,
       "url": "https://store.steampowered.com/app/1285190",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/2db6872252f6d3edef3d6634265b96d1a25a0922/header_alt_assets_3.jpg?t=1782403553"
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/2db6872252f6d3edef3d6634265b96d1a25a0922/header_alt_assets_3.jpg?t=1782457878"
     }
   ]
 }

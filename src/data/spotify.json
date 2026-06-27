@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-06-27T02:09:29.562Z",
+  "updatedAt": "2026-06-27T08:25:34.552Z",
   "tracks": [
     {
-      "name": "Blue Jeans",
+      "name": "Lavender Haze",
+      "artist": "Taylor Swift",
+      "url": "https://open.spotify.com/track/5jQI2r1RdgtuT8S3iG8zFC",
+      "image": "https://i.scdn.co/image/ab67616d00004851bb54dde68cd23e2a268ae0f5",
+      "playedAt": "2026-06-27T05:28:55.210Z"
+    },
+    {
+      "name": "Anti-Hero",
+      "artist": "Taylor Swift",
+      "url": "https://open.spotify.com/track/0V3wPSX9ygBnCm8psDIegu",
+      "image": "https://i.scdn.co/image/ab67616d00004851bb54dde68cd23e2a268ae0f5",
+      "playedAt": "2026-06-27T05:25:26.799Z"
+    },
+    {
+      "name": "Would've, Could've, Should've",
+      "artist": "Taylor Swift",
+      "url": "https://open.spotify.com/track/3pUa0ZxdSeaJXm0EIydD3F",
+      "image": "https://i.scdn.co/image/ab67616d000048514a97c76d7b4f6530f439c249",
+      "playedAt": "2026-06-27T05:22:05.618Z"
+    },
+    {
+      "name": "Tulsa Jesus Freak",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-06-27T01:46:06.872Z"
+      "url": "https://open.spotify.com/track/0hyImI8JaWONOrzKH7kJsC",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-06-27T05:17:44.815Z"
     },
     {
-      "name": "Off To The Races",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/3uUCgL0cbSd0isnqhHCm1f",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-06-27T01:42:37.327Z"
+      "name": "The Abyss (feat. Lana Del Rey)",
+      "artist": "The Weeknd, Lana Del Rey",
+      "url": "https://open.spotify.com/track/4cYllEeJVH7dWKwQxpbk42",
+      "image": "https://i.scdn.co/image/ab67616d00004851460b137f921b16041901104a",
+      "playedAt": "2026-06-27T05:14:05.254Z"
     },
     {
-      "name": "Bloody Mary",
-      "artist": "Lady Gaga",
-      "url": "https://open.spotify.com/track/53jnnqFSRGMDB9ADrNriCA",
-      "image": "https://i.scdn.co/image/ab67616d00004851a5d31644260279be8d0c46c0",
-      "playedAt": "2026-06-27T01:37:07.626Z"
+      "name": "Same Ol’ Mistakes",
+      "artist": "Rihanna",
+      "url": "https://open.spotify.com/track/6RtzmszGXs32TRhv5zTKNM",
+      "image": "https://i.scdn.co/image/ab67616d000048516be9bac15995f089579074de",
+      "playedAt": "2026-06-27T05:09:21.945Z"
     },
     {
-      "name": "Hello Heaven, Hello",
-      "artist": "YUNGBLUD",
-      "url": "https://open.spotify.com/track/4WNaefp3sGsnTBzHEQb97g",
-      "image": "https://i.scdn.co/image/ab67616d000048517808f0d7992027b6b10254dd",
-      "playedAt": "2026-06-27T01:33:06.241Z"
+      "name": "Andromeda",
+      "artist": "Weyes Blood",
+      "url": "https://open.spotify.com/track/51EMSRpNm9Rg5rGViVCczv",
+      "image": "https://i.scdn.co/image/ab67616d000048510c64e752dec4c08362cc4a88",
+      "playedAt": "2026-06-27T05:02:44.401Z"
     },
     {
-      "name": "Spitting Off the Edge of the World",
-      "artist": "Yeah Yeah Yeahs, Perfume Genius",
-      "url": "https://open.spotify.com/track/0JX23XA8E7aN1Chj32kgVn",
-      "image": "https://i.scdn.co/image/ab67616d00004851667ca33e4b6d8e74b17a6529",
-      "playedAt": "2026-06-27T01:32:54.320Z"
-    },
-    {
-      "name": "Born To Die",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4Ouhoi2lAhrLJKFzUqEzwl",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-06-27T01:28:35.192Z"
-    },
-    {
-      "name": "Me and the Devil",
-      "artist": "Soap&Skin",
-      "url": "https://open.spotify.com/track/0wrWxW18WK2MkrfDpRHkyh",
-      "image": "https://i.scdn.co/image/ab67616d0000485176016873b8c84a5ee37d34d6",
-      "playedAt": "2026-06-27T01:23:49.351Z"
-    },
-    {
-      "name": "Let You Fade",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3GZt2N9dSfNCL6ArCFDpOc",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-06-26T18:48:10.940Z"
+      "name": "Hot Blooded {slow//reverb}",
+      "artist": "New Constellations, Ryan Celsius Sounds, slow//reverb",
+      "url": "https://open.spotify.com/track/6hzXBbR3xxKvcQ5N1IWQI1",
+      "image": "https://i.scdn.co/image/ab67616d0000485117b8cda312d06eb780983767",
+      "playedAt": "2026-06-27T04:58:03.774Z"
     }
   ],
   "topTracks": {

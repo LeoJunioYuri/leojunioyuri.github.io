@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-06-26T19:27:52.688Z",
+  "updatedAt": "2026-06-27T02:09:29.562Z",
   "tracks": [
+    {
+      "name": "Blue Jeans",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-06-27T01:46:06.872Z"
+    },
+    {
+      "name": "Off To The Races",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/3uUCgL0cbSd0isnqhHCm1f",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-06-27T01:42:37.327Z"
+    },
+    {
+      "name": "Bloody Mary",
+      "artist": "Lady Gaga",
+      "url": "https://open.spotify.com/track/53jnnqFSRGMDB9ADrNriCA",
+      "image": "https://i.scdn.co/image/ab67616d00004851a5d31644260279be8d0c46c0",
+      "playedAt": "2026-06-27T01:37:07.626Z"
+    },
+    {
+      "name": "Hello Heaven, Hello",
+      "artist": "YUNGBLUD",
+      "url": "https://open.spotify.com/track/4WNaefp3sGsnTBzHEQb97g",
+      "image": "https://i.scdn.co/image/ab67616d000048517808f0d7992027b6b10254dd",
+      "playedAt": "2026-06-27T01:33:06.241Z"
+    },
+    {
+      "name": "Spitting Off the Edge of the World",
+      "artist": "Yeah Yeah Yeahs, Perfume Genius",
+      "url": "https://open.spotify.com/track/0JX23XA8E7aN1Chj32kgVn",
+      "image": "https://i.scdn.co/image/ab67616d00004851667ca33e4b6d8e74b17a6529",
+      "playedAt": "2026-06-27T01:32:54.320Z"
+    },
+    {
+      "name": "Born To Die",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4Ouhoi2lAhrLJKFzUqEzwl",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-06-27T01:28:35.192Z"
+    },
+    {
+      "name": "Me and the Devil",
+      "artist": "Soap&Skin",
+      "url": "https://open.spotify.com/track/0wrWxW18WK2MkrfDpRHkyh",
+      "image": "https://i.scdn.co/image/ab67616d0000485176016873b8c84a5ee37d34d6",
+      "playedAt": "2026-06-27T01:23:49.351Z"
+    },
     {
       "name": "Let You Fade",
       "artist": "Linkin Park",
       "url": "https://open.spotify.com/track/3GZt2N9dSfNCL6ArCFDpOc",
       "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
       "playedAt": "2026-06-26T18:48:10.940Z"
-    },
-    {
-      "name": "Everybody's Fool",
-      "artist": "Evanescence",
-      "url": "https://open.spotify.com/track/0tWEB6BxbI48XN79QE1JbT",
-      "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
-      "playedAt": "2026-06-26T18:44:41.680Z"
-    },
-    {
-      "name": "Unravelling",
-      "artist": "Muse",
-      "url": "https://open.spotify.com/track/6Df0RNShcnfIJmrRoJ6Gc9",
-      "image": "https://i.scdn.co/image/ab67616d00004851e93df4168b88baf874093f2b",
-      "playedAt": "2026-06-26T18:41:25.293Z"
-    },
-    {
-      "name": "Soul Meets Body",
-      "artist": "Death Cab for Cutie",
-      "url": "https://open.spotify.com/track/3DBlBEknYbU6pGJRqniQSe",
-      "image": "https://i.scdn.co/image/ab6742d3000052b7f4dc485b5a5d48f547cc0660",
-      "playedAt": "2026-06-26T18:37:27.347Z"
-    },
-    {
-      "name": "Fire",
-      "artist": "Dead By Sunrise",
-      "url": "https://open.spotify.com/track/3bmL5rU99q7ZA75vqdzDRO",
-      "image": "https://i.scdn.co/image/ab67616d000048513cea3f53137fcb2cc86a481c",
-      "playedAt": "2026-06-26T18:31:04.601Z"
-    },
-    {
-      "name": "From the Inside",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/697M5JB8FDIyRXEXgl1pBZ",
-      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
-      "playedAt": "2026-06-26T18:27:13.563Z"
-    },
-    {
-      "name": "Unshatter",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-06-26T18:24:17.534Z"
-    },
-    {
-      "name": "Vocal",
-      "artist": "Madrugada",
-      "url": "https://open.spotify.com/track/0GwcBK821xPuRklr4Hptdc",
-      "image": "https://i.scdn.co/image/ab67616d0000485143a1ec401ff6600973c01401",
-      "playedAt": "2026-06-26T17:28:51.196Z"
     }
   ],
   "topTracks": {

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T19:27:53.609Z",
+  "updatedAt": "2026-06-27T02:09:30.395Z",
   "games": [
     {
       "name": "It Takes Two",
@@ -147,7 +147,7 @@
       "name": "Borderlands 4",
       "appid": 1285190,
       "url": "https://store.steampowered.com/app/1285190",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/2db6872252f6d3edef3d6634265b96d1a25a0922/header_alt_assets_3.jpg?t=1782457878"
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/737d4f477801c652c14abce7ae13177f203958d4/header_alt_assets_3_brazilian.jpg?t=1782457878"
     }
   ]
 }

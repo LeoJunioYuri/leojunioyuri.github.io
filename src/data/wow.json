@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-06-28T02:30:50.876Z",
+  "updatedAt": "2026-06-28T08:40:07.930Z",
   "wow": {
     "name": "Lyonys",
-    "level": 89,
+    "level": 90,
     "race": "Pandaren",
     "class": "Monge",
     "spec": "Andarilho do Vento",
-    "ilvl": 176,
-    "achievementPoints": 18610,
-    "totalAchievements": 2260,
+    "ilvl": 187,
+    "achievementPoints": 18630,
+    "totalAchievements": 2262,
     "faction": "Aliança",
     "realm": "Goldrinn",
     "guild": "Mesa de Buteco",
@@ -16,6 +16,16 @@
     "mountsCount": 390,
     "petsCount": 283,
     "recentAchievements": [
+      {
+        "name": "One Warband Mentor: Midnight",
+        "id": 42328,
+        "date": 1782622680000
+      },
+      {
+        "name": "Magisters' Terrace",
+        "id": 61212,
+        "date": 1782619383000
+      },
       {
         "name": "Arator's Journey",
         "id": 41805,
@@ -30,23 +40,13 @@
         "name": "Explore Zul'Aman",
         "id": 61856,
         "date": 1780617180000
-      },
-      {
-        "name": "Den of Nalorakk",
-        "id": 61638,
-        "date": 1780615734000
-      },
-      {
-        "name": "Void Assault: Zul'Aman",
-        "id": 62499,
-        "date": 1780545360000
       }
     ],
     "topCategories": [
       {
         "name": "Dungeons & Raids",
-        "points": 8960,
-        "quantity": 854
+        "points": 8970,
+        "quantity": 855
       },
       {
         "name": "Exploration",

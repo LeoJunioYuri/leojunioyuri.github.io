@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-06-28T02:30:45.241Z",
+  "updatedAt": "2026-06-28T08:40:01.071Z",
   "tracks": [
+    {
+      "name": "Always Remember Us This Way",
+      "artist": "Lady Gaga",
+      "url": "https://open.spotify.com/track/2rbDhOo9Fh61Bbu23T2qCk",
+      "image": "https://i.scdn.co/image/ab67616d00004851b5d4b4ed17ec86c4b3944af2",
+      "playedAt": "2026-06-28T03:32:50.404Z"
+    },
+    {
+      "name": "Into Your Arms (feat. Ava Max)",
+      "artist": "Witt Lowry, Ava Max",
+      "url": "https://open.spotify.com/track/0b11D9D0hMOYCIMN3OKreM",
+      "image": "https://i.scdn.co/image/ab67616d0000485178023ccce25da7ca56a479e9",
+      "playedAt": "2026-06-28T03:29:19.673Z"
+    },
+    {
+      "name": "Cinnamon Girl",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/2mdEsXPu8ZmkHRRtAdC09e",
+      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
+      "playedAt": "2026-06-28T03:26:13.107Z"
+    },
+    {
+      "name": "Cinnamon Girl",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/2mdEsXPu8ZmkHRRtAdC09e",
+      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
+      "playedAt": "2026-06-28T03:21:43.500Z"
+    },
+    {
+      "name": "Chemtrails Over The Country Club",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-06-28T03:19:03.294Z"
+    },
     {
       "name": "Chemtrails Over The Country Club",
       "artist": "Lana Del Rey",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/7GAaTpSoTWUTbP2Yxlt4Hd",
       "image": "https://i.scdn.co/image/ab67616d000048515a8b541ca2a563671ff38ddf",
       "playedAt": "2026-06-27T22:06:40.315Z"
-    },
-    {
-      "name": "Lose Control",
-      "artist": "Teddy Swims",
-      "url": "https://open.spotify.com/track/17phhZDn6oGtzMe56NuWvj",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebea8d4457c4db5b2088f287",
-      "playedAt": "2026-06-27T22:02:43.420Z"
-    },
-    {
-      "name": "Flowers",
-      "artist": "Miley Cyrus",
-      "url": "https://open.spotify.com/track/7DSAEUvxU8FajXtRloy8M0",
-      "image": "https://i.scdn.co/image/ab67616d0000485166fd0917f38d472c8576754e",
-      "playedAt": "2026-06-27T21:59:12.294Z"
-    },
-    {
-      "name": "Midnight Sky",
-      "artist": "Miley Cyrus",
-      "url": "https://open.spotify.com/track/4i2qxFEVVUi8yOYoxB8TCX",
-      "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d",
-      "playedAt": "2026-06-27T21:55:51.239Z"
-    },
-    {
-      "name": "Angels Like You",
-      "artist": "Miley Cyrus",
-      "url": "https://open.spotify.com/track/1daDRI9ahBonbWD8YcxOIB",
-      "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d",
-      "playedAt": "2026-06-27T21:51:42.224Z"
-    },
-    {
-      "name": "Silvermoon City",
-      "artist": "Russell Brower, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/4qiiXc4zcudqcov61KOrVs",
-      "image": "https://i.scdn.co/image/ab67616d0000485149f7720a05ae123fda060ad5",
-      "playedAt": "2026-06-27T21:40:29.509Z"
     }
   ],
   "topTracks": {

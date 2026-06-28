@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T19:03:43.164Z",
+  "updatedAt": "2026-06-28T02:30:46.217Z",
   "games": [
     {
       "name": "It Takes Two",
@@ -108,6 +108,12 @@
       "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/202970/header.jpg?t=1780962925"
     },
     {
+      "name": "FINAL FANTASY VII REVELATION",
+      "appid": 4354570,
+      "url": "https://store.steampowered.com/app/4354570",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354570/c82a370d62d715234771be34c6ff3c928c7d78e2/header.jpg?t=1782221031"
+    },
+    {
       "name": "007 First Light",
       "appid": 3768760,
       "url": "https://store.steampowered.com/app/3768760",
@@ -142,12 +148,6 @@
       "appid": 287390,
       "url": "https://store.steampowered.com/app/287390",
       "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/287390/header.jpg?t=1725444535"
-    },
-    {
-      "name": "Borderlands 4",
-      "appid": 1285190,
-      "url": "https://store.steampowered.com/app/1285190",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/2db6872252f6d3edef3d6634265b96d1a25a0922/header_alt_assets_3.jpg?t=1782457878"
     }
   ]
 }

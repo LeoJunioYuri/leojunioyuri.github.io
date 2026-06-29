@@ -1,52 +1,52 @@
 {
-  "updatedAt": "2026-06-28T19:02:08.590Z",
+  "updatedAt": "2026-06-29T02:31:11.273Z",
   "wow": {
     "name": "Lyonys",
     "level": 90,
     "race": "Pandaren",
     "class": "Monge",
     "spec": "Andarilho do Vento",
-    "ilvl": 187,
-    "achievementPoints": 18630,
-    "totalAchievements": 2262,
+    "ilvl": 204,
+    "achievementPoints": 18670,
+    "totalAchievements": 2266,
     "faction": "Aliança",
     "realm": "Goldrinn",
     "guild": "Mesa de Buteco",
     "avatar": "https://render.worldofwarcraft.com/us/character/goldrinn/75/99069515-avatar.jpg",
     "mountsCount": 390,
-    "petsCount": 283,
+    "petsCount": 284,
     "recentAchievements": [
+      {
+        "name": "Midnight",
+        "id": 42045,
+        "date": 1782675480000
+      },
+      {
+        "name": "Breaching the Voidstorm",
+        "id": 41806,
+        "date": 1782675480000
+      },
+      {
+        "name": "Midnight Delves: Endgame",
+        "id": 61734,
+        "date": 1782675480000
+      },
+      {
+        "name": "Nexus-Point Xenas",
+        "id": 61640,
+        "date": 1782675023000
+      },
       {
         "name": "One Warband Mentor: Midnight",
         "id": 42328,
         "date": 1782622680000
-      },
-      {
-        "name": "Magisters' Terrace",
-        "id": 61212,
-        "date": 1782619383000
-      },
-      {
-        "name": "Arator's Journey",
-        "id": 41805,
-        "date": 1781751060000
-      },
-      {
-        "name": "For Zul'Aman!",
-        "id": 41803,
-        "date": 1780617240000
-      },
-      {
-        "name": "Explore Zul'Aman",
-        "id": 61856,
-        "date": 1780617180000
       }
     ],
     "topCategories": [
       {
         "name": "Dungeons & Raids",
-        "points": 8970,
-        "quantity": 855
+        "points": 8980,
+        "quantity": 856
       },
       {
         "name": "Exploration",

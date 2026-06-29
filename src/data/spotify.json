@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-06-29T10:21:20.346Z",
+  "updatedAt": "2026-06-29T15:29:53.123Z",
   "tracks": [
     {
-      "name": "Enter",
-      "artist": "Within Temptation",
-      "url": "https://open.spotify.com/track/1QU2dPUYd2O9bf4lDA2XXh",
-      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
-      "playedAt": "2026-06-29T04:43:51.876Z"
+      "name": "Blood for Lavinia",
+      "artist": "Angellore",
+      "url": "https://open.spotify.com/track/7jjfeQJXmPtWKP5VEfvJIz",
+      "image": "https://i.scdn.co/image/ab67616d000048518fcd06eda6be5f84b45ab1a9",
+      "playedAt": "2026-06-29T14:59:27.794Z"
     },
     {
-      "name": "Restless",
-      "artist": "Within Temptation",
-      "url": "https://open.spotify.com/track/3BwU2MOfODibVdFDjOW63r",
-      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
-      "playedAt": "2026-06-29T04:36:37.238Z"
+      "name": "A child that walks in the path of a man",
+      "artist": "Angtoria",
+      "url": "https://open.spotify.com/track/0IkVslyz80iPJ8dceAntY6",
+      "image": "https://i.scdn.co/image/ab67616d0000485138faf6b331a05f738739c74a",
+      "playedAt": "2026-06-29T14:54:46.996Z"
     },
     {
-      "name": "Don't Say a Word",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/5aRVv8wTe1qs4desPEpPoI",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-06-29T04:30:28.719Z"
-    },
-    {
-      "name": "Pale Tortured Blue",
+      "name": "Lustrous Heart",
       "artist": "Draconian",
-      "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-06-29T04:26:03.714Z"
+      "url": "https://open.spotify.com/track/6MhINTgLBVBlYGIlYOSgdu",
+      "image": "https://i.scdn.co/image/ab67616d000048516508eefc94890bf7df4b5eff",
+      "playedAt": "2026-06-29T14:50:45.908Z"
     },
     {
-      "name": "Cassandra",
+      "name": "Be My Rain",
+      "artist": "Zeraphine",
+      "url": "https://open.spotify.com/track/4JejVsL2cUEFGHOR2bTTt2",
+      "image": "https://i.scdn.co/image/ab67616d00004851ab65e11f6e9a825bde8df20c",
+      "playedAt": "2026-06-29T14:45:52.078Z"
+    },
+    {
+      "name": "Mire",
       "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/4vkoYIgUmOrhiXbT8DMDEV",
-      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
-      "playedAt": "2026-06-29T04:19:48.364Z"
+      "url": "https://open.spotify.com/track/4Fogjth0qwTSVrl7PvpJsv",
+      "image": "https://i.scdn.co/image/ab67616d000048511da6ba26bcb23e1209acfee3",
+      "playedAt": "2026-06-29T14:41:46.604Z"
     },
     {
-      "name": "Poppaea",
-      "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
-      "playedAt": "2026-06-29T04:12:59.279Z"
+      "name": "Serenity",
+      "artist": "Mortal Love",
+      "url": "https://open.spotify.com/track/0UJ2WbYlsO96EeYBaf3cSP",
+      "image": "https://i.scdn.co/image/ab67616d000048512779b69f4d59d4c1f3e3bea5",
+      "playedAt": "2026-06-29T14:37:37.077Z"
     },
     {
-      "name": "Creepin' (with The Weeknd & 21 Savage)",
-      "artist": "Metro Boomin, The Weeknd, 21 Savage",
-      "url": "https://open.spotify.com/track/2dHHgzDwk4BJdRwy9uXhTO",
-      "image": "https://i.scdn.co/image/ab67616d00004851c4fee55d7b51479627c31f89",
-      "playedAt": "2026-06-29T04:07:03.039Z"
+      "name": "Inertia",
+      "artist": "Angellore",
+      "url": "https://open.spotify.com/track/63MXIap8cnG07lDRX2R8AU",
+      "image": "https://i.scdn.co/image/ab67616d00004851ea0ae4df1527c05ee85b127e",
+      "playedAt": "2026-06-29T14:34:30.019Z"
     },
     {
-      "name": "Superhero (Heroes & Villains) [with Future & Chris Brown]",
-      "artist": "Metro Boomin, Future, Chris Brown",
-      "url": "https://open.spotify.com/track/0vjeOZ3Ft5jvAi9SBFJm1j",
-      "image": "https://i.scdn.co/image/ab67616d00004851c4fee55d7b51479627c31f89",
-      "playedAt": "2026-06-28T22:19:30.701Z"
+      "name": "Asleep",
+      "artist": "Domina Noctis",
+      "url": "https://open.spotify.com/track/6l9ODhQAQ2AL2q7FULY4kp",
+      "image": "https://i.scdn.co/image/ab67616d00004851b54114d498af61db3c86931a",
+      "playedAt": "2026-06-29T14:28:01.918Z"
     }
   ],
   "topTracks": {

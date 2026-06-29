@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-06-29T02:31:04.115Z",
+  "updatedAt": "2026-06-29T10:21:20.346Z",
   "tracks": [
+    {
+      "name": "Enter",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/1QU2dPUYd2O9bf4lDA2XXh",
+      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
+      "playedAt": "2026-06-29T04:43:51.876Z"
+    },
+    {
+      "name": "Restless",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/3BwU2MOfODibVdFDjOW63r",
+      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
+      "playedAt": "2026-06-29T04:36:37.238Z"
+    },
+    {
+      "name": "Don't Say a Word",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/5aRVv8wTe1qs4desPEpPoI",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-06-29T04:30:28.719Z"
+    },
+    {
+      "name": "Pale Tortured Blue",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-06-29T04:26:03.714Z"
+    },
+    {
+      "name": "Cassandra",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/4vkoYIgUmOrhiXbT8DMDEV",
+      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
+      "playedAt": "2026-06-29T04:19:48.364Z"
+    },
+    {
+      "name": "Poppaea",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
+      "playedAt": "2026-06-29T04:12:59.279Z"
+    },
+    {
+      "name": "Creepin' (with The Weeknd & 21 Savage)",
+      "artist": "Metro Boomin, The Weeknd, 21 Savage",
+      "url": "https://open.spotify.com/track/2dHHgzDwk4BJdRwy9uXhTO",
+      "image": "https://i.scdn.co/image/ab67616d00004851c4fee55d7b51479627c31f89",
+      "playedAt": "2026-06-29T04:07:03.039Z"
+    },
     {
       "name": "Superhero (Heroes & Villains) [with Future & Chris Brown]",
       "artist": "Metro Boomin, Future, Chris Brown",
       "url": "https://open.spotify.com/track/0vjeOZ3Ft5jvAi9SBFJm1j",
       "image": "https://i.scdn.co/image/ab67616d00004851c4fee55d7b51479627c31f89",
       "playedAt": "2026-06-28T22:19:30.701Z"
-    },
-    {
-      "name": "On Time (with John Legend)",
-      "artist": "Metro Boomin, John Legend",
-      "url": "https://open.spotify.com/track/0YFqKxV9uNu6LUeYkLOKRS",
-      "image": "https://i.scdn.co/image/ab67616d00004851c4fee55d7b51479627c31f89",
-      "playedAt": "2026-06-28T22:16:28.042Z"
-    },
-    {
-      "name": "Make Me Wanna Die",
-      "artist": "The Pretty Reckless",
-      "url": "https://open.spotify.com/track/0KGIbrNYktDXYyHopcDI2L",
-      "image": "https://i.scdn.co/image/ab67616d000048515659133a6233890265306fee",
-      "playedAt": "2026-06-28T22:13:22.549Z"
-    },
-    {
-      "name": "Break My Baby",
-      "artist": "KALEO",
-      "url": "https://open.spotify.com/track/3BsoE7SgveujY2jeV2rVRw",
-      "image": "https://i.scdn.co/image/ab67616d00004851e6c0c82dce5500529fe943a3",
-      "playedAt": "2026-06-28T22:09:25.777Z"
-    },
-    {
-      "name": "The Door",
-      "artist": "Teddy Swims",
-      "url": "https://open.spotify.com/track/3dj4wgM3cPeuLwMNHDuBon",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebea8d4457c4db5b2088f287",
-      "playedAt": "2026-06-28T22:04:36.659Z"
-    },
-    {
-      "name": "Writing's On The Wall - From \"Spectre\" Soundtrack",
-      "artist": "Sam Smith",
-      "url": "https://open.spotify.com/track/7tToQ5ILIIeRmcRnGJjQ2L",
-      "image": "https://i.scdn.co/image/ab67616d00004851523537cfc94201b8a173d923",
-      "playedAt": "2026-06-28T22:01:03.052Z"
-    },
-    {
-      "name": "CORALINE",
-      "artist": "Måneskin",
-      "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
-      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
-      "playedAt": "2026-06-28T21:56:23.666Z"
-    },
-    {
-      "name": "Over Each Other",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-06-28T21:51:22.829Z"
     }
   ],
   "topTracks": {
@@ -76,73 +76,73 @@
       },
       {
         "rank": 3,
-        "name": "Creeping Death - Remastered",
-        "artist": "Metallica",
-        "url": "https://open.spotify.com/track/4CLRLdxUDPNeO1xCW0U2zC",
-        "image": "https://i.scdn.co/image/ab67616d000048519ad3e9959f48d513886b8933"
-      },
-      {
-        "rank": 4,
         "name": "Halfway Right",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1KvyBpAxgllKW7bQb0GYCR",
         "image": "https://i.scdn.co/image/ab67616d00004851145e1cf12538f5666511237d"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "name": "Rivers Between Us",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "Nothing Else Matters - Live",
         "artist": "Metallica",
         "url": "https://open.spotify.com/track/5jEfQZmmwwKymr9cfmgfsd",
         "image": "https://i.scdn.co/image/ab67616d000048512a2e23c85aef280bffd824e7"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Veridis Quo",
         "artist": "Daft Punk",
         "url": "https://open.spotify.com/track/2LD2gT7gwAurzdQDQtILds",
         "image": "https://i.scdn.co/image/ab67616d000048511e81bff9807a9e629fce5ade"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Cut the Bridge",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Dark Venus Persephone",
         "artist": "Therion",
         "url": "https://open.spotify.com/track/6Ie871KwIES9TtxllV8ufv",
         "image": "https://i.scdn.co/image/ab67616d00004851d4ab2c5a120e944f565e90f4"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "CORALINE",
         "artist": "Måneskin",
         "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
         "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Prisoner of Your Eyes",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/2VLwPKY2gaBxGxwgmwRDUf",
         "image": "https://i.scdn.co/image/ab67616d00004851a79a10cea4a05ade064a397b"
+      },
+      {
+        "rank": 12,
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       }
     ],
     "medium": [

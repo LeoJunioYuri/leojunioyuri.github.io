@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T13:55:00.371Z",
+  "updatedAt": "2026-06-30T19:30:33.494Z",
   "tracks": [
     {
       "name": "Next",
@@ -90,24 +90,24 @@
       },
       {
         "rank": 5,
-        "name": "Veridis Quo",
-        "artist": "Daft Punk",
-        "url": "https://open.spotify.com/track/2LD2gT7gwAurzdQDQtILds",
-        "image": "https://i.scdn.co/image/ab67616d000048511e81bff9807a9e629fce5ade"
-      },
-      {
-        "rank": 6,
         "name": "Outside",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/58yC1Q6XKjmHeWkEWh9O6B",
         "image": "https://i.scdn.co/image/ab67616d0000485136fb79728dbb379579cef97e"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "The Birds Pt. 1",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/5SF1kcOiOmtZFUIQNGC4TC",
         "image": "https://i.scdn.co/image/ab67616d00004851e01c2631218e2de27765b7d5"
+      },
+      {
+        "rank": 7,
+        "name": "Veridis Quo",
+        "artist": "Daft Punk",
+        "url": "https://open.spotify.com/track/2LD2gT7gwAurzdQDQtILds",
+        "image": "https://i.scdn.co/image/ab67616d000048511e81bff9807a9e629fce5ade"
       },
       {
         "rank": 8,

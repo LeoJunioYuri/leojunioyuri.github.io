@@ -1,15 +1,6 @@
 {
-  "updatedAt": "2026-06-30T19:30:35.974Z",
-  "games": [
-    {
-      "name": "It Takes Two",
-      "appid": 1426210,
-      "minutes2weeks": 123,
-      "minutesTotal": 423,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1426210/6b15f6d81c4fc52056f4928b363b7fac591a945b.jpg",
-      "url": "https://store.steampowered.com/app/1426210"
-    }
-  ],
+  "updatedAt": "2026-07-01T02:31:56.007Z",
+  "games": [],
   "topGames": [
     {
       "name": "Counter-Strike 2",

@@ -1,4 +1,35 @@
 {
-  "updatedAt": "2026-07-02T02:11:22.956Z",
-  "videos": []
+  "updatedAt": "2026-07-02T08:41:13.537Z",
+  "videos": [
+    {
+      "title": "A Plague Tale Innocence - Ending!",
+      "url": "https://www.youtube.com/watch?v=lo8At_Bf5sw",
+      "thumbnail": "https://i.ytimg.com/vi/lo8At_Bf5sw/hqdefault.jpg"
+    },
+    {
+      "title": "Ryse Son Of Rome - Ending!",
+      "url": "https://www.youtube.com/watch?v=HlZl4S_7o7c",
+      "thumbnail": "https://i.ytimg.com/vi/HlZl4S_7o7c/hqdefault.jpg"
+    },
+    {
+      "title": "Resident Evil 4 Remake - A primeira meia hora!",
+      "url": "https://www.youtube.com/watch?v=L-2b36tzg3Y",
+      "thumbnail": "https://i.ytimg.com/vi/L-2b36tzg3Y/hqdefault.jpg"
+    },
+    {
+      "title": "Upando Pandaren Monk na Ilha errante",
+      "url": "https://www.youtube.com/watch?v=Y54_migATMA",
+      "thumbnail": "https://i.ytimg.com/vi/Y54_migATMA/hqdefault.jpg"
+    },
+    {
+      "title": "Defeating Alduin Once and for All – Skyrim Ending",
+      "url": "https://www.youtube.com/watch?v=7rmFQoSSjCU",
+      "thumbnail": "https://i.ytimg.com/vi/7rmFQoSSjCU/hqdefault.jpg"
+    },
+    {
+      "title": "Mirrors Edge Catalyst - Ending",
+      "url": "https://www.youtube.com/watch?v=Zv-rvYZKE5Q",
+      "thumbnail": "https://i.ytimg.com/vi/Zv-rvYZKE5Q/hqdefault.jpg"
+    }
+  ]
 }

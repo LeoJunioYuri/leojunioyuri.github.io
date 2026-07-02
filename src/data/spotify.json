@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-07-02T08:41:12.395Z",
+  "updatedAt": "2026-07-02T13:28:43.750Z",
   "tracks": [
+    {
+      "name": "Lament of the Highborne",
+      "artist": "Russell Brower, Derek Duke, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/6j3nSaOoEIIRRudPdWODDI",
+      "image": "https://i.scdn.co/image/ab67616d0000485149f7720a05ae123fda060ad5",
+      "playedAt": "2026-07-02T12:09:20.716Z"
+    },
+    {
+      "name": "Winds of Vol'dun",
+      "artist": "Sam Cardon, Neal Acree, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/1PFEUqNwqDV14bPkpZCWx9",
+      "image": "https://i.scdn.co/image/ab67616d000048519ebf1df2f4da5f1ba3ef17ae",
+      "playedAt": "2026-07-02T12:06:23.139Z"
+    },
+    {
+      "name": "Breath of Al'Akir",
+      "artist": "Derek Duke, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/6VL6EeqFp2HqZyjSgiSka3",
+      "image": "https://i.scdn.co/image/ab67616d00004851a903a4b330dca3e6fab05558",
+      "playedAt": "2026-07-02T12:00:51.636Z"
+    },
+    {
+      "name": "Slaughtered Lamb",
+      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/7zydiZm9AGS5Np6QP4Xjs8",
+      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
+      "playedAt": "2026-07-02T11:56:17.056Z"
+    },
+    {
+      "name": "Slaughtered Lamb",
+      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/7zydiZm9AGS5Np6QP4Xjs8",
+      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
+      "playedAt": "2026-07-02T11:54:38.689Z"
+    },
     {
       "name": "Set Me Free",
       "artist": "Avenged Sevenfold",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/7Hr1Ignop7cymbE3FbOtXa",
       "image": "https://i.scdn.co/image/ab67616d00004851c34064a3c5e4a25892a091f3",
       "playedAt": "2026-07-02T06:06:14.101Z"
-    },
-    {
-      "name": "Afterlife",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/7zAt4tdL44D3VuzsvM0N8n",
-      "image": "https://i.scdn.co/image/ab67616d0000485133c52ca8309741c6999ca742",
-      "playedAt": "2026-07-02T06:00:46.832Z"
-    },
-    {
-      "name": "Roman Sky",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/1cS6bhx9h565rLO0HuDtgu",
-      "image": "https://i.scdn.co/image/ab67616d00004851b645f0073b86688922006823",
-      "playedAt": "2026-07-02T05:54:53.906Z"
-    },
-    {
-      "name": "Hail to the King",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/3kMBEnLhExewYVmOD0wGu0",
-      "image": "https://i.scdn.co/image/ab67616d0000485194cec3fed870b8672514e6b1",
-      "playedAt": "2026-07-02T05:49:53.093Z"
-    },
-    {
-      "name": "Seize the Day",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/7HKRWMTErKh56EIBeFcmdf",
-      "image": "https://i.scdn.co/image/ab67616d0000485191b3adb195fd4017fd3d6400",
-      "playedAt": "2026-07-02T05:44:47.734Z"
-    },
-    {
-      "name": "Shepherd of Fire",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/1fQaoh3imrMunWVZh5kf90",
-      "image": "https://i.scdn.co/image/ab67616d000048510ea1ecb2d5271c2db402b0c2",
-      "playedAt": "2026-07-02T05:39:13.203Z"
     }
   ],
   "topTracks": {

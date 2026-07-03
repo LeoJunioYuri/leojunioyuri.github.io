@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-07-02T19:08:29.725Z",
+  "updatedAt": "2026-07-03T01:55:11.264Z",
   "tracks": [
+    {
+      "name": "Black Diamond",
+      "artist": "Stratovarius",
+      "url": "https://open.spotify.com/track/0L4X0uzbwzRiX3Z5U7xLaJ",
+      "image": "https://i.scdn.co/image/ab67616d0000485148d0961740d9c83932ac2473",
+      "playedAt": "2026-07-03T01:19:04.463Z"
+    },
+    {
+      "name": "Nemo",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/1RNwniZkJqdw9LMkkyynjx",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-07-03T01:13:24.296Z"
+    },
+    {
+      "name": "So Far Away",
+      "artist": "Avenged Sevenfold",
+      "url": "https://open.spotify.com/track/7Hr1Ignop7cymbE3FbOtXa",
+      "image": "https://i.scdn.co/image/ab67616d00004851c34064a3c5e4a25892a091f3",
+      "playedAt": "2026-07-03T01:08:47.638Z"
+    },
+    {
+      "name": "Salty Sailor",
+      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/5VPlddm5CszMrSEdKLNhms",
+      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
+      "playedAt": "2026-07-02T20:21:31.918Z"
+    },
     {
       "name": "Lament of the Highborne",
       "artist": "Russell Brower, Derek Duke, World of Warcraft, Blizzard Entertainment",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/7zydiZm9AGS5Np6QP4Xjs8",
       "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
       "playedAt": "2026-07-02T11:56:17.056Z"
-    },
-    {
-      "name": "Slaughtered Lamb",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/7zydiZm9AGS5Np6QP4Xjs8",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-02T11:54:38.689Z"
-    },
-    {
-      "name": "Set Me Free",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/2IrdmiRatVE5s3l2YRcIXH",
-      "image": "https://i.scdn.co/image/ab67616d000048511e10ec41b3233cb9d84442fa",
-      "playedAt": "2026-07-02T06:16:52.490Z"
-    },
-    {
-      "name": "Andronikos Theme",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/4mORMf6m0Wbqmiw0ue6bAS",
-      "image": "https://i.scdn.co/image/ab67616d00004851bb3b10ab9c78f1614a207298",
-      "playedAt": "2026-07-02T06:10:30.758Z"
-    },
-    {
-      "name": "So Far Away",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/7Hr1Ignop7cymbE3FbOtXa",
-      "image": "https://i.scdn.co/image/ab67616d00004851c34064a3c5e4a25892a091f3",
-      "playedAt": "2026-07-02T06:06:14.101Z"
     }
   ],
   "topTracks": {
@@ -76,73 +76,73 @@
       },
       {
         "rank": 3,
-        "name": "Rivers Between Us",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 4,
         "name": "Nothing Else Matters - Live",
         "artist": "Metallica",
         "url": "https://open.spotify.com/track/5jEfQZmmwwKymr9cfmgfsd",
         "image": "https://i.scdn.co/image/ab67616d000048512a2e23c85aef280bffd824e7"
       },
       {
-        "rank": 5,
-        "name": "Herr Mannelig",
-        "artist": "Haggard",
-        "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
-        "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1"
-      },
-      {
-        "rank": 6,
+        "rank": 4,
         "name": "Outside",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/58yC1Q6XKjmHeWkEWh9O6B",
         "image": "https://i.scdn.co/image/ab67616d0000485136fb79728dbb379579cef97e"
       },
       {
-        "rank": 7,
+        "rank": 5,
         "name": "The Birds Pt. 1",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/5SF1kcOiOmtZFUIQNGC4TC",
         "image": "https://i.scdn.co/image/ab67616d00004851e01c2631218e2de27765b7d5"
       },
       {
-        "rank": 8,
+        "rank": 6,
         "name": "Cut the Bridge",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 9,
+        "rank": 7,
         "name": "Dark Venus Persephone",
         "artist": "Therion",
         "url": "https://open.spotify.com/track/6Ie871KwIES9TtxllV8ufv",
         "image": "https://i.scdn.co/image/ab67616d00004851d4ab2c5a120e944f565e90f4"
       },
       {
-        "rank": 10,
+        "rank": 8,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 11,
+        "rank": 9,
+        "name": "Herr Mannelig",
+        "artist": "Haggard",
+        "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
+        "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1"
+      },
+      {
+        "rank": 10,
         "name": "Prisoner of Your Eyes",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/2VLwPKY2gaBxGxwgmwRDUf",
         "image": "https://i.scdn.co/image/ab67616d00004851a79a10cea4a05ade064a397b"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
+      },
+      {
+        "rank": 12,
+        "name": "Billie Jean",
+        "artist": "Michael Jackson",
+        "url": "https://open.spotify.com/track/7J1uxwnxfQLu4APicE5Rnj",
+        "image": "https://i.scdn.co/image/ab67616d0000485132a7d87248d1b75463483df5"
       }
     ],
     "medium": [

@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-07-04T18:55:59.423Z",
+  "updatedAt": "2026-07-05T02:01:46.086Z",
   "tracks": [
+    {
+      "name": "Domination",
+      "artist": "Pantera",
+      "url": "https://open.spotify.com/track/769cLRTw2y6KRdkFWFkxtu",
+      "image": "https://i.scdn.co/image/ab67616d000048510ce52f4ba340a1e459e6a978",
+      "playedAt": "2026-07-04T20:03:57.110Z"
+    },
+    {
+      "name": "Lying from You",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/4qVR3CF8FuFvHN4L6vXlB1",
+      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
+      "playedAt": "2026-07-04T19:23:25.270Z"
+    },
+    {
+      "name": "Like a Stone",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/2xt2piJx6jlFkjS77YiqpL",
+      "image": "https://i.scdn.co/image/ab67616d000048514d94e1251b7e8c5e247de39c",
+      "playedAt": "2026-07-04T19:20:21.531Z"
+    },
+    {
+      "name": "Whiskey In The Jar",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/2R6UrJ8uWbSIiHWmvRQvN8",
+      "image": "https://i.scdn.co/image/ab67616d0000485175e6375e11550746705a9645",
+      "playedAt": "2026-07-04T19:15:15.109Z"
+    },
+    {
+      "name": "Turn The Page",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/1aXFBWnnPFRKUN7vuIA5h0",
+      "image": "https://i.scdn.co/image/ab67616d0000485175e6375e11550746705a9645",
+      "playedAt": "2026-07-04T19:10:09.968Z"
+    },
+    {
+      "name": "The Unforgiven - Remastered 2021",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/6pAIZfkNBQh4RAiOliPo4t",
+      "image": "https://i.scdn.co/image/ab67616d00004851c1a13209dfe146aef3296e34",
+      "playedAt": "2026-07-04T19:03:57.176Z"
+    },
     {
       "name": "Imaginary",
       "artist": "Evanescence",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/0L4X0uzbwzRiX3Z5U7xLaJ",
       "image": "https://i.scdn.co/image/ab67616d0000485148d0961740d9c83932ac2473",
       "playedAt": "2026-07-03T01:19:04.463Z"
-    },
-    {
-      "name": "Nemo",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/1RNwniZkJqdw9LMkkyynjx",
-      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
-      "playedAt": "2026-07-03T01:13:24.296Z"
-    },
-    {
-      "name": "So Far Away",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/7Hr1Ignop7cymbE3FbOtXa",
-      "image": "https://i.scdn.co/image/ab67616d00004851c34064a3c5e4a25892a091f3",
-      "playedAt": "2026-07-03T01:08:47.638Z"
-    },
-    {
-      "name": "Salty Sailor",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/5VPlddm5CszMrSEdKLNhms",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-02T20:21:31.918Z"
-    },
-    {
-      "name": "Lament of the Highborne",
-      "artist": "Russell Brower, Derek Duke, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6j3nSaOoEIIRRudPdWODDI",
-      "image": "https://i.scdn.co/image/ab67616d0000485149f7720a05ae123fda060ad5",
-      "playedAt": "2026-07-02T12:09:20.716Z"
-    },
-    {
-      "name": "Winds of Vol'dun",
-      "artist": "Sam Cardon, Neal Acree, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/1PFEUqNwqDV14bPkpZCWx9",
-      "image": "https://i.scdn.co/image/ab67616d000048519ebf1df2f4da5f1ba3ef17ae",
-      "playedAt": "2026-07-02T12:06:23.139Z"
-    },
-    {
-      "name": "Breath of Al'Akir",
-      "artist": "Derek Duke, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6VL6EeqFp2HqZyjSgiSka3",
-      "image": "https://i.scdn.co/image/ab67616d00004851a903a4b330dca3e6fab05558",
-      "playedAt": "2026-07-02T12:00:51.636Z"
     }
   ],
   "topTracks": {
@@ -97,52 +97,52 @@
       },
       {
         "rank": 6,
-        "name": "Cut the Bridge",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 7,
         "name": "Dark Venus Persephone",
         "artist": "Therion",
         "url": "https://open.spotify.com/track/6Ie871KwIES9TtxllV8ufv",
         "image": "https://i.scdn.co/image/ab67616d00004851d4ab2c5a120e944f565e90f4"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Herr Mannelig",
         "artist": "Haggard",
         "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
         "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Prisoner of Your Eyes",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/2VLwPKY2gaBxGxwgmwRDUf",
         "image": "https://i.scdn.co/image/ab67616d00004851a79a10cea4a05ade064a397b"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Billie Jean",
         "artist": "Michael Jackson",
         "url": "https://open.spotify.com/track/7J1uxwnxfQLu4APicE5Rnj",
         "image": "https://i.scdn.co/image/ab67616d0000485132a7d87248d1b75463483df5"
+      },
+      {
+        "rank": 12,
+        "name": "Back To December (Taylor's Version)",
+        "artist": "Taylor Swift",
+        "url": "https://open.spotify.com/track/79uDOz0zuuWS7HWxzMmTa2",
+        "image": "https://i.scdn.co/image/ab67616d000048510b04da4f224b51ff86e0a481"
       }
     ],
     "medium": [

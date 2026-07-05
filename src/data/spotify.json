@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-07-05T13:06:35.112Z",
+  "updatedAt": "2026-07-05T19:00:54.909Z",
   "tracks": [
+    {
+      "name": "Without You",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/6g4RVB6qiuySTw9FCV1HEM",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-07-05T18:58:01.664Z"
+    },
+    {
+      "name": "Blue Jeans",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-07-05T18:54:11.921Z"
+    },
     {
       "name": "Domination",
       "artist": "Pantera",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/6pAIZfkNBQh4RAiOliPo4t",
       "image": "https://i.scdn.co/image/ab67616d00004851c1a13209dfe146aef3296e34",
       "playedAt": "2026-07-04T19:03:57.176Z"
-    },
-    {
-      "name": "Imaginary",
-      "artist": "Evanescence",
-      "url": "https://open.spotify.com/track/7q6CybWAg3uYLgS5tDWqmd",
-      "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
-      "playedAt": "2026-07-03T22:55:08.320Z"
-    },
-    {
-      "name": "Black Diamond",
-      "artist": "Stratovarius",
-      "url": "https://open.spotify.com/track/0L4X0uzbwzRiX3Z5U7xLaJ",
-      "image": "https://i.scdn.co/image/ab67616d0000485148d0961740d9c83932ac2473",
-      "playedAt": "2026-07-03T01:19:04.463Z"
     }
   ],
   "topTracks": {

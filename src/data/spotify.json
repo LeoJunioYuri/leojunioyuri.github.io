@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-05T19:00:54.909Z",
+  "updatedAt": "2026-07-06T02:07:47.003Z",
   "tracks": [
+    {
+      "name": "Swan Song",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/1DYRRZ5rSlc1PopnB7azLZ",
+      "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
+      "playedAt": "2026-07-06T02:04:37.620Z"
+    },
+    {
+      "name": "Wish That You Were Here - From “Miss Peregrine’s Home for Peculiar Children” Original Motion Picture",
+      "artist": "Florence + The Machine",
+      "url": "https://open.spotify.com/track/1FrrRHxMKVvd85O3gancxW",
+      "image": "https://i.scdn.co/image/ab67616d000048513eba8088501778fbfa0abcc0",
+      "playedAt": "2026-07-06T01:59:13.560Z"
+    },
+    {
+      "name": "Ship To Wreck",
+      "artist": "Florence + The Machine",
+      "url": "https://open.spotify.com/track/3dEFa9KjOLEZl980ctEEv1",
+      "image": "https://i.scdn.co/image/ab67616d000048517f89eb18e64f268561d81c42",
+      "playedAt": "2026-07-06T01:52:07.081Z"
+    },
+    {
+      "name": "Tough",
+      "artist": "Quavo, Lana Del Rey",
+      "url": "https://open.spotify.com/track/22DH8NChecsgPxDjA4pqer",
+      "image": "https://i.scdn.co/image/ab67616d00004851e1a7ec3a606b52b7328d3e78",
+      "playedAt": "2026-07-05T21:38:50.692Z"
+    },
+    {
+      "name": "California",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/7oTE1KmtU2ml9zBhv9Reao",
+      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
+      "playedAt": "2026-07-05T19:12:54.002Z"
+    },
+    {
+      "name": "Chemtrails Over The Country Club",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-07-05T19:07:19.099Z"
+    },
+    {
+      "name": "Born To Die",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4Ouhoi2lAhrLJKFzUqEzwl",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-07-05T19:02:47.497Z"
+    },
     {
       "name": "Without You",
       "artist": "Lana Del Rey",
       "url": "https://open.spotify.com/track/6g4RVB6qiuySTw9FCV1HEM",
       "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
       "playedAt": "2026-07-05T18:58:01.664Z"
-    },
-    {
-      "name": "Blue Jeans",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-07-05T18:54:11.921Z"
-    },
-    {
-      "name": "Domination",
-      "artist": "Pantera",
-      "url": "https://open.spotify.com/track/769cLRTw2y6KRdkFWFkxtu",
-      "image": "https://i.scdn.co/image/ab67616d000048510ce52f4ba340a1e459e6a978",
-      "playedAt": "2026-07-04T20:03:57.110Z"
-    },
-    {
-      "name": "Lying from You",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/4qVR3CF8FuFvHN4L6vXlB1",
-      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
-      "playedAt": "2026-07-04T19:23:25.270Z"
-    },
-    {
-      "name": "Like a Stone",
-      "artist": "Audioslave",
-      "url": "https://open.spotify.com/track/2xt2piJx6jlFkjS77YiqpL",
-      "image": "https://i.scdn.co/image/ab67616d000048514d94e1251b7e8c5e247de39c",
-      "playedAt": "2026-07-04T19:20:21.531Z"
-    },
-    {
-      "name": "Whiskey In The Jar",
-      "artist": "Metallica",
-      "url": "https://open.spotify.com/track/2R6UrJ8uWbSIiHWmvRQvN8",
-      "image": "https://i.scdn.co/image/ab67616d0000485175e6375e11550746705a9645",
-      "playedAt": "2026-07-04T19:15:15.109Z"
-    },
-    {
-      "name": "Turn The Page",
-      "artist": "Metallica",
-      "url": "https://open.spotify.com/track/1aXFBWnnPFRKUN7vuIA5h0",
-      "image": "https://i.scdn.co/image/ab67616d0000485175e6375e11550746705a9645",
-      "playedAt": "2026-07-04T19:10:09.968Z"
-    },
-    {
-      "name": "The Unforgiven - Remastered 2021",
-      "artist": "Metallica",
-      "url": "https://open.spotify.com/track/6pAIZfkNBQh4RAiOliPo4t",
-      "image": "https://i.scdn.co/image/ab67616d00004851c1a13209dfe146aef3296e34",
-      "playedAt": "2026-07-04T19:03:57.176Z"
     }
   ],
   "topTracks": {
@@ -125,24 +125,24 @@
       },
       {
         "rank": 10,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 11,
         "name": "Billie Jean",
         "artist": "Michael Jackson",
         "url": "https://open.spotify.com/track/7J1uxwnxfQLu4APicE5Rnj",
         "image": "https://i.scdn.co/image/ab67616d0000485132a7d87248d1b75463483df5"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Back To December (Taylor's Version)",
         "artist": "Taylor Swift",
         "url": "https://open.spotify.com/track/79uDOz0zuuWS7HWxzMmTa2",
         "image": "https://i.scdn.co/image/ab67616d000048510b04da4f224b51ff86e0a481"
+      },
+      {
+        "rank": 12,
+        "name": "Look for the Truth - 2015 Remaster",
+        "artist": "Iron Maiden",
+        "url": "https://open.spotify.com/track/1NEK0eEl2Nt0JgkNtYCNEu",
+        "image": "https://i.scdn.co/image/ab67616d00004851ee8e0e9afc080aebb01f36c3"
       }
     ],
     "medium": [

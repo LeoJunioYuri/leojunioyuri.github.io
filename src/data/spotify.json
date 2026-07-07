@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-07-06T19:41:16.623Z",
+  "updatedAt": "2026-07-07T02:02:58.379Z",
   "tracks": [
+    {
+      "name": "Planet Hell",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/4aOUcByFqMhdnMWZqUkogv",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-07-07T00:13:49.483Z"
+    },
+    {
+      "name": "Don't Talk To Strangers",
+      "artist": "Dio",
+      "url": "https://open.spotify.com/track/6ppPNxdwG8A5Ed8DlNLV6I",
+      "image": "https://i.scdn.co/image/ab67616d0000485115350aa1c89e23a5fa6c0de1",
+      "playedAt": "2026-07-07T00:13:02.990Z"
+    },
+    {
+      "name": "The Gods Made Heavy Metal",
+      "artist": "Manowar",
+      "url": "https://open.spotify.com/track/2wE7eJkf3IvxKwqiK3UoiO",
+      "image": "https://i.scdn.co/image/ab67616d00004851b2b3dc4550e94bb8d63154e0",
+      "playedAt": "2026-07-06T23:01:59.683Z"
+    },
+    {
+      "name": "Fighting the World",
+      "artist": "Manowar",
+      "url": "https://open.spotify.com/track/2tjb6V24kf6sDUdEFNf3m9",
+      "image": "https://i.scdn.co/image/ab67616d00004851967e4e7eb39572871169a25c",
+      "playedAt": "2026-07-06T19:42:24.869Z"
+    },
     {
       "name": "A Tout Le Monde - Remastered 2004",
       "artist": "Megadeth",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/5PrM0M6ERoOYiYggVqjfJD",
       "image": "https://i.scdn.co/image/ab67616d0000485199d14b8213a2fde3f6aebfac",
       "playedAt": "2026-07-06T18:57:44.132Z"
-    },
-    {
-      "name": "Heart of Steel",
-      "artist": "Manowar",
-      "url": "https://open.spotify.com/track/4YXhOackOMOlQTMAwsDHo6",
-      "image": "https://i.scdn.co/image/ab67616d000048512612add61ad53e5a5d33c2d4",
-      "playedAt": "2026-07-06T18:46:13.513Z"
-    },
-    {
-      "name": "Killing The Dragon (2019 - Remaster)",
-      "artist": "Dio",
-      "url": "https://open.spotify.com/track/3YXCDhG1QhJmk6tb1ay8UZ",
-      "image": "https://i.scdn.co/image/ab67616d0000485141ef9292c32f930d40fe53d3",
-      "playedAt": "2026-07-06T18:39:45.017Z"
-    },
-    {
-      "name": "Nosferatu",
-      "artist": "Bloodbound",
-      "url": "https://open.spotify.com/track/5WEqHNtlbM2mv4k7u9DB4Y",
-      "image": "https://i.scdn.co/image/ab67616d000048518f76138292757fcf7102ae9f",
-      "playedAt": "2026-07-06T18:35:19.230Z"
-    },
-    {
-      "name": "Killed by Death",
-      "artist": "Motörhead",
-      "url": "https://open.spotify.com/track/2XvVueul226rT8g4DQuKSK",
-      "image": "https://i.scdn.co/image/ab67616d0000485167102086e78a14eb0d436982",
-      "playedAt": "2026-07-06T18:22:41.730Z"
     }
   ],
   "topTracks": {

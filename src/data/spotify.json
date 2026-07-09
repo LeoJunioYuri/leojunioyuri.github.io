@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-09T09:20:13.999Z",
+  "updatedAt": "2026-07-09T14:29:34.910Z",
   "tracks": [
     {
-      "name": "A Mystery of Violence",
-      "artist": "Chris Tilton, Assassin's Creed",
-      "url": "https://open.spotify.com/track/3wxycRghNMprYda90Lxc1P",
-      "image": "https://i.scdn.co/image/ab67616d00004851d43d53acb4d4f039438c9a9e",
-      "playedAt": "2026-07-09T04:48:58.925Z"
+      "name": "Paris, Texas (feat. SYML)",
+      "artist": "Lana Del Rey, SYML",
+      "url": "https://open.spotify.com/track/0Oqxt6JixieLHbwMfnJGWO",
+      "image": "https://i.scdn.co/image/ab67616d0000485159ae8cf65d498afdd5585634",
+      "playedAt": "2026-07-09T14:27:54.249Z"
     },
     {
-      "name": "Kyne's Peace",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/4PNeUzpdtebym9qcjsiF9h",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-07-09T04:46:12.349Z"
-    },
-    {
-      "name": "Asgard Hall of the Aesir (feat. Einar Selvik)",
-      "artist": "Sarah Schachner, Assassin's Creed, Einar Selvik",
-      "url": "https://open.spotify.com/track/2RZHKpTUL6QfHGrjCwk5dd",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-07-09T04:42:22.394Z"
-    },
-    {
-      "name": "Let Me Love You Like A Woman",
+      "name": "Arcadia",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/1gxdWpeOUBpvB908fiZs4D",
+      "url": "https://open.spotify.com/track/3EZTyh1wJEmreJH1aULPCj",
+      "image": "https://i.scdn.co/image/ab67616d000048516946deb6f548e464b385ee0e",
+      "playedAt": "2026-07-09T14:20:29.465Z"
+    },
+    {
+      "name": "For Free",
+      "artist": "Lana Del Rey, Zella Day, Weyes Blood",
+      "url": "https://open.spotify.com/track/2lhfd0CF0dFlwRVH8NG8vv",
       "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
-      "playedAt": "2026-07-09T04:38:53.937Z"
+      "playedAt": "2026-07-09T14:09:21.854Z"
     },
     {
-      "name": "Tulsa Jesus Freak",
+      "name": "Dance Till We Die",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/0hyImI8JaWONOrzKH7kJsC",
+      "url": "https://open.spotify.com/track/6TZitk9QD7531Jl1TT7TeH",
       "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
-      "playedAt": "2026-07-09T04:35:33.330Z"
+      "playedAt": "2026-07-09T13:58:24.855Z"
     },
     {
-      "name": "Pretty When You Cry",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/6PnluwP0fjGnpIBsqTdUTq",
-      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
-      "playedAt": "2026-07-09T03:55:51.359Z"
+      "name": "Breaking Up Slowly",
+      "artist": "Lana Del Rey, Nikki Lane",
+      "url": "https://open.spotify.com/track/1hn1kCOG5dm1XgZYKpfaLR",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-07-09T13:54:21.868Z"
     },
     {
-      "name": "Sad Girl",
+      "name": "Yosemite",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/11MyiSGZSYSmhhqwGUTtAq",
-      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
-      "playedAt": "2026-07-09T03:51:57.168Z"
+      "url": "https://open.spotify.com/track/3WIifw9lqdgSZpt9renBAg",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-07-09T13:51:24.370Z"
     },
     {
-      "name": "Brooklyn Baby",
+      "name": "Not All Who Wander Are Lost",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/1NZs6n6hl8UuMaX0UC0YTz",
-      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
-      "playedAt": "2026-07-09T03:46:38.982Z"
+      "url": "https://open.spotify.com/track/0Z3JiHn6mhcObPmKhV9WRW",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-07-09T13:31:50.909Z"
+    },
+    {
+      "name": "Dark But Just A Game",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/1dBBmAddRRIw6GwF7dPz6z",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-07-09T13:27:45.308Z"
     }
   ],
   "topTracks": {

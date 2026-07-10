@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-07-09T19:21:47.860Z",
+  "updatedAt": "2026-07-10T01:53:14.711Z",
   "tracks": [
+    {
+      "name": "End of Time",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/5aDNR9kL3HsG3kUAeuguHl",
+      "image": "https://i.scdn.co/image/ab67616d00004851de2c417025472426d93162cb",
+      "playedAt": "2026-07-10T01:35:05.688Z"
+    },
+    {
+      "name": "Pale Tortured Blue",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-07-09T21:49:10.851Z"
+    },
+    {
+      "name": "Daylight Dancer",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/4EnbEcYpoGQAIGNLaZa4Nn",
+      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
+      "playedAt": "2026-07-09T21:42:28.350Z"
+    },
     {
       "name": "Forever",
       "artist": "Chris Brown",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/5jqNQZBwbZWQXPWfo0ygZF",
       "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
       "playedAt": "2026-07-09T15:26:32.652Z"
-    },
-    {
-      "name": "American",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/1Yfgbr2kZrb3u0NP8ioyuk",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-07-09T15:21:37.061Z"
-    },
-    {
-      "name": "How to disappear",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4qUtC2BwFC154Ha8YQRrkk",
-      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-07-09T15:17:27.628Z"
-    },
-    {
-      "name": "Venice Bitch",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/3hwQhakFwm9soLEBnSDH17",
-      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-07-09T15:13:39.029Z"
     }
   ],
   "topTracks": {
@@ -139,10 +139,10 @@
       },
       {
         "rank": 12,
-        "name": "One More Light",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3xXBsjrbG1xQIm1xv1cKOt",
-        "image": "https://i.scdn.co/image/ab67616d00004851145e1cf12538f5666511237d"
+        "name": "Diet Mountain Dew",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/48SdtsEKujibZPrd6UMfAr",
+        "image": "https://i.scdn.co/image/ab67616d000048516b850da1e1301dba85b08681"
       }
     ],
     "medium": [
@@ -176,16 +176,16 @@
       },
       {
         "rank": 5,
-        "name": "The Wretched Tide",
+        "name": "Pale Tortured Blue",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 6,
-        "name": "Pale Tortured Blue",
+        "name": "The Wretched Tide",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {

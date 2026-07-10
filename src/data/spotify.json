@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-07-10T09:17:51.553Z",
+  "updatedAt": "2026-07-10T13:57:30.286Z",
   "tracks": [
+    {
+      "name": "Yours Is an Empty Hope",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/2NhfAS6tkpBQGo2JRExCHP",
+      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
+      "playedAt": "2026-07-10T12:36:48.625Z"
+    },
+    {
+      "name": "Élan",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5oAvb7LpUBwQfBtQ6hmS4Q",
+      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
+      "playedAt": "2026-07-10T12:30:49.709Z"
+    },
+    {
+      "name": "Weak Fantasy",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/3POMZFPzYbV6rYXJN1ozXW",
+      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
+      "playedAt": "2026-07-10T12:26:02.709Z"
+    },
+    {
+      "name": "Shudder Before the Beautiful",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/50CJMURkzURQwlp4Ht5tp6",
+      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
+      "playedAt": "2026-07-10T12:20:37.715Z"
+    },
+    {
+      "name": "Holding Out for a Hero - From \"Footloose\" Soundtrack",
+      "artist": "Bonnie Tyler",
+      "url": "https://open.spotify.com/track/5Hyr47BBGpvOfcykSCcaw9",
+      "image": "https://i.scdn.co/image/ab67616d00004851d2675cb6847d1b1da9fc28a3",
+      "playedAt": "2026-07-10T12:12:37.529Z"
+    },
     {
       "name": "Alpenglow",
       "artist": "Nightwish",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/2NhfAS6tkpBQGo2JRExCHP",
       "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
       "playedAt": "2026-07-10T03:27:12.133Z"
-    },
-    {
-      "name": "Élan",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5oAvb7LpUBwQfBtQ6hmS4Q",
-      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
-      "playedAt": "2026-07-10T03:27:12.132Z"
-    },
-    {
-      "name": "The Day Of...",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6BcmuPIh3e9cJMzCR7o6ad",
-      "image": "https://i.scdn.co/image/ab6742d3000052b7921a89d49f10a494610438da",
-      "playedAt": "2026-07-10T03:23:04.548Z"
-    },
-    {
-      "name": "The Day Of...",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6BcmuPIh3e9cJMzCR7o6ad",
-      "image": "https://i.scdn.co/image/ab6742d3000052b7921a89d49f10a494610438da",
-      "playedAt": "2026-07-10T03:23:04.548Z"
-    },
-    {
-      "name": "Weak Fantasy",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3POMZFPzYbV6rYXJN1ozXW",
-      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
-      "playedAt": "2026-07-10T03:23:03.438Z"
-    },
-    {
-      "name": "Weak Fantasy",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3POMZFPzYbV6rYXJN1ozXW",
-      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
-      "playedAt": "2026-07-10T03:22:46.255Z"
     }
   ],
   "topTracks": {
@@ -139,10 +139,10 @@
       },
       {
         "rank": 12,
-        "name": "Diet Mountain Dew",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/48SdtsEKujibZPrd6UMfAr",
-        "image": "https://i.scdn.co/image/ab67616d000048516b850da1e1301dba85b08681"
+        "name": "Shudder Before the Beautiful",
+        "artist": "Nightwish",
+        "url": "https://open.spotify.com/track/2KzHAMp1UXGTXYwFE7KM9J",
+        "image": "https://i.scdn.co/image/ab67616d000048511f790f6ff861e7e9ceee2050"
       }
     ],
     "medium": [

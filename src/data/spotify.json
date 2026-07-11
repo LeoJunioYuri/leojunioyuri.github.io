@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-11T01:43:02.902Z",
+  "updatedAt": "2026-07-11T07:39:31.672Z",
   "tracks": [
+    {
+      "name": "Dead To The World",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/4y0ZvqMtekQWZBAffhoICl",
+      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
+      "playedAt": "2026-07-11T03:18:01.643Z"
+    },
     {
       "name": "End Of All Hope",
       "artist": "Nightwish",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/2qS62U9CrjR5hjqSqSfbrk",
       "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
       "playedAt": "2026-07-10T20:21:38.893Z"
-    },
-    {
-      "name": "The Phantom Of The Opera",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/2qS62U9CrjR5hjqSqSfbrk",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:17:32.086Z"
     }
   ],
   "topTracks": {

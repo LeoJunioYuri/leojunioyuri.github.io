@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-11T18:44:06.461Z",
+  "updatedAt": "2026-07-12T01:44:49.274Z",
   "tracks": [
+    {
+      "name": "Dream On",
+      "artist": "Nazareth",
+      "url": "https://open.spotify.com/track/5b3C40EzC5DBit14cLfby8",
+      "image": "https://i.scdn.co/image/ab67616d00004851aad77c3f86e819913534568d",
+      "playedAt": "2026-07-11T21:00:37.488Z"
+    },
+    {
+      "name": "Making Love Out of Nothing at All",
+      "artist": "Air Supply",
+      "url": "https://open.spotify.com/track/01MXkFA8sL7at6txavDErt",
+      "image": "https://i.scdn.co/image/ab67616d000048513a9106f940fb04bc98a2b95e",
+      "playedAt": "2026-07-11T19:49:10.340Z"
+    },
+    {
+      "name": "Love Hurts - Single Edit",
+      "artist": "Nazareth",
+      "url": "https://open.spotify.com/track/6MXUZ4VRQ41qTPWKgvHMCK",
+      "image": "https://i.scdn.co/image/ab67616d00004851907339a8b51fb08227037009",
+      "playedAt": "2026-07-11T19:43:28.155Z"
+    },
+    {
+      "name": "Still Loving You",
+      "artist": "Scorpions",
+      "url": "https://open.spotify.com/track/7kjsCbksOZotNNHOvKsJJh",
+      "image": "https://i.scdn.co/image/ab67616d00004851926764eed4da16a86b9ce33e",
+      "playedAt": "2026-07-11T19:35:44.651Z"
+    },
+    {
+      "name": "we never dated",
+      "artist": "sombr",
+      "url": "https://open.spotify.com/track/0t1fdMrn7JOg9DDsT95bxt",
+      "image": "https://i.scdn.co/image/ab67616d000048514229702de91cb3d3a4383302",
+      "playedAt": "2026-07-11T19:20:38.068Z"
+    },
+    {
+      "name": "Lucky Ones",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/24h1notzzKOcLZSdRYa7yn",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-07-11T19:17:20.668Z"
+    },
+    {
+      "name": "Blue Jeans",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-07-11T19:13:35.135Z"
+    },
     {
       "name": "Dead To The World",
       "artist": "Nightwish",
       "url": "https://open.spotify.com/track/4y0ZvqMtekQWZBAffhoICl",
       "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
       "playedAt": "2026-07-11T03:18:01.643Z"
-    },
-    {
-      "name": "End Of All Hope",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6iy4rB5wcqNEqjvOzIkwZA",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:54:39.429Z"
-    },
-    {
-      "name": "Bless The Child",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/703qSkOtgGhC2O8ZyY7Jly",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:50:45.641Z"
-    },
-    {
-      "name": "The Wayfarer",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/1fukuJN9P7T3mLK4DTzC4j",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:35:04.098Z"
-    },
-    {
-      "name": "Lagoon",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/4W31GaL30qH2IinFWkhIeW",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:31:40.994Z"
-    },
-    {
-      "name": "Beauty Of The Beast",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/0kOmBLLlANhna67qyClag8",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:27:55.321Z"
-    },
-    {
-      "name": "Beauty Of The Beast",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/0kOmBLLlANhna67qyClag8",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:21:40.591Z"
-    },
-    {
-      "name": "The Phantom Of The Opera",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/2qS62U9CrjR5hjqSqSfbrk",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-07-10T20:21:38.893Z"
     }
   ],
   "topTracks": {
@@ -104,45 +104,45 @@
       },
       {
         "rank": 7,
+        "name": "Blue Jeans",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/4ANim4YPlz5nVInrXdx2xr",
+        "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
+      },
+      {
+        "rank": 8,
         "name": "Outside",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/58yC1Q6XKjmHeWkEWh9O6B",
         "image": "https://i.scdn.co/image/ab67616d0000485136fb79728dbb379579cef97e"
       },
       {
-        "rank": 8,
+        "rank": 9,
         "name": "Herr Mannelig",
         "artist": "Haggard",
         "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
         "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1"
       },
       {
-        "rank": 9,
+        "rank": 10,
         "name": "Prisoner of Your Eyes",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/2VLwPKY2gaBxGxwgmwRDUf",
         "image": "https://i.scdn.co/image/ab67616d00004851a79a10cea4a05ade064a397b"
       },
       {
-        "rank": 10,
+        "rank": 11,
         "name": "Back To December (Taylor's Version)",
         "artist": "Taylor Swift",
         "url": "https://open.spotify.com/track/79uDOz0zuuWS7HWxzMmTa2",
         "image": "https://i.scdn.co/image/ab67616d000048510b04da4f224b51ff86e0a481"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Look for the Truth - 2015 Remaster",
         "artist": "Iron Maiden",
         "url": "https://open.spotify.com/track/1NEK0eEl2Nt0JgkNtYCNEu",
         "image": "https://i.scdn.co/image/ab67616d00004851ee8e0e9afc080aebb01f36c3"
-      },
-      {
-        "rank": 12,
-        "name": "Shudder Before the Beautiful",
-        "artist": "Nightwish",
-        "url": "https://open.spotify.com/track/2KzHAMp1UXGTXYwFE7KM9J",
-        "image": "https://i.scdn.co/image/ab67616d000048511f790f6ff861e7e9ceee2050"
       }
     ],
     "medium": [

@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-13T08:47:08.557Z",
+  "updatedAt": "2026-07-13T14:03:50.314Z",
   "tracks": [
+    {
+      "name": "Chemical Wedding - 2001 Remaster",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/4rHBxp5ss7VnYrEo5m3Cfg",
+      "image": "https://i.scdn.co/image/ab67616d0000485124dde831c000067b7dc5d4f3",
+      "playedAt": "2026-07-13T12:02:15.310Z"
+    },
+    {
+      "name": "Comalies",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
+      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
+      "playedAt": "2026-07-13T11:58:08.734Z"
+    },
+    {
+      "name": "Lemuria",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/0lWYqPPmSQ0LIY4nN29QAl",
+      "image": "https://i.scdn.co/image/ab67616d00004851d034933389cdb3f6794daa49",
+      "playedAt": "2026-07-13T11:49:59.468Z"
+    },
+    {
+      "name": "Good Things Go",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/6aCBjSb87RizdH8lVBIRW7",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-07-13T11:45:43.565Z"
+    },
+    {
+      "name": "IGYEIH",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-07-13T11:42:13.700Z"
+    },
+    {
+      "name": "Planet Hell",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/4aOUcByFqMhdnMWZqUkogv",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-07-13T11:38:19.687Z"
+    },
+    {
+      "name": "Hunters' Refuge",
+      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/3A2FRyeSJKtdYj15nYlrVc",
+      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
+      "playedAt": "2026-07-13T11:33:28.078Z"
+    },
     {
       "name": "Thunderbrew",
       "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
       "url": "https://open.spotify.com/track/2Qt3MWy1bDlRFwwqX2KDEm",
       "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
       "playedAt": "2026-07-13T04:33:57.120Z"
-    },
-    {
-      "name": "Slaughtered Lamb",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/7zydiZm9AGS5Np6QP4Xjs8",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:31:55.928Z"
-    },
-    {
-      "name": "Bad Juju Bar & Grill",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/4N5vzThrUcFR44pvIn0Ibw",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:29:23.736Z"
-    },
-    {
-      "name": "Spirit Stone",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2PiJUqaA05vZeIPpfjkhHL",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:26:47.932Z"
-    },
-    {
-      "name": "Deepwater",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2e19mNefkoUnBBiU3dURvw",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:23:41.118Z"
-    },
-    {
-      "name": "Salty Sailor",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/5VPlddm5CszMrSEdKLNhms",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:21:15.782Z"
-    },
-    {
-      "name": "Scarlet Raven",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/04D1Zw6nkSN2VXwLaAxoib",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:18:42.094Z"
-    },
-    {
-      "name": "Shady Rest",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6yuX4XEh44DVOGYNQJWMo3",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:15:54.039Z"
     }
   ],
   "topTracks": {
@@ -69,24 +69,24 @@
       },
       {
         "rank": 2,
+        "name": "IGYEIH",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 3,
         "name": "Religion",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/1Yh4lOCbcskjSfYPDnn7EW",
         "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a"
       },
       {
-        "rank": 3,
+        "rank": 4,
         "name": "Nothing Else Matters - Live",
         "artist": "Metallica",
         "url": "https://open.spotify.com/track/5jEfQZmmwwKymr9cfmgfsd",
         "image": "https://i.scdn.co/image/ab67616d000048512a2e23c85aef280bffd824e7"
-      },
-      {
-        "rank": 4,
-        "name": "IGYEIH",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
         "rank": 5,

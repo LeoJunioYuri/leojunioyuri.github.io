@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-13T14:03:50.314Z",
+  "updatedAt": "2026-07-13T19:11:07.608Z",
   "tracks": [
+    {
+      "name": "Comalies",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
+      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
+      "playedAt": "2026-07-13T17:49:45.008Z"
+    },
     {
       "name": "Chemical Wedding - 2001 Remaster",
       "artist": "Bruce Dickinson",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/3A2FRyeSJKtdYj15nYlrVc",
       "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
       "playedAt": "2026-07-13T11:33:28.078Z"
-    },
-    {
-      "name": "Thunderbrew",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2Qt3MWy1bDlRFwwqX2KDEm",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T04:33:57.120Z"
     }
   ],
   "topTracks": {

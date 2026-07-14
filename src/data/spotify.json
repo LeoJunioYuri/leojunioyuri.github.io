@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-07-14T07:46:23.232Z",
+  "updatedAt": "2026-07-14T13:06:32.065Z",
   "tracks": [
+    {
+      "name": "Quando Você Passa (Turu Turu)",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/1LNroGH4W4RsUVjIFUsrUA",
+      "image": "https://i.scdn.co/image/ab67616d0000485188d49e8d1c43a06a3b358c53",
+      "playedAt": "2026-07-14T13:05:36.366Z"
+    },
+    {
+      "name": "Inesquecível",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/6Ld4YikXRqsg8cg1WIPpSh",
+      "image": "https://i.scdn.co/image/ab67616d00004851222dd75bb6b45aba55abc698",
+      "playedAt": "2026-07-14T13:01:54.741Z"
+    },
+    {
+      "name": "O Amor Faz - Ao Vivo",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/5B40Yx7YKl7S2c4V04cJeV",
+      "image": "https://i.scdn.co/image/ab67616d00004851592499da6cf4d280ded63f18",
+      "playedAt": "2026-07-14T12:57:32.205Z"
+    },
+    {
+      "name": "No Fundo Do Coração - Ao Vivo",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/0XAm32vtWfd3cahZaWZ3NT",
+      "image": "https://i.scdn.co/image/ab67616d00004851592499da6cf4d280ded63f18",
+      "playedAt": "2026-07-14T12:54:39.965Z"
+    },
+    {
+      "name": "A Lenda",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/1mBaOJ4OPDqJBMp0luG7Ej",
+      "image": "https://i.scdn.co/image/ab67616d00004851c5c2cd3cc7f74022537c2992",
+      "playedAt": "2026-07-14T12:50:59.595Z"
+    },
+    {
+      "name": "A Lenda",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/1mBaOJ4OPDqJBMp0luG7Ej",
+      "image": "https://i.scdn.co/image/ab67616d00004851c5c2cd3cc7f74022537c2992",
+      "playedAt": "2026-07-14T12:46:33.165Z"
+    },
     {
       "name": "Rivers Between Us",
       "artist": "Draconian",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
       "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
       "playedAt": "2026-07-13T17:49:45.008Z"
-    },
-    {
-      "name": "Chemical Wedding - 2001 Remaster",
-      "artist": "Bruce Dickinson",
-      "url": "https://open.spotify.com/track/4rHBxp5ss7VnYrEo5m3Cfg",
-      "image": "https://i.scdn.co/image/ab67616d0000485124dde831c000067b7dc5d4f3",
-      "playedAt": "2026-07-13T12:02:15.310Z"
-    },
-    {
-      "name": "Comalies",
-      "artist": "Lacuna Coil",
-      "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
-      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
-      "playedAt": "2026-07-13T11:58:08.734Z"
-    },
-    {
-      "name": "Lemuria",
-      "artist": "Therion",
-      "url": "https://open.spotify.com/track/0lWYqPPmSQ0LIY4nN29QAl",
-      "image": "https://i.scdn.co/image/ab67616d00004851d034933389cdb3f6794daa49",
-      "playedAt": "2026-07-13T11:49:59.468Z"
-    },
-    {
-      "name": "Good Things Go",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/6aCBjSb87RizdH8lVBIRW7",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-07-13T11:45:43.565Z"
-    },
-    {
-      "name": "IGYEIH",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-07-13T11:42:13.700Z"
-    },
-    {
-      "name": "Planet Hell",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/4aOUcByFqMhdnMWZqUkogv",
-      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
-      "playedAt": "2026-07-13T11:38:19.687Z"
     }
   ],
   "topTracks": {

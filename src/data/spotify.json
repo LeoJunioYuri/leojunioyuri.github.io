@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-13T19:11:07.608Z",
+  "updatedAt": "2026-07-14T01:24:36.517Z",
   "tracks": [
+    {
+      "name": "Rivers Between Us",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-07-13T21:46:29.033Z"
+    },
     {
       "name": "Comalies",
       "artist": "Lacuna Coil",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/4aOUcByFqMhdnMWZqUkogv",
       "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
       "playedAt": "2026-07-13T11:38:19.687Z"
-    },
-    {
-      "name": "Hunters' Refuge",
-      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/3A2FRyeSJKtdYj15nYlrVc",
-      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
-      "playedAt": "2026-07-13T11:33:28.078Z"
     }
   ],
   "topTracks": {

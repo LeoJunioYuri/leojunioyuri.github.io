@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-15T07:49:35.539Z",
+  "updatedAt": "2026-07-15T13:10:28.613Z",
   "tracks": [
+    {
+      "name": "Pan",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/1XcTT3XqNalzJMamAiIqOW",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-07-15T11:35:27.135Z"
+    },
     {
       "name": "I Forget Where We Were",
       "artist": "Ben Howard",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/7oYsHNe2STZQqHYCmNr1P9",
       "image": "https://i.scdn.co/image/ab67616d00004851e258b59ace75e2761408d707",
       "playedAt": "2026-07-15T02:10:34.416Z"
-    },
-    {
-      "name": "Colder Heavens",
-      "artist": "Blanco White",
-      "url": "https://open.spotify.com/track/6Z2pu5Gq0uWJoaYWeWbQpX",
-      "image": "https://i.scdn.co/image/ab67616d00004851cf1b9db77b0081939243d158",
-      "playedAt": "2026-07-15T02:05:45.092Z"
     }
   ],
   "topTracks": {

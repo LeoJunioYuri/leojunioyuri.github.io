@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T19:01:08.539Z",
+  "updatedAt": "2026-07-15T01:21:53.756Z",
   "recent": [
     {
       "name": "World of Warcraft",
@@ -148,14 +148,6 @@
       "url": "https://www.xbox.com/games/store/-/542819315"
     },
     {
-      "name": "Game of Thrones - Episode 1: Iron from Ice",
-      "titleId": "1856172970",
-      "image": "http://store-images.s-microsoft.com/image/apps.9697.68093564955993858.ab11cbe0-93be-4c03-a739-7cfbd10c8d41.029a44c0-e06c-4bfd-add9-bd67fe654876",
-      "gamerscore": 1000,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1856172970"
-    },
-    {
       "name": "Forza Horizon 2 Presents Fast & Furious",
       "titleId": "1519874468",
       "image": "http://store-images.s-microsoft.com/image/apps.53705.69054496880151415.09dbca5c-dbb6-42a5-a6ac-fdab9f2264d1.da61cb2e-b62d-400f-8520-e66e7505946b",
@@ -210,6 +202,14 @@
       "gamerscore": 775,
       "gamerscoreTotal": 2000,
       "url": "https://www.xbox.com/games/store/-/1708767297"
+    },
+    {
+      "name": "The Walking Dead: A Temporada Final",
+      "titleId": "31939361",
+      "image": "http://store-images.s-microsoft.com/image/apps.2945.69903436934703307.290e0139-5261-4a81-8aae-b8d5ef1ea6b0.aa10dbe9-ca37-41a6-b36e-0a9d5311c68d",
+      "gamerscore": 700,
+      "gamerscoreTotal": 1000,
+      "url": "https://www.xbox.com/games/store/-/31939361"
     },
     {
       "name": "Tracks - The Train Set Game",
@@ -476,14 +476,6 @@
       "url": "https://www.xbox.com/games/store/-/1717113201"
     },
     {
-      "name": "Just Dance 2016",
-      "titleId": "1206122062",
-      "image": "http://store-images.s-microsoft.com/image/apps.25715.63451750190291428.b7eba708-0c1b-464f-9702-4beb840e3fc2.735f87d2-fe02-48de-b6ec-292eb8631a16",
-      "gamerscore": 155,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1206122062"
-    },
-    {
       "name": "Forza Horizon 4",
       "titleId": "1985701699",
       "image": "http://store-images.s-microsoft.com/image/apps.55774.14339303838396367.e3a10a02-b1cd-411e-97aa-9dd8be1c992d.0fd9a9dc-9e16-4dcc-a5d9-b3ca90d23511",
@@ -580,14 +572,6 @@
       "url": "https://www.xbox.com/games/store/-/20391045"
     },
     {
-      "name": "A Plague Tale: Innocence",
-      "titleId": "969381141",
-      "image": "http://store-images.s-microsoft.com/image/apps.61900.68306748966338141.e6f96fac-aa67-4f59-9043-10654607aa79.7472e56d-b2da-462f-8312-d12050d56ec6",
-      "gamerscore": 45,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/969381141"
-    },
-    {
       "name": "Dragon Age™: Inquisition",
       "titleId": "976905576",
       "image": "http://store-images.s-microsoft.com/image/apps.1094.66474211586744867.e24f67e1-7195-4bf7-9758-84e7723c0673.ba5ac0c8-e5fb-42c8-a648-a81b5fe939ff",
@@ -626,14 +610,6 @@
       "gamerscore": 30,
       "gamerscoreTotal": 1360,
       "url": "https://www.xbox.com/games/store/-/1022544763"
-    },
-    {
-      "name": "Magic Duels",
-      "titleId": "1091024470",
-      "image": "http://store-images.s-microsoft.com/image/apps.38926.63868294017311855.535c2dd0-f292-47c1-9412-ca900f2ce1c1.2b6c23e6-6e22-413d-9edc-80e15bf0facd",
-      "gamerscore": 30,
-      "gamerscoreTotal": 1000,
-      "url": "https://www.xbox.com/games/store/-/1091024470"
     },
     {
       "name": "Goat Simulator",

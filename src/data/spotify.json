@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-14T19:01:04.121Z",
+  "updatedAt": "2026-07-15T01:21:35.765Z",
   "tracks": [
     {
-      "name": "Trip the Darkness",
+      "name": "O Children",
+      "artist": "Nick Cave & The Bad Seeds",
+      "url": "https://open.spotify.com/track/73ZlmJxexVebFozgZhEhkd",
+      "image": "https://i.scdn.co/image/ab67616d00004851d95ad678023c59cfb018afb0",
+      "playedAt": "2026-07-15T01:19:16.760Z"
+    },
+    {
+      "name": "The Mercy Seat - Live from KCRW",
+      "artist": "Nick Cave & The Bad Seeds",
+      "url": "https://open.spotify.com/track/5BXn46DQ47dorQRMuJFeNJ",
+      "image": "https://i.scdn.co/image/ab67616d00004851645c851a56952525751423e9",
+      "playedAt": "2026-07-15T01:08:24.115Z"
+    },
+    {
+      "name": "Abattoir Blues",
+      "artist": "Nick Cave & The Bad Seeds",
+      "url": "https://open.spotify.com/track/6H0SL71MhyfV8zUEFtREYH",
+      "image": "https://i.scdn.co/image/ab67616d00004851d95ad678023c59cfb018afb0",
+      "playedAt": "2026-07-15T01:03:12.607Z"
+    },
+    {
+      "name": "Black & Blue",
+      "artist": "The Cherry Dolls",
+      "url": "https://open.spotify.com/track/4k9i1ImQyX1AGMabefAEDj",
+      "image": "https://i.scdn.co/image/ab67616d0000485142d22456fde6486151dd622b",
+      "playedAt": "2026-07-15T00:58:04.460Z"
+    },
+    {
+      "name": "Norwegian Hammerworks Corp.",
+      "artist": "Madrugada",
+      "url": "https://open.spotify.com/track/3h1K3vee8tAOMa3qNau00a",
+      "image": "https://i.scdn.co/image/ab67616d0000485143a1ec401ff6600973c01401",
+      "playedAt": "2026-07-15T00:53:52.473Z"
+    },
+    {
+      "name": "The Last Hangman",
+      "artist": "Hotel Lux",
+      "url": "https://open.spotify.com/track/2DBteO5OvpnUkI53z67jJX",
+      "image": "https://i.scdn.co/image/ab67616d00004851397cecd930ed3742ea179190",
+      "playedAt": "2026-07-15T00:48:23.940Z"
+    },
+    {
+      "name": "Within Me",
       "artist": "Lacuna Coil",
-      "url": "https://open.spotify.com/track/071qZ9lL7h6ULW1WNgQjE3",
-      "image": "https://i.scdn.co/image/ab67616d00004851de2c417025472426d93162cb",
-      "playedAt": "2026-07-14T14:06:15.465Z"
+      "url": "https://open.spotify.com/track/23iFER67b8UKCW67hQTJOs",
+      "image": "https://i.scdn.co/image/ab67616d0000485121167f46d2169bf8cba15063",
+      "playedAt": "2026-07-15T00:42:01.108Z"
     },
     {
-      "name": "I Wish You Were Dead",
-      "artist": "Lacuna Coil",
-      "url": "https://open.spotify.com/track/0jGmBA9jESBGNHE9FK6mST",
-      "image": "https://i.scdn.co/image/ab67616d0000485197d8b2fc238b5def950acf0b",
-      "playedAt": "2026-07-14T13:53:13.259Z"
-    },
-    {
-      "name": "Heaven's a Lie",
-      "artist": "Lacuna Coil",
-      "url": "https://open.spotify.com/track/0I7y3aEavUHgkt4aCreBDa",
-      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
-      "playedAt": "2026-07-14T13:50:21.092Z"
-    },
-    {
-      "name": "Comalies",
-      "artist": "Lacuna Coil",
-      "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
-      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
-      "playedAt": "2026-07-14T13:35:03.800Z"
-    },
-    {
-      "name": "Losing My Religion",
-      "artist": "Boyce Avenue",
-      "url": "https://open.spotify.com/track/3XIkhC4qzqcKdmnIlPpEHO",
-      "image": "https://i.scdn.co/image/ab67616d00004851eb52107a749a04b3741316dc",
-      "playedAt": "2026-07-14T13:27:26.938Z"
-    },
-    {
-      "name": "Deus Vem me Socorrer",
-      "artist": "Bruna Karla",
-      "url": "https://open.spotify.com/track/6o8o7Nt2q7793HJxA586BT",
-      "image": "https://i.scdn.co/image/ab67616d000048514f310fcee6a561c81b53326b",
-      "playedAt": "2026-07-14T13:22:42.724Z"
-    },
-    {
-      "name": "Quando Eu Chorar",
-      "artist": "Bruna Karla",
-      "url": "https://open.spotify.com/track/3cq63zWjxoePzdCylIM52x",
-      "image": "https://i.scdn.co/image/ab67616d000048514f310fcee6a561c81b53326b",
-      "playedAt": "2026-07-14T13:19:00.571Z"
-    },
-    {
-      "name": "Quem de nós Dois (La Mia Storia Tra Le Dita)",
-      "artist": "Ana Carolina",
-      "url": "https://open.spotify.com/track/2yQMmtem48vOjB1OXAvbKD",
-      "image": "https://i.scdn.co/image/ab67616d00004851f0ca9bc38c12b71f65e55afe",
-      "playedAt": "2026-07-14T13:14:07.710Z"
+      "name": "Never Too Late",
+      "artist": "Three Days Grace",
+      "url": "https://open.spotify.com/track/3HE50TVRquwXe9yv2HFoNL",
+      "image": "https://i.scdn.co/image/ab67616d00004851e773763694ac5eb7f2aa0a37",
+      "playedAt": "2026-07-15T00:31:54.735Z"
     }
   ],
   "topTracks": {
@@ -197,38 +197,38 @@
       },
       {
         "rank": 8,
-        "name": "Dusk Mariner",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/1Dv0vr4r9eNBu3N6cv8JkD",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 9,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
+        "rank": 9,
+        "name": "Dusk Mariner",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/1Dv0vr4r9eNBu3N6cv8JkD",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
         "rank": 10,
+        "name": "Sonne",
+        "artist": "Rammstein",
+        "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
+        "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
+      },
+      {
+        "rank": 11,
         "name": "The Marriage of Attaris",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Feel For You",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/03ZK15yHQKLYgGLjQQloTk",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
-      },
-      {
-        "rank": 12,
-        "name": "Sonne",
-        "artist": "Rammstein",
-        "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
-        "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
       }
     ],
     "long": [
@@ -290,17 +290,17 @@
       },
       {
         "rank": 9,
-        "name": "Sonne",
-        "artist": "Rammstein",
-        "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
-        "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
-      },
-      {
-        "rank": 10,
         "name": "Good Things Go",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/6aCBjSb87RizdH8lVBIRW7",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 10,
+        "name": "Sonne",
+        "artist": "Rammstein",
+        "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
+        "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
       },
       {
         "rank": 11,

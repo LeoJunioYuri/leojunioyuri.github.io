@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-07-15T13:10:28.613Z",
+  "updatedAt": "2026-07-15T18:54:14.420Z",
   "tracks": [
+    {
+      "name": "In the Middle of a Heartbeat",
+      "artist": "Helloween",
+      "url": "https://open.spotify.com/track/6NKvwU8vAaPv9CwXVx8T1E",
+      "image": "https://i.scdn.co/image/ab67616d0000485199d14b8213a2fde3f6aebfac",
+      "playedAt": "2026-07-15T17:06:42.185Z"
+    },
+    {
+      "name": "The Unforgiven II",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/6nswV1Lz3OZkaiCJfmVUOa",
+      "image": "https://i.scdn.co/image/ab67616d0000485106cb74d39d123ebe1b3c6631",
+      "playedAt": "2026-07-15T17:02:00.943Z"
+    },
+    {
+      "name": "How's the Heart?",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6lkVbijlh932FSS2I0gDrR",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-07-15T14:46:41.413Z"
+    },
     {
       "name": "Pan",
       "artist": "Nightwish",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/2ENgaBS5vLUpqUw8inkZZp",
       "image": "https://i.scdn.co/image/ab67616d000048518e411f06d11a04c99df55247",
       "playedAt": "2026-07-15T04:18:15.337Z"
-    },
-    {
-      "name": "Hey Now",
-      "artist": "London Grammar",
-      "url": "https://open.spotify.com/track/2ENgaBS5vLUpqUw8inkZZp",
-      "image": "https://i.scdn.co/image/ab67616d000048518e411f06d11a04c99df55247",
-      "playedAt": "2026-07-15T03:36:56.506Z"
-    },
-    {
-      "name": "Winter Ghosts",
-      "artist": "Jesse Marchant",
-      "url": "https://open.spotify.com/track/0Y8I0p4KDcAbHk5EEBBb3l",
-      "image": "https://i.scdn.co/image/ab67616d0000485147daf34a29dd521f05867d62",
-      "playedAt": "2026-07-15T02:14:33.906Z"
-    },
-    {
-      "name": "Breaking Hearts",
-      "artist": "James Vincent McMorrow",
-      "url": "https://open.spotify.com/track/7oYsHNe2STZQqHYCmNr1P9",
-      "image": "https://i.scdn.co/image/ab67616d00004851e258b59ace75e2761408d707",
-      "playedAt": "2026-07-15T02:10:34.416Z"
     }
   ],
   "topTracks": {
@@ -97,38 +97,38 @@
       },
       {
         "rank": 6,
-        "name": "Prisoner of Your Eyes",
-        "artist": "Judas Priest",
-        "url": "https://open.spotify.com/track/2VLwPKY2gaBxGxwgmwRDUf",
-        "image": "https://i.scdn.co/image/ab67616d00004851a79a10cea4a05ade064a397b"
-      },
-      {
-        "rank": 7,
         "name": "Herr Mannelig",
         "artist": "Haggard",
         "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
         "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Back To December (Taylor's Version)",
         "artist": "Taylor Swift",
         "url": "https://open.spotify.com/track/79uDOz0zuuWS7HWxzMmTa2",
         "image": "https://i.scdn.co/image/ab67616d000048510b04da4f224b51ff86e0a481"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Look for the Truth - 2015 Remaster",
         "artist": "Iron Maiden",
         "url": "https://open.spotify.com/track/1NEK0eEl2Nt0JgkNtYCNEu",
         "image": "https://i.scdn.co/image/ab67616d00004851ee8e0e9afc080aebb01f36c3"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Shudder Before the Beautiful",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/2KzHAMp1UXGTXYwFE7KM9J",
         "image": "https://i.scdn.co/image/ab67616d000048511f790f6ff861e7e9ceee2050"
+      },
+      {
+        "rank": 10,
+        "name": "Prisoner of Your Eyes",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/2VLwPKY2gaBxGxwgmwRDUf",
+        "image": "https://i.scdn.co/image/ab67616d00004851a79a10cea4a05ade064a397b"
       },
       {
         "rank": 11,

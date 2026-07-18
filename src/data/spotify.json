@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-07-18T01:25:43.392Z",
+  "updatedAt": "2026-07-18T07:26:28.044Z",
   "tracks": [
+    {
+      "name": "The Power Of One",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/312Mb9DllXJWdKdNTZPXhO",
+      "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15",
+      "playedAt": "2026-07-18T04:40:09.329Z"
+    },
+    {
+      "name": "My Selene",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/2nBK7YtyDGT6NZKJ0cIiZY",
+      "image": "https://i.scdn.co/image/ab67616d00004851a2c697b5be89befbd57152c8",
+      "playedAt": "2026-07-18T04:28:43.120Z"
+    },
+    {
+      "name": "I Have a Right",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/4CmtxfLMOwBvrrE7OFBzCq",
+      "image": "https://i.scdn.co/image/ab67616d00004851aab605f00560cbe1ba6b3afc",
+      "playedAt": "2026-07-18T04:23:14.107Z"
+    },
+    {
+      "name": "Replica",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/2A4rfHIusMPUyTN2RAgsKw",
+      "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6",
+      "playedAt": "2026-07-18T04:18:25.705Z"
+    },
+    {
+      "name": "Still Loving You",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/0yrrcJAkQ6VBJiaT41kc9S",
+      "image": "https://i.scdn.co/image/ab67616d00004851ba02066a26076f927f01c915",
+      "playedAt": "2026-07-18T04:13:30.176Z"
+    },
+    {
+      "name": "Never Forever",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/1gtiboFlPYIuaJSeF3fZk6",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-07-18T01:39:24.463Z"
+    },
     {
       "name": "April Rain",
       "artist": "Delain",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/0DGf6s54MQ3Oht41mj6s6K",
       "image": "https://i.scdn.co/image/ab67616d000048519c5a3160cc1a6ef5efdaf80a",
       "playedAt": "2026-07-18T00:53:38.912Z"
-    },
-    {
-      "name": "Tallulah",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/33F4l7xj1cEeiqyUCfHlvw",
-      "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15",
-      "playedAt": "2026-07-18T00:50:05.638Z"
-    },
-    {
-      "name": "Coração de Aço - Acústico",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/4INRtAsUPEypzHqQS04e5p",
-      "image": "https://i.scdn.co/image/ab67616d0000485159431ac5351a1cf02a552c27",
-      "playedAt": "2026-07-18T00:43:29.422Z"
-    },
-    {
-      "name": "Hoje Ela Já Chorou - Acústico",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/46Cuhr0KET5BfXQ2X8ihm8",
-      "image": "https://i.scdn.co/image/ab67616d00004851aec9c3ee1750f0860b1d2235",
-      "playedAt": "2026-07-18T00:39:40.505Z"
-    },
-    {
-      "name": "Coração de Aço",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/6waLZw9qNP36DtHFPeyTz6",
-      "image": "https://i.scdn.co/image/ab67616d00004851e6c83f559748a037d2e8ec26",
-      "playedAt": "2026-07-18T00:36:11.862Z"
-    },
-    {
-      "name": "Detalhes",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/2ZRUWMCqMgXEPILkncokO9",
-      "image": "https://i.scdn.co/image/ab67616d00004851ae8128de0fd46b1c5aebe045",
-      "playedAt": "2026-07-18T00:31:58.487Z"
-    },
-    {
-      "name": "Ostentação Vs Troféu",
-      "artist": "Reset, Hungria, Tribo da Periferia, Duckjay",
-      "url": "https://open.spotify.com/track/6jiScZhV8uRJjmIRy7lp92",
-      "image": "https://i.scdn.co/image/ab67616d000048517eabd87c7422724365ad54ad",
-      "playedAt": "2026-07-17T23:55:57.474Z"
     }
   ],
   "topTracks": {

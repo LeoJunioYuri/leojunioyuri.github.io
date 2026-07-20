@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-07-20T01:58:28.560Z",
+  "updatedAt": "2026-07-20T08:38:55.291Z",
   "tracks": [
+    {
+      "name": "Ma Meilleure Ennemie (from the series Arcane League of Legends)",
+      "artist": "Stromae, Pomme, Arcane",
+      "url": "https://open.spotify.com/track/4lriIG2vNqwDWzOj2I9rtj",
+      "image": "https://i.scdn.co/image/ab67616d000048512aab4ea84f431ad7d92fecbb",
+      "playedAt": "2026-07-20T03:04:12.694Z"
+    },
+    {
+      "name": "Wish That You Were Here - From “Miss Peregrine’s Home for Peculiar Children” Original Motion Picture",
+      "artist": "Florence + The Machine",
+      "url": "https://open.spotify.com/track/1FrrRHxMKVvd85O3gancxW",
+      "image": "https://i.scdn.co/image/ab67616d000048513eba8088501778fbfa0abcc0",
+      "playedAt": "2026-07-20T01:58:41.676Z"
+    },
     {
       "name": "Cough Syrup",
       "artist": "Young the Giant",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/6yPuQr6vjZ7tJ4oq1PEXle",
       "image": "https://i.scdn.co/image/ab67616d000048516b66e9099c7a66e58658f512",
       "playedAt": "2026-07-20T01:28:56.441Z"
-    },
-    {
-      "name": "Blood In The Wine",
-      "artist": "AURORA",
-      "url": "https://open.spotify.com/track/7Lia8HVrC09vpuAtE8K0Yp",
-      "image": "https://i.scdn.co/image/ab67616d000048513e0d05346299e86c58f75123",
-      "playedAt": "2026-07-20T01:25:22.409Z"
-    },
-    {
-      "name": "Spectrum (Say My Name)",
-      "artist": "Florence + The Machine",
-      "url": "https://open.spotify.com/track/7efTNoBgYZ3IsB8wpP1f7R",
-      "image": "https://i.scdn.co/image/ab67616d000048516a8c1075f751a78e0b7799c7",
-      "playedAt": "2026-07-20T01:21:51.987Z"
     }
   ],
   "topTracks": {

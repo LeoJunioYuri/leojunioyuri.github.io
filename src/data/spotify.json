@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-20T19:24:08.009Z",
+  "updatedAt": "2026-07-21T01:42:59.850Z",
   "tracks": [
     {
-      "name": "Austerlitz - Allegretto",
-      "artist": "Nicholas Britell",
-      "url": "https://open.spotify.com/track/2PjdJaw0FHUHYy97ZwZrOv",
-      "image": "https://i.scdn.co/image/ab67616d00004851e654bc3bc09b6c1e013f74a3",
-      "playedAt": "2026-07-20T19:21:58.367Z"
+      "name": "Up From the Bottom",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/2SwdMXPvGdciXamSjfoNH9",
+      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
+      "playedAt": "2026-07-21T00:17:31.264Z"
     },
     {
-      "name": "Azura's Coast",
-      "artist": "Brad Derrick",
-      "url": "https://open.spotify.com/track/3GoCxhFVRxp9Zy2uU1ZbHp",
-      "image": "https://i.scdn.co/image/ab67616d00004851a7e8bb34c84093c0211881cc",
-      "playedAt": "2026-07-20T19:19:46.543Z"
+      "name": "Good Things Go",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/6aCBjSb87RizdH8lVBIRW7",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-07-21T00:14:27.583Z"
     },
     {
-      "name": "The Golden Lotus",
-      "artist": "Neal Acree, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2Cqx9BA2nV4RG7lY75NSey",
+      "name": "IGYEIH",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-07-21T00:10:57.736Z"
+    },
+    {
+      "name": "And One - Hybrid Theory EP",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/0h4BEv6xL4dkHhdUP3GaOU",
+      "image": "https://i.scdn.co/image/ab67616d0000485166e2ae8f422bddd8eda5b93f",
+      "playedAt": "2026-07-21T00:02:55.002Z"
+    },
+    {
+      "name": "Sacred Pool Of Tears",
+      "artist": "Hans Zimmer, John Powell",
+      "url": "https://open.spotify.com/track/3T6IEz4XeCj8N8sUVBMeoJ",
+      "image": "https://i.scdn.co/image/ab67616d000048512d819f77524aa7db8f1ff63d",
+      "playedAt": "2026-07-21T00:00:02.525Z"
+    },
+    {
+      "name": "Serpent Riders",
+      "artist": "Jeremy Soule, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/7iLr8lljGKStJSaCkyN22x",
       "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
-      "playedAt": "2026-07-20T19:14:02.319Z"
+      "playedAt": "2026-07-20T23:20:07.637Z"
     },
     {
-      "name": "Belle of the Balloon",
-      "artist": "Chris Tilton, Assassin's Creed",
-      "url": "https://open.spotify.com/track/1xF9yTkNttAMbrrzMaNd1w",
-      "image": "https://i.scdn.co/image/ab67616d00004851d43d53acb4d4f039438c9a9e",
-      "playedAt": "2026-07-20T19:12:09.055Z"
+      "name": "Stormstout Brew",
+      "artist": "Edo Guidotti, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/2Ru5EsTz86USvSLs2NTbG4",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-07-20T23:17:34.835Z"
     },
     {
-      "name": "Your Tale Awaits You Down the Road",
-      "artist": "Borislav Slavov",
-      "url": "https://open.spotify.com/track/4XM13Ddt5l2ruVsxzUqImX",
-      "image": "https://i.scdn.co/image/ab67616d000048512085ca30362de37d7c3d6f83",
-      "playedAt": "2026-07-20T19:06:56.606Z"
-    },
-    {
-      "name": "Awake",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/4M3MdSvyOWUI8LsGToRkRl",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-07-20T19:04:23.969Z"
-    },
-    {
-      "name": "Legacy",
-      "artist": "Jason Hayes, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/0HFU7MgRRhKurq2P0OWag6",
-      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
-      "playedAt": "2026-07-20T19:02:50.485Z"
-    },
-    {
-      "name": "New Tristram",
-      "artist": "Russell Brower, Laurence Juber, Matt Uelmen, Diablo, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/3AeqCtGpgSTp9R5PfkesZ0",
-      "image": "https://i.scdn.co/image/ab67616d000048517f514f95fdded6ed885779e8",
-      "playedAt": "2026-07-20T19:00:23.113Z"
+      "name": "The Wisdom of Yu'Lon",
+      "artist": "Jeremy Soule, Sam Cardon, Russell Brower, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/3kWfZzEzdlaoRIB7nu7piE",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-07-20T23:16:07.544Z"
     }
   ],
   "topTracks": {

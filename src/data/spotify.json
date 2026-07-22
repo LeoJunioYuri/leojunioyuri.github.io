@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-07-22T08:07:34.453Z",
+  "updatedAt": "2026-07-22T13:20:52.135Z",
   "tracks": [
+    {
+      "name": "Lay All Your Love On Me",
+      "artist": "ABBA",
+      "url": "https://open.spotify.com/track/4euAGZTszWPrriggYK0HG9",
+      "image": "https://i.scdn.co/image/ab67616d000048514d08fc99eff4ed52dfce91fa",
+      "playedAt": "2026-07-22T11:55:32.693Z"
+    },
+    {
+      "name": "Clavicula Nox",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/73e9GwB16rjd2OTT1TiXCm",
+      "image": "https://i.scdn.co/image/ab67616d00004851f44c29e35047155c1c46651a",
+      "playedAt": "2026-07-22T11:50:57.786Z"
+    },
     {
       "name": "Clavicula Nox",
       "artist": "Therion",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/5dyQ8spGuggi5RBqhkUToy",
       "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
       "playedAt": "2026-07-22T00:28:54.111Z"
-    },
-    {
-      "name": "Colder Heavens",
-      "artist": "Blanco White",
-      "url": "https://open.spotify.com/track/6Z2pu5Gq0uWJoaYWeWbQpX",
-      "image": "https://i.scdn.co/image/ab67616d00004851cf1b9db77b0081939243d158",
-      "playedAt": "2026-07-22T00:18:36.311Z"
-    },
-    {
-      "name": "Chapter II: Upon Fallen Autumn Leaves",
-      "artist": "Haggard",
-      "url": "https://open.spotify.com/track/4OasFXNiFFuxJoSyRgC621",
-      "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
-      "playedAt": "2026-07-22T00:14:01.971Z"
     }
   ],
   "topTracks": {

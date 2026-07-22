@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-22T01:30:25.043Z",
+  "updatedAt": "2026-07-22T08:07:34.453Z",
   "tracks": [
+    {
+      "name": "Clavicula Nox",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/73e9GwB16rjd2OTT1TiXCm",
+      "image": "https://i.scdn.co/image/ab67616d00004851f44c29e35047155c1c46651a",
+      "playedAt": "2026-07-22T03:52:11.646Z"
+    },
     {
       "name": "Birth of Venus Illegitima",
       "artist": "Therion",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/4OasFXNiFFuxJoSyRgC621",
       "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
       "playedAt": "2026-07-22T00:14:01.971Z"
-    },
-    {
-      "name": "Chapter II: Upon Fallen Autumn Leaves",
-      "artist": "Haggard",
-      "url": "https://open.spotify.com/track/4OasFXNiFFuxJoSyRgC621",
-      "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
-      "playedAt": "2026-07-22T00:11:22.055Z"
     }
   ],
   "topTracks": {

@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-07-22T18:56:51.029Z",
+  "updatedAt": "2026-07-23T01:49:36.205Z",
   "recent": [
+    {
+      "name": "Call of Duty: Modern Warfare II",
+      "titleId": "2046748982",
+      "lastPlayed": "2026-07-23T01:48:35.7908387Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcPnMMVV2S.gki47PXDl6PGFry1y6xFwsSaZktSJ.4N.CzR05PgjCZe33QZ5zwJqTI.bN5L01GcNv1vMfduHIN9w--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/2046748982"
+    },
     {
       "name": "World of Warcraft",
       "titleId": "1664882211",
@@ -56,14 +64,6 @@
       "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKHB8qkPpSP2vRUbpw4cEDCGaYhmwh0vnD5kpbgrSr4Wu0yelBrLp.Pb.8UtHU5LwV_zL2z7QR.A0lpBVJTQ4gAg--",
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1873961403"
-    },
-    {
-      "name": "Where Winds Meet",
-      "titleId": "1693534474",
-      "lastPlayed": "2025-12-07T03:32:40.656869Z",
-      "image": null,
-      "gamerscore": 0,
-      "url": "https://www.xbox.com/games/store/-/1693534474"
     }
   ],
   "topGamerscore": [

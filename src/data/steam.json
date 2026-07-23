@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-07-23T01:49:32.295Z",
-  "games": [],
+  "updatedAt": "2026-07-23T08:10:58.076Z",
+  "games": [
+    {
+      "name": "Call of Duty®: Modern Warfare® II",
+      "appid": 3595230,
+      "minutes2weeks": 113,
+      "minutesTotal": 113,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/3595230/4e557bc86b950518cf3d8bd8ebec5f91d867bb9b.jpg",
+      "url": "https://store.steampowered.com/app/3595230"
+    }
+  ],
   "topGames": [
     {
       "name": "Counter-Strike 2",

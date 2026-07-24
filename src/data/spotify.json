@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-07-23T18:58:06.416Z",
+  "updatedAt": "2026-07-24T01:45:28.790Z",
   "tracks": [
+    {
+      "name": "Rivers",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/6SO03S6E3WsdfUsrdz447z",
+      "image": "https://i.scdn.co/image/ab67616d000048519c939252c5024c6584db122b",
+      "playedAt": "2026-07-24T01:42:08.119Z"
+    },
+    {
+      "name": "Music",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/49LQq6RoFTWFk5d6hBGEKt",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-07-24T01:37:03.770Z"
+    },
+    {
+      "name": "Endlessness",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6utuFCvF34xhmwwwFAYntF",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-07-24T01:29:40.205Z"
+    },
+    {
+      "name": "Young Dumb & Broke",
+      "artist": "Khalid",
+      "url": "https://open.spotify.com/track/5Z3GHaZ6ec9bsiI5BenrbY",
+      "image": "https://i.scdn.co/image/ab67616d000048514ac041e0d889d3a2608210d5",
+      "playedAt": "2026-07-24T01:29:38.880Z"
+    },
+    {
+      "name": "Endlessness",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6utuFCvF34xhmwwwFAYntF",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-07-24T01:24:58.353Z"
+    },
+    {
+      "name": "Endlessness",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6utuFCvF34xhmwwwFAYntF",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-07-23T21:54:59.876Z"
+    },
     {
       "name": "Can't Help Falling in Love",
       "artist": "Elvis Presley",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/1yf97yL1ll8FYXC27c9VTw",
       "image": "https://i.scdn.co/image/ab67616d000048516caad685af37c08063be928d",
       "playedAt": "2026-07-23T18:23:57.643Z"
-    },
-    {
-      "name": "Suspicious Minds",
-      "artist": "Elvis Presley",
-      "url": "https://open.spotify.com/track/1H5IfYyIIAlgDX8zguUzns",
-      "image": "https://i.scdn.co/image/ab67616d00004851b26c34d79e4cdaa73672a0b1",
-      "playedAt": "2026-07-23T17:57:07.023Z"
-    },
-    {
-      "name": "Walking in Circles",
-      "artist": "Dead By Sunrise",
-      "url": "https://open.spotify.com/track/4JyvJCmWoyueENgnChl65n",
-      "image": "https://i.scdn.co/image/ab67616d000048513cea3f53137fcb2cc86a481c",
-      "playedAt": "2026-07-23T14:35:47.684Z"
-    },
-    {
-      "name": "Not Alone",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/737yse38y2hsWQeNRrLaMY",
-      "image": "https://i.scdn.co/image/ab67616d000048514d6da9b85d1110e7d125ee74",
-      "playedAt": "2026-07-23T14:20:28.879Z"
-    },
-    {
-      "name": "Invisible",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/6OocN63GLU7NF0wHdewhID",
-      "image": "https://i.scdn.co/image/ab67616d00004851145e1cf12538f5666511237d",
-      "playedAt": "2026-07-23T14:15:17.417Z"
-    },
-    {
-      "name": "Moons of Evening Star",
-      "artist": "Brad Derrick",
-      "url": "https://open.spotify.com/track/7n6hMHm0X5u4EMsUDqAUuI",
-      "image": "https://i.scdn.co/image/ab67616d00004851666a507d1041974dd6bd1f26",
-      "playedAt": "2026-07-23T12:42:42.009Z"
-    },
-    {
-      "name": "Times Change",
-      "artist": "Neal Acree, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/20nL8pmupLvchBbcTIeEu2",
-      "image": "https://i.scdn.co/image/ab67616d000048514e5aabc01363f67b101dd952",
-      "playedAt": "2026-07-23T12:37:09.425Z"
     }
   ],
   "topTracks": {

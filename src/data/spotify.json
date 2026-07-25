@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-24T13:16:51.278Z",
+  "updatedAt": "2026-07-25T01:45:34.118Z",
   "tracks": [
     {
-      "name": "Awake",
+      "name": "This Time",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/4kCmheqieKuFWbRwHFO4Z6",
-      "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
-      "playedAt": "2026-07-24T04:24:21.464Z"
-    },
-    {
-      "name": "Blink Of An Eye",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/4TLsSf8GWfeayZPTlFIhpt",
+      "url": "https://open.spotify.com/track/1zWsVMVCopTNoGhGKPATOF",
       "image": "https://i.scdn.co/image/ab67616d0000485166aa64c4051fe114d339ddbc",
-      "playedAt": "2026-07-24T04:20:33.054Z"
+      "playedAt": "2026-07-25T00:55:34.404Z"
     },
     {
-      "name": "Awake",
+      "name": "The Promise",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/4kCmheqieKuFWbRwHFO4Z6",
+      "url": "https://open.spotify.com/track/1IuSihd1wzbgcg9QE2lxVg",
       "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
-      "playedAt": "2026-07-24T04:16:07.995Z"
+      "playedAt": "2026-07-25T00:51:35.032Z"
     },
     {
-      "name": "Far from the Edge",
+      "name": "Bleeding",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/2ieFfd6NIHfwHV3Kdt5RXY",
+      "url": "https://open.spotify.com/track/2tAy0RzlZ54rHHMwwjIUr7",
       "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-07-24T04:12:19.527Z"
+      "playedAt": "2026-07-25T00:47:38.780Z"
     },
     {
-      "name": "Far Away",
+      "name": "Buried Alive",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/15SklcqshpKiss9bjpdzgN",
+      "url": "https://open.spotify.com/track/3tX2F5sAFqrjYRGEIJOsRv",
       "image": "https://i.scdn.co/image/ab67616d0000485166aa64c4051fe114d339ddbc",
-      "playedAt": "2026-07-24T04:08:42.935Z"
+      "playedAt": "2026-07-25T00:43:46.779Z"
     },
     {
-      "name": "Someplace Better",
+      "name": "What Lies Beneath",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/4JJ3Bu42tNicsqBnSLXoXC",
+      "url": "https://open.spotify.com/track/2HZF4KqWvl62rMlhh2qKJ6",
       "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
-      "playedAt": "2026-07-24T04:04:28.429Z"
+      "playedAt": "2026-07-25T00:39:22.855Z"
     },
     {
-      "name": "Crossing Over",
+      "name": "Guardian Angel",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/0qbIG8PmVDHRcJQ7FXKQTB",
-      "image": "https://i.scdn.co/image/ab67616d0000485166aa64c4051fe114d339ddbc",
-      "playedAt": "2026-07-24T04:01:21.013Z"
+      "url": "https://open.spotify.com/track/6mbruQTLlIQrMqCgqN5sD5",
+      "image": "https://i.scdn.co/image/ab67616d00004851ac56eb30d39f7eab99b1b129",
+      "playedAt": "2026-07-25T00:35:24.323Z"
     },
     {
-      "name": "Crossing Over",
+      "name": "Dreamer",
       "artist": "Elysion",
-      "url": "https://open.spotify.com/track/0qbIG8PmVDHRcJQ7FXKQTB",
-      "image": "https://i.scdn.co/image/ab67616d0000485166aa64c4051fe114d339ddbc",
-      "playedAt": "2026-07-24T03:58:28.134Z"
+      "url": "https://open.spotify.com/track/0UN6RE3yGURtt6sv4tl4Cd",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-07-25T00:30:51.709Z"
+    },
+    {
+      "name": "Fairytale",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/7MaQHhmO2EqcWmk1V430jz",
+      "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
+      "playedAt": "2026-07-25T00:26:37.770Z"
     }
   ],
   "topTracks": {
@@ -97,52 +97,52 @@
       },
       {
         "rank": 6,
-        "name": "CORALINE",
-        "artist": "Måneskin",
-        "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
-        "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21"
-      },
-      {
-        "rank": 7,
         "name": "Phantom Regret by Jim",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/1NlK2NtpuUazpziLhnJwEV",
         "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Fuck it I love you",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/7MtVPRGtZl6rPjMfLoI3Lh",
         "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Chemtrails Over The Country Club",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
         "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Music",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/49LQq6RoFTWFk5d6hBGEKt",
         "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "Flowers",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/7DSAEUvxU8FajXtRloy8M0",
         "image": "https://i.scdn.co/image/ab67616d0000485166fd0917f38d472c8576754e"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Change",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/3fx5ozORvvTGnSnOhUqrgj",
         "image": "https://i.scdn.co/image/ab67616d0000485195e2fd1accb339fa14878190"
+      },
+      {
+        "rank": 12,
+        "name": "You Don’t Get Me High Anymore",
+        "artist": "Phantogram",
+        "url": "https://open.spotify.com/track/3gkSQbWTDBh0ZKq85WmJDz",
+        "image": "https://i.scdn.co/image/ab67616d00004851d99618fc2eed49eb1b67d6af"
       }
     ],
     "medium": [
@@ -176,17 +176,17 @@
       },
       {
         "rank": 5,
-        "name": "Pale Tortured Blue",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 6,
         "name": "Far Horizons",
         "artist": "Jeremy Soule, The Elder Scrolls",
         "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
         "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
+      },
+      {
+        "rank": 6,
+        "name": "Pale Tortured Blue",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 7,

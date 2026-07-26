@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-26T08:07:23.480Z",
+  "updatedAt": "2026-07-26T12:56:53.546Z",
   "tracks": [
+    {
+      "name": "Siren",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/5XnHRKpIuL902a4n0JqoZ0",
+      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
+      "playedAt": "2026-07-26T05:14:10.912Z"
+    },
     {
       "name": "Twenty Eight",
       "artist": "The Weeknd",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/3tX2F5sAFqrjYRGEIJOsRv",
       "image": "https://i.scdn.co/image/ab67616d0000485166aa64c4051fe114d339ddbc",
       "playedAt": "2026-07-25T23:01:49.134Z"
-    },
-    {
-      "name": "Procession",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/7aIxfEHjebCNbs6bpKv9Go",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-07-25T22:32:00.640Z"
     }
   ],
   "topTracks": {

@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-27T09:29:02.210Z",
+  "updatedAt": "2026-07-27T14:09:34.541Z",
   "tracks": [
+    {
+      "name": "FullMoon",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
+      "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6",
+      "playedAt": "2026-07-27T13:41:31.874Z"
+    },
     {
       "name": "Fuel to Fire",
       "artist": "Agnes Obel",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/0lx2cLdOt3piJbcaXIV74f",
       "image": "https://i.scdn.co/image/ab67616d0000485133b8541201f1ef38941024be",
       "playedAt": "2026-07-27T05:09:54.147Z"
-    },
-    {
-      "name": "cowboy like me",
-      "artist": "Taylor Swift",
-      "url": "https://open.spotify.com/track/1XjHRolIXL2M1EEOUsGGR4",
-      "image": "https://i.scdn.co/image/ab67616d0000485133b8541201f1ef38941024be",
-      "playedAt": "2026-07-27T05:06:11.364Z"
     }
   ],
   "topTracks": {

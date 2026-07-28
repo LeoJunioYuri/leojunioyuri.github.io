@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-07-28T08:13:23.482Z",
+  "updatedAt": "2026-07-28T13:29:00.689Z",
   "tracks": [
+    {
+      "name": "ALL EYES",
+      "artist": "TWXN, LL Clawz, 507KAZ",
+      "url": "https://open.spotify.com/track/0l1ANIJeVg43nyJLOEl7NP",
+      "image": "https://i.scdn.co/image/ab67616d00004851a5d849e9f07c291fc7e3e609",
+      "playedAt": "2026-07-28T11:14:22.178Z"
+    },
+    {
+      "name": "Stuff (feat. Travis Scott)",
+      "artist": "Lil Baby, Travis Scott",
+      "url": "https://open.spotify.com/track/6JvIjI8H3yxpigROd3Cv9N",
+      "image": "https://i.scdn.co/image/ab67616d0000485126cc3037de434f6c1a62824f",
+      "playedAt": "2026-07-28T11:12:24.975Z"
+    },
+    {
+      "name": "Raindrops (Insane) [with Travis Scott]",
+      "artist": "Metro Boomin, Travis Scott",
+      "url": "https://open.spotify.com/track/1pacwLXyRO47ka0v6LTIiY",
+      "image": "https://i.scdn.co/image/ab67616d00004851c4fee55d7b51479627c31f89",
+      "playedAt": "2026-07-28T11:09:23.863Z"
+    },
+    {
+      "name": "Wrong Side of Heaven",
+      "artist": "Five Finger Death Punch",
+      "url": "https://open.spotify.com/track/11Ojp7JniVvwd0gmgvyKkd",
+      "image": "https://i.scdn.co/image/ab67616d0000485176df46a3fd82c419a2dc0a43",
+      "playedAt": "2026-07-28T11:06:14.859Z"
+    },
+    {
+      "name": "Another Life",
+      "artist": "Motionless In White",
+      "url": "https://open.spotify.com/track/0YZEYxd1oiqZRFhnnmTKKi",
+      "image": "https://i.scdn.co/image/ab67616d00004851944e11093f0e01c60be5be8f",
+      "playedAt": "2026-07-28T11:01:43.405Z"
+    },
+    {
+      "name": "Hollywood's Bleeding",
+      "artist": "Post Malone",
+      "url": "https://open.spotify.com/track/7sWRlDoTDX8geTR8zzr2vt",
+      "image": "https://i.scdn.co/image/ab67616d000048519478c87599550dd73bfa7e02",
+      "playedAt": "2026-07-28T10:58:17.512Z"
+    },
+    {
+      "name": "Overdue (with Travis Scott)",
+      "artist": "Metro Boomin, Travis Scott",
+      "url": "https://open.spotify.com/track/6LyAwkJsHlW7RQ8S1cYAtM",
+      "image": "https://i.scdn.co/image/ab67616d000048512887f8c05b5a9f1cb105be29",
+      "playedAt": "2026-07-28T10:55:26.123Z"
+    },
     {
       "name": "A Nearly Peaceful Place",
       "artist": "Krzysztof Wierzynkiewicz",
       "url": "https://open.spotify.com/track/6o5vbYgIn0AFi65e1H3Z5g",
       "image": "https://i.scdn.co/image/ab67616d0000485164acfad0756b025aa0ff497e",
       "playedAt": "2026-07-28T01:42:35.352Z"
-    },
-    {
-      "name": "Kyne's Peace",
-      "artist": "London Symphony Orchestra, London Voices, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/2DTfv9aSTrdvVdVHRiOJKH",
-      "image": "https://i.scdn.co/image/ab67616d000048514db3c67f42301a077de6bac4",
-      "playedAt": "2026-07-28T01:28:49.189Z"
-    },
-    {
-      "name": "The Streets of Whiterun",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/31vc8VMdqPRTExkgTp7hib",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-07-28T01:24:49.997Z"
-    },
-    {
-      "name": "Far Horizons",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-07-28T01:20:37.044Z"
-    },
-    {
-      "name": "Moth Into Flame",
-      "artist": "Metallica",
-      "url": "https://open.spotify.com/track/6F5RvdxWcLOJW7LAGuc24r",
-      "image": "https://i.scdn.co/image/ab67616d00004851ee498e8074b8df8e375abe04",
-      "playedAt": "2026-07-28T01:15:00.293Z"
-    },
-    {
-      "name": "Seize the Day",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/7HKRWMTErKh56EIBeFcmdf",
-      "image": "https://i.scdn.co/image/ab67616d0000485191b3adb195fd4017fd3d6400",
-      "playedAt": "2026-07-27T23:54:32.049Z"
-    },
-    {
-      "name": "Black Smoke Rising",
-      "artist": "Greta Van Fleet",
-      "url": "https://open.spotify.com/track/32BEasyNQgqXQJKoVa0fUw",
-      "image": "https://i.scdn.co/image/ab67616d0000485157b7f789d328c205b4d15893",
-      "playedAt": "2026-07-27T23:48:26.084Z"
-    },
-    {
-      "name": "Un-Break My Heart",
-      "artist": "Toni Braxton",
-      "url": "https://open.spotify.com/track/5Ihd9HrPvOADyVoonH9ZjB",
-      "image": "https://i.scdn.co/image/ab67616d000048515bc7429f54c5f6745c225fc6",
-      "playedAt": "2026-07-27T23:44:05.751Z"
     }
   ],
   "topTracks": {

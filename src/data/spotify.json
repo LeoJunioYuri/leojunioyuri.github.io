@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-29T01:30:03.729Z",
+  "updatedAt": "2026-07-29T08:18:56.293Z",
   "tracks": [
+    {
+      "name": "Count Me Out",
+      "artist": "Kendrick Lamar",
+      "url": "https://open.spotify.com/track/6BU1RZexmvJcBjgagVVt3M",
+      "image": "https://i.scdn.co/image/ab67616d000048512e02117d76426a08ac7c174f",
+      "playedAt": "2026-07-28T11:17:05.880Z"
+    },
     {
       "name": "ALL EYES",
       "artist": "TWXN, LL Clawz, 507KAZ",
@@ -49,100 +56,93 @@
       "url": "https://open.spotify.com/track/6LyAwkJsHlW7RQ8S1cYAtM",
       "image": "https://i.scdn.co/image/ab67616d000048512887f8c05b5a9f1cb105be29",
       "playedAt": "2026-07-28T10:55:26.123Z"
-    },
-    {
-      "name": "A Nearly Peaceful Place",
-      "artist": "Krzysztof Wierzynkiewicz",
-      "url": "https://open.spotify.com/track/6o5vbYgIn0AFi65e1H3Z5g",
-      "image": "https://i.scdn.co/image/ab67616d0000485164acfad0756b025aa0ff497e",
-      "playedAt": "2026-07-28T01:42:35.352Z"
     }
   ],
   "topTracks": {
     "short": [
       {
         "rank": 1,
-        "name": "Religion",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/1Yh4lOCbcskjSfYPDnn7EW",
-        "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a"
-      },
-      {
-        "rank": 2,
         "name": "Made of Lies",
         "artist": "Elysion",
         "url": "https://open.spotify.com/track/1w8r3PAxPPLfcuyRsC4BeA",
         "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff"
       },
       {
-        "rank": 3,
+        "rank": 2,
         "name": "Sorry",
         "artist": "Nothing But Thieves",
         "url": "https://open.spotify.com/track/6rAXHPd18PZ6W8m9EectzH",
         "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "name": "Phantom Regret by Jim",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/1NlK2NtpuUazpziLhnJwEV",
         "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "name": "Fuck it I love you",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/7MtVPRGtZl6rPjMfLoI3Lh",
         "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "Far Horizons",
         "artist": "Jeremy Soule, The Elder Scrolls",
         "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
         "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Never Forever",
         "artist": "Elysion",
         "url": "https://open.spotify.com/track/1gtiboFlPYIuaJSeF3fZk6",
         "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Music",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/49LQq6RoFTWFk5d6hBGEKt",
         "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Change",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/3fx5ozORvvTGnSnOhUqrgj",
         "image": "https://i.scdn.co/image/ab67616d0000485195e2fd1accb339fa14878190"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "You Don’t Get Me High Anymore",
         "artist": "Phantogram",
         "url": "https://open.spotify.com/track/3gkSQbWTDBh0ZKq85WmJDz",
         "image": "https://i.scdn.co/image/ab67616d00004851d99618fc2eed49eb1b67d6af"
       },
       {
-        "rank": 11,
-        "name": "The Messenger",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/0pQZMrYNcfwZbt2Zt0pjaA",
-        "image": "https://i.scdn.co/image/ab67616d0000485159211e56a493ac4509457bab"
-      },
-      {
-        "rank": 12,
+        "rank": 10,
         "name": "Crossing Over",
         "artist": "Elysion",
         "url": "https://open.spotify.com/track/0qbIG8PmVDHRcJQ7FXKQTB",
         "image": "https://i.scdn.co/image/ab67616d0000485166aa64c4051fe114d339ddbc"
+      },
+      {
+        "rank": 11,
+        "name": "Pan",
+        "artist": "Nightwish",
+        "url": "https://open.spotify.com/track/1XcTT3XqNalzJMamAiIqOW",
+        "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369"
+      },
+      {
+        "rank": 12,
+        "name": "Somebody That I Used To Know",
+        "artist": "Gotye, Kimbra",
+        "url": "https://open.spotify.com/track/1qDrWA6lyx8cLECdZE7TV7",
+        "image": "https://i.scdn.co/image/ab67616d000048518ac5768205ad97df3f4f4c0e"
       }
     ],
     "medium": [

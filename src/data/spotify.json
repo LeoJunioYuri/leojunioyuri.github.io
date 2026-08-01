@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-07-31T19:06:55.208Z",
+  "updatedAt": "2026-08-01T01:50:54.250Z",
   "tracks": [
+    {
+      "name": "When It Rains It Pours",
+      "artist": "Luke Combs",
+      "url": "https://open.spotify.com/track/1mMLMZYXkMueg65jRRWG1l",
+      "image": "https://i.scdn.co/image/ab67616d00004851a456620e42fb68e8976c91b5",
+      "playedAt": "2026-07-31T20:30:01.472Z"
+    },
     {
       "name": "Where I've Been",
       "artist": "Matt Mason",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/72kGuWpRiuA149Bn5lDkIO",
       "image": "https://i.scdn.co/image/ab67616d00004851eda625668a424f4ee44e7998",
       "playedAt": "2026-07-31T14:06:58.100Z"
-    },
-    {
-      "name": "Pink Skies",
-      "artist": "Zach Bryan",
-      "url": "https://open.spotify.com/track/4ZJ4vzLQekI0WntDbanNC7",
-      "image": "https://i.scdn.co/image/ab67616d0000485136fbdbea696df93933bafdb8",
-      "playedAt": "2026-07-31T14:03:49.111Z"
     }
   ],
   "topTracks": {

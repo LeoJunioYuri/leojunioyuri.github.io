@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-08-02T08:04:12.037Z",
+  "updatedAt": "2026-08-02T12:57:08.206Z",
   "tracks": [
+    {
+      "name": "Amsterdam",
+      "artist": "Nothing But Thieves",
+      "url": "https://open.spotify.com/track/454I78HEySdcHE8fcVabTb",
+      "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
+      "playedAt": "2026-08-02T11:04:57.876Z"
+    },
+    {
+      "name": "Gold Dust Woman - 2004 Remaster",
+      "artist": "Fleetwood Mac",
+      "url": "https://open.spotify.com/track/2w3ScXudq4aD3K5HFO5xvx",
+      "image": "https://i.scdn.co/image/ab67616d0000485157df7ce0eac715cf70e519a7",
+      "playedAt": "2026-08-02T11:00:25.105Z"
+    },
+    {
+      "name": "It's Only Natural",
+      "artist": "Red Hot Chili Peppers",
+      "url": "https://open.spotify.com/track/2p0W20VwOJpXt323xv8OAJ",
+      "image": "https://i.scdn.co/image/ab67616d00004851000db23d185de8c78efabd92",
+      "playedAt": "2026-08-02T10:50:43.082Z"
+    },
+    {
+      "name": "Stardust Chords",
+      "artist": "Greta Van Fleet",
+      "url": "https://open.spotify.com/track/07p7PALHp6ZcD5tmlbO94N",
+      "image": "https://i.scdn.co/image/ab67616d00004851339cc033bcc476d11dffba4c",
+      "playedAt": "2026-08-02T10:45:09.088Z"
+    },
+    {
+      "name": "Broken Bells",
+      "artist": "Greta Van Fleet",
+      "url": "https://open.spotify.com/track/2lXGcshKbu1QSq04zEIjAD",
+      "image": "https://i.scdn.co/image/ab67616d00004851339cc033bcc476d11dffba4c",
+      "playedAt": "2026-08-02T10:40:11.129Z"
+    },
     {
       "name": "À Sua Maneira (De Música Ligeira)",
       "artist": "Capital Inicial",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/1BEtqBWPmUBI11HY54lZrj",
       "image": "https://i.scdn.co/image/ab67616d00004851329efa987c761ca5a96e7974",
       "playedAt": "2026-08-02T01:19:03.111Z"
-    },
-    {
-      "name": "Na Sua Estante",
-      "artist": "Pitty",
-      "url": "https://open.spotify.com/track/1jiegRk1i62WYyCcmmCSRB",
-      "image": "https://i.scdn.co/image/ab67616d000048515a3401f25405fc727b2d58ee",
-      "playedAt": "2026-08-02T01:14:34.412Z"
-    },
-    {
-      "name": "Você me faz tão bem",
-      "artist": "Detonautas",
-      "url": "https://open.spotify.com/track/656TZu3G6rnfK9m2Y0zR6g",
-      "image": "https://i.scdn.co/image/ab67616d00004851d55fb5f2c3dc67ec250c6a72",
-      "playedAt": "2026-08-02T01:10:51.857Z"
-    },
-    {
-      "name": "Equalize",
-      "artist": "Pitty",
-      "url": "https://open.spotify.com/track/2iUxWUv5TovjBmayOcWohB",
-      "image": "https://i.scdn.co/image/ab67616d000048519b0c101acbe6a2ea36c480b1",
-      "playedAt": "2026-08-02T01:06:20.625Z"
-    },
-    {
-      "name": "O dia que não terminou",
-      "artist": "Detonautas",
-      "url": "https://open.spotify.com/track/1wywpyTBWYRFCRhSGyRKeW",
-      "image": "https://i.scdn.co/image/ab67616d00004851d55fb5f2c3dc67ec250c6a72",
-      "playedAt": "2026-08-02T01:02:27.948Z"
-    },
-    {
-      "name": "Eu Quero Sempre Mais (feat. Pitty) - Versão Acústica",
-      "artist": "Ira!, Pitty",
-      "url": "https://open.spotify.com/track/2xckrIKkbwKNIQvnhZ56bR",
-      "image": "https://i.scdn.co/image/ab67616d000048516ab0ae68f50a83098796a591",
-      "playedAt": "2026-08-02T00:58:13.760Z"
     }
   ],
   "topTracks": {

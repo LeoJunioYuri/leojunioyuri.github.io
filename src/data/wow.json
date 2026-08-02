@@ -1,64 +1,11 @@
 {
-  "updatedAt": "2026-08-02T01:47:22.709Z",
+  "updatedAt": "2026-08-02T08:04:16.131Z",
   "wow": {
-    "name": "Lyonys",
-    "level": 90,
-    "race": "Pandaren",
-    "class": "Monge",
-    "spec": "Andarilho do Vento",
-    "ilvl": 204,
-    "achievementPoints": 18670,
-    "totalAchievements": 2266,
-    "faction": "Aliança",
-    "realm": "Goldrinn",
-    "guild": "Mesa de Buteco",
-    "avatar": "https://render.worldofwarcraft.com/us/character/goldrinn/75/99069515-avatar.jpg",
-    "mountsCount": 390,
-    "petsCount": 284,
-    "recentAchievements": [
-      {
-        "name": "Midnight",
-        "id": 42045,
-        "date": 1782675480000
-      },
-      {
-        "name": "Breaching the Voidstorm",
-        "id": 41806,
-        "date": 1782675480000
-      },
-      {
-        "name": "Midnight Delves: Endgame",
-        "id": 61734,
-        "date": 1782675480000
-      },
-      {
-        "name": "Nexus-Point Xenas",
-        "id": 61640,
-        "date": 1782675023000
-      },
-      {
-        "name": "One Warband Mentor: Midnight",
-        "id": 42328,
-        "date": 1782622680000
-      }
-    ],
-    "topCategories": [
-      {
-        "name": "Dungeons & Raids",
-        "points": 8980,
-        "quantity": 856
-      },
-      {
-        "name": "Exploration",
-        "points": 1915,
-        "quantity": 173
-      },
-      {
-        "name": "Expansion Features",
-        "points": 1785,
-        "quantity": 204
-      }
-    ],
+    "avatar": null,
+    "mountsCount": 0,
+    "petsCount": 0,
+    "recentAchievements": [],
+    "topCategories": [],
     "profileUrl": "https://worldofwarcraft.blizzard.com/pt-br/character/us/goldrinn/lyonys"
   }
 }

@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-08-03T09:20:01.418Z",
+  "updatedAt": "2026-08-03T14:14:32.101Z",
   "tracks": [
+    {
+      "name": "Honeymoon Suite",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/5LCjZoCHRvB8uwsALLmKLS",
+      "image": "https://i.scdn.co/image/ab67616d000048514b5bba6ef5d2918b38afbfa9",
+      "playedAt": "2026-08-03T13:16:54.871Z"
+    },
+    {
+      "name": "Within Me",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/23iFER67b8UKCW67hQTJOs",
+      "image": "https://i.scdn.co/image/ab67616d0000485121167f46d2169bf8cba15063",
+      "playedAt": "2026-08-03T13:11:30.670Z"
+    },
+    {
+      "name": "It Won't Last",
+      "artist": "Blacktop Mojo",
+      "url": "https://open.spotify.com/track/5Ka9VcerIy34OsUt1c9YKD",
+      "image": "https://i.scdn.co/image/ab67616d00004851530e677fa92beed249068075",
+      "playedAt": "2026-08-03T12:34:54.140Z"
+    },
     {
       "name": "Through Glass",
       "artist": "Stone Sour",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/4UWlN9jbRWm5G5fzCFS2Oj",
       "image": "https://i.scdn.co/image/ab67616d00004851d73fa7125044e0d80f12960d",
       "playedAt": "2026-08-03T02:58:41.691Z"
-    },
-    {
-      "name": "Mama Said - Remastered",
-      "artist": "Metallica",
-      "url": "https://open.spotify.com/track/2pFg7eERlKmCcdI3FlEuAc",
-      "image": "https://i.scdn.co/image/ab67616d000048511f64a7fb81f743272a6dd122",
-      "playedAt": "2026-08-03T02:53:54.802Z"
-    },
-    {
-      "name": "Watch Over You",
-      "artist": "Alter Bridge",
-      "url": "https://open.spotify.com/track/7kxfWvj6u9oWQ5C36kMtGb",
-      "image": "https://i.scdn.co/image/ab67616d0000485133fe3896fc5aef6cb728b467",
-      "playedAt": "2026-08-03T02:40:44.366Z"
-    },
-    {
-      "name": "Seraphic Deviltry",
-      "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/2HPdHcJpQ1pbw3ud0ii4Nc",
-      "image": "https://i.scdn.co/image/ab67616d000048510d50567beb34f578132bcd4a",
-      "playedAt": "2026-08-02T22:57:34.342Z"
     }
   ],
   "topTracks": {

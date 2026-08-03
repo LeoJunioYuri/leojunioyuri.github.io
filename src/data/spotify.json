@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-03T01:49:42.021Z",
+  "updatedAt": "2026-08-03T09:20:01.418Z",
   "tracks": [
+    {
+      "name": "Through Glass",
+      "artist": "Stone Sour",
+      "url": "https://open.spotify.com/track/5NeIONQWJ25uPylJBJiO4c",
+      "image": "https://i.scdn.co/image/ab67616d00004851b424aeb510016daa1bc0251c",
+      "playedAt": "2026-08-03T03:15:31.578Z"
+    },
+    {
+      "name": "Check My Brain",
+      "artist": "Alice In Chains",
+      "url": "https://open.spotify.com/track/2liwbAaiYRiJB2H286u1zS",
+      "image": "https://i.scdn.co/image/ab67616d000048512aac6b7dae4a8813f5e28454",
+      "playedAt": "2026-08-03T03:10:48.188Z"
+    },
+    {
+      "name": "Your Decision",
+      "artist": "Alice In Chains",
+      "url": "https://open.spotify.com/track/3GKuYOadWhgHErTCoQNF4Y",
+      "image": "https://i.scdn.co/image/ab67616d000048512aac6b7dae4a8813f5e28454",
+      "playedAt": "2026-08-03T03:06:49.659Z"
+    },
+    {
+      "name": "Into You",
+      "artist": "Dead By Sunrise",
+      "url": "https://open.spotify.com/track/67OWW2AK0Q1FqBatxyt1s5",
+      "image": "https://i.scdn.co/image/ab67616d000048513cea3f53137fcb2cc86a481c",
+      "playedAt": "2026-08-03T03:02:06.030Z"
+    },
+    {
+      "name": "Wayward One",
+      "artist": "Alter Bridge",
+      "url": "https://open.spotify.com/track/4UWlN9jbRWm5G5fzCFS2Oj",
+      "image": "https://i.scdn.co/image/ab67616d00004851d73fa7125044e0d80f12960d",
+      "playedAt": "2026-08-03T02:58:41.691Z"
+    },
+    {
+      "name": "Mama Said - Remastered",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/2pFg7eERlKmCcdI3FlEuAc",
+      "image": "https://i.scdn.co/image/ab67616d000048511f64a7fb81f743272a6dd122",
+      "playedAt": "2026-08-03T02:53:54.802Z"
+    },
+    {
+      "name": "Watch Over You",
+      "artist": "Alter Bridge",
+      "url": "https://open.spotify.com/track/7kxfWvj6u9oWQ5C36kMtGb",
+      "image": "https://i.scdn.co/image/ab67616d0000485133fe3896fc5aef6cb728b467",
+      "playedAt": "2026-08-03T02:40:44.366Z"
+    },
     {
       "name": "Seraphic Deviltry",
       "artist": "Theatre Of Tragedy",
       "url": "https://open.spotify.com/track/2HPdHcJpQ1pbw3ud0ii4Nc",
       "image": "https://i.scdn.co/image/ab67616d000048510d50567beb34f578132bcd4a",
       "playedAt": "2026-08-02T22:57:34.342Z"
-    },
-    {
-      "name": "Bring Forth Ye Shadow",
-      "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/30Uer0M1IpdYJ20KdhH6A1",
-      "image": "https://i.scdn.co/image/ab67616d000048510d50567beb34f578132bcd4a",
-      "playedAt": "2026-08-02T22:37:38.645Z"
-    },
-    {
-      "name": "Venus",
-      "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/2qURNRJHKUjc9aT398g0pf",
-      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
-      "playedAt": "2026-08-02T22:30:41.909Z"
-    },
-    {
-      "name": "Poppaea",
-      "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
-      "playedAt": "2026-08-02T22:25:08.455Z"
-    },
-    {
-      "name": "Seasons of War (Intro Movie)",
-      "artist": "Jason Hayes, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/3tmGv94RbdDv44X5IWSpNc",
-      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
-      "playedAt": "2026-08-02T22:23:11.012Z"
-    },
-    {
-      "name": "Violet Hill",
-      "artist": "Coldplay",
-      "url": "https://open.spotify.com/track/1ZqHjApl3pfzwjweTfMi0g",
-      "image": "https://i.scdn.co/image/ab67616d00004851e21cc1db05580b6f2d2a3b6e",
-      "playedAt": "2026-08-02T22:13:56.138Z"
-    },
-    {
-      "name": "Morrowind Recomposed: The Elder Scrolls III Theme",
-      "artist": "Jeremy Soule, Rubric",
-      "url": "https://open.spotify.com/track/0qyNyhpufB9NlIyjeK7gtJ",
-      "image": "https://i.scdn.co/image/ab67616d0000485102fcaa92dfdf70007f433848",
-      "playedAt": "2026-08-02T20:53:57.982Z"
-    },
-    {
-      "name": "Secunda",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/38ineLIzGIXTGd8ICMvHXb",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-08-02T20:51:59.611Z"
     }
   ],
   "topTracks": {

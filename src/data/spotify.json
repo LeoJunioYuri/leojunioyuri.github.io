@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-04T01:25:13.240Z",
+  "updatedAt": "2026-08-04T08:18:51.888Z",
   "tracks": [
+    {
+      "name": "Trip the Darkness",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/071qZ9lL7h6ULW1WNgQjE3",
+      "image": "https://i.scdn.co/image/ab67616d00004851de2c417025472426d93162cb",
+      "playedAt": "2026-08-04T05:57:00.614Z"
+    },
     {
       "name": "Purify",
       "artist": "Lacuna Coil",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/3X0K6fII7VIwL1URPrp8Ko",
       "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b",
       "playedAt": "2026-08-03T22:57:42.536Z"
-    },
-    {
-      "name": "Engel",
-      "artist": "Rammstein",
-      "url": "https://open.spotify.com/track/5Zuboc3Cj9Ldnc8HyUnNUK",
-      "image": "https://i.scdn.co/image/ab67616d00004851030cda12ffbebd6561c1c0f0",
-      "playedAt": "2026-08-03T22:04:10.773Z"
     }
   ],
   "topTracks": {

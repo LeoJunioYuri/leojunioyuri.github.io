@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-05T08:15:43.209Z",
+  "updatedAt": "2026-08-05T13:41:40.481Z",
   "tracks": [
+    {
+      "name": "Nutshell",
+      "artist": "Alice In Chains",
+      "url": "https://open.spotify.com/track/2JuasWPUodaUxf5nwNpciQ",
+      "image": "https://i.scdn.co/image/ab67616d0000485125b42be683b8d3c6500db726",
+      "playedAt": "2026-08-05T07:51:49.957Z"
+    },
     {
       "name": "O Children",
       "artist": "Nick Cave & The Bad Seeds",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/1NZs6n6hl8UuMaX0UC0YTz",
       "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
       "playedAt": "2026-08-04T18:58:38.760Z"
-    },
-    {
-      "name": "Gnossienne: No. 1",
-      "artist": "Erik Satie, Alexandre Tharaud",
-      "url": "https://open.spotify.com/track/4820SC1xnUaabzzYQTDkP2",
-      "image": "https://i.scdn.co/image/ab67616d00004851949cc0e6728be2f6601eb7ea",
-      "playedAt": "2026-08-04T18:50:24.843Z"
     }
   ],
   "topTracks": {

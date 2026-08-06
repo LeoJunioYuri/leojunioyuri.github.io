@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-06T08:14:04.238Z",
+  "updatedAt": "2026-08-06T13:40:01.357Z",
   "tracks": [
+    {
+      "name": "Ambush by Cutthroats",
+      "artist": "Sarah Schachner, Assassin's Creed",
+      "url": "https://open.spotify.com/track/3trRuRC2fIz06lRjK9tbjz",
+      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
+      "playedAt": "2026-08-06T13:38:09.826Z"
+    },
     {
       "name": "Odin's Plunder",
       "artist": "Sarah Schachner, Assassin's Creed",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/5BPHDpmOtKSAH84QbUoJUA",
       "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
       "playedAt": "2026-08-06T04:55:43.185Z"
-    },
-    {
-      "name": "Wave Walker",
-      "artist": "Sarah Schachner, Assassin's Creed",
-      "url": "https://open.spotify.com/track/53SCesODUYc99XsF89na46",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-08-06T04:53:26.023Z"
     }
   ],
   "topTracks": {

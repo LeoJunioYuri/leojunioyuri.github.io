@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-07T02:05:15.050Z",
+  "updatedAt": "2026-08-07T06:59:20.804Z",
   "tracks": [
+    {
+      "name": "Solitary Ground",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/032QyDapuk9L3yrN2n88F4",
+      "image": "https://i.scdn.co/image/ab67616d000048513cf1b9f791a1d853bd31c372",
+      "playedAt": "2026-08-07T04:10:04.285Z"
+    },
+    {
+      "name": "Unleashed",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/2EO2MCzUHcZ1L8NWx2vYSJ",
+      "image": "https://i.scdn.co/image/ab67616d000048511b10ef0efe2fc1c1f19a8020",
+      "playedAt": "2026-08-07T04:02:53.069Z"
+    },
+    {
+      "name": "Canvas of Life",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/4Rm5PyaNysdcALm8964qsm",
+      "image": "https://i.scdn.co/image/ab67616d000048515b638d1717948a63ad548349",
+      "playedAt": "2026-08-07T03:57:04.297Z"
+    },
+    {
+      "name": "Sensorium",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/5Souga96S54RLFk30XrEJP",
+      "image": "https://i.scdn.co/image/ab67616d00004851a9184b40e7c18c2a3210ec38",
+      "playedAt": "2026-08-07T03:51:35.699Z"
+    },
+    {
+      "name": "Heroes of Sand",
+      "artist": "ANGRA",
+      "url": "https://open.spotify.com/track/7zaRMwIjR8IRhag7477mFl",
+      "image": "https://i.scdn.co/image/ab67616d00004851a3bff4706c634bebfec93301",
+      "playedAt": "2026-08-07T03:46:45.982Z"
+    },
+    {
+      "name": "Herr Mannelig",
+      "artist": "Haggard",
+      "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
+      "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1",
+      "playedAt": "2026-08-07T03:41:24.055Z"
+    },
+    {
+      "name": "Luna",
+      "artist": "Alessandro Safina",
+      "url": "https://open.spotify.com/track/2zCjaqWmGZjeMxAwq8CXjN",
+      "image": "https://i.scdn.co/image/ab67616d0000485190ff5df9f2623ebee62ab2f6",
+      "playedAt": "2026-08-07T03:10:49.455Z"
+    },
     {
       "name": "Hijo de la Luna",
       "artist": "Haggard",
       "url": "https://open.spotify.com/track/7kBal299Qijq4uSXdOD4IP",
       "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
-      "playedAt": "2026-08-07T01:16:53.768Z"
-    },
-    {
-      "name": "Máscara",
-      "artist": "Pitty",
-      "url": "https://open.spotify.com/track/2Y0R8ey56JBZj6Au3HenCq",
-      "image": "https://i.scdn.co/image/ab67616d000048519b0c101acbe6a2ea36c480b1",
-      "playedAt": "2026-08-07T01:05:34.872Z"
-    },
-    {
-      "name": "Comalies",
-      "artist": "Lacuna Coil",
-      "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
-      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
-      "playedAt": "2026-08-07T01:02:37.595Z"
-    },
-    {
-      "name": "Prefiro Nem Perguntar - Ao Vivo em Brasília",
-      "artist": "Diego & Victor Hugo",
-      "url": "https://open.spotify.com/track/1EiucixIWowC3aRot6PUPy",
-      "image": "https://i.scdn.co/image/ab67616d00004851deb164b57dd85d716ba3f252",
-      "playedAt": "2026-08-06T23:12:41.549Z"
-    },
-    {
-      "name": "Asgard Hall of the Aesir (feat. Einar Selvik)",
-      "artist": "Sarah Schachner, Assassin's Creed, Einar Selvik",
-      "url": "https://open.spotify.com/track/2RZHKpTUL6QfHGrjCwk5dd",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-08-06T23:09:36.651Z"
-    },
-    {
-      "name": "Voices of Fornburg",
-      "artist": "Sarah Schachner, Assassin's Creed",
-      "url": "https://open.spotify.com/track/3eqcltD0qRNnLPAfVqhqNu",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-08-06T23:06:08.106Z"
-    },
-    {
-      "name": "Voices of Fornburg",
-      "artist": "Sarah Schachner, Assassin's Creed",
-      "url": "https://open.spotify.com/track/3eqcltD0qRNnLPAfVqhqNu",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-08-06T23:04:03.922Z"
-    },
-    {
-      "name": "Pode Ir Embora / Hoje Eu Sonhei Com Você / Então Valeu - Ao Vivo",
-      "artist": "Ícaro e Gilmar",
-      "url": "https://open.spotify.com/track/3v7a6hB2jflkBP8OLtubqB",
-      "image": "https://i.scdn.co/image/ab67616d00004851b38c944294347901914fef01",
-      "playedAt": "2026-08-06T23:01:59.757Z"
+      "playedAt": "2026-08-07T03:06:17.371Z"
     }
   ],
   "topTracks": {

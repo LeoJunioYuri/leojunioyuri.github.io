@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-08-07T06:59:20.804Z",
+  "updatedAt": "2026-08-07T12:39:44.211Z",
   "tracks": [
+    {
+      "name": "I Died For You",
+      "artist": "Iced Earth",
+      "url": "https://open.spotify.com/track/03rHMIaoIsrQ3Elkp0KLUk",
+      "image": "https://i.scdn.co/image/ab67616d000048518513b250b4b1115e372c6ffd",
+      "playedAt": "2026-08-07T12:00:04.786Z"
+    },
+    {
+      "name": "Whataya Want from Me",
+      "artist": "Adam Lambert",
+      "url": "https://open.spotify.com/track/2rDwdvBma1O1eLzo29p2cr",
+      "image": "https://i.scdn.co/image/ab67616d00004851fe0d9870d6d8e18c3a00c658",
+      "playedAt": "2026-08-07T11:54:22.652Z"
+    },
+    {
+      "name": "Holding Out for a Hero",
+      "artist": "Adam Lambert",
+      "url": "https://open.spotify.com/track/65KqjmqvusCeHHXubL58Nn",
+      "image": "https://i.scdn.co/image/ab67616d000048514209706c59c8e580a52f8274",
+      "playedAt": "2026-08-07T11:50:11.731Z"
+    },
+    {
+      "name": "In And Out Of Love",
+      "artist": "Armin van Buuren, Sharon Den Adel",
+      "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
+      "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00",
+      "playedAt": "2026-08-07T11:46:21.244Z"
+    },
+    {
+      "name": "Ghost Town",
+      "artist": "Adam Lambert",
+      "url": "https://open.spotify.com/track/44aN5xKL3kGHvQ5bXVk6B8",
+      "image": "https://i.scdn.co/image/ab67616d000048517700824398c798dd7c88142b",
+      "playedAt": "2026-08-07T11:42:30.075Z"
+    },
+    {
+      "name": "Feint",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/0JuzTrx88KvnzsieD75OE5",
+      "image": "https://i.scdn.co/image/ab67616d00004851a9184b40e7c18c2a3210ec38",
+      "playedAt": "2026-08-07T11:38:09.856Z"
+    },
     {
       "name": "Solitary Ground",
       "artist": "Epica",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/2EO2MCzUHcZ1L8NWx2vYSJ",
       "image": "https://i.scdn.co/image/ab67616d000048511b10ef0efe2fc1c1f19a8020",
       "playedAt": "2026-08-07T04:02:53.069Z"
-    },
-    {
-      "name": "Canvas of Life",
-      "artist": "Epica",
-      "url": "https://open.spotify.com/track/4Rm5PyaNysdcALm8964qsm",
-      "image": "https://i.scdn.co/image/ab67616d000048515b638d1717948a63ad548349",
-      "playedAt": "2026-08-07T03:57:04.297Z"
-    },
-    {
-      "name": "Sensorium",
-      "artist": "Epica",
-      "url": "https://open.spotify.com/track/5Souga96S54RLFk30XrEJP",
-      "image": "https://i.scdn.co/image/ab67616d00004851a9184b40e7c18c2a3210ec38",
-      "playedAt": "2026-08-07T03:51:35.699Z"
-    },
-    {
-      "name": "Heroes of Sand",
-      "artist": "ANGRA",
-      "url": "https://open.spotify.com/track/7zaRMwIjR8IRhag7477mFl",
-      "image": "https://i.scdn.co/image/ab67616d00004851a3bff4706c634bebfec93301",
-      "playedAt": "2026-08-07T03:46:45.982Z"
-    },
-    {
-      "name": "Herr Mannelig",
-      "artist": "Haggard",
-      "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
-      "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1",
-      "playedAt": "2026-08-07T03:41:24.055Z"
-    },
-    {
-      "name": "Luna",
-      "artist": "Alessandro Safina",
-      "url": "https://open.spotify.com/track/2zCjaqWmGZjeMxAwq8CXjN",
-      "image": "https://i.scdn.co/image/ab67616d0000485190ff5df9f2623ebee62ab2f6",
-      "playedAt": "2026-08-07T03:10:49.455Z"
-    },
-    {
-      "name": "Hijo de la Luna",
-      "artist": "Haggard",
-      "url": "https://open.spotify.com/track/7kBal299Qijq4uSXdOD4IP",
-      "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
-      "playedAt": "2026-08-07T03:06:17.371Z"
     }
   ],
   "topTracks": {

@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-08-06T23:48:59.890Z",
+  "updatedAt": "2026-08-07T02:05:15.050Z",
   "tracks": [
+    {
+      "name": "Hijo de la Luna",
+      "artist": "Haggard",
+      "url": "https://open.spotify.com/track/7kBal299Qijq4uSXdOD4IP",
+      "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
+      "playedAt": "2026-08-07T01:16:53.768Z"
+    },
+    {
+      "name": "Máscara",
+      "artist": "Pitty",
+      "url": "https://open.spotify.com/track/2Y0R8ey56JBZj6Au3HenCq",
+      "image": "https://i.scdn.co/image/ab67616d000048519b0c101acbe6a2ea36c480b1",
+      "playedAt": "2026-08-07T01:05:34.872Z"
+    },
+    {
+      "name": "Comalies",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/0KqBZxiDduZoMDdiHrExVn",
+      "image": "https://i.scdn.co/image/ab67616d0000485140cd02504f36bfd9f88b6d96",
+      "playedAt": "2026-08-07T01:02:37.595Z"
+    },
     {
       "name": "Prefiro Nem Perguntar - Ao Vivo em Brasília",
       "artist": "Diego & Victor Hugo",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/3v7a6hB2jflkBP8OLtubqB",
       "image": "https://i.scdn.co/image/ab67616d00004851b38c944294347901914fef01",
       "playedAt": "2026-08-06T23:01:59.757Z"
-    },
-    {
-      "name": "Diet Mountain Dew",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/2vtmY2mSccRzKGjtcHSzI3",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-08-06T22:29:35.272Z"
-    },
-    {
-      "name": "Only Time",
-      "artist": "Enya",
-      "url": "https://open.spotify.com/track/6FLwmdmW77N1Pxb1aWsZmO",
-      "image": "https://i.scdn.co/image/ab67616d0000485170dd4e18b9c3431ee7a9b8a1",
-      "playedAt": "2026-08-06T22:22:54.967Z"
-    },
-    {
-      "name": "Blue Jeans",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-08-06T22:16:31.932Z"
     }
   ],
   "topTracks": {

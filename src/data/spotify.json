@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-08T00:51:05.809Z",
+  "updatedAt": "2026-08-08T06:33:33.397Z",
   "tracks": [
     {
-      "name": "Keys to the Kingdom",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/2cZXlLwkRmDww37tbEygXl",
-      "image": "https://i.scdn.co/image/ab67616d000048515721adac031512b903f10d03",
-      "playedAt": "2026-08-08T00:50:51.908Z"
+      "name": "Out of the North",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/1MZQ61fhvNCKQDxQYdj9lQ",
+      "image": "https://i.scdn.co/image/ab67616d00004851b2d5291fcec7aedfe5265c6c",
+      "playedAt": "2026-08-08T04:44:19.104Z"
     },
     {
-      "name": "Lying from You",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/4zP2e2aIzOZGEFTq1MDJmm",
-      "image": "https://i.scdn.co/image/ab67616d000048515f1f51d14e8bea89484ecd1b",
-      "playedAt": "2026-08-08T00:45:55.617Z"
+      "name": "Rather Death Than Slavery",
+      "artist": "Sarah Schachner, Assassin's Creed",
+      "url": "https://open.spotify.com/track/0N6jeGRcWtZVjEBdSvQffe",
+      "image": "https://i.scdn.co/image/ab67616d00004851c91a14852cfa16c79969dc71",
+      "playedAt": "2026-08-08T04:40:30.734Z"
     },
     {
-      "name": "Heavy (feat. Kiiara)",
-      "artist": "Linkin Park, Kiiara",
-      "url": "https://open.spotify.com/track/104buTcnP2AsxqB7U1FIZ4",
-      "image": "https://i.scdn.co/image/ab67616d00004851145e1cf12538f5666511237d",
-      "playedAt": "2026-08-08T00:42:36.552Z"
+      "name": "Voices of Fornburg",
+      "artist": "Sarah Schachner, Assassin's Creed",
+      "url": "https://open.spotify.com/track/3eqcltD0qRNnLPAfVqhqNu",
+      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
+      "playedAt": "2026-08-08T04:38:14.649Z"
     },
     {
-      "name": "In Pieces",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/7jeI6EdY0elPSNz80mAKS8",
-      "image": "https://i.scdn.co/image/ab67616d000048516e996745f2c7b8036abef213",
-      "playedAt": "2026-08-08T00:39:46.229Z"
+      "name": "Asgard Hall of the Aesir (feat. Einar Selvik)",
+      "artist": "Sarah Schachner, Assassin's Creed, Einar Selvik",
+      "url": "https://open.spotify.com/track/2RZHKpTUL6QfHGrjCwk5dd",
+      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
+      "playedAt": "2026-08-08T04:36:10.470Z"
     },
     {
-      "name": "Runaway",
+      "name": "Assassin's Creed Valhalla Main Theme (feat. Einar Selvik)",
+      "artist": "Sarah Schachner, Assassin's Creed, Jesper Kyd, Einar Selvik",
+      "url": "https://open.spotify.com/track/59FMS2jznmqwLYx1Noa6H4",
+      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
+      "playedAt": "2026-08-08T04:32:42.004Z"
+    },
+    {
+      "name": "Romance - Ao Vivo",
+      "artist": "Humberto & Ronaldo, Jorge e Mateus",
+      "url": "https://open.spotify.com/track/2bjUb6brYmvOXkMboRENLa",
+      "image": "https://i.scdn.co/image/ab67616d000048513b5da8e0b9e08d8f1b13b5d3",
+      "playedAt": "2026-08-08T04:29:25.955Z"
+    },
+    {
+      "name": "By Myself",
       "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/6xtQ23d8GEXgcxyUKPtwc5",
+      "url": "https://open.spotify.com/track/6UzeOH4bRPzKTo2wCXMZmC",
       "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-08-08T00:36:07.743Z"
+      "playedAt": "2026-08-08T03:19:51.234Z"
     },
     {
-      "name": "With You",
+      "name": "Breaking the Habit",
       "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/5uuXtfqM7Wp3idCxyHeOll",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-08-08T00:33:03.333Z"
-    },
-    {
-      "name": "Wastelands",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3S8MFB68isPbRVgaU0MaIW",
-      "image": "https://i.scdn.co/image/ab67616d000048515721adac031512b903f10d03",
-      "playedAt": "2026-08-08T00:29:24.505Z"
-    },
-    {
-      "name": "Halfway Right",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/1KvyBpAxgllKW7bQb0GYCR",
-      "image": "https://i.scdn.co/image/ab67616d00004851145e1cf12538f5666511237d",
-      "playedAt": "2026-08-08T00:24:32.325Z"
+      "url": "https://open.spotify.com/track/3dxiWIBVJRlqh9xk144rf4",
+      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
+      "playedAt": "2026-08-08T01:19:48.037Z"
     }
   ],
   "topTracks": {
@@ -83,66 +83,66 @@
       },
       {
         "rank": 4,
+        "name": "Assassin's Creed Valhalla Main Theme (feat. Einar Selvik)",
+        "artist": "Sarah Schachner, Assassin's Creed, Jesper Kyd, Einar Selvik",
+        "url": "https://open.spotify.com/track/59FMS2jznmqwLYx1Noa6H4",
+        "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
+      },
+      {
+        "rank": 5,
         "name": "In the End",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/60a0Rd6pjrkxjPbaKzXjfq",
         "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "name": "Phantom Regret by Jim",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/1NlK2NtpuUazpziLhnJwEV",
         "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "name": "Fuck it I love you",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/7MtVPRGtZl6rPjMfLoI3Lh",
         "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "name": "Never Forever",
         "artist": "Elysion",
         "url": "https://open.spotify.com/track/1gtiboFlPYIuaJSeF3fZk6",
         "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6"
       },
       {
-        "rank": 8,
+        "rank": 9,
         "name": "Somebody That I Used To Know",
         "artist": "Gotye, Kimbra",
         "url": "https://open.spotify.com/track/1qDrWA6lyx8cLECdZE7TV7",
         "image": "https://i.scdn.co/image/ab67616d000048518ac5768205ad97df3f4f4c0e"
       },
       {
-        "rank": 9,
+        "rank": 10,
+        "name": "Voices of Fornburg",
+        "artist": "Sarah Schachner, Assassin's Creed",
+        "url": "https://open.spotify.com/track/3eqcltD0qRNnLPAfVqhqNu",
+        "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
+      },
+      {
+        "rank": 11,
         "name": "Ma Meilleure Ennemie - From The Series \"Arcane League of Legends\"",
         "artist": "Arcane, League of Legends, Stromae, Pomme",
         "url": "https://open.spotify.com/track/6BPcUXYERAahpunmb0AovH",
         "image": "https://i.scdn.co/image/ab67616d00004851952d1767885a9f1ae6dcf0b0"
       },
       {
-        "rank": 10,
+        "rank": 12,
         "name": "Killing My Dreams",
         "artist": "Elysion",
         "url": "https://open.spotify.com/track/6NvjefGOBXHhY8iCv8NiEN",
         "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6"
-      },
-      {
-        "rank": 11,
-        "name": "Change",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/3fx5ozORvvTGnSnOhUqrgj",
-        "image": "https://i.scdn.co/image/ab67616d0000485195e2fd1accb339fa14878190"
-      },
-      {
-        "rank": 12,
-        "name": "You Don’t Get Me High Anymore",
-        "artist": "Phantogram",
-        "url": "https://open.spotify.com/track/3gkSQbWTDBh0ZKq85WmJDz",
-        "image": "https://i.scdn.co/image/ab67616d00004851d99618fc2eed49eb1b67d6af"
       }
     ],
     "medium": [

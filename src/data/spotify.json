@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-08-08T18:21:44.466Z",
+  "updatedAt": "2026-08-09T00:54:02.681Z",
   "tracks": [
+    {
+      "name": "Sancta Terra",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/2fmVfcXaKrDNHa3ZKeILob",
+      "image": "https://i.scdn.co/image/ab67616d000048511b2cbc41b7cae00adda0a746",
+      "playedAt": "2026-08-09T00:53:53.543Z"
+    },
+    {
+      "name": "Meeting The Master",
+      "artist": "Greta Van Fleet",
+      "url": "https://open.spotify.com/track/6jXwOrrBoutMICNxckeDNQ",
+      "image": "https://i.scdn.co/image/ab67616d0000485114233ab50b7ec842b7d43b76",
+      "playedAt": "2026-08-09T00:48:56.183Z"
+    },
+    {
+      "name": "Hush",
+      "artist": "Muse, Ellie Goulding",
+      "url": "https://open.spotify.com/track/0OcCTvv3tpZBSZxP889Ijs",
+      "image": "https://i.scdn.co/image/ab67616d00004851b295bd39e098e7b68d57aacf",
+      "playedAt": "2026-08-08T18:29:00.762Z"
+    },
+    {
+      "name": "You're A Killer - Alt Version",
+      "artist": "The Virginmarys",
+      "url": "https://open.spotify.com/track/4owjXiCHpEazE5ua8UYCYi",
+      "image": "https://i.scdn.co/image/ab67616d000048518a10bd716e04071c160ec524",
+      "playedAt": "2026-08-08T18:25:04.500Z"
+    },
     {
       "name": "Fortune’s Fate",
       "artist": "MIRADOR",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/7J8hkVDkYRHCs2fMmXwQY1",
       "image": "https://i.scdn.co/image/ab67616d000048516fd4512191210a09bb2cf5af",
       "playedAt": "2026-08-08T18:07:32.636Z"
-    },
-    {
-      "name": "One By One",
-      "artist": "The Blue Stones",
-      "url": "https://open.spotify.com/track/1CXwDEBidzJwJYMqHK3tG4",
-      "image": "https://i.scdn.co/image/ab67616d000048518d2c343c32dc3702b9b1c2f8",
-      "playedAt": "2026-08-08T18:06:26.997Z"
-    },
-    {
-      "name": "One By One",
-      "artist": "The Blue Stones",
-      "url": "https://open.spotify.com/track/1CXwDEBidzJwJYMqHK3tG4",
-      "image": "https://i.scdn.co/image/ab67616d000048518d2c343c32dc3702b9b1c2f8",
-      "playedAt": "2026-08-08T18:03:28.337Z"
-    },
-    {
-      "name": "Evolution",
-      "artist": "Nothing But Thieves",
-      "url": "https://open.spotify.com/track/2vpO3zMJ82SxEY1MzjNNrp",
-      "image": "https://i.scdn.co/image/ab67616d00004851420fce4b3ec308d187d77c1e",
-      "playedAt": "2026-08-08T17:58:53.661Z"
-    },
-    {
-      "name": "Hexagons",
-      "artist": "Muse",
-      "url": "https://open.spotify.com/track/2ssHVnC8IEkQouNXfPDfAe",
-      "image": "https://i.scdn.co/image/ab67616d00004851b295bd39e098e7b68d57aacf",
-      "playedAt": "2026-08-08T17:55:07.892Z"
     }
   ],
   "topTracks": {

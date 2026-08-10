@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-08-10T07:09:12.550Z",
+  "updatedAt": "2026-08-10T12:43:18.666Z",
   "tracks": [
+    {
+      "name": "Dishearten",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-08-10T12:40:17.904Z"
+    },
+    {
+      "name": "The Blackest Day",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/45pI8224KKX9Gx5fiyvEAh",
+      "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
+      "playedAt": "2026-08-10T12:33:24.693Z"
+    },
     {
       "name": "Religion",
       "artist": "Lana Del Rey",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/2Uq8o3398JlRbWdpvObYii",
       "image": "https://i.scdn.co/image/ab67616d00004851a403369f4a18977c959a59b5",
       "playedAt": "2026-08-09T23:14:12.635Z"
-    },
-    {
-      "name": "Specter",
-      "artist": "Bad Omens",
-      "url": "https://open.spotify.com/track/5krhWYmWIKJhI96deUujm8",
-      "image": "https://i.scdn.co/image/ab67616d00004851291facfe6e704c2a78d36782",
-      "playedAt": "2026-08-09T23:08:52.116Z"
-    },
-    {
-      "name": "Ultraviolet",
-      "artist": "Spiritbox",
-      "url": "https://open.spotify.com/track/5AYeGLu0KlyZUe6bS2tgdh",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5c92990af7103c61b85116c",
-      "playedAt": "2026-08-09T23:04:17.179Z"
     }
   ],
   "topTracks": {

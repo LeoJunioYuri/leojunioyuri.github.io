@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-10T12:43:18.666Z",
+  "updatedAt": "2026-08-10T18:41:27.933Z",
   "tracks": [
+    {
+      "name": "The Wretched Tide",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-08-10T12:49:46.546Z"
+    },
     {
       "name": "Dishearten",
       "artist": "Draconian",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/11JoA4W33pyW8uGd4d7SGt",
       "image": "https://i.scdn.co/image/ab67616d00004851312e4d88924cbfe1ba3ac24f",
       "playedAt": "2026-08-09T23:18:51.591Z"
-    },
-    {
-      "name": "God Fearing Man",
-      "artist": "Imminence",
-      "url": "https://open.spotify.com/track/2Uq8o3398JlRbWdpvObYii",
-      "image": "https://i.scdn.co/image/ab67616d00004851a403369f4a18977c959a59b5",
-      "playedAt": "2026-08-09T23:14:12.635Z"
     }
   ],
   "topTracks": {

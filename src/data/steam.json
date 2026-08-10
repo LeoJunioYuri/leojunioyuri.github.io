@@ -1,14 +1,6 @@
 {
-  "updatedAt": "2026-08-10T00:55:55.782Z",
+  "updatedAt": "2026-08-10T07:09:13.476Z",
   "games": [
-    {
-      "name": "Call of Duty®: Modern Warfare® II",
-      "appid": 3595230,
-      "minutes2weeks": 244,
-      "minutesTotal": 604,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/3595230/4e557bc86b950518cf3d8bd8ebec5f91d867bb9b.jpg",
-      "url": "https://store.steampowered.com/app/3595230"
-    },
     {
       "name": "Grand Theft Auto IV: The Complete Edition",
       "appid": 12210,

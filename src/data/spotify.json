@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-08-10T00:55:54.940Z",
+  "updatedAt": "2026-08-10T07:09:12.550Z",
   "tracks": [
+    {
+      "name": "Religion",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/1Yh4lOCbcskjSfYPDnn7EW",
+      "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
+      "playedAt": "2026-08-10T01:47:20.356Z"
+    },
+    {
+      "name": "Lust For Life (with The Weeknd)",
+      "artist": "Lana Del Rey, The Weeknd",
+      "url": "https://open.spotify.com/track/0mt02gJ425Xjm7c3jYkOBn",
+      "image": "https://i.scdn.co/image/ab67616d0000485195e2fd1accb339fa14878190",
+      "playedAt": "2026-08-10T01:41:56.640Z"
+    },
+    {
+      "name": "All I Know",
+      "artist": "The Weeknd, Future",
+      "url": "https://open.spotify.com/track/0NWqNXBJTpXbkI5rPWNy3p",
+      "image": "https://i.scdn.co/image/ab67616d000048514718e2b124f79258be7bc452",
+      "playedAt": "2026-08-10T01:37:32.133Z"
+    },
+    {
+      "name": "How I Fall Apart",
+      "artist": "Currents",
+      "url": "https://open.spotify.com/track/1NCEL0MGmUXyM4jghQj9IG",
+      "image": "https://i.scdn.co/image/ab67616d00004851111a4efc860777cce697098b",
+      "playedAt": "2026-08-10T01:23:43.578Z"
+    },
     {
       "name": "Afraid Of The Dark",
       "artist": "Motionless In White",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/5AYeGLu0KlyZUe6bS2tgdh",
       "image": "https://i.scdn.co/image/ab67616d00004851d5c92990af7103c61b85116c",
       "playedAt": "2026-08-09T23:04:17.179Z"
-    },
-    {
-      "name": "Circle With Me",
-      "artist": "Spiritbox",
-      "url": "https://open.spotify.com/track/3FI0iAAAjmR31xpZEwbdys",
-      "image": "https://i.scdn.co/image/ab67616d000048513e234c82f96fa4ded8e5ca47",
-      "playedAt": "2026-08-09T22:58:29.256Z"
-    },
-    {
-      "name": "Jaded",
-      "artist": "Spiritbox",
-      "url": "https://open.spotify.com/track/6IdyYbGg1jxiWhfwm2Ykjn",
-      "image": "https://i.scdn.co/image/ab67616d000048518515be38589bf130a2f535e1",
-      "playedAt": "2026-08-09T22:53:21.685Z"
-    },
-    {
-      "name": "Fata Morgana",
-      "artist": "Spiritbox",
-      "url": "https://open.spotify.com/track/14iSCO87Qveq9UXCtN48Vm",
-      "image": "https://i.scdn.co/image/ab67616d00004851ca5c3280d995a78c34bdf210",
-      "playedAt": "2026-08-09T22:48:58.515Z"
-    },
-    {
-      "name": "The Mara Effect, Pt. 2",
-      "artist": "Spiritbox",
-      "url": "https://open.spotify.com/track/0FlmUj0m30mDgKo6MeUP0e",
-      "image": "https://i.scdn.co/image/ab67616d00004851f0505cc921c66f51db438473",
-      "playedAt": "2026-08-09T22:44:36.842Z"
     }
   ],
   "topTracks": {

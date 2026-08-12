@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T18:45:19.787Z",
+  "updatedAt": "2026-08-12T01:01:36.639Z",
   "tracks": [
     {
       "name": "The Marriage of Attaris",
@@ -183,17 +183,17 @@
       },
       {
         "rank": 6,
-        "name": "Far Horizons",
-        "artist": "Jeremy Soule, The Elder Scrolls",
-        "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
-        "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
-      },
-      {
-        "rank": 7,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
+      },
+      {
+        "rank": 7,
+        "name": "Far Horizons",
+        "artist": "Jeremy Soule, The Elder Scrolls",
+        "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
+        "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
       },
       {
         "rank": 8,
@@ -218,17 +218,17 @@
       },
       {
         "rank": 11,
+        "name": "The Marriage of Attaris",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 12,
         "name": "Sad Girl",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/11MyiSGZSYSmhhqwGUTtAq",
         "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
-      },
-      {
-        "rank": 12,
-        "name": "Dead To The World",
-        "artist": "Nightwish",
-        "url": "https://open.spotify.com/track/3lY7foOrKVtDoYKUJXmkML",
-        "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       }
     ],
     "long": [

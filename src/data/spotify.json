@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-08-12T07:06:51.149Z",
+  "updatedAt": "2026-08-12T12:42:54.934Z",
   "tracks": [
+    {
+      "name": "Papercut",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/1Vej0qeQ3ioKwpI6FUbRv1",
+      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
+      "playedAt": "2026-08-12T11:03:05.708Z"
+    },
+    {
+      "name": "Sonne",
+      "artist": "Rammstein",
+      "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
+      "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b",
+      "playedAt": "2026-08-12T10:37:09.924Z"
+    },
+    {
+      "name": "Poppaea",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
+      "playedAt": "2026-08-12T09:02:50.968Z"
+    },
+    {
+      "name": "Purify",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/0hpTxcKVbKWP1b629LVrrc",
+      "image": "https://i.scdn.co/image/ab67616d000048519b66bf035395b61634b63a11",
+      "playedAt": "2026-08-12T08:57:02.776Z"
+    },
+    {
+      "name": "I Don't Wanna Be Me",
+      "artist": "Type O Negative",
+      "url": "https://open.spotify.com/track/4eGHEHqoDMMejzPhRFTc7p",
+      "image": "https://i.scdn.co/image/ab67616d00004851d736b2c5f252f84ad45d5be6",
+      "playedAt": "2026-08-12T08:52:25.623Z"
+    },
     {
       "name": "I Don't Wanna Be Me",
       "artist": "Type O Negative",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/140cSu65JC8smYw53nPP0q",
       "image": "https://i.scdn.co/image/ab67616d00004851d01321d93e0a3a796ed6eea9",
       "playedAt": "2026-08-12T04:43:15.814Z"
-    },
-    {
-      "name": "Dishearten",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-08-12T04:37:52.561Z"
-    },
-    {
-      "name": "Hell to the Heavens",
-      "artist": "Leaves' Eyes",
-      "url": "https://open.spotify.com/track/57RG7ol2dCflx6fzNbK8CX",
-      "image": "https://i.scdn.co/image/ab67616d00004851173b0733b5b67beb6b2d01dc",
-      "playedAt": "2026-08-12T04:31:15.533Z"
-    },
-    {
-      "name": "Fragile Dreams - Studio",
-      "artist": "Anathema",
-      "url": "https://open.spotify.com/track/6jtF8RDq04cMODupOyLwdi",
-      "image": "https://i.scdn.co/image/ab67616d0000485178cb611b5544ca36ca40eccc",
-      "playedAt": "2026-08-12T04:26:42.639Z"
-    },
-    {
-      "name": "Nymphetamine Fix",
-      "artist": "Cradle Of Filth",
-      "url": "https://open.spotify.com/track/6WuqJLVZcyJklg7lIozAO8",
-      "image": "https://i.scdn.co/image/ab67616d00004851d10d06aa358b6ffd42f53ce9",
-      "playedAt": "2026-08-12T04:15:43.844Z"
-    },
-    {
-      "name": "Made of Lies",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/1w8r3PAxPPLfcuyRsC4BeA",
-      "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
-      "playedAt": "2026-08-12T04:10:41.046Z"
     }
   ],
   "topTracks": {
@@ -169,16 +169,16 @@
       },
       {
         "rank": 4,
-        "name": "Stellar Tombs",
+        "name": "Pale Tortured Blue",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
+        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 5,
-        "name": "Pale Tortured Blue",
+        "name": "Stellar Tombs",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
@@ -211,24 +211,24 @@
       },
       {
         "rank": 10,
+        "name": "Sonne",
+        "artist": "Rammstein",
+        "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
+        "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
+      },
+      {
+        "rank": 11,
         "name": "Feel For You",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/03ZK15yHQKLYgGLjQQloTk",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "The Marriage of Attaris",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 12,
-        "name": "Sad Girl",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/11MyiSGZSYSmhhqwGUTtAq",
-        "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
       }
     ],
     "long": [

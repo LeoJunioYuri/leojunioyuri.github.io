@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-08-14T01:02:57.181Z",
+  "updatedAt": "2026-08-14T07:07:38.556Z",
   "recent": [
+    {
+      "name": "Counter-Strike 2",
+      "titleId": "2076696971",
+      "lastPlayed": "2026-08-14T01:06:57.8984199Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/2076696971"
+    },
     {
       "name": "Grand Theft Auto IV",
       "titleId": "1759230317",
@@ -48,14 +56,6 @@
       "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKdXirYFFxI_Ppjd8g5DK1M.2p8Dea5.WrF94jnQrkG_H3NPRL7m2yqsvSCoH0of79GFKCkk4NbjnSBWpzhKFq2A--",
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1635723607"
-    },
-    {
-      "name": "Counter-Strike 2",
-      "titleId": "2076696971",
-      "lastPlayed": "2026-03-15T05:22:11.9338835Z",
-      "image": null,
-      "gamerscore": 0,
-      "url": "https://www.xbox.com/games/store/-/2076696971"
     },
     {
       "name": "Hearthstone: Heroes of Warcraft",

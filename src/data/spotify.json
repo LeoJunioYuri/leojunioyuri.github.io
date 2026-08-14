@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-08-14T01:02:51.373Z",
+  "updatedAt": "2026-08-14T07:07:34.881Z",
   "tracks": [
+    {
+      "name": "He's My Man",
+      "artist": "Luvcat",
+      "url": "https://open.spotify.com/track/0LAvtWIqRjqKRKY2NHzeCn",
+      "image": "https://i.scdn.co/image/ab67616d00004851df6b358aa31e62acbca22ef3",
+      "playedAt": "2026-08-14T03:01:12.209Z"
+    },
+    {
+      "name": "august",
+      "artist": "Taylor Swift",
+      "url": "https://open.spotify.com/track/3hUxzQpSfdDqwM3ZTFQY0K",
+      "image": "https://i.scdn.co/image/ab67616d0000485195f754318336a07e85ec59bc",
+      "playedAt": "2026-08-14T03:00:38.746Z"
+    },
+    {
+      "name": "Music To Watch Boys To",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/34rRFl0bz9PocxWuO2ca5J",
+      "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
+      "playedAt": "2026-08-14T02:55:58.265Z"
+    },
+    {
+      "name": "West Coast",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/5Y6nVaayzitvsD5F7nr3DV",
+      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
+      "playedAt": "2026-08-14T02:51:02.474Z"
+    },
+    {
+      "name": "NDA",
+      "artist": "Billie Eilish",
+      "url": "https://open.spotify.com/track/38GBNKZUhfBkk3oNlWzRYd",
+      "image": "https://i.scdn.co/image/ab67616d000048512a038d3bf875d23e4aeaa84e",
+      "playedAt": "2026-08-14T02:43:55.836Z"
+    },
+    {
+      "name": "Secrets [Gxnxvs Remix] (feat. the Weeknd)",
+      "artist": "Jr. Hi, The Weeknd",
+      "url": "https://open.spotify.com/track/7ztotIJ3u4h6qA5ktkLMLu",
+      "image": "https://i.scdn.co/image/ab67616d000048512bb50cb34a5849893ced3a64",
+      "playedAt": "2026-08-14T01:03:27.046Z"
+    },
     {
       "name": "Moth To A Flame (with The Weeknd)",
       "artist": "Swedish House Mafia, The Weeknd",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/73qbBlEAcm2HfnAaSnP1II",
       "image": "https://i.scdn.co/image/ab67616d0000485177492e369aa13c3ead695932",
       "playedAt": "2026-08-14T00:57:13.711Z"
-    },
-    {
-      "name": "One Of The Girls (with JENNIE, Lily Rose Depp)",
-      "artist": "The Weeknd, JENNIE, Lily-Rose Depp",
-      "url": "https://open.spotify.com/track/7CyPwkp0oE8Ro9Dd5CUDjW",
-      "image": "https://i.scdn.co/image/ab67616d00004851b0dd6a5cd1dec96c4119c262",
-      "playedAt": "2026-08-14T00:55:13.482Z"
-    },
-    {
-      "name": "White Mustang",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/6eygbzyL6hY8jFQTARDuo9",
-      "image": "https://i.scdn.co/image/ab67616d0000485195e2fd1accb339fa14878190",
-      "playedAt": "2026-08-14T00:51:08.346Z"
-    },
-    {
-      "name": "Phantom Regret by Jim",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/1NlK2NtpuUazpziLhnJwEV",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-08-14T00:48:23.196Z"
-    },
-    {
-      "name": "Is There Someone Else?",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/0mL82sxCRjrs3br407IdJh",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-08-14T00:45:23.106Z"
-    },
-    {
-      "name": "How Do I Make You Love Me?",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/2Ghp894n1laIf2w98VeAOJ",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-08-14T00:42:03.540Z"
-    },
-    {
-      "name": "After Hours",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
-      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
-      "playedAt": "2026-08-14T00:38:28.871Z"
     }
   ],
   "topTracks": {

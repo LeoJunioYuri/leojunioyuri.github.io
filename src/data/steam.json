@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-14T01:02:52.535Z",
+  "updatedAt": "2026-08-14T07:07:35.691Z",
   "games": [
     {
       "name": "Grand Theft Auto IV: The Complete Edition",
@@ -8,14 +8,22 @@
       "minutesTotal": 754,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/12210/a3cf6a64c73f991898a9e34681d0db8226eaa191.jpg",
       "url": "https://store.steampowered.com/app/12210"
+    },
+    {
+      "name": "Counter-Strike 2",
+      "appid": 730,
+      "minutes2weeks": 34,
+      "minutesTotal": 103593,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
+      "url": "https://store.steampowered.com/app/730"
     }
   ],
   "topGames": [
     {
       "name": "Counter-Strike 2",
       "appid": 730,
-      "minutes2weeks": 0,
-      "minutesTotal": 103559,
+      "minutes2weeks": 34,
+      "minutesTotal": 103593,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
       "url": "https://store.steampowered.com/app/730"
     },

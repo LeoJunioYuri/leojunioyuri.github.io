@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-16T00:39:13.412Z",
+  "updatedAt": "2026-08-16T06:21:53.655Z",
   "tracks": [
+    {
+      "name": "Quando a Chuva Passar / Até Você Voltar / Caso Indefinido - Ao Vivo",
+      "artist": "Ícaro e Gilmar",
+      "url": "https://open.spotify.com/track/1Rmo5LWzzssASISgFkdEbk",
+      "image": "https://i.scdn.co/image/ab67616d000048518dd368e7f4a57aebfd5eb6de",
+      "playedAt": "2026-08-16T00:19:15.737Z"
+    },
     {
       "name": "Marca Evidente - Ao Vivo",
       "artist": "Israel & Rodolffo, Jorge & Mateus",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/7pqgMEKsDMOHUdFQ7n0N9K",
       "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8",
       "playedAt": "2026-08-15T17:57:24.820Z"
-    },
-    {
-      "name": "I Follow Rivers - The Magician Remix",
-      "artist": "Lykke Li, The Magician",
-      "url": "https://open.spotify.com/track/3zNNXjjjeLrzIXSJZKalDi",
-      "image": "https://i.scdn.co/image/ab67616d00004851c1092756ad28414f138fc244",
-      "playedAt": "2026-08-15T17:54:00.747Z"
     }
   ],
   "topTracks": {

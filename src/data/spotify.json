@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-08-15T18:13:38.169Z",
+  "updatedAt": "2026-08-16T00:39:13.412Z",
   "tracks": [
+    {
+      "name": "Marca Evidente - Ao Vivo",
+      "artist": "Israel & Rodolffo, Jorge & Mateus",
+      "url": "https://open.spotify.com/track/3aDV90V6vHUSYKKYDLNdQ8",
+      "image": "https://i.scdn.co/image/ab67616d000048516098584c562a60f704a84f74",
+      "playedAt": "2026-08-15T21:49:33.069Z"
+    },
+    {
+      "name": "24 Horas de Amor / Só Dá Você na Minha Vida / Pense em Mim / Talismã - Ao Vivo",
+      "artist": "Ícaro e Gilmar",
+      "url": "https://open.spotify.com/track/19GN63PTsuq3ffkViYJLoB",
+      "image": "https://i.scdn.co/image/ab67616d0000485165bc9ae389c643b162a98f52",
+      "playedAt": "2026-08-15T21:41:59.221Z"
+    },
+    {
+      "name": "California",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/7oTE1KmtU2ml9zBhv9Reao",
+      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
+      "playedAt": "2026-08-15T20:39:39.697Z"
+    },
+    {
+      "name": "Ship To Wreck",
+      "artist": "Florence + The Machine",
+      "url": "https://open.spotify.com/track/3dEFa9KjOLEZl980ctEEv1",
+      "image": "https://i.scdn.co/image/ab67616d000048517f89eb18e64f268561d81c42",
+      "playedAt": "2026-08-15T20:32:25.777Z"
+    },
+    {
+      "name": "Silence - John Summit Remix",
+      "artist": "Delerium, Sarah McLachlan, John Summit",
+      "url": "https://open.spotify.com/track/2OP7UAuQF1OJbjeYXa5fhm",
+      "image": "https://i.scdn.co/image/ab67616d000048516f1ad698de95b08df9b5a590",
+      "playedAt": "2026-08-15T20:28:20.934Z"
+    },
     {
       "name": "Tell Me Why - MEDUZA Remix",
       "artist": "Supermode, MEDUZA",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/3zNNXjjjeLrzIXSJZKalDi",
       "image": "https://i.scdn.co/image/ab67616d00004851c1092756ad28414f138fc244",
       "playedAt": "2026-08-15T17:54:00.747Z"
-    },
-    {
-      "name": "Summertime Sadness (Lana Del Rey Vs. Cedric Gervais) - Cedric Gervais Remix",
-      "artist": "Lana Del Rey, Cedric Gervais",
-      "url": "https://open.spotify.com/track/6PUIzlqotEmPuBfjbwYWOB",
-      "image": "https://i.scdn.co/image/ab67616d00004851f8cdf8e85bc179a475d581ba",
-      "playedAt": "2026-08-15T17:47:47.278Z"
-    },
-    {
-      "name": "Say It Right",
-      "artist": "Nelly Furtado",
-      "url": "https://open.spotify.com/track/2aI21FnmY7TJVKeMaoQZ0t",
-      "image": "https://i.scdn.co/image/ab67616d00004851a6f439c8957170652f9410e2",
-      "playedAt": "2026-08-15T17:42:10.134Z"
-    },
-    {
-      "name": "Reload - Radio Edit",
-      "artist": "Sebastian Ingrosso, Tommy Trash, John Martin",
-      "url": "https://open.spotify.com/track/5jyUBKpmaH670zrXrE0wmO",
-      "image": "https://i.scdn.co/image/ab67616d0000485140ecb1490cd625b1a47f5a83",
-      "playedAt": "2026-08-15T17:38:26.549Z"
-    },
-    {
-      "name": "This Is What It Feels Like",
-      "artist": "Armin van Buuren, Trevor Guthrie",
-      "url": "https://open.spotify.com/track/5GjnIpUlLGEIYk052ISOw9",
-      "image": "https://i.scdn.co/image/ab67616d00004851048012a99d7a62440392f529",
-      "playedAt": "2026-08-15T17:33:59.792Z"
-    },
-    {
-      "name": "Stereo Love",
-      "artist": "Edward Maya, Vika Jigulina",
-      "url": "https://open.spotify.com/track/11Iv8RCFmeImLOpaHYxKb4",
-      "image": "https://i.scdn.co/image/ab67616d00004851695991d6f4a544a05df4c1c0",
-      "playedAt": "2026-08-15T17:30:34.959Z"
     }
   ],
   "topTracks": {

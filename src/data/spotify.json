@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-08-16T06:21:53.655Z",
+  "updatedAt": "2026-08-16T12:17:26.333Z",
   "tracks": [
+    {
+      "name": "Pearls of Light",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/3ror03ovn3yGNLq6nIXgTv",
+      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
+      "playedAt": "2026-08-16T12:05:19.351Z"
+    },
+    {
+      "name": "Enter",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/1QU2dPUYd2O9bf4lDA2XXh",
+      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
+      "playedAt": "2026-08-16T12:00:04.835Z"
+    },
+    {
+      "name": "Enter",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/1QU2dPUYd2O9bf4lDA2XXh",
+      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
+      "playedAt": "2026-08-16T11:52:09.803Z"
+    },
     {
       "name": "Quando a Chuva Passar / Até Você Voltar / Caso Indefinido - Ao Vivo",
       "artist": "Ícaro e Gilmar",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/3dEFa9KjOLEZl980ctEEv1",
       "image": "https://i.scdn.co/image/ab67616d000048517f89eb18e64f268561d81c42",
       "playedAt": "2026-08-15T20:32:25.777Z"
-    },
-    {
-      "name": "Silence - John Summit Remix",
-      "artist": "Delerium, Sarah McLachlan, John Summit",
-      "url": "https://open.spotify.com/track/2OP7UAuQF1OJbjeYXa5fhm",
-      "image": "https://i.scdn.co/image/ab67616d000048516f1ad698de95b08df9b5a590",
-      "playedAt": "2026-08-15T20:28:20.934Z"
-    },
-    {
-      "name": "Tell Me Why - MEDUZA Remix",
-      "artist": "Supermode, MEDUZA",
-      "url": "https://open.spotify.com/track/7jrMFjEq0t09f7m3HnnWXl",
-      "image": "https://i.scdn.co/image/ab67616d00004851010a5f4abb5bc82685e30137",
-      "playedAt": "2026-08-15T18:00:16.683Z"
-    },
-    {
-      "name": "Dangerous (feat. Sam Martin)",
-      "artist": "David Guetta, Sam Martin",
-      "url": "https://open.spotify.com/track/7pqgMEKsDMOHUdFQ7n0N9K",
-      "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8",
-      "playedAt": "2026-08-15T17:57:24.820Z"
     }
   ],
   "topTracks": {

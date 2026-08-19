@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-18T18:21:16.097Z",
+  "updatedAt": "2026-08-19T00:37:44.271Z",
   "tracks": [
     {
-      "name": "Norman fucking Rockwell",
+      "name": "On Father's Watch",
+      "artist": "Chris Tilton, Assassin's Creed",
+      "url": "https://open.spotify.com/track/3IzOoqVMC6H2fLcqvZp3LF",
+      "image": "https://i.scdn.co/image/ab67616d00004851d43d53acb4d4f039438c9a9e",
+      "playedAt": "2026-08-19T00:35:42.281Z"
+    },
+    {
+      "name": "Because of You",
+      "artist": "Kelly Clarkson",
+      "url": "https://open.spotify.com/track/0gJvqi9QyASOCtJu99tytc",
+      "image": "https://i.scdn.co/image/ab67616d00004851158c72ad0003cb37ca0c9eff",
+      "playedAt": "2026-08-19T00:19:26.909Z"
+    },
+    {
+      "name": "Freak",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/3RIgHHpnFKj5Rni1shokDj",
-      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-08-18T16:55:29.508Z"
+      "url": "https://open.spotify.com/track/3sYDVtqO35oRSOIMx7dOqR",
+      "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
+      "playedAt": "2026-08-19T00:12:57.743Z"
     },
     {
-      "name": "Cinnamon Girl",
+      "name": "Say Yes To Heaven",
       "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/2mdEsXPu8ZmkHRRtAdC09e",
+      "url": "https://open.spotify.com/track/6GGtHZgBycCgGBUhZo81xe",
+      "image": "https://i.scdn.co/image/ab67616d00004851aa27708d07f49c82ff0d0dae",
+      "playedAt": "2026-08-18T22:31:41.431Z"
+    },
+    {
+      "name": "Bluebird",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/2pJL7VBbeO4ZqVIUDf0x9H",
+      "image": "https://i.scdn.co/image/ab67616d0000485197639445be97b21a453dc942",
+      "playedAt": "2026-08-18T22:28:11.679Z"
+    },
+    {
+      "name": "Let Me Love You Like A Woman",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/1gxdWpeOUBpvB908fiZs4D",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d",
+      "playedAt": "2026-08-18T22:24:08.547Z"
+    },
+    {
+      "name": "hope is a dangerous thing for a woman like me to have - but I have it",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/0fB77VOZ2FkQeKLv1DuEwp",
       "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-08-18T16:49:21.620Z"
+      "playedAt": "2026-08-18T22:20:47.128Z"
     },
     {
-      "name": "Misery Business",
-      "artist": "Paramore",
-      "url": "https://open.spotify.com/track/3l9CW99AHtExIRV4hW2N5m",
-      "image": "https://i.scdn.co/image/ab67616d0000485169966efa45b125ed6711b43c",
-      "playedAt": "2026-08-18T15:21:05.913Z"
-    },
-    {
-      "name": "Journey To The Cave",
-      "artist": "Nicholas Hooper",
-      "url": "https://open.spotify.com/track/76wi5yBGOcmZhjxdCBNQYg",
-      "image": "https://i.scdn.co/image/ab67616d00004851137bed71e7717e47854010fc",
-      "playedAt": "2026-08-18T15:14:22.850Z"
-    },
-    {
-      "name": "The Sacrifice of Faramir (feat. Billy Boyd Performing \"The Edge of Night\")",
-      "artist": "Howard Shore, Billy Boyd",
-      "url": "https://open.spotify.com/track/5z89FzQzTQOwSJFlMp6UFd",
-      "image": "https://i.scdn.co/image/ab67616d000048512b4d071f7824b2c60c3b85cd",
-      "playedAt": "2026-08-18T15:11:14.038Z"
-    },
-    {
-      "name": "Fall To Pieces",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/396WOfbkqKaXYFwx6XjdOF",
-      "image": "https://i.scdn.co/image/ab67616d000048519c291af4bf0c3071847f2b80",
-      "playedAt": "2026-08-18T13:52:17.658Z"
-    },
-    {
-      "name": "Brick by Boring Brick",
-      "artist": "Paramore",
-      "url": "https://open.spotify.com/track/1a9YW7fATU351ok4zWjU7a",
-      "image": "https://i.scdn.co/image/ab67616d00004851e01d7d558032457b0e4883f6",
-      "playedAt": "2026-08-18T13:47:47.530Z"
-    },
-    {
-      "name": "Losing Grip",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/2LA4v20vokK9Uaj7WEEMaf",
-      "image": "https://i.scdn.co/image/ab67616d00004851f7ec724fbf97a30869d06240",
-      "playedAt": "2026-08-18T13:43:33.056Z"
+      "name": "Diet Mountain Dew",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/2vtmY2mSccRzKGjtcHSzI3",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-08-18T22:04:00.277Z"
     }
   ],
   "topTracks": {

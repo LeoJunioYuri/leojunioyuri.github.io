@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-19T12:22:37.483Z",
+  "updatedAt": "2026-08-19T18:18:10.073Z",
   "tracks": [
     {
-      "name": "Hangar 18",
-      "artist": "Megadeth",
-      "url": "https://open.spotify.com/track/0KAaslGdPc5I6WxmKe3whe",
-      "image": "https://i.scdn.co/image/ab67616d0000485142be808911785ceb13140edc",
-      "playedAt": "2026-08-19T12:15:49.291Z"
+      "name": "Return to Serenity",
+      "artist": "Testament",
+      "url": "https://open.spotify.com/track/5awljpWNO5TpXCyjpvCBbs",
+      "image": "https://i.scdn.co/image/ab67616d00004851b718dc05fd20724b277f1ac2",
+      "playedAt": "2026-08-19T15:34:26.802Z"
+    },
+    {
+      "name": "I Want Out - 2024 Remaster",
+      "artist": "Helloween",
+      "url": "https://open.spotify.com/track/2lp0PO2D90zcFWy8toVqgn",
+      "image": "https://i.scdn.co/image/ab67616d0000485155d506b10646ae83a2ca13bc",
+      "playedAt": "2026-08-19T15:23:59.907Z"
+    },
+    {
+      "name": "Dyers Eve",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/3V3brSzPO4pr4ioNqK61mw",
+      "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885",
+      "playedAt": "2026-08-19T14:26:25.107Z"
+    },
+    {
+      "name": "To Live is to Die",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
+      "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885",
+      "playedAt": "2026-08-19T14:18:28.968Z"
+    },
+    {
+      "name": "To Live is to Die",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
+      "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885",
+      "playedAt": "2026-08-19T14:12:40.635Z"
+    },
+    {
+      "name": "To Live is to Die",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
+      "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885",
+      "playedAt": "2026-08-19T13:25:47.538Z"
+    },
+    {
+      "name": "Stillborn",
+      "artist": "Black Label Society",
+      "url": "https://open.spotify.com/track/7s6Rk59SDllxPq5omrxJT4",
+      "image": "https://i.scdn.co/image/ab67616d0000485131dd2b5f0d7802fb0201a8ba",
+      "playedAt": "2026-08-19T12:29:52.299Z"
     },
     {
       "name": "More Than Meets the Eye",
       "artist": "Testament",
       "url": "https://open.spotify.com/track/4pwKVmEsLZAIFW05f88ZT4",
       "image": "https://i.scdn.co/image/ab67616d000048516d6ff77fa88bc76062f6c02e",
-      "playedAt": "2026-08-19T12:10:39.241Z"
-    },
-    {
-      "name": "In My Darkest Hour",
-      "artist": "Megadeth",
-      "url": "https://open.spotify.com/track/423EZWcCxPBVuWgejCwUWF",
-      "image": "https://i.scdn.co/image/ab67616d00004851ca92666ea8d2bf77c8221619",
-      "playedAt": "2026-08-19T11:55:42.168Z"
-    },
-    {
-      "name": "Angry Again",
-      "artist": "Megadeth",
-      "url": "https://open.spotify.com/track/3CI1JP2ooMBSFjIy1u6Yrc",
-      "image": "https://i.scdn.co/image/ab67616d00004851d408b2375e0ca6362c968d0f",
-      "playedAt": "2026-08-19T11:48:48.837Z"
-    },
-    {
-      "name": "Ratamahatta",
-      "artist": "Sepultura",
-      "url": "https://open.spotify.com/track/3Tg8JctqoeIwZ3Rue8BjaI",
-      "image": "https://i.scdn.co/image/ab67616d000048510bd5e7cce9765c2ef519424e",
-      "playedAt": "2026-08-19T11:44:48.488Z"
-    },
-    {
-      "name": "Dead Embryonic Cells",
-      "artist": "Sepultura",
-      "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
-      "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a",
-      "playedAt": "2026-08-19T11:40:11.189Z"
-    },
-    {
-      "name": "Roots Bloody Roots",
-      "artist": "Sepultura",
-      "url": "https://open.spotify.com/track/6ursmCnbc9oDRGa2yHKkoZ",
-      "image": "https://i.scdn.co/image/ab67616d000048510bd5e7cce9765c2ef519424e",
-      "playedAt": "2026-08-19T11:35:08.817Z"
-    },
-    {
-      "name": "Dead Embryonic Cells",
-      "artist": "Sepultura",
-      "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
-      "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a",
-      "playedAt": "2026-08-19T11:30:05.209Z"
+      "playedAt": "2026-08-19T12:26:35.714Z"
     }
   ],
   "topTracks": {
@@ -125,10 +125,10 @@
       },
       {
         "rank": 10,
-        "name": "Casualty",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/7BkzAHnNW7WfrT4NcLaUDx",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+        "name": "To Live is to Die",
+        "artist": "Metallica",
+        "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
+        "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885"
       },
       {
         "rank": 11,
@@ -304,17 +304,17 @@
       },
       {
         "rank": 11,
-        "name": "Dishearten",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 12,
         "name": "Pretty When You Cry",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/6PnluwP0fjGnpIBsqTdUTq",
         "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
+      },
+      {
+        "rank": 12,
+        "name": "Dishearten",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       }
     ]
   }

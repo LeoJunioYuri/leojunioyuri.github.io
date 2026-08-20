@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-08-20T06:25:59.657Z",
+  "updatedAt": "2026-08-20T12:24:57.078Z",
   "tracks": [
+    {
+      "name": "The Wandering Isle",
+      "artist": "Russell Brower, Neal Acree, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/0cVwOEPyFoWj8iNMbZWuOF",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-08-20T12:22:10.936Z"
+    },
+    {
+      "name": "Why do we fight?",
+      "artist": "Neal Acree, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/1D3UE866DhJAZL4W20RuCo",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-08-20T12:19:38.949Z"
+    },
+    {
+      "name": "Heart of Pandaria",
+      "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-08-20T12:15:55.458Z"
+    },
+    {
+      "name": "Shoemaker",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5xITcnqoMdILDBNCwHGr5v",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-08-20T12:07:59.128Z"
+    },
     {
       "name": "Heart of Pandaria",
       "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/0f1wz7Dm3slZdTwenTjcAn",
       "image": "https://i.scdn.co/image/ab67616d00004851b013eef057dc85bc88d2c653",
       "playedAt": "2026-08-20T00:57:07.879Z"
-    },
-    {
-      "name": "That's My Way",
-      "artist": "Edi Rock, Bagua Records, Seu Jorge, Leon Mobley",
-      "url": "https://open.spotify.com/track/4M7bbRsVNB8iWQaX8Sbfln",
-      "image": "https://i.scdn.co/image/ab67616d000048513abf540c3d6d6b6d2f656114",
-      "playedAt": "2026-08-20T00:13:40.633Z"
-    },
-    {
-      "name": "Lembranças",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/2BZx6pvXQpY8pExUmdkkm1",
-      "image": "https://i.scdn.co/image/ab67616d000048514d7f4371bae76e432c022ed7",
-      "playedAt": "2026-08-20T00:08:00.465Z"
-    },
-    {
-      "name": "Um Pedido",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/3CgZi8DMUftJHK6WL2gKc1",
-      "image": "https://i.scdn.co/image/ab67616d000048516aff287ce4bf05faa2a211fa",
-      "playedAt": "2026-08-20T00:03:29.428Z"
-    },
-    {
-      "name": "Heart of Pandaria",
-      "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
-      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
-      "playedAt": "2026-08-20T00:00:15.022Z"
     }
   ],
   "topTracks": {

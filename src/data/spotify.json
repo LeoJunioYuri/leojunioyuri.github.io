@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-08-20T12:24:57.078Z",
+  "updatedAt": "2026-08-20T18:22:25.852Z",
   "tracks": [
+    {
+      "name": "Noise",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/0RZVAhyB8vhxQz6ITjiuyA",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-08-20T12:59:34.246Z"
+    },
+    {
+      "name": "Music",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/49LQq6RoFTWFk5d6hBGEKt",
+      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
+      "playedAt": "2026-08-20T12:53:46.781Z"
+    },
+    {
+      "name": "Don't Tell Me",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/0dEQaNYfp5G7Sflek2Qnde",
+      "image": "https://i.scdn.co/image/ab67616d000048519c291af4bf0c3071847f2b80",
+      "playedAt": "2026-08-20T12:44:48.458Z"
+    },
+    {
+      "name": "The Traveler's Path",
+      "artist": "Russell Brower, Sam Cardon, Blizzard Entertainment, World of Warcraft",
+      "url": "https://open.spotify.com/track/7Me5e2usvOj0hl9XLQDneV",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-08-20T12:31:20.033Z"
+    },
+    {
+      "name": "Temple Of The Five Dawns",
+      "artist": "Russell Brower, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/0dI1M1OCaJfaO2Ve7cdyAK",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-08-20T12:25:29.231Z"
+    },
     {
       "name": "The Wandering Isle",
       "artist": "Russell Brower, Neal Acree, World of Warcraft, Blizzard Entertainment",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
       "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
       "playedAt": "2026-08-20T12:15:55.458Z"
-    },
-    {
-      "name": "Shoemaker",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5xITcnqoMdILDBNCwHGr5v",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-08-20T12:07:59.128Z"
-    },
-    {
-      "name": "Heart of Pandaria",
-      "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
-      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
-      "playedAt": "2026-08-20T03:57:04.111Z"
-    },
-    {
-      "name": "cardigan",
-      "artist": "Taylor Swift",
-      "url": "https://open.spotify.com/track/4R2kfaDFhslZEMJqAFNpdd",
-      "image": "https://i.scdn.co/image/ab67616d0000485195f754318336a07e85ec59bc",
-      "playedAt": "2026-08-20T03:56:44.829Z"
-    },
-    {
-      "name": "champagne problems",
-      "artist": "Taylor Swift",
-      "url": "https://open.spotify.com/track/0sY6ZUTh4yoctD8VIXz339",
-      "image": "https://i.scdn.co/image/ab67616d0000485133b8541201f1ef38941024be",
-      "playedAt": "2026-08-20T01:01:45.421Z"
-    },
-    {
-      "name": "Isso Que É Vida",
-      "artist": "Filipe Ret, Mãolee",
-      "url": "https://open.spotify.com/track/0f1wz7Dm3slZdTwenTjcAn",
-      "image": "https://i.scdn.co/image/ab67616d00004851b013eef057dc85bc88d2c653",
-      "playedAt": "2026-08-20T00:57:07.879Z"
     }
   ],
   "topTracks": {

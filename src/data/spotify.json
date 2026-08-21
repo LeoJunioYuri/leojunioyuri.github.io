@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-08-21T06:27:08.709Z",
+  "updatedAt": "2026-08-21T12:24:28.192Z",
   "tracks": [
+    {
+      "name": "Sleeping Sun",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/64v7AaXu9qmbefvFwOtbvm",
+      "image": "https://i.scdn.co/image/ab67616d00004851ecf31532899b046d5425db77",
+      "playedAt": "2026-08-21T09:55:49.381Z"
+    },
+    {
+      "name": "Last Ride of the Day",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6R9j9XEisGCoIE8r8UtbiS",
+      "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
+      "playedAt": "2026-08-21T09:51:43.879Z"
+    },
+    {
+      "name": "Élan",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5oAvb7LpUBwQfBtQ6hmS4Q",
+      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
+      "playedAt": "2026-08-21T09:47:12.254Z"
+    },
+    {
+      "name": "Bye Bye Beautiful",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6K03JHEberhdFjgZvFYcfs",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-08-21T09:42:24.807Z"
+    },
+    {
+      "name": "Storytime",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5IhtaTempjlVlPmSgI0FQS",
+      "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
+      "playedAt": "2026-08-21T09:38:09.680Z"
+    },
+    {
+      "name": "Storytime",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5IhtaTempjlVlPmSgI0FQS",
+      "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
+      "playedAt": "2026-08-21T09:37:04.035Z"
+    },
     {
       "name": "All the Works of Nature Which Adorn the World - The Blue",
       "artist": "Nightwish",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/6VOxRb9IAJQDDyHBlyEdPF",
       "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9",
       "playedAt": "2026-08-20T23:25:06.725Z"
-    },
-    {
-      "name": "Wish I Had an Angel",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6IKk2Z7LO59UDnVEw8JCBj",
-      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
-      "playedAt": "2026-08-20T23:20:57.548Z"
-    },
-    {
-      "name": "Tribal",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5tN4bKhtt6klkkB0GVt9i1",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-08-20T23:16:40.331Z"
-    },
-    {
-      "name": "All the Works of Nature Which Adorn the World - Vista",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3jQ5AUo7riJG4tFY58abPg",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-08-20T23:01:03.584Z"
-    },
-    {
-      "name": "Endlessness",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6utuFCvF34xhmwwwFAYntF",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-08-20T22:57:04.100Z"
-    },
-    {
-      "name": "Tribal",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5tN4bKhtt6klkkB0GVt9i1",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-08-20T22:49:52.275Z"
-    },
-    {
-      "name": "Procession",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/7aIxfEHjebCNbs6bpKv9Go",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-08-20T21:00:45.798Z"
     }
   ],
   "topTracks": {
@@ -90,38 +90,38 @@
       },
       {
         "rank": 5,
-        "name": "Made of Lies",
-        "artist": "Elysion",
-        "url": "https://open.spotify.com/track/1w8r3PAxPPLfcuyRsC4BeA",
-        "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff"
-      },
-      {
-        "rank": 6,
         "name": "Dead Embryonic Cells",
         "artist": "Sepultura",
         "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
         "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Somewhere I Belong",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
         "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Assassin's Creed Valhalla Main Theme (feat. Einar Selvik)",
         "artist": "Sarah Schachner, Assassin's Creed, Jesper Kyd, Einar Selvik",
         "url": "https://open.spotify.com/track/59FMS2jznmqwLYx1Noa6H4",
         "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "champagne problems",
         "artist": "Taylor Swift",
         "url": "https://open.spotify.com/track/0sY6ZUTh4yoctD8VIXz339",
         "image": "https://i.scdn.co/image/ab67616d0000485133b8541201f1ef38941024be"
+      },
+      {
+        "rank": 9,
+        "name": "Made of Lies",
+        "artist": "Elysion",
+        "url": "https://open.spotify.com/track/1w8r3PAxPPLfcuyRsC4BeA",
+        "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff"
       },
       {
         "rank": 10,
@@ -139,10 +139,10 @@
       },
       {
         "rank": 12,
-        "name": "Killing My Dreams",
-        "artist": "Elysion",
-        "url": "https://open.spotify.com/track/6NvjefGOBXHhY8iCv8NiEN",
-        "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6"
+        "name": "Voices of Fornburg",
+        "artist": "Sarah Schachner, Assassin's Creed",
+        "url": "https://open.spotify.com/track/3eqcltD0qRNnLPAfVqhqNu",
+        "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
       }
     ],
     "medium": [
@@ -155,10 +155,10 @@
       },
       {
         "rank": 2,
-        "name": "Rivers Between Us",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
         "rank": 3,
@@ -169,17 +169,17 @@
       },
       {
         "rank": 4,
-        "name": "Pale Tortured Blue",
+        "name": "Rivers Between Us",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 5,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
+        "name": "Pale Tortured Blue",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 6,
@@ -197,38 +197,38 @@
       },
       {
         "rank": 8,
-        "name": "The Wretched Tide",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 9,
         "name": "Beauty Of The Beast",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/01VeuxBfYO5p7YVbCqmnza",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Feel For You",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/03ZK15yHQKLYgGLjQQloTk",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       },
       {
-        "rank": 11,
-        "name": "The Marriage of Attaris",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 12,
+        "rank": 10,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 11,
+        "name": "Sad Girl",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/11MyiSGZSYSmhhqwGUTtAq",
+        "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
+      },
+      {
+        "rank": 12,
+        "name": "Dead To The World",
+        "artist": "Nightwish",
+        "url": "https://open.spotify.com/track/3lY7foOrKVtDoYKUJXmkML",
+        "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       }
     ],
     "long": [

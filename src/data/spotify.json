@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-08-22T12:17:33.778Z",
+  "updatedAt": "2026-08-22T18:14:09.673Z",
   "tracks": [
+    {
+      "name": "My Last Breath",
+      "artist": "Evanescence",
+      "url": "https://open.spotify.com/track/2aUuMeSbt2aEv94MdG2BYS",
+      "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
+      "playedAt": "2026-08-22T17:27:39.629Z"
+    },
+    {
+      "name": "Innocence",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/5OuP08bgU2H7ZeDQQFQ6q8",
+      "image": "https://i.scdn.co/image/ab67616d00004851476cdf5837ae39eee951cc15",
+      "playedAt": "2026-08-22T17:23:31.785Z"
+    },
+    {
+      "name": "Don't Tell Me",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/0dEQaNYfp5G7Sflek2Qnde",
+      "image": "https://i.scdn.co/image/ab67616d000048519c291af4bf0c3071847f2b80",
+      "playedAt": "2026-08-22T17:19:39.142Z"
+    },
+    {
+      "name": "Faint",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/4Yf5bqU3NK4kNOypcrLYwU",
+      "image": "https://i.scdn.co/image/ab67616d000048515f1f51d14e8bea89484ecd1b",
+      "playedAt": "2026-08-22T17:16:09.933Z"
+    },
+    {
+      "name": "They Don't Care About Us",
+      "artist": "Michael Jackson",
+      "url": "https://open.spotify.com/track/3wuCCNCnBhJlwkIJTBZFiv",
+      "image": "https://i.scdn.co/image/ab67616d00004851b4a878f008a0eda552446701",
+      "playedAt": "2026-08-22T12:22:27.699Z"
+    },
     {
       "name": "Brick by Boring Brick",
       "artist": "Paramore",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/1f2V8U1BiWaC9aJWmpOARe",
       "image": "https://i.scdn.co/image/ab67616d00004851de1af2785a83cc660155a0c4",
       "playedAt": "2026-08-22T12:03:23.421Z"
-    },
-    {
-      "name": "Beat It",
-      "artist": "Michael Jackson",
-      "url": "https://open.spotify.com/track/3BovdzfaX4jb5KFQwoPfAw",
-      "image": "https://i.scdn.co/image/ab67616d0000485132a7d87248d1b75463483df5",
-      "playedAt": "2026-08-22T11:58:22.514Z"
-    },
-    {
-      "name": "Sonne",
-      "artist": "Rammstein",
-      "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
-      "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b",
-      "playedAt": "2026-08-22T11:53:37.955Z"
-    },
-    {
-      "name": "In the End",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/60a0Rd6pjrkxjPbaKzXjfq",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-08-22T11:49:05.054Z"
-    },
-    {
-      "name": "Crawling",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/57BrRMwf9LrcmuOsyGilwr",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-08-22T11:45:27.653Z"
-    },
-    {
-      "name": "Bring Me To Life",
-      "artist": "Evanescence",
-      "url": "https://open.spotify.com/track/0COqiPhxzoWICwFCS4eZcp",
-      "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
-      "playedAt": "2026-08-22T11:41:47.704Z"
     }
   ],
   "topTracks": {

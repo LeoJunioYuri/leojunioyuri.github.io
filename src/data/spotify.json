@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-21T18:21:17.178Z",
+  "updatedAt": "2026-08-22T00:37:06.456Z",
   "tracks": [
+    {
+      "name": "Dark Chest of Wonders",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/4QCGfqoCLZ3x9iMgtzUMD9",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-08-21T23:43:53.019Z"
+    },
     {
       "name": "Sleeping Sun",
       "artist": "Nightwish",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/1B1JnmLD77pI04OvnKAnTR",
       "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
       "playedAt": "2026-08-20T23:28:51.828Z"
-    },
-    {
-      "name": "The Phantom Of The Opera",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6VOxRb9IAJQDDyHBlyEdPF",
-      "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9",
-      "playedAt": "2026-08-20T23:25:06.725Z"
     }
   ],
   "topTracks": {

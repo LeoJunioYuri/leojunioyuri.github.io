@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T06:22:35.929Z",
+  "updatedAt": "2026-08-23T12:18:15.505Z",
   "tracks": [
     {
       "name": "Unbroken Road",
@@ -183,17 +183,17 @@
       },
       {
         "rank": 6,
-        "name": "Stellar Tombs",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 7,
         "name": "Far Horizons",
         "artist": "Jeremy Soule, The Elder Scrolls",
         "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
         "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
+      },
+      {
+        "rank": 7,
+        "name": "Stellar Tombs",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 8,

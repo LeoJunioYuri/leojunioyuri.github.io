@@ -1,14 +1,6 @@
 {
-  "updatedAt": "2026-08-22T18:14:10.683Z",
+  "updatedAt": "2026-08-23T00:40:17.420Z",
   "games": [
-    {
-      "name": "Grand Theft Auto IV: The Complete Edition",
-      "appid": 12210,
-      "minutes2weeks": 53,
-      "minutesTotal": 754,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/12210/a3cf6a64c73f991898a9e34681d0db8226eaa191.jpg",
-      "url": "https://store.steampowered.com/app/12210"
-    },
     {
       "name": "Counter-Strike 2",
       "appid": 730,

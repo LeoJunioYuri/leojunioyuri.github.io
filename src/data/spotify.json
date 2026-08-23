@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-23T00:40:16.476Z",
+  "updatedAt": "2026-08-23T06:22:35.929Z",
   "tracks": [
     {
-      "name": "No Fear",
-      "artist": "The Rasmus",
-      "url": "https://open.spotify.com/track/3uNoEBYqVCwr6P1F7WzJ2l",
-      "image": "https://i.scdn.co/image/ab67616d000048519d067f1ea07d24cfd7179f61",
-      "playedAt": "2026-08-22T19:08:39.395Z"
+      "name": "Unbroken Road",
+      "artist": "London Symphony Orchestra, London Voices, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/0sn2KFvF8w1OMMk9pOF9Wp",
+      "image": "https://i.scdn.co/image/ab67616d000048514db3c67f42301a077de6bac4",
+      "playedAt": "2026-08-23T04:25:16.146Z"
     },
     {
-      "name": "My Last Breath",
-      "artist": "Evanescence",
-      "url": "https://open.spotify.com/track/2aUuMeSbt2aEv94MdG2BYS",
-      "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
-      "playedAt": "2026-08-22T17:27:39.629Z"
+      "name": "Home in Florence",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/5bC9ituRiT6ABSrhCfTUBH",
+      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
+      "playedAt": "2026-08-23T04:19:25.476Z"
     },
     {
-      "name": "Innocence",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/5OuP08bgU2H7ZeDQQFQ6q8",
-      "image": "https://i.scdn.co/image/ab67616d00004851476cdf5837ae39eee951cc15",
-      "playedAt": "2026-08-22T17:23:31.785Z"
+      "name": "The Streets of Whiterun",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/31vc8VMdqPRTExkgTp7hib",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-08-23T04:14:54.946Z"
     },
     {
-      "name": "Don't Tell Me",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/0dEQaNYfp5G7Sflek2Qnde",
-      "image": "https://i.scdn.co/image/ab67616d000048519c291af4bf0c3071847f2b80",
-      "playedAt": "2026-08-22T17:19:39.142Z"
+      "name": "Far Horizons",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-08-23T04:10:49.514Z"
     },
     {
-      "name": "Faint",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/4Yf5bqU3NK4kNOypcrLYwU",
-      "image": "https://i.scdn.co/image/ab67616d000048515f1f51d14e8bea89484ecd1b",
-      "playedAt": "2026-08-22T17:16:09.933Z"
+      "name": "Pra Mudar a Minha Vida",
+      "artist": "Zezé Di Camargo & Luciano",
+      "url": "https://open.spotify.com/track/4oMlV3X4i2jaKRIGmTXriC",
+      "image": "https://i.scdn.co/image/ab67616d00004851de32d123f0354f5228681721",
+      "playedAt": "2026-08-23T03:18:19.685Z"
     },
     {
-      "name": "They Don't Care About Us",
-      "artist": "Michael Jackson",
-      "url": "https://open.spotify.com/track/3wuCCNCnBhJlwkIJTBZFiv",
-      "image": "https://i.scdn.co/image/ab67616d00004851b4a878f008a0eda552446701",
-      "playedAt": "2026-08-22T12:22:27.699Z"
+      "name": "Blue Jeans",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-08-23T03:14:30.691Z"
     },
     {
-      "name": "Brick by Boring Brick",
-      "artist": "Paramore",
-      "url": "https://open.spotify.com/track/1a9YW7fATU351ok4zWjU7a",
-      "image": "https://i.scdn.co/image/ab67616d00004851e01d7d558032457b0e4883f6",
-      "playedAt": "2026-08-22T12:14:37.013Z"
+      "name": "Pássaro De Fogo",
+      "artist": "Paula Fernandes",
+      "url": "https://open.spotify.com/track/1m4beBDqxCVOdJFvXL7DEg",
+      "image": "https://i.scdn.co/image/ab67616d00004851ac6b286dde39f23373c3bd21",
+      "playedAt": "2026-08-23T03:11:00.791Z"
     },
     {
-      "name": "Lying from You",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/4qVR3CF8FuFvHN4L6vXlB1",
-      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
-      "playedAt": "2026-08-22T12:06:18.931Z"
+      "name": "Fotos - Ao Vivo",
+      "artist": "Victor & Leo",
+      "url": "https://open.spotify.com/track/7x6ylW9E6HOVZxWZzCBa5u",
+      "image": "https://i.scdn.co/image/ab67616d00004851f837b364ac37809bdb656d3b",
+      "playedAt": "2026-08-23T03:06:54.488Z"
     }
   ],
   "topTracks": {
@@ -69,17 +69,17 @@
       },
       {
         "rank": 2,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 3,
         "name": "Midnight Sky",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/4i2qxFEVVUi8yOYoxB8TCX",
         "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d"
+      },
+      {
+        "rank": 3,
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
         "rank": 4,
@@ -125,24 +125,24 @@
       },
       {
         "rank": 10,
+        "name": "Far Horizons",
+        "artist": "Jeremy Soule, The Elder Scrolls",
+        "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
+        "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
+      },
+      {
+        "rank": 11,
         "name": "Voices of Fornburg",
         "artist": "Sarah Schachner, Assassin's Creed",
         "url": "https://open.spotify.com/track/3eqcltD0qRNnLPAfVqhqNu",
         "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Fake Plastic Trees",
         "artist": "Radiohead",
         "url": "https://open.spotify.com/track/73CKjW3vsUXRpy3NnX4H7F",
         "image": "https://i.scdn.co/image/ab67616d000048519293c743fa542094336c5e12"
-      },
-      {
-        "rank": 12,
-        "name": "Made of Lies",
-        "artist": "Elysion",
-        "url": "https://open.spotify.com/track/1w8r3PAxPPLfcuyRsC4BeA",
-        "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff"
       }
     ],
     "medium": [

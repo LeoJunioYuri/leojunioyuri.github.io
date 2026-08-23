@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-08-23T12:18:15.505Z",
+  "updatedAt": "2026-08-23T18:14:14.209Z",
   "tracks": [
+    {
+      "name": "Thrift Shop (feat. Wanz)",
+      "artist": "Macklemore & Ryan Lewis, Macklemore, Ryan Lewis, Wanz",
+      "url": "https://open.spotify.com/track/6CjtS2JZH9RkDz5UVInsa9",
+      "image": "https://i.scdn.co/image/ab67616d000048512a6b364528b128a4a17d100d",
+      "playedAt": "2026-08-23T12:26:22.533Z"
+    },
+    {
+      "name": "Rude",
+      "artist": "MAGIC!",
+      "url": "https://open.spotify.com/track/6RtPijgfPKROxEzTHNRiDp",
+      "image": "https://i.scdn.co/image/ab67616d00004851b1c2609c8b258ad621d4057b",
+      "playedAt": "2026-08-23T12:22:26.466Z"
+    },
+    {
+      "name": "Kaer Morhen",
+      "artist": "Marcin Przybyłowicz",
+      "url": "https://open.spotify.com/track/761SMhVKJlJlUCUveNcq1m",
+      "image": "https://i.scdn.co/image/ab67616d00004851df756f52b91b4dcd656760b0",
+      "playedAt": "2026-08-23T12:17:58.375Z"
+    },
     {
       "name": "Unbroken Road",
       "artist": "London Symphony Orchestra, London Voices, The Elder Scrolls",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/4oMlV3X4i2jaKRIGmTXriC",
       "image": "https://i.scdn.co/image/ab67616d00004851de32d123f0354f5228681721",
       "playedAt": "2026-08-23T03:18:19.685Z"
-    },
-    {
-      "name": "Blue Jeans",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-08-23T03:14:30.691Z"
-    },
-    {
-      "name": "Pássaro De Fogo",
-      "artist": "Paula Fernandes",
-      "url": "https://open.spotify.com/track/1m4beBDqxCVOdJFvXL7DEg",
-      "image": "https://i.scdn.co/image/ab67616d00004851ac6b286dde39f23373c3bd21",
-      "playedAt": "2026-08-23T03:11:00.791Z"
-    },
-    {
-      "name": "Fotos - Ao Vivo",
-      "artist": "Victor & Leo",
-      "url": "https://open.spotify.com/track/7x6ylW9E6HOVZxWZzCBa5u",
-      "image": "https://i.scdn.co/image/ab67616d00004851f837b364ac37809bdb656d3b",
-      "playedAt": "2026-08-23T03:06:54.488Z"
     }
   ],
   "topTracks": {

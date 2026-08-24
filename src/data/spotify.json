@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-08-23T18:14:14.209Z",
+  "updatedAt": "2026-08-24T00:38:56.853Z",
   "tracks": [
+    {
+      "name": "Flight of Icarus - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/3vhKrSxe3fRuS5Ogis76VO",
+      "image": "https://i.scdn.co/image/ab67616d000048512277d1a849a63c7075ec38ff",
+      "playedAt": "2026-08-23T22:23:19.772Z"
+    },
+    {
+      "name": "Don't Talk To Strangers",
+      "artist": "Dio",
+      "url": "https://open.spotify.com/track/6ppPNxdwG8A5Ed8DlNLV6I",
+      "image": "https://i.scdn.co/image/ab67616d0000485115350aa1c89e23a5fa6c0de1",
+      "playedAt": "2026-08-23T22:19:28.551Z"
+    },
+    {
+      "name": "Mr. Crowley",
+      "artist": "Ozzy Osbourne",
+      "url": "https://open.spotify.com/track/2ov8L95QD25TLpZAZPYWXL",
+      "image": "https://i.scdn.co/image/ab67616d000048514936b5b7caeb7524e50fd8cb",
+      "playedAt": "2026-08-23T22:14:36.953Z"
+    },
+    {
+      "name": "Beyond the Realms of Death",
+      "artist": "Judas Priest",
+      "url": "https://open.spotify.com/track/3Rtv6zRNKpeSygXoaF9kCm",
+      "image": "https://i.scdn.co/image/ab67616d00004851a4c79ec8f98d1866d266f5af",
+      "playedAt": "2026-08-23T22:09:25.016Z"
+    },
+    {
+      "name": "The Sentinel",
+      "artist": "Judas Priest",
+      "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+      "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2",
+      "playedAt": "2026-08-23T21:50:37.372Z"
+    },
+    {
+      "name": "Rather Be (feat. Jess Glynne)",
+      "artist": "Clean Bandit, Jess Glynne",
+      "url": "https://open.spotify.com/track/61dCUoMCg28qEBzrW6htYM",
+      "image": "https://i.scdn.co/image/ab67616d000048515ef315d54fd701725176292e",
+      "playedAt": "2026-08-23T21:44:28.359Z"
+    },
     {
       "name": "Thrift Shop (feat. Wanz)",
       "artist": "Macklemore & Ryan Lewis, Macklemore, Ryan Lewis, Wanz",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/6RtPijgfPKROxEzTHNRiDp",
       "image": "https://i.scdn.co/image/ab67616d00004851b1c2609c8b258ad621d4057b",
       "playedAt": "2026-08-23T12:22:26.466Z"
-    },
-    {
-      "name": "Kaer Morhen",
-      "artist": "Marcin Przybyłowicz",
-      "url": "https://open.spotify.com/track/761SMhVKJlJlUCUveNcq1m",
-      "image": "https://i.scdn.co/image/ab67616d00004851df756f52b91b4dcd656760b0",
-      "playedAt": "2026-08-23T12:17:58.375Z"
-    },
-    {
-      "name": "Unbroken Road",
-      "artist": "London Symphony Orchestra, London Voices, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/0sn2KFvF8w1OMMk9pOF9Wp",
-      "image": "https://i.scdn.co/image/ab67616d000048514db3c67f42301a077de6bac4",
-      "playedAt": "2026-08-23T04:25:16.146Z"
-    },
-    {
-      "name": "Home in Florence",
-      "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/5bC9ituRiT6ABSrhCfTUBH",
-      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
-      "playedAt": "2026-08-23T04:19:25.476Z"
-    },
-    {
-      "name": "The Streets of Whiterun",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/31vc8VMdqPRTExkgTp7hib",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-08-23T04:14:54.946Z"
-    },
-    {
-      "name": "Far Horizons",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-08-23T04:10:49.514Z"
-    },
-    {
-      "name": "Pra Mudar a Minha Vida",
-      "artist": "Zezé Di Camargo & Luciano",
-      "url": "https://open.spotify.com/track/4oMlV3X4i2jaKRIGmTXriC",
-      "image": "https://i.scdn.co/image/ab67616d00004851de32d123f0354f5228681721",
-      "playedAt": "2026-08-23T03:18:19.685Z"
     }
   ],
   "topTracks": {
@@ -97,17 +97,17 @@
       },
       {
         "rank": 6,
-        "name": "Somewhere I Belong",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
-        "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
-      },
-      {
-        "rank": 7,
         "name": "Assassin's Creed Valhalla Main Theme (feat. Einar Selvik)",
         "artist": "Sarah Schachner, Assassin's Creed, Jesper Kyd, Einar Selvik",
         "url": "https://open.spotify.com/track/59FMS2jznmqwLYx1Noa6H4",
         "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
+      },
+      {
+        "rank": 7,
+        "name": "Breaking the Habit",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/3dxiWIBVJRlqh9xk144rf4",
+        "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
       },
       {
         "rank": 8,
@@ -118,9 +118,9 @@
       },
       {
         "rank": 9,
-        "name": "Breaking the Habit",
+        "name": "Somewhere I Belong",
         "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3dxiWIBVJRlqh9xk144rf4",
+        "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
         "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
       },
       {
@@ -139,10 +139,10 @@
       },
       {
         "rank": 12,
-        "name": "Fake Plastic Trees",
-        "artist": "Radiohead",
-        "url": "https://open.spotify.com/track/73CKjW3vsUXRpy3NnX4H7F",
-        "image": "https://i.scdn.co/image/ab67616d000048519293c743fa542094336c5e12"
+        "name": "The Sentinel",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       }
     ],
     "medium": [
@@ -225,10 +225,10 @@
       },
       {
         "rank": 12,
-        "name": "Dead To The World",
-        "artist": "Nightwish",
-        "url": "https://open.spotify.com/track/3lY7foOrKVtDoYKUJXmkML",
-        "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
+        "name": "The Sentinel",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       }
     ],
     "long": [

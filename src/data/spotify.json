@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-25T12:26:03.725Z",
+  "updatedAt": "2026-08-25T18:23:04.185Z",
   "tracks": [
     {
-      "name": "The Crow, the Owl and the Dove",
+      "name": "Venus",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/2qURNRJHKUjc9aT398g0pf",
+      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
+      "playedAt": "2026-08-25T18:09:26.584Z"
+    },
+    {
+      "name": "Paradise (What About Us?) (feat. Tarja)",
+      "artist": "Within Temptation, Tarja",
+      "url": "https://open.spotify.com/track/1PkOm35a0G1r33rVrrK6b0",
+      "image": "https://i.scdn.co/image/ab67616d00004851f393d7a726de8d05207b0854",
+      "playedAt": "2026-08-25T18:03:53.184Z"
+    },
+    {
+      "name": "Sahara",
       "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6udzPCAaSWZ1dIE8VwX67z",
+      "url": "https://open.spotify.com/track/5BVCsSoPnMXwPeaK9Aexjx",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-08-25T17:58:33.087Z"
+    },
+    {
+      "name": "Dreamer",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/0UN6RE3yGURtt6sv4tl4Cd",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-08-25T17:49:36.798Z"
+    },
+    {
+      "name": "Falling Again",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/1M3h1uXXNSG5wAjErb1Y15",
+      "image": "https://i.scdn.co/image/ab67616d000048514b5bba6ef5d2918b38afbfa9",
+      "playedAt": "2026-08-25T17:45:11.861Z"
+    },
+    {
+      "name": "Rest Calm",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/7zki7ndhBSNAK9hKrhWUYn",
       "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
-      "playedAt": "2026-08-25T12:03:00.926Z"
+      "playedAt": "2026-08-25T17:39:53.906Z"
     },
     {
-      "name": "Nemo",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6zfgRJKADV9DsroQBNwmBI",
-      "image": "https://i.scdn.co/image/ab67616d000048511d86014b335da210434922db",
-      "playedAt": "2026-08-25T11:58:50.090Z"
+      "name": "Leviathan",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/6YaocWTDDoAAIPJVPFBv8x",
+      "image": "https://i.scdn.co/image/ab67616d000048512454ac2ea06a9427e6262ab9",
+      "playedAt": "2026-08-25T17:32:54.427Z"
     },
     {
-      "name": "Burn It Down",
-      "artist": "Daughter",
-      "url": "https://open.spotify.com/track/0EzwdrNoxZLpeXeU6r9VqH",
-      "image": "https://i.scdn.co/image/ab67616d0000485137b43514fe2d8ec40c59f130",
-      "playedAt": "2026-08-25T02:42:08.951Z"
-    },
-    {
-      "name": "All I Wanted",
-      "artist": "Daughter",
-      "url": "https://open.spotify.com/track/7veqo9aUtAPnTdvVKNB0KR",
-      "image": "https://i.scdn.co/image/ab67616d0000485137b43514fe2d8ec40c59f130",
-      "playedAt": "2026-08-25T02:24:48.185Z"
-    },
-    {
-      "name": "Mt. Washington",
-      "artist": "Local Natives",
-      "url": "https://open.spotify.com/track/1Q4NQdmbxzO53eG3P4g3y5",
-      "image": "https://i.scdn.co/image/ab67616d0000485173f379b7c980cfb5be81553a",
-      "playedAt": "2026-08-25T02:20:55.420Z"
-    },
-    {
-      "name": "Sorry",
-      "artist": "Nothing But Thieves",
-      "url": "https://open.spotify.com/track/6rAXHPd18PZ6W8m9EectzH",
-      "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
-      "playedAt": "2026-08-25T02:17:35.991Z"
-    },
-    {
-      "name": "Black Flies",
-      "artist": "Ben Howard",
-      "url": "https://open.spotify.com/track/3JhNsyNQSyrsHcnFRHZN1e",
-      "image": "https://i.scdn.co/image/ab67616d0000485125d10f813fd1114b2bb9e39a",
-      "playedAt": "2026-08-25T02:14:00.886Z"
-    },
-    {
-      "name": "London Thunder",
-      "artist": "Foals",
-      "url": "https://open.spotify.com/track/0aTsSP2JiY53i0uZM24Zwp",
-      "image": "https://i.scdn.co/image/ab67616d00004851b036f68e97ce9f5372bfb350",
-      "playedAt": "2026-08-25T02:07:38.929Z"
+      "name": "Bleeding",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/2tAy0RzlZ54rHHMwwjIUr7",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-08-25T17:28:34.703Z"
     }
   ],
   "topTracks": {

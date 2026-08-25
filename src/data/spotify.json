@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-08-25T06:26:22.880Z",
+  "updatedAt": "2026-08-25T12:26:03.725Z",
   "tracks": [
+    {
+      "name": "The Crow, the Owl and the Dove",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6udzPCAaSWZ1dIE8VwX67z",
+      "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
+      "playedAt": "2026-08-25T12:03:00.926Z"
+    },
+    {
+      "name": "Nemo",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6zfgRJKADV9DsroQBNwmBI",
+      "image": "https://i.scdn.co/image/ab67616d000048511d86014b335da210434922db",
+      "playedAt": "2026-08-25T11:58:50.090Z"
+    },
+    {
+      "name": "Burn It Down",
+      "artist": "Daughter",
+      "url": "https://open.spotify.com/track/0EzwdrNoxZLpeXeU6r9VqH",
+      "image": "https://i.scdn.co/image/ab67616d0000485137b43514fe2d8ec40c59f130",
+      "playedAt": "2026-08-25T02:42:08.951Z"
+    },
     {
       "name": "All I Wanted",
       "artist": "Daughter",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/0aTsSP2JiY53i0uZM24Zwp",
       "image": "https://i.scdn.co/image/ab67616d00004851b036f68e97ce9f5372bfb350",
       "playedAt": "2026-08-25T02:07:38.929Z"
-    },
-    {
-      "name": "Warm Shadow",
-      "artist": "Fink",
-      "url": "https://open.spotify.com/track/3jWwXvWrJ1eFPCUrXJdR3E",
-      "image": "https://i.scdn.co/image/ab67616d00004851c535f4e181aadb563c10acf5",
-      "playedAt": "2026-08-25T01:59:41.668Z"
-    },
-    {
-      "name": "Lie Alone",
-      "artist": "Blanco White",
-      "url": "https://open.spotify.com/track/76NMLHPC1Z8qHR957KODKQ",
-      "image": "https://i.scdn.co/image/ab67616d00004851cf1b9db77b0081939243d158",
-      "playedAt": "2026-08-25T01:53:53.156Z"
-    },
-    {
-      "name": "Colder Heavens",
-      "artist": "Blanco White",
-      "url": "https://open.spotify.com/track/6Z2pu5Gq0uWJoaYWeWbQpX",
-      "image": "https://i.scdn.co/image/ab67616d00004851cf1b9db77b0081939243d158",
-      "playedAt": "2026-08-25T01:49:47.109Z"
     }
   ],
   "topTracks": {
@@ -218,17 +218,17 @@
       },
       {
         "rank": 11,
+        "name": "Blue Jeans",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/4ANim4YPlz5nVInrXdx2xr",
+        "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
+      },
+      {
+        "rank": 12,
         "name": "Sad Girl",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/11MyiSGZSYSmhhqwGUTtAq",
         "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
-      },
-      {
-        "rank": 12,
-        "name": "The Sentinel",
-        "artist": "Judas Priest",
-        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
-        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       }
     ],
     "long": [
@@ -304,17 +304,17 @@
       },
       {
         "rank": 11,
-        "name": "Dishearten",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 12,
         "name": "Pretty When You Cry",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/6PnluwP0fjGnpIBsqTdUTq",
         "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
+      },
+      {
+        "rank": 12,
+        "name": "Dishearten",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       }
     ]
   }

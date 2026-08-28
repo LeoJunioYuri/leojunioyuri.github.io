@@ -1,20 +1,11 @@
 {
-  "updatedAt": "2026-08-27T17:03:29.629Z",
-  "games": [
-    {
-      "name": "Counter-Strike 2",
-      "appid": 730,
-      "minutes2weeks": 34,
-      "minutesTotal": 103593,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
-      "url": "https://store.steampowered.com/app/730"
-    }
-  ],
+  "updatedAt": "2026-08-28T01:53:16.164Z",
+  "games": [],
   "topGames": [
     {
       "name": "Counter-Strike 2",
       "appid": 730,
-      "minutes2weeks": 34,
+      "minutes2weeks": 0,
       "minutesTotal": 103593,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
       "url": "https://store.steampowered.com/app/730"

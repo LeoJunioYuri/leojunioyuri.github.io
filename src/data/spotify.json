@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-08-29T01:17:35.082Z",
+  "updatedAt": "2026-08-29T11:56:25.977Z",
   "tracks": [
+    {
+      "name": "Letter To Dana",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
+      "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6",
+      "playedAt": "2026-08-29T11:41:13.847Z"
+    },
     {
       "name": "The Misery",
       "artist": "Sonata Arctica",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/4e8HF8QcD4HlfgRT6TGDlO",
       "image": "https://i.scdn.co/image/ab67616d000048519c291af4bf0c3071847f2b80",
       "playedAt": "2026-08-28T19:01:24.709Z"
-    },
-    {
-      "name": "Runaway",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/6xtQ23d8GEXgcxyUKPtwc5",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-08-28T18:57:23.937Z"
     }
   ],
   "topTracks": {

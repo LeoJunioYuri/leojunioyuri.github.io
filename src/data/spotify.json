@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-08-31T22:10:06.306Z",
+  "updatedAt": "2026-09-01T02:33:51.757Z",
   "tracks": [
     {
-      "name": "It's My Life",
-      "artist": "Bon Jovi",
-      "url": "https://open.spotify.com/track/0v1XpBHnsbkCn7iJ9Ucr1l",
-      "image": "https://i.scdn.co/image/ab67616d000048517a231174875d7930de9dad58",
-      "playedAt": "2026-08-31T22:06:15.065Z"
+      "name": "Bitter Taste",
+      "artist": "Billy Idol",
+      "url": "https://open.spotify.com/track/6AyWHf259DGuxOnwdsz1Lf",
+      "image": "https://i.scdn.co/image/ab67616d00004851a7dfeada96d83af1b297b225",
+      "playedAt": "2026-09-01T02:30:47.685Z"
     },
     {
-      "name": "Sex on Fire",
-      "artist": "Kings of Leon",
-      "url": "https://open.spotify.com/track/0ntQJM78wzOLVeCUAW7Y45",
-      "image": "https://i.scdn.co/image/ab67616d000048512519d01c0cca06f134eeadd8",
-      "playedAt": "2026-08-31T22:02:30.166Z"
+      "name": "Eyes Without A Face",
+      "artist": "Billy Idol",
+      "url": "https://open.spotify.com/track/0pUVeEgZuNyFzIMKp67RbS",
+      "image": "https://i.scdn.co/image/ab67616d00004851ea07dca8b4ca808c1e5b17fb",
+      "playedAt": "2026-09-01T02:18:23.382Z"
     },
     {
-      "name": "Love Me Again",
-      "artist": "John Newman",
-      "url": "https://open.spotify.com/track/5TbzAWWc5eJaANpA9kfGCd",
-      "image": "https://i.scdn.co/image/ab67616d00004851b38d10a0f9eabec693d8f96e",
-      "playedAt": "2026-08-31T21:59:06.392Z"
+      "name": "Return to Serenity",
+      "artist": "Testament",
+      "url": "https://open.spotify.com/track/5awljpWNO5TpXCyjpvCBbs",
+      "image": "https://i.scdn.co/image/ab67616d00004851b718dc05fd20724b277f1ac2",
+      "playedAt": "2026-09-01T01:23:35.718Z"
     },
     {
-      "name": "Mr. Brightside",
-      "artist": "The Killers",
-      "url": "https://open.spotify.com/track/003vvx7Niy0yvhvHt4a68B",
-      "image": "https://i.scdn.co/image/ab67616d00004851ccdddd46119a4ff53eaf1f5d",
-      "playedAt": "2026-08-31T21:54:30.670Z"
+      "name": "No Decoder",
+      "artist": "Yogi Lang",
+      "url": "https://open.spotify.com/track/5IbYzV2VzATfYU8JElbQgo",
+      "image": "https://i.scdn.co/image/ab67616d00004851641299ca9d507ab8c9b73cfb",
+      "playedAt": "2026-09-01T00:04:41.100Z"
     },
     {
-      "name": "Savin' Me - 2020 Remaster",
-      "artist": "Nickelback",
-      "url": "https://open.spotify.com/track/2BoWXJfClbDQkZCZsE0Ru7",
-      "image": "https://i.scdn.co/image/ab67616d00004851bad7e941f557e06019b87fd4",
-      "playedAt": "2026-08-31T21:50:47.224Z"
+      "name": "Air De Aranjuez",
+      "artist": "Uli Jon Roth",
+      "url": "https://open.spotify.com/track/0I9smYvxqqKAyU5XUZKMUP",
+      "image": "https://i.scdn.co/image/ab67616d0000485192a55498dddc96e7e83460c5",
+      "playedAt": "2026-09-01T00:00:25.691Z"
     },
     {
-      "name": "Since U Been Gone",
-      "artist": "Kelly Clarkson",
-      "url": "https://open.spotify.com/track/6JY1IdkZGeIcPegKxjSKeb",
-      "image": "https://i.scdn.co/image/ab67616d00004851158c72ad0003cb37ca0c9eff",
-      "playedAt": "2026-08-31T21:47:07.504Z"
+      "name": "Love Matters",
+      "artist": "Blues Cousins",
+      "url": "https://open.spotify.com/track/24hkNZgmOJfE1A0syJwI5a",
+      "image": "https://i.scdn.co/image/ab67616d000048514530f2469a4973981cfe5e49",
+      "playedAt": "2026-08-31T23:55:49.340Z"
     },
     {
-      "name": "Kryptonite",
-      "artist": "3 Doors Down",
-      "url": "https://open.spotify.com/track/6ZOBP3NvffbU4SZcrnt1k6",
-      "image": "https://i.scdn.co/image/ab67616d000048512868c4713a3912fd476b42f1",
-      "playedAt": "2026-08-31T21:43:58.070Z"
+      "name": "Tender Surrender",
+      "artist": "Steve Vai",
+      "url": "https://open.spotify.com/track/1BpMzIbVYhLfXTQe7ob2sY",
+      "image": "https://i.scdn.co/image/ab67616d0000485113431dcb3bc18c306dd7a58b",
+      "playedAt": "2026-08-31T23:51:22.983Z"
     },
     {
-      "name": "I'm Still Standing",
-      "artist": "Elton John",
-      "url": "https://open.spotify.com/track/1jDJFeK9x3OZboIAHsY9k2",
-      "image": "https://i.scdn.co/image/ab67616d00004851eb11e2abccdca41f39ad3b89",
-      "playedAt": "2026-08-31T21:40:03.673Z"
+      "name": "Wasting Love - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/2KKLuHN6zDxVnWtFKO8vo4",
+      "image": "https://i.scdn.co/image/ab67616d000048510dda9c11454b9053d07f585a",
+      "playedAt": "2026-08-31T23:46:21.459Z"
     }
   ],
   "topTracks": {

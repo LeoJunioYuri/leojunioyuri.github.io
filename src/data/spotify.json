@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-09-01T02:33:51.757Z",
+  "updatedAt": "2026-09-01T10:44:23.991Z",
   "tracks": [
+    {
+      "name": "Another Day in Paradise - 2016 Remaster",
+      "artist": "Phil Collins",
+      "url": "https://open.spotify.com/track/1NCuYqMc8hKMb4cpNTcJbD",
+      "image": "https://i.scdn.co/image/ab67616d000048517624d538b596bfdf565184a6",
+      "playedAt": "2026-09-01T02:57:15.419Z"
+    },
+    {
+      "name": "Fake Plastic Trees",
+      "artist": "Radiohead",
+      "url": "https://open.spotify.com/track/73CKjW3vsUXRpy3NnX4H7F",
+      "image": "https://i.scdn.co/image/ab67616d000048519293c743fa542094336c5e12",
+      "playedAt": "2026-09-01T02:51:52.817Z"
+    },
+    {
+      "name": "Precious",
+      "artist": "Depeche Mode",
+      "url": "https://open.spotify.com/track/1cBxAm8a0fENn2ix3Dfm3u",
+      "image": "https://i.scdn.co/image/ab67616d00004851ed1506834f09438351cf1dc5",
+      "playedAt": "2026-09-01T02:47:01.589Z"
+    },
+    {
+      "name": "Brooklyn Baby",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/1NZs6n6hl8UuMaX0UC0YTz",
+      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
+      "playedAt": "2026-09-01T02:42:50.983Z"
+    },
+    {
+      "name": "Ordinary World",
+      "artist": "Duran Duran",
+      "url": "https://open.spotify.com/track/0wokCRaKD0zPNhMRXAgVsr",
+      "image": "https://i.scdn.co/image/ab67616d000048515d11c2fe73a7d376d3b06107",
+      "playedAt": "2026-09-01T02:36:28.322Z"
+    },
     {
       "name": "Bitter Taste",
       "artist": "Billy Idol",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/5awljpWNO5TpXCyjpvCBbs",
       "image": "https://i.scdn.co/image/ab67616d00004851b718dc05fd20724b277f1ac2",
       "playedAt": "2026-09-01T01:23:35.718Z"
-    },
-    {
-      "name": "No Decoder",
-      "artist": "Yogi Lang",
-      "url": "https://open.spotify.com/track/5IbYzV2VzATfYU8JElbQgo",
-      "image": "https://i.scdn.co/image/ab67616d00004851641299ca9d507ab8c9b73cfb",
-      "playedAt": "2026-09-01T00:04:41.100Z"
-    },
-    {
-      "name": "Air De Aranjuez",
-      "artist": "Uli Jon Roth",
-      "url": "https://open.spotify.com/track/0I9smYvxqqKAyU5XUZKMUP",
-      "image": "https://i.scdn.co/image/ab67616d0000485192a55498dddc96e7e83460c5",
-      "playedAt": "2026-09-01T00:00:25.691Z"
-    },
-    {
-      "name": "Love Matters",
-      "artist": "Blues Cousins",
-      "url": "https://open.spotify.com/track/24hkNZgmOJfE1A0syJwI5a",
-      "image": "https://i.scdn.co/image/ab67616d000048514530f2469a4973981cfe5e49",
-      "playedAt": "2026-08-31T23:55:49.340Z"
-    },
-    {
-      "name": "Tender Surrender",
-      "artist": "Steve Vai",
-      "url": "https://open.spotify.com/track/1BpMzIbVYhLfXTQe7ob2sY",
-      "image": "https://i.scdn.co/image/ab67616d0000485113431dcb3bc18c306dd7a58b",
-      "playedAt": "2026-08-31T23:51:22.983Z"
-    },
-    {
-      "name": "Wasting Love - 2015 Remaster",
-      "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/2KKLuHN6zDxVnWtFKO8vo4",
-      "image": "https://i.scdn.co/image/ab67616d000048510dda9c11454b9053d07f585a",
-      "playedAt": "2026-08-31T23:46:21.459Z"
     }
   ],
   "topTracks": {

@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-02T15:34:50.179Z",
+  "updatedAt": "2026-09-02T20:15:43.988Z",
   "tracks": [
     {
-      "name": "Fullmoon",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/5eP2RWhqKSoiewnR3nIVle",
-      "image": "https://i.scdn.co/image/ab67616d000048512eaf714212797fc9a10ba940",
-      "playedAt": "2026-09-02T15:32:46.659Z"
-    },
-    {
-      "name": "The Legacy",
-      "artist": "Testament",
-      "url": "https://open.spotify.com/track/4h2EyesIj4WhgcMeIClpBx",
-      "image": "https://i.scdn.co/image/ab67616d000048515b08429510108542a0892e7f",
-      "playedAt": "2026-09-02T15:27:34.080Z"
-    },
-    {
-      "name": "The Thin Line Between Love and Hate - 2015 Remaster",
-      "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/7m0XcFYchWHV0EnerStmYg",
-      "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
-      "playedAt": "2026-09-02T15:21:35.833Z"
-    },
-    {
-      "name": "Black Flies",
-      "artist": "Ben Howard",
-      "url": "https://open.spotify.com/track/3JhNsyNQSyrsHcnFRHZN1e",
-      "image": "https://i.scdn.co/image/ab67616d0000485125d10f813fd1114b2bb9e39a",
-      "playedAt": "2026-09-02T15:17:15.914Z"
-    },
-    {
-      "name": "Andante Espressivo - String Orchestra - \"Number One Boy\"",
+      "name": "Rondo in F Minor for Piano and Orchestra - \"Kendall's Journey\"",
       "artist": "Nicholas Britell",
-      "url": "https://open.spotify.com/track/1GnHXpV2oYzZlKaaniFxl5",
+      "url": "https://open.spotify.com/track/114icuYyia155Sr74KeQ6W",
+      "image": "https://i.scdn.co/image/ab67616d00004851d95144d4409c0bc9967dcfd3",
+      "playedAt": "2026-09-02T18:26:27.463Z"
+    },
+    {
+      "name": "Succession (Main Title Theme) - Extended Intro Version",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/4PgQu8CWZAD6NSqd4mGDmE",
+      "image": "https://i.scdn.co/image/ab67616d00004851d95144d4409c0bc9967dcfd3",
+      "playedAt": "2026-09-02T18:25:00.084Z"
+    },
+    {
+      "name": "Intermezzo in C Minor - Piano and Double Bass",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/7r3v722KsX6Zi07D8aL3Pr",
+      "image": "https://i.scdn.co/image/ab67616d00004851d95144d4409c0bc9967dcfd3",
+      "playedAt": "2026-09-02T18:23:06.940Z"
+    },
+    {
+      "name": "Succession (Main Title Theme)",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/0bSHwuTOZVJUXWT03H9oD2",
+      "image": "https://i.scdn.co/image/ab67616d00004851e654bc3bc09b6c1e013f74a3",
+      "playedAt": "2026-09-02T18:21:28.414Z"
+    },
+    {
+      "name": "Clarinets and Strings",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/3vZQvH6aAsaA52YI5hx5WY",
+      "image": "https://i.scdn.co/image/ab67616d00004851e654bc3bc09b6c1e013f74a3",
+      "playedAt": "2026-09-02T18:19:45.867Z"
+    },
+    {
+      "name": "Austerlitz - Allegretto",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/2PjdJaw0FHUHYy97ZwZrOv",
+      "image": "https://i.scdn.co/image/ab67616d00004851e654bc3bc09b6c1e013f74a3",
+      "playedAt": "2026-09-02T18:18:37.790Z"
+    },
+    {
+      "name": "Minuet in C Minor - English Horn - \"I Need You\"",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/5axplaIJ52Ah3MPrUyGydY",
       "image": "https://i.scdn.co/image/ab67616d000048516f85ddf6fbb47ddecd32b7ae",
-      "playedAt": "2026-09-02T14:11:45.094Z"
+      "playedAt": "2026-09-02T18:16:59.521Z"
     },
     {
-      "name": "Dream of Mirrors - 2015 Remaster",
-      "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/2GJUBmvnT8mZ9IyuPS9SsI",
-      "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
-      "playedAt": "2026-09-02T06:48:41.238Z"
-    },
-    {
-      "name": "Dream of Mirrors - 2015 Remaster",
-      "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/2GJUBmvnT8mZ9IyuPS9SsI",
-      "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
-      "playedAt": "2026-09-02T01:38:49.981Z"
-    },
-    {
-      "name": "Dream On",
-      "artist": "Aerosmith",
-      "url": "https://open.spotify.com/track/5Ih9gbqyxCzTJ43nuSuKnC",
-      "image": "https://i.scdn.co/image/ab67616d00004851e0c7891bd7c7ea49d69512e2",
-      "playedAt": "2026-09-02T01:29:28.325Z"
+      "name": "Andante Con Moto - Strings in E-flat Minor",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/1efzDbtyPSFKxxhvoErxHM",
+      "image": "https://i.scdn.co/image/ab67616d00004851e654bc3bc09b6c1e013f74a3",
+      "playedAt": "2026-09-02T18:14:21.143Z"
     }
   ],
   "topTracks": {
@@ -132,17 +132,17 @@
       },
       {
         "rank": 11,
-        "name": "In Pieces",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/5tK7QTNr5zJAvouaMca4Om",
-        "image": "https://i.scdn.co/image/ab67616d00004851f208c8aa667a6d4f6feb8bbc"
-      },
-      {
-        "rank": 12,
         "name": "TINFOIL",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5zoETs17V8PJkeGmB0Iagw",
         "image": "https://i.scdn.co/image/ab67616d00004851987fb4c5ec8790e9f637a4a4"
+      },
+      {
+        "rank": 12,
+        "name": "To Live is to Die",
+        "artist": "Metallica",
+        "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
+        "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885"
       }
     ],
     "medium": [

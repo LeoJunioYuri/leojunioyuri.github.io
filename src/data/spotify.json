@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-09-02T10:09:18.152Z",
+  "updatedAt": "2026-09-02T15:34:50.179Z",
   "tracks": [
+    {
+      "name": "Fullmoon",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/5eP2RWhqKSoiewnR3nIVle",
+      "image": "https://i.scdn.co/image/ab67616d000048512eaf714212797fc9a10ba940",
+      "playedAt": "2026-09-02T15:32:46.659Z"
+    },
+    {
+      "name": "The Legacy",
+      "artist": "Testament",
+      "url": "https://open.spotify.com/track/4h2EyesIj4WhgcMeIClpBx",
+      "image": "https://i.scdn.co/image/ab67616d000048515b08429510108542a0892e7f",
+      "playedAt": "2026-09-02T15:27:34.080Z"
+    },
+    {
+      "name": "The Thin Line Between Love and Hate - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/7m0XcFYchWHV0EnerStmYg",
+      "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
+      "playedAt": "2026-09-02T15:21:35.833Z"
+    },
+    {
+      "name": "Black Flies",
+      "artist": "Ben Howard",
+      "url": "https://open.spotify.com/track/3JhNsyNQSyrsHcnFRHZN1e",
+      "image": "https://i.scdn.co/image/ab67616d0000485125d10f813fd1114b2bb9e39a",
+      "playedAt": "2026-09-02T15:17:15.914Z"
+    },
+    {
+      "name": "Andante Espressivo - String Orchestra - \"Number One Boy\"",
+      "artist": "Nicholas Britell",
+      "url": "https://open.spotify.com/track/1GnHXpV2oYzZlKaaniFxl5",
+      "image": "https://i.scdn.co/image/ab67616d000048516f85ddf6fbb47ddecd32b7ae",
+      "playedAt": "2026-09-02T14:11:45.094Z"
+    },
+    {
+      "name": "Dream of Mirrors - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/2GJUBmvnT8mZ9IyuPS9SsI",
+      "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
+      "playedAt": "2026-09-02T06:48:41.238Z"
+    },
     {
       "name": "Dream of Mirrors - 2015 Remaster",
       "artist": "Iron Maiden",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/5Ih9gbqyxCzTJ43nuSuKnC",
       "image": "https://i.scdn.co/image/ab67616d00004851e0c7891bd7c7ea49d69512e2",
       "playedAt": "2026-09-02T01:29:28.325Z"
-    },
-    {
-      "name": "Asche zu Asche",
-      "artist": "Rammstein",
-      "url": "https://open.spotify.com/track/407eqFGqQc40KPf43YrQ44",
-      "image": "https://i.scdn.co/image/ab67616d00004851dcdfc25819de77e79c2edf49",
-      "playedAt": "2026-09-02T01:25:00.615Z"
-    },
-    {
-      "name": "Sing For The Moment",
-      "artist": "Eminem",
-      "url": "https://open.spotify.com/track/3CpoeW0cZSDzIRv5z34F87",
-      "image": "https://i.scdn.co/image/ab67616d000048516ca5c90113b30c3c43ffb8f4",
-      "playedAt": "2026-09-02T01:24:52.703Z"
-    },
-    {
-      "name": "Ohne dich",
-      "artist": "Rammstein",
-      "url": "https://open.spotify.com/track/4aFC7Mes7CW5vHcb8ZApAx",
-      "image": "https://i.scdn.co/image/ab67616d00004851cbe7573e1175f842e24b34c2",
-      "playedAt": "2026-09-02T00:52:30.554Z"
-    },
-    {
-      "name": "They Don't Care About Us",
-      "artist": "Michael Jackson",
-      "url": "https://open.spotify.com/track/3wuCCNCnBhJlwkIJTBZFiv",
-      "image": "https://i.scdn.co/image/ab67616d00004851b4a878f008a0eda552446701",
-      "playedAt": "2026-09-02T00:45:57.795Z"
-    },
-    {
-      "name": "Não Troco",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/0eDFrr2qgbIPQSU9YQeAXM",
-      "image": "https://i.scdn.co/image/ab67616d000048510a6745eccba1b472e44c172e",
-      "playedAt": "2026-09-02T00:41:11.695Z"
-    },
-    {
-      "name": "Wish I Had an Angel",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6IKk2Z7LO59UDnVEw8JCBj",
-      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
-      "playedAt": "2026-09-02T00:34:16.550Z"
     }
   ],
   "topTracks": {
@@ -83,66 +83,66 @@
       },
       {
         "rank": 4,
-        "name": "Breaking the Habit",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3dxiWIBVJRlqh9xk144rf4",
-        "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
-      },
-      {
-        "rank": 5,
         "name": "Dead Embryonic Cells",
         "artist": "Sepultura",
         "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
         "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Assassin's Creed Valhalla Main Theme (feat. Einar Selvik)",
         "artist": "Sarah Schachner, Assassin's Creed, Jesper Kyd, Einar Selvik",
         "url": "https://open.spotify.com/track/59FMS2jznmqwLYx1Noa6H4",
         "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "ROADS UNTRAVELED",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1dYw8HTRJnFpeEeMtXj99a",
         "image": "https://i.scdn.co/image/ab67616d00004851987fb4c5ec8790e9f637a4a4"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "After Hours",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
         "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36"
       },
       {
-        "rank": 12,
-        "name": "Somewhere I Belong",
+        "rank": 11,
+        "name": "In Pieces",
         "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
-        "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
+        "url": "https://open.spotify.com/track/5tK7QTNr5zJAvouaMca4Om",
+        "image": "https://i.scdn.co/image/ab67616d00004851f208c8aa667a6d4f6feb8bbc"
+      },
+      {
+        "rank": 12,
+        "name": "TINFOIL",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/5zoETs17V8PJkeGmB0Iagw",
+        "image": "https://i.scdn.co/image/ab67616d00004851987fb4c5ec8790e9f637a4a4"
       }
     ],
     "medium": [

@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-09-03T10:21:14.717Z",
+  "updatedAt": "2026-09-03T15:26:47.719Z",
   "tracks": [
+    {
+      "name": "Afraid to Shoot Strangers - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/6QKhecJ2JuajCTPTtYkKUQ",
+      "image": "https://i.scdn.co/image/ab67616d000048510dda9c11454b9053d07f585a",
+      "playedAt": "2026-09-03T12:58:20.653Z"
+    },
+    {
+      "name": "Fortunes of War - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/34iAvzd9AcGqN4m5Hc7sQS",
+      "image": "https://i.scdn.co/image/ab67616d00004851ee8e0e9afc080aebb01f36c3",
+      "playedAt": "2026-09-03T12:50:56.177Z"
+    },
+    {
+      "name": "Dream of Mirrors - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/2GJUBmvnT8mZ9IyuPS9SsI",
+      "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
+      "playedAt": "2026-09-03T12:43:32.133Z"
+    },
     {
       "name": "Brave New World - 2015 Remaster",
       "artist": "Iron Maiden",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/2GJUBmvnT8mZ9IyuPS9SsI",
       "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
       "playedAt": "2026-09-03T01:11:05.076Z"
-    },
-    {
-      "name": "Sign of the Times",
-      "artist": "Harry Styles",
-      "url": "https://open.spotify.com/track/5Ohxk2dO5COHF1krpoPigN",
-      "image": "https://i.scdn.co/image/ab67616d000048513f8b8a9c71b2bd2f3019940b",
-      "playedAt": "2026-09-03T01:01:43.231Z"
-    },
-    {
-      "name": "Counting Stars",
-      "artist": "OneRepublic",
-      "url": "https://open.spotify.com/track/2tpWsVSb9UEmDRxAl1zhX1",
-      "image": "https://i.scdn.co/image/ab67616d000048519e2f95ae77cf436017ada9cb",
-      "playedAt": "2026-09-03T00:56:01.968Z"
-    },
-    {
-      "name": "Wonderful Life",
-      "artist": "Smith & Burrows",
-      "url": "https://open.spotify.com/track/2l9HDZnaCCaPxhL4fPWScK",
-      "image": "https://i.scdn.co/image/ab67616d00004851a2d7163d26591135814ea80e",
-      "playedAt": "2026-09-02T22:37:18.883Z"
     }
   ],
   "topTracks": {

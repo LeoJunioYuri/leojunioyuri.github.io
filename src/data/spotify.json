@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-06T14:35:07.270Z",
+  "updatedAt": "2026-09-06T19:43:58.559Z",
   "tracks": [
+    {
+      "name": "Sweet Nothing (feat. Florence Welch)",
+      "artist": "Calvin Harris, Florence Welch",
+      "url": "https://open.spotify.com/track/24LS4lQShWyixJ0ZrJXfJ5",
+      "image": "https://i.scdn.co/image/ab67616d00004851dcef905cb144d4867119850b",
+      "playedAt": "2026-09-06T15:51:47.505Z"
+    },
+    {
+      "name": "When We Stand Together",
+      "artist": "Nickelback",
+      "url": "https://open.spotify.com/track/4bCOAuhvjsxbVBM5MM8oik",
+      "image": "https://i.scdn.co/image/ab67616d000048519847da19ee3c83d1a2546e26",
+      "playedAt": "2026-09-06T15:48:14.494Z"
+    },
+    {
+      "name": "Infinity 2008 - Klaas Vocal Edit",
+      "artist": "Guru Josh Project, Klaas",
+      "url": "https://open.spotify.com/track/3aQz0z86zrKjd1mcZlonxE",
+      "image": "https://i.scdn.co/image/ab67616d000048516500b68b5138f81d895654b5",
+      "playedAt": "2026-09-06T15:45:03.262Z"
+    },
+    {
+      "name": "A LIGHT THAT NEVER COMES",
+      "artist": "Linkin Park, Steve Aoki",
+      "url": "https://open.spotify.com/track/3BnBKNItMng824sLx0pUfy",
+      "image": "https://i.scdn.co/image/ab67616d000048517cb20e0a29701a667dac3ede",
+      "playedAt": "2026-09-06T15:41:50.488Z"
+    },
+    {
+      "name": "Love Is Gone - Fred Riester & Joachim Garraud Radio Edit Remix",
+      "artist": "David Guetta, Chris Willis, Fred Riesterer, Joachim Garraud",
+      "url": "https://open.spotify.com/track/2MGRnjJc7C0z3EOEWRqcMw",
+      "image": "https://i.scdn.co/image/ab67616d000048518d8aeb06bc64c6b1c7b5b485",
+      "playedAt": "2026-09-06T15:38:00.606Z"
+    },
+    {
+      "name": "Lovers on the Sun (feat. Sam Martin)",
+      "artist": "David Guetta, Sam Martin",
+      "url": "https://open.spotify.com/track/2rgtCOVK2tpfao2VjURn84",
+      "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8",
+      "playedAt": "2026-09-06T15:34:40.756Z"
+    },
+    {
+      "name": "Efeitos - Ao Vivo",
+      "artist": "Cristiano Araújo, Jorge & Mateus",
+      "url": "https://open.spotify.com/track/7EN5Tmn6PRBM7HmrptJWU8",
+      "image": "https://i.scdn.co/image/ab67616d00004851ec4ba667954c2de7d5c280ec",
+      "playedAt": "2026-09-06T15:31:01.076Z"
+    },
     {
       "name": "Seguindo Estrelas",
       "artist": "Os Paralamas Do Sucesso",
       "url": "https://open.spotify.com/track/00uUuooilyT1iTQvhDiVIU",
       "image": "https://i.scdn.co/image/ab67616d000048512ba35216ed86c007d6bbd213",
       "playedAt": "2026-09-05T12:53:21.964Z"
-    },
-    {
-      "name": "Locked out of Heaven",
-      "artist": "Bruno Mars",
-      "url": "https://open.spotify.com/track/3w3y8KPTfNeOKPiqUTakBh",
-      "image": "https://i.scdn.co/image/ab67616d00004851926f43e7cce571e62720fd46",
-      "playedAt": "2026-09-05T12:49:01.770Z"
-    },
-    {
-      "name": "In Between",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/334NVjwI4vESPdvOmVZzbo",
-      "image": "https://i.scdn.co/image/ab67616d000048518145b51d1cdca483aff64358",
-      "playedAt": "2026-09-05T12:44:25.193Z"
-    },
-    {
-      "name": "The Battle Begins",
-      "artist": "Glenn Stafford",
-      "url": "https://open.spotify.com/track/2eNAEvPHU1ngpMB0Duwexb",
-      "image": "https://i.scdn.co/image/ab67616d0000485154931c2d81a2e56ec6bda69a",
-      "playedAt": "2026-09-05T12:41:07.989Z"
-    },
-    {
-      "name": "Arc of Space - 2001 Remaster",
-      "artist": "Bruce Dickinson",
-      "url": "https://open.spotify.com/track/4GOQO8zeqIsqxsh543KOxM",
-      "image": "https://i.scdn.co/image/ab67616d00004851ee097c962bc5d566f17ce2a5",
-      "playedAt": "2026-09-05T12:36:44.378Z"
-    },
-    {
-      "name": "Não Vai Embora",
-      "artist": "Dilsinho, Luísa Sonza, Malibu",
-      "url": "https://open.spotify.com/track/28atBekPVlTdnU4M9Z7udd",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba4edb4daaba0c3cbe3527b1",
-      "playedAt": "2026-09-05T12:32:25.737Z"
-    },
-    {
-      "name": "The Road I'm On",
-      "artist": "3 Doors Down",
-      "url": "https://open.spotify.com/track/2C1m7Lw5cUpFWUkN6Tovik",
-      "image": "https://i.scdn.co/image/ab67616d0000485183c39b0d32eb4a2064e1e228",
-      "playedAt": "2026-09-05T12:28:31.667Z"
-    },
-    {
-      "name": "Quando o sol se for",
-      "artist": "Detonautas",
-      "url": "https://open.spotify.com/track/6Sk1mETx99njkPH3MIRTn3",
-      "image": "https://i.scdn.co/image/ab67616d000048511b9e4b10c8b3cd46c0b2c544",
-      "playedAt": "2026-09-05T12:24:08.127Z"
     }
   ],
   "topTracks": {
@@ -83,31 +83,31 @@
       },
       {
         "rank": 4,
-        "name": "Dead Embryonic Cells",
-        "artist": "Sepultura",
-        "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
-        "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a"
-      },
-      {
-        "rank": 5,
         "name": "As Lembranças Vão Na Mala - Ao Vivo",
         "artist": "Luan Santana",
         "url": "https://open.spotify.com/track/3wE5I38zERsb3c2qBbCj2t",
         "image": "https://i.scdn.co/image/ab67616d000048518d83dd1020d75ac13efde1ca"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
+      },
+      {
+        "rank": 7,
+        "name": "Lovers on the Sun (feat. Sam Martin)",
+        "artist": "David Guetta, Sam Martin",
+        "url": "https://open.spotify.com/track/2rgtCOVK2tpfao2VjURn84",
+        "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8"
       },
       {
         "rank": 8,

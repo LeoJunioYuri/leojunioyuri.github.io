@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-06T19:43:58.559Z",
+  "updatedAt": "2026-09-07T01:48:22.603Z",
   "tracks": [
+    {
+      "name": "She Wolf (Falling to Pieces) [feat. Sia]",
+      "artist": "David Guetta, Sia",
+      "url": "https://open.spotify.com/track/1SgdUjvppHnIp6L7DZSnwc",
+      "image": "https://i.scdn.co/image/ab67616d0000485163bf1cd36632031eb3081cb0",
+      "playedAt": "2026-09-06T22:23:55.622Z"
+    },
     {
       "name": "Sweet Nothing (feat. Florence Welch)",
       "artist": "Calvin Harris, Florence Welch",
@@ -49,100 +56,93 @@
       "url": "https://open.spotify.com/track/7EN5Tmn6PRBM7HmrptJWU8",
       "image": "https://i.scdn.co/image/ab67616d00004851ec4ba667954c2de7d5c280ec",
       "playedAt": "2026-09-06T15:31:01.076Z"
-    },
-    {
-      "name": "Seguindo Estrelas",
-      "artist": "Os Paralamas Do Sucesso",
-      "url": "https://open.spotify.com/track/00uUuooilyT1iTQvhDiVIU",
-      "image": "https://i.scdn.co/image/ab67616d000048512ba35216ed86c007d6bbd213",
-      "playedAt": "2026-09-05T12:53:21.964Z"
     }
   ],
   "topTracks": {
     "short": [
       {
         "rank": 1,
-        "name": "In And Out Of Love",
-        "artist": "Armin van Buuren, Sharon Den Adel",
-        "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
-        "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00"
-      },
-      {
-        "rank": 2,
         "name": "Midnight Sky",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/4i2qxFEVVUi8yOYoxB8TCX",
         "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d"
       },
       {
-        "rank": 3,
+        "rank": 2,
         "name": "Blue Jeans",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/4ANim4YPlz5nVInrXdx2xr",
         "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "name": "As Lembranças Vão Na Mala - Ao Vivo",
         "artist": "Luan Santana",
         "url": "https://open.spotify.com/track/3wE5I38zERsb3c2qBbCj2t",
         "image": "https://i.scdn.co/image/ab67616d000048518d83dd1020d75ac13efde1ca"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Lovers on the Sun (feat. Sam Martin)",
         "artist": "David Guetta, Sam Martin",
         "url": "https://open.spotify.com/track/2rgtCOVK2tpfao2VjURn84",
         "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "The Sentinel",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
         "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "After Hours",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
         "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "To Live is to Die",
         "artist": "Metallica",
         "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
         "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Papercut",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1Vej0qeQ3ioKwpI6FUbRv1",
         "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
+      },
+      {
+        "rank": 12,
+        "name": "Falling Again",
+        "artist": "Lacuna Coil",
+        "url": "https://open.spotify.com/track/1M3h1uXXNSG5wAjErb1Y15",
+        "image": "https://i.scdn.co/image/ab67616d000048514b5bba6ef5d2918b38afbfa9"
       }
     ],
     "medium": [

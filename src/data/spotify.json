@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-09-08T10:15:32.082Z",
+  "updatedAt": "2026-09-08T15:37:47.353Z",
   "tracks": [
+    {
+      "name": "Primeiros Erros (Chove) (feat. Kiko Zambianchi) - Ao Vivo",
+      "artist": "Capital Inicial, Kiko Zambianchi",
+      "url": "https://open.spotify.com/track/2IcsM3hXMRpN6ZGEvwdqxU",
+      "image": "https://i.scdn.co/image/ab67616d00004851839988017983f54cf85b836a",
+      "playedAt": "2026-09-08T11:42:18.633Z"
+    },
+    {
+      "name": "Eu Que Não Amo Você",
+      "artist": "Engenheiros Do Hawaii",
+      "url": "https://open.spotify.com/track/5pC8VHYhJtc5Zt8fM9jwUw",
+      "image": "https://i.scdn.co/image/ab67616d0000485193c3690d18f342840e5ed3ac",
+      "playedAt": "2026-09-08T11:38:13.868Z"
+    },
+    {
+      "name": "Não É Normal - Live",
+      "artist": "NX Zero",
+      "url": "https://open.spotify.com/track/3br21rcINa9R0gq1dgyD3z",
+      "image": "https://i.scdn.co/image/ab67616d00004851345f72a8006f946541fcb907",
+      "playedAt": "2026-09-08T11:33:47.304Z"
+    },
+    {
+      "name": "Razões E Emoções",
+      "artist": "NX Zero",
+      "url": "https://open.spotify.com/track/0kpyiEcH82ni9TuuZYxKzL",
+      "image": "https://i.scdn.co/image/ab67616d00004851aa591b352cc8c0966a81dbd8",
+      "playedAt": "2026-09-08T11:29:52.801Z"
+    },
     {
       "name": "Yosemite",
       "artist": "Lana Del Rey",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/1RPsOAaHaRu8JlVdeaciuL",
       "image": "https://i.scdn.co/image/ab67616d000048516946deb6f548e464b385ee0e",
       "playedAt": "2026-09-08T05:09:11.478Z"
-    },
-    {
-      "name": "Money Power Glory",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/7Ms58r8G6Y0r1XLtpwoGxN",
-      "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f",
-      "playedAt": "2026-09-08T05:04:45.778Z"
-    },
-    {
-      "name": "Cinnamon Girl",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/2mdEsXPu8ZmkHRRtAdC09e",
-      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-09-08T05:00:14.569Z"
-    },
-    {
-      "name": "California",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/7oTE1KmtU2ml9zBhv9Reao",
-      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-09-08T04:41:36.377Z"
-    },
-    {
-      "name": "Blue Jeans - Remastered 2011",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/10phyolyNLD2NXl0l2ou2x",
-      "image": "https://i.scdn.co/image/ab67616d00004851d9f65b386758b99b283f1d93",
-      "playedAt": "2026-09-08T04:36:14.711Z"
     }
   ],
   "topTracks": {
@@ -311,10 +311,10 @@
       },
       {
         "rank": 12,
-        "name": "Over Each Other",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+        "name": "Pretty When You Cry",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/6PnluwP0fjGnpIBsqTdUTq",
+        "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
       }
     ]
   }

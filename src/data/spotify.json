@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-09T02:04:51.051Z",
+  "updatedAt": "2026-09-09T10:21:11.804Z",
   "tracks": [
+    {
+      "name": "Restless",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/3BwU2MOfODibVdFDjOW63r",
+      "image": "https://i.scdn.co/image/ab67616d000048518486ef2cac272d002e305496",
+      "playedAt": "2026-09-09T04:13:10.187Z"
+    },
     {
       "name": "Poppaea",
       "artist": "Theatre Of Tragedy",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/2TKc6BZKpeGTtNJnFw7dsf",
       "image": "https://i.scdn.co/image/ab67616d000048515a9a3f84815fedffe6943252",
       "playedAt": "2026-09-08T23:45:11.386Z"
-    },
-    {
-      "name": "Canvas of Life",
-      "artist": "Epica",
-      "url": "https://open.spotify.com/track/4Rm5PyaNysdcALm8964qsm",
-      "image": "https://i.scdn.co/image/ab67616d000048515b638d1717948a63ad548349",
-      "playedAt": "2026-09-08T23:40:21.142Z"
     }
   ],
   "topTracks": {

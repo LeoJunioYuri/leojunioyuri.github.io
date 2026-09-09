@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-09T15:31:43.737Z",
+  "updatedAt": "2026-09-09T20:10:30.397Z",
   "tracks": [
     {
-      "name": "Prisoner (feat. Dua Lipa)",
-      "artist": "Miley Cyrus, Dua Lipa",
-      "url": "https://open.spotify.com/track/2Oycxb8QbPkpHTo8ZrmG0B",
+      "name": "Animals",
+      "artist": "Maroon 5",
+      "url": "https://open.spotify.com/track/2bL2gyO6kBdLkNSkxXNh6x",
+      "image": "https://i.scdn.co/image/ab67616d00004851442b53773d50e1b5369bb16c",
+      "playedAt": "2026-09-09T20:04:25.808Z"
+    },
+    {
+      "name": "Ordinary",
+      "artist": "Alex Warren",
+      "url": "https://open.spotify.com/track/2RkZ5LkEzeHGRsmDqKwmaJ",
+      "image": "https://i.scdn.co/image/ab67616d000048518d18d73bbfc8985d52865edf",
+      "playedAt": "2026-09-09T20:00:34.251Z"
+    },
+    {
+      "name": "White Flag",
+      "artist": "Dido",
+      "url": "https://open.spotify.com/track/6si71supnBUhddjR2FJc2L",
+      "image": "https://i.scdn.co/image/ab67616d00004851d41b79f27ef8d8df5a191219",
+      "playedAt": "2026-09-09T19:57:26.743Z"
+    },
+    {
+      "name": "Where Have You Been",
+      "artist": "Rihanna",
+      "url": "https://open.spotify.com/track/5WQQIDU3HRaMyPkob8mpFb",
+      "image": "https://i.scdn.co/image/ab67616d00004851bef074de9ca825bddaeb9f46",
+      "playedAt": "2026-09-09T19:51:08.024Z"
+    },
+    {
+      "name": "Hate Me",
+      "artist": "Miley Cyrus",
+      "url": "https://open.spotify.com/track/0rFcav2bUNH6NC9576Viiu",
       "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d",
-      "playedAt": "2026-09-09T15:28:49.321Z"
+      "playedAt": "2026-09-09T19:47:04.802Z"
     },
     {
-      "name": "Young And Beautiful",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/2nMeu6UenVvwUktBCpLMK9",
-      "image": "https://i.scdn.co/image/ab67616d00004851d7fb3e4c63020039d1cff6b2",
-      "playedAt": "2026-09-09T15:25:42.344Z"
+      "name": "Club Can't Handle Me (feat. David Guetta)",
+      "artist": "Flo Rida, David Guetta",
+      "url": "https://open.spotify.com/track/6ebkx7Q5tTxrCxKq4GYj0Y",
+      "image": "https://i.scdn.co/image/ab67616d000048511dec5cdebb0ea9b3df5fd0ca",
+      "playedAt": "2026-09-09T19:44:26.482Z"
     },
     {
-      "name": "Elastic Heart",
-      "artist": "Sia",
-      "url": "https://open.spotify.com/track/6kwAbEjseqBob48jCus7Sz",
-      "image": "https://i.scdn.co/image/ab67616d000048515d199c9f6e6562aafa5aa357",
-      "playedAt": "2026-09-09T15:21:16.598Z"
+      "name": "IDGAF",
+      "artist": "Dua Lipa",
+      "url": "https://open.spotify.com/track/0QUM7hk4Koc6oyUGKmtik9",
+      "image": "https://i.scdn.co/image/ab67616d000048518bd7c90e2316fc02b6416b35",
+      "playedAt": "2026-09-09T19:36:52.609Z"
     },
     {
-      "name": "We Can't Stop",
-      "artist": "Miley Cyrus",
-      "url": "https://open.spotify.com/track/2y4lAQpi5VTNLu2ldeTdUH",
-      "image": "https://i.scdn.co/image/ab67616d00004851c19a3bef3b59347c8070770b",
-      "playedAt": "2026-09-09T15:16:54.565Z"
-    },
-    {
-      "name": "I Hate This Part",
-      "artist": "The Pussycat Dolls",
-      "url": "https://open.spotify.com/track/3tSuRiNgJmMqmYR23dCqnR",
-      "image": "https://i.scdn.co/image/ab67616d000048516d87f7b4c9ef7218c07df53c",
-      "playedAt": "2026-09-09T15:13:02.786Z"
-    },
-    {
-      "name": "When I Look At You",
-      "artist": "Miley Cyrus",
-      "url": "https://open.spotify.com/track/6ZfXA2xakAvphXOSOJ3u1W",
-      "image": "https://i.scdn.co/image/ab67616d000048514ea6653890e297d53e93e3e0",
-      "playedAt": "2026-09-09T15:13:02.718Z"
-    },
-    {
-      "name": "Simple Man",
-      "artist": "Lynyrd Skynyrd",
-      "url": "https://open.spotify.com/track/1ju7EsSGvRybSNEsRvc7qY",
-      "image": "https://i.scdn.co/image/ab67616d00004851128450651c9f0442780d8eb8",
-      "playedAt": "2026-09-09T15:04:23.768Z"
-    },
-    {
-      "name": "Paint It, Black",
-      "artist": "The Rolling Stones",
-      "url": "https://open.spotify.com/track/63T7DJ1AFDD6Bn8VzG6JE8",
-      "image": "https://i.scdn.co/image/ab67616d00004851bad7062c3fd2f2d037989694",
-      "playedAt": "2026-09-09T12:21:53.585Z"
+      "name": "Because of You",
+      "artist": "Kelly Clarkson",
+      "url": "https://open.spotify.com/track/0gJvqi9QyASOCtJu99tytc",
+      "image": "https://i.scdn.co/image/ab67616d00004851158c72ad0003cb37ca0c9eff",
+      "playedAt": "2026-09-09T19:33:13.895Z"
     }
   ],
   "topTracks": {
@@ -97,52 +97,52 @@
       },
       {
         "rank": 6,
-        "name": "Lovers on the Sun (feat. Sam Martin)",
-        "artist": "David Guetta, Sam Martin",
-        "url": "https://open.spotify.com/track/2rgtCOVK2tpfao2VjURn84",
-        "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8"
+        "name": "Stay",
+        "artist": "Miley Cyrus",
+        "url": "https://open.spotify.com/track/0Ohi2pjBS1yak2BSgJRaIs",
+        "image": "https://i.scdn.co/image/ab67616d00004851478199f575bbfd53cda89090"
       },
       {
         "rank": 7,
+        "name": "Prisoner (feat. Dua Lipa)",
+        "artist": "Miley Cyrus, Dua Lipa",
+        "url": "https://open.spotify.com/track/2Oycxb8QbPkpHTo8ZrmG0B",
+        "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d"
+      },
+      {
+        "rank": 8,
         "name": "The Sentinel",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
         "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       },
       {
-        "rank": 8,
+        "rank": 9,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 9,
+        "rank": 10,
+        "name": "Never Be Me",
+        "artist": "Miley Cyrus",
+        "url": "https://open.spotify.com/track/1M7qLcfozANPcMKfgMEHOt",
+        "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d"
+      },
+      {
+        "rank": 11,
         "name": "After Hours",
         "artist": "The Weeknd",
         "url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
         "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36"
       },
       {
-        "rank": 10,
+        "rank": 12,
         "name": "No Lonelier Star",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 11,
-        "name": "To Live is to Die",
-        "artist": "Metallica",
-        "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
-        "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885"
-      },
-      {
-        "rank": 12,
-        "name": "Papercut",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/1Vej0qeQ3ioKwpI6FUbRv1",
-        "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
       }
     ],
     "medium": [
@@ -162,16 +162,16 @@
       },
       {
         "rank": 3,
-        "name": "Dishearten",
+        "name": "Rivers Between Us",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
+        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 4,
-        "name": "Rivers Between Us",
+        "name": "Dishearten",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
+        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
@@ -183,17 +183,17 @@
       },
       {
         "rank": 6,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 7,
         "name": "Far Horizons",
         "artist": "Jeremy Soule, The Elder Scrolls",
         "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
         "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
+      },
+      {
+        "rank": 7,
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
         "rank": 8,
@@ -218,17 +218,17 @@
       },
       {
         "rank": 11,
-        "name": "Blue Jeans",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/4ANim4YPlz5nVInrXdx2xr",
-        "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
-      },
-      {
-        "rank": 12,
         "name": "Bless The Child",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/6Z2MwbeouGY1vsLiJfviti",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
+      },
+      {
+        "rank": 12,
+        "name": "The Sentinel",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       }
     ],
     "long": [
@@ -262,31 +262,31 @@
       },
       {
         "rank": 5,
+        "name": "No Lonelier Star",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 6,
         "name": "Stained",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/0J1IJsMbKWb5g2sJArTkGF",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "name": "Cut the Bridge",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 8,
-        "name": "No Lonelier Star",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 9,

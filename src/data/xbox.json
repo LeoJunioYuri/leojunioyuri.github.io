@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-09-09T20:10:39.455Z",
+  "updatedAt": "2026-09-10T02:01:27.007Z",
   "recent": [
+    {
+      "name": "Call of Duty: Modern Warfare II",
+      "titleId": "2046748982",
+      "lastPlayed": "2026-09-10T01:56:20.6866069Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcPnMMVV2S.gki47PXDl6PGFry1y6xFwsSaZktSJ.4N.CzR05PgjCZe33QZ5zwJqTI.bN5L01GcNv1vMfduHIN9w--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/2046748982"
+    },
     {
       "name": "Counter-Strike 2",
       "titleId": "2076696971",
@@ -24,14 +32,6 @@
       "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKBDd29XwvB8IeLHBOGxr0X773.93tldyMe_l6Dia9sf1HAQZM9fP5Me2EuGVCS3aVMzt93X3fwem0H5Gp67Q9Rw--",
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1664882211"
-    },
-    {
-      "name": "Call of Duty: Modern Warfare II",
-      "titleId": "2046748982",
-      "lastPlayed": "2026-07-27T00:16:16.4225759Z",
-      "image": "https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcPnMMVV2S.gki47PXDl6PGFry1y6xFwsSaZktSJ.4N.CzR05PgjCZe33QZ5zwJqTI.bN5L01GcNv1vMfduHIN9w--",
-      "gamerscore": 0,
-      "url": "https://www.xbox.com/games/store/-/2046748982"
     },
     {
       "name": "It Takes Two",

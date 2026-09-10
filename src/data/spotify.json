@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-10T15:27:10.375Z",
+  "updatedAt": "2026-09-10T20:12:34.765Z",
   "tracks": [
+    {
+      "name": "Lord Knows (feat. Tory Lanez)",
+      "artist": "Meek Mill, Tony Lanez",
+      "url": "https://open.spotify.com/track/6KDa64fYnyVS0kbVeRHNUF",
+      "image": "https://i.scdn.co/image/ab67616d00004851240501e829a9a109600cedd2",
+      "playedAt": "2026-09-10T17:12:49.516Z"
+    },
     {
       "name": "Rainmaker - 2015 Remaster",
       "artist": "Iron Maiden",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/4q9YY8eorYGjpjk3Zko7l9",
       "image": "https://i.scdn.co/image/ab67616d00004851e1c50403652529dccf16f84c",
       "playedAt": "2026-09-10T14:11:42.882Z"
-    },
-    {
-      "name": "Heart of Pandaria",
-      "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
-      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
-      "playedAt": "2026-09-10T14:02:25.199Z"
     }
   ],
   "topTracks": {
@@ -311,10 +311,10 @@
       },
       {
         "rank": 12,
-        "name": "Pretty When You Cry",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/6PnluwP0fjGnpIBsqTdUTq",
-        "image": "https://i.scdn.co/image/ab67616d000048511624590458126fc8b8c64c2f"
+        "name": "Over Each Other",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       }
     ]
   }

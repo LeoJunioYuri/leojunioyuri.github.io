@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-09-10T02:01:17.224Z",
+  "updatedAt": "2026-09-10T10:13:50.947Z",
   "tracks": [
+    {
+      "name": "Kyne's Peace",
+      "artist": "London Symphony Orchestra, London Voices, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/2DTfv9aSTrdvVdVHRiOJKH",
+      "image": "https://i.scdn.co/image/ab67616d000048514db3c67f42301a077de6bac4",
+      "playedAt": "2026-09-10T05:20:01.944Z"
+    },
+    {
+      "name": "The City Gates",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5Pz3hPxKVi1CMsqz2IJ2Ip",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-09-10T05:16:02.712Z"
+    },
+    {
+      "name": "Far Horizons",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-09-10T05:12:16.171Z"
+    },
+    {
+      "name": "The Heaviest Matter of the Universe",
+      "artist": "Gojira",
+      "url": "https://open.spotify.com/track/2pZsQqXFgcY03vRyZxSQhU",
+      "image": "https://i.scdn.co/image/ab67616d0000485177f30d6531bfdeb33c1fccbf",
+      "playedAt": "2026-09-10T05:07:39.773Z"
+    },
+    {
+      "name": "Casualty",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7BkzAHnNW7WfrT4NcLaUDx",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-09-10T01:38:31.935Z"
+    },
     {
       "name": "The Evil That Men Do - 2015 Remaster",
       "artist": "Iron Maiden",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/13Uvqll8OQDjw3wDweIK9y",
       "image": "https://i.scdn.co/image/ab67616d00004851f5802466e1bc84cdf51d97e2",
       "playedAt": "2026-09-10T00:53:02.651Z"
-    },
-    {
-      "name": "Like a Stone",
-      "artist": "Audioslave",
-      "url": "https://open.spotify.com/track/2xt2piJx6jlFkjS77YiqpL",
-      "image": "https://i.scdn.co/image/ab67616d000048514d94e1251b7e8c5e247de39c",
-      "playedAt": "2026-09-10T00:45:05.852Z"
-    },
-    {
-      "name": "Crawling",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/57BrRMwf9LrcmuOsyGilwr",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-09-10T00:40:11.355Z"
-    },
-    {
-      "name": "Hallowed Be Thy Name - 2015 Remaster",
-      "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/469rBLYJUZHMJLtq2Wch3h",
-      "image": "https://i.scdn.co/image/ab67616d000048515c29a88ba5341ca428f0c322",
-      "playedAt": "2026-09-10T00:35:09.677Z"
-    },
-    {
-      "name": "Over Each Other",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-09-09T23:55:14.301Z"
-    },
-    {
-      "name": "Heavy Is the Crown",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/2HBBM75Xv3o2Mqdyh1NcM0",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-09-09T23:52:23.901Z"
     }
   ],
   "topTracks": {

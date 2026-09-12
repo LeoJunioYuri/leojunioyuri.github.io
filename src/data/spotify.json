@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-12T14:36:39.533Z",
+  "updatedAt": "2026-09-12T19:50:41.401Z",
   "tracks": [
+    {
+      "name": "Everything I Do Is For You",
+      "artist": "Amira Elfeky",
+      "url": "https://open.spotify.com/track/1BO9znQb8BbJ5W8KPAqgWE",
+      "image": "https://i.scdn.co/image/ab67616d00004851fdace11ba09ecfd39d50941e",
+      "playedAt": "2026-09-12T19:45:13.686Z"
+    },
+    {
+      "name": "You Know What They Do to Guys Like Us in Prison",
+      "artist": "My Chemical Romance",
+      "url": "https://open.spotify.com/track/5bTuwAgYUD5MABOIPH8ZMt",
+      "image": "https://i.scdn.co/image/ab67616d00004851cab7ae4868e9f9ce6bdfdf43",
+      "playedAt": "2026-09-12T19:44:22.181Z"
+    },
+    {
+      "name": "Misery Business",
+      "artist": "Paramore",
+      "url": "https://open.spotify.com/track/3l9CW99AHtExIRV4hW2N5m",
+      "image": "https://i.scdn.co/image/ab67616d0000485169966efa45b125ed6711b43c",
+      "playedAt": "2026-09-12T19:39:37.074Z"
+    },
+    {
+      "name": "Decode",
+      "artist": "Paramore",
+      "url": "https://open.spotify.com/track/1ZLtE9tSJdaUiIJ9YoKHQe",
+      "image": "https://i.scdn.co/image/ab67616d00004851b236d0eae2659e7e7adb8b56",
+      "playedAt": "2026-09-12T19:35:26.607Z"
+    },
+    {
+      "name": "Russian Roulette",
+      "artist": "Rihanna",
+      "url": "https://open.spotify.com/track/3rMsX63C0IZVnOT5LGYoTH",
+      "image": "https://i.scdn.co/image/ab67616d00004851ab647295c0c97446c1f1a3b5",
+      "playedAt": "2026-09-12T15:49:01.749Z"
+    },
+    {
+      "name": "Rehab",
+      "artist": "Rihanna",
+      "url": "https://open.spotify.com/track/5X3ahLXhOw16BR09GjYPUT",
+      "image": "https://i.scdn.co/image/ab67616d00004851f9f27162ab1ed45b8d7a7e98",
+      "playedAt": "2026-09-12T15:45:13.707Z"
+    },
+    {
+      "name": "Dusk Mariner",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/1Dv0vr4r9eNBu3N6cv8JkD",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-09-12T15:40:08.520Z"
+    },
     {
       "name": "No Lonelier Star",
       "artist": "Draconian",
       "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
       "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
       "playedAt": "2026-09-12T03:04:01.012Z"
-    },
-    {
-      "name": "Stellar Tombs",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-12T02:56:10.707Z"
-    },
-    {
-      "name": "Pale Tortured Blue",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-12T02:50:08.390Z"
-    },
-    {
-      "name": "White Sparrows",
-      "artist": "Billy Talent",
-      "url": "https://open.spotify.com/track/4c7AiatyOtwNmeUuKswBkY",
-      "image": "https://i.scdn.co/image/ab67616d000048517fd1237085e6617487d43c3f",
-      "playedAt": "2026-09-12T02:43:46.304Z"
-    },
-    {
-      "name": "My Heart Is Broken",
-      "artist": "Evanescence",
-      "url": "https://open.spotify.com/track/1Ej0xptDBpBxUM1dIPcHlm",
-      "image": "https://i.scdn.co/image/ab67616d00004851a694061dd2dead2b4b043a8d",
-      "playedAt": "2026-09-12T02:12:00.376Z"
-    },
-    {
-      "name": "Over Again - Remastered",
-      "artist": "Mike Shinoda",
-      "url": "https://open.spotify.com/track/5twLwGe4Ov9hjuTEeghAw5",
-      "image": "https://i.scdn.co/image/ab67616d000048518c03cf97818d390d723ef1a9",
-      "playedAt": "2026-09-12T02:07:05.669Z"
-    },
-    {
-      "name": "Devil's Drop",
-      "artist": "Chester Bennington, Dave Farrell, Joe Hahn, Mike Shinoda, Alec Puro",
-      "url": "https://open.spotify.com/track/3w7M1q1wFiANCmJdjwApLR",
-      "image": "https://i.scdn.co/image/ab67616d00004851c716ab3bb4c4648e4763da70",
-      "playedAt": "2026-09-12T02:03:14.803Z"
-    },
-    {
-      "name": "IGYEIH",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-09-12T02:00:14.011Z"
     }
   ],
   "topTracks": {

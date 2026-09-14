@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-09-13T19:59:05.774Z",
+  "updatedAt": "2026-09-14T02:17:46.045Z",
   "tracks": [
+    {
+      "name": "Lemuria",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/0lWYqPPmSQ0LIY4nN29QAl",
+      "image": "https://i.scdn.co/image/ab67616d00004851d034933389cdb3f6794daa49",
+      "playedAt": "2026-09-13T22:09:37.266Z"
+    },
+    {
+      "name": "The Rise of Sodom and Gomorrah",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/6e3NycWM7ZokZgeUR1CpNj",
+      "image": "https://i.scdn.co/image/ab67616d00004851f44c29e35047155c1c46651a",
+      "playedAt": "2026-09-13T22:05:21.361Z"
+    },
+    {
+      "name": "Bring Forth Ye Shadow",
+      "artist": "Theatre Of Tragedy",
+      "url": "https://open.spotify.com/track/30Uer0M1IpdYJ20KdhH6A1",
+      "image": "https://i.scdn.co/image/ab67616d000048510d50567beb34f578132bcd4a",
+      "playedAt": "2026-09-13T21:58:35.283Z"
+    },
+    {
+      "name": "Son of the Sun",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/4A4QQVNdJeSB4ypf0DS9Sa",
+      "image": "https://i.scdn.co/image/ab67616d00004851d4ab2c5a120e944f565e90f4",
+      "playedAt": "2026-09-13T21:51:45.838Z"
+    },
+    {
+      "name": "Purify",
+      "artist": "Lacuna Coil",
+      "url": "https://open.spotify.com/track/0hpTxcKVbKWP1b629LVrrc",
+      "image": "https://i.scdn.co/image/ab67616d000048519b66bf035395b61634b63a11",
+      "playedAt": "2026-09-13T21:46:10.899Z"
+    },
+    {
+      "name": "The Burning Legion [Main Title]",
+      "artist": "Russell Brower, Jason Hayes, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/1riGMCxdAEU2CukCIKhkVx",
+      "image": "https://i.scdn.co/image/ab67616d0000485149f7720a05ae123fda060ad5",
+      "playedAt": "2026-09-13T21:45:40.602Z"
+    },
     {
       "name": "When I Look At You",
       "artist": "Miley Cyrus",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/3XlL9HJLtZlCK0w4RbSSTA",
       "image": "https://i.scdn.co/image/ab67616d00004851f150d86083280efbfdddd41e",
       "playedAt": "2026-09-13T16:58:51.048Z"
-    },
-    {
-      "name": "Cry with a Smile",
-      "artist": "After Forever",
-      "url": "https://open.spotify.com/track/4vqSuCcEfs8ZExSg7Abr3R",
-      "image": "https://i.scdn.co/image/ab67616d00004851a6b4bfe0328a5117656311ac",
-      "playedAt": "2026-09-13T16:55:19.106Z"
-    },
-    {
-      "name": "Sing For The Moment",
-      "artist": "Eminem",
-      "url": "https://open.spotify.com/track/3CpoeW0cZSDzIRv5z34F87",
-      "image": "https://i.scdn.co/image/ab67616d000048516ca5c90113b30c3c43ffb8f4",
-      "playedAt": "2026-09-13T16:50:52.986Z"
-    },
-    {
-      "name": "In And Out Of Love",
-      "artist": "Armin van Buuren, Sharon Den Adel",
-      "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
-      "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00",
-      "playedAt": "2026-09-13T16:45:12.911Z"
-    },
-    {
-      "name": "You",
-      "artist": "Breaking Benjamin",
-      "url": "https://open.spotify.com/track/5MNxNuo0XSHx7MPXbsR57W",
-      "image": "https://i.scdn.co/image/ab67616d000048517a3d77a6bd0814a5998f7749",
-      "playedAt": "2026-09-13T16:42:10.703Z"
-    },
-    {
-      "name": "The Power Of One",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/312Mb9DllXJWdKdNTZPXhO",
-      "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15",
-      "playedAt": "2026-09-13T16:38:48.209Z"
-    },
-    {
-      "name": "Don't Say a Word",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/5aRVv8wTe1qs4desPEpPoI",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-09-13T16:27:14.605Z"
     }
   ],
   "topTracks": {
@@ -69,52 +69,52 @@
       },
       {
         "rank": 2,
-        "name": "The Emptiness Machine",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 3,
         "name": "As Lembranças Vão Na Mala - Ao Vivo",
         "artist": "Luan Santana",
         "url": "https://open.spotify.com/track/3wE5I38zERsb3c2qBbCj2t",
         "image": "https://i.scdn.co/image/ab67616d000048518d83dd1020d75ac13efde1ca"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "name": "Music",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/49LQq6RoFTWFk5d6hBGEKt",
         "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 6,
+        "rank": 5,
         "name": "No Lonelier Star",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Stay",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/0Ohi2pjBS1yak2BSgJRaIs",
         "image": "https://i.scdn.co/image/ab67616d00004851478199f575bbfd53cda89090"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "When I Look At You",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/6ZfXA2xakAvphXOSOJ3u1W",
         "image": "https://i.scdn.co/image/ab67616d000048514ea6653890e297d53e93e3e0"
+      },
+      {
+        "rank": 8,
+        "name": "The Emptiness Machine",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
         "rank": 9,

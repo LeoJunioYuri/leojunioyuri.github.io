@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-09-14T11:12:10.768Z",
+  "updatedAt": "2026-09-14T17:13:12.269Z",
   "tracks": [
+    {
+      "name": "Points of Authority / 99 Problems / One Step Closer",
+      "artist": "JAŸ-Z, Linkin Park",
+      "url": "https://open.spotify.com/track/65eohvrL4ttjA7EfFkQOhX",
+      "image": "https://i.scdn.co/image/ab67616d00004851d3acd0f2186daa8e4cb0f65b",
+      "playedAt": "2026-09-14T13:15:30.782Z"
+    },
+    {
+      "name": "The Red",
+      "artist": "Chevelle",
+      "url": "https://open.spotify.com/track/1gyee1JuFFiP476LQpRMYU",
+      "image": "https://i.scdn.co/image/ab67616d00004851bd444869348f556430c21890",
+      "playedAt": "2026-09-14T13:10:25.864Z"
+    },
+    {
+      "name": "Passive",
+      "artist": "A Perfect Circle",
+      "url": "https://open.spotify.com/track/7slyp653Si99N4yQcJ2E9T",
+      "image": "https://i.scdn.co/image/ab67616d00004851b899c5d781cdb8bd0788b27f",
+      "playedAt": "2026-09-14T13:05:59.098Z"
+    },
+    {
+      "name": "Coma White",
+      "artist": "Marilyn Manson",
+      "url": "https://open.spotify.com/track/4h7KTxO9eS389M2qG3jm6O",
+      "image": "https://i.scdn.co/image/ab67616d0000485148f31f0d658ebfb9a049769e",
+      "playedAt": "2026-09-14T13:01:47.689Z"
+    },
+    {
+      "name": "For Whom The Bell Tolls - Remastered",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/2dXsILW8gzkosqleHAvl0v",
+      "image": "https://i.scdn.co/image/ab67616d000048519ad3e9959f48d513886b8933",
+      "playedAt": "2026-09-14T12:54:54.590Z"
+    },
+    {
+      "name": "Way down We Go",
+      "artist": "KALEO",
+      "url": "https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6",
+      "image": "https://i.scdn.co/image/ab67616d00004851f793a842c1642b09a768a63b",
+      "playedAt": "2026-09-14T12:39:49.471Z"
+    },
     {
       "name": "Andante Agitato - End Credits - “The Raid”",
       "artist": "Nicholas Britell",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/2MhsbNixSxMiitxzlFR22o",
       "image": "https://i.scdn.co/image/ab67616d000048516625df9dd2582bcdb50e7596",
       "playedAt": "2026-09-14T04:11:42.399Z"
-    },
-    {
-      "name": "Asgard Hall of the Aesir (feat. Einar Selvik)",
-      "artist": "Sarah Schachner, Assassin's Creed, Einar Selvik",
-      "url": "https://open.spotify.com/track/2RZHKpTUL6QfHGrjCwk5dd",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-09-14T04:09:19.604Z"
-    },
-    {
-      "name": "Life's Incredible Again",
-      "artist": "Michael Giacchino",
-      "url": "https://open.spotify.com/track/45MllV1fJos1Ef6Cd13H2E",
-      "image": "https://i.scdn.co/image/ab67616d0000485176e95701026bb120b4f6689f",
-      "playedAt": "2026-09-14T04:05:51.107Z"
-    },
-    {
-      "name": "My Name Is Barbossa",
-      "artist": "Geoff Zanelli",
-      "url": "https://open.spotify.com/track/5dUQ00lCQ8IPMs149DIdhf",
-      "image": "https://i.scdn.co/image/ab67616d000048512ad539dc7450095a86288f82",
-      "playedAt": "2026-09-14T04:04:26.432Z"
-    },
-    {
-      "name": "Unity",
-      "artist": "Chris Tilton, Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/6CCSx1l8MtYwQK2eMBnVjA",
-      "image": "https://i.scdn.co/image/ab67616d00004851d43d53acb4d4f039438c9a9e",
-      "playedAt": "2026-09-14T03:58:52.386Z"
-    },
-    {
-      "name": "Leaving Valhalla",
-      "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/3Ehr8sErsyXW6ymhHyF3jk",
-      "image": "https://i.scdn.co/image/ab67616d00004851d4f1f4a36dd76c7715e9ad2a",
-      "playedAt": "2026-09-14T03:52:32.365Z"
-    },
-    {
-      "name": "A Land of War and Poetry (feat. Jeremy Soule)",
-      "artist": "Brad Derrick, Jeremy Soule",
-      "url": "https://open.spotify.com/track/4wNhTgJbhVvbijqd1L4azW",
-      "image": "https://i.scdn.co/image/ab67616d00004851a7e8bb34c84093c0211881cc",
-      "playedAt": "2026-09-14T03:43:15.086Z"
     }
   ],
   "topTracks": {

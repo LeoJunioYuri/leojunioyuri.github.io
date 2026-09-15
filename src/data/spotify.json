@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T02:23:23.216Z",
+  "updatedAt": "2026-09-15T10:39:51.164Z",
   "tracks": [
     {
       "name": "The Marriage of Attaris",
@@ -155,16 +155,16 @@
       },
       {
         "rank": 2,
-        "name": "Pale Tortured Blue",
+        "name": "Rivers Between Us",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 3,
-        "name": "Rivers Between Us",
+        "name": "Pale Tortured Blue",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
+        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
@@ -183,17 +183,17 @@
       },
       {
         "rank": 6,
-        "name": "Far Horizons",
-        "artist": "Jeremy Soule, The Elder Scrolls",
-        "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
-        "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
-      },
-      {
-        "rank": 7,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
+      },
+      {
+        "rank": 7,
+        "name": "Far Horizons",
+        "artist": "Jeremy Soule, The Elder Scrolls",
+        "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
+        "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
       },
       {
         "rank": 8,
@@ -211,24 +211,24 @@
       },
       {
         "rank": 10,
+        "name": "The Wretched Tide",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 11,
         "name": "Dead To The World",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/3lY7foOrKVtDoYKUJXmkML",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Bless The Child",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/6Z2MwbeouGY1vsLiJfviti",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
-      },
-      {
-        "rank": 12,
-        "name": "The Sentinel",
-        "artist": "Judas Priest",
-        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
-        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       }
     ],
     "long": [

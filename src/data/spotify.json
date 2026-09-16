@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-09-16T02:16:51.785Z",
+  "updatedAt": "2026-09-16T10:27:55.422Z",
   "tracks": [
+    {
+      "name": "Dead Embryonic Cells",
+      "artist": "Sepultura",
+      "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
+      "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a",
+      "playedAt": "2026-09-16T03:17:51.907Z"
+    },
+    {
+      "name": "The Unforgiven III",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/0qbV4e18lWrTTxlswVoLbI",
+      "image": "https://i.scdn.co/image/ab67616d00004851f5802466e1bc84cdf51d97e2",
+      "playedAt": "2026-09-16T03:12:59.207Z"
+    },
+    {
+      "name": "The Unforgiven II",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/6nswV1Lz3OZkaiCJfmVUOa",
+      "image": "https://i.scdn.co/image/ab67616d0000485106cb74d39d123ebe1b3c6631",
+      "playedAt": "2026-09-16T03:05:12.134Z"
+    },
+    {
+      "name": "Repeat After Me (Interlude)",
+      "artist": "The Weeknd",
+      "url": "https://open.spotify.com/track/40U8d12pC5UHqmHwXjHjjl",
+      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
+      "playedAt": "2026-09-16T03:00:15.802Z"
+    },
+    {
+      "name": "The Unforgiven - Remastered 2021",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/5lqyqPU3JkpCbUbLmTVQPW",
+      "image": "https://i.scdn.co/image/ab67616d0000485176c60d2128c8e4649b85f2b2",
+      "playedAt": "2026-09-16T02:58:35.205Z"
+    },
     {
       "name": "After Hours",
       "artist": "The Weeknd",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/5QO79kh1waicV47BqGRL3g",
       "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
       "playedAt": "2026-09-15T18:34:38.490Z"
-    },
-    {
-      "name": "In Your Eyes",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/7szuecWAPwGoV1e5vGu8tl",
-      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
-      "playedAt": "2026-09-15T18:28:33.730Z"
-    },
-    {
-      "name": "Blinding Lights",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b",
-      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
-      "playedAt": "2026-09-15T18:23:57.544Z"
-    },
-    {
-      "name": "Faith",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/3orEOtd8CPL8GFlpRpKuoE",
-      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
-      "playedAt": "2026-09-15T18:20:37.592Z"
-    },
-    {
-      "name": "Heartless",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/6bnF93Rx87YqUBLSgjiMU8",
-      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
-      "playedAt": "2026-09-15T15:52:43.822Z"
-    },
-    {
-      "name": "Escape From LA",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/1sOW4PuG5X3Ie3EXUhAopJ",
-      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
-      "playedAt": "2026-09-15T15:49:25.555Z"
     }
   ],
   "topTracks": {

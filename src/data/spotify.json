@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-17T10:37:37.959Z",
+  "updatedAt": "2026-09-17T15:51:21.746Z",
   "tracks": [
+    {
+      "name": "Ma Meilleure Ennemie ft. Coldplay",
+      "artist": "Stromae, Pomme, Coldplay, Elyanna, Arcane, League of Legends",
+      "url": "https://open.spotify.com/track/1ZHvGQZNz6HLbxhAtu7pin",
+      "image": "https://i.scdn.co/image/ab67616d00004851183fc5de03ccc82fb1154774",
+      "playedAt": "2026-09-17T14:44:27.413Z"
+    },
+    {
+      "name": "CORALINE",
+      "artist": "Måneskin",
+      "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
+      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
+      "playedAt": "2026-09-17T14:40:37.596Z"
+    },
+    {
+      "name": "Earth",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/7L2YlrpcKhqeYZQDDD2AYR",
+      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
+      "playedAt": "2026-09-17T13:45:01.646Z"
+    },
+    {
+      "name": "Church and Destroy",
+      "artist": "Chris Tilton, Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/7Ib9SdY4OtYO2bj0NIh6qZ",
+      "image": "https://i.scdn.co/image/ab67616d00004851d43d53acb4d4f039438c9a9e",
+      "playedAt": "2026-09-17T13:41:02.363Z"
+    },
+    {
+      "name": "Binding Loyalties",
+      "artist": "Sarah Schachner, Assassin's Creed",
+      "url": "https://open.spotify.com/track/4WNqDrWsubytGgDhA1Nqka",
+      "image": "https://i.scdn.co/image/ab67616d000048517b6e70abec4b9741a4ea4bab",
+      "playedAt": "2026-09-17T13:37:52.205Z"
+    },
+    {
+      "name": "It Will Rain",
+      "artist": "Bruno Mars",
+      "url": "https://open.spotify.com/track/0M3HkE321xpCbCYqVKzr1q",
+      "image": "https://i.scdn.co/image/ab67616d00004851dec2e6bae5062b94fc4eeb84",
+      "playedAt": "2026-09-17T13:35:52.155Z"
+    },
+    {
+      "name": "Home in Florence",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/5bC9ituRiT6ABSrhCfTUBH",
+      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
+      "playedAt": "2026-09-17T13:27:21.985Z"
+    },
     {
       "name": "The Golden Lotus",
       "artist": "Neal Acree, World of Warcraft, Blizzard Entertainment",
       "url": "https://open.spotify.com/track/2Cqx9BA2nV4RG7lY75NSey",
       "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
       "playedAt": "2026-09-17T03:50:01.323Z"
-    },
-    {
-      "name": "Rather Death Than Slavery",
-      "artist": "Sarah Schachner, Assassin's Creed",
-      "url": "https://open.spotify.com/track/7BhQxdaXx7yyK1rceJw5ZB",
-      "image": "https://i.scdn.co/image/ab67616d000048517b6e70abec4b9741a4ea4bab",
-      "playedAt": "2026-09-17T03:48:08.079Z"
-    },
-    {
-      "name": "City of Jerusalem",
-      "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/7I9HbULEyfLxNEzJwnoU6f",
-      "image": "https://i.scdn.co/image/ab67616d00004851298bcfa5e07904af0f967e34",
-      "playedAt": "2026-09-17T03:45:51.855Z"
-    },
-    {
-      "name": "Solitude",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/5TNw4nOuqGKqeJGZWJX2xH",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-09-17T03:42:40.299Z"
-    },
-    {
-      "name": "The Sceptred Isle",
-      "artist": "Sarah Schachner, Assassin's Creed",
-      "url": "https://open.spotify.com/track/0rAZRSsKaZhtUltQAUz882",
-      "image": "https://i.scdn.co/image/ab67616d00004851d5aef6abe8e730d77254619d",
-      "playedAt": "2026-09-17T03:40:29.545Z"
-    },
-    {
-      "name": "Masser",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/6Nk21GhMyF94odL6anY2S7",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-09-17T03:38:15.678Z"
-    },
-    {
-      "name": "A World Divided",
-      "artist": "Neal Acree, Sam Cardon, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2p6yWvZWTOCQOAiqKNPwBI",
-      "image": "https://i.scdn.co/image/ab67616d0000485199c85a789b9fea1f6dad6ed8",
-      "playedAt": "2026-09-17T03:32:04.386Z"
-    },
-    {
-      "name": "I Hate Everything About You",
-      "artist": "Three Days Grace",
-      "url": "https://open.spotify.com/track/0M955bMOoilikPXwKLYpoi",
-      "image": "https://i.scdn.co/image/ab67616d000048515d4bd2c345c95e847b586403",
-      "playedAt": "2026-09-17T03:22:29.121Z"
     }
   ],
   "topTracks": {
@@ -90,59 +90,59 @@
       },
       {
         "rank": 5,
-        "name": "Music",
-        "artist": "Nightwish",
-        "url": "https://open.spotify.com/track/49LQq6RoFTWFk5d6hBGEKt",
-        "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369"
-      },
-      {
-        "rank": 6,
         "name": "Stay",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/0Ohi2pjBS1yak2BSgJRaIs",
         "image": "https://i.scdn.co/image/ab67616d00004851478199f575bbfd53cda89090"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "When I Look At You",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/6ZfXA2xakAvphXOSOJ3u1W",
         "image": "https://i.scdn.co/image/ab67616d000048514ea6653890e297d53e93e3e0"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Rivers Between Us",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "The Wretched Tide",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+      },
+      {
+        "rank": 12,
+        "name": "By Myself",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/6UzeOH4bRPzKTo2wCXMZmC",
+        "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
       }
     ],
     "medium": [

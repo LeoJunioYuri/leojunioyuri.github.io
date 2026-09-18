@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-18T02:06:44.254Z",
+  "updatedAt": "2026-09-18T10:13:29.127Z",
   "tracks": [
     {
-      "name": "Mr. Crowley",
-      "artist": "Ozzy Osbourne",
-      "url": "https://open.spotify.com/track/2ov8L95QD25TLpZAZPYWXL",
-      "image": "https://i.scdn.co/image/ab67616d000048514936b5b7caeb7524e50fd8cb",
-      "playedAt": "2026-09-17T23:18:06.133Z"
+      "name": "Stonefire",
+      "artist": "David Arkenstone, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/4QkriuiILeRNMxtvZhUiXR",
+      "image": "https://i.scdn.co/image/ab67616d00004851a19731aedfa26141548c2a03",
+      "playedAt": "2026-09-18T04:14:01.617Z"
     },
     {
-      "name": "Heavy Is the Crown",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/2HBBM75Xv3o2Mqdyh1NcM0",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-09-17T23:16:12.687Z"
+      "name": "The City Gates",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5Pz3hPxKVi1CMsqz2IJ2Ip",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-09-18T04:11:20.847Z"
     },
     {
-      "name": "The Sentinel",
-      "artist": "Judas Priest",
-      "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
-      "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2",
-      "playedAt": "2026-09-17T23:13:02.963Z"
+      "name": "City of Rome",
+      "artist": "Jesper Kyd, Assassin's Creed",
+      "url": "https://open.spotify.com/track/4m5gJuQlo2byPHRQamL6dd",
+      "image": "https://i.scdn.co/image/ab67616d00004851b25f472dbe302bb5c3bd2592",
+      "playedAt": "2026-09-18T04:07:34.282Z"
     },
     {
-      "name": "IL DONO DELLA VITA",
-      "artist": "Måneskin",
-      "url": "https://open.spotify.com/track/2Ppbl9UwcKfc7yaVgkBTNd",
-      "image": "https://i.scdn.co/image/ab67616d0000485146e72dff16a10e1b5062fdf7",
-      "playedAt": "2026-09-17T21:46:15.343Z"
+      "name": "Arno's Return",
+      "artist": "Chris Tilton, Assassin's Creed",
+      "url": "https://open.spotify.com/track/5VQhvxJOXzudh10KKoA4P5",
+      "image": "https://i.scdn.co/image/ab67616d00004851d43d53acb4d4f039438c9a9e",
+      "playedAt": "2026-09-18T04:02:01.100Z"
     },
     {
-      "name": "FOR YOUR LOVE",
-      "artist": "Måneskin",
-      "url": "https://open.spotify.com/track/3ZeyEvTgSlKajHc0fckgZT",
-      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
-      "playedAt": "2026-09-17T21:39:59.570Z"
+      "name": "Heart of Pandaria",
+      "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
+      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
+      "playedAt": "2026-09-18T04:00:19.233Z"
     },
     {
-      "name": "VENT'ANNI",
-      "artist": "Måneskin",
-      "url": "https://open.spotify.com/track/6Vfo6O3hk38vDcSpazNo3p",
-      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
-      "playedAt": "2026-09-17T21:36:08.338Z"
+      "name": "Chemical Wedding - 2001 Remaster",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/4rHBxp5ss7VnYrEo5m3Cfg",
+      "image": "https://i.scdn.co/image/ab67616d0000485124dde831c000067b7dc5d4f3",
+      "playedAt": "2026-09-18T03:52:15.309Z"
     },
     {
-      "name": "ZITTI E BUONI",
-      "artist": "Måneskin",
-      "url": "https://open.spotify.com/track/776AftMmFFAWUIEAb3lHhw",
-      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
-      "playedAt": "2026-09-17T21:31:54.238Z"
+      "name": "Arc of Space - 2001 Remaster",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/4GOQO8zeqIsqxsh543KOxM",
+      "image": "https://i.scdn.co/image/ab67616d00004851ee097c962bc5d566f17ce2a5",
+      "playedAt": "2026-09-18T03:48:08.685Z"
     },
     {
-      "name": "LIVIDI SUI GOMITI",
-      "artist": "Måneskin",
-      "url": "https://open.spotify.com/track/1ITV1k9laGrWUpagayejMQ",
-      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
-      "playedAt": "2026-09-17T21:28:38.929Z"
+      "name": "Omega - 2001 Remaster",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/7k1KabDGm9b4XsF0i4hWwc",
+      "image": "https://i.scdn.co/image/ab67616d00004851ee097c962bc5d566f17ce2a5",
+      "playedAt": "2026-09-18T02:39:16.597Z"
     }
   ],
   "topTracks": {
@@ -218,17 +218,17 @@
       },
       {
         "rank": 11,
-        "name": "Bless The Child",
-        "artist": "Nightwish",
-        "url": "https://open.spotify.com/track/6Z2MwbeouGY1vsLiJfviti",
-        "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
-      },
-      {
-        "rank": 12,
         "name": "The Sentinel",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
         "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
+      },
+      {
+        "rank": 12,
+        "name": "Bless The Child",
+        "artist": "Nightwish",
+        "url": "https://open.spotify.com/track/6Z2MwbeouGY1vsLiJfviti",
+        "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       }
     ],
     "long": [

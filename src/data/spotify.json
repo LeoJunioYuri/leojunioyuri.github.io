@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-18T20:07:50.046Z",
+  "updatedAt": "2026-09-19T02:10:35.131Z",
   "tracks": [
     {
-      "name": "Refuse / Resist",
-      "artist": "Sepultura",
-      "url": "https://open.spotify.com/track/2OoS1aZFAFscH1cUiKlazH",
-      "image": "https://i.scdn.co/image/ab67616d000048519c0b2d74cfb910735ca55317",
-      "playedAt": "2026-09-18T19:08:31.630Z"
+      "name": "Snuff",
+      "artist": "Slipknot",
+      "url": "https://open.spotify.com/track/2vPZ4Lklyu75zBR3SgbFNI",
+      "image": "https://i.scdn.co/image/ab67616d00004851e7fbc0883149094912559f2c",
+      "playedAt": "2026-09-19T00:54:05.416Z"
     },
     {
-      "name": "Amazonia",
-      "artist": "Gojira",
-      "url": "https://open.spotify.com/track/1GWtUkDQk7XC35r7kTPfqx",
-      "image": "https://i.scdn.co/image/ab67616d00004851e65b8b839208a5e2504e4c21",
-      "playedAt": "2026-09-18T19:05:11.876Z"
-    },
-    {
-      "name": "No More Tears",
-      "artist": "Ozzy Osbourne",
-      "url": "https://open.spotify.com/track/7w6PJe5KBPyvuRYxFkPssC",
-      "image": "https://i.scdn.co/image/ab67616d00004851509342e69eb341df70e5c2e3",
-      "playedAt": "2026-09-18T19:00:10.497Z"
-    },
-    {
-      "name": "Lux Æterna",
-      "artist": "Metallica",
-      "url": "https://open.spotify.com/track/6eXWc7irALyENtbAD2TTOT",
-      "image": "https://i.scdn.co/image/ab67616d00004851cf2420c5c82d351496e8fd9e",
-      "playedAt": "2026-09-18T18:52:44.750Z"
-    },
-    {
-      "name": "Seventh Son of a Seventh Son - 2015 Remaster",
+      "name": "Flight of Icarus - 2015 Remaster",
       "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/4STDzTw4Z13mee7Ig4vi1n",
-      "image": "https://i.scdn.co/image/ab67616d00004851eab7b968bf8762355df7d840",
-      "playedAt": "2026-09-18T18:23:35.906Z"
+      "url": "https://open.spotify.com/track/3vhKrSxe3fRuS5Ogis76VO",
+      "image": "https://i.scdn.co/image/ab67616d000048512277d1a849a63c7075ec38ff",
+      "playedAt": "2026-09-19T00:48:04.924Z"
     },
     {
-      "name": "Practice What You Preach",
-      "artist": "Testament",
-      "url": "https://open.spotify.com/track/1KmX2Q8IwwLY2AMIMOmYlw",
-      "image": "https://i.scdn.co/image/ab67616d00004851f6f1dd1bb03e731d6e64b7d8",
-      "playedAt": "2026-09-18T18:13:41.295Z"
+      "name": "Psychosocial",
+      "artist": "Slipknot",
+      "url": "https://open.spotify.com/track/3RAFcUBrCNaboRXoP3S5t1",
+      "image": "https://i.scdn.co/image/ab67616d00004851e7fbc0883149094912559f2c",
+      "playedAt": "2026-09-19T00:44:13.660Z"
     },
     {
       "name": "Roots Bloody Roots",
       "artist": "Sepultura",
       "url": "https://open.spotify.com/track/6ursmCnbc9oDRGa2yHKkoZ",
       "image": "https://i.scdn.co/image/ab67616d000048510bd5e7cce9765c2ef519424e",
-      "playedAt": "2026-09-18T18:08:08.557Z"
+      "playedAt": "2026-09-19T00:39:28.989Z"
     },
     {
-      "name": "Civil War",
-      "artist": "Guns N' Roses",
-      "url": "https://open.spotify.com/track/6i4Qi1mJxXjqNIL9HfJhRs",
-      "image": "https://i.scdn.co/image/ab67616d0000485192d21aef6c0d288cc4c05973",
-      "playedAt": "2026-09-18T18:04:35.771Z"
+      "name": "Lying from You",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/4qVR3CF8FuFvHN4L6vXlB1",
+      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
+      "playedAt": "2026-09-19T00:35:56.207Z"
+    },
+    {
+      "name": "The Day That Never Comes",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/13Uvqll8OQDjw3wDweIK9y",
+      "image": "https://i.scdn.co/image/ab67616d00004851f5802466e1bc84cdf51d97e2",
+      "playedAt": "2026-09-19T00:33:00.625Z"
+    },
+    {
+      "name": "I Want Out - 2024 Remaster",
+      "artist": "Helloween",
+      "url": "https://open.spotify.com/track/2lp0PO2D90zcFWy8toVqgn",
+      "image": "https://i.scdn.co/image/ab67616d0000485155d506b10646ae83a2ca13bc",
+      "playedAt": "2026-09-19T00:25:03.832Z"
+    },
+    {
+      "name": "Wasting Love - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/2KKLuHN6zDxVnWtFKO8vo4",
+      "image": "https://i.scdn.co/image/ab67616d000048510dda9c11454b9053d07f585a",
+      "playedAt": "2026-09-19T00:20:13.187Z"
     }
   ],
   "topTracks": {

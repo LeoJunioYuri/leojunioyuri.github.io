@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-09-20T10:16:12.775Z",
+  "updatedAt": "2026-09-20T15:04:15.699Z",
   "tracks": [
+    {
+      "name": "Physical",
+      "artist": "Dua Lipa",
+      "url": "https://open.spotify.com/track/3AzjcOeAmA57TIOr9zF1ZW",
+      "image": "https://i.scdn.co/image/ab67616d00004851c88bae7846e62a8ba59ee0bd",
+      "playedAt": "2026-09-20T14:02:38.604Z"
+    },
+    {
+      "name": "Born To Die",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/4Ouhoi2lAhrLJKFzUqEzwl",
+      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
+      "playedAt": "2026-09-20T13:52:59.985Z"
+    },
+    {
+      "name": "Alejandro",
+      "artist": "Lady Gaga",
+      "url": "https://open.spotify.com/track/1HHeOs6zRdF8Ck58easiAY",
+      "image": "https://i.scdn.co/image/ab67616d000048515c9890c0456a3719eeecd8aa",
+      "playedAt": "2026-09-20T13:48:14.106Z"
+    },
+    {
+      "name": "Bloody Mary",
+      "artist": "Lady Gaga",
+      "url": "https://open.spotify.com/track/53jnnqFSRGMDB9ADrNriCA",
+      "image": "https://i.scdn.co/image/ab67616d00004851a5d31644260279be8d0c46c0",
+      "playedAt": "2026-09-20T13:43:39.378Z"
+    },
+    {
+      "name": "Abracadabra",
+      "artist": "Lady Gaga",
+      "url": "https://open.spotify.com/track/2LHNTC9QZxsL3nWpt8iaSR",
+      "image": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c",
+      "playedAt": "2026-09-20T13:39:34.094Z"
+    },
     {
       "name": "cardigan",
       "artist": "Taylor Swift",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/6MhINTgLBVBlYGIlYOSgdu",
       "image": "https://i.scdn.co/image/ab67616d000048516508eefc94890bf7df4b5eff",
       "playedAt": "2026-09-20T04:06:39.335Z"
-    },
-    {
-      "name": "Dishearten",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-20T04:01:51.443Z"
-    },
-    {
-      "name": "No Lonelier Star",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-20T03:55:14.867Z"
-    },
-    {
-      "name": "Sorrow of Sophia",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/2urZDmqvnd8jAGblqF73yN",
-      "image": "https://i.scdn.co/image/ab67616d000048516508eefc94890bf7df4b5eff",
-      "playedAt": "2026-09-20T03:47:24.497Z"
-    },
-    {
-      "name": "The Cry of Silence",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5drK61qufzICP6yBI484mg",
-      "image": "https://i.scdn.co/image/ab67616d000048510d129e6a18a315436f30ca3b",
-      "playedAt": "2026-09-20T03:39:55.770Z"
-    },
-    {
-      "name": "Dishearten",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-20T03:27:13.625Z"
     }
   ],
   "topTracks": {

@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-20T15:04:15.699Z",
+  "updatedAt": "2026-09-20T19:57:04.038Z",
   "tracks": [
     {
-      "name": "Physical",
-      "artist": "Dua Lipa",
-      "url": "https://open.spotify.com/track/3AzjcOeAmA57TIOr9zF1ZW",
-      "image": "https://i.scdn.co/image/ab67616d00004851c88bae7846e62a8ba59ee0bd",
-      "playedAt": "2026-09-20T14:02:38.604Z"
-    },
-    {
-      "name": "Born To Die",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4Ouhoi2lAhrLJKFzUqEzwl",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-09-20T13:52:59.985Z"
-    },
-    {
-      "name": "Alejandro",
-      "artist": "Lady Gaga",
-      "url": "https://open.spotify.com/track/1HHeOs6zRdF8Ck58easiAY",
-      "image": "https://i.scdn.co/image/ab67616d000048515c9890c0456a3719eeecd8aa",
-      "playedAt": "2026-09-20T13:48:14.106Z"
-    },
-    {
-      "name": "Bloody Mary",
-      "artist": "Lady Gaga",
-      "url": "https://open.spotify.com/track/53jnnqFSRGMDB9ADrNriCA",
-      "image": "https://i.scdn.co/image/ab67616d00004851a5d31644260279be8d0c46c0",
-      "playedAt": "2026-09-20T13:43:39.378Z"
-    },
-    {
-      "name": "Abracadabra",
-      "artist": "Lady Gaga",
-      "url": "https://open.spotify.com/track/2LHNTC9QZxsL3nWpt8iaSR",
-      "image": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c",
-      "playedAt": "2026-09-20T13:39:34.094Z"
-    },
-    {
-      "name": "cardigan",
+      "name": "Love Story",
       "artist": "Taylor Swift",
-      "url": "https://open.spotify.com/track/4R2kfaDFhslZEMJqAFNpdd",
-      "image": "https://i.scdn.co/image/ab67616d0000485195f754318336a07e85ec59bc",
-      "playedAt": "2026-09-20T04:25:29.122Z"
+      "url": "https://open.spotify.com/track/5hnJCRSo4pxRsaEwT9YusG",
+      "image": "https://i.scdn.co/image/ab67616d0000485173b565ab9d713e8d5586aac2",
+      "playedAt": "2026-09-20T17:44:46.485Z"
     },
     {
-      "name": "Back To December (Taylor's Version)",
-      "artist": "Taylor Swift",
-      "url": "https://open.spotify.com/track/79uDOz0zuuWS7HWxzMmTa2",
-      "image": "https://i.scdn.co/image/ab67616d000048510b04da4f224b51ff86e0a481",
-      "playedAt": "2026-09-20T04:11:34.470Z"
+      "name": "Fly Away",
+      "artist": "Lenny Kravitz",
+      "url": "https://open.spotify.com/track/1OxcIUqVmVYxT6427tbhDW",
+      "image": "https://i.scdn.co/image/ab67616d00004851f1157b7dcd21bae0c2c75d89",
+      "playedAt": "2026-09-20T17:40:50.662Z"
     },
     {
-      "name": "Lustrous Heart",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/6MhINTgLBVBlYGIlYOSgdu",
-      "image": "https://i.scdn.co/image/ab67616d000048516508eefc94890bf7df4b5eff",
-      "playedAt": "2026-09-20T04:06:39.335Z"
+      "name": "High Hopes",
+      "artist": "Panic! At The Disco",
+      "url": "https://open.spotify.com/track/1rqqCSm0Qe4I9rUvWncaom",
+      "image": "https://i.scdn.co/image/ab67616d00004851c5148520a59be191eea16989",
+      "playedAt": "2026-09-20T17:37:08.782Z"
+    },
+    {
+      "name": "Californication",
+      "artist": "Red Hot Chili Peppers",
+      "url": "https://open.spotify.com/track/48UPSzbZjgc449aqz8bxox",
+      "image": "https://i.scdn.co/image/ab67616d0000485194d08ab63e57b0cae74e8595",
+      "playedAt": "2026-09-20T17:20:55.316Z"
+    },
+    {
+      "name": "Man in the Mirror - 2012 Remaster",
+      "artist": "Michael Jackson",
+      "url": "https://open.spotify.com/track/3c7Ctlw9MKlIQPxRH3fOTt",
+      "image": "https://i.scdn.co/image/ab67616d00004851eb2087dcd1eb61f833bdedff",
+      "playedAt": "2026-09-20T17:15:24.765Z"
+    },
+    {
+      "name": "Don't Stop Me Now",
+      "artist": "Queen",
+      "url": "https://open.spotify.com/track/1NHWG8zxSEypSRF3UufrnO",
+      "image": "https://i.scdn.co/image/ab67616d000048516c03b757ece416e014feef5e",
+      "playedAt": "2026-09-20T17:10:05.539Z"
+    },
+    {
+      "name": "Fast Car",
+      "artist": "Luke Combs",
+      "url": "https://open.spotify.com/track/1Lo0QY9cvc8sUB2vnIOxDT",
+      "image": "https://i.scdn.co/image/ab67616d000048514f279906df8721c0534c0245",
+      "playedAt": "2026-09-20T17:06:35.589Z"
+    },
+    {
+      "name": "Dream On",
+      "artist": "Aerosmith",
+      "url": "https://open.spotify.com/track/5Ih9gbqyxCzTJ43nuSuKnC",
+      "image": "https://i.scdn.co/image/ab67616d00004851e0c7891bd7c7ea49d69512e2",
+      "playedAt": "2026-09-20T17:02:09.775Z"
     }
   ],
   "topTracks": {

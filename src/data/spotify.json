@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-09-21T02:17:05.030Z",
+  "updatedAt": "2026-09-21T11:23:33.559Z",
   "tracks": [
+    {
+      "name": "Hoje - Ao Vivo",
+      "artist": "Charlie Brown Jr., Marcelo Nova",
+      "url": "https://open.spotify.com/track/31uiFApsv5BVunx9bypX6u",
+      "image": "https://i.scdn.co/image/ab67616d0000485118d6f80313da2f8d1c727d45",
+      "playedAt": "2026-09-21T05:17:27.095Z"
+    },
+    {
+      "name": "Born In '58 - 2001 Remaster",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/0Fr5bZwcoh9aXzYuebCNFE",
+      "image": "https://i.scdn.co/image/ab67616d000048511213c84c3fdaebba7c5e8e67",
+      "playedAt": "2026-09-21T04:31:16.877Z"
+    },
+    {
+      "name": "Rain on the Graves",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/3tuOIOxoWAwmfrmMzRm38Z",
+      "image": "https://i.scdn.co/image/ab67616d00004851bb0a162fcf3a170bc2777ee7",
+      "playedAt": "2026-09-21T04:27:36.731Z"
+    },
+    {
+      "name": "Taking the Queen - 2001 Remaster",
+      "artist": "Bruce Dickinson",
+      "url": "https://open.spotify.com/track/6cRN7iSyDzf3Vwk3sXr9xj",
+      "image": "https://i.scdn.co/image/ab67616d00004851ee097c962bc5d566f17ce2a5",
+      "playedAt": "2026-09-21T04:22:31.378Z"
+    },
     {
       "name": "Vícios E Virtudes - Ao Vivo",
       "artist": "Charlie Brown Jr.",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/4EPLnVE718rJDzSYlEU85R",
       "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
       "playedAt": "2026-09-20T23:34:54.186Z"
-    },
-    {
-      "name": "Heavy Is the Crown",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/0Fd4oSOZ2nHtdHOkgyI4qz",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-09-20T23:32:03.731Z"
-    },
-    {
-      "name": "Cut the Bridge",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/0UoGxTum73Mmvk9UuCqakG",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-09-20T23:29:16.826Z"
-    },
-    {
-      "name": "The Emptiness Machine",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3AA50LilsWIK5HstsdUa0I",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-09-20T23:25:28.247Z"
-    },
-    {
-      "name": "From Zero (Intro)",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/23m5rUpKrW85DNikaGm7j8",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-09-20T23:22:16.088Z"
     }
   ],
   "topTracks": {
@@ -211,23 +211,23 @@
       },
       {
         "rank": 10,
+        "name": "The Wretched Tide",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 11,
         "name": "Dead To The World",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/3lY7foOrKVtDoYKUJXmkML",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Feel For You",
         "artist": "Nightwish",
         "url": "https://open.spotify.com/track/03ZK15yHQKLYgGLjQQloTk",
-        "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
-      },
-      {
-        "rank": 12,
-        "name": "Bless The Child",
-        "artist": "Nightwish",
-        "url": "https://open.spotify.com/track/6Z2MwbeouGY1vsLiJfviti",
         "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9"
       }
     ],

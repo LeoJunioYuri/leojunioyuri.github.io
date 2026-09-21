@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-09-21T11:23:33.559Z",
+  "updatedAt": "2026-09-21T17:23:10.089Z",
   "tracks": [
+    {
+      "name": "Devil & The Deep Dark Ocean",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/4fACvvauhL6GKAZFhzcta9",
+      "image": "https://i.scdn.co/image/ab67616d00004851ecf31532899b046d5425db77",
+      "playedAt": "2026-09-21T13:01:12.662Z"
+    },
+    {
+      "name": "Elvenpath - Remastered",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5JqtGW8rjOa8vWJ37fQhGi",
+      "image": "https://i.scdn.co/image/ab67616d000048512777c9d955f300c86b43059f",
+      "playedAt": "2026-09-21T12:56:05.434Z"
+    },
+    {
+      "name": "My Walden",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/3LgWFCHW1eZLZyfylrn88p",
+      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
+      "playedAt": "2026-09-21T12:51:26.346Z"
+    },
+    {
+      "name": "Gethsemane",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/2j2lmbnQgk2khkf4TDWdBp",
+      "image": "https://i.scdn.co/image/ab67616d00004851ecf31532899b046d5425db77",
+      "playedAt": "2026-09-21T12:46:46.853Z"
+    },
+    {
+      "name": "Sacrament Of Wilderness",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6MNfIYJglkFfhDt8Lmye8d",
+      "image": "https://i.scdn.co/image/ab67616d00004851ecf31532899b046d5425db77",
+      "playedAt": "2026-09-21T12:41:24.332Z"
+    },
+    {
+      "name": "Bye Bye Beautiful",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6K03JHEberhdFjgZvFYcfs",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-09-21T12:37:09.605Z"
+    },
     {
       "name": "Hoje - Ao Vivo",
       "artist": "Charlie Brown Jr., Marcelo Nova",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/0Fr5bZwcoh9aXzYuebCNFE",
       "image": "https://i.scdn.co/image/ab67616d000048511213c84c3fdaebba7c5e8e67",
       "playedAt": "2026-09-21T04:31:16.877Z"
-    },
-    {
-      "name": "Rain on the Graves",
-      "artist": "Bruce Dickinson",
-      "url": "https://open.spotify.com/track/3tuOIOxoWAwmfrmMzRm38Z",
-      "image": "https://i.scdn.co/image/ab67616d00004851bb0a162fcf3a170bc2777ee7",
-      "playedAt": "2026-09-21T04:27:36.731Z"
-    },
-    {
-      "name": "Taking the Queen - 2001 Remaster",
-      "artist": "Bruce Dickinson",
-      "url": "https://open.spotify.com/track/6cRN7iSyDzf3Vwk3sXr9xj",
-      "image": "https://i.scdn.co/image/ab67616d00004851ee097c962bc5d566f17ce2a5",
-      "playedAt": "2026-09-21T04:22:31.378Z"
-    },
-    {
-      "name": "Vícios E Virtudes - Ao Vivo",
-      "artist": "Charlie Brown Jr.",
-      "url": "https://open.spotify.com/track/3oBXDZlUkqX8BU88YXhzfy",
-      "image": "https://i.scdn.co/image/ab67616d0000485118d6f80313da2f8d1c727d45",
-      "playedAt": "2026-09-21T02:04:15.163Z"
-    },
-    {
-      "name": "O Preço - Ao Vivo",
-      "artist": "Charlie Brown Jr.",
-      "url": "https://open.spotify.com/track/2HegWuw33lBqopjopozt7N",
-      "image": "https://i.scdn.co/image/ab67616d0000485118d6f80313da2f8d1c727d45",
-      "playedAt": "2026-09-21T02:01:04.770Z"
-    },
-    {
-      "name": "Como Tudo Deve Ser",
-      "artist": "Charlie Brown Jr.",
-      "url": "https://open.spotify.com/track/3QI5bIozef0HZ1kJnA2RdT",
-      "image": "https://i.scdn.co/image/ab67616d000048519ce3f2af269f08d61ac2ab9e",
-      "playedAt": "2026-09-21T01:57:50.350Z"
-    },
-    {
-      "name": "Over Each Other",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/4EPLnVE718rJDzSYlEU85R",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-09-20T23:34:54.186Z"
     }
   ],
   "topTracks": {
@@ -104,45 +104,45 @@
       },
       {
         "rank": 7,
-        "name": "Blue Jeans",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/4ANim4YPlz5nVInrXdx2xr",
-        "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
-      },
-      {
-        "rank": 8,
         "name": "CORALINE",
         "artist": "Måneskin",
         "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
         "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Stay",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/0Ohi2pjBS1yak2BSgJRaIs",
         "image": "https://i.scdn.co/image/ab67616d00004851478199f575bbfd53cda89090"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "When I Look At You",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/6ZfXA2xakAvphXOSOJ3u1W",
         "image": "https://i.scdn.co/image/ab67616d000048514ea6653890e297d53e93e3e0"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Rivers Between Us",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 12,
+        "name": "Blue Jeans",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/4ANim4YPlz5nVInrXdx2xr",
+        "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
       }
     ],
     "medium": [
@@ -311,10 +311,10 @@
       },
       {
         "rank": 12,
-        "name": "Over Each Other",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+        "name": "The Wretched Tide",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       }
     ]
   }

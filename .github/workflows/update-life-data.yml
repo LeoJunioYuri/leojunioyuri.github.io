@@ -11,6 +11,11 @@ permissions:
   # is dispatched explicitly (workflow_dispatch is the allowed exception).
   actions: write
 
+# Scheduled and manual runs must not race each other's push.
+concurrency:
+  group: update-life-data
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -77,6 +82,7 @@ jobs:
           fi
           git add src/data/spotify.json src/data/steam.json src/data/youtube.json src/data/letterboxd.json src/data/xbox.json src/data/wow.json src/data/brendi-metrics.json
           git commit -m "chore: refresh /life data"
+          git pull --rebase origin main
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 

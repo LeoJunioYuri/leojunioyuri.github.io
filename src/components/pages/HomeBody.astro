@@ -1,4 +1,5 @@
 ---
+import { metrics } from "@/metrics";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero.astro";
 import Cases from "@/components/Cases.astro";
@@ -17,6 +18,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const M = metrics(lang);
 
 const featuredSlug = "metaads-v3-turnaround";
 const posts = await getPosts(lang);
@@ -36,8 +38,8 @@ const detectScript =
   lang={lang}
   title="Leonardo Basso — Product Engineer"
   description={lang === "pt"
-    ? "Leonardo Basso é Product Engineer construindo automação com IA para restaurantes. Construiu o MetaAds na Brendi — 2.000+ restaurantes, R$4M+ em mídia gerida e R$20M+ em vendas para os restaurantes."
-    : "Leonardo Basso is a Product Engineer building AI automation for restaurant growth. He built core parts of MetaAds at Brendi, scaling to 2,000+ restaurants, R$4M+ in media managed and R$20M+ in sales."}
+    ? `Leonardo Basso é Product Engineer construindo automação com IA para restaurantes. Construiu o MetaAds na Brendi — ${M.restaurants} restaurantes, ${M.media} em mídia gerida e ${M.sales} em vendas para os restaurantes.`
+    : `Leonardo Basso is a Product Engineer building AI automation for restaurant growth. He built core parts of MetaAds at Brendi, scaling to ${M.restaurants} restaurants, ${M.media} in media managed and ${M.sales} in sales.`}
   path={path}
 >
   <script is:inline set:html={detectScript} />

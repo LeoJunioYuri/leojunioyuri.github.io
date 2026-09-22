@@ -58,6 +58,12 @@ jobs:
           BNET_CLIENT_ID: ${{ secrets.BNET_CLIENT_ID }}
           BNET_CLIENT_SECRET: ${{ secrets.BNET_CLIENT_SECRET }}
 
+      - name: MetaAds metrics (Metabase public card)
+        continue-on-error: true
+        run: node scripts/fetch-brendi-metrics.mjs
+        env:
+          METABASE_METRICS_URL: ${{ secrets.METABASE_METRICS_URL }}
+
       - name: Commit changes
         id: commit
         run: |
@@ -69,7 +75,7 @@ jobs:
             git checkout -- src/data/
             exit 0
           fi
-          git add src/data/spotify.json src/data/steam.json src/data/youtube.json src/data/letterboxd.json src/data/xbox.json src/data/wow.json
+          git add src/data/spotify.json src/data/steam.json src/data/youtube.json src/data/letterboxd.json src/data/xbox.json src/data/wow.json src/data/brendi-metrics.json
           git commit -m "chore: refresh /life data"
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"

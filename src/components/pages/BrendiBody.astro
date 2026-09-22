@@ -1,4 +1,5 @@
 ---
+import { metrics as siteMetrics } from "@/metrics";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MetaAdsSystem from "@/components/diagrams/MetaAdsSystem.astro";
 import CampaignLoop from "@/components/diagrams/CampaignLoop.astro";
@@ -8,32 +9,33 @@ import type { Lang } from "@/consts";
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const pt = lang === "pt";
+const M = siteMetrics(lang);
 
 const path = pt ? "/brendi" : "/en/brendi";
 
 const meta = {
   title: pt ? "Brendi — Case completo" : "Brendi — Full case study",
   description: pt
-    ? "Como construí o MetaAds na Brendi: de 2 lojas a 2.000+ restaurantes com IA gerindo campanhas de forma autônoma."
-    : "How I built MetaAds at Brendi: from 2 stores to 2,000+ restaurants with AI running campaigns autonomously.",
+    ? `Como construí o MetaAds na Brendi: de 2 lojas a ${M.restaurants} restaurantes com IA gerindo campanhas de forma autônoma.`
+    : `How I built MetaAds at Brendi: from 2 stores to ${M.restaurants} restaurants with AI running campaigns autonomously.`,
 };
 
 const metrics = pt
   ? [
-      { value: "2.000+", label: "restaurantes atendidos (acum.)" },
-      { value: "600+",   label: "lojas ativas hoje" },
-      { value: "R$4M+",  label: "em mídia gerida (acum.)" },
-      { value: "R$20M+", label: "em vendas rastreadas (acum.)" },
-      { value: "R$500k+",label: "em verba / mês (run-rate)" },
-      { value: "20",     label: "meses construindo" },
+      { value: `${M.restaurants}`, label: "restaurantes atendidos (acum.)" },
+      { value: `${M.active}`,   label: "lojas ativas hoje" },
+      { value: `${M.media}`,  label: "em mídia gerida (acum.)" },
+      { value: `${M.sales}`, label: "em vendas rastreadas (acum.)" },
+      { value: `${M.monthly}`,label: "em verba / mês (run-rate)" },
+      { value: M.months, label: "meses construindo" },
     ]
   : [
-      { value: "2,000+", label: "restaurants served (cumul.)" },
-      { value: "600+",   label: "active stores today" },
-      { value: "R$4M+",  label: "in media managed (cumul.)" },
-      { value: "R$20M+", label: "in tracked sales (cumul.)" },
-      { value: "R$500k+",label: "in budget / month (run-rate)" },
-      { value: "20",     label: "months building" },
+      { value: `${M.restaurants}`, label: "restaurants served (cumul.)" },
+      { value: `${M.active}`,   label: "active stores today" },
+      { value: `${M.media}`,  label: "in media managed (cumul.)" },
+      { value: `${M.sales}`, label: "in tracked sales (cumul.)" },
+      { value: `${M.monthly}`,label: "in budget / month (run-rate)" },
+      { value: M.months, label: "months building" },
     ];
 
 const pillars = pt
@@ -64,7 +66,7 @@ const pillars = pt
       {
         n: "03", icon: "📊",
         title: "Data Layer",
-        desc: "Toda decisão do sistema é derivada de dados. Monitoramos 600+ lojas em tempo real com dashboards no Metabase sobre AlloyDB. Análises ad-hoc rodam via scripts no Replit, compartilhados entre o time em segundos.",
+        desc: `Toda decisão do sistema é derivada de dados. Monitoramos ${M.active} lojas em tempo real com dashboards no Metabase sobre AlloyDB. Análises ad-hoc rodam via scripts no Replit, compartilhados entre o time em segundos.`,
         items: [
           "Metabase com 150+ cards: cobertura, cohort de ativação, ROAS por semana",
           "Scripts de análise profunda: ROAS drivers, cohort matrix, atribuição anti-viés por loja",
@@ -100,7 +102,7 @@ const pillars = pt
       {
         n: "03", icon: "📊",
         title: "Data Layer",
-        desc: "Every system decision is data-driven. We monitor 600+ stores in real time with Metabase dashboards on AlloyDB. Ad-hoc analyses run via Replit scripts, shared across the team in seconds.",
+        desc: `Every system decision is data-driven. We monitor ${M.active} stores in real time with Metabase dashboards on AlloyDB. Ad-hoc analyses run via Replit scripts, shared across the team in seconds.`,
         items: [
           "Metabase with 150+ cards: coverage, activation cohort, weekly ROAS",
           "Deep analysis scripts: ROAS drivers, cohort matrix, anti-bias attribution per store",
@@ -131,7 +133,7 @@ const engItems = pt
       "Padrão Trigger → Worker com Cloud Tasks: crons disparam batches de lojas, workers processam com backoff exponencial",
       "Anderson: memória pgvector + loop de atribuição — ROAS real alimenta decisão da semana seguinte",
       "Connection pooling context-aware: API (10 conexões) vs workers (3) — sem vazamento de pool em funções serverless",
-      "Financial ledger próprio: cobrança semanal automatizada, prepaid via PIX e investimento na Meta API — R$500k+/mês em verba de clientes movimentados de forma autônoma, sem operador humano no loop",
+      `Financial ledger próprio: cobrança semanal automatizada, prepaid via PIX e investimento na Meta API — ${M.monthly}/mês em verba de clientes movimentados de forma autônoma, sem operador humano no loop`,
       "API em produção: 20M+ requests/mês · p95 ≈ 130ms · 0,013% de erros 5xx (medição de set/2026)",
     ]
   : [
@@ -142,7 +144,7 @@ const engItems = pt
       "Trigger → Worker pattern with Cloud Tasks: crons fan-out 50-store batches, workers process with exponential backoff",
       "Anderson: pgvector memory + attribution loop — real ROAS feeds next week's decisions",
       "Context-aware connection pooling: API (10 conns) vs workers (3) — no pool leaks in serverless functions",
-      "Own financial ledger: automated weekly billing, prepaid via PIX and Meta API investment — R$500k+/month in client budget moved autonomously, no human operator in the loop",
+      `Own financial ledger: automated weekly billing, prepaid via PIX and Meta API investment — ${M.monthly}/month in client budget moved autonomously, no human operator in the loop`,
       "API in production: 20M+ requests/month · p95 ≈ 130ms · 0.013% 5xx errors (measured Sep 2026)",
     ];
 ---
@@ -169,8 +171,8 @@ const engItems = pt
       </h1>
       <p class="mt-4 max-w-2xl text-xl text-[var(--muted)]">
         {pt
-          ? "De 2 lojas ativas para 2.000+ restaurantes, R$4M+ em mídia gerida e R$20M+ em vendas rastreadas — com IA gerindo campanhas de forma autônoma."
-          : "From 2 active stores to 2,000+ restaurants, R$4M+ in media managed and R$20M+ in tracked sales — with AI running campaigns autonomously."}
+          ? `De 2 lojas ativas para ${M.restaurants} restaurantes, ${M.media} em mídia gerida e ${M.sales} em vendas rastreadas — com IA gerindo campanhas de forma autônoma.`
+          : `From 2 active stores to ${M.restaurants} restaurants, ${M.media} in media managed and ${M.sales} in tracked sales — with AI running campaigns autonomously.`}
       </p>
     </header>
 
@@ -194,13 +196,13 @@ const engItems = pt
           <>
             <p>A Brendi resolve um problema real: restaurantes independentes precisam de clientes, mas diferente do iFood — onde o marketplace traz o cliente — no canal próprio isso é responsabilidade deles. Contratar agência custa caro e não escala. Fazer sozinho é inviável.</p>
             <p>O MetaAds é a resposta: um sistema que faz o trabalho de uma agência de tráfego pago de forma autônoma, com o objetivo de entregar 10x mais resultado e ser 10x mais barato. Configuração, investimento automático, gestão de campanhas, orçamento, priorização — e um agente de IA que cria, pausa e reativa anúncios baseado em dados, com foco em trazer mais vendas.</p>
-            <p>Foram mais de 20 meses construindo e aprendendo — com dados e, principalmente, com os clientes. Hoje temos um modelo que gerou R$20M+ em vendas rastreadas e entrega retorno médio de 10x sobre o investimento. E estamos crescendo.</p>
+            <p>Foram mais de {M.months} meses construindo e aprendendo — com dados e, principalmente, com os clientes. Hoje temos um modelo que gerou {M.sales} em vendas rastreadas e entrega retorno médio de 10x sobre o investimento. E estamos crescendo.</p>
           </>
         ) : (
           <>
             <p>Brendi solves a real problem: independent restaurants need customers, but unlike iFood — where the marketplace brings the customer — on their own channel, that's their responsibility. Hiring an agency is expensive and doesn't scale. Doing it alone is not viable.</p>
             <p>MetaAds is the answer: a system that does the work of a paid-traffic agency autonomously, with the goal of delivering 10x more results and costing 10x less than an agency. Setup, automatic investment, ad management, budget, prioritization — and an AI agent that creates, pauses and reactivates ads based on data, focused on driving more sales.</p>
-            <p>More than 20 months building and learning — from data and, above all, from customers. Today we have a model that generated R$20M+ in tracked sales and delivers an average 10x return on investment. And we're growing.</p>
+            <p>More than {M.months} months building and learning — from data and, above all, from customers. Today we have a model that generated {M.sales} in tracked sales and delivers an average 10x return on investment. And we're growing.</p>
           </>
         )}
       </div>

@@ -113,6 +113,7 @@ Actions). Cada fonte é opcional — sem o secret, a seção só mostra "em brev
 | Spotify (tocadas recentes) | `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN` |
 | Steam (jogados recentes) | `STEAM_API_KEY`, `STEAM_ID` |
 | YouTube (últimos vídeos) | `YOUTUBE_CHANNEL_ID` (sem secret de API — usa o RSS público) |
+| Métricas MetaAds (home, /brendi, CV) | `METABASE_METRICS_URL` — link público `…/api/public/card/<uuid>/query/json` do card 21220 no Metabase (só pisos arredondados; o script recusa valores não arredondados ou colunas extras) |
 
 > Spotify: crie um app em developer.spotify.com, autorize o escopo
 > `user-read-recently-played` uma vez e guarde o **refresh token**.

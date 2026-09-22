@@ -1,4 +1,5 @@
 ---
+import { metrics } from "@/metrics";
 import { SITE, type Lang } from "@/consts";
 import { useTranslations, localizedPath } from "@/i18n/utils";
 import HeroChart from "@/components/HeroChart.astro";
@@ -7,12 +8,13 @@ interface Props {
 }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const M = metrics(lang);
 
 const stats = [
-  { value: "2.000+", label: t("stats.restaurants") },
-  { value: "R$4M+", label: t("stats.media") },
-  { value: "R$20M+", label: t("stats.sales") },
-  { value: "20", label: t("stats.months") },
+  { value: `${M.restaurants}`, label: t("stats.restaurants") },
+  { value: `${M.media}`, label: t("stats.media") },
+  { value: `${M.sales}`, label: t("stats.sales") },
+  { value: M.months, label: t("stats.months") },
 ];
 ---
 

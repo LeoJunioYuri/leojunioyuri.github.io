@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-22T15:55:15.383Z",
+  "updatedAt": "2026-09-22T20:38:05.909Z",
   "tracks": [
+    {
+      "name": "Hangar 18",
+      "artist": "Megadeth",
+      "url": "https://open.spotify.com/track/0KAaslGdPc5I6WxmKe3whe",
+      "image": "https://i.scdn.co/image/ab67616d0000485142be808911785ceb13140edc",
+      "playedAt": "2026-09-22T19:36:23.419Z"
+    },
+    {
+      "name": "Practice What You Preach",
+      "artist": "Testament",
+      "url": "https://open.spotify.com/track/1KmX2Q8IwwLY2AMIMOmYlw",
+      "image": "https://i.scdn.co/image/ab67616d00004851f6f1dd1bb03e731d6e64b7d8",
+      "playedAt": "2026-09-22T19:31:07.892Z"
+    },
+    {
+      "name": "I Want Out - 2024 Remaster",
+      "artist": "Helloween",
+      "url": "https://open.spotify.com/track/2lp0PO2D90zcFWy8toVqgn",
+      "image": "https://i.scdn.co/image/ab67616d0000485155d506b10646ae83a2ca13bc",
+      "playedAt": "2026-09-22T19:21:40.640Z"
+    },
+    {
+      "name": "Wasted Years - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/1HM7Vp84E4SMzdrZONg6bH",
+      "image": "https://i.scdn.co/image/ab67616d00004851e113e5fda96f8b219faf6ff0",
+      "playedAt": "2026-09-22T19:08:50.564Z"
+    },
+    {
+      "name": "The Hellion / Electric Eye",
+      "artist": "Judas Priest",
+      "url": "https://open.spotify.com/track/4LPCfppIoBx8tpW9LrLtWj",
+      "image": "https://i.scdn.co/image/ab67616d0000485184e8e28e6f93cdc0e584860d",
+      "playedAt": "2026-09-22T18:59:42.085Z"
+    },
+    {
+      "name": "The Sentinel - Remastered",
+      "artist": "Judas Priest",
+      "url": "https://open.spotify.com/track/7riTER54Xy8xAila5pBfZM",
+      "image": "https://i.scdn.co/image/ab67616d00004851a1e9704ccf1605da2f625b3c",
+      "playedAt": "2026-09-22T18:55:21.398Z"
+    },
+    {
+      "name": "Aragorn's Coronation Song",
+      "artist": "Clamavi De Profundis",
+      "url": "https://open.spotify.com/track/66aszIdaHkmJsrYM25w5uM",
+      "image": "https://i.scdn.co/image/ab67616d0000485141e3840ad2e9d7183eebf02f",
+      "playedAt": "2026-09-22T18:48:37.326Z"
+    },
     {
       "name": "Agni Parthene",
       "artist": "Hymns of Redemption",
       "url": "https://open.spotify.com/track/4M6CP43WBUxjyteDccrIMt",
       "image": "https://i.scdn.co/image/ab67616d00004851a5855095cd5ff8339a990ff9",
       "playedAt": "2026-09-22T14:17:46.713Z"
-    },
-    {
-      "name": "Le Chant des Templiers: VII. Antiphona \"Da pacem Domine\" - Psaume \"fiat pax in virtute tua\"",
-      "artist": "Anonymous, Ensemble Organum, Marcel Pérès",
-      "url": "https://open.spotify.com/track/2GqtobyAFbK05WDzieOkaR",
-      "image": "https://i.scdn.co/image/ab67616d000048516dac6cfda53bde78413f73e3",
-      "playedAt": "2026-09-22T14:10:48.500Z"
-    },
-    {
-      "name": "Helvegen",
-      "artist": "Wardruna",
-      "url": "https://open.spotify.com/track/0OXEH9T6QSQCrmnjdtpf4P",
-      "image": "https://i.scdn.co/image/ab67616d00004851e7d961058431280201d1b66e",
-      "playedAt": "2026-09-22T13:58:46.254Z"
-    },
-    {
-      "name": "Snake Pit Poetry",
-      "artist": "Einar Selvik, Hilda Orvarsdottir",
-      "url": "https://open.spotify.com/track/6R6wY6SsjYZOBFrpYEHUa3",
-      "image": "https://i.scdn.co/image/ab67616d00004851aeff689f0c1ad4d51efda2d0",
-      "playedAt": "2026-09-22T13:51:33.830Z"
-    },
-    {
-      "name": "Legio XIV Gemina",
-      "artist": "Farya Faraji",
-      "url": "https://open.spotify.com/track/1BwRxaN3jqNgawlcquPN2p",
-      "image": "https://i.scdn.co/image/ab67616d00004851d06126551396b075b19d6dbd",
-      "playedAt": "2026-09-22T13:44:25.188Z"
-    },
-    {
-      "name": "Jenny Don't Be Hasty",
-      "artist": "Paolo Nutini",
-      "url": "https://open.spotify.com/track/3G3GZnfjmypPEdkItAofp8",
-      "image": "https://i.scdn.co/image/ab67616d00004851280a44b1caee9f2109602c41",
-      "playedAt": "2026-09-22T13:40:43.544Z"
-    },
-    {
-      "name": "New Shoes",
-      "artist": "Paolo Nutini",
-      "url": "https://open.spotify.com/track/265Anh9hGoozFigjUVLUeD",
-      "image": "https://i.scdn.co/image/ab67616d00004851280a44b1caee9f2109602c41",
-      "playedAt": "2026-09-22T13:33:54.894Z"
-    },
-    {
-      "name": "Belisarius",
-      "artist": "Farya Faraji",
-      "url": "https://open.spotify.com/track/1CSNaLDJMe2OwabywDw8Gv",
-      "image": "https://i.scdn.co/image/ab67616d00004851138c0831a32e461d4ce90b70",
-      "playedAt": "2026-09-22T13:19:50.339Z"
     }
   ],
   "topTracks": {
@@ -83,66 +83,66 @@
       },
       {
         "rank": 4,
+        "name": "The Sentinel",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
+      },
+      {
+        "rank": 5,
         "name": "Pale Tortured Blue",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "name": "As Lembranças Vão Na Mala - Ao Vivo",
         "artist": "Luan Santana",
         "url": "https://open.spotify.com/track/3wE5I38zERsb3c2qBbCj2t",
         "image": "https://i.scdn.co/image/ab67616d000048518d83dd1020d75ac13efde1ca"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "name": "CORALINE",
         "artist": "Måneskin",
         "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
         "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "name": "Stay",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/0Ohi2pjBS1yak2BSgJRaIs",
         "image": "https://i.scdn.co/image/ab67616d00004851478199f575bbfd53cda89090"
       },
       {
-        "rank": 8,
+        "rank": 9,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 9,
+        "rank": 10,
         "name": "When I Look At You",
         "artist": "Miley Cyrus",
         "url": "https://open.spotify.com/track/6ZfXA2xakAvphXOSOJ3u1W",
         "image": "https://i.scdn.co/image/ab67616d000048514ea6653890e297d53e93e3e0"
       },
       {
-        "rank": 10,
+        "rank": 11,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Rivers Between Us",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 12,
-        "name": "By Myself",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/6UzeOH4bRPzKTo2wCXMZmC",
-        "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
       }
     ],
     "medium": [

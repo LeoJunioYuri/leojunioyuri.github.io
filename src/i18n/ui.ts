@@ -123,7 +123,8 @@ export const ui = {
     "now.subtitle": "No que estou focado neste momento.",
 
     "life.title": "Vida",
-    "life.subtitle": "Música, jogos e filmes — o que ando consumindo.",
+    "life.subtitle": "Carreira, projetos, música, jogos e filmes.",
+    "life.close": "Fechar",
     "life.updated": "Atualizado",
     "life.music.title": "Músicas",
     "life.music.recent": "Últimas ouvidas",
@@ -280,7 +281,8 @@ export const ui = {
     "now.subtitle": "What I'm focused on right now.",
 
     "life.title": "Life",
-    "life.subtitle": "Music, games and films — what I'm into lately.",
+    "life.subtitle": "Career, projects, music, games and films.",
+    "life.close": "Close",
     "life.updated": "Updated",
     "life.music.title": "Music",
     "life.music.recent": "Recently played",

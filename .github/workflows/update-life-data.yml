@@ -7,6 +7,9 @@ on:
 
 permissions:
   contents: write
+  # Pushes made with GITHUB_TOKEN don't trigger other workflows, so the deploy
+  # is dispatched explicitly (workflow_dispatch is the allowed exception).
+  actions: write
 
 jobs:
   update:
@@ -15,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Spotify
         continue-on-error: true
@@ -56,9 +59,23 @@ jobs:
           BNET_CLIENT_SECRET: ${{ secrets.BNET_CLIENT_SECRET }}
 
       - name: Commit changes
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Every fetch bumps "updatedAt"; only commit when real data changed.
+          if git diff --quiet -I '"updatedAt"' -- src/data/; then
+            echo "No data changes (only timestamps) — skipping commit."
+            git checkout -- src/data/
+            exit 0
+          fi
           git add src/data/spotify.json src/data/steam.json src/data/youtube.json src/data/letterboxd.json src/data/xbox.json src/data/wow.json
-          git diff --staged --quiet || git commit -m "chore: refresh /life data"
+          git commit -m "chore: refresh /life data"
           git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger deploy
+        if: steps.commit.outputs.pushed == 'true'
+        run: gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

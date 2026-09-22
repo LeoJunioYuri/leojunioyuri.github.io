@@ -32,7 +32,7 @@ src/
   layouts/           # BaseLayout (SEO/OG, tema, fontes)
   pages/             # PT na raiz, EN em /en
   styles/global.css  # tokens de design + prose
-public/              # favicon, og.svg, robots.txt
+public/              # favicon, og.jpg, screenshots (.webp), robots.txt
 ```
 
 ## Escrevendo um post
@@ -120,4 +120,11 @@ Actions). Cada fonte é opcional — sem o secret, a seção só mostra "em brev
 > (perfil público). YouTube: o `channel_id` começa com `UC...`.
 > WoW/Epic não têm API pública simples — entram pela lista curada de jogos.
 
-A Action commita os JSONs em `src/data/`, o que dispara o deploy do Pages.
+A Action só commita os JSONs em `src/data/` quando algum dado real mudou
+(mudança só no `updatedAt` é descartada) e, nesse caso, dispara o
+`deploy.yml` via `gh workflow run` — push feito com `GITHUB_TOKEN` não
+dispara outros workflows sozinho.
+
+> Em **Settings → Pages**, a Source precisa estar em **GitHub Actions**. Se
+> voltar para "Deploy from a branch", o GitHub tenta buildar o repo com Jekyll
+> e todo deploy falha.

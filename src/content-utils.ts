@@ -17,12 +17,3 @@ export async function getPosts(lang: Lang) {
   );
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
-
-/** All published posts across locales (for RSS / sitemap). */
-export async function getAllPosts() {
-  const posts = await getCollection(
-    "blog",
-    (p) => SHOW_DRAFTS || !p.data.draft,
-  );
-  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-}

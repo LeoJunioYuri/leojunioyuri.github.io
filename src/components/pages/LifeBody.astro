@@ -20,7 +20,9 @@ const t = useTranslations(lang);
 const path = lang === "pt" ? "/life" : "/en/life";
 
 const tracks = spotify.tracks ?? [];
-const topTracks = (spotify as any).topTracks ?? [];
+const topTracks = (spotify as any).topTracks ?? {};
+const hasTopTracks = (["short", "medium", "long"] as const).some((r) => topTracks[r]?.length > 0);
+const locale = lang === "pt" ? "pt-BR" : "en";
 const topGames = (steam as any).topGames ?? [];
 const steamWishlist = (steam as any).wishlist ?? [];
 
@@ -130,15 +132,20 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
     )}
 
     {/* Mais ouvidas — abas por período */}
-    {(topTracks.short?.length > 0 || topTracks.medium?.length > 0 || topTracks.long?.length > 0) && (
+    {hasTopTracks && (
       <div data-reveal-scroll class="mt-8">
         <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
           {t("life.music.top")}
         </h3>
         <!-- Tab buttons -->
-        <div class="mt-3 flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-1 w-fit">
+        <div role="tablist" aria-label={t("life.music.top")} class="mt-3 flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-1 w-fit">
           {(['short','medium','long'] as const).map((range) => (
             <button
+              type="button"
+              role="tab"
+              id={`music-tab-${range}`}
+              aria-controls={`music-panel-${range}`}
+              aria-selected={range === 'short' ? "true" : "false"}
               data-music-tab={range}
               class:list={[
                 'music-tab rounded-md px-3 py-1.5 text-xs font-medium transition-colors',
@@ -154,6 +161,9 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
         <!-- Tab panels -->
         {(['short','medium','long'] as const).map((range) => (
           <ul
+            role="tabpanel"
+            id={`music-panel-${range}`}
+            aria-labelledby={`music-tab-${range}`}
             data-music-panel={range}
             class:list={['mt-3 grid gap-2 sm:grid-cols-2', range !== 'short' && 'hidden']}
           >
@@ -178,7 +188,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       </div>
     )}
 
-    {tracks.length === 0 && topTracks.short?.length === 0 && (
+    {tracks.length === 0 && !hasTopTracks && (
       <p data-reveal-scroll class="mt-4 text-sm text-[var(--muted)]">{t("life.music.empty")}</p>
     )}
     {SITE.links.spotify && (
@@ -214,7 +224,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                   <span class="block text-xs text-[var(--muted)]">{Math.round(g.minutes2weeks)} {t("life.minutes")}</span>
                 ) : g.lastPlayed ? (
                   <span class="block text-xs text-[var(--muted)]">
-                    {new Date(g.lastPlayed).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en', { month: 'short', day: 'numeric' })}
+                    {new Date(g.lastPlayed).toLocaleDateString(locale, { month: 'short', day: 'numeric' })}
                   </span>
                 ) : null}
               </span>
@@ -226,19 +236,19 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
 
     <div data-reveal-scroll class="mt-8">
       <!-- Tab switcher -->
-      <div class="flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-1 w-fit">
-        <button data-game-tab="steam"
+      <div role="tablist" aria-label={t("life.games.title")} class="flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-1 w-fit">
+        <button type="button" role="tab" id="game-tab-steam" aria-controls="game-panel-steam" aria-selected="true" data-game-tab="steam"
           class="game-tab rounded-md px-3 py-1.5 text-xs font-medium transition-colors bg-[var(--bg)] text-[var(--fg)] shadow-sm">
           Steam
         </button>
-        <button data-game-tab="xbox"
+        <button type="button" role="tab" id="game-tab-xbox" aria-controls="game-panel-xbox" aria-selected="false" data-game-tab="xbox"
           class="game-tab rounded-md px-3 py-1.5 text-xs font-medium transition-colors text-[var(--muted)] hover:text-[var(--fg)]">
           Xbox / PC
         </button>
       </div>
 
       <!-- Steam panel -->
-      <div data-game-panel="steam" class="mt-5 space-y-8">
+      <div role="tabpanel" id="game-panel-steam" aria-labelledby="game-tab-steam" data-game-panel="steam" class="mt-5 space-y-8">
         {topGames.length > 0 && (
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.top")}</h3>
@@ -254,7 +264,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                   )}
                   <a href={wow.profileUrl} target="_blank" rel="noopener noreferrer"
                     class="min-w-0 flex-1 truncate text-sm font-medium hover:text-[var(--accent)]">World of Warcraft</a>
-                  <span class="shrink-0 text-xs text-[var(--muted)]">3.000h</span>
+                  <span class="shrink-0 text-xs text-[var(--muted)]">{SITE.manualHours.wow.toLocaleString(locale)}h</span>
                 </li>
               )}
               {topGames.map((g: any, i: number) => (
@@ -283,7 +293,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                 </li>
               ))}
             </ul>
-            <a href="https://store.steampowered.com/wishlist/profiles/76561198115976638/"
+            <a href={SITE.links.steamWishlist}
               target="_blank" rel="noopener noreferrer"
               class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">
               {t("life.games.wishlist.cta")} →
@@ -300,7 +310,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       </div>
 
       <!-- Xbox/PC panel -->
-      <div data-game-panel="xbox" class="mt-5 space-y-8 hidden">
+      <div role="tabpanel" id="game-panel-xbox" aria-labelledby="game-tab-xbox" data-game-panel="xbox" class="mt-5 space-y-8 hidden">
         {xboxRaw.length > 0 && (
           <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t("life.games.recent")}</h3>
@@ -316,7 +326,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
                     <a href={g.url} target="_blank" rel="noopener noreferrer"
                       class="block truncate text-sm font-medium hover:text-[var(--accent)]">{g.name}</a>
                     <span class="block text-xs text-[var(--muted)]">
-                      {new Date(g.lastPlayed).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en', { month: 'short', day: 'numeric' })}
+                      {new Date(g.lastPlayed).toLocaleDateString(locale, { month: 'short', day: 'numeric' })}
                     </span>
                   </span>
                 </li>
@@ -346,12 +356,12 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
             </ul>
             <div class="mt-4 flex flex-wrap gap-4">
               {xboxTopGamerscore.length > 6 && (
-                <button id="xbox-dialog-btn"
+                <button type="button" id="xbox-dialog-btn"
                   class="text-sm font-semibold text-[var(--accent)] hover:underline">
                   {lang === 'pt' ? `Ver todos os ${xboxTopGamerscore.length} jogos →` : `See all ${xboxTopGamerscore.length} games →`}
                 </button>
               )}
-              <a href="https://www.xbox.com/pt-BR/play/user/Leonardo%20Yuri"
+              <a href={SITE.links.xbox}
                 target="_blank" rel="noopener noreferrer"
                 class="text-sm font-semibold text-[var(--accent)] hover:underline">
                 {t("life.xbox.cta")} →
@@ -368,7 +378,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
         class="m-auto w-full max-w-lg rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-0 shadow-2xl backdrop:bg-black/50">
         <div class="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
           <h2 class="text-base font-bold">{t("life.xbox.top")} ({xboxTopGamerscore.length})</h2>
-          <button id="xbox-dialog-close" class="rounded-lg p-1 hover:bg-[var(--surface)] text-[var(--muted)]" aria-label="Fechar">✕</button>
+          <button type="button" id="xbox-dialog-close" class="rounded-lg p-1 hover:bg-[var(--surface)] text-[var(--muted)]" aria-label={t("life.close")}>✕</button>
         </div>
         <ul class="max-h-[60vh] overflow-y-auto divide-y divide-[var(--border)]">
           {xboxTopGamerscore.map((g: any) => (
@@ -549,6 +559,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
       const p = tab.dataset.gameTab!;
       gameTabs.forEach((t) => {
         const active = t.dataset.gameTab === p;
+        t.setAttribute('aria-selected', String(active));
         t.classList.toggle('bg-[var(--bg)]', active);
         t.classList.toggle('shadow-sm', active);
         t.classList.toggle('text-[var(--fg)]', active);
@@ -564,6 +575,7 @@ const updated = spotify.updatedAt || steam.updatedAt || youtube.updatedAt;
   musicTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       const range = tab.dataset.musicTab!;
+      musicTabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.musicTab === range)));
       musicTabs.forEach((t) => t.classList.toggle('bg-[var(--bg)]', t.dataset.musicTab === range));
       musicTabs.forEach((t) => t.classList.toggle('shadow-sm', t.dataset.musicTab === range));
       musicTabs.forEach((t) => t.classList.toggle('text-[var(--fg)]', t.dataset.musicTab === range));

@@ -1,8 +1,10 @@
 ---
+import { metrics } from "@/metrics";
 import type { Lang } from "@/consts";
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const pt = lang === "pt";
+const M = metrics(lang);
 
 const jobs = pt
   ? [
@@ -12,10 +14,10 @@ const jobs = pt
         period: "Out 2024 — hoje",
         location: "São José dos Campos, SP",
         bullets: [
-          "Lidero o MetaAds — tráfego pago automatizado com IA para 2.000+ restaurantes atendidos",
+          `Lidero o MetaAds — tráfego pago automatizado com IA para ${M.restaurants} restaurantes atendidos`,
           "Arquitetura serverless em TypeScript/Node.js/Vue.js + GCP Cloud Functions + Meta Graph API",
           "Anderson: agente de IA com ciclo semanal, memória pgvector e 7 guardrails de segurança",
-          "R$20M+ em vendas rastreadas · R$500k+/mês em verba de clientes gerida de forma autônoma",
+          `${M.sales} em vendas rastreadas · ${M.monthly}/mês em verba de clientes gerida de forma autônoma`,
         ],
         stack: ["TypeScript", "Node.js", "Vue.js", "GCP", "Meta API", "OpenAI", "PostgreSQL"],
         current: true,
@@ -79,10 +81,10 @@ const jobs = pt
         period: "Oct 2024 — present",
         location: "São José dos Campos, SP",
         bullets: [
-          "Leading MetaAds — AI-powered paid traffic for 2,000+ restaurants served",
+          `Leading MetaAds — AI-powered paid traffic for ${M.restaurants} restaurants served`,
           "Serverless architecture in TypeScript/Node.js/Vue.js + GCP Cloud Functions + Meta Graph API",
           "Anderson: AI agent with weekly cycle, pgvector memory and 7 safety guardrails",
-          "R$20M+ in tracked sales · R$500k+/month in client budget managed autonomously",
+          `${M.sales} in tracked sales · ${M.monthly}/month in client budget managed autonomously`,
         ],
         stack: ["TypeScript", "Node.js", "Vue.js", "GCP", "Meta API", "OpenAI", "PostgreSQL"],
         current: true,

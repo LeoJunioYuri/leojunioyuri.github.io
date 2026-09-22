@@ -1,5 +1,8 @@
 ---
 import { SITE } from "@/consts";
+import { metrics } from "@/metrics";
+
+const M = metrics("pt");
 
 const title = "Currículo — Leonardo Basso";
 const description = "Product Engineer · Brendi · leojunioyuri.github.io";
@@ -11,8 +14,8 @@ const experiences = [
     period: "Out 2024 — presente",
     location: "São José dos Campos, SP",
     bullets: [
-      "Liderei o desenvolvimento do MetaAds, plataforma autônoma de tráfego pago para restaurantes, escalando de 0 até produção na base de 2.000+ restaurantes da Brendi — R$20M+ em vendas rastreadas e ROAS médio de 10×.",
-      "Atuei como principal engenheiro responsável pela arquitetura, implementação e evolução do produto, eliminando a operação manual recorrente do fluxo financeiro com camada própria de orçamento, investimento e receita — R$500k+/mês em verba gerida.",
+      `Liderei o desenvolvimento do MetaAds, plataforma autônoma de tráfego pago para restaurantes, escalando de 0 até produção na base de ${M.restaurants} restaurantes da Brendi — ${M.sales} em vendas rastreadas e ROAS médio de 10×.`,
+      `Atuei como principal engenheiro responsável pela arquitetura, implementação e evolução do produto, eliminando a operação manual recorrente do fluxo financeiro com camada própria de orçamento, investimento e receita — ${M.monthly}/mês em verba gerida.`,
       "Projetei e implementei APIs serverless que chegam a 20M+ requests/mês, p95 ≈ 130ms e 0,013% de erros 5xx, em GCP + PostgreSQL/AlloyDB com Layered Architecture.",
       "Implementei agente LLM para gestão autônoma de campanhas, gerando criativos com base em dados, pausando anúncios de baixo desempenho e reativando campanhas vencedoras com memória pgvector e 7 guardrails determinísticos.",
       "Desenvolvi sistema de rastreamento de vendas no funil anúncio → clique → cardápio → pedido via Meta Pixel + CAPI, conectando investimento, anúncios, consumidores e pedidos para métricas de ROAS, CAC e receita por loja.",
@@ -255,7 +258,7 @@ const projects = [
     <section>
       <h2>Descrição</h2>
       <p style="font-size:9.5pt;">
-        Engenheiro de Software e Product Engineer com 4+ anos de experiência, formado em Ciência da Computação pela UFLA. Na Brendi, lidero a área de aquisição de consumidores, onde desenvolvi o MetaAds — sistema de tráfego pago autônomo com IA que levou de zero a 2.000+ restaurantes atendidos, com R$20M+ em vendas rastreadas e retorno médio de 10× sobre o investimento aos nossos clientes.
+        Engenheiro de Software e Product Engineer com 4+ anos de experiência, formado em Ciência da Computação pela UFLA. Na Brendi, lidero a área de aquisição de consumidores, onde desenvolvi o MetaAds — sistema de tráfego pago autônomo com IA que levou de zero a {M.restaurants} restaurantes atendidos, com {M.sales} em vendas rastreadas e retorno médio de 10× sobre o investimento aos nossos clientes.
       </p>
     </section>
 

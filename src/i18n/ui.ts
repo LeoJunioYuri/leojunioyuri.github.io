@@ -1,4 +1,8 @@
 import type { Lang } from "@/consts";
+import { metrics } from "@/metrics";
+
+const MP = metrics("pt");
+const ME = metrics("en");
 
 /**
  * All user-facing UI strings, per locale.
@@ -17,7 +21,7 @@ export const ui = {
     "hero.tagline":
       "Product Engineer construindo automação com IA para fazer restaurantes venderem mais.",
     "hero.lede":
-      "Construí o MetaAds na Brendi — 2.000+ restaurantes atendidos, 600+ ativos hoje, com R$4M+ em mídia gerida e R$20M+ em vendas rastreadas.",
+      `Construí o MetaAds na Brendi — ${MP.restaurants} restaurantes atendidos, ${MP.active} ativos hoje, com ${MP.media} em mídia gerida e ${MP.sales} em vendas rastreadas.`,
     "hero.location": "São José dos Campos, Brasil",
     "parallax.toast":
       "Modo Parallax — meu apelido na UFLA. Dizem que eu usava o efeito até demais.",
@@ -34,12 +38,12 @@ export const ui = {
     "work.cta": "Ver o case completo na Brendi →",
 
     "case.metaads.title": "MetaAds — Tráfego pago autônomo para restaurantes",
-    "case.metaads.desc": "Construí do zero o sistema end-to-end que gerencia campanhas de tráfego pago para 2.000+ restaurantes — do onboarding à IA que decide e otimiza, ao rastreamento de cada venda gerada.",
+    "case.metaads.desc": `Construí do zero o sistema end-to-end que gerencia campanhas de tráfego pago para ${MP.restaurants} restaurantes — do onboarding à IA que decide e otimiza, ao rastreamento de cada venda gerada.`,
     "case.bullets": [
       "Plataforma SaaS: painel, investimento, onboarding e backoffice",
       "Gestor de Tráfego por IA: cria novos anúncios, ajusta orçamentos e otimiza",
-      "Data & Attribution: R$20M+ em vendas rastreadas ponta a ponta",
-      "2.000+ restaurantes · R$4M+ em mídia gerida",
+      `Data & Attribution: ${MP.sales} em vendas rastreadas ponta a ponta`,
+      `${MP.restaurants} restaurantes · ${MP.media} em mídia gerida`,
     ],
 
     "stack.title": "Stack",
@@ -70,7 +74,7 @@ export const ui = {
     "case.data.desc":
       "A fonte da verdade: Dados como ROAS, cohorts, atribuição de vendas e rastreamento ponta a ponta.",
     "case.data.points": [
-      "Atribuição de vendas a campanhas (R$20M+ rastreados)",
+      `Atribuição de vendas a campanhas (${MP.sales} rastreados)`,
       "Análise de cohorts e churns por ICP",
       "Rastreamento ponta a ponta do clique à venda",
     ],
@@ -175,7 +179,7 @@ export const ui = {
     "hero.tagline":
       "Product Engineer building AI automation to make restaurants sell more.",
     "hero.lede":
-      "I built MetaAds at Brendi — 2,000+ restaurants served, 600+ active today, with R$4M+ in media managed and R$20M+ in tracked sales.",
+      `I built MetaAds at Brendi — ${ME.restaurants} restaurants served, ${ME.active} active today, with ${ME.media} in media managed and ${ME.sales} in tracked sales.`,
     "hero.location": "São José dos Campos, Brazil · EU citizen",
     "parallax.toast":
       "Parallax mode — my UFLA nickname. They say I overused the effect.",
@@ -192,12 +196,12 @@ export const ui = {
     "work.cta": "See the full Brendi case →",
 
     "case.metaads.title": "MetaAds — Autonomous paid traffic for restaurants",
-    "case.metaads.desc": "Built from scratch the end-to-end system that manages paid-traffic campaigns for 2,000+ restaurants — from onboarding to the AI that decides and optimizes, to tracking every sale generated.",
+    "case.metaads.desc": `Built from scratch the end-to-end system that manages paid-traffic campaigns for ${ME.restaurants} restaurants — from onboarding to the AI that decides and optimizes, to tracking every sale generated.`,
     "case.bullets": [
       "SaaS platform: dashboard, billing, onboarding, backoffice",
       "AI Traffic Manager: creates new ads, adjusts budgets and optimizes",
-      "Data & Attribution: R$20M+ in sales tracked end-to-end",
-      "2,000+ restaurants · R$4M+ in media managed",
+      `Data & Attribution: ${ME.sales} in sales tracked end-to-end`,
+      `${ME.restaurants} restaurants · ${ME.media} in media managed`,
     ],
 
     "stack.title": "Stack",
@@ -228,7 +232,7 @@ export const ui = {
     "case.data.desc":
       "The source of truth: data like ROAS, cohorts, sales attribution, and end-to-end tracking.",
     "case.data.points": [
-      "Sales attributed to campaigns (R$20M+ tracked)",
+      `Sales attributed to campaigns (${ME.sales} tracked)`,
       "Cohort and churn analysis by ICP",
       "End-to-end tracking from click to sale",
     ],

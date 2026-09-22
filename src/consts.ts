@@ -17,6 +17,12 @@ export const SITE = {
     youtube: "https://youtube.com/@leojunioyuri",
     steam: "https://steamcommunity.com/id/leojunioyuri/",
     spotify: "https://open.spotify.com/user/12152000462",
+    steamWishlist: "https://store.steampowered.com/wishlist/profiles/76561198115976638/",
+    xbox: "https://www.xbox.com/play/user/Leonardo%20Yuri",
+  },
+  // Hours played that no public API exposes (shown on /life).
+  manualHours: {
+    wow: 3000,
   },
 } as const;
 

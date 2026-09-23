@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-22T22:34:05.122Z",
+  "updatedAt": "2026-09-23T02:21:10.821Z",
   "tracks": [
+    {
+      "name": "Holy Diver",
+      "artist": "Dio",
+      "url": "https://open.spotify.com/track/54yLLvpezvPO1lA3GspiZj",
+      "image": "https://i.scdn.co/image/ab67616d0000485115350aa1c89e23a5fa6c0de1",
+      "playedAt": "2026-09-23T02:17:38.945Z"
+    },
     {
       "name": "Hangar 18",
       "artist": "Megadeth",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/66aszIdaHkmJsrYM25w5uM",
       "image": "https://i.scdn.co/image/ab67616d0000485141e3840ad2e9d7183eebf02f",
       "playedAt": "2026-09-22T18:48:37.326Z"
-    },
-    {
-      "name": "Agni Parthene",
-      "artist": "Hymns of Redemption",
-      "url": "https://open.spotify.com/track/4M6CP43WBUxjyteDccrIMt",
-      "image": "https://i.scdn.co/image/ab67616d00004851a5855095cd5ff8339a990ff9",
-      "playedAt": "2026-09-22T14:17:46.713Z"
     }
   ],
   "topTracks": {

@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-23T02:21:10.821Z",
+  "updatedAt": "2026-09-23T10:26:39.750Z",
   "tracks": [
     {
-      "name": "Holy Diver",
-      "artist": "Dio",
-      "url": "https://open.spotify.com/track/54yLLvpezvPO1lA3GspiZj",
-      "image": "https://i.scdn.co/image/ab67616d0000485115350aa1c89e23a5fa6c0de1",
-      "playedAt": "2026-09-23T02:17:38.945Z"
+      "name": "Pandemic",
+      "artist": "Accept",
+      "url": "https://open.spotify.com/track/6ZPi5iNXafjUHep1sltQNl",
+      "image": "https://i.scdn.co/image/ab67616d0000485139bcae6f92f8ba8941dc2fb1",
+      "playedAt": "2026-09-23T06:24:56.525Z"
     },
     {
-      "name": "Hangar 18",
-      "artist": "Megadeth",
-      "url": "https://open.spotify.com/track/0KAaslGdPc5I6WxmKe3whe",
-      "image": "https://i.scdn.co/image/ab67616d0000485142be808911785ceb13140edc",
-      "playedAt": "2026-09-22T19:36:23.419Z"
+      "name": "No One Like You",
+      "artist": "Scorpions",
+      "url": "https://open.spotify.com/track/26fZwf1ImE4aUJ4XaqOkUg",
+      "image": "https://i.scdn.co/image/ab67616d000048510b0fbaf16e4475ad616b41b8",
+      "playedAt": "2026-09-23T05:34:59.920Z"
     },
     {
-      "name": "Practice What You Preach",
-      "artist": "Testament",
-      "url": "https://open.spotify.com/track/1KmX2Q8IwwLY2AMIMOmYlw",
-      "image": "https://i.scdn.co/image/ab67616d00004851f6f1dd1bb03e731d6e64b7d8",
-      "playedAt": "2026-09-22T19:31:07.892Z"
-    },
-    {
-      "name": "I Want Out - 2024 Remaster",
-      "artist": "Helloween",
-      "url": "https://open.spotify.com/track/2lp0PO2D90zcFWy8toVqgn",
-      "image": "https://i.scdn.co/image/ab67616d0000485155d506b10646ae83a2ca13bc",
-      "playedAt": "2026-09-22T19:21:40.640Z"
-    },
-    {
-      "name": "Wasted Years - 2015 Remaster",
+      "name": "The Evil That Men Do - 2015 Remaster",
       "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/1HM7Vp84E4SMzdrZONg6bH",
-      "image": "https://i.scdn.co/image/ab67616d00004851e113e5fda96f8b219faf6ff0",
-      "playedAt": "2026-09-22T19:08:50.564Z"
+      "url": "https://open.spotify.com/track/0S90LE5Z8FOdbui3tLak6t",
+      "image": "https://i.scdn.co/image/ab67616d00004851eab7b968bf8762355df7d840",
+      "playedAt": "2026-09-23T05:31:01.967Z"
     },
     {
-      "name": "The Hellion / Electric Eye",
+      "name": "Rock 'N' Roll Children",
+      "artist": "Dio",
+      "url": "https://open.spotify.com/track/1DaoV4AvANgpHjuTSJmNi8",
+      "image": "https://i.scdn.co/image/ab67616d0000485105c97cf4c1b9241a6aa771f9",
+      "playedAt": "2026-09-23T05:26:27.266Z"
+    },
+    {
+      "name": "Symphony Of Destruction - Remastered 2012",
+      "artist": "Megadeth",
+      "url": "https://open.spotify.com/track/5mR858YsHYG761aUqZoGkD",
+      "image": "https://i.scdn.co/image/ab67616d000048514be345f026469be09f12a92e",
+      "playedAt": "2026-09-23T05:21:54.144Z"
+    },
+    {
+      "name": "Turbo Lover - Remastered",
       "artist": "Judas Priest",
-      "url": "https://open.spotify.com/track/4LPCfppIoBx8tpW9LrLtWj",
-      "image": "https://i.scdn.co/image/ab67616d0000485184e8e28e6f93cdc0e584860d",
-      "playedAt": "2026-09-22T18:59:42.085Z"
+      "url": "https://open.spotify.com/track/1i5yWGXgtFABa0czv2pbZH",
+      "image": "https://i.scdn.co/image/ab67616d0000485161c27985f0b03b5062942df6",
+      "playedAt": "2026-09-23T05:17:51.718Z"
     },
     {
-      "name": "The Sentinel - Remastered",
-      "artist": "Judas Priest",
-      "url": "https://open.spotify.com/track/7riTER54Xy8xAila5pBfZM",
-      "image": "https://i.scdn.co/image/ab67616d00004851a1e9704ccf1605da2f625b3c",
-      "playedAt": "2026-09-22T18:55:21.398Z"
+      "name": "Shot in the Dark",
+      "artist": "Ozzy Osbourne",
+      "url": "https://open.spotify.com/track/31dqpLUModJWNbxrXu6TWd",
+      "image": "https://i.scdn.co/image/ab67616d00004851ca110425c6233c263beb0a4f",
+      "playedAt": "2026-09-23T05:12:17.226Z"
     },
     {
-      "name": "Aragorn's Coronation Song",
-      "artist": "Clamavi De Profundis",
-      "url": "https://open.spotify.com/track/66aszIdaHkmJsrYM25w5uM",
-      "image": "https://i.scdn.co/image/ab67616d0000485141e3840ad2e9d7183eebf02f",
-      "playedAt": "2026-09-22T18:48:37.326Z"
+      "name": "Rock You Like A Hurricane",
+      "artist": "Scorpions",
+      "url": "https://open.spotify.com/track/58XWGx7KNNkKneHdprcprX",
+      "image": "https://i.scdn.co/image/ab67616d00004851926764eed4da16a86b9ce33e",
+      "playedAt": "2026-09-23T05:08:00.457Z"
     }
   ],
   "topTracks": {

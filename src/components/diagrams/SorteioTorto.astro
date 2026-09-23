@@ -1,0 +1,33 @@
+---
+/** O sorteio que saiu torto: os dois grupos ANTES do teste começar. */
+const { lang = "pt" } = Astro.props;
+const t = lang === "en"
+  ? { title: "Revenue per store <em>before</em> the test started", a: "New group", b: "Current group", base: "base", cap: "The new group was already 9% ahead — before anyone changed anything." }
+  : { title: "Faturamento por loja <em>antes</em> do teste começar", a: "Grupo novo", b: "Grupo atual", base: "base", cap: "O grupo novo já saía 9% na frente — sem ninguém ter mudado nada ainda." };
+const rows = [
+  { label: t.a, pct: 100, value: "+9%", accent: true },
+  { label: t.b, pct: 91.7, value: t.base, accent: false },
+];
+---
+<figure class="st">
+  <p class="st-title" set:html={t.title}></p>
+  {rows.map(r => (
+    <div class="st-row">
+      <span class="st-label">{r.label}</span>
+      <div class="st-track"><div class:list={["st-fill", { accent: r.accent }]} style={`width:${r.pct}%`}></div></div>
+      <span class="st-val">{r.value}</span>
+    </div>
+  ))}
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .st{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .st-title{font-size:13px;font-weight:600;margin:0 0 14px}
+  .st-row{display:grid;grid-template-columns:96px 1fr 48px;gap:12px;align-items:center;margin-bottom:10px}
+  .st-label{font-size:12px;color:var(--muted)}
+  .st-track{height:22px;background:var(--border);border-radius:2px}
+  .st-fill{height:100%;background:var(--muted);border-radius:2px}
+  .st-fill.accent{background:var(--accent)}
+  .st-val{font-family:var(--font-mono);font-size:12px;text-align:right}
+  figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+</style>

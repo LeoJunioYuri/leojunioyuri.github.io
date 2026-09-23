@@ -1,0 +1,53 @@
+---
+/** Como o sorteio novo funciona: separa por tamanho, sorteia dentro de cada faixa, confere o equilíbrio. */
+const { lang = "pt" } = Astro.props;
+const en = lang === "en";
+const bands = en ? ["Small", "Mid-", "Mid+", "Large"] : ["Pequenas", "Médias-", "Médias+", "Grandes"];
+const t = en ? {
+  title: "The new draw, in three steps",
+  s1: "<strong>Split by size.</strong> Stores become 4 bands by revenue over the previous 13 days.",
+  s2: "<strong>Draw within each band.</strong> Half to each group — in all four.",
+  s3: "<strong>Check and, if needed, redraw.</strong> Gap above 2%? Repeat, up to 20 times. Still off? It doesn't start.",
+  r: "First real test: settled on the 2nd attempt, with <span>−0.86%</span> gap.",
+} : {
+  title: "O sorteio novo, em três passos",
+  s1: "<strong>Separa por tamanho.</strong> As lojas viram 4 faixas pelo faturamento dos 13 dias anteriores.",
+  s2: "<strong>Sorteia dentro de cada faixa.</strong> Metade pra cada grupo — em todas as quatro.",
+  s3: "<strong>Confere e, se precisar, sorteia de novo.</strong> Diferença acima de 2%? Repete, até 20 vezes. Não fechou? Não começa.",
+  r: "Primeiro teste real: fechou na 2ª tentativa, com <span>−0,86%</span> de diferença.",
+};
+---
+<figure class="sf">
+  <p class="sf-title">{t.title}</p>
+  <div class="sf-steps">
+    <div class="sf-step">
+      <span class="sf-n">1</span>
+      <p set:html={t.s1}></p>
+      <div class="sf-bands">{bands.map(b => <span>{b}</span>)}</div>
+    </div>
+    <div class="sf-step">
+      <span class="sf-n">2</span>
+      <p set:html={t.s2}></p>
+      <div class="sf-bands">{bands.map(() => <span class="half"><i></i><i></i></span>)}</div>
+    </div>
+    <div class="sf-step">
+      <span class="sf-n">3</span>
+      <p set:html={t.s3}></p>
+      <p class="sf-result" set:html={t.r}></p>
+    </div>
+  </div>
+</figure>
+<style>
+  .sf{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .sf-title{font-size:13px;font-weight:600;margin:0 0 14px}
+  .sf-steps{display:grid;gap:14px}
+  .sf-step{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+  .sf-step p{margin:0;font-size:13px;grid-column:2}
+  .sf-n{width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--bg);font-family:var(--font-mono);font-size:12px;display:flex;align-items:center;justify-content:center;grid-row:span 3}
+  .sf-bands{grid-column:2;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+  .sf-bands span{font-size:10px;text-align:center;padding:5px 0;border:1px solid var(--border);color:var(--muted);font-family:var(--font-mono)}
+  .sf-bands span.half{display:flex;padding:0;height:20px;overflow:hidden}
+  .sf-bands span.half i{flex:1}.sf-bands span.half i:first-child{background:var(--accent)}.sf-bands span.half i:last-child{background:var(--muted)}
+  .sf-result{color:var(--muted);margin-top:4px!important}
+  .sf-result span{font-family:var(--font-mono);color:var(--accent)}
+</style>

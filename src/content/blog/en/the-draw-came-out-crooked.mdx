@@ -1,0 +1,91 @@
+---
+title: "The draw came out crooked: how an A/B test almost fooled me"
+description: "The dashboard said +19%. The truth was +7%. What I found taking apart an experiment on my paid-traffic agent — and the infrastructure that came out of the mistake."
+date: 2026-09-28
+lang: "en"
+category: "produto"
+draft: true
+tags: ["MetaAds", "AI", "Data", "Engineering", "Lessons"]
+translationOf: "pt/o-sorteio-saiu-torto"
+---
+
+import SorteioTorto from "@/components/diagrams/SorteioTorto.astro";
+import GanhoDecomposto from "@/components/charts/GanhoDecomposto.astro";
+import SorteioPorFaixa from "@/components/diagrams/SorteioPorFaixa.astro";
+
+> **Draft.** The ending depends on the second test's verdict (mature cohort on Sep 28). `[Brackets]` mark what's missing.
+
+I have an AI agent that manages paid traffic for over a thousand restaurants. It creates ads, kills bad ones, moves budget — every week, on its own. I call it Anderson.
+
+When I want to change how Anderson thinks, I don't change it for everyone. I draw half the stores to get the new version, the other half stays as is, and a few weeks later I compare. A/B testing, the basics.
+
+This post is about the time the basics fooled me — and what I built so it wouldn't happen again.
+
+---
+
+## The dashboard said +19%
+
+The new version (I called it 1.3) gave Anderson access to a playbook of paid-traffic strategies. Two weeks in, the dashboard showed the new group making **19% more** revenue per store. The ads were clearly better. It looked settled.
+
+One thing bothered me: I knew Meta's pixel counts as a "sale" orders that never happened — a PIX that expires, a declined card. Could that phantom revenue be inflating one side more than the other?
+
+I measured. **It wasn't.** Both groups had nearly the same phantom rate (4.4% and 5.5%). Suspicion dismissed in an afternoon.
+
+But since I was already digging, I looked at something almost nobody looks at.
+
+## What had happened before the test started
+
+The question is simple: **were the two groups alike before I changed anything?**
+
+For a test to mean something, they need to be. If one group already sold more before, the difference afterwards isn't an effect — it's inheritance.
+
+I took the 13 days before the start and compared:
+
+<SorteioTorto lang="en" />
+
+The new group **was already selling 9% more**. It wasn't one giant store skewing the average — the median showed the same gap. The draw had simply come out crooked.
+
+It's like comparing two classes after a new lesson: class A got higher grades. But class A already had higher grades before the lesson. Part of the edge isn't the lesson. It's the class.
+
+## What's actually left
+
+Adjusting for store size, the 16% edge I was measuring became **7%**.
+
+<GanhoDecomposto lang="en" />
+
+The playbook worked — ads got 3× better at the median, and the crooked draw doesn't explain that. But the number on screen was more than double the honest one. And the number on screen is what becomes the team's memory, the plan, the budget.
+
+## Why the draw came out crooked
+
+The draw was a coin flip per store: heads goes to group A, tails to B. Mathematically fair.
+
+The problem is stores are **wildly** different — some make 100× what others do. Flip a coin over a pile like that and a 9% gap by bad luck is common. With a thousand-odd stores, the law of large numbers doesn't save you from the size of the tail.
+
+## What I built so it wouldn't repeat
+
+Instead of correcting after the fact, I changed the draw:
+
+<SorteioPorFaixa lang="en" />
+
+And the dashboard changed with it: instead of comparing the two groups raw, it shows how much each one **started** with, how much each one **grew**, and breaks everything down by the same size bands. If an imbalance exists, it's in plain sight — not hidden inside a single number.
+
+## The first test on the new structure
+
+The next version (1.4) changes how Anderson decides to kill an ad. Today it looks at "how many sales did this ad make" — a number that, for most ads, is 0, 1 or 2. Too small to tell a bad ad from an unlucky one. And in small stores, **half** the ads were being decided on zero information.
+
+I went looking for a better signal and found one: **cost per initiated checkout** predicts real orders better than the pixel purchase, and it's blind 7× less often. That became the hypothesis for 1.4.
+
+The new draw ran for real for the first time. It rejected the first attempt. The second settled at a **−0.86%** gap between groups — versus the +9% the previous time.
+
+In the first weeks, the new group kills about **2× more ads** than the current one, consistently. That's exactly the designed behavior: the new signal sees bad ads the old one left alive.
+
+[**Ending — Sep 28:** the mature-cohort result. Real delivered orders per unit spent, by group and by size band. If 1.4 holds, it becomes the baseline and the next test is born against it.]
+
+## What I take from this
+
+- **Look at the "before".** The cheapest question in an A/B test is the one almost nobody asks: were the groups equal before it started?
+- **A single number hides.** Breaking down by band showed that 1.3's gain came almost entirely from one segment — and was negative in the smallest stores.
+- **Mistakes become infrastructure.** The banded draw, the balance check and the adjusted dashboard cost a day. They'll pay off on every test from here on.
+- **Distrust the pretty dashboard.** Especially when it confirms what you wanted.
+
+[Optional — behind the scenes: the "zero regressions" I verified with a test suite that never even loaded; the agent that "failed" but had done the work; and why graduating an experiment is a PR, not a click.]

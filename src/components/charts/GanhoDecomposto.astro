@@ -1,0 +1,24 @@
+---
+/** O +16% do painel, dividido em duas partes: tamanho da loja × efeito real. */
+const { lang = "pt" } = Astro.props;
+const t = lang === "en"
+  ? { title: "Where the new group's 16% edge came from", size: "9 pts · store size", real: "7 pts · real effect", cap: "More than half of the \"edge\" was just the draw handing bigger stores to one side." }
+  : { title: "De onde vinha a vantagem de 16% do grupo novo", size: "9 pts · tamanho da loja", real: "7 pts · efeito real", cap: "Mais da metade da \"vantagem\" era só o sorteio ter dado lojas maiores pra um lado." };
+---
+<figure class="gd">
+  <p class="gd-title">{t.title}</p>
+  <div class="gd-bar">
+    <div class="gd-seg size" style="width:56%">{t.size}</div>
+    <div class="gd-seg real" style="width:44%">{t.real}</div>
+  </div>
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .gd{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .gd-title{font-size:13px;font-weight:600;margin:0 0 14px}
+  .gd-bar{display:flex;height:40px;border-radius:2px;overflow:hidden}
+  .gd-seg{display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;color:var(--bg);white-space:nowrap}
+  .gd-seg.size{background:var(--muted)}
+  .gd-seg.real{background:var(--accent)}
+  figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+</style>

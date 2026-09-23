@@ -1,0 +1,91 @@
+---
+title: "O sorteio saiu torto: como um teste A/B quase me enganou"
+description: "O painel dizia +19%. A verdade era +7%. O que descobri desmontando um experimento do meu agente de tráfego pago — e a infraestrutura que nasceu do erro."
+date: 2026-09-28
+lang: "pt"
+category: "produto"
+draft: true
+tags: ["MetaAds", "IA", "Dados", "Engenharia", "Lições"]
+translationOf: "en/the-draw-came-out-crooked"
+---
+
+import SorteioTorto from "@/components/diagrams/SorteioTorto.astro";
+import GanhoDecomposto from "@/components/charts/GanhoDecomposto.astro";
+import SorteioPorFaixa from "@/components/diagrams/SorteioPorFaixa.astro";
+
+> **Rascunho.** O fecho depende do veredito do segundo teste (safra madura em 28/09). Os `[colchetes]` marcam o que falta.
+
+Eu tenho um agente de IA que gerencia tráfego pago pra mais de mil restaurantes. Ele cria anúncio, mata anúncio ruim, mexe em orçamento — toda semana, sozinho. Chamo ele de Anderson.
+
+Quando eu quero mudar como o Anderson pensa, não mudo pra todo mundo. Sorteio metade das lojas pra receber a versão nova, a outra metade continua como está, e depois de algumas semanas comparo. Teste A/B, o básico.
+
+Esse post é sobre a vez em que o básico me enganou — e sobre o que construí pra não acontecer de novo.
+
+---
+
+## O painel dizia +19%
+
+A versão nova (chamei de 1.3) dava ao Anderson acesso a um playbook de estratégias de tráfego. Depois de duas semanas, o painel mostrava o grupo novo faturando **19% a mais** por loja. Os anúncios estavam claramente melhores. Parecia decidido.
+
+Só tinha uma coisa me incomodando: eu sabia que o pixel da Meta conta como "venda" pedidos que nunca aconteceram — PIX que expira, cartão recusado. Será que essa venda-fantasma estava inflando um lado mais que o outro?
+
+Fui medir. **Não estava.** Os dois grupos tinham praticamente a mesma taxa de venda falsa (4,4% e 5,5%). Suspeita descartada em uma tarde.
+
+Mas já que estava com a mão na massa, resolvi olhar uma coisa que quase ninguém olha.
+
+## O que tinha acontecido antes do teste começar
+
+A pergunta é simples: **os dois grupos eram parecidos antes de eu mudar qualquer coisa?**
+
+Pra um teste valer, precisam ser. Se um grupo já vendia mais antes, a diferença depois não é efeito — é herança.
+
+Peguei os 13 dias anteriores ao início e comparei:
+
+<SorteioTorto lang="pt" />
+
+O grupo novo **já vendia 9% mais**. Não era uma loja gigante distorcendo a média — a mediana mostrava a mesma diferença. O sorteio simplesmente tinha caído torto.
+
+É como comparar duas turmas depois de uma aula nova: a turma A tirou nota maior. Mas a turma A já tirava nota maior antes da aula. Parte da vantagem não é da aula. É da turma.
+
+## Quanto sobra de verdade
+
+Descontando o tamanho das lojas, a vantagem de 16% que eu media virou **7%**.
+
+<GanhoDecomposto lang="pt" />
+
+O playbook funcionava — os anúncios ficaram 3× melhores na mediana, e isso o sorteio torto não explica. Mas o número da tela era mais que o dobro do número honesto. E o número da tela é o que vira memória do time, planejamento, orçamento.
+
+## Por que o sorteio saiu torto
+
+O sorteio era uma moeda por loja: cara vai pro grupo A, coroa pro B. Matematicamente justo.
+
+O problema é que as lojas são **muito** diferentes entre si — tem loja que fatura 100× outra. Jogando moeda num bolo assim, dar 9% de diferença por azar é comum. Com mil e poucas lojas, a lei dos grandes números não te salva do tamanho da cauda.
+
+## O que construí pra não repetir
+
+Em vez de corrigir depois, mudei o sorteio:
+
+<SorteioPorFaixa lang="pt" />
+
+E o painel mudou junto: em vez de comparar os dois grupos crus, ele mostra quanto cada um **começou**, quanto cada um **cresceu**, e quebra tudo pelas mesmas faixas de tamanho. O desequilíbrio, se existir, fica na cara — não escondido dentro de um número único.
+
+## O primeiro teste na estrutura nova
+
+A versão seguinte (1.4) muda como o Anderson decide matar um anúncio. Hoje ele olha "quantas vendas o anúncio fez" — um número que, pra maioria dos anúncios, é 0, 1 ou 2. Pequeno demais pra distinguir anúncio ruim de anúncio azarado. E na loja pequena, **metade** dos anúncios era decidida com zero informação.
+
+Fui atrás de um sinal melhor e achei: **custo por checkout iniciado** prevê pedido de verdade melhor que a compra do pixel, e fica cego 7× menos. Virou a hipótese da 1.4.
+
+O sorteio novo rodou pela primeira vez pra valer. Recusou a primeira tentativa. A segunda fechou com **−0,86%** de diferença entre os grupos — contra os +9% da vez anterior.
+
+Nas primeiras semanas, o grupo novo mata cerca de **2× mais anúncios** que o atual, de forma estável. É exatamente o comportamento desenhado: o sinal novo enxerga anúncio ruim que o antigo deixava vivo.
+
+[**Fecho — 28/09:** o resultado da safra madura. Pedidos entregues de verdade por real gasto, por grupo e por faixa de tamanho. Se a 1.4 segurar, ela vira a base e o próximo teste nasce contra ela.]
+
+## O que eu levo disso
+
+- **Olhe o "antes".** A pergunta mais barata de um teste A/B é a que quase ninguém faz: os grupos eram iguais antes de começar?
+- **Número único esconde.** Quebrar por faixa revelou que o ganho da 1.3 vinha quase todo de um segmento — e era negativo nas lojas menores.
+- **Erro vira infraestrutura.** O sorteio por faixa, a checagem de equilíbrio e o painel ajustado custaram um dia. Vão valer pra todo teste daqui pra frente.
+- **Desconfie do painel bonito.** Especialmente quando ele confirma o que você queria.
+
+[Opcional — bastidores: o "zero regressão" que verifiquei com uma suíte de testes que nem carregava; o agente que "falhou" mas tinha feito o trabalho; e por que graduar um experimento é uma PR, não um clique.]

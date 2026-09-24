@@ -4,12 +4,10 @@ description: "How I built an AI agent that diagnoses stores, acts in production 
 date: 2026-09-24
 lang: "en"
 category: "ia"
-draft: true
+draft: false
 tags: ["AI", "Agents", "Support", "Lessons"]
 translationOf: "pt/marquinho-agente-de-suporte"
 ---
-
-> **Draft.** Review internal names and numbers before publishing.
 
 The WhatsApp support group for MetaAds at Brendi went from **~800 to ~2,000
 messages a month**. And the same handful of people answered everything, me

@@ -4,12 +4,10 @@ description: "Como construí um agente de IA que diagnostica lojas, age em produ
 date: 2026-09-24
 lang: "pt"
 category: "ia"
-draft: true
+draft: false
 tags: ["IA", "Agentes", "Suporte", "Lições"]
 translationOf: "en/marquinho-support-agent"
 ---
-
-> **Rascunho.** Revise nomes e números internos antes de publicar.
 
 O grupo de WhatsApp de suporte do MetaAds na Brendi saiu de **~800 para ~2.000
 mensagens por mês**. E quem respondia era sempre o mesmo punhado de gente, eu

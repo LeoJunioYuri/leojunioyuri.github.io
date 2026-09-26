@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-09-26T10:29:11.358Z",
+  "updatedAt": "2026-09-26T20:20:15.561Z",
   "tracks": [
+    {
+      "name": "Con Te Partirò",
+      "artist": "Andrea Bocelli",
+      "url": "https://open.spotify.com/track/7zrpoAJte9o12TzawqgdD0",
+      "image": "https://i.scdn.co/image/ab67616d000048517e69f0cf9685328522e66e14",
+      "playedAt": "2026-09-26T19:08:50.377Z"
+    },
+    {
+      "name": "Under the Bridge",
+      "artist": "Red Hot Chili Peppers",
+      "url": "https://open.spotify.com/track/3d9DChrdc6BOeFsbrZ3Is0",
+      "image": "https://i.scdn.co/image/ab67616d00004851153d79816d853f2694b2cc70",
+      "playedAt": "2026-09-26T19:04:22.432Z"
+    },
+    {
+      "name": "Fly Away",
+      "artist": "Lenny Kravitz",
+      "url": "https://open.spotify.com/track/1OxcIUqVmVYxT6427tbhDW",
+      "image": "https://i.scdn.co/image/ab67616d00004851f1157b7dcd21bae0c2c75d89",
+      "playedAt": "2026-09-26T17:44:25.973Z"
+    },
     {
       "name": "Eu Me Apaixonei",
       "artist": "Vitinho Imperador",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/3Q8cDYX0CYQWgcXmAFwXsN",
       "image": "https://i.scdn.co/image/ab67616d000048510817f0dd424b82f1b505117e",
       "playedAt": "2026-09-25T23:33:52.039Z"
-    },
-    {
-      "name": "Frio da Madrugada",
-      "artist": "Rionegro & Solimões, Jorge & Mateus",
-      "url": "https://open.spotify.com/track/735oMhxVOdzjldOrUP3JvX",
-      "image": "https://i.scdn.co/image/ab67616d000048512500235fc91344b1b16aaf84",
-      "playedAt": "2026-09-25T23:30:33.560Z"
-    },
-    {
-      "name": "Marca Evidente - Ao Vivo",
-      "artist": "Israel & Rodolffo, Jorge & Mateus",
-      "url": "https://open.spotify.com/track/3aDV90V6vHUSYKKYDLNdQ8",
-      "image": "https://i.scdn.co/image/ab67616d000048516098584c562a60f704a84f74",
-      "playedAt": "2026-09-25T23:26:04.148Z"
-    },
-    {
-      "name": "Amor Dos Outros - Ao Vivo",
-      "artist": "Henrique & Juliano",
-      "url": "https://open.spotify.com/track/7863dwut09r8ftZ7TZhABr",
-      "image": "https://i.scdn.co/image/ab67616d00004851ea8c31c9f8657e8c3812eb28",
-      "playedAt": "2026-09-25T23:22:46.201Z"
     }
   ],
   "topTracks": {

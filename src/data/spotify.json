@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-26T02:29:26.162Z",
+  "updatedAt": "2026-09-26T10:29:11.358Z",
   "tracks": [
+    {
+      "name": "Eu Me Apaixonei",
+      "artist": "Vitinho Imperador",
+      "url": "https://open.spotify.com/track/4SjcIkVc4cvFgURD1EHxDM",
+      "image": "https://i.scdn.co/image/ab67616d00004851781def2b7594a2cd1bf123b7",
+      "playedAt": "2026-09-26T04:16:26.174Z"
+    },
     {
       "name": "Saudade De Quem Eu Sou - Ao Vivo",
       "artist": "Henrique & Juliano",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/7863dwut09r8ftZ7TZhABr",
       "image": "https://i.scdn.co/image/ab67616d00004851ea8c31c9f8657e8c3812eb28",
       "playedAt": "2026-09-25T23:22:46.201Z"
-    },
-    {
-      "name": "Agora Estou Sofrendo - Ao Vivo",
-      "artist": "Calcinha Preta, Gusttavo Lima",
-      "url": "https://open.spotify.com/track/006rHBBNLJMpQs8fRC2GDe",
-      "image": "https://i.scdn.co/image/ab67616d00004851f83a34b012596419d97a37da",
-      "playedAt": "2026-09-25T23:19:33.535Z"
     }
   ],
   "topTracks": {

@@ -4,7 +4,7 @@ description: "O painel dizia +19%. A verdade era +7%. O que descobri desmontando
 date: 2026-09-28
 lang: "pt"
 category: "produto"
-draft: true
+draft: false
 tags: ["MetaAds", "IA", "Dados", "Engenharia", "Lições"]
 translationOf: "en/the-draw-came-out-crooked"
 ---
@@ -12,8 +12,6 @@ translationOf: "en/the-draw-came-out-crooked"
 import SorteioTorto from "@/components/diagrams/SorteioTorto.astro";
 import GanhoDecomposto from "@/components/charts/GanhoDecomposto.astro";
 import SorteioPorFaixa from "@/components/diagrams/SorteioPorFaixa.astro";
-
-> **Rascunho.** O fecho depende do veredito do segundo teste (safra madura em 28/09). Os `[colchetes]` marcam o que falta.
 
 Eu tenho um agente de IA que gerencia tráfego pago pra mais de mil restaurantes. Ele cria anúncio, mata anúncio ruim, mexe em orçamento — toda semana, sozinho. Chamo ele de Anderson.
 
@@ -79,7 +77,15 @@ O sorteio novo rodou pela primeira vez pra valer. Recusou a primeira tentativa. 
 
 Nas primeiras semanas, o grupo novo mata cerca de **2× mais anúncios** que o atual, de forma estável. É exatamente o comportamento desenhado: o sinal novo enxerga anúncio ruim que o antigo deixava vivo.
 
-[**Fecho — 28/09:** o resultado da safra madura. Pedidos entregues de verdade por real gasto, por grupo e por faixa de tamanho. Se a 1.4 segurar, ela vira a base e o próximo teste nasce contra ela.]
+## O veredito — e o teste que foi cortado no meio
+
+Duas semanas depois, fui ler a safra madura. E descobri que o teste tinha sido **cortado pela metade** sem eu perceber: no meio do caminho, duas mudanças foram pra frota inteira — uma delas, a própria regra do 1.4, que outro engenheiro do time já tinha graduado pra todo mundo. A partir dali os dois grupos rodavam a mesma coisa. A janela limpa da 1.4 tinha só **sete dias**.
+
+Nesses sete dias, medindo **pedidos entregues de verdade** por real gasto (nunca o pixel): o grupo novo fez **18% a mais**, e ficou na frente nas quatro faixas de tamanho — inclusive nas lojas pequenas, onde a 1.3 tinha dado negativo. Mas eram 24 pedidos contra 53. Com essa amostra, o intervalo honesto vai de −27% a +91%.
+
+Ou seja: **não provou que é melhor. Provou que não é pior — podando o dobro de anúncio ruim de graça.** Pelo critério que eu tinha combinado antes de ver os dados ("basta não perder"), graduar foi certo. O 1.4 virou a base, e o próximo teste já nasceu contra ele, no sorteio novo, com os grupos a −0,9% um do outro.
+
+O número que vai pro registro é esse. Não é "+18%". Muito menos o "+41%" que um dos meus cortes mostrava antes de eu descobrir a contaminação.
 
 ## O que eu levo disso
 
@@ -87,5 +93,4 @@ Nas primeiras semanas, o grupo novo mata cerca de **2× mais anúncios** que o a
 - **Número único esconde.** Quebrar por faixa revelou que o ganho da 1.3 vinha quase todo de um segmento — e era negativo nas lojas menores.
 - **Erro vira infraestrutura.** O sorteio por faixa, a checagem de equilíbrio e o painel ajustado custaram um dia. Vão valer pra todo teste daqui pra frente.
 - **Desconfie do painel bonito.** Especialmente quando ele confirma o que você queria.
-
-[Opcional — bastidores: o "zero regressão" que verifiquei com uma suíte de testes que nem carregava; o agente que "falhou" mas tinha feito o trabalho; e por que graduar um experimento é uma PR, não um clique.]
+- **Olhe o que mudou *durante* o teste.** Um deploy pra frota inteira no meio do experimento corta a janela — e o painel não avisa. Antes de qualquer veredito, o histórico de commits desde o início.

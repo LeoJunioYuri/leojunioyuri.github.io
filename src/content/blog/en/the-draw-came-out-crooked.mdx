@@ -4,7 +4,7 @@ description: "The dashboard said +19%. The truth was +7%. What I found taking ap
 date: 2026-09-28
 lang: "en"
 category: "produto"
-draft: true
+draft: false
 tags: ["MetaAds", "AI", "Data", "Engineering", "Lessons"]
 translationOf: "pt/o-sorteio-saiu-torto"
 ---
@@ -12,8 +12,6 @@ translationOf: "pt/o-sorteio-saiu-torto"
 import SorteioTorto from "@/components/diagrams/SorteioTorto.astro";
 import GanhoDecomposto from "@/components/charts/GanhoDecomposto.astro";
 import SorteioPorFaixa from "@/components/diagrams/SorteioPorFaixa.astro";
-
-> **Draft.** The ending depends on the second test's verdict (mature cohort on Sep 28). `[Brackets]` mark what's missing.
 
 I have an AI agent that manages paid traffic for over a thousand restaurants. It creates ads, kills bad ones, moves budget — every week, on its own. I call it Anderson.
 
@@ -79,7 +77,15 @@ The new draw ran for real for the first time. It rejected the first attempt. The
 
 In the first weeks, the new group kills about **2× more ads** than the current one, consistently. That's exactly the designed behavior: the new signal sees bad ads the old one left alive.
 
-[**Ending — Sep 28:** the mature-cohort result. Real delivered orders per unit spent, by group and by size band. If 1.4 holds, it becomes the baseline and the next test is born against it.]
+## The verdict — and the test that got cut in half
+
+Two weeks later I went to read the mature cohort. And found the test had been **cut in half** without me noticing: midway through, two changes shipped to the whole fleet — one of them the 1.4 rule itself, which another engineer on the team had already graduated for everyone. From that point on both groups were running the same thing. The clean 1.4 window was only **seven days**.
+
+In those seven days, measuring **real delivered orders** per unit spent (never the pixel): the new group did **18% more**, and led in all four size bands — including the small stores, where 1.3 had gone negative. But that was 24 orders against 53. With that sample, the honest interval runs from −27% to +91%.
+
+So: **it didn't prove it's better. It proved it isn't worse — while pruning twice as many bad ads for free.** By the criterion I'd set before seeing the data ("just don't lose"), graduating was right. 1.4 became the baseline, and the next test was already born against it, on the new draw, with the groups −0.9% apart.
+
+That's the number that goes on record. Not "+18%". Much less the "+41%" one of my cuts showed before I found the contamination.
 
 ## What I take from this
 
@@ -87,5 +93,4 @@ In the first weeks, the new group kills about **2× more ads** than the current 
 - **A single number hides.** Breaking down by band showed that 1.3's gain came almost entirely from one segment — and was negative in the smallest stores.
 - **Mistakes become infrastructure.** The banded draw, the balance check and the adjusted dashboard cost a day. They'll pay off on every test from here on.
 - **Distrust the pretty dashboard.** Especially when it confirms what you wanted.
-
-[Optional — behind the scenes: the "zero regressions" I verified with a test suite that never even loaded; the agent that "failed" but had done the work; and why graduating an experiment is a PR, not a click.]
+- **Watch what changes *during* the test.** A fleet-wide deploy mid-experiment cuts the window — and the dashboard won't tell you. Before any verdict, read the commit history since the start.

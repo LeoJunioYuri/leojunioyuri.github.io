@@ -1,0 +1,169 @@
+---
+title: "The product stopped calling Ads: 163k HTTP calls a week replaced by events"
+description: "How we took paid traffic out of the menu's synchronous path at Brendi, with agents doing much of the work: domain events, reconciling against current state, a per-store flag, and the stumbles on the way to almost zero."
+date: 2026-09-28
+lang: "en"
+category: "engenharia"
+draft: true
+tags: ["Architecture", "Events", "Pub/Sub", "Agents", "Lessons"]
+translationOf: "pt/o-produto-parou-de-ligar-pro-ads"
+---
+
+import AdsAntesDepois from "@/components/diagrams/AdsAntesDepois.astro";
+import ReconciliacaoFluxo from "@/components/diagrams/ReconciliacaoFluxo.astro";
+import ChamadasHttpSemana from "@/components/charts/ChamadasHttpSemana.astro";
+
+Every time a merchant touched a product on their menu at Brendi, the product
+service **called the Ads service** and asked: "does this product have an ad?
+pause it? re-check the price?". One HTTP call per edit. In the week before the
+change that was **162,813 calls**, and the vast majority were for products that
+didn't even have an ad.
+
+The cost wasn't just volume. When Ads was slow or down, **the product service
+was the one failing**. And there was a silent bug: a store that changed its menu
+link told no one, and paid clicks landed on a dead address.
+
+## The idea: stop calling, start announcing
+
+Instead of the product calling Ads, it **publishes a notice**: "product X of
+store Y changed, and these fields changed". Ads listens when it can. If Ads is
+down, the notice waits in the queue. The product doesn't know, or care, who is
+listening.
+
+<AdsAntesDepois lang="en" />
+
+Four pieces:
+
+1. **The announcer.** A trigger on products and another on stores publish a
+   domain event with the fields that changed. Edits Ads doesn't care about
+   aren't even published.
+2. **The mailbox.** A Pub/Sub subscription that only receives what matters to
+   Ads, with retries and a dead-letter queue (DLQ).
+3. **The reader.** A private worker that **doesn't execute commands**: it
+   re-reads the product's current state and decides there. A late event can't
+   undo a newer change, because the event is a trigger, not an instruction.
+4. **One at a time.** Before touching an ad, the worker takes a "claim" on that
+   product in Postgres. A duplicate event, or one older than the last applied,
+   is dropped.
+
+## Built with agents
+
+Much of this came from agents. The implementation landed as a stack of PRs
+written by agents (Codex and Claude Code), each reviewed by review agents and
+by people on the team. In the final stretch I ran one agent per PR stack in
+parallel: one handling conflicts and CI, another answering review, another
+preparing the rollout. What stayed with me was the design, the calls on when to
+flip the switch, and the "go ahead" on every step that touched production.
+
+And the agents caught things I wouldn't have caught in time. Three of the
+stumbles below surfaced in an agent's review or investigation, before they
+became incidents.
+
+## Flipping the switch without betting the house
+
+None of this went live at once. The switch was **per store, behind a flag**:
+with the flag off, the old path keeps working and the new one only observes.
+With the flag on, the store stops making the HTTP call, and the event becomes
+the owner.
+
+We started with **10 stores** and kept the rest of the fleet as the control
+group. In 46 hours those stores went from **98 HTTP calls to zero**, with no
+worker errors and nothing in the DLQ. The first real case was a merchant marking
+a product **out of stock**: the event went out, the worker re-read the product,
+kept the ad paused and released the claim in **~2.5 seconds**.
+
+Five days later, we turned it on for every store:
+
+<ChamadasHttpSemana lang="en" />
+
+## The stumbles (the part that teaches the most)
+
+- **The "lazy" import that saved nothing.** A CI gate fails any extra module on
+  the cold-start graph. Switching to a dynamic `import()` didn't help, because
+  the gate follows dynamic imports too. The fix was to delete the module and put
+  the constant where the graph already went.
+- **The delete that would be dropped.** The event version came from the
+  document's revision. On delete there is no new document, and the code used the
+  previous revision: exactly the last one already applied. The worker would have
+  discarded the deletion as a "duplicate". Caught in review, before going live.
+- **Infrastructure that already existed.** The topics had been created outside
+  Pulumi, and the first apply failed with a 409. It became a lookup instead of a
+  create.
+- **A mailbox with no mail carrier.** The subscription was born in *pull* mode
+  by design, waiting for the worker to be ready. It piled up 536 messages.
+  Turning on *push* drained them in 2 minutes.
+- **Pizza flavors.** The day before going fleet-wide, an agent preparing the
+  legacy removal noticed that pizza flavors don't emit events: their path went
+  through the old worker, which the flag switched off. Hundreds of flavor ads
+  would have lost automatic pausing. The pilot missed it because none of the 10
+  stores had a flavor ad.
+- **The flag that takes 24 hours.** After going fleet-wide, a trickle of legacy
+  calls kept coming. Feature-toggle reads serve the cached value and revalidate
+  in the background, and in a Cloud Function the instance freezes before the
+  revalidation finishes. So an old "off" could stick for up to 24 hours. Nothing
+  broke (both paths share the same claim), but the "5-minute rollback" in my plan
+  wasn't true.
+- **The warning that wasn't a problem.** "Claim busy" retries showed up: a
+  merchant editing the same product twice in a row. That was the concurrency
+  control working. They became info logs, and the real alert stayed on the DLQ.
+
+## What I'm taking from this
+
+- **Reconciling against current state** is what makes retries, duplicates and
+  delays harmless. Events as triggers, not orders.
+- **A per-store flag plus a control group** turns "I think it worked" into
+  "98 to 0, with the rest of the fleet unchanged".
+- **A pilot tests what the pilot has.** Ten stores without pizza don't test
+  pizza. Before widening, ask what the sample *doesn't* cover.
+- **Measure the rollback, not just the rollout.** I measured the way in
+  carefully and assumed the way back. The way back took 24 hours.
+- **Alerts are part of the delivery.** Without them, the new path can stop
+  silently, and nobody calls Ads anymore to notice.
+
+## Under the hood
+
+For those who want the technical detail.
+
+**The event.** Every relevant Firestore write publishes a versioned event with
+`entityType`, `storeId`, `entityId`, `changedFields` and `sourceVersion`, which
+is the document's `updateTime` in nanoseconds (or the commit instant, on
+delete). Message attributes (`adsRelevant`, `geoChanged`) let Pub/Sub filter
+before delivering, so the worker only wakes up for what matters.
+
+**Delivery.** An authenticated (OIDC) *push* subscription to a private worker,
+retrying from 30 s to 10 min, a DLQ after 10 attempts, and backlog and DLQ
+alerts to a Slack channel. Subscriptions, DLQs and alerts live in Pulumi; the
+pre-existing topics come in by lookup.
+
+**The claim.** The heart of it is a single `INSERT … ON CONFLICT` in Postgres:
+
+```sql
+INSERT INTO ads_entity_reconciliations
+  (store_id, entity_type, entity_id, claim_token, lease_expires_at)
+SELECT id, $type, $entity, $token, now() + interval '10 minutes'
+FROM stores WHERE firestore_id = $store
+ON CONFLICT (store_id, entity_type, entity_id) DO UPDATE
+SET claim_token      = EXCLUDED.claim_token,
+    lease_expires_at = EXCLUDED.lease_expires_at
+WHERE (lease_expires_at IS NULL OR lease_expires_at < now())
+      -- nobody holds it
+  AND (applied_version IS NULL OR applied_version < $version);
+      -- and the event is newer
+```
+
+If the row was written, the worker owns it. If not, either the event is old
+(drop it) or someone else is working (answer 503 and let Pub/Sub retry). No
+Meta call runs inside a transaction. The token stops an owner whose lease
+expired from completing over whoever took over. During the transition the old
+HTTP path used the same claim, so both could run side by side without stepping
+on each other.
+
+<ReconciliacaoFluxo lang="en" />
+
+**The rollout.** The migration and the worker shipped first, with the flag off
+(the worker only acknowledged messages). Then: a 10-store pilot, the pizza
+flavor fix, alerts wired up, every store. Last, removing the old code, which
+also drops the dependency on the flag and, with it, the 24 hours of cache.
+
+The next candidate is orders: the same pattern for everything that today
+depends on reading the orders database in real time.

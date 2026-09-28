@@ -1,6 +1,6 @@
 ---
-title: "O sorteio saiu torto: como um teste A/B quase me enganou"
-description: "O painel dizia +19%. A verdade era +7%. O que descobri desmontando um experimento do meu agente de tráfego pago — e a infraestrutura que nasceu do erro."
+title: "Um agente que melhora a cada duas semanas: como testamos o Anderson em produção"
+description: "Como mudar um agente de IA de tráfego pago sem quebrar nada: toda versão nova roda contra a atual em metade das lojas por duas semanas, e só o que vence gradua."
 date: 2026-09-28
 lang: "pt"
 category: "produto"
@@ -9,84 +9,80 @@ tags: ["MetaAds", "IA", "Dados", "Engenharia", "Lições"]
 translationOf: "en/the-draw-came-out-crooked"
 ---
 
-import SorteioTorto from "@/components/diagrams/SorteioTorto.astro";
+import CicloDeTeste from "@/components/diagrams/CicloDeTeste.astro";
 import GanhoDecomposto from "@/components/charts/GanhoDecomposto.astro";
 import SorteioPorFaixa from "@/components/diagrams/SorteioPorFaixa.astro";
 
-Eu tenho um agente de IA que gerencia tráfego pago pra mais de mil restaurantes. Ele cria anúncio, mata anúncio ruim, mexe em orçamento — toda semana, sozinho. Chamo ele de Anderson.
+Na Brendi, uma plataforma de delivery pra restaurantes, eu cuido de um agente de IA que gerencia tráfego pago pra centenas de lojas. Ele cria anúncio, mata anúncio ruim, mexe em orçamento. Toda semana, sozinho, com dinheiro de verdade. Chamo ele de Anderson.
 
-Quando eu quero mudar como o Anderson pensa, não mudo pra todo mundo. Sorteio metade das lojas pra receber a versão nova, a outra metade continua como está, e depois de algumas semanas comparo. Teste A/B, o básico.
+O problema de um agente assim é simples de enunciar e difícil de resolver: **como você muda ele sem quebrar?** Uma ideia que parece boa no papel pode piorar o resultado de centenas de restaurantes ao mesmo tempo. E "parece que melhorou" não serve como resposta quando o dinheiro é dos outros.
 
-Esse post é sobre a vez em que o básico me enganou — e sobre o que construí pra não acontecer de novo.
+A resposta que a gente adotou: nunca mudar tudo de uma vez. Toda versão nova do Anderson roda contra a versão atual, em metade das lojas, por duas semanas. Só o que vence vira a base. Esse post é sobre essa estrutura, o que ela já produziu e o que ela já me ensinou.
 
 ---
 
-## O painel dizia +19%
+## A estrutura
 
-A versão nova (chamei de 1.3) dava ao Anderson acesso a um playbook de estratégias de tráfego. Depois de duas semanas, o painel mostrava o grupo novo faturando **19% a mais** por loja. Os anúncios estavam claramente melhores. Parecia decidido.
+Um ciclo de teste tem seis passos. Sempre os mesmos.
 
-Antes de bater o martelo, resolvi olhar uma coisa que quase ninguém olha.
+<CicloDeTeste lang="pt" />
 
-## O que tinha acontecido antes do teste começar
+Alguns detalhes que importam:
 
-A pergunta é simples: **os dois grupos eram parecidos antes de eu mudar qualquer coisa?**
+- **Uma versão é uma hipótese.** Não é um pacote de melhorias. É uma mudança, atrás de uma flag no código. Se a versão ganha, eu sei por quê.
+- **O sorteio é por faixa de tamanho.** As lojas são muito diferentes entre si: tem loja que fatura 100× outra. Por isso elas viram quatro faixas pelo faturamento dos 13 dias anteriores, e o sorteio acontece dentro de cada faixa. Depois ele confere: se a média dos dois grupos antes do teste difere mais de 2%, sorteia de novo, até 20 vezes. Se não fechar, o teste não começa.
+- **A lista congela.** Quem está em qual grupo fica gravado no dia zero e não muda.
+- **A leitura compara cada grupo com ele mesmo.** O painel mostra quanto cada grupo vendia antes e quanto vende durante, por loja e por faixa. O que interessa é a diferença dos crescimentos, não a diferença bruta entre os grupos.
+- **A decisão é binária.** Gradua pra 100% ou descarta. A próxima versão já nasce testando contra a nova base.
 
-Pra um teste valer, precisam ser. Se um grupo já vendia mais antes, a diferença depois não é efeito — é herança.
+## O ritmo
 
-Peguei os 13 dias anteriores ao início e comparei:
+Desde que a estrutura existe, cada duas semanas sai um veredito. Até agora:
 
-<SorteioTorto lang="pt" />
+| Versão | O que testou | Resultado | Decisão |
+|---|---|---|---|
+| 1.2 | Variedade de criativo e proteção de orçamento: o agente para de repetir o mesmo produto e para de gastar em anúncio que não entrega | Graduou | Virou a base |
+| 1.3 | Um playbook de estratégias de tráfego pago que o agente consulta | Painel dizia +19% de faturamento por loja; descontando o sorteio desequilibrado, cerca de +7% | Graduou (set/2026) |
+| 1.4 | Sinal pra matar anúncio ruim: de compras do pixel pra custo por checkout iniciado | Não pior, direção positiva, não provado | Graduou como nova base (14/09 a 25/09/2026) |
+| 1.5 | Deep link de produto: o anúncio leva pra página do produto, não pra raiz do cardápio | Rodando desde 27/09/2026 | Leitura em meados de outubro |
 
-O grupo novo **já vendia 9% mais**. Não era uma loja gigante distorcendo a média — a mediana mostrava a mesma diferença. O sorteio simplesmente tinha caído torto.
+A 1.4 merece uma linha a mais. O sinal antigo, "quantas compras o pixel atribuiu ao anúncio", é 0, 1 ou 2 pra maioria dos anúncios. Pequeno demais pra distinguir anúncio ruim de anúncio azarado. Na loja pequena, metade dos anúncios era decidida com zero informação. O custo por checkout iniciado prevê pedido de verdade melhor que a compra do pixel, e fica cego 7× menos vezes, o que deixa menos lojas pequenas no escuro. A janela limpa do teste foi de sete dias, com 24 pedidos reais contra 53. O intervalo honesto vai de −27% a +91%. Isso não prova que é melhor. Prova que não é pior, matando cerca de 2× mais anúncio ruim. Pelo critério combinado antes de olhar os dados ("basta não perder"), graduou.
+
+A 1.5 também. Ela nasceu testando duas coisas: deep link de produto e públicos personalizados. Na primeira execução, a Meta bloqueou a escrita de públicos pra frota inteira, por uma pendência de aceite de termos que não tem API. Em vez de cancelar o teste, a hipótese foi estreitada: só deep link. O sorteio e a lista continuaram os mesmos.
+
+## Um ciclo por dentro: a 1.3 e o sorteio torto
+
+A estrutura de hoje não nasceu pronta. Ela nasceu de um erro na 1.3.
+
+Depois de duas semanas de playbook, o painel mostrava o grupo novo faturando **19% a mais** por loja. Parecia decidido. Antes de bater o martelo, fiz a pergunta mais barata de um teste A/B, a que quase ninguém faz: **os dois grupos eram parecidos antes de eu mudar qualquer coisa?**
+
+Peguei os 13 dias anteriores ao início e comparei. O grupo novo **já vendia 9% mais**. Não era uma loja gigante distorcendo a média; a mediana mostrava a mesma diferença. O sorteio, que na época era uma moeda por loja, tinha simplesmente caído torto. Com lojas tão diferentes de tamanho, 9% de diferença por azar é comum.
 
 É como comparar duas turmas depois de uma aula nova: a turma A tirou nota maior. Mas a turma A já tirava nota maior antes da aula. Parte da vantagem não é da aula. É da turma.
 
-## Quanto sobra de verdade
-
-Descontando o tamanho das lojas, a vantagem de 16% que eu media virou **7%**.
+Descontando o tamanho das lojas, a vantagem que eu media virou **7%**. Esse é o ganho real.
 
 <GanhoDecomposto lang="pt" />
 
-O playbook funcionava — os anúncios ficaram 3× melhores na mediana, e isso o sorteio torto não explica. Mas o número da tela era mais que o dobro do número honesto. E o número da tela é o que vira memória do time, planejamento, orçamento.
+O playbook funcionava. Os anúncios ficaram 3× melhores na mediana, e isso o sorteio torto não explica. Mas o número da tela era mais que o dobro do número honesto. E o número da tela é o que vira memória do time, planejamento, orçamento.
 
-## Por que o sorteio saiu torto
-
-O sorteio era uma moeda por loja: cara vai pro grupo A, coroa pro B. Matematicamente justo.
-
-O problema é que as lojas são **muito** diferentes entre si — tem loja que fatura 100× outra. Jogando moeda num bolo assim, dar 9% de diferença por azar é comum. Com mil e poucas lojas, a lei dos grandes números não te salva do tamanho da cauda.
-
-## O que construí pra não repetir
-
-Em vez de corrigir depois, mudei o sorteio:
+Foi por isso que o sorteio virou o que é hoje:
 
 <SorteioPorFaixa lang="pt" />
 
-E o painel mudou junto: em vez de comparar os dois grupos crus, ele mostra quanto cada um **começou**, quanto cada um **cresceu**, e quebra tudo pelas mesmas faixas de tamanho. O desequilíbrio, se existir, fica na cara — não escondido dentro de um número único.
+Na 1.4, o sorteio novo rodou pela primeira vez pra valer. Recusou a primeira tentativa. A segunda fechou com **−0,86%** de diferença entre os grupos, contra os +9% da vez anterior.
 
-## O primeiro teste na estrutura nova
+## O que a estrutura já ensinou
 
-A versão seguinte (1.4) muda como o Anderson decide matar um anúncio. Hoje ele olha "quantas vendas o anúncio fez" — um número que, pra maioria dos anúncios, é 0, 1 ou 2. Pequeno demais pra distinguir anúncio ruim de anúncio azarado. E na loja pequena, **metade** dos anúncios era decidida com zero informação.
+- **Hipótese vem de dado, não de palpite.** A 1.4 saiu de uma pesquisa: qual sinal que o anúncio gera prevê melhor o pedido entregue? A resposta virou a versão. Sem a estrutura, a ideia teria ido pra frota inteira num deploy comum.
+- **Dá pra estreitar sem cancelar.** Quando a Meta bloqueou públicos no meio da 1.5, o teste continuou com uma hipótese menor. O ciclo não voltou pro zero.
+- **Medir pedido entregue, não clique.** Por loja, por faixa de tamanho, contra o período anterior de cada grupo. Número único esconde: o ganho da 1.3 vinha quase todo de um segmento, e era negativo nas lojas menores.
+- **Experimento barato mantém o ritmo.** Cada versão nova custa uma flag no código e uma linha numa tabela. Por isso a cadência de duas semanas se sustenta.
 
-Fui atrás de um sinal melhor e achei: **custo por checkout iniciado** prevê pedido de verdade melhor que a compra do pixel, e fica cego 7× menos. Virou a hipótese da 1.4.
+## O que eu mudaria a seguir
 
-O sorteio novo rodou pela primeira vez pra valer. Recusou a primeira tentativa. A segunda fechou com **−0,86%** de diferença entre os grupos — contra os +9% da vez anterior.
+Duas coisas.
 
-Nas primeiras semanas, o grupo novo mata cerca de **2× mais anúncios** que o atual, de forma estável. É exatamente o comportamento desenhado: o sinal novo enxerga anúncio ruim que o antigo deixava vivo.
+A primeira é cobertura. O deep link da 1.5 só se aplica a anúncios criados a partir de um produto, cerca de um quarto dos anúncios novos. Metade das lojas vê a versão nova, mas só uma fração dos anúncios delas muda de verdade. Antes de começar um teste, quero saber quantos anúncios a hipótese alcança, e se é pouco, ampliar a hipótese ou aceitar que a leitura vai demorar mais.
 
-## O veredito — e o teste que foi cortado no meio
-
-Duas semanas depois, fui ler a safra madura. E descobri que o teste tinha sido **cortado pela metade** sem eu perceber: no meio do caminho, duas mudanças foram pra frota inteira — uma delas, a própria regra do 1.4, que outro engenheiro do time já tinha graduado pra todo mundo. A partir dali os dois grupos rodavam a mesma coisa. A janela limpa da 1.4 tinha só **sete dias**.
-
-Nesses sete dias, medindo **pedidos entregues de verdade** por real gasto: o grupo novo fez **18% a mais**, e ficou na frente nas quatro faixas de tamanho — inclusive nas lojas pequenas, onde a 1.3 tinha dado negativo. Mas eram 24 pedidos contra 53. Com essa amostra, o intervalo honesto vai de −27% a +91%.
-
-Ou seja: **não provou que é melhor. Provou que não é pior — podando o dobro de anúncio ruim de graça.** Pelo critério que eu tinha combinado antes de ver os dados ("basta não perder"), graduar foi certo. O 1.4 virou a base, e o próximo teste já nasceu contra ele, no sorteio novo, com os grupos a −0,9% um do outro.
-
-O número que vai pro registro é esse. Não é "+18%". Muito menos o "+41%" que um dos meus cortes mostrava antes de eu descobrir a contaminação.
-
-## O que eu levo disso
-
-- **Olhe o "antes".** A pergunta mais barata de um teste A/B é a que quase ninguém faz: os grupos eram iguais antes de começar?
-- **Número único esconde.** Quebrar por faixa revelou que o ganho da 1.3 vinha quase todo de um segmento — e era negativo nas lojas menores.
-- **Erro vira infraestrutura.** O sorteio por faixa, a checagem de equilíbrio e o painel ajustado custaram um dia. Vão valer pra todo teste daqui pra frente.
-- **Desconfie do painel bonito.** Especialmente quando ele confirma o que você queria.
-- **Olhe o que mudou *durante* o teste.** Um deploy pra frota inteira no meio do experimento corta a janela — e o painel não avisa. Antes de qualquer veredito, o histórico de commits desde o início.
+A segunda é ler todo teste com a mesma régua. A 1.3 eu li de um jeito, a 1.4 de outro, ajustando a régua conforme descobria os problemas. A partir de agora, a regra de leitura é escrita antes do sorteio e é a mesma pra todas as versões. Uma estrutura só vale se ela for mais rígida que o meu otimismo.

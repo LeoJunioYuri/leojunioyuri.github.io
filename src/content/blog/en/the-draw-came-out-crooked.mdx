@@ -1,6 +1,6 @@
 ---
-title: "The draw came out crooked: how an A/B test almost fooled me"
-description: "The dashboard said +19%. The truth was +7%. What I found taking apart an experiment on my paid-traffic agent — and the infrastructure that came out of the mistake."
+title: "An agent that gets better every two weeks: how we test Anderson in production"
+description: "How to change a paid-traffic AI agent without breaking it: every new version runs against the current one in half the stores for two weeks, and only what wins graduates."
 date: 2026-09-28
 lang: "en"
 category: "produto"
@@ -9,84 +9,80 @@ tags: ["MetaAds", "AI", "Data", "Engineering", "Lessons"]
 translationOf: "pt/o-sorteio-saiu-torto"
 ---
 
-import SorteioTorto from "@/components/diagrams/SorteioTorto.astro";
+import CicloDeTeste from "@/components/diagrams/CicloDeTeste.astro";
 import GanhoDecomposto from "@/components/charts/GanhoDecomposto.astro";
 import SorteioPorFaixa from "@/components/diagrams/SorteioPorFaixa.astro";
 
-I have an AI agent that manages paid traffic for over a thousand restaurants. It creates ads, kills bad ones, moves budget — every week, on its own. I call it Anderson.
+At Brendi, a food-delivery platform for restaurants, I own an AI agent that manages paid traffic for hundreds of stores. It creates ads, kills bad ones, moves budget. Every week, on its own, with real money. I call it Anderson.
 
-When I want to change how Anderson thinks, I don't change it for everyone. I draw half the stores to get the new version, the other half stays as is, and a few weeks later I compare. A/B testing, the basics.
+The problem with an agent like this is easy to state and hard to solve: **how do you change it without breaking it?** An idea that looks good on paper can make hundreds of restaurants worse off at the same time. And "it seems better" is not an acceptable answer when the money belongs to someone else.
 
-This post is about the time the basics fooled me — and what I built so it wouldn't happen again.
+The answer we settled on: never change everything at once. Every new version of Anderson runs against the current one, in half the stores, for two weeks. Only what wins becomes the baseline. This post is about that structure, what it has produced so far, and what it has already taught me.
 
 ---
 
-## The dashboard said +19%
+## The structure
 
-The new version (I called it 1.3) gave Anderson access to a playbook of paid-traffic strategies. Two weeks in, the dashboard showed the new group making **19% more** revenue per store. The ads were clearly better. It looked settled.
+A test cycle has six steps. Always the same ones.
 
-Before signing off on it, I looked at something almost nobody looks at.
+<CicloDeTeste lang="en" />
 
-## What had happened before the test started
+A few details that matter:
 
-The question is simple: **were the two groups alike before I changed anything?**
+- **A version is one hypothesis.** Not a bundle of improvements. One change, behind one code flag. If the version wins, I know why.
+- **The draw is stratified by store size.** Stores are wildly different; some make 100× what others do. So they are split into four bands by revenue over the previous 13 days, and the draw happens inside each band. Then it checks itself: if the two groups' pre-test averages differ by more than 2%, it redraws, up to 20 times. If it still can't close the gap, the test doesn't start.
+- **The roster is frozen.** Who is in which group is written down on day zero and never changes.
+- **The read compares each group with itself.** The dashboard shows how much each group sold before and how much it sells during, per store and per band. What matters is the difference between the two growth rates, not the raw gap between the groups.
+- **The decision is binary.** Graduate to 100% or discard. The next version is born testing against the new baseline.
 
-For a test to mean something, they need to be. If one group already sold more before, the difference afterwards isn't an effect — it's inheritance.
+## The rhythm
 
-I took the 13 days before the start and compared:
+Since the structure exists, a verdict comes out every two weeks. So far:
 
-<SorteioTorto lang="en" />
+| Version | What it tested | Result | Decision |
+|---|---|---|---|
+| 1.2 | Creative variety and budget protection: the agent stops repeating the same product and stops spending on ads that don't deliver | Graduated | Became the baseline |
+| 1.3 | A playbook of paid-traffic strategies the agent consults | Dashboard said +19% revenue per store; after discounting the unbalanced draw, about +7% | Graduated (Sep 2026) |
+| 1.4 | The signal used to kill bad ads: from pixel purchases to cost per initiated checkout | Not worse, direction positive, not proven | Graduated as the new baseline (Sep 14 to Sep 25, 2026) |
+| 1.5 | Product deep link: new ads send the click to the product's page instead of the menu root | Running since Sep 27, 2026 | Read due mid-October |
 
-The new group **was already selling 9% more**. It wasn't one giant store skewing the average — the median showed the same gap. The draw had simply come out crooked.
+1.4 deserves one more line. The old signal, "how many purchases the pixel attributed to this ad", is 0, 1 or 2 for most ads. Too small to tell a bad ad from an unlucky one. In small stores, half the ads were being decided on zero information. Cost per initiated checkout predicts real orders better than the pixel purchase, and goes blind 7× less often, which leaves fewer small stores in the dark. The clean window of the test was seven days, with 24 real orders against 53. The honest interval runs from −27% to +91%. That doesn't prove it's better. It proves it isn't worse, while killing about 2× more bad ads. By the criterion set before looking at the data ("just don't lose"), it graduated.
+
+1.5 too. It was born testing two things: product deep links and custom audiences. On the first run, Meta blocked audience writes for the whole fleet, over a terms-acceptance step that has no API. Instead of cancelling the test, the hypothesis was narrowed: deep link only. The draw and the roster stayed the same.
+
+## One cycle from the inside: 1.3 and the crooked draw
+
+Today's structure wasn't born finished. It was born from a mistake in 1.3.
+
+After two weeks of playbook, the dashboard showed the new group making **19% more** revenue per store. It looked settled. Before signing off, I asked the cheapest question in an A/B test, the one almost nobody asks: **were the two groups alike before I changed anything?**
+
+I took the 13 days before the start and compared. The new group **was already selling 9% more**. It wasn't one giant store skewing the average; the median showed the same gap. The draw, which back then was a coin flip per store, had simply come out crooked. With stores this different in size, a 9% gap by bad luck is common.
 
 It's like comparing two classes after a new lesson: class A got higher grades. But class A already had higher grades before the lesson. Part of the edge isn't the lesson. It's the class.
 
-## What's actually left
-
-Adjusting for store size, the 16% edge I was measuring became **7%**.
+Adjusting for store size, the edge I was measuring became **7%**. That is the real gain.
 
 <GanhoDecomposto lang="en" />
 
-The playbook worked — ads got 3× better at the median, and the crooked draw doesn't explain that. But the number on screen was more than double the honest one. And the number on screen is what becomes the team's memory, the plan, the budget.
+The playbook worked. Ads got 3× better at the median, and the crooked draw doesn't explain that. But the number on screen was more than double the honest one. And the number on screen is what becomes the team's memory, the plan, the budget.
 
-## Why the draw came out crooked
-
-The draw was a coin flip per store: heads goes to group A, tails to B. Mathematically fair.
-
-The problem is stores are **wildly** different — some make 100× what others do. Flip a coin over a pile like that and a 9% gap by bad luck is common. With a thousand-odd stores, the law of large numbers doesn't save you from the size of the tail.
-
-## What I built so it wouldn't repeat
-
-Instead of correcting after the fact, I changed the draw:
+That is why the draw became what it is today:
 
 <SorteioPorFaixa lang="en" />
 
-And the dashboard changed with it: instead of comparing the two groups raw, it shows how much each one **started** with, how much each one **grew**, and breaks everything down by the same size bands. If an imbalance exists, it's in plain sight — not hidden inside a single number.
+On 1.4, the new draw ran for real for the first time. It rejected the first attempt. The second settled at a **−0.86%** gap between groups, versus the +9% the previous time.
 
-## The first test on the new structure
+## What the structure has already taught us
 
-The next version (1.4) changes how Anderson decides to kill an ad. Today it looks at "how many sales did this ad make" — a number that, for most ads, is 0, 1 or 2. Too small to tell a bad ad from an unlucky one. And in small stores, **half** the ads were being decided on zero information.
+- **Hypotheses come from data, not hunches.** 1.4 came out of a research question: which signal an ad generates best predicts a delivered order? The answer became the version. Without the structure, the idea would have gone to the whole fleet in an ordinary deploy.
+- **You can narrow without cancelling.** When Meta blocked audiences midway through 1.5, the test went on with a smaller hypothesis. The cycle didn't reset to zero.
+- **Measure delivered orders, not clicks.** Per store, per size band, against each group's own pre-test period. A single number hides: 1.3's gain came almost entirely from one segment, and was negative in the smallest stores.
+- **Cheap experiments keep the rhythm.** Each new version costs one code flag and one row in a table. That is why the two-week cadence holds.
 
-I went looking for a better signal and found one: **cost per initiated checkout** predicts real orders better than the pixel purchase, and it's blind 7× less often. That became the hypothesis for 1.4.
+## What I would change next
 
-The new draw ran for real for the first time. It rejected the first attempt. The second settled at a **−0.86%** gap between groups — versus the +9% the previous time.
+Two things.
 
-In the first weeks, the new group kills about **2× more ads** than the current one, consistently. That's exactly the designed behavior: the new signal sees bad ads the old one left alive.
+The first is coverage. 1.5's deep link only applies to ads created from a product, about a quarter of new ads. Half the stores see the new version, but only a fraction of their ads actually change. Before starting a test, I want to know how many ads the hypothesis reaches, and if it's few, widen the hypothesis or accept that the read will take longer.
 
-## The verdict — and the test that got cut in half
-
-Two weeks later I went to read the mature cohort. And found the test had been **cut in half** without me noticing: midway through, two changes shipped to the whole fleet — one of them the 1.4 rule itself, which another engineer on the team had already graduated for everyone. From that point on both groups were running the same thing. The clean 1.4 window was only **seven days**.
-
-In those seven days, measuring **real delivered orders** per unit spent: the new group did **18% more**, and led in all four size bands — including the small stores, where 1.3 had gone negative. But that was 24 orders against 53. With that sample, the honest interval runs from −27% to +91%.
-
-So: **it didn't prove it's better. It proved it isn't worse — while pruning twice as many bad ads for free.** By the criterion I'd set before seeing the data ("just don't lose"), graduating was right. 1.4 became the baseline, and the next test was already born against it, on the new draw, with the groups −0.9% apart.
-
-That's the number that goes on record. Not "+18%". Much less the "+41%" one of my cuts showed before I found the contamination.
-
-## What I take from this
-
-- **Look at the "before".** The cheapest question in an A/B test is the one almost nobody asks: were the groups equal before it started?
-- **A single number hides.** Breaking down by band showed that 1.3's gain came almost entirely from one segment — and was negative in the smallest stores.
-- **Mistakes become infrastructure.** The banded draw, the balance check and the adjusted dashboard cost a day. They'll pay off on every test from here on.
-- **Distrust the pretty dashboard.** Especially when it confirms what you wanted.
-- **Watch what changes *during* the test.** A fleet-wide deploy mid-experiment cuts the window — and the dashboard won't tell you. Before any verdict, read the commit history since the start.
+The second is reading every test with the same ruler. I read 1.3 one way and 1.4 another, adjusting the ruler as I found problems. From now on, the reading rule is written before the draw and is the same for every version. A structure is only worth something if it is more rigid than my optimism.

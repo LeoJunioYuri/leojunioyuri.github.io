@@ -1,0 +1,64 @@
+---
+/** Um ciclo de teste do Anderson, como linha do tempo: hipótese → sorteio → congela → 14 dias → leitura → decisão. */
+const { lang = "pt" } = Astro.props;
+const en = lang === "en";
+const t = en ? {
+  title: "One test cycle, start to finish",
+  steps: [
+    { k: "day 0", h: "One hypothesis", p: "A new version is one change behind one code flag. Nothing else moves." },
+    { k: "day 0", h: "Stratified draw", p: "Stores split into 4 size bands from the previous 13 days. Half of each band goes to each group. Gap above 2%? Redraw, up to 20 times. Still off? It doesn't start." },
+    { k: "day 0", h: "Roster frozen", p: "Who is in which group is written down and never changes during the test." },
+    { k: "days 1–14", h: "Both versions run", p: "Current version on one half, new version on the other. Same stores, same weeks." },
+    { k: "day 14", h: "Read", p: "Per store and per size band. Each group is compared with its own pre-test period, not just with the other group." },
+    { k: "day 15", h: "Decide", p: "Graduate to 100% or discard. The next version tests against whatever won." },
+  ],
+  cap: "Then it starts over. The baseline only changes when something beats it.",
+} : {
+  title: "Um ciclo de teste, do começo ao fim",
+  steps: [
+    { k: "dia 0", h: "Uma hipótese", p: "Versão nova é uma mudança atrás de uma flag no código. Nada mais muda." },
+    { k: "dia 0", h: "Sorteio por faixa", p: "Lojas viram 4 faixas de tamanho pelos 13 dias anteriores. Metade de cada faixa vai pra cada grupo. Diferença acima de 2%? Sorteia de novo, até 20 vezes. Não fechou? Não começa." },
+    { k: "dia 0", h: "Lista congelada", p: "Quem está em qual grupo fica gravado e não muda durante o teste." },
+    { k: "dias 1–14", h: "As duas versões rodam", p: "Versão atual numa metade, versão nova na outra. Mesmas lojas, mesmas semanas." },
+    { k: "dia 14", h: "Leitura", p: "Por loja e por faixa de tamanho. Cada grupo é comparado com o próprio período anterior ao teste, não só com o outro grupo." },
+    { k: "dia 15", h: "Decisão", p: "Gradua pra 100% ou descarta. A próxima versão testa contra o que venceu." },
+  ],
+  cap: "Depois recomeça. A base só muda quando alguma coisa ganha dela.",
+};
+---
+<figure class="ct">
+  <p class="ct-title">{t.title}</p>
+  <ol class="ct-steps">
+    {t.steps.map((s, i) => (
+      <li class:list={["ct-step", { long: i === 3 }]}>
+        <span class="ct-dot">{i + 1}</span>
+        <span class="ct-k">{s.k}</span>
+        <strong class="ct-h">{s.h}</strong>
+        <p class="ct-p">{s.p}</p>
+      </li>
+    ))}
+  </ol>
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .ct{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .ct-title{font-size:13px;font-weight:600;margin:0 0 14px}
+  .ct-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+  .ct-step{display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto auto;column-gap:12px;position:relative;padding-bottom:16px}
+  .ct-step::before{content:"";position:absolute;left:11px;top:24px;bottom:0;width:2px;background:var(--border)}
+  .ct-step.long::before{background:var(--accent);opacity:.5}
+  .ct-step:last-child{padding-bottom:0}
+  .ct-step:last-child::before{display:none}
+  .ct-dot{grid-row:span 3;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--bg);font-family:var(--font-mono);font-size:12px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+  .ct-k{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .ct-h{font-size:13px;display:block;margin-top:2px}
+  .ct-p{margin:2px 0 0;font-size:12px;color:var(--muted);line-height:1.5}
+  figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+  @media (min-width:720px){
+    .ct-steps{grid-template-columns:repeat(6,1fr);gap:10px}
+    .ct-step{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;padding-bottom:0;padding-top:34px}
+    .ct-step::before{left:12px;right:-10px;top:11px;bottom:auto;height:2px;width:auto}
+    .ct-dot{grid-row:auto;position:absolute;top:0;left:0}
+    .ct-step:last-child::before{display:none}
+  }
+</style>

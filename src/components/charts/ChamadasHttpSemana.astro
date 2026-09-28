@@ -1,0 +1,57 @@
+---
+/** Chamadas HTTP produto → Ads por semana: semana anterior à virada vs ritmo após a virada. */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t =
+  lang === "en"
+    ? {
+        title: "Product → Ads HTTP calls per week",
+        before: "Week before (Sep 21–28)",
+        after: "After the switch (pace of the first hours)",
+        cap: "Measured from the legacy workers' execution count. What remains after the switch are stores still serving a cached \"off\" (gone within 24h) and pizza flavors, which keep the old path on purpose.",
+      }
+    : {
+        title: "Chamadas HTTP produto → Ads por semana",
+        before: "Semana antes (21–28/09)",
+        after: "Depois da virada (ritmo das primeiras horas)",
+        cap: "Medido pelas execuções dos workers antigos. O que sobra depois da virada são lojas ainda servindo um \"desligado\" em cache (some em até 24h) e sabores de pizza, que ficam no caminho antigo de propósito.",
+      };
+const before = 162813;
+const after = Math.round((72 / 2.47) * 24 * 7); // 72 chamadas em 2,47h, projetado pra 7 dias
+const fmt = (n: number) => n.toLocaleString(lang === "en" ? "en-US" : "pt-BR");
+const rows = [
+  { label: t.before, pct: 100, value: fmt(before), accent: false },
+  { label: t.after, pct: Math.max((after / before) * 100, 0.8), value: `~${fmt(after)}`, accent: true },
+];
+---
+
+<figure class="hs">
+  <p class="hs-title">{t.title}</p>
+  {
+    rows.map((r) => (
+      <div class="hs-row">
+        <span class="hs-label">{r.label}</span>
+        <div class="hs-track">
+          <div class:list={["hs-fill", { accent: r.accent }]} style={`width:${r.pct}%`} />
+        </div>
+        <span class="hs-val">{r.value}</span>
+      </div>
+    ))
+  }
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .hs{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .hs-title{font-size:13px;font-weight:600;margin:0 0 14px}
+  .hs-row{display:grid;grid-template-columns:200px 1fr 72px;gap:12px;align-items:center;margin-bottom:10px}
+  .hs-label{font-size:12px;color:var(--muted)}
+  .hs-track{height:22px;background:var(--border);border-radius:2px}
+  .hs-fill{height:100%;background:var(--muted);border-radius:2px}
+  .hs-fill.accent{background:var(--accent)}
+  .hs-val{font-family:var(--font-mono);font-size:12px;text-align:right}
+  figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+  @media (max-width:560px){.hs-row{grid-template-columns:1fr 64px}.hs-label{grid-column:1/-1}}
+</style>

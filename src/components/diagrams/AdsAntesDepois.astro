@@ -1,0 +1,127 @@
+---
+/** Produto → Ads: a chamada HTTP síncrona (antes) contra o evento de domínio (depois). */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t =
+  lang === "en"
+    ? {
+        title: "Product → Ads, before and after",
+        before: "Before",
+        after: "After",
+        edit: "Merchant edits a product",
+        product: "Product service",
+        task: "Cloud Task",
+        http: "HTTP · every edit",
+        adsApi: "Ads API",
+        meta: "Meta",
+        coupling: "Ads slow or down = product fails",
+        publish: "publishes changedFields",
+        topic: "product-change",
+        filter: "filter: adsRelevant",
+        sub: "Ads subscription",
+        dlq: "DLQ after 10 tries",
+        worker: "Ads worker",
+        workerSub: "claim · current state",
+        pg: "Postgres claim",
+        decoupled: "Ads slow or down = message waits in the queue",
+      }
+    : {
+        title: "Produto → Ads, antes e depois",
+        before: "Antes",
+        after: "Depois",
+        edit: "Lojista edita um produto",
+        product: "Serviço de produto",
+        task: "Cloud Task",
+        http: "HTTP · toda edição",
+        adsApi: "API do Ads",
+        meta: "Meta",
+        coupling: "Ads lento ou fora = produto falha",
+        publish: "publica changedFields",
+        topic: "product-change",
+        filter: "filtro: adsRelevant",
+        sub: "subscription Ads",
+        dlq: "DLQ após 10 tentativas",
+        worker: "Worker do Ads",
+        workerSub: "reserva · estado atual",
+        pg: "Reserva no Postgres",
+        decoupled: "Ads lento ou fora = mensagem espera na fila",
+      };
+---
+
+<figure
+  class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]"
+>
+  <figcaption
+    class="border-b border-[var(--border)] px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[var(--muted)]"
+  >
+    {t.title}
+  </figcaption>
+  <div class="p-4 sm:p-6">
+    <svg viewBox="0 0 760 330" class="h-auto w-full" role="img" aria-label={t.title}>
+      <defs>
+        <marker id="ad-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--muted)"></path>
+        </marker>
+        <marker id="ad-arrow-accent" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--accent)"></path>
+        </marker>
+      </defs>
+      <style>
+        .ad-box { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+        .ad-acc { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+        .ad-lbl { fill: var(--fg); font: 600 12px var(--font-sans, sans-serif); }
+        .ad-sub { fill: var(--muted); font: 400 11px var(--font-sans, sans-serif); }
+        .ad-row { fill: var(--muted); font: 600 11px var(--font-sans, sans-serif); letter-spacing: .08em; text-transform: uppercase; }
+        .ad-flow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+        .ad-hot { stroke: var(--accent); stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+        .ad-note { fill: var(--muted); font: italic 400 11px var(--font-sans, sans-serif); }
+      </style>
+
+      <!-- ANTES -->
+      <text class="ad-row" x="10" y="22">{t.before}</text>
+      <rect class="ad-box" x="10" y="40" width="140" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="80" y="69" text-anchor="middle">{t.product}</text>
+      <rect class="ad-box" x="190" y="40" width="110" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="245" y="69" text-anchor="middle">{t.task}</text>
+      <rect class="ad-box" x="440" y="40" width="130" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="505" y="69" text-anchor="middle">{t.adsApi}</text>
+      <rect class="ad-box" x="630" y="40" width="120" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="690" y="69" text-anchor="middle">{t.meta}</text>
+      <path class="ad-flow" d="M150,65 H190" marker-end="url(#ad-arrow)"></path>
+      <path class="ad-hot" d="M300,65 H440" marker-end="url(#ad-arrow-accent)"></path>
+      <text class="ad-sub" x="370" y="55" text-anchor="middle">{t.http}</text>
+      <path class="ad-flow" d="M570,65 H630" marker-end="url(#ad-arrow)"></path>
+      <text class="ad-note" x="10" y="115">{t.coupling}</text>
+
+      <line x1="10" y1="140" x2="750" y2="140" stroke="var(--border)" stroke-dasharray="3 4"></line>
+
+      <!-- DEPOIS -->
+      <text class="ad-row" x="10" y="170">{t.after}</text>
+      <rect class="ad-box" x="10" y="190" width="140" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="80" y="212" text-anchor="middle">{t.product}</text>
+      <text class="ad-sub" x="80" y="229" text-anchor="middle">{t.publish}</text>
+      <rect class="ad-acc" x="175" y="190" width="160" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="255" y="212" text-anchor="middle">{t.topic}</text>
+      <text class="ad-sub" x="255" y="229" text-anchor="middle">{t.filter}</text>
+      <rect class="ad-acc" x="360" y="190" width="160" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="440" y="212" text-anchor="middle">{t.sub}</text>
+      <text class="ad-sub" x="440" y="229" text-anchor="middle">{t.dlq}</text>
+      <rect class="ad-acc" x="545" y="190" width="140" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="615" y="212" text-anchor="middle">{t.worker}</text>
+      <text class="ad-sub" x="615" y="229" text-anchor="middle">{t.workerSub}</text>
+      <rect class="ad-box" x="700" y="190" width="55" height="50" rx="10"></rect>
+      <text class="ad-lbl" x="727" y="219" text-anchor="middle">{t.meta}</text>
+      <rect class="ad-box" x="545" y="270" width="140" height="36" rx="8"></rect>
+      <text class="ad-sub" x="615" y="292" text-anchor="middle">{t.pg}</text>
+      <path class="ad-flow" d="M150,215 H175" marker-end="url(#ad-arrow)"></path>
+      <path class="ad-flow" d="M335,215 H360" marker-end="url(#ad-arrow)"></path>
+      <path class="ad-flow" d="M520,215 H545" marker-end="url(#ad-arrow)"></path>
+      <path class="ad-flow" d="M685,215 H700" marker-end="url(#ad-arrow)"></path>
+      <path class="ad-flow" d="M615,240 V270" marker-end="url(#ad-arrow)"></path>
+      <text class="ad-note" x="10" y="292">{t.decoupled}</text>
+    </svg>
+  </div>
+</figure>

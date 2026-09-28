@@ -1,0 +1,121 @@
+---
+/** Como um evento vira (ou não) um ajuste de anúncio: reserva, versão e estado atual. */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t =
+  lang === "en"
+    ? {
+        title: "From event to ad change",
+        event: "Event arrives",
+        eventSub: "product X · revision R",
+        hasAds: "Product has an ad?",
+        no: "no",
+        yes: "yes",
+        done: "ack · 1 cheap read",
+        claim: "Take the claim",
+        claimSub: "lease 10 min · token",
+        older: "R ≤ last applied",
+        drop: "drop (duplicate / old)",
+        busy: "someone holds it",
+        retry: "503 → Pub/Sub retries",
+        read: "Read CURRENT product",
+        decide: "pause · resume · price · nothing",
+        meta: "Apply on Meta",
+        complete: "Complete: save R, free claim",
+      }
+    : {
+        title: "Do evento ao ajuste do anúncio",
+        event: "Evento chega",
+        eventSub: "produto X · revisão R",
+        hasAds: "O produto tem anúncio?",
+        no: "não",
+        yes: "sim",
+        done: "confirma · 1 leitura barata",
+        claim: "Pega a reserva",
+        claimSub: "prazo 10 min · token",
+        older: "R ≤ última aplicada",
+        drop: "descarta (duplicado / velho)",
+        busy: "outro está com ela",
+        retry: "503 → Pub/Sub tenta de novo",
+        read: "Lê o produto ATUAL",
+        decide: "pausa · reativa · preço · nada",
+        meta: "Aplica no Meta",
+        complete: "Conclui: grava R, libera",
+      };
+---
+
+<figure
+  class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]"
+>
+  <figcaption
+    class="border-b border-[var(--border)] px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[var(--muted)]"
+  >
+    {t.title}
+  </figcaption>
+  <div class="p-4 sm:p-6">
+    <svg viewBox="0 0 760 300" class="h-auto w-full" role="img" aria-label={t.title}>
+      <defs>
+        <marker id="rf-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--muted)"></path>
+        </marker>
+      </defs>
+      <style>
+        .rf-box { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+        .rf-acc { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+        .rf-lbl { fill: var(--fg); font: 600 13px var(--font-sans, sans-serif); }
+        .rf-sub { fill: var(--muted); font: 400 11px var(--font-sans, sans-serif); }
+        .rf-edge { fill: var(--muted); font: 600 10px var(--font-sans, sans-serif); }
+        .rf-flow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+      </style>
+
+      <!-- linha principal -->
+      <rect class="rf-box" x="10" y="20" width="150" height="50" rx="10"></rect>
+      <text class="rf-lbl" x="85" y="42" text-anchor="middle">{t.event}</text>
+      <text class="rf-sub" x="85" y="58" text-anchor="middle">{t.eventSub}</text>
+
+      <rect class="rf-box" x="200" y="20" width="160" height="50" rx="10"></rect>
+      <text class="rf-lbl" x="280" y="50" text-anchor="middle">{t.hasAds}</text>
+
+      <rect class="rf-acc" x="400" y="20" width="150" height="50" rx="10"></rect>
+      <text class="rf-lbl" x="475" y="42" text-anchor="middle">{t.claim}</text>
+      <text class="rf-sub" x="475" y="58" text-anchor="middle">{t.claimSub}</text>
+
+      <rect class="rf-acc" x="590" y="20" width="160" height="50" rx="10"></rect>
+      <text class="rf-lbl" x="670" y="42" text-anchor="middle">{t.read}</text>
+      <text class="rf-sub" x="670" y="58" text-anchor="middle">{t.decide}</text>
+
+      <path class="rf-flow" d="M160,45 H200" marker-end="url(#rf-arrow)"></path>
+      <path class="rf-flow" d="M360,45 H400" marker-end="url(#rf-arrow)"></path>
+      <text class="rf-edge" x="380" y="38" text-anchor="middle">{t.yes}</text>
+      <path class="rf-flow" d="M550,45 H590" marker-end="url(#rf-arrow)"></path>
+
+      <!-- não tem anúncio -->
+      <path class="rf-flow" d="M280,70 V120" marker-end="url(#rf-arrow)"></path>
+      <text class="rf-edge" x="290" y="98">{t.no}</text>
+      <rect class="rf-box" x="200" y="120" width="160" height="40" rx="8"></rect>
+      <text class="rf-sub" x="280" y="144" text-anchor="middle">{t.done}</text>
+
+      <!-- reserva: velho / ocupado -->
+      <path class="rf-flow" d="M445,70 V120" marker-end="url(#rf-arrow)"></path>
+      <rect class="rf-box" x="360" y="120" width="170" height="50" rx="8"></rect>
+      <text class="rf-edge" x="445" y="140" text-anchor="middle">{t.older}</text>
+      <text class="rf-sub" x="445" y="156" text-anchor="middle">{t.drop}</text>
+
+      <path class="rf-flow" d="M530,70 C560,110 560,190 530,215" marker-end="url(#rf-arrow)"></path>
+      <rect class="rf-box" x="360" y="200" width="170" height="50" rx="8"></rect>
+      <text class="rf-edge" x="445" y="220" text-anchor="middle">{t.busy}</text>
+      <text class="rf-sub" x="445" y="236" text-anchor="middle">{t.retry}</text>
+
+      <!-- aplica e conclui -->
+      <path class="rf-flow" d="M670,70 V120" marker-end="url(#rf-arrow)"></path>
+      <rect class="rf-box" x="590" y="120" width="160" height="40" rx="8"></rect>
+      <text class="rf-lbl" x="670" y="145" text-anchor="middle">{t.meta}</text>
+      <path class="rf-flow" d="M670,160 V200" marker-end="url(#rf-arrow)"></path>
+      <rect class="rf-acc" x="590" y="200" width="160" height="50" rx="8"></rect>
+      <text class="rf-lbl" x="670" y="230" text-anchor="middle">{t.complete}</text>
+    </svg>
+  </div>
+</figure>

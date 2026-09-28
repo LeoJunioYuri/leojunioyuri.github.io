@@ -1,0 +1,169 @@
+---
+title: "O produto parou de ligar pro Ads: 163 mil chamadas HTTP por semana trocadas por eventos"
+description: "Como tiramos o tráfego pago do caminho síncrono do cardápio na Brendi, com agentes fazendo boa parte do trabalho: eventos de domínio, reconciliação pelo estado atual, uma flag por loja e os tropeços até chegar a quase zero."
+date: 2026-09-28
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Arquitetura", "Eventos", "Pub/Sub", "Agentes", "Lições"]
+translationOf: "en/product-stopped-calling-ads"
+---
+
+import AdsAntesDepois from "@/components/diagrams/AdsAntesDepois.astro";
+import ReconciliacaoFluxo from "@/components/diagrams/ReconciliacaoFluxo.astro";
+import ChamadasHttpSemana from "@/components/charts/ChamadasHttpSemana.astro";
+
+Toda vez que um lojista mexia num produto do cardápio na Brendi, o serviço de
+produto **ligava para o serviço de Ads** e perguntava: "esse produto tem
+anúncio? pausa? reavalia o preço?". Era uma chamada HTTP por edição. Na semana
+antes da mudança foram **162.813 chamadas**, e a imensa maioria para produtos
+que nem tinham anúncio.
+
+O custo não era só volume. Quando o Ads estava lento ou fora, **quem falhava era
+o produto**. E tinha um bug silencioso: loja que trocava o link do cardápio não
+avisava ninguém, e os cliques pagos caíam num endereço morto.
+
+## A ideia: parar de ligar, começar a avisar
+
+Em vez de o produto ligar para o Ads, ele passa a **publicar um aviso**: "o
+produto X da loja Y mudou, e mudaram estes campos". O Ads escuta quando puder.
+Se o Ads cair, o aviso espera na fila. O produto não sabe nem quer saber quem
+está ouvindo.
+
+<AdsAntesDepois lang="pt" />
+
+São quatro peças:
+
+1. **Quem avisa.** Um trigger no produto e outro na loja publicam um evento de
+   domínio com os campos que mudaram. Edição irrelevante para o Ads nem sai.
+2. **A caixa de correio.** Uma subscription do Pub/Sub que só recebe o que
+   interessa ao Ads, com retry e fila de erro (DLQ).
+3. **Quem lê.** Um worker privado que **não executa comandos**: ele relê o
+   estado atual do produto e decide ali. Um evento atrasado não consegue desfazer
+   uma mudança mais nova, porque o evento é gatilho, não instrução.
+4. **Um de cada vez.** Antes de mexer num anúncio, o worker pega uma "reserva"
+   daquele produto no Postgres. Evento duplicado ou mais antigo que o último
+   aplicado é descartado.
+
+## Feito com agentes
+
+Boa parte disso saiu de agentes. A implementação veio em uma pilha de PRs
+escrita por agentes (Codex e Claude Code), cada uma revisada por agentes de
+review e por gente do time. Na reta final, eu rodava um agente por pilha de PRs
+em paralelo: um cuidando de conflitos e CI, outro respondendo review, outro
+preparando o rollout. O que ficou comigo foi o desenho, as decisões de quando
+virar a chave e o "pode seguir" em cada passo que mexia em produção.
+
+E os agentes acharam coisa que eu não teria achado a tempo. Três dos tropeços
+lá embaixo apareceram numa revisão ou num levantamento de agente, antes de
+virar incidente.
+
+## Virar a chave sem apostar a casa
+
+Nada disso ligou de uma vez. A troca foi **por loja, atrás de uma flag**: com a
+flag desligada, o caminho antigo segue funcionando e o novo só observa. Com a
+flag ligada, a loja para de fazer a chamada HTTP, e o evento passa a ser o dono.
+
+Começamos com **10 lojas** e deixamos o resto da base como grupo de controle.
+Em 46 horas, essas lojas foram de **98 chamadas HTTP para zero**, sem erro no
+worker e sem nada na fila de erro. O primeiro caso real foi um lojista marcando
+um produto **em falta**: o evento saiu, o worker releu o produto, manteve o
+anúncio pausado e liberou a reserva em **~2,5 segundos**.
+
+Cinco dias depois, ligamos para todas as lojas:
+
+<ChamadasHttpSemana lang="pt" />
+
+## Os tropeços (a parte que mais ensina)
+
+- **O import "preguiçoso" que não economizou nada.** Um gate de CI reprova
+  qualquer módulo a mais no cold start. Trocar o import por `import()` dinâmico
+  não resolveu, porque o gate segue os imports dinâmicos também. A saída foi
+  apagar o módulo e deixar a constante onde o grafo já passava.
+- **O delete que seria descartado.** A versão do evento vinha da revisão do
+  documento. No delete não existe documento novo, e o código usava a revisão
+  anterior, exatamente a última já aplicada. O worker jogaria fora a exclusão
+  como "duplicada". Achamos na revisão, antes de ligar.
+- **A infra que já existia.** Os tópicos tinham sido criados fora do Pulumi, e o
+  primeiro apply falhou com 409. Virou lookup em vez de criação.
+- **A caixa de correio sem carteiro.** A subscription nasceu em modo *pull* por
+  design, esperando o worker ficar pronto. Acumulou 536 mensagens. Ao ligar o
+  *push*, drenou em 2 minutos.
+- **O sabor de pizza.** Na véspera de ligar para todo mundo, um agente
+  preparando a remoção do código antigo notou que sabores de pizza não geram
+  evento: o caminho deles passava pelo worker antigo, que a flag desligava.
+  Seriam centenas de anúncios de sabor sem pausa automática. O piloto não pegou
+  porque nenhuma das 10 lojas tinha anúncio de sabor.
+- **A flag que demora 24 horas.** Depois de ligar para todos, ainda saía um
+  filete de chamadas antigas. A leitura de feature toggle serve o valor em cache
+  e revalida em segundo plano, e numa Cloud Function a instância congela antes
+  da revalidação terminar. Resultado: o "desligado" antigo podia valer por até
+  24 horas. Nada quebrou (os dois caminhos usam a mesma reserva), mas o "rollback
+  em 5 minutos" que eu tinha no plano não era verdade.
+- **O aviso que não era problema.** Apareceram retentativas de "reserva
+  ocupada": o lojista editando o mesmo produto duas vezes seguidas. Era o
+  controle de concorrência funcionando. Viraram log de info, e o alerta de
+  verdade ficou na fila de erro.
+
+## O que eu levo disso
+
+- **Reconciliar pelo estado atual** é o que deixa retry, duplicata e atraso
+  inofensivos. Evento como gatilho, não como ordem.
+- **Flag por loja + grupo de controle** transforma "acho que funcionou" em
+  "98 para 0, com o resto da base igual".
+- **O piloto testa o que o piloto tem.** Dez lojas sem pizza não testam pizza.
+  Antes de expandir, pergunte o que a amostra *não* cobre.
+- **Meça o rollback, não só o rollout.** Eu medi a ida com cuidado e assumi a
+  volta. A volta levava 24 horas.
+- **Alertas fazem parte da entrega.** Sem alerta, o caminho novo pode parar em
+  silêncio, e ninguém liga mais para o Ads para perceber.
+
+## Por baixo do capô
+
+Para quem quer o detalhe técnico.
+
+**O evento.** Cada escrita relevante no Firestore publica um evento versionado
+com `entityType`, `storeId`, `entityId`, `changedFields` e `sourceVersion`, que
+é o `updateTime` do documento em nanossegundos (ou o instante do commit, no
+delete). Os atributos da mensagem (`adsRelevant`, `geoChanged`) deixam o
+Pub/Sub filtrar antes de entregar, então o worker só acorda para o que
+interessa.
+
+**A entrega.** Subscription em *push* autenticado (OIDC) para um worker
+privado, com retry de 30 s a 10 min, DLQ depois de 10 tentativas e alertas de
+backlog e de DLQ num canal do Slack. Subscriptions, DLQs e alertas em Pulumi;
+os tópicos, que já existiam, entram por lookup.
+
+**A reserva.** O coração é um único `INSERT … ON CONFLICT` no Postgres:
+
+```sql
+INSERT INTO ads_entity_reconciliations
+  (store_id, entity_type, entity_id, claim_token, lease_expires_at)
+SELECT id, $type, $entity, $token, now() + interval '10 minutes'
+FROM stores WHERE firestore_id = $store
+ON CONFLICT (store_id, entity_type, entity_id) DO UPDATE
+SET claim_token      = EXCLUDED.claim_token,
+    lease_expires_at = EXCLUDED.lease_expires_at
+WHERE (lease_expires_at IS NULL OR lease_expires_at < now())
+      -- ninguém está com ela
+  AND (applied_version IS NULL OR applied_version < $version);
+      -- e o evento é mais novo
+```
+
+Se a linha foi escrita, o worker é o dono. Se não foi, ou o evento é velho
+(descarta) ou outro está trabalhando (responde 503 e o Pub/Sub tenta de novo).
+Nenhuma chamada ao Meta roda dentro de transação. O token impede que um dono
+com prazo vencido conclua por cima de quem assumiu depois. O caminho HTTP
+antigo passou a usar a mesma reserva durante a transição, então os dois podiam
+rodar juntos sem pisar um no outro.
+
+<ReconciliacaoFluxo lang="pt" />
+
+**O rollout.** A migration e o worker entraram primeiro, com a flag desligada
+(o worker só confirmava as mensagens). Depois: piloto de 10 lojas, correção dos
+sabores de pizza, alertas ligados, todas as lojas. Por último, a remoção do
+código antigo, que também tira a dependência da flag e, com ela, os 24 horas
+de cache.
+
+O próximo candidato é o pedido: o mesmo padrão para quem hoje depende de ler o
+banco de pedidos em tempo real.

@@ -25,11 +25,7 @@ This post is about the time the basics fooled me — and what I built so it woul
 
 The new version (I called it 1.3) gave Anderson access to a playbook of paid-traffic strategies. Two weeks in, the dashboard showed the new group making **19% more** revenue per store. The ads were clearly better. It looked settled.
 
-One thing bothered me: I knew Meta's pixel counts as a "sale" orders that never happened — a PIX that expires, a declined card. Could that phantom revenue be inflating one side more than the other?
-
-I measured. **It wasn't.** Both groups had nearly the same phantom rate (4.4% and 5.5%). Suspicion dismissed in an afternoon.
-
-But since I was already digging, I looked at something almost nobody looks at.
+Before signing off on it, I looked at something almost nobody looks at.
 
 ## What had happened before the test started
 
@@ -81,7 +77,7 @@ In the first weeks, the new group kills about **2× more ads** than the current 
 
 Two weeks later I went to read the mature cohort. And found the test had been **cut in half** without me noticing: midway through, two changes shipped to the whole fleet — one of them the 1.4 rule itself, which another engineer on the team had already graduated for everyone. From that point on both groups were running the same thing. The clean 1.4 window was only **seven days**.
 
-In those seven days, measuring **real delivered orders** per unit spent (never the pixel): the new group did **18% more**, and led in all four size bands — including the small stores, where 1.3 had gone negative. But that was 24 orders against 53. With that sample, the honest interval runs from −27% to +91%.
+In those seven days, measuring **real delivered orders** per unit spent: the new group did **18% more**, and led in all four size bands — including the small stores, where 1.3 had gone negative. But that was 24 orders against 53. With that sample, the honest interval runs from −27% to +91%.
 
 So: **it didn't prove it's better. It proved it isn't worse — while pruning twice as many bad ads for free.** By the criterion I'd set before seeing the data ("just don't lose"), graduating was right. 1.4 became the baseline, and the next test was already born against it, on the new draw, with the groups −0.9% apart.
 

@@ -1,0 +1,109 @@
+---
+title: "From 12.9 s to 0.16 s: the sort that froze our API every night"
+description: "The error said database connection timeout. The database was at 5% CPU. Hunting down a sort that cost 30 seconds — and made it 80× faster without changing a single byte of the response."
+date: 2026-09-28
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "Node.js", "Performance", "Infra", "Lessons"]
+translationOf: "pt/o-banco-levou-a-culpa"
+---
+
+Every night, around midnight, the dashboard restaurant owners use to follow their paid traffic started failing. The screen spun for almost a minute, then a 500. By morning everything was fine.
+
+The log was clear — or looked like it: `Connection terminated due to connection timeout`. A database connection timeout. And the plan that came out of it looked just as clear: keep connections open longer, pre-warm connections on boot, raise the retry ceiling, add more instances.
+
+Before touching anything, I went to look at the database.
+
+---
+
+## The database was asleep
+
+In the exact failure windows, the read replica sat at **4 to 7% CPU**. Same two nodes all week, not a single scaling event. The connection pooler in front of it had **zero** clients waiting. No "too many clients", no queue.
+
+A database that "won't accept connections" is rarely idle. Something didn't add up.
+
+## The clue: a 10-second timer that took 19
+
+The connection layer gives a new connection **10 seconds** to open. If it runs out, it gives up and retries.
+
+I looked at the 134 times it gave up for good. **Every single one** had one attempt — and that attempt had taken **14 to 40 seconds**. Median 19.
+
+A 10-second deadline firing at 19 seconds isn't a slow database. It's a **late clock**.
+
+In Node.js everything runs on one thread, in a loop. Timers, network replies, the next request — they all wait their turn. If something holds that thread for 20 seconds straight, no timer fires and no packet gets read. When the thread comes back, the loop runs the overdue timers **before** the replies that had already arrived. The connection may have been accepted in the first second; the code only sees "deadline exceeded".
+
+The error said "database". The database was the victim.
+
+Evidence came from everywhere:
+
+- A cache read with a **500 ms** timeout took **19.5 seconds**, on the same instance, in the same second as the failures.
+- In one failure, the app itself recorded **18,455 ms** of event-loop delay — right next to an **18,479 ms** "slow connection". Same instance, same second.
+- Instance CPU went from **0.01** to **0.5** — on a 2-core machine, that's one full core at 100%. The Node thread, pinned.
+- And no new instances booting: **129 of 133** failures hit instances that had been up for more than a minute, many for hours. The "autoscaling wave" that showed up before the failures was a consequence, not the cause — an instance froze with 40 requests stuck, so the platform started more.
+
+## Finding the culprit
+
+What I still didn't know was **what** was holding the thread.
+
+The catch: request logs only kept errors. A slow route that eventually answered 200 simply didn't show up. Tracing keeps the successes, even sampled.
+
+I filtered the traces for the freeze windows. One endpoint jumped out immediately: the one that builds a **cohort matrix** for an internal analytics dashboard. Each call took **10 to 88 seconds** — and night after night they landed exactly between 00:02 and 00:36. Also in the "odd" freezes at 5:30 and 8 a.m.
+
+Of the 154 freezes I measured over two weeks, **105** started in the first hour after midnight.
+
+## What cost 30 seconds
+
+The matrix pulls every store's weekly history — tens of thousands of rows — and sorts it by week. A week is a string like `2026-W39`, and the sort comparator did this:
+
+```ts
+rows.sort((a, b) => parseWeek(a.week) - parseWeek(b.week));
+```
+
+Looks harmless. But a sort does on the order of **N·log N** comparisons. With 60 thousand rows, that's almost a million comparisons — each one parsing **two** dates from scratch. The same pattern showed up elsewhere: a second sort used `localeCompare` (language-aware, expensive) on every comparison, and every matrix cell did "add N weeks, format as text, compare".
+
+All synchronous. No `await` in between to give the thread back. Meanwhile, any restaurant owner routed to that instance waited.
+
+## The fix
+
+The detail that solves it: those tens of thousands of rows share **a few hundred** distinct weeks. There's no need to parse the same string a million times.
+
+```ts
+const weekKey = memoize(parseWeek); // parse each week once per call
+rows.sort((a, b) => weekKey(a.week) - weekKey(b.week));
+```
+
+Same idea in the other two spots: each value's position in language order is computed once per distinct value, and the per-cell check became one subtraction per matrix row.
+
+But an optimization that changes the answer isn't an optimization, it's a new bug. So before measuring time, I measured **equality**: ran the old and the new code over the same synthetic dataset (2,600 stores, ~123k source rows, 16 different query shapes) and compared the output **byte by byte**. 8 MB of JSON. Identical.
+
+## The numbers
+
+Measured on my laptop, same algorithm, same synthetic dataset (2,600 stores, ~123k rows, 16 query shapes):
+
+| | before | after |
+|---|---|---|
+| median per call | 12.9 s | 0.16 s |
+| worst call | 32.8 s | 0.27 s |
+
+Between **80 and 120 times** faster — with a byte-identical response.
+
+The production deploy went out the same day. Before it, midnight connection timeouts ran **12 to 147 per night** on six of the previous week's seven nights. I'll come back here with the numbers from the first nights after the fix.
+
+## And the infra, while I was there
+
+Digging into the nights uncovered three other problems — smaller, but the scary kind:
+
+- **A weekly job with no second chance.** One Monday, a single instance failed to boot (1 in 74 boots) and the entire weekly run of our traffic agent was lost, because the scheduler never retried. Turning on retries is one line — but it's only safe if running twice does no harm. The worker only prevented two runs of the same store *at the same time*; a second run after the first finished went through. The fix was a **deterministic id** per task (store + pass + day): on a retry, anything already queued comes back as "duplicate", and only what was missing gets in.
+- **An instance floor that vanished at 11:30 p.m.** The time-based scaling tool reset the minimum to zero at the end of its window. But when there are two minimums — the service's and the revision's — the platform uses the **higher** one. Putting the floor in code makes it hold 24 hours, regardless of the schedule.
+- **A hidden revision swap.** The first scaling change after every deploy hit a conflict error, and the tool worked around it by creating a new revision — which restarts every instance cold, sometimes right at the start of peak hours. That one is still open, with another team.
+
+## What I'm taking from this
+
+- **The error message names the victim, not the culprit.** "Connection timeout" was true — and said nothing about why.
+- **Elapsed time greater than the deadline = blocked thread.** A 10 s timer firing at 19 s is the signature. It holds for any Node service.
+- **Logs that drop successes hide the culprit.** The route freezing everything answered 200. Only tracing showed it.
+- **A comparator runs N·log N times.** Whatever it does, it does a million times.
+- **Prove equality before celebrating speed.** The byte-by-byte diff is what let me trust the number.
+- **Retry without idempotency is a double-run generator.** Deterministic id first, retry second.
+- **Before tuning the database, look at the database.** The original plan would have spent days tuning a connection pool on a database at 5% CPU.

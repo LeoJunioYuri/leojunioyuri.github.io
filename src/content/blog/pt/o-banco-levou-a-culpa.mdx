@@ -1,0 +1,109 @@
+---
+title: "De 12,9 s para 0,16 s: o sort que travava nossa API toda madrugada"
+description: "O erro dizia timeout de conexão com o banco. O banco estava a 5% de CPU. A caça a um sort que custava 30 segundos — e que ficou 80× mais rápido sem mudar um byte da resposta."
+date: 2026-09-28
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Engenharia", "Node.js", "Performance", "Infra", "Lições"]
+translationOf: "en/the-database-took-the-blame"
+---
+
+Toda madrugada, perto da meia-noite, o painel que os lojistas usam pra acompanhar o tráfego pago começava a dar erro. Tela carregando por quase um minuto, e depois um 500. De manhã estava tudo normal.
+
+O log era claro — ou parecia: `Connection terminated due to connection timeout`. Timeout de conexão com o banco. E o plano que nasceu disso também parecia claro: segurar conexões abertas por mais tempo, pré-aquecer conexões no boot, subir o teto de retry, colocar mais instância.
+
+Antes de mexer em qualquer coisa, fui olhar o banco.
+
+---
+
+## O banco estava dormindo
+
+Nas janelas exatas das falhas, a réplica de leitura estava com **4 a 7% de CPU**. Mesmos dois nós a semana inteira, sem nenhum evento de escala. O pool de conexões na frente dela tinha **zero** clientes esperando. Nada de "too many clients", nada de fila.
+
+Um banco que "não aceita conexão" não costuma estar ocioso. Alguma coisa não fechava.
+
+## A pista: um timer de 10 segundos que demorou 19
+
+A camada de conexão tem um prazo de **10 segundos** pra abrir uma conexão nova. Se estoura, desiste e tenta de novo.
+
+Olhei as 134 vezes em que ela desistiu de vez. Em **todas** havia uma única tentativa — e essa tentativa tinha levado de **14 a 40 segundos**. Mediana de 19.
+
+Um prazo de 10 segundos que dispara aos 19 não é um banco lento. É um **relógio atrasado**.
+
+No Node.js tudo roda numa thread só, num loop. Timer, resposta de rede, próxima requisição — tudo espera a vez. Se alguma coisa ocupa essa thread por 20 segundos seguidos, nenhum timer dispara, nenhum pacote é lido. Quando a thread volta, o loop processa os timers atrasados **antes** das respostas que já tinham chegado. A conexão pode ter sido aceita no primeiro segundo; o código só vê "estourou o prazo".
+
+O erro dizia "banco". O banco era a vítima.
+
+As provas vieram de todo lado:
+
+- Uma leitura de cache com prazo de **500 ms** levou **19,5 segundos**, na mesma instância e no mesmo segundo das falhas.
+- Numa das falhas, a própria aplicação registrou **18.455 ms** de atraso no event loop — ao lado de uma "conexão lenta" de **18.479 ms**. Mesma instância, mesmo segundo.
+- A CPU das instâncias ia de **0,01** para **0,5** — numa máquina de 2 núcleos, isso é um núcleo inteiro a 100%. A thread do Node, cravada.
+- E sem instância nova subindo: **129 de 133** falhas eram em instâncias ligadas havia mais de um minuto, várias havia horas. A "onda de autoscaling" que aparecia antes das falhas era consequência, não causa — a instância travava com 40 requisições presas e a plataforma subia outras.
+
+## Achando o culpado
+
+Faltava saber **o que** ocupava a thread.
+
+O problema: os logs de requisição só guardavam erro. Uma rota lenta que no fim respondia 200 simplesmente não aparecia. Quem guarda as de sucesso é o tracing, mesmo que amostrado.
+
+Filtrei os traces das janelas de travamento. Um endpoint saltou na hora: o que monta uma **matriz de coorte** pra um dashboard interno de análise. Cada chamada levava de **10 a 88 segundos** — e elas caíam, noite após noite, exatamente entre 00h02 e 00h36. Também nas travadas "estranhas" de 5h30 e 8h da manhã.
+
+Das 154 travadas que medi em duas semanas, **105** começaram na primeira hora depois da meia-noite.
+
+## O que custava 30 segundos
+
+A matriz junta o histórico semanal de todas as lojas — dezenas de milhares de linhas — e ordena por semana. A semana é uma string tipo `2026-W39`, e o comparador da ordenação fazia isto:
+
+```ts
+rows.sort((a, b) => parseWeek(a.week) - parseWeek(b.week));
+```
+
+Parece inocente. Mas uma ordenação faz da ordem de **N·log N** comparações. Com 60 mil linhas, é quase um milhão de comparações — e cada uma interpretava **duas** datas do zero. O mesmo acontecia em outros pontos: uma segunda ordenação usava `localeCompare` (comparação com regras de idioma, cara) em cada comparação, e cada célula da matriz fazia "some N semanas, formate como texto, compare".
+
+Tudo síncrono. Nenhum `await` no meio pra devolver a thread. Enquanto isso, qualquer lojista que caísse na mesma instância esperava.
+
+## A correção
+
+O detalhe que resolve: as dezenas de milhares de linhas compartilham **poucas centenas** de semanas distintas. Não precisa interpretar a mesma string um milhão de vezes.
+
+```ts
+const weekKey = memoize(parseWeek); // interpreta cada semana uma vez por chamada
+rows.sort((a, b) => weekKey(a.week) - weekKey(b.week));
+```
+
+Mesma ideia nos outros dois pontos: a posição de cada valor na ordem de idioma é calculada uma vez por valor distinto, e o teste de cada célula virou uma subtração por linha da matriz.
+
+Mas otimização que muda a resposta não é otimização, é bug novo. Então, antes de medir tempo, medi **igualdade**: rodei o código antigo e o novo sobre o mesmo conjunto sintético (2.600 lojas, ~123 mil linhas de origem, 16 formatos de consulta diferentes) e comparei a saída **byte a byte**. 8 MB de JSON. Idênticos.
+
+## Os números
+
+Medido no meu notebook, com o mesmo algoritmo e o mesmo conjunto sintético (2.600 lojas, ~123 mil linhas, 16 formatos de consulta):
+
+| | antes | depois |
+|---|---|---|
+| mediana por chamada | 12,9 s | 0,16 s |
+| pior chamada | 32,8 s | 0,27 s |
+
+Entre **80 e 120 vezes** mais rápido — e a resposta idêntica byte a byte.
+
+O deploy em produção saiu no mesmo dia. Antes dele, os timeouts de conexão da meia-noite iam de **12 a 147 por noite** em seis das sete noites da semana anterior. Volto aqui com os números das primeiras noites depois do fix.
+
+## E a infra, já que eu estava lá
+
+Investigar a madrugada destampou outros três problemas — menores, mas do tipo que dá susto:
+
+- **Job semanal sem segunda chance.** Numa segunda-feira, uma única instância não conseguiu subir (1 em 74 boots) e a rodada semanal inteira do nosso agente de tráfego se perdeu, porque o agendador não tentava de novo. Ligar o retry é uma linha — mas só é seguro se rodar duas vezes não fizer estrago. O worker só impedia duas execuções *ao mesmo tempo* da mesma loja; uma segunda execução depois da primeira terminar passava. A correção foi dar a cada tarefa um **id determinístico** (loja + rodada + dia): na nova tentativa, quem já estava na fila volta como "duplicado", e só entra quem faltou.
+- **Um piso de instâncias que sumia às 23h30.** A ferramenta de escala por horário zerava o mínimo no fim da janela. Mas quando existem dois mínimos — o do serviço e o da revisão —, a plataforma usa o **maior**. Pôr o piso no código faz ele valer 24 horas, sem depender do agendamento.
+- **Uma troca de revisão escondida.** A primeira mudança de escala depois de cada deploy recebia um erro de conflito, e a ferramenta contornava criando uma revisão nova — o que reinicia todas as instâncias frias, às vezes no começo do horário de pico. Esse ainda está em aberto, com outro time.
+
+## O que eu levo disso
+
+- **A mensagem de erro nomeia a vítima, não o culpado.** "Timeout de conexão" era verdade — e não dizia nada sobre por quê.
+- **Tempo decorrido maior que o prazo = thread travada.** Um timer de 10 s disparando aos 19 é a assinatura. Vale pra qualquer serviço Node.
+- **Log que descarta sucesso esconde o culpado.** A rota que travava tudo respondia 200. Só o tracing mostrou.
+- **Comparador roda N·log N vezes.** O que ele faz, ele faz um milhão de vezes.
+- **Prove igualdade antes de comemorar velocidade.** A diferença byte a byte foi o que deixou eu confiar no número.
+- **Retry sem idempotência é um gerador de execução dupla.** Primeiro o id determinístico, depois o retry.
+- **Antes de mexer no banco, olhe o banco.** O plano inicial ia gastar dias ajustando pool de conexão num banco a 5% de CPU.

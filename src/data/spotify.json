@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-09-28T22:44:19.591Z",
+  "updatedAt": "2026-09-29T03:13:13.883Z",
   "tracks": [
+    {
+      "name": "Replica",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/2A4rfHIusMPUyTN2RAgsKw",
+      "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6",
+      "playedAt": "2026-09-29T00:57:27.928Z"
+    },
+    {
+      "name": "Leaden Legacy",
+      "artist": "After Forever, Floor Jansen",
+      "url": "https://open.spotify.com/track/5e7lvc1O66J05KqfeULRWn",
+      "image": "https://i.scdn.co/image/ab67616d00004851164d39c8a950cbcde340a820",
+      "playedAt": "2026-09-29T00:52:21.074Z"
+    },
     {
       "name": "Siren",
       "artist": "Theatre Of Tragedy",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/05UMQXFCsa9oPnLgfJHVyF",
       "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
       "playedAt": "2026-09-28T17:49:49.525Z"
-    },
-    {
-      "name": "Teldrassil",
-      "artist": "Jason Hayes, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/4ph6qlDd270yijzgYV74Xj",
-      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
-      "playedAt": "2026-09-28T16:32:38.783Z"
-    },
-    {
-      "name": "Kyne's Peace",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/4PNeUzpdtebym9qcjsiF9h",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-09-28T16:28:41.550Z"
     }
   ],
   "topTracks": {

@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-29T03:13:13.883Z",
+  "updatedAt": "2026-09-29T11:46:31.754Z",
   "tracks": [
+    {
+      "name": "Broken",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/48t3UGRN0fVrIPqt0aOlbB",
+      "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69",
+      "playedAt": "2026-09-29T01:46:52.826Z"
+    },
     {
       "name": "Replica",
       "artist": "Sonata Arctica",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/68SbLdEA2vW1JuSAU8BMPQ",
       "image": "https://i.scdn.co/image/ab67616d0000485113d5746aa8f8ec2b8813d306",
       "playedAt": "2026-09-28T19:32:56.060Z"
-    },
-    {
-      "name": "Ezio's Family",
-      "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/05UMQXFCsa9oPnLgfJHVyF",
-      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
-      "playedAt": "2026-09-28T17:49:49.525Z"
     }
   ],
   "topTracks": {

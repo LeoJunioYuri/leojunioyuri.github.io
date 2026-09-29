@@ -1,0 +1,207 @@
+---
+title: "Coupling became a number: a 3D dependency globe in every PR at Brendi"
+description: "60 codebases, 5.7k files, a 4-second scan. How an Ads-only script turned into Brendi Deps — the map that tells you what to cut before migrating, what each PR adds in coupling, and who owns every table. Built in a day with agents, plus the two bugs that only showed up when someone else opened the link."
+date: 2026-09-29
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Architecture", "CI", "Agents", "Observability", "Lessons"]
+translationOf: "pt/um-globo-de-dependencias-em-cada-pr"
+---
+
+It started as a PR review. A colleague had opened a script that generated a
+static dependency map of our Ads module, so we could see what needed cutting
+before moving the module out of the monolith. It worked. But I read the diff
+and the question that stuck was a different one: *why only Ads, and why only
+a picture?*
+
+What I wanted was a **globe**: a 3D graph I could spin, with every codebase in
+the company, where each PR would show what it **adds or removes** in coupling.
+By the end of the day, it existed. This post is about what it became, what I
+learned building it, and the two bugs that only appeared the first time someone
+else clicked the link.
+
+## What Brendi Deps shows
+
+Brendi's `app` has **60 backend codebases** (each one becomes a set of Cloud
+Functions) and roughly **5.7k files** of domain code. A static scan reads all
+of it in **~4 seconds** and records, per file:
+
+- Postgres tables touched (via Prisma or raw SQL), and whether it's a read or a write;
+- Firestore and Mongo collections;
+- Pub/Sub topics published and subscribed, Cloud Tasks queues;
+- HTTP clients and the methods they call;
+- imports that cross the boundary from one codebase into another.
+
+On top of that comes **ownership**: every codebase belongs to a team (from
+`CODEOWNERS`), and every table belongs to the codebase that writes to it the
+most, with an overrides file for the exceptions. With ownership, an edge gains
+meaning. "Ads reads the `stores` table" is information; "Ads reads a table
+**owned by another team**" is debt.
+
+The viewer has three scopes, one inside the other:
+
+1. **Company** — one node per codebase, colored by team. 382 edges today.
+2. **Team** — only that team's codebases and what they touch.
+3. **Codebase** — file by file, in layers: code → shared → data → services →
+   whoever comes in from outside.
+
+![Brendi Deps company scope: 60 codebases as spheres colored by team, red edges for other-team tables, ranking of the biggest couplings on the left](/brendi-deps-empresa.webp)
+
+And three modes: **Delta** (only what this PR changed), **Cut** (only the edges
+that must go for the codebase to stand alone) and **All**. You can click a file
+and open it on GitHub at the exact commit of the snapshot, export the table as
+CSV, and there's an "ask an agent" button that builds a prompt with the
+selected node as context.
+
+## What changes day to day
+
+The globe is pretty, but the value is in what it answers without anyone
+opening 5.7k files:
+
+- **Migrating a module stops being a bet.** The question that started all this
+  was "what does Ads need to cut to leave the monolith?". *Cut* mode returns
+  the exact list: which other-team tables it writes to, which imports cross the
+  boundary, who calls it from outside. Not "I think it depends on"; a list
+  with an owner and a link to the file.
+
+  ![Ads codebase scope in Cut mode: the scope's folders in the center, other-team tables in red and Firestore collections in yellow in orbit](/brendi-deps-ads.webp)
+- **Coupling became a number that goes up or down in every PR.** The CI
+  comment shows `382 → 385` and which scopes changed. The reviewer sees, before
+  approving, that the PR created a new edge between two teams. Until now that
+  surfaced months later, as "why did your deploy break ours?".
+- **Data migrations get a ready-made worklist.** We're moving reads off
+  Firestore and shutting Mongo down. Filtering a team's scope by "touches
+  Firestore" or "touches Mongo" shows exactly which modules are left, no grep,
+  no spreadsheet.
+- **Teams talk about facts.** "What do you call in our module?" and "whose
+  table is this?" become a click. Table ownership, which was written down
+  nowhere, now exists and is versioned with the code.
+- **Onboarding by globe.** Whoever joins spins the company map, clicks their
+  team and sees what it touches and who touches it. It's the first system view
+  that doesn't depend on someone drawing on a whiteboard.
+- **Zero maintenance cost.** It's born from the code, in ~10 seconds per PR,
+  with no dependencies to install. Not a diagram aging on a wiki; the real
+  state, at the exact commit, every day.
+- **Ready-made context for agents.** The "ask an agent" button builds the
+  prompt with the selected node, its edges and the SHA. An agent about to plan
+  a refactor starts with the map instead of discovering it alone.
+
+## The flow: CI publishes, backoffice serves, the PR gets a link
+
+The part that turns it into a habit rather than a toy is the plumbing:
+
+1. Every PR touching the backend runs the scan **on base and on HEAD** (~10 s
+   total, without installing anything) and computes the delta per scope.
+2. The JSONs go to a bucket, one folder per snapshot (`main` and `pr-N`). PRs
+   expire after 30 days.
+3. The internal backoffice has a `/deps` page that reads the bucket with the
+   user's session. Without a link, it shows the current state of `main`.
+4. CI leaves a **sticky comment** on the PR: "🧭 Brendi Deps — open in
+   backoffice", with the edge count before → after and the list of scopes that
+   changed, each with its own link.
+
+The job is **informative by construction**: every step has `continue-on-error`,
+because a broken scan must never block anyone's merge. Hold on to that
+sentence; it comes back shortly.
+
+## Built in a day, in stacked PRs
+
+It was a full day pairing with an agent (Claude Code). I decided what I wanted
+to see and how it should feel — "this looks like a website, it needs to look
+like a tool", "zoom has to go where the mouse is, not the center of the
+globe", "where are the edge labels?" — and the agent implemented, tested on a
+local server and showed me. At one point I sent a photo of a similar product I
+had seen and asked what they did better than us; the list that came back
+(table view, 2D/3D, counts in the legend, a hint line in the footer) went in
+whole.
+
+When it came to shipping, we split it into **three stacked PRs** of ~200 lines
+each: the Ads map that already existed, the engine + viewer + CI job, and the
+backoffice page + bucket publishing + PR comment. Each one was reviewed by
+review agents and by the team, and what they caught was worth the process: the
+PR title interpolated straight into the workflow's `run:` (shell injection), a
+`?data=` parameter that accepted any origin (XSS), a false delta because the
+shared submodule's path differed between base and HEAD, and an `<iframe>`
+rendered on the server without the URL hash, which made the client hydrate
+with a different `src` and reload.
+
+Everything merged before the end of the day. And then a colleague opened the
+link.
+
+## The two bugs of the first real use
+
+**1. It worked from the menu, not from the link.** I sent
+`backoffice.../deps` on Slack. He opened it and saw the raw viewer: no sidebar,
+black screen, `Unexpected token '<'`. Logged in, still broken. From the
+backoffice menu, it worked. For me it always worked — because I always went in
+through the menu.
+
+The cause is one of those you only believe after reading the framework's
+source: Nuxt's server, on `GET /deps`, looks for a static asset at
+`public/deps/index.html` **before** rendering the `pages/deps.vue` page. And
+the viewer was called exactly `public/deps/index.html`. Menu navigation is
+client-side, never hits the server, so it never ran into this. A link pasted in
+the address bar does. The fix was renaming it to `viewer.html`. A one-line diff
+and a comment in the code explaining why that file *cannot* be named
+`index.html`.
+
+**2. The link CI "posted" never existed.** When I went to check whether the
+fix PR had received the comment, it hadn't. I opened the job log: the "Comment
+on PR" step was **green**. Inside it, a `403 Resource not accessible by
+integration`. The step used a GitHub App token that only has read access to
+PRs, while the lint comment (which works) uses the default Actions token, which
+has `pull-requests: write`. The `continue-on-error` that protects everyone's
+merge had swallowed the error as success. No PR, from anyone, had ever received
+the link. Another one-line diff.
+
+## What I take from this
+
+- **Test with another person, not another browser.** Both bugs were invisible
+  to me by habit: I went in through the menu, and I didn't look at the comment
+  because I knew where the link was. The first outsider found both in five
+  minutes.
+- **"Informative, never blocking" has a price.** `continue-on-error` is the
+  right choice for a job that must not block merges — and it's exactly what
+  turns a 403 into a green step. An informative job needs a way to shout that
+  isn't the check status.
+- **Framework conventions are hidden edges.** `public/<route>/index.html`
+  shadowing `pages/<route>.vue` doesn't show up in type-check, lint or tests.
+  It only shows up in a pasted link.
+- **Ownership is what gives the graph meaning.** Without "who owns this", a
+  dependency map is a pretty ball of yarn. With ownership, each edge becomes a
+  question with an owner: why does Ads still write to the orders team's
+  collection?
+- **An agent moves fast when you know what you want.** The day paid off
+  because I knew what I wanted to see and reacted to what showed up on screen.
+  The part that stayed with me was taste; the part that went to the agent was
+  three.js.
+
+## Under the hood
+
+For those who want the technical detail.
+
+**The scan** is a single pass in plain Node, no bundler: it resolves imports
+with `statSync().isFile()` (a folder import is not a file), extracts Prisma
+calls (`prisma.<model>.<op>`) and maps model → table through the schema's
+`@@map`, finds raw SQL with a conservative regex, Firestore via
+`.collection('x')`, Mongo through mongoose models and the raw driver, topics
+and queues through the shared constants. File keys are stable between base and
+HEAD — the shared submodule is normalized to `packages/brendi-commons/<rel>` —
+otherwise the delta invents change where only the path changed.
+
+**The graph** is written per scope: `company.json`, `team-<x>.json`,
+`cb-<y>.json`, plus one `meta.json` per snapshot. The backoffice index is built
+by listing the bucket's `meta.json` files, so two CI jobs running at the same
+time never fight over a shared index.
+
+**The viewer** is a single HTML file with `3d-force-graph` and `force-graph`
+(2D) via pinned ESM, no build. It accepts `?data=` only when it resolves to the
+same origin, and everything coming from the JSON is escaped before becoming
+`innerHTML`. It notifies the parent page via `postMessage` when the hash
+changes, and the page updates the URL without reloading the iframe. Opened on
+its own, without `?data=`, it redirects to `/deps`.
+
+**The comment** is a `github-script` that paginates the PR's comments, looks
+for the `<!-- brendi-deps -->` marker and edits instead of creating — one
+comment per PR, always up to date. With the right token, this time.

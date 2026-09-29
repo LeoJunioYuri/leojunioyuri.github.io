@@ -1,0 +1,206 @@
+---
+title: "Acoplamento virou número: um globo 3D de dependências em cada PR da Brendi"
+description: "60 codebases, 5,7 mil arquivos, 4 segundos de scan. Como um script só do Ads virou o Brendi Deps — o mapa que diz o que cortar antes de migrar, o que cada PR acrescenta de acoplamento e quem é dono de cada tabela. Feito num dia com agentes, e os dois bugs que só apareceram quando outra pessoa abriu o link."
+date: 2026-09-29
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Arquitetura", "CI", "Agentes", "Observabilidade", "Lições"]
+translationOf: "en/a-dependency-globe-in-every-pr"
+---
+
+Começou como uma revisão de PR. Um colega tinha aberto um script que gerava um
+mapa estático das dependências do módulo de Ads, para a gente enxergar o que
+precisava cortar antes de migrar o módulo para fora do monólito. Funcionava.
+Mas eu li o diff e a pergunta que ficou foi outra: *por que só o Ads, e por que
+só uma imagem?*
+
+O que eu queria era um **globo**: um grafo 3D que eu pudesse girar, com todas as
+codebases da empresa, onde cada PR mostrasse o que ela **acrescenta ou tira** de
+acoplamento. No fim do dia, existia. Este post é sobre o que virou, o que
+aprendi montando, e os dois bugs que só apareceram na primeira vez que outra
+pessoa clicou no link.
+
+## O que o Brendi Deps mostra
+
+O `app` da Brendi tem **60 codebases** de backend (cada uma vira um conjunto de
+Cloud Functions) e cerca de **5,7 mil arquivos** de código de domínio. Um scan
+estático lê tudo isso em **~4 segundos** e anota, por arquivo:
+
+- tabelas do Postgres tocadas (via Prisma ou SQL cru), e se é leitura ou escrita;
+- coleções do Firestore e do Mongo;
+- tópicos do Pub/Sub publicados e assinados, filas do Cloud Tasks;
+- clients HTTP e os métodos que chamam;
+- imports que atravessam a fronteira de uma codebase para outra.
+
+Em cima disso entra a **posse**: cada codebase pertence a um time (vem do
+`CODEOWNERS`), e cada tabela pertence à codebase que mais escreve nela, com um
+arquivo de overrides para as exceções. Com posse, uma aresta ganha significado.
+"O Ads lê a tabela `stores`" é informação; "o Ads lê uma tabela **de outro
+time**" é uma dívida.
+
+O viewer tem três escopos, um dentro do outro:
+
+1. **Empresa** — um nó por codebase, colorido por time. Hoje são 382 arestas.
+2. **Time** — só as codebases daquele time e o que elas tocam.
+3. **Codebase** — o arquivo a arquivo, em camadas: código → compartilhado →
+   dados → serviços → quem entra de fora.
+
+![Escopo empresa do Brendi Deps: 60 codebases como esferas coloridas por time, arestas vermelhas de tabela de outro time, ranking dos maiores acoplamentos à esquerda](/brendi-deps-empresa.webp)
+
+E três modos: **Delta** (só o que esta PR mudou), **Corta** (só as arestas que
+precisam sumir para a codebase virar independente) e **Tudo**. Dá para clicar num
+arquivo e abrir no GitHub no commit exato do snapshot, exportar a tabela em
+CSV, e tem um botão de "perguntar a um agente" que monta um prompt com o nó
+selecionado como contexto.
+
+## O que muda no dia a dia
+
+O globo é bonito, mas o valor está no que ele responde sem ninguém precisar
+abrir 5,7 mil arquivos:
+
+- **Migrar um módulo deixa de ser aposta.** A pergunta que começou tudo era
+  "o que o Ads precisa cortar para sair do monólito?". O modo *Corta* devolve a
+  lista exata: quais tabelas de outro time ele escreve, quais imports
+  atravessam a fronteira, quem chama ele de fora. Não é "acho que depende
+  de"; é uma lista com dono e link para o arquivo.
+
+  ![Escopo da codebase Ads em modo Corta: pastas do escopo no centro, tabelas de outro time em vermelho e coleções do Firestore em amarelo na órbita](/brendi-deps-ads.webp)
+
+- **Acoplamento virou um número que sobe ou desce em cada PR.** O comentário
+  do CI mostra `382 → 385` e quais escopos mudaram. Quem revisa vê, antes de
+  aprovar, que a PR criou uma aresta nova entre dois times. Hoje isso só
+  aparecia meses depois, na forma de "por que o deploy de vocês quebrou o
+  nosso?".
+- **As migrações de dado ganham uma lista de trabalho pronta.** Estamos tirando
+  leituras do Firestore e desligando o Mongo. Filtrar o escopo de um time por
+  "toca Firestore" ou "toca Mongo" mostra exatamente quais módulos ainda
+  faltam, sem grep, sem planilha.
+- **Times conversam sobre fatos.** "O que vocês chamam do nosso módulo?" e
+  "de quem é essa tabela?" viram um clique. A posse por tabela, que não existia
+  escrita em lugar nenhum, agora existe e é versionada junto com o código.
+- **Onboarding pelo globo.** Quem entra gira o mapa da empresa, clica no seu
+  time e vê o que ele toca e quem toca nele. É a primeira visão de sistema que
+  não depende de alguém desenhar no quadro.
+- **Custo zero de manutenção.** Nasce do código, em ~10 segundos por PR, sem
+  instalar dependência. Não é um diagrama que envelhece na wiki; é o estado
+  real, no commit exato, todo dia.
+- **Contexto pronto para agentes.** O botão "perguntar a um agente" monta o
+  prompt com o nó selecionado, suas arestas e o SHA. Um agente que vai
+  planejar um refactor começa com o mapa em vez de descobrir sozinho.
+
+## O fluxo: CI publica, backoffice serve, PR ganha um link
+
+A parte que faz virar hábito, e não brinquedo, é o encanamento:
+
+1. Toda PR que toca o backend roda o scan **na base e no HEAD** (~10 s no
+   total, sem instalar dependência nenhuma) e calcula o delta por escopo.
+2. Os JSONs vão para um bucket, numa pasta por snapshot (`main` e `pr-N`). PRs
+   expiram em 30 dias.
+3. O backoffice interno tem uma página `/deps` que lê o bucket com a sessão do
+   usuário. Sem link, ela mostra o estado atual da `main`.
+4. O CI deixa um **comentário fixo** na PR: "🧭 Brendi Deps — abrir no
+   backoffice", com o número de arestas antes → depois e a lista de escopos que
+   mudaram, cada um com seu link.
+
+O job é **informativo por construção**: todo passo tem `continue-on-error`,
+porque um scan que quebra não pode bloquear merge de ninguém. Guardem essa
+frase; ela volta daqui a pouco.
+
+## Feito num dia, em PRs empilhadas
+
+Foi um dia inteiro pareando com um agente (Claude Code). Eu decidia o que
+queria ver e como devia parecer — "isso está parecendo um site, precisa parecer
+uma ferramenta", "o zoom tem que ser onde o mouse está, não no centro do globo",
+"cadê os nomes nas arestas?" — e o agente implementava, testava num servidor
+local e me mostrava. Numa hora eu mandei a foto de um produto parecido que vi por
+aí e perguntei o que eles faziam melhor que a gente; a lista que voltou (vista
+em tabela, 2D/3D, contagem na legenda, uma linha de dica no rodapé) entrou
+inteira.
+
+Na hora de entregar, dividimos em **três PRs empilhadas** de ~200 linhas cada:
+o mapa do Ads que já existia, o motor + viewer + job de CI, e a página do
+backoffice + publicação no bucket + comentário na PR. Cada uma foi revisada por
+agentes de review e pelo time, e o que eles pegaram valeu o processo:
+interpolação do título da PR direto no `run:` do workflow (injeção de shell),
+um parâmetro `?data=` que aceitava qualquer origem (XSS), um delta falso porque
+o caminho do submódulo compartilhado mudava entre base e HEAD, e um `<iframe>`
+renderizado no servidor sem o hash da URL, que fazia o cliente hidratar com
+outro `src` e recarregar.
+
+Mergeou tudo antes do fim do dia. E aí um colega abriu o link.
+
+## Os dois bugs do primeiro uso real
+
+**1. Pelo menu funcionava, pelo link não.** Eu mandei
+`backoffice.../deps` no Slack. Ele abriu e viu o viewer cru: sem sidebar, tela
+preta, `Unexpected token '<'`. Logou, continuou quebrado. Pelo menu do
+backoffice, funcionava. Para mim, funcionava sempre — porque eu sempre entrava
+pelo menu.
+
+A causa é uma daquelas que você só acredita lendo o código do framework: o
+servidor do Nuxt, ao receber `GET /deps`, procura um asset estático em
+`public/deps/index.html` **antes** de renderizar a página `pages/deps.vue`.
+E o viewer se chamava exatamente `public/deps/index.html`. Navegação pelo menu
+é client-side, nunca passa pelo servidor, então nunca caía nisso. Link colado
+na barra passa. O fix foi renomear para `viewer.html`. Uma linha de diff e um
+comentário no código explicando por que aquele arquivo *não pode* se chamar
+`index.html`.
+
+**2. O link que o CI "postava" nunca existiu.** Quando fui conferir se a PR
+do fix tinha ganhado o comentário, não tinha. Fui no log do job: o passo
+"Comentar na PR" estava **verde**. Dentro dele, um `403 Resource not accessible
+by integration`. O passo usava o token de um GitHub App que só tem leitura em
+PRs, enquanto o comentário de lint (que funciona) usa o token padrão do
+Actions, que tem `pull-requests: write`. O `continue-on-error` que protege o
+merge de todo mundo tinha engolido o erro como sucesso. Nenhuma PR, de nenhuma
+pessoa, tinha recebido o link. Outra linha de diff.
+
+## O que eu levo disso
+
+- **Teste com outra pessoa, não com outro navegador.** Os dois bugs eram
+  invisíveis para mim por hábito: eu entrava pelo menu e eu não olhava o
+  comentário porque sabia onde estava o link. A primeira pessoa de fora achou
+  os dois em cinco minutos.
+- **"Informativo, nunca bloqueia" tem um preço.** `continue-on-error` é a
+  escolha certa para um job que não pode travar merge — e é exatamente o que
+  transforma um 403 em passo verde. Job informativo precisa de um jeito de
+  gritar que não seja o status do check.
+- **Convenção de framework é aresta escondida.** `public/<rota>/index.html`
+  sombreando `pages/<rota>.vue` não aparece em type-check, lint nem teste. Só
+  aparece no link colado.
+- **Posse é o que dá sentido ao grafo.** Sem "quem é dono disso", um mapa de
+  dependências é um novelo bonito. Com posse, cada aresta vira uma pergunta
+  com dono: por que o Ads ainda escreve na coleção do time de pedidos?
+- **Agente decide rápido quando você decide o que quer.** O dia rendeu porque
+  eu sabia o que queria ver e reagia ao que aparecia na tela. A parte que ficou
+  comigo foi o gosto; a parte que ficou com o agente foi o three.js.
+
+## Por baixo do capô
+
+Para quem quer o detalhe técnico.
+
+**O scan** é um único passe em Node puro, sem bundler: resolve imports por
+`statSync().isFile()` (um import de pasta não é um arquivo), extrai chamadas do
+Prisma (`prisma.<model>.<op>`) e mapeia model → tabela pelo `@@map` do schema,
+acha SQL cru por regex conservadora, Firestore por `.collection('x')`, Mongo
+pelos models do mongoose e pelo driver cru, tópicos e filas pelas constantes
+compartilhadas. Chaves de arquivo são estáveis entre base e HEAD — o submódulo
+compartilhado é normalizado para `packages/brendi-commons/<rel>` — senão o delta
+inventa mudança onde só mudou o caminho.
+
+**O grafo** é escrito por escopo: `company.json`, `team-<x>.json`,
+`cb-<y>.json`, mais um `meta.json` por snapshot. O índice do backoffice é
+montado listando os `meta.json` do bucket, então dois jobs de CI rodando ao
+mesmo tempo nunca disputam um índice compartilhado.
+
+**O viewer** é um HTML único com `3d-force-graph` e `force-graph` (2D) via
+ESM pinado, sem build. Aceita `?data=` só quando resolve para a mesma origem, e
+tudo que vem do JSON passa por escape antes de virar `innerHTML`. Ele avisa a
+página pai por `postMessage` quando o hash muda, e a página atualiza a URL sem
+recarregar o iframe. Se for aberto sozinho, sem `?data=`, redireciona para
+`/deps`.
+
+**O comentário** é um `github-script` que pagina os comentários da PR, procura o
+marcador `<!-- brendi-deps -->` e edita em vez de criar — um comentário por PR,
+sempre atualizado. Com o token certo, dessa vez.

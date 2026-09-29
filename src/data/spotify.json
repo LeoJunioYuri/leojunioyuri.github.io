@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-29T17:13:54.615Z",
+  "updatedAt": "2026-09-29T21:37:58.041Z",
   "tracks": [
+    {
+      "name": "Kung Fu Fighting - From \"Kung Fu Panda\"",
+      "artist": "CeeLo Green, Jack Black",
+      "url": "https://open.spotify.com/track/7eGAQnxbIHHFtS1p9rmAZ0",
+      "image": "https://i.scdn.co/image/ab67616d0000485127305a9eae4c2f17eb990ab0",
+      "playedAt": "2026-09-29T17:22:17.262Z"
+    },
     {
       "name": "Be Yourself",
       "artist": "Audioslave",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
       "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
       "playedAt": "2026-09-29T13:18:44.495Z"
-    },
-    {
-      "name": "Somewhere I Belong",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
-      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
-      "playedAt": "2026-09-29T13:14:39.464Z"
     }
   ],
   "topTracks": {

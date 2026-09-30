@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-09-30T02:55:34.979Z",
+  "updatedAt": "2026-09-30T11:33:09.693Z",
   "tracks": [
+    {
+      "name": "Melodramma",
+      "artist": "Andrea Bocelli",
+      "url": "https://open.spotify.com/track/3xjGzjHUnHWkHoaek9E3jl",
+      "image": "https://i.scdn.co/image/ab67616d00004851e41da0180952f802eadaec2d",
+      "playedAt": "2026-09-30T04:22:33.992Z"
+    },
     {
       "name": "The Power of Love",
       "artist": "Céline Dion",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/75f0khzHW4FF5Bzb7EkZRx",
       "image": "https://i.scdn.co/image/ab67616d0000485113d5746aa8f8ec2b8813d306",
       "playedAt": "2026-09-30T01:20:53.936Z"
-    },
-    {
-      "name": "Versailles for Sore Eyes",
-      "artist": "Chris Tilton, Assassin's Creed",
-      "url": "https://open.spotify.com/track/4P3kn4CkN2Zbwl3l1AdjWQ",
-      "image": "https://i.scdn.co/image/ab67616d00004851c91a14852cfa16c79969dc71",
-      "playedAt": "2026-09-30T01:17:23.371Z"
     }
   ],
   "topTracks": {

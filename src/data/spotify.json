@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-09-30T17:12:05.784Z",
+  "updatedAt": "2026-09-30T21:38:51.943Z",
   "tracks": [
+    {
+      "name": "Let You Fade",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/3GZt2N9dSfNCL6ArCFDpOc",
+      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
+      "playedAt": "2026-09-30T17:28:11.042Z"
+    },
+    {
+      "name": "No More Sorrow",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/4CWhc9FaMMfBTt4ANjfbOf",
+      "image": "https://i.scdn.co/image/ab67616d000048516e996745f2c7b8036abef213",
+      "playedAt": "2026-09-30T17:24:37.091Z"
+    },
     {
       "name": "Save a Prayer - 2009 Remaster",
       "artist": "Duran Duran",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
       "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
       "playedAt": "2026-09-30T12:43:55.582Z"
-    },
-    {
-      "name": "The Wretched Tide",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-30T12:35:01.309Z"
-    },
-    {
-      "name": "Melodramma",
-      "artist": "Andrea Bocelli",
-      "url": "https://open.spotify.com/track/3xjGzjHUnHWkHoaek9E3jl",
-      "image": "https://i.scdn.co/image/ab67616d00004851e41da0180952f802eadaec2d",
-      "playedAt": "2026-09-30T04:22:33.992Z"
     }
   ],
   "topTracks": {

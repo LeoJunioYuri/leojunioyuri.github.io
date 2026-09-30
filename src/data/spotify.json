@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-30T11:33:09.693Z",
+  "updatedAt": "2026-09-30T17:12:05.784Z",
   "tracks": [
+    {
+      "name": "Save a Prayer - 2009 Remaster",
+      "artist": "Duran Duran",
+      "url": "https://open.spotify.com/track/1ff8lsrJ2kuZuofMw81EQo",
+      "image": "https://i.scdn.co/image/ab67616d0000485116c75e2dd2654d7d03f2c556",
+      "playedAt": "2026-09-30T13:27:43.306Z"
+    },
+    {
+      "name": "Enjoy the Silence",
+      "artist": "Depeche Mode",
+      "url": "https://open.spotify.com/track/0yp3TvJNlG50Q4tAHWNCRm",
+      "image": "https://i.scdn.co/image/ab67616d00004851972ac79d249efed1c7b2c8c1",
+      "playedAt": "2026-09-30T13:17:18.598Z"
+    },
+    {
+      "name": "Precious",
+      "artist": "Depeche Mode",
+      "url": "https://open.spotify.com/track/1cBxAm8a0fENn2ix3Dfm3u",
+      "image": "https://i.scdn.co/image/ab67616d00004851ed1506834f09438351cf1dc5",
+      "playedAt": "2026-09-30T13:09:30.217Z"
+    },
+    {
+      "name": "Come Undone",
+      "artist": "Duran Duran",
+      "url": "https://open.spotify.com/track/0yfNXxlyXdmP0ue1iJijx1",
+      "image": "https://i.scdn.co/image/ab67616d000048515d11c2fe73a7d376d3b06107",
+      "playedAt": "2026-09-30T13:02:32.488Z"
+    },
+    {
+      "name": "Finality",
+      "artist": "Woods Of Ypres",
+      "url": "https://open.spotify.com/track/79FyY4nL5rJs9Yy9qxUh4v",
+      "image": "https://i.scdn.co/image/ab67616d00004851a7e4d2b8e3514866dd34720b",
+      "playedAt": "2026-09-30T12:47:53.695Z"
+    },
+    {
+      "name": "The Marriage of Attaris",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-09-30T12:43:55.582Z"
+    },
+    {
+      "name": "The Wretched Tide",
+      "artist": "Draconian",
+      "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
+      "playedAt": "2026-09-30T12:35:01.309Z"
+    },
     {
       "name": "Melodramma",
       "artist": "Andrea Bocelli",
       "url": "https://open.spotify.com/track/3xjGzjHUnHWkHoaek9E3jl",
       "image": "https://i.scdn.co/image/ab67616d00004851e41da0180952f802eadaec2d",
       "playedAt": "2026-09-30T04:22:33.992Z"
-    },
-    {
-      "name": "The Power of Love",
-      "artist": "Céline Dion",
-      "url": "https://open.spotify.com/track/5kK1Iru9ogP3Iy1zsANU1n",
-      "image": "https://i.scdn.co/image/ab67616d0000485163e07c2dbc7450974a146e96",
-      "playedAt": "2026-09-30T02:06:38.992Z"
-    },
-    {
-      "name": "Vivo Per Lei",
-      "artist": "Andrea Bocelli, Giorgia",
-      "url": "https://open.spotify.com/track/6waZRRO7OhjGxgEZ72mqvj",
-      "image": "https://i.scdn.co/image/ab67616d00004851f1fef75fd377a1dd08dc3e2a",
-      "playedAt": "2026-09-30T01:59:39.652Z"
-    },
-    {
-      "name": "Canto Della Terra",
-      "artist": "Andrea Bocelli",
-      "url": "https://open.spotify.com/track/4HW5DecxqwSILJeM4CuqhO",
-      "image": "https://i.scdn.co/image/ab67616d00004851c6bbaa52883eb15088102920",
-      "playedAt": "2026-09-30T01:55:14.036Z"
-    },
-    {
-      "name": "Song of Elune",
-      "artist": "Jason Hayes, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/3c6GD91Swoko7vlcSN55Zx",
-      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
-      "playedAt": "2026-09-30T01:29:41.901Z"
-    },
-    {
-      "name": "Your Tale Awaits You Down the Road",
-      "artist": "Borislav Slavov",
-      "url": "https://open.spotify.com/track/4XM13Ddt5l2ruVsxzUqImX",
-      "image": "https://i.scdn.co/image/ab67616d000048512085ca30362de37d7c3d6f83",
-      "playedAt": "2026-09-30T01:27:25.815Z"
-    },
-    {
-      "name": "Kyne's Peace",
-      "artist": "London Symphony Orchestra, London Voices, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/2DTfv9aSTrdvVdVHRiOJKH",
-      "image": "https://i.scdn.co/image/ab67616d000048514db3c67f42301a077de6bac4",
-      "playedAt": "2026-09-30T01:24:53.202Z"
-    },
-    {
-      "name": "Wings of Kynareth",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/75f0khzHW4FF5Bzb7EkZRx",
-      "image": "https://i.scdn.co/image/ab67616d0000485113d5746aa8f8ec2b8813d306",
-      "playedAt": "2026-09-30T01:20:53.936Z"
     }
   ],
   "topTracks": {

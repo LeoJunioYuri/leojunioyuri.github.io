@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-10-01T12:01:26.124Z",
+  "updatedAt": "2026-10-01T22:06:29.027Z",
   "tracks": [
+    {
+      "name": "Across the Line",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/4dbveKUpOx62SiwXQCALQH",
+      "image": "https://i.scdn.co/image/ab67616d00004851c1cac9f8bc0d3a331b8a2d5f",
+      "playedAt": "2026-10-01T22:03:59.249Z"
+    },
+    {
+      "name": "The Little Things Give You Away",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/48QYP8a8gEqbtvjOTMSpiD",
+      "image": "https://i.scdn.co/image/ab67616d000048516e996745f2c7b8036abef213",
+      "playedAt": "2026-10-01T20:33:00.875Z"
+    },
+    {
+      "name": "In Pieces",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7jeI6EdY0elPSNz80mAKS8",
+      "image": "https://i.scdn.co/image/ab67616d000048516e996745f2c7b8036abef213",
+      "playedAt": "2026-10-01T20:25:37.374Z"
+    },
+    {
+      "name": "In Between",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/2ysXuQd8uOfSMZcMRR5Ux4",
+      "image": "https://i.scdn.co/image/ab67616d000048516e996745f2c7b8036abef213",
+      "playedAt": "2026-10-01T20:15:48.705Z"
+    },
     {
       "name": "Guilty All the Same (feat. Rakim)",
       "artist": "Linkin Park, Rakim",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/0D7RVmTlKkmRchqKA4zJht",
       "image": "https://i.scdn.co/image/ab67616d000048516b4327537cb37cf9cd0d80eb",
       "playedAt": "2026-10-01T02:14:35.345Z"
-    },
-    {
-      "name": "Ghost Town",
-      "artist": "Adam Lambert",
-      "url": "https://open.spotify.com/track/0ALTA9qTr8AQ8BmGifY2O8",
-      "image": "https://i.scdn.co/image/ab67616d0000485100b6102f3e25e66f69313338",
-      "playedAt": "2026-09-30T23:41:29.865Z"
-    },
-    {
-      "name": "Show Me Love",
-      "artist": "Robin Schulz, Richard Judge",
-      "url": "https://open.spotify.com/track/0aHOXu219Z4MqEKwiKsddl",
-      "image": "https://i.scdn.co/image/ab67616d0000485170dd2ebd8a41b3cab44f0c7b",
-      "playedAt": "2026-09-30T23:36:38.839Z"
-    },
-    {
-      "name": "Waves - Robin Schulz Radio Edit",
-      "artist": "Mr. Probz, Robin Schulz",
-      "url": "https://open.spotify.com/track/1HFfMOxCAT4GAwaPfCdmUs",
-      "image": "https://i.scdn.co/image/ab67616d0000485120062cf8da0f580e9118b487",
-      "playedAt": "2026-09-30T23:28:44.012Z"
-    },
-    {
-      "name": "Safe and Sound",
-      "artist": "Capital Cities",
-      "url": "https://open.spotify.com/track/5JVbvCHX10U2pLa5DEqGav",
-      "image": "https://i.scdn.co/image/ab67616d00004851b03e92f4e7dcd9db3a06c869",
-      "playedAt": "2026-09-30T23:24:16.039Z"
     }
   ],
   "topTracks": {

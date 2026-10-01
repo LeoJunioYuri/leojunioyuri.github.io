@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-10-01T03:02:02.199Z",
+  "updatedAt": "2026-10-01T12:01:26.124Z",
   "tracks": [
+    {
+      "name": "Guilty All the Same (feat. Rakim)",
+      "artist": "Linkin Park, Rakim",
+      "url": "https://open.spotify.com/track/6L5QMBrydoaapTDMQ0Anui",
+      "image": "https://i.scdn.co/image/ab67616d000048515721adac031512b903f10d03",
+      "playedAt": "2026-10-01T03:27:57.211Z"
+    },
     {
       "name": "Rebellion (feat. Daron Malakian)",
       "artist": "Linkin Park, Daron Malakian",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/5JVbvCHX10U2pLa5DEqGav",
       "image": "https://i.scdn.co/image/ab67616d00004851b03e92f4e7dcd9db3a06c869",
       "playedAt": "2026-09-30T23:24:16.039Z"
-    },
-    {
-      "name": "Butterfly",
-      "artist": "Crazy Town",
-      "url": "https://open.spotify.com/track/6GQ3WTaNHMFlVmN4burGat",
-      "image": "https://i.scdn.co/image/ab67616d00004851523e6f09c8962982254de0cd",
-      "playedAt": "2026-09-30T23:19:01.414Z"
     }
   ],
   "topTracks": {
@@ -276,24 +276,24 @@
       },
       {
         "rank": 7,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 8,
         "name": "Cut the Bridge",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "Good Things Go",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/6aCBjSb87RizdH8lVBIRW7",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 9,
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
         "rank": 10,
@@ -311,10 +311,10 @@
       },
       {
         "rank": 12,
-        "name": "Over Each Other",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+        "name": "The Wretched Tide",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       }
     ]
   }

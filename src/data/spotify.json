@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-09-30T21:38:51.943Z",
+  "updatedAt": "2026-10-01T03:02:02.199Z",
   "tracks": [
     {
-      "name": "Let You Fade",
+      "name": "Rebellion (feat. Daron Malakian)",
+      "artist": "Linkin Park, Daron Malakian",
+      "url": "https://open.spotify.com/track/3zZ009FB8sc8JghwVrbLFq",
+      "image": "https://i.scdn.co/image/ab67616d000048515721adac031512b903f10d03",
+      "playedAt": "2026-10-01T02:21:23.176Z"
+    },
+    {
+      "name": "Up From the Bottom",
       "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/3GZt2N9dSfNCL6ArCFDpOc",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-09-30T17:28:11.042Z"
+      "url": "https://open.spotify.com/track/3Hs9TlRqcGoH7xQvzRF4Wz",
+      "image": "https://i.scdn.co/image/ab67616d000048516b4327537cb37cf9cd0d80eb",
+      "playedAt": "2026-10-01T02:17:38.495Z"
     },
     {
-      "name": "No More Sorrow",
+      "name": "Unshatter",
       "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/4CWhc9FaMMfBTt4ANjfbOf",
-      "image": "https://i.scdn.co/image/ab67616d000048516e996745f2c7b8036abef213",
-      "playedAt": "2026-09-30T17:24:37.091Z"
+      "url": "https://open.spotify.com/track/0D7RVmTlKkmRchqKA4zJht",
+      "image": "https://i.scdn.co/image/ab67616d000048516b4327537cb37cf9cd0d80eb",
+      "playedAt": "2026-10-01T02:14:35.345Z"
     },
     {
-      "name": "Save a Prayer - 2009 Remaster",
-      "artist": "Duran Duran",
-      "url": "https://open.spotify.com/track/1ff8lsrJ2kuZuofMw81EQo",
-      "image": "https://i.scdn.co/image/ab67616d0000485116c75e2dd2654d7d03f2c556",
-      "playedAt": "2026-09-30T13:27:43.306Z"
+      "name": "Ghost Town",
+      "artist": "Adam Lambert",
+      "url": "https://open.spotify.com/track/0ALTA9qTr8AQ8BmGifY2O8",
+      "image": "https://i.scdn.co/image/ab67616d0000485100b6102f3e25e66f69313338",
+      "playedAt": "2026-09-30T23:41:29.865Z"
     },
     {
-      "name": "Enjoy the Silence",
-      "artist": "Depeche Mode",
-      "url": "https://open.spotify.com/track/0yp3TvJNlG50Q4tAHWNCRm",
-      "image": "https://i.scdn.co/image/ab67616d00004851972ac79d249efed1c7b2c8c1",
-      "playedAt": "2026-09-30T13:17:18.598Z"
+      "name": "Show Me Love",
+      "artist": "Robin Schulz, Richard Judge",
+      "url": "https://open.spotify.com/track/0aHOXu219Z4MqEKwiKsddl",
+      "image": "https://i.scdn.co/image/ab67616d0000485170dd2ebd8a41b3cab44f0c7b",
+      "playedAt": "2026-09-30T23:36:38.839Z"
     },
     {
-      "name": "Precious",
-      "artist": "Depeche Mode",
-      "url": "https://open.spotify.com/track/1cBxAm8a0fENn2ix3Dfm3u",
-      "image": "https://i.scdn.co/image/ab67616d00004851ed1506834f09438351cf1dc5",
-      "playedAt": "2026-09-30T13:09:30.217Z"
+      "name": "Waves - Robin Schulz Radio Edit",
+      "artist": "Mr. Probz, Robin Schulz",
+      "url": "https://open.spotify.com/track/1HFfMOxCAT4GAwaPfCdmUs",
+      "image": "https://i.scdn.co/image/ab67616d0000485120062cf8da0f580e9118b487",
+      "playedAt": "2026-09-30T23:28:44.012Z"
     },
     {
-      "name": "Come Undone",
-      "artist": "Duran Duran",
-      "url": "https://open.spotify.com/track/0yfNXxlyXdmP0ue1iJijx1",
-      "image": "https://i.scdn.co/image/ab67616d000048515d11c2fe73a7d376d3b06107",
-      "playedAt": "2026-09-30T13:02:32.488Z"
+      "name": "Safe and Sound",
+      "artist": "Capital Cities",
+      "url": "https://open.spotify.com/track/5JVbvCHX10U2pLa5DEqGav",
+      "image": "https://i.scdn.co/image/ab67616d00004851b03e92f4e7dcd9db3a06c869",
+      "playedAt": "2026-09-30T23:24:16.039Z"
     },
     {
-      "name": "Finality",
-      "artist": "Woods Of Ypres",
-      "url": "https://open.spotify.com/track/79FyY4nL5rJs9Yy9qxUh4v",
-      "image": "https://i.scdn.co/image/ab67616d00004851a7e4d2b8e3514866dd34720b",
-      "playedAt": "2026-09-30T12:47:53.695Z"
-    },
-    {
-      "name": "The Marriage of Attaris",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-09-30T12:43:55.582Z"
+      "name": "Butterfly",
+      "artist": "Crazy Town",
+      "url": "https://open.spotify.com/track/6GQ3WTaNHMFlVmN4burGat",
+      "image": "https://i.scdn.co/image/ab67616d00004851523e6f09c8962982254de0cd",
+      "playedAt": "2026-09-30T23:19:01.414Z"
     }
   ],
   "topTracks": {

@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-03T10:47:41.395Z",
+  "updatedAt": "2026-10-03T15:23:39.475Z",
   "tracks": [
     {
-      "name": "Phoenix",
-      "artist": "Stratovarius",
-      "url": "https://open.spotify.com/track/11hzUUH6C38J419ZWa8h5G",
-      "image": "https://i.scdn.co/image/ab67616d00004851b0ae81f14787f57881a9ee7f",
-      "playedAt": "2026-10-02T23:22:17.654Z"
+      "name": "The Burning Legion [Main Title]",
+      "artist": "Russell Brower, Jason Hayes, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/1riGMCxdAEU2CukCIKhkVx",
+      "image": "https://i.scdn.co/image/ab67616d0000485149f7720a05ae123fda060ad5",
+      "playedAt": "2026-10-03T15:22:29.809Z"
     },
     {
-      "name": "What Have You Done (feat. Keith Caputo)",
-      "artist": "Within Temptation, Keith Caputo",
-      "url": "https://open.spotify.com/track/2OHeJR6Cfvm42512gonFRh",
-      "image": "https://i.scdn.co/image/ab67616d000048515d22cd316736c66d068a71e2",
-      "playedAt": "2026-10-02T23:16:04.033Z"
+      "name": "Legends of Azeroth (Main Title)",
+      "artist": "Jason Hayes, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/2JG96LwEOFV8abjHEdAydj",
+      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
+      "playedAt": "2026-10-03T15:18:30.380Z"
     },
     {
-      "name": "Sign of the Cross",
-      "artist": "Avantasia",
-      "url": "https://open.spotify.com/track/6b3IhqhLZeo3h5JGFkTYVI",
-      "image": "https://i.scdn.co/image/ab67616d00004851ad1a8e0311bbe50db73c3db8",
-      "playedAt": "2026-10-02T23:10:50.135Z"
+      "name": "Reforged",
+      "artist": "Russell Brower, David Arkenstone",
+      "url": "https://open.spotify.com/track/4qmkqE9wlEipIrWQGeArQo",
+      "image": "https://i.scdn.co/image/ab67616d0000485144281373ec2db029e581a12f",
+      "playedAt": "2026-10-03T15:11:10.640Z"
     },
     {
-      "name": "My Land",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/3IwGCc9pW94ZoHA1aO0WiD",
-      "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6",
-      "playedAt": "2026-10-02T23:04:23.262Z"
+      "name": "Aeon Of Maat",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/3DFO5cC4e0QMjkNrmGaZXg",
+      "image": "https://i.scdn.co/image/ab67616d00004851b898dacaa4bdb0c62710edaf",
+      "playedAt": "2026-10-03T14:37:00.904Z"
     },
     {
-      "name": "Rainmaker - 2015 Remaster",
-      "artist": "Iron Maiden",
-      "url": "https://open.spotify.com/track/5jNmbcbuNhM8d5oUld1WsS",
-      "image": "https://i.scdn.co/image/ab67616d00004851d0d7dbbbb9ee8980315ea58b",
-      "playedAt": "2026-10-02T22:59:45.447Z"
+      "name": "Summernight City - 2001",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/4jpqFxY60NkVZIKJtqF7BS",
+      "image": "https://i.scdn.co/image/ab67616d00004851df23939d7a23be1280373c18",
+      "playedAt": "2026-10-03T14:34:20.161Z"
     },
     {
-      "name": "Planet Hell",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/4aOUcByFqMhdnMWZqUkogv",
-      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
-      "playedAt": "2026-10-02T22:55:56.407Z"
+      "name": "Sitra Ahra",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/0uLufckMlMqXtnzw2mDoEC",
+      "image": "https://i.scdn.co/image/ab67616d000048516128153b908498f1cd27e161",
+      "playedAt": "2026-10-03T14:29:24.961Z"
     },
     {
-      "name": "Black Diamond",
-      "artist": "Stratovarius",
-      "url": "https://open.spotify.com/track/0L4X0uzbwzRiX3Z5U7xLaJ",
-      "image": "https://i.scdn.co/image/ab67616d0000485148d0961740d9c83932ac2473",
-      "playedAt": "2026-10-02T22:51:17.086Z"
+      "name": "Asgard",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/3XF9z3LgDNvMNhkJoR7egG",
+      "image": "https://i.scdn.co/image/ab67616d000048511a065a15d5ab31eb27be2bc3",
+      "playedAt": "2026-10-03T14:23:07.719Z"
     },
     {
-      "name": "The Last Amazing Grays",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/4XsyxJ0DP6dStJTBgnmD8d",
-      "image": "https://i.scdn.co/image/ab67616d00004851f3e06455a13192ea129dacbb",
-      "playedAt": "2026-10-02T22:40:52.688Z"
+      "name": "Abraxas",
+      "artist": "Therion",
+      "url": "https://open.spotify.com/track/2HNteFdwI6gM2BZVhavx7K",
+      "image": "https://i.scdn.co/image/ab67616d00004851d034933389cdb3f6794daa49",
+      "playedAt": "2026-10-03T14:18:59.996Z"
     }
   ],
   "topTracks": {
@@ -104,45 +104,45 @@
       },
       {
         "rank": 7,
-        "name": "Rivers Between Us",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+        "name": "FullMoon",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
+        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
         "rank": 8,
-        "name": "Stay",
-        "artist": "Miley Cyrus",
-        "url": "https://open.spotify.com/track/0Ohi2pjBS1yak2BSgJRaIs",
-        "image": "https://i.scdn.co/image/ab67616d00004851478199f575bbfd53cda89090"
+        "name": "Paid in Full",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
+        "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
       },
       {
         "rank": 9,
-        "name": "Snuff",
-        "artist": "Slipknot",
-        "url": "https://open.spotify.com/track/2vPZ4Lklyu75zBR3SgbFNI",
-        "image": "https://i.scdn.co/image/ab67616d00004851e7fbc0883149094912559f2c"
-      },
-      {
-        "rank": 10,
         "name": "Somewhere I Belong",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/3fjmSxt0PskST13CSdBUFx",
         "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
+        "rank": 11,
+        "name": "Snuff",
+        "artist": "Slipknot",
+        "url": "https://open.spotify.com/track/2vPZ4Lklyu75zBR3SgbFNI",
+        "image": "https://i.scdn.co/image/ab67616d00004851e7fbc0883149094912559f2c"
+      },
+      {
         "rank": 12,
-        "name": "FullMoon",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
-        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+        "name": "CORALINE",
+        "artist": "Måneskin",
+        "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
+        "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21"
       }
     ],
     "medium": [

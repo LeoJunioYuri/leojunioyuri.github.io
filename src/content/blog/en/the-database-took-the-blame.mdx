@@ -88,7 +88,7 @@ Measured on my laptop, same algorithm, same synthetic dataset (2,600 stores, ~12
 
 Between **80 and 120 times** faster — with a byte-identical response.
 
-The production deploy went out the same day. Before it, midnight connection timeouts ran **12 to 147 per night** on six of the previous week's seven nights. I'll come back here with the numbers from the first nights after the fix.
+The production deploy went out the same day. Before it, midnight connection timeouts ran **12 to 147 per night** on six of the previous week's seven nights. The numbers from the first nights are in the update at the end of the post.
 
 ## And the infra, while I was there
 
@@ -96,7 +96,31 @@ Digging into the nights uncovered three other problems — smaller, but the scar
 
 - **A weekly job with no second chance.** One Monday, a single instance failed to boot (1 in 74 boots) and the entire weekly run of our traffic agent was lost, because the scheduler never retried. Turning on retries is one line — but it's only safe if running twice does no harm. The worker only prevented two runs of the same store *at the same time*; a second run after the first finished went through. The fix was a **deterministic id** per task (store + pass + day): on a retry, anything already queued comes back as "duplicate", and only what was missing gets in.
 - **An instance floor that vanished at 11:30 p.m.** The time-based scaling tool reset the minimum to zero at the end of its window. But when there are two minimums — the service's and the revision's — the platform uses the **higher** one. Putting the floor in code makes it hold 24 hours, regardless of the schedule.
-- **A hidden revision swap.** The first scaling change after every deploy hit a conflict error, and the tool worked around it by creating a new revision — which restarts every instance cold, sometimes right at the start of peak hours. That one is still open, with another team.
+- **A hidden revision swap.** The first scaling change after every deploy hit a conflict error, and the tool worked around it by creating a new revision — which restarts every instance cold, sometimes right at the start of peak hours. Closed a week later — it's in the update below.
+
+## One week later
+
+*Update, Oct 5.* I promised to come back with the numbers, and they came in better than I expected.
+
+**The nights.** In the seven nights after the fix, between 11 p.m. and 2 a.m., `Connection terminated due to connection timeout` showed up **zero times**. The week before it was 12 to 147 per night. The sort really was the culprit.
+
+**The hidden revision swap is closed.** With the floor in code, the time-based scaling schedule added no capacity at all — it wrote 2 off-peak and 5 inside the window, against a fixed 3, and the platform takes the higher one. All it produced was three new revisions a day. It was deleted on Sep 29, and the tool will start writing only the service-level minimum, without creating a revision, which helps the whole fleet.
+
+**Two things I didn't know were there.** First, 29% of the API's requests were `OPTIONS`: the browser redid the CORS preflight before every dashboard call because the response never said how long the permission was good for. An `Access-Control-Max-Age` of two hours cut 35% of those preflights — not all of them, since the cache is per browser and per URL. Second, the cohort-matrix queries an internal dashboard pulls in the small hours held the instance's ten pool connections for 20 to 45 seconds each; everything else on that instance waited for a connection, the autoscaler saw "no available instance" and started cold ones. They moved to a service of their own, with its own pool.
+
+**What's left.** The table below is the whole service, day by day, measured on Cloud Run. Requests over 10 s are the ones stuck behind a cold start.
+
+| day | requests | over 10 s | cold starts | p99 | new revisions |
+|---|---|---|---|---|---|
+| Mon Sep 28 | 702k | 4,753 | 195 | 3.8 s | 18 |
+| Tue Sep 29 | 712k | 2,661 | 142 | 1.5 s | 13 |
+| Wed Sep 30 | 721k | 1,874 | 82 | 1.2 s | 8 |
+| Thu Oct 1 | 766k | 2,269 | 170 | 1.4 s | 15 |
+| Fri Oct 2 | 723k | 2,146 | 152 | 1.2 s | 12 |
+| Sat Oct 3 | 706k | 583 | 44 | 0.8 s | 5 |
+| Sun Oct 4 | 607k | 119 | 2 | 0.6 s | 0 |
+
+Sunday is the floor: with no new revision, 119 slow requests out of 607k and two cold starts. On weekdays, 92% of the slow requests land in the hour of a deploy. Every merge into the codebase redeploys all 79 of its functions, the API included — a commit to an AI agent that lives in the same folder creates a new API revision and a cold start in the middle of peak. That's the next cut: moving the API into its own codebase. But that's another post.
 
 ## What I'm taking from this
 

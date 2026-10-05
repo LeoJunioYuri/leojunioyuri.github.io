@@ -88,7 +88,7 @@ Medido no meu notebook, com o mesmo algoritmo e o mesmo conjunto sintético (2.6
 
 Entre **80 e 120 vezes** mais rápido — e a resposta idêntica byte a byte.
 
-O deploy em produção saiu no mesmo dia. Antes dele, os timeouts de conexão da meia-noite iam de **12 a 147 por noite** em seis das sete noites da semana anterior. Volto aqui com os números das primeiras noites depois do fix.
+O deploy em produção saiu no mesmo dia. Antes dele, os timeouts de conexão da meia-noite iam de **12 a 147 por noite** em seis das sete noites da semana anterior. Os números das primeiras noites estão na atualização, no fim do post.
 
 ## E a infra, já que eu estava lá
 
@@ -96,7 +96,31 @@ Investigar a madrugada destampou outros três problemas — menores, mas do tipo
 
 - **Job semanal sem segunda chance.** Numa segunda-feira, uma única instância não conseguiu subir (1 em 74 boots) e a rodada semanal inteira do nosso agente de tráfego se perdeu, porque o agendador não tentava de novo. Ligar o retry é uma linha — mas só é seguro se rodar duas vezes não fizer estrago. O worker só impedia duas execuções *ao mesmo tempo* da mesma loja; uma segunda execução depois da primeira terminar passava. A correção foi dar a cada tarefa um **id determinístico** (loja + rodada + dia): na nova tentativa, quem já estava na fila volta como "duplicado", e só entra quem faltou.
 - **Um piso de instâncias que sumia às 23h30.** A ferramenta de escala por horário zerava o mínimo no fim da janela. Mas quando existem dois mínimos — o do serviço e o da revisão —, a plataforma usa o **maior**. Pôr o piso no código faz ele valer 24 horas, sem depender do agendamento.
-- **Uma troca de revisão escondida.** A primeira mudança de escala depois de cada deploy recebia um erro de conflito, e a ferramenta contornava criando uma revisão nova — o que reinicia todas as instâncias frias, às vezes no começo do horário de pico. Esse ainda está em aberto, com outro time.
+- **Uma troca de revisão escondida.** A primeira mudança de escala depois de cada deploy recebia um erro de conflito, e a ferramenta contornava criando uma revisão nova — o que reinicia todas as instâncias frias, às vezes no começo do horário de pico. Fechou uma semana depois — está na atualização abaixo.
+
+## Uma semana depois
+
+*Atualização de 05/10.* Prometi voltar com os números, e eles vieram melhores do que eu esperava.
+
+**As madrugadas.** Nas sete noites depois do fix, entre 23h e 2h, o `Connection terminated due to connection timeout` apareceu **zero vezes**. Na semana anterior eram de 12 a 147 por noite. O sort era mesmo o culpado.
+
+**A troca de revisão escondida fechou.** Com o piso no código, o agendamento de escala por horário não acrescentava capacidade nenhuma — escrevia 2 fora do pico e 5 dentro, contra 3 fixos, e a plataforma usa o maior. Só gerava três revisões novas por dia. Foi apagado em 29/09, e a ferramenta vai passar a escrever apenas o mínimo do serviço, sem criar revisão, o que vale para a frota inteira.
+
+**Duas coisas que eu não sabia que estavam lá.** Primeiro, 29% das requests da API eram `OPTIONS`: o navegador refazia o preflight do CORS antes de cada chamada do painel porque a resposta não dizia por quanto tempo valia. Um `Access-Control-Max-Age` de duas horas cortou 35% desses preflights — não todos, porque o cache é por navegador e por URL. Segundo, as consultas de matriz de cohort que um dashboard interno puxa de madrugada seguravam as dez conexões do pool da instância por 20 a 45 segundos cada; o resto da instância esperava conexão, o autoscaler via "no available instance" e subia instâncias frias. Elas foram para um serviço próprio, com pool próprio.
+
+**O que sobrou.** A tabela abaixo é o serviço inteiro, dia a dia, medido no Cloud Run. Requests acima de 10 s são as que ficaram presas atrás de um cold start.
+
+| dia | requests | acima de 10 s | cold starts | p99 | revisões novas |
+|---|---|---|---|---|---|
+| seg 28/09 | 702 mil | 4.753 | 195 | 3,8 s | 18 |
+| ter 29/09 | 712 mil | 2.661 | 142 | 1,5 s | 13 |
+| qua 30/09 | 721 mil | 1.874 | 82 | 1,2 s | 8 |
+| qui 01/10 | 766 mil | 2.269 | 170 | 1,4 s | 15 |
+| sex 02/10 | 723 mil | 2.146 | 152 | 1,2 s | 12 |
+| sáb 03/10 | 706 mil | 583 | 44 | 0,8 s | 5 |
+| dom 04/10 | 607 mil | 119 | 2 | 0,6 s | 0 |
+
+O domingo é o piso: sem nenhuma revisão nova, 119 requests lentas em 607 mil e dois cold starts. Nos dias úteis, 92% das requests lentas caem na hora de um deploy. Cada merge na codebase reimplanta as 79 functions dela, a API inclusa — um commit num agente de IA que mora na mesma pasta cria uma revisão nova da API e um cold start no meio do pico. Esse é o próximo corte: separar a API numa codebase própria. Mas isso é outro post.
 
 ## O que eu levo disso
 

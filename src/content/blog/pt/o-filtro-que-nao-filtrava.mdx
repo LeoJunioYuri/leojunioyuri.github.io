@@ -1,0 +1,217 @@
+---
+title: "41 pedidos, 18 mil entradas: o filtro que não filtrava nada"
+description: "Um recálculo de estatísticas por cliente pesava no banco. Juntar duas queries numa ajudou; o que fez diferença foi um || '' que um colega achou no EXPLAIN. E, já que eu estava lá, como uma árvore B funciona por baixo."
+date: 2026-10-06
+lang: "pt"
+category: "engenharia"
+draft: true
+tags: ["Engenharia", "Postgres", "Performance", "Banco de dados", "Lições"]
+translationOf: "en/the-filter-that-filtered-nothing"
+---
+
+{/* TODO(Leo): confirmar com o José se ele topa ser citado pelo nome no post. */}
+
+Toda vez que um pedido é entregue na Brendi, um serviço recalcula as
+estatísticas daquele cliente naquela loja: quantos pedidos ele já fez, quanto
+gastou, com que frequência volta, ticket médio, produtos favoritos.
+
+É uma conta pequena, feita muitas vezes por dia. Somadas, essas execuções eram
+uma fatia relevante do tempo do banco. Fui atrás.
+
+## Primeiro corte: ler os pedidos uma vez só
+
+O recálculo fazia duas queries pesadas, e as duas buscavam o mesmo conjunto de
+pedidos do cliente. Juntei numa só, com uma CTE:
+
+```sql
+WITH eligible_orders AS (
+  SELECT ...
+  FROM orders o
+  WHERE o.store_consumer_id = $1
+    AND o.store_id = $2
+    -- + as regras de quais pedidos contam
+)
+SELECT ...   -- contagem, total, frequência, ticket médio
+     , ...   -- favoritos
+FROM eligible_orders ...
+```
+
+Pedidos lidos uma vez, agregados a partir dali. Era o fix que eu tinha
+planejado, e eu achava que a história acabava aqui.
+
+## A virada: um BitmapAnd
+
+Antes do merge, o José rodou a query nova com `EXPLAIN (ANALYZE, BUFFERS)` na
+réplica de leitura. `ANALYZE` executa de verdade e mostra o tempo de cada
+passo; `BUFFERS` mostra quantas páginas foram tocadas. O plano tinha isto:
+
+```
+Bitmap Heap Scan on orders
+  -> BitmapAnd
+       -> Bitmap Index Scan (índice de store_consumer_id)   ~41 entradas
+       -> Bitmap Index Scan (índice de store_id)            ~18 mil entradas
+```
+
+O Postgres tinha um índice para cada coluna do filtro e resolveu usar os dois:
+varre um, varre o outro, monta um mapa das linhas candidatas de cada e cruza os
+mapas. É isso que `BitmapAnd` quer dizer.
+
+O problema é que o segundo filtro não elimina nada. Na Brendi, um
+`store_consumer` é o cliente **dentro de uma loja**: a tabela é única por
+(loja, telefone), a mesma pessoa em outra loja é outra linha, e a pessoa
+"global" mora em outra tabela, `consumers`. Se eu sei o `store_consumer_id`, eu
+já sei a loja. Todo pedido daquele cliente é daquela loja.
+
+O Postgres não sabe disso. Por padrão, o planner assume que as colunas são
+independentes: estima quanto cada filtro corta e multiplica. Pela conta dele,
+cruzar com o índice da loja ia descartar um monte de linhas. Na prática, ele
+lia **~18 mil entradas** do índice da loja para achar os **41 pedidos** que o
+índice do cliente, sozinho, já tinha achado.
+
+## O fix: `|| ''`
+
+A sugestão do José foi uma linha:
+
+```sql
+WHERE o.store_consumer_id = $1
+  AND (o.store_id || '') = $2
+```
+
+Concatenar string vazia não muda o valor. Mas transforma a coluna numa
+**expressão**, e o índice de `store_id` é sobre a coluna, não sobre a
+expressão. O planner perde a opção de usá-lo. Sobra só o índice do cliente, e a
+loja é conferida linha a linha nas 41 linhas que ele já ia ler de qualquer
+jeito.
+
+Por que não tirar o filtro de loja de vez? Porque ele ainda serve como trava
+barata: se algum dia um pedido apontar para o cliente de outra loja (dado
+inconsistente), ele não entra na conta errada. Conferir 41 linhas não custa
+nada. Varrer 18 mil entradas custava.
+
+## Os números
+
+Medidos pelo José com `EXPLAIN ANALYZE`, cache quente, só tempo de execução,
+arredondados:
+
+| cliente | antes | depois | ganho |
+|---|---|---|---|
+| típico (poucos pedidos) | ~2,8 ms | ~0,3 ms | ~10× |
+| p99 (~40 pedidos) | ~5,2 ms | ~0,6 ms | ~8× |
+| o mais pesado (dezenas de milhares de pedidos) | ~420 ms | ~240 ms | ~1,7× |
+
+No p99, as páginas tocadas caíram de **~380 para ~160**.
+
+O cliente mais pesado ganha menos porque ali o custo não é *achar* os pedidos,
+é *agregar* dezenas de milhares deles. O plano certo resolve o achar; o somar
+continua lá.
+
+Milissegundos parecem pouco, mas essa query roda em todo pedido entregue. O
+que importa é a soma, e a medição de produção (antes e depois no Query
+Insights) entra como atualização no fim do post.
+
+## O que não fizemos
+
+- **Índice composto `(store_consumer_id, store_id)`.** Corrige a causa: o
+  planner teria um índice que responde os dois filtros de uma vez. Mas
+  `orders` é a tabela mais movimentada do banco, e todo índice novo é mais uma
+  árvore para atualizar em toda escrita de pedido. Pagar isso para servir um
+  filtro que não filtra não fecha a conta.
+- **Tirar o filtro de loja.** Fica tão rápido quanto, mas perde a trava contra
+  dado inconsistente.
+- **"Backfill do cliente na order".** Apareceu como ideia; não precisa. A coluna
+  `store_consumer_id` já existe e já tem índice.
+
+## Os tropeços
+
+O maior foi meu, com ajuda de IA. Pedi ao assistente (Claude) para resumir o
+comentário do José, e o resumo virou "ele sugeriu um índice". A partir dali, um
+agente fez o que fazia sentido com aquela frase: abriu uma PR na biblioteca
+compartilhada com um `CREATE INDEX CONCURRENTLY` na tabela mais quente do
+banco.
+
+Só quando voltei e reli o comentário original ficou claro: o José não tinha
+sugerido índice nenhum. Tinha sugerido o contrário: **impedir** o uso de um
+índice, com `|| ''`. A PR foi fechada sem merge.
+
+O resumo pegou a palavra mais forte do comentário, "índice", e perdeu o verbo.
+E o verbo era o que importava. Lição: leia as palavras de quem revisou, não o
+resumo delas.
+
+## O que eu levo disso
+
+- **Filtro redundante não é de graça.** Para mim era óbvio que `store_id` não
+  mudava nada. Para o planner, era um índice a mais para usar.
+- **EXPLAIN antes de índice.** O instinto diante de query lenta é criar
+  índice. Aqui o problema era um índice sendo usado demais.
+- **Todo índice é um imposto sobre escrita.** Leitura mais rápida num lugar,
+  toda escrita um pouco mais lenta, para sempre.
+- **Leia a review na fonte.** Resumo de IA serve para triagem, não para
+  decidir.
+
+## Por baixo do capô
+
+Para quem quer entender por que 18 mil entradas pesam e 41 não.
+
+**A tabela não tem ordem.** No Postgres, as linhas de uma tabela (o *heap*)
+ficam em páginas de 8 KB, onde houver espaço. O pedido de hoje pode estar do
+lado de um de dois anos atrás. Achar algo sem ajuda é ler tudo: o *Seq Scan*.
+
+**O índice é uma cópia ordenada, à parte.** Ele guarda só a coluna indexada,
+em ordem, e para cada valor um ponteiro para a linha no heap. É outra
+estrutura, que precisa ser atualizada a cada escrita na tabela.
+
+**Árvore B não é árvore binária.** A árvore binária da faculdade tem uma chave
+e dois filhos por nó. Com 1 milhão de chaves são ~20 níveis, e, se você inserir
+em ordem, ela degenera numa lista. A árvore B (B-tree, o índice padrão do
+Postgres) guarda **centenas de chaves por página** de 8 KB e está sempre
+balanceada, com todas as folhas na mesma profundidade. Com centenas de filhos
+por nó, ~3 níveis já cobrem milhões de linhas. Ela cresce pela raiz: quando uma
+página enche, se divide em duas e sobe uma chave para o pai; quando a raiz
+enche, nasce uma raiz nova acima dela.
+
+**Um exemplo pequeno.** Tabela com ids de 1 a 100, páginas onde cabem 10
+chaves:
+
+```
+raiz:    [11 | 21 | 31 | 41 | 51 | 61 | 71 | 81 | 91]
+            ↓
+folhas:  [1..10] [11..20] [21..30] ... [81..90] [91..100]   (10 folhas)
+                             ↓
+heap:                   página onde está a linha do id 30
+```
+
+Achar o 30: lê a raiz (30 fica entre 21 e 31, então terceira folha), lê a
+folha `[21..30]`, segue o ponteiro até a página do heap. **Três páginas
+lidas.**
+
+**Por que larga.** O que custa no banco é ler página, do disco ou mesmo da
+memória. Comparar chaves dentro de uma página que já está na mão é quase
+grátis. Por isso a B-tree é larga e baixa: troca comparações (baratas) por
+menos páginas (caras).
+
+**A conta, em complexidade** (n = linhas, k = entradas lidas no intervalo):
+
+| operação | custo |
+|---|---|
+| Seq Scan | O(n) |
+| achar um valor pelo índice | O(log n) |
+| achar um intervalo | O(log n + k) |
+| inserir numa tabela com i índices | O(i · log n) |
+| BitmapAnd de dois índices | O(log n + k₁ + k₂) |
+
+No plano antigo, k₂ eram os pedidos da **loja inteira**, e isso cresce todo
+mês, conforme a loja vende. No novo, o custo depende só dos pedidos do
+cliente. O plano velho ficava mais lento a cada mês sem ninguém mexer em nada;
+o novo não. E a linha do insert é o argumento contra o índice composto: cada
+índice a mais é mais um `log n` em toda escrita de pedido.
+
+**Um aparte.** B-tree é o padrão, não a única opção: o Postgres também tem GIN,
+GiST, BRIN, hash e, via extensão, índices vetoriais, cada um para um formato de
+pergunta. E no Firestore a regra é mais dura: toda query precisa de um índice.
+Os de campo único são automáticos; os compostos você declara.
+
+## Atualização: produção
+
+> **TODO (Leo):** antes/depois do tempo total dessa query no Query Insights,
+> numa janela comparável antes e depois do deploy de 06/10. Preencher quando
+> houver dados suficientes; remover este bloco antes de publicar.

@@ -1,0 +1,157 @@
+---
+title: "From 342 thousand to ~12 thousand calls a day: putting a version in the cache key"
+description: "The menu asked the Ads API for the store's pixel every 10 minutes, 342 thousand times a day. The fix wasn't a longer cache; it was changing the cache key whenever the data changes. With a simulator to play with."
+date: 2026-10-06
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "Caching", "Memcache", "Performance", "Lessons"]
+translationOf: "pt/cache-com-versao-na-chave"
+---
+
+import PixelConfigChamadasDia from "@/components/charts/PixelConfigChamadasDia.astro";
+import CacheVersaoSimulador from "@/components/diagrams/CacheVersaoSimulador.astro";
+
+Every time someone opens a store's menu at Brendi, the menu needs to know
+**which Meta pixel to fire**: the code that reports visits, carts and
+purchases for that store's ads. The one who knows is the Ads API.
+
+So the menu asks. And keeps the answer in a cache for 10 minutes.
+
+Sounds reasonable until you do the math. A day has 1,440 minutes. With a
+10-minute cache, each store asks again **144 times a day**. Across all stores
+that was **~342 thousand calls a day**, about **42% of all traffic** to the Ads
+API, for data that changes, with luck, once a month.
+
+## Every cache's dilemma
+
+A cache has one knob: **how long to keep things**.
+
+- **Short** (10 minutes): the data is always nearly right, but you keep asking.
+- **Long** (24 hours): you barely ask, but when the merchant changes the pixel,
+  the menu spends **up to a whole day** firing the old one. For someone paying
+  for ads, that's sales vanishing from the report.
+
+That's why we had 10 minutes. "Cheap" was costing us in a different currency.
+
+## The idea: change the key instead of deleting the cache
+
+The classic way to get a long-lived, correct cache is to **delete it when the
+data changes**. It works, but whoever writes has to know the exact name of
+every stored copy, and a forgotten copy becomes a bug.
+
+We did something else. Each store got a **version number**, kept in memcache:
+
+```
+pixel-ver:store-123  =  7
+```
+
+And the pixel config is now stored **with the version in the key's name**:
+
+```
+config:store-123:v7  =  { pixel: "A" }     ← kept for 24h
+```
+
+Two rules:
+
+1. **Readers** first ask "what's the version?" (one quick memcache read) and
+   only then look up `config:store-123:v7`.
+2. **Writers**, whenever they change anything that affects the pixel, do one
+   extra thing: **version + 1**.
+
+When the version becomes 8, nobody deletes anything. The menu starts looking
+for `config:store-123:v8`, which doesn't exist, so it fetches the new config
+from the Ads API and stores it. The `v7` key is still there, but **nobody asks
+for it anymore**, and it disappears on its own when it expires.
+
+In practice you get both sides of the knob: **keep it for 24 hours** and still
+have **a pixel change take effect on the very next menu open**.
+
+Play with the three strategies below. Move the clock forward, change the pixel,
+and compare how many times each one went to the API and how long it served the
+wrong pixel:
+
+<CacheVersaoSimulador lang="en" />
+
+## Two halves, and the order matters
+
+The change shipped in two parts, and deploy order wasn't a detail.
+
+- **First, the writer.** Every place that changes a store's effective pixel
+  started bumping the version, always **after** saving the change to the
+  database. That part went to production on its own and changed nothing for
+  anyone, because nobody read the version yet.
+- **Then, the reader.** The menu started building the key with the version and
+  caching for 24 hours.
+
+The other way around, the menu would start caching for 24 hours under a
+version that **nobody would ever bump**, and any pixel change would be
+invisible for a day. The rule I'm keeping applies to plenty of things: **writer
+first, reader second**.
+
+## The details that keep the idea standing
+
+The idea fits in one sentence. The care is in everything that can go wrong
+around it.
+
+**The config dies an hour before the version.** The version key lives 24
+hours. When it expires, the store goes back to "version 0". If an old config
+were still stored as `v0`, it would **come back to life**, even if someone had
+changed the pixel in between. So the config lives at most 23 hours: when the
+version resets, the old copy is already gone.
+
+**If the version can't be read, fall back to the old way.** Memcache slow or
+down? Without the version there's no way to know if the stored config is still
+valid. So the menu uses the old 10-minute cache. Why not go straight to the
+API? Because if memcache hiccups, **all** the traffic would land on it at once,
+exactly the traffic this change exists to remove.
+
+**Serving stale data for one more hour, on purpose.** After 22 hours the config
+counts as "expiring". If the Ads API is down at that moment, the menu keeps
+serving the same config for up to an hour while it retries in the background.
+Nobody changed the pixel (same version), so the data is still right. Better
+than the pixel disappearing because of a blip.
+
+**A 5-second notice.** If the Ads API goes down, the menu writes an "origin is
+down" marker that lasts 5 seconds. While it exists, nobody insists: it serves
+whatever is cached. That way an outage doesn't turn into a flood of retries.
+
+## The stumbles
+
+**"Doesn't exist" is not the same as "couldn't read".** The first version of
+the version lookup treated both the same. A memcache error could look like
+"this store has no version yet", and the code carried on as if all was well.
+The fix separated the two cases and, while at it, stopped counting "memcache
+deliberately off" (local development) as an error.
+
+**The false alarm after the deploy.** Minutes after the new menu went live, the
+logs filled up with pixel warnings: "no destination accepted the batch". Before
+reverting anything, I compared with the same 18 minutes yesterday and today
+before the deploy: **~80 to 100 warnings in all three windows**. Stores with an
+invalid pixel credential, an old problem unrelated to the change. Deploy panic
+is cured with a baseline.
+
+## The expected result
+
+The expectation is to go from 144 questions per store per day to **about
+one**, plus one each time the merchant touches the pixel:
+
+<PixelConfigChamadasDia lang="en" />
+
+That removes almost half of the traffic the Ads API receives, without changing
+anything the menu delivers.
+
+## What I'm taking from this
+
+- **Before raising the TTL, ask what invalidates the data.** If you know when
+  the data changes, you don't need to guess how long it's valid.
+- **Changing the key is simpler than deleting the copy.** You don't need to
+  know where the old copies are; they just stop being read.
+- **Writer first, reader second.** For caches, schemas, events.
+- **Every plan B needs a plan B.** The versioned cache depends on memcache; the
+  path for when it fails is what separates an optimization from an incident.
+
+## Update: production
+
+_The production number, before and after the October 6 deploy, goes here as
+soon as there's a full day of data to compare._

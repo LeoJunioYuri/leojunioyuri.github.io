@@ -1,0 +1,68 @@
+---
+/** Chamadas cardápio → ads-apiv2 (pixel-config) por dia: antes vs esperado vs medido. */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+// Medido em 27/09/2026. `measured` fica null até a medição de produção entrar no post.
+const before = 342000;
+const expected = 12000;
+const measured: number | null = null;
+
+const t =
+  lang === "en"
+    ? {
+        title: "Menu → ads-apiv2 pixel-config calls per day",
+        before: "Before (10-min cache)",
+        expected: "Expected (24h + version)",
+        measured: "Measured in production",
+        cap: "Before: measured on Sep 27. Expected: about one fetch per store per day, plus one extra after each pixel change. The production number replaces the estimate in the update at the end of the post.",
+      }
+    : {
+        title: "Chamadas cardápio → ads-apiv2 (pixel-config) por dia",
+        before: "Antes (cache de 10 min)",
+        expected: "Esperado (24h + versão)",
+        measured: "Medido em produção",
+        cap: "Antes: medido em 27/09. Esperado: cerca de uma busca por loja por dia, mais uma a cada troca de pixel. O número de produção substitui a estimativa na atualização no fim do post.",
+      };
+const fmt = (n: number) => n.toLocaleString(lang === "en" ? "en-US" : "pt-BR");
+const rows = [
+  { label: t.before, pct: 100, value: fmt(before), kind: "muted" },
+  { label: t.expected, pct: Math.max((expected / before) * 100, 0.8), value: `~${fmt(expected)}`, kind: "dashed" },
+  ...(measured === null
+    ? []
+    : [{ label: t.measured, pct: Math.max((measured / before) * 100, 0.8), value: fmt(measured), kind: "accent" }]),
+];
+---
+
+<figure class="pc">
+  <p class="pc-title">{t.title}</p>
+  {
+    rows.map((r) => (
+      <div class="pc-row">
+        <span class="pc-label">{r.label}</span>
+        <div class="pc-track">
+          <div class:list={["pc-fill", r.kind]} style={`width:${r.pct}%`} />
+        </div>
+        <span class="pc-val">{r.value}</span>
+      </div>
+    ))
+  }
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .pc{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .pc-title{font-size:13px;font-weight:600;margin:0 0 14px}
+  .pc-row{display:grid;grid-template-columns:200px 1fr 80px;gap:12px;align-items:center;margin-bottom:10px}
+  .pc-label{font-size:12px;color:var(--muted)}
+  .pc-track{height:22px;background:var(--border);border-radius:2px}
+  .pc-fill{height:100%;border-radius:2px}
+  .pc-fill.muted{background:var(--muted)}
+  .pc-fill.accent{background:var(--accent)}
+  .pc-fill.dashed{background:transparent;border:2px dashed var(--accent);box-sizing:border-box;min-width:6px}
+  .pc-val{font-family:var(--font-mono);font-size:12px;text-align:right}
+  figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+  @media (max-width:560px){.pc-row{grid-template-columns:1fr 72px}.pc-label{grid-column:1/-1}}
+</style>

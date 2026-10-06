@@ -1,0 +1,205 @@
+---
+/**
+ * Simulador: uma loja, alguém abre o cardápio a cada minuto. Compara três estratégias de cache
+ * para a config do pixel: 10 min, 24h sem versão e 24h com versão na chave.
+ */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t =
+  lang === "en"
+    ? {
+        title: "Simulator: one store, someone opens the menu every minute",
+        plus10: "+10 min",
+        plusHour: "+1 hour",
+        plusDay: "+1 day",
+        change: "Merchant changes the pixel",
+        reset: "Reset",
+        clock: "Day {d}, {hh}:{mm}",
+        realPixel: "Pixel configured right now:",
+        s10: "10-min cache",
+        s24: "24h cache, no version",
+        sv: "24h cache + version",
+        s10note: "What we had: correct, but asks all the time.",
+        s24note: "The tempting shortcut: cheap, but serves the old pixel for hours.",
+        svnote: "What we built: cheap and correct.",
+        fetches: "trips to ads-apiv2",
+        wrong: "minutes serving the wrong pixel",
+        serving: "serving",
+        keys: "In memcache",
+        nobody: "nobody reads it anymore",
+        ago: "{h}h{m} ago",
+        hint: "Try: +1 day, then change the pixel and press +10 min. Watch the right column switch on the very next open, without deleting anything.",
+      }
+    : {
+        title: "Simulador: uma loja, alguém abre o cardápio a cada minuto",
+        plus10: "+10 min",
+        plusHour: "+1 hora",
+        plusDay: "+1 dia",
+        change: "Lojista troca o pixel",
+        reset: "Recomeçar",
+        clock: "Dia {d}, {hh}:{mm}",
+        realPixel: "Pixel configurado agora:",
+        s10: "Cache de 10 min",
+        s24: "Cache de 24h, sem versão",
+        sv: "Cache de 24h + versão",
+        s10note: "O que tínhamos: correto, mas pergunta toda hora.",
+        s24note: "O atalho tentador: barato, mas serve o pixel velho por horas.",
+        svnote: "O que fizemos: barato e correto.",
+        fetches: "idas à ads-apiv2",
+        wrong: "minutos servindo o pixel errado",
+        serving: "servindo",
+        keys: "No memcache",
+        nobody: "ninguém lê mais",
+        ago: "há {h}h{m}",
+        hint: "Experimente: +1 dia, depois troque o pixel e aperte +10 min. Veja a coluna da direita trocar já na próxima abertura, sem apagar nada.",
+      };
+---
+
+<figure class="cvs" data-cvs>
+  <p class="cvs-title">{t.title}</p>
+  <div class="cvs-bar">
+    <span class="cvs-clock" data-clock></span>
+    <span class="cvs-real">{t.realPixel} <b data-real></b></span>
+  </div>
+  <div class="cvs-controls">
+    <button type="button" data-step="10">{t.plus10}</button>
+    <button type="button" data-step="60">{t.plusHour}</button>
+    <button type="button" data-step="1440">{t.plusDay}</button>
+    <button type="button" class="cvs-change" data-change>{t.change}</button>
+    <button type="button" data-reset>{t.reset}</button>
+  </div>
+  <div class="cvs-cols">
+    <div class="cvs-col" data-col="s10">
+      <p class="cvs-name">{t.s10}</p>
+      <p class="cvs-note">{t.s10note}</p>
+      <p class="cvs-serving"></p>
+      <p class="cvs-num"><b data-fetches>0</b> {t.fetches}</p>
+      <p class="cvs-num"><b data-wrong>0</b> {t.wrong}</p>
+    </div>
+    <div class="cvs-col" data-col="s24">
+      <p class="cvs-name">{t.s24}</p>
+      <p class="cvs-note">{t.s24note}</p>
+      <p class="cvs-serving"></p>
+      <p class="cvs-num"><b data-fetches>0</b> {t.fetches}</p>
+      <p class="cvs-num"><b data-wrong>0</b> {t.wrong}</p>
+    </div>
+    <div class="cvs-col best" data-col="sv">
+      <p class="cvs-name">{t.sv}</p>
+      <p class="cvs-note">{t.svnote}</p>
+      <p class="cvs-serving"></p>
+      <p class="cvs-num"><b data-fetches>0</b> {t.fetches}</p>
+      <p class="cvs-num"><b data-wrong>0</b> {t.wrong}</p>
+      <p class="cvs-keys-title">{t.keys}</p>
+      <ul class="cvs-keys" data-keys></ul>
+    </div>
+  </div>
+  <figcaption>{t.hint}</figcaption>
+</figure>
+
+<script is:inline define:vars={{ t }}>
+  (() => {
+    const root = document.querySelector("[data-cvs]:not([data-ready])");
+    if (!root) return;
+    root.setAttribute("data-ready", "");
+    const PIXELS = ["A", "B", "C", "D", "E", "F", "G", "H"];
+    const TTL = { s10: 10, s24: 1440, sv: 22 * 60 };
+    let now, pixelIdx, version, st, oldKeys;
+
+    const reset = () => {
+      now = 0; pixelIdx = 0; version = 1; oldKeys = [];
+      st = {
+        s10: { value: null, at: -Infinity, fetches: 0, wrong: 0 },
+        s24: { value: null, at: -Infinity, fetches: 0, wrong: 0 },
+        sv: { value: null, at: -Infinity, ver: 0, fetches: 0, wrong: 0 },
+      };
+      open();
+      render();
+    };
+
+    // Uma abertura de cardápio: cada estratégia decide se usa o cache ou vai à origem.
+    const open = () => {
+      const real = PIXELS[pixelIdx];
+      for (const k of ["s10", "s24", "sv"]) {
+        const s = st[k];
+        const expired = now - s.at >= TTL[k];
+        const otherVersion = k === "sv" && s.ver !== version;
+        if (s.value === null || expired || otherVersion) {
+          if (k === "sv" && s.value !== null && s.ver !== version) oldKeys.push(`v${s.ver}`);
+          s.value = real; s.at = now; s.fetches++;
+          if (k === "sv") s.ver = version;
+        }
+        if (s.value !== real) s.wrong++;
+      }
+    };
+
+    const advance = (minutes) => { for (let i = 0; i < minutes; i++) { now++; open(); } render(); };
+
+    const pad = (n) => String(n).padStart(2, "0");
+    const fmtAgo = (mins) => t.ago.replace("{h}", Math.floor(mins / 60)).replace("{m}", pad(mins % 60));
+
+    const render = () => {
+      const day = Math.floor(now / 1440) + 1, mod = now % 1440;
+      root.querySelector("[data-clock]").textContent =
+        t.clock.replace("{d}", day).replace("{hh}", pad(Math.floor(mod / 60))).replace("{mm}", pad(mod % 60));
+      const real = PIXELS[pixelIdx];
+      root.querySelector("[data-real]").textContent = `pixel ${real}`;
+      for (const k of ["s10", "s24", "sv"]) {
+        const col = root.querySelector(`[data-col="${k}"]`), s = st[k];
+        const ok = s.value === real;
+        const serving = col.querySelector(".cvs-serving");
+        serving.textContent = `${t.serving}: pixel ${s.value} ${ok ? "✓" : "✗"}`;
+        serving.className = "cvs-serving " + (ok ? "ok" : "bad");
+        col.querySelector("[data-fetches]").textContent = s.fetches.toLocaleString();
+        col.querySelector("[data-wrong]").textContent = s.wrong.toLocaleString();
+      }
+      const sv = st.sv;
+      const keys = [`<li><code>pixel-ver</code> = <b>v${version}</b></li>`,
+        `<li><code>config:v${sv.ver}</code> = pixel ${sv.value} <span>(${fmtAgo(now - sv.at)})</span></li>`,
+        ...oldKeys.slice(-3).reverse().map((v) => `<li class="old"><code>config:${v}</code> <span>${t.nobody}</span></li>`)];
+      root.querySelector("[data-keys]").innerHTML = keys.join("");
+    };
+
+    root.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => advance(Number(b.dataset.step))));
+    root.querySelector("[data-change]").addEventListener("click", () => {
+      pixelIdx = (pixelIdx + 1) % PIXELS.length; version++; render();
+    });
+    root.querySelector("[data-reset]").addEventListener("click", reset);
+    reset();
+  })();
+</script>
+
+<style>
+  .cvs{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .cvs-title{font-size:13px;font-weight:600;margin:0 0 12px}
+  .cvs-bar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;font-size:13px}
+  .cvs-clock{font-family:var(--font-mono);font-weight:600}
+  .cvs-real{color:var(--muted)}
+  .cvs-real b{color:var(--fg)}
+  .cvs-controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+  .cvs-controls button{font:600 12px var(--font-sans);padding:7px 12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);border-radius:4px;cursor:pointer}
+  .cvs-controls button.cvs-change{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+  .cvs-controls button:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+  .cvs-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .cvs-col{padding:12px 14px;border:1px solid var(--border);background:var(--surface);border-radius:4px;min-width:0}
+  .cvs-col.best{border-color:var(--accent)}
+  .cvs-col p{margin:0}
+  .cvs-name{font-size:13px;font-weight:700}
+  .cvs-note{font-size:12px;color:var(--muted);margin-top:4px!important;min-height:3em}
+  .cvs-serving{font-family:var(--font-mono);font-size:12px;margin:10px 0 8px!important}
+  .cvs-serving.ok{color:var(--fg)}
+  .cvs-serving.bad{color:var(--accent);font-weight:700}
+  .cvs-num{font-size:12px;color:var(--muted);margin-top:4px!important}
+  .cvs-num b{font-family:var(--font-mono);font-size:16px;color:var(--fg);margin-right:4px}
+  .cvs-keys-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:12px!important}
+  .cvs-keys{list-style:none;padding:0;margin:6px 0 0;font-size:12px}
+  .cvs-keys li{margin-top:3px;word-break:break-word}
+  .cvs-keys li span{color:var(--muted)}
+  .cvs-keys li.old{opacity:.6}
+  .cvs-keys li.old code{text-decoration:line-through}
+  .cvs-keys code{font-family:var(--font-mono);font-size:11px}
+  figcaption{font-size:12px;color:var(--muted);margin-top:12px}
+  @media (max-width:640px){.cvs-cols{grid-template-columns:1fr}.cvs-note{min-height:0}}
+</style>

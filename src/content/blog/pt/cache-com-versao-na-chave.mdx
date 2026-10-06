@@ -1,0 +1,164 @@
+---
+title: "42% do tráfego para um dado que quase nunca muda: cache com versão na chave"
+description: "O cardápio perguntava o pixel da loja à API de Ads a cada 10 minutos, 342 mil vezes por dia. A saída não foi um cache mais longo, foi mudar a chave do cache quando o dado muda. Com um simulador para brincar."
+date: 2026-10-06
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Engenharia", "Cache", "Memcache", "Performance", "Lições"]
+translationOf: "en/versioned-cache-key"
+---
+
+import PixelConfigChamadasDia from "@/components/charts/PixelConfigChamadasDia.astro";
+import CacheVersaoSimulador from "@/components/diagrams/CacheVersaoSimulador.astro";
+
+Toda vez que alguém abre o cardápio de uma loja na Brendi, o cardápio precisa
+saber **qual pixel da Meta disparar**: o código que conta visita, carrinho e
+compra para os anúncios daquela loja. Quem sabe isso é a API de Ads.
+
+Então o cardápio pergunta. E guarda a resposta num cache por 10 minutos.
+
+Parece razoável, até você fazer a conta. Um dia tem 1.440 minutos. Com cache de
+10 minutos, cada loja volta a perguntar **144 vezes por dia**. Somando as
+lojas, eram **~342 mil chamadas por dia**, cerca de **42% de todo o tráfego**
+da API de Ads, para um dado que muda, com sorte, uma vez por mês.
+
+## O dilema de todo cache
+
+Cache tem um botão só: **quanto tempo guardar**.
+
+- **Pouco tempo** (10 minutos): o dado está sempre quase certo, mas você vive
+  perguntando.
+- **Muito tempo** (24 horas): quase não pergunta, mas quando o lojista troca o
+  pixel, o cardápio passa **até um dia inteiro** disparando para o pixel
+  antigo. Para quem paga anúncio, isso é venda que some do relatório.
+
+Por isso a gente tinha 10 minutos. O "barato" estava cobrando caro de outro
+jeito.
+
+## A ideia: mudar a chave em vez de apagar o cache
+
+O jeito clássico de ter cache longo e correto é **apagar o cache quando o dado
+muda**. Funciona, mas pede que quem grava saiba exatamente o nome de cada
+cópia guardada, e cópia esquecida vira bug.
+
+O que fizemos foi outra coisa. Cada loja ganhou um **número de versão**,
+guardado no memcache:
+
+```
+pixel-ver:loja-123  =  7
+```
+
+E a config do pixel passou a ser guardada **com a versão no nome da chave**:
+
+```
+config:loja-123:v7  =  { pixel: "A" }     ← guardada por 24h
+```
+
+Agora, as duas regras:
+
+1. **Quem lê** primeiro pergunta "qual a versão?" (uma leitura rápida no
+   memcache) e só então procura `config:loja-123:v7`.
+2. **Quem grava**, sempre que muda algo que afeta o pixel, faz só uma coisa a
+   mais: **versão + 1**.
+
+Quando a versão vira 8, ninguém apaga nada. O cardápio passa a procurar
+`config:loja-123:v8`, que não existe, então busca a config nova na API de Ads
+e guarda. A chave `v7` continua lá, só que **ninguém mais pergunta por ela**,
+e ela some sozinha quando vence.
+
+Na prática, você ganha os dois lados do botão: **guarda por 24 horas** e, mesmo
+assim, **a troca de pixel vale na próxima abertura do cardápio**.
+
+Brinque com as três estratégias abaixo. Avance o relógio, troque o pixel e
+compare quantas vezes cada uma foi até a API e quanto tempo serviu o pixel
+errado:
+
+<CacheVersaoSimulador lang="pt" />
+
+## Duas metades, e a ordem importa
+
+A mudança foi em duas partes, e a ordem do deploy não era detalhe.
+
+- **Primeiro, quem grava.** Todo lugar que muda o pixel efetivo de uma loja
+  passou a incrementar a versão, sempre **depois** de salvar a mudança no
+  banco. Essa parte foi para produção sozinha e não mudou nada para ninguém,
+  porque ainda não havia quem lesse a versão.
+- **Depois, quem lê.** O cardápio passou a montar a chave com a versão e a
+  guardar por 24 horas.
+
+Se fosse ao contrário, o cardápio começaria a guardar por 24 horas numa versão
+que **ninguém nunca ia incrementar**, e qualquer troca de pixel ficaria
+invisível por um dia. A regra que levo daqui serve para muita coisa: **primeiro
+quem escreve, depois quem lê**.
+
+## Os detalhes que seguram a ideia de pé
+
+A ideia cabe numa frase. O cuidado está em tudo que pode dar errado em volta
+dela.
+
+**A config morre uma hora antes da versão.** A chave de versão dura 24 horas.
+Quando ela vence, a loja volta para a "versão 0". Se ainda existisse uma config
+antiga guardada como `v0`, ela **ressuscitaria**, mesmo que alguém tivesse
+trocado o pixel no meio do caminho. Por isso a config dura no máximo 23 horas:
+quando a versão volta ao zero, a cópia velha já morreu.
+
+**Se não dá para ler a versão, volta ao jeito antigo.** Memcache lento ou fora
+do ar? Sem versão não dá para saber se a config guardada ainda vale. Aí o
+cardápio usa o cache antigo de 10 minutos. Por que não ir direto à API? Porque,
+se o memcache engasgar, **todo** o tráfego cairia de uma vez sobre ela,
+exatamente o tráfego que essa mudança quer tirar de lá.
+
+**Servir o dado velho por mais uma hora, de propósito.** Depois de 22 horas, a
+config conta como "vencendo". Se a API de Ads estiver fora nesse momento, o
+cardápio continua servindo a mesma config por até mais uma hora, enquanto tenta
+de novo em segundo plano. Ninguém trocou o pixel (a versão é a mesma), então o
+dado ainda está certo. Melhor do que o pixel sumir por causa de uma
+instabilidade.
+
+**Um aviso de 5 segundos.** Se a API de Ads cair, o cardápio grava um marcador
+"a origem está fora" que dura 5 segundos. Enquanto ele existe, ninguém insiste:
+serve o que tiver em cache. Assim uma queda não vira uma enxurrada de
+tentativas.
+
+## Os tropeços
+
+**"Não existe" não é o mesmo que "não consegui ler".** A primeira versão da
+leitura da versão tratava as duas coisas igual. Um erro no memcache podia
+parecer "essa loja ainda não tem versão", e o código seguia como se estivesse
+tudo bem. A correção separou os dois casos e, de quebra, parou de contar
+"memcache desligado de propósito" (ambiente de desenvolvimento) como erro.
+
+**O alarme falso depois do deploy.** Minutos depois de o cardápio novo subir,
+os logs se encheram de avisos do pixel: "nenhum destino aceitou o lote". Antes
+de reverter qualquer coisa, comparei com os mesmos 18 minutos de ontem e de
+hoje antes do deploy: **eram ~80 a 100 avisos nos três casos**. Lojas com
+credencial de pixel inválida, problema antigo e sem relação com a mudança.
+Pânico de deploy se cura com uma linha de base.
+
+## O resultado esperado
+
+A expectativa é sair de 144 perguntas por loja por dia para **cerca de uma**,
+mais uma a cada vez que o lojista mexe no pixel:
+
+<PixelConfigChamadasDia lang="pt" />
+
+Isso tira da API de Ads quase metade do tráfego que ela recebe, sem mudar nada
+do que o cardápio entrega.
+
+## O que eu levo disso
+
+- **Antes de aumentar o TTL, pergunte o que invalida o dado.** Se você sabe
+  quando o dado muda, não precisa adivinhar por quanto tempo ele vale.
+- **Mudar a chave é mais simples do que apagar a cópia.** Você não precisa
+  saber onde estão as cópias antigas; elas só param de ser lidas.
+- **Primeiro quem escreve, depois quem lê.** Vale para cache, para schema, para
+  evento.
+- **Todo plano B precisa de um plano B.** O cache por versão depende do
+  memcache; o caminho de quando ele falha é o que separa uma otimização de um
+  incidente.
+
+## Atualização: produção
+
+_O número de produção, antes e depois do deploy de 06/10, entra aqui assim que
+houver um dia inteiro de dados para comparar._

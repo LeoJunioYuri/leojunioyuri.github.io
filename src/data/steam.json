@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T03:46:58.406Z",
+  "updatedAt": "2026-10-06T12:23:59.690Z",
   "games": [
     {
       "name": "Call of Duty®: Modern Warfare® II",
@@ -8,6 +8,14 @@
       "minutesTotal": 1164,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/3595230/4e557bc86b950518cf3d8bd8ebec5f91d867bb9b.jpg",
       "url": "https://store.steampowered.com/app/3595230"
+    },
+    {
+      "name": "The Witcher 3: Wild Hunt — Remastered",
+      "appid": 292030,
+      "minutes2weeks": 37,
+      "minutesTotal": 5175,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
+      "url": "https://store.steampowered.com/app/292030"
     }
   ],
   "topGames": [
@@ -38,8 +46,8 @@
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
       "appid": 292030,
-      "minutes2weeks": 0,
-      "minutesTotal": 5138,
+      "minutes2weeks": 37,
+      "minutesTotal": 5175,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
       "url": "https://store.steampowered.com/app/292030"
     },
@@ -111,13 +119,13 @@
       "name": "FINAL FANTASY VII REVELATION",
       "appid": 4354570,
       "url": "https://store.steampowered.com/app/4354570",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354570/c82a370d62d715234771be34c6ff3c928c7d78e2/header.jpg?t=1788444187"
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354570/e1750093047ef96e99879977810c9b4c774bab68/header.jpg?t=1791260852"
     },
     {
       "name": "007 First Light",
       "appid": 3768760,
       "url": "https://store.steampowered.com/app/3768760",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/c5b553fd05ba41aefa6daeddac95849a10c93022/header_alt_assets_4.jpg?t=1790955737"
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/c5b553fd05ba41aefa6daeddac95849a10c93022/header_alt_assets_4.jpg?t=1791285093"
     },
     {
       "name": "Assassin's Creed Black Flag Resynced",

@@ -4,12 +4,10 @@ description: "A per-customer stats recalculation was weighing on the database. M
 date: 2026-10-06
 lang: "en"
 category: "engenharia"
-draft: true
+draft: false
 tags: ["Engineering", "Postgres", "Performance", "Databases", "Lessons"]
 translationOf: "pt/o-where-redundante-18-mil-entradas"
 ---
-
-{/* TODO(Leo): confirm with José that he is OK being named in the post. */}
 
 Every time an order is delivered at Brendi, a service recalculates that
 customer's stats for that store: how many orders they've placed, how much
@@ -213,6 +211,4 @@ needs an index. Single-field ones are automatic; composite ones you declare.
 
 ## Update: production
 
-> **TODO (Leo):** before/after of this query's total time in Query Insights,
-> over comparable windows before and after the October 6 deploy. Fill in once
-> there's enough data; remove this block before publishing.
+_The numbers above come from `EXPLAIN` on the replica. The production before/after will be added here as an update once there's a comparable window of data._

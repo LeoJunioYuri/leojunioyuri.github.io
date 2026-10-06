@@ -4,12 +4,10 @@ description: "Um recálculo de estatísticas por cliente pesava no banco. Juntar
 date: 2026-10-06
 lang: "pt"
 category: "engenharia"
-draft: true
+draft: false
 tags: ["Engenharia", "Postgres", "Performance", "Banco de dados", "Lições"]
 translationOf: "en/the-redundant-where-18-thousand-entries"
 ---
-
-{/* TODO(Leo): confirmar com o José se ele topa ser citado pelo nome no post. */}
 
 Toda vez que um pedido é entregue na Brendi, um serviço recalcula as
 estatísticas daquele cliente naquela loja: quantos pedidos ele já fez, quanto
@@ -212,6 +210,4 @@ Os de campo único são automáticos; os compostos você declara.
 
 ## Atualização: produção
 
-> **TODO (Leo):** antes/depois do tempo total dessa query no Query Insights,
-> numa janela comparável antes e depois do deploy de 06/10. Preencher quando
-> houver dados suficientes; remover este bloco antes de publicar.
+_Os números acima são do `EXPLAIN` na réplica. A medição em produção, antes e depois do deploy, entra aqui como atualização assim que houver uma janela comparável de dados._

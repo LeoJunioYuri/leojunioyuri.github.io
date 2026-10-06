@@ -1,12 +1,12 @@
 ---
-title: "41 pedidos, 18 mil entradas: o filtro que não filtrava nada"
+title: "De 5,2 ms para 0,6 ms: o WHERE redundante que lia 18 mil entradas para achar 41 pedidos"
 description: "Um recálculo de estatísticas por cliente pesava no banco. Juntar duas queries numa ajudou; o que fez diferença foi um || '' que um colega achou no EXPLAIN. E, já que eu estava lá, como uma árvore B funciona por baixo."
 date: 2026-10-06
 lang: "pt"
 category: "engenharia"
 draft: true
 tags: ["Engenharia", "Postgres", "Performance", "Banco de dados", "Lições"]
-translationOf: "en/the-filter-that-filtered-nothing"
+translationOf: "en/the-redundant-where-18-thousand-entries"
 ---
 
 {/* TODO(Leo): confirmar com o José se ele topa ser citado pelo nome no post. */}
@@ -96,7 +96,7 @@ arredondados:
 | cliente | antes | depois | ganho |
 |---|---|---|---|
 | típico (poucos pedidos) | ~2,8 ms | ~0,3 ms | ~10× |
-| p99 (~40 pedidos) | ~5,2 ms | ~0,6 ms | ~8× |
+| p99 (41 pedidos) | ~5,2 ms | ~0,6 ms | ~8× |
 | o mais pesado (dezenas de milhares de pedidos) | ~420 ms | ~240 ms | ~1,7× |
 
 No p99, as páginas tocadas caíram de **~380 para ~160**.

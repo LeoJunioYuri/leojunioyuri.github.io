@@ -1,12 +1,12 @@
 ---
-title: "41 orders, 18 thousand entries: the filter that filtered nothing"
+title: "From 5.2 ms to 0.6 ms: the redundant WHERE that read 18 thousand entries to find 41 orders"
 description: "A per-customer stats recalculation was weighing on the database. Merging two queries into one helped; what made the difference was a || '' a teammate found in the EXPLAIN. And, while I was there, how a B-tree works underneath."
 date: 2026-10-06
 lang: "en"
 category: "engenharia"
 draft: true
 tags: ["Engineering", "Postgres", "Performance", "Databases", "Lessons"]
-translationOf: "pt/o-filtro-que-nao-filtrava"
+translationOf: "pt/o-where-redundante-18-mil-entradas"
 ---
 
 {/* TODO(Leo): confirm with José that he is OK being named in the post. */}
@@ -97,7 +97,7 @@ rounded:
 | customer | before | after | speedup |
 |---|---|---|---|
 | typical (few orders) | ~2.8 ms | ~0.3 ms | ~10× |
-| p99 (~40 orders) | ~5.2 ms | ~0.6 ms | ~8× |
+| p99 (41 orders) | ~5.2 ms | ~0.6 ms | ~8× |
 | the heaviest (tens of thousands of orders) | ~420 ms | ~240 ms | ~1.7× |
 
 At p99, pages touched went from **~380 to ~160**.

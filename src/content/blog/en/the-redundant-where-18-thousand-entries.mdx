@@ -1,0 +1,214 @@
+---
+title: "From 5.2 ms to 0.6 ms: the redundant WHERE that read 18 thousand entries to find 41 orders"
+description: "A per-customer stats recalculation was weighing on the database. Merging two queries into one helped; what made the difference was a || '' a teammate found in the EXPLAIN. And, while I was there, how a B-tree works underneath."
+date: 2026-10-06
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "Postgres", "Performance", "Databases", "Lessons"]
+translationOf: "pt/o-where-redundante-18-mil-entradas"
+---
+
+Every time an order is delivered at Brendi, a service recalculates that
+customer's stats for that store: how many orders they've placed, how much
+they've spent, how often they come back, average ticket, favorite products.
+
+It's a small computation, run many times a day. Added up, those runs were a
+noticeable slice of the database's time. So I went after it.
+
+## First cut: read the orders only once
+
+The recalculation ran two heavy queries, and both fetched the same set of the
+customer's orders. I merged them into one, with a CTE:
+
+```sql
+WITH eligible_orders AS (
+  SELECT ...
+  FROM orders o
+  WHERE o.store_consumer_id = $1
+    AND o.store_id = $2
+    -- + the rules for which orders count
+)
+SELECT ...   -- count, total, frequency, average ticket
+     , ...   -- favorites
+FROM eligible_orders ...
+```
+
+Orders read once, aggregated from there. That was the fix I had planned, and I
+thought that was the end of the story.
+
+## The twist: a BitmapAnd
+
+Before the merge, José ran the new query with `EXPLAIN (ANALYZE, BUFFERS)` on
+the read replica. `ANALYZE` actually executes it and shows the time of each
+step; `BUFFERS` shows how many pages were touched. The plan had this:
+
+```
+Bitmap Heap Scan on orders
+  -> BitmapAnd
+       -> Bitmap Index Scan (store_consumer_id index)   ~41 entries
+       -> Bitmap Index Scan (store_id index)            ~18 thousand entries
+```
+
+Postgres had an index on each column in the filter and decided to use both:
+scan one, scan the other, build a map of candidate rows from each, and
+intersect the maps. That's what `BitmapAnd` means.
+
+The problem is that the second filter eliminates nothing. At Brendi, a
+`store_consumer` is the customer **within a store**: the table is unique per
+(store, phone), the same person at another store is another row, and the
+"global" person lives in a different table, `consumers`. If I know the
+`store_consumer_id`, I already know the store. Every order from that customer
+belongs to that store.
+
+Postgres doesn't know that. By default, the planner assumes columns are
+independent: it estimates how much each filter cuts and multiplies. By its
+math, intersecting with the store index would discard a lot of rows. In
+practice, it read **~18 thousand entries** from the store index to find the
+**41 orders** the customer index alone had already found.
+
+## The fix: `|| ''`
+
+José's suggestion was one line:
+
+```sql
+WHERE o.store_consumer_id = $1
+  AND (o.store_id || '') = $2
+```
+
+Concatenating an empty string doesn't change the value. But it turns the
+column into an **expression**, and the `store_id` index is on the column, not
+on the expression. The planner loses the option of using it. Only the customer
+index is left, and the store is checked row by row on the 41 rows it was going
+to read anyway.
+
+Why not drop the store filter altogether? Because it still works as a cheap
+guard: if an order ever points to another store's customer (inconsistent
+data), it won't land in the wrong totals. Checking 41 rows costs nothing.
+Scanning 18 thousand entries did.
+
+## The numbers
+
+Measured by José with `EXPLAIN ANALYZE`, warm cache, execution time only,
+rounded:
+
+| customer | before | after | speedup |
+|---|---|---|---|
+| typical (few orders) | ~2.8 ms | ~0.3 ms | ~10× |
+| p99 (41 orders) | ~5.2 ms | ~0.6 ms | ~8× |
+| the heaviest (tens of thousands of orders) | ~420 ms | ~240 ms | ~1.7× |
+
+At p99, pages touched went from **~380 to ~160**.
+
+The heaviest customer gains less because there the cost isn't *finding* the
+orders, it's *aggregating* tens of thousands of them. The right plan fixes the
+finding; the summing is still there.
+
+Milliseconds sound like little, but this query runs on every delivered order.
+What matters is the sum, and the production measurement (before and after in
+Query Insights) will come as an update at the end of the post.
+
+## What we didn't do
+
+- **A composite index on `(store_consumer_id, store_id)`.** It fixes the root
+  cause: the planner would have one index that answers both filters at once.
+  But `orders` is the busiest table in the database, and every new index is
+  one more tree to update on every order write. Paying that to serve a filter
+  that doesn't filter doesn't add up.
+- **Dropping the store filter.** Just as fast, but it loses the guard against
+  inconsistent data.
+- **"Backfilling the customer onto the order."** It came up as an idea; not
+  needed. The `store_consumer_id` column already exists and is already indexed.
+
+## The stumbles
+
+The biggest one was mine, with help from AI. I asked the assistant (Claude) to
+summarize José's comment, and the summary became "he suggested an index." From
+there, an agent did what made sense given that sentence: it opened a PR on the
+shared library with a `CREATE INDEX CONCURRENTLY` on the hottest table in the
+database.
+
+Only when I went back and reread the original comment did it become clear:
+José hadn't suggested any index. He had suggested the opposite: **preventing**
+an index from being used, with `|| ''`. The PR was closed without merging.
+
+The summary caught the strongest word in the comment, "index," and lost the
+verb. And the verb was what mattered. Lesson: read the reviewer's own words,
+not the summary of them.
+
+## What I'm taking from this
+
+- **Redundant filters aren't free.** To me it was obvious that `store_id`
+  changed nothing. To the planner, it was one more index to use.
+- **EXPLAIN before indexes.** The instinct with a slow query is to add an
+  index. Here the problem was an index being used too much.
+- **Every index is a tax on writes.** Faster reads in one place, every write a
+  bit slower, forever.
+- **Read the review at the source.** An AI summary is for triage, not for
+  deciding.
+
+## Under the hood
+
+For anyone who wants to understand why 18 thousand entries are heavy and 41
+aren't.
+
+**The table has no order.** In Postgres, a table's rows (the *heap*) live in
+8 KB pages, wherever there's room. Today's order may sit right next to one
+from two years ago. Finding something without help means reading everything:
+the *Seq Scan*.
+
+**An index is a separate, sorted copy.** It stores only the indexed column, in
+order, and for each value a pointer to the row in the heap. It's another
+structure, and it has to be updated on every write to the table.
+
+**A B-tree is not a binary tree.** The binary tree from college has one key and
+two children per node. With 1 million keys that's ~20 levels, and if you insert
+in order it degenerates into a list. A B-tree (Postgres's default index) holds
+**hundreds of keys per 8 KB page** and is always balanced, with every leaf at
+the same depth. With hundreds of children per node, ~3 levels already cover
+millions of rows. It grows at the root: when a page fills up, it splits in two
+and pushes a key up to the parent; when the root fills up, a new root is born
+above it.
+
+**A small example.** A table with ids 1 to 100, pages that fit 10 keys:
+
+```
+root:    [11 | 21 | 31 | 41 | 51 | 61 | 71 | 81 | 91]
+            ↓
+leaves:  [1..10] [11..20] [21..30] ... [81..90] [91..100]   (10 leaves)
+                             ↓
+heap:                   page holding the row for id 30
+```
+
+Finding 30: read the root (30 is between 21 and 31, so the third leaf), read
+the leaf `[21..30]`, follow the pointer to the heap page. **Three pages read.**
+
+**Why wide.** What costs in a database is reading pages, from disk or even
+from memory. Comparing keys inside a page you already hold is nearly free.
+That's why a B-tree is wide and shallow: it trades comparisons (cheap) for
+fewer pages (expensive).
+
+**The math, in complexity** (n = rows, k = entries read in the range):
+
+| operation | cost |
+|---|---|
+| Seq Scan | O(n) |
+| find one value via the index | O(log n) |
+| find a range | O(log n + k) |
+| insert into a table with i indexes | O(i · log n) |
+| BitmapAnd of two indexes | O(log n + k₁ + k₂) |
+
+In the old plan, k₂ was the orders of the **entire store**, and that grows
+every month as the store sells. In the new one, the cost depends only on the
+customer's orders. The old plan got slower every month without anyone touching
+anything; the new one doesn't. And the insert row is the argument against the
+composite index: each extra index is one more `log n` on every order write.
+
+**An aside.** B-tree is the default, not the only option: Postgres also has
+GIN, GiST, BRIN, hash and, through extensions, vector indexes, each for a
+different shape of question. And in Firestore the rule is stricter: every query
+needs an index. Single-field ones are automatic; composite ones you declare.
+
+## Update: production
+
+_The numbers above come from `EXPLAIN` on the replica. The production before/after will be added here as an update once there's a comparable window of data._

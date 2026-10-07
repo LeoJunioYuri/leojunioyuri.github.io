@@ -25,7 +25,7 @@ No Cloud Run, um **serviço** é o que tem nome e URL. Uma **revisão** é uma f
 
 Revisão parada não roda, não escala, não é cobrada. A [documentação](https://docs.cloud.google.com/run/docs/managing/revisions) diz isso com todas as letras, e diz também que existe um máximo de mil revisões por serviço, com as mais antigas apagadas automaticamente acima disso.
 
-Isso cria um incentivo esquisito. Como revisão antiga não custa nada, ninguém tem motivo para apagar. E como o teto é alto, ninguém chega nele cedo. Quando chega, descobre que a coleta de lixo automática não é tão pontual quanto a frase sugere. Encontramos serviços com 1.100 revisões listáveis, e o `ads-apiv2` passou de mil sem que nada fosse apagado.
+Isso cria um incentivo esquisito. Como revisão antiga não custa nada, ninguém tem motivo para apagar. E como o teto é alto, ninguém chega nele cedo. Quando chega, descobre que a coleta de lixo automática não é tão pontual quanto a frase sugere. Encontramos 63 serviços acima de mil revisões, e a listagem do `ads-apiv2` quebrou antes de a limpeza automática fazer qualquer coisa.
 
 ## Como chegamos a mil
 
@@ -51,15 +51,18 @@ A pergunta óbvia veio em seguida: quantos outros serviços estavam no mesmo cam
 
 O projeto tem 373 serviços no Cloud Run. Boa parte não parece Cloud Run à primeira vista: cada Cloud Function de segunda geração vira um serviço do Cloud Run por baixo, com as mesmas revisões e o mesmo teto. As 79 funções daquela codebase, por exemplo, são 79 serviços, e todas recebem os mesmos quinze deploys por dia.
 
-Num primeiro teste com 14 desses serviços, em modo somente leitura:
+Fiz um dry-run da frota inteira, em modo somente leitura. Ele conseguiu inspecionar 222 dos 373 serviços; os outros 151 esbarraram num bug do próprio script, que conto adiante. Só nesses 222:
 
 | | |
 |---|---|
-| Revisões existentes | 10.854 |
-| Candidatas a exclusão (mais de 30 dias, sem tráfego) | 7.183 |
-| Serviços com mais de mil revisões | 6 |
+| Revisões existentes | 139.139 |
+| Candidatas a exclusão (mais de 30 dias, sem tráfego) | 94.334 |
+| Serviços com mais de mil revisões | 63 |
+| Maior serviço | 1.103 revisões |
 
-{/* TODO depois do dry-run completo da frota: total de serviços inspecionados, total de revisões, total de candidatas, quantos acima de 1.000. Fonte: ~/bin ou scratchpad cleanup-summary-full.md */}
+Extrapolando para os 373, a frota tem perto de 230 mil revisões, e umas 160 mil poderiam sumir hoje sem ninguém notar. Com um teto de 3.000 exclusões por dia, isso leva quase dois meses para drenar.
+
+O número 1.103 merece atenção. Nenhum dos 222 serviços passou dele, e vários estavam entre 1.080 e 1.103. Ou seja, a coleta de lixo do Cloud Run existe. Ela só age perto de 1.100, e a API de listagem já quebra antes de chegar lá.
 
 Dava para repetir a limpeza manual, mas o problema volta todo mês. O que faltava era um zelador.
 
@@ -95,6 +98,8 @@ No primeiro teste contra a frota real, 14 dos primeiros 43 serviços foram pulad
 Metade das chamadas falha. O tamanho da página não importa. Toda chamada leva perto de 5,5 segundos, sucesso ou erro, o que sugere que alguma coisa do lado de lá está varrendo o conjunto inteiro antes de devolver a página, e às vezes não chega ao fim a tempo.
 
 A correção é a mais chata e a mais eficaz: tentar de novo. Até cinco tentativas por página, com espera crescente, e só para falha de rede, 429 e 5xx. Um 404 ou 403 de verdade continua falhando na hora, porque repetir não muda nada. Com isso, os mesmos 14 serviços listaram sem nenhum aviso, com seis páginas repetidas no total.
+
+A segunda surpresa veio do token. O `gcloud auth print-access-token` devolve o token que já está em cache, e ele pode estar a minutos de expirar. O script renovava o token a cada 40 minutos contados a partir da própria chamada, não da emissão. Resultado: no dry-run da frota, 143 serviços foram pulados com HTTP 401 antes da primeira renovação. A correção é não confiar em relógio nenhum. Um 401 pede token novo e repete a página na hora.
 
 A lição aqui não é sobre retry. É sobre o teste. O script tinha sido exercitado contra `gcloud` e `curl` falsos, em cinco cenários, e passou em todos. Os falsos nunca devolveram 500 pela metade das vezes, porque eu não sabia que a API fazia isso. Um dry-run contra o sistema real, que só lista e não apaga, achou em dez minutos o que os mocks não achariam nunca.
 

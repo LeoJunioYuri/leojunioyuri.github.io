@@ -25,7 +25,7 @@ In Cloud Run, a **service** is the thing with a name and a URL. A **revision** i
 
 An idle revision doesn't run, doesn't scale, isn't billed. The [documentation](https://docs.cloud.google.com/run/docs/managing/revisions) says so explicitly, and also says there is a maximum of 1,000 revisions per service, with older ones deleted automatically beyond that.
 
-This creates an odd incentive. Since old revisions cost nothing, nobody has a reason to delete them. And since the ceiling is high, nobody reaches it early. When you do reach it, you find out the automatic garbage collection isn't as punctual as that sentence suggests. We found services with 1,100 listable revisions, and `ads-apiv2` went past a thousand without anything being removed.
+This creates an odd incentive. Since old revisions cost nothing, nobody has a reason to delete them. And since the ceiling is high, nobody reaches it early. When you do reach it, you find out the automatic garbage collection isn't as punctual as that sentence suggests. We found 63 services above a thousand revisions, and `ads-apiv2`'s listing broke before the automatic cleanup did anything at all.
 
 ## How we got to a thousand
 
@@ -51,15 +51,18 @@ The obvious question came next: how many other services were on the same road?
 
 The project has 373 Cloud Run services. A good share of them don't look like Cloud Run at first glance: every second-generation Cloud Function is a Cloud Run service underneath, with the same revisions and the same ceiling. The 79 functions in that codebase, for instance, are 79 services, and all of them receive the same fifteen deploys a day.
 
-In a first read-only test on 14 of those services:
+I ran a read-only dry run across the whole fleet. It managed to inspect 222 of the 373 services; the other 151 hit a bug in the script itself, which I'll get to. In those 222 alone:
 
 | | |
 |---|---|
-| Existing revisions | 10,854 |
-| Deletion candidates (over 30 days, no traffic) | 7,183 |
-| Services with more than a thousand revisions | 6 |
+| Existing revisions | 139,139 |
+| Deletion candidates (over 30 days, no traffic) | 94,334 |
+| Services with more than a thousand revisions | 63 |
+| Largest service | 1,103 revisions |
 
-{/* TODO after the full fleet dry-run: services inspected, total revisions, total candidates, how many above 1,000. Source: cleanup-summary-full.md */}
+Extrapolating to all 373, the fleet holds close to 230 thousand revisions, and some 160 thousand could disappear today without anyone noticing. With a cap of 3,000 deletions a day, that takes almost two months to drain.
+
+The number 1,103 deserves attention. None of the 222 services went past it, and several sat between 1,080 and 1,103. So Cloud Run's garbage collection does exist. It just only acts near 1,100, and the list API breaks before you get there.
 
 We could have repeated the manual cleanup, but the problem comes back every month. What was missing was a janitor.
 
@@ -95,6 +98,8 @@ In the first test against the real fleet, 14 of the first 43 services were skipp
 Half the calls fail. Page size doesn't matter. Every call takes close to 5.5 seconds, success or failure, which suggests something on the other side scans the whole set before returning the page, and sometimes doesn't finish in time.
 
 The fix is the most boring and the most effective one: try again. Up to five attempts per page, with growing waits, and only for network failures, 429 and 5xx. A real 404 or 403 still fails immediately, because repeating changes nothing. With that, the same 14 services listed without a single warning, with six pages retried in total.
+
+The second surprise came from the token. `gcloud auth print-access-token` returns whatever token is already cached, and it may be minutes from expiring. The script refreshed its token every 40 minutes, counted from its own call, not from issuance. The result: in the fleet dry run, 143 services were skipped with HTTP 401 before the first scheduled refresh. The fix is to trust no clock at all. A 401 asks for a new token and retries the page immediately.
 
 The lesson here isn't about retries. It's about the test. The script had been exercised against fake `gcloud` and `curl`, in five scenarios, and passed all of them. The fakes never returned 500 half the time, because I didn't know the API did that. A dry run against the real system, one that only lists and never deletes, found in ten minutes what the mocks would never have found.
 

@@ -1,5 +1,5 @@
 ---
-title: "De 342 mil para ~12 mil chamadas por dia: cache com versão na chave"
+title: "Cache com versão na chave: de 342 mil chamadas por dia para ~40 mil (a meta é 12 mil)"
 description: "O cardápio perguntava o pixel da loja à API de Ads a cada 10 minutos, 342 mil vezes por dia. A saída não foi um cache mais longo, foi mudar a chave do cache quando o dado muda. Com um simulador para brincar."
 date: 2026-10-06
 lang: "pt"
@@ -160,5 +160,46 @@ do que o cardápio entrega.
 
 ## Atualização: produção
 
-_O número de produção, antes e depois do deploy de 06/10, entra aqui assim que
-houver um dia inteiro de dados para comparar._
+**Resultado preliminar, com só 5 horas de dados depois do deploy.** O primeiro
+dia inteiro (07/10) só fica disponível para consulta em 08/10, e aí este número
+é refeito.
+
+O que eu medi: quantas vezes por hora o cardápio perguntou o pixel à API de Ads,
+contando direto no log de requisições da API. O cardápio novo entrou no ar às
+18h27 (UTC) de 06/10. Descartei a hora do deploy e comparei as cinco horas
+seguintes (19h às 23h UTC, o pico da noite no Brasil) com as mesmas horas de
+dias anteriores, para não confundir efeito do horário com efeito do cache.
+
+| Horas 19h–23h UTC | Chamadas | Por hora |
+|---|---|---|
+| 29/09 (terça anterior) | ~99 mil | ~20 mil |
+| 05/10 (véspera) | ~58 mil | ~12 mil |
+| 06/10 (depois do deploy) | **~15 mil** | **~3 mil** |
+
+Uma queda de **~74%** contra a véspera, na mesma janela. Essas chamadas, que
+eram ~29% de tudo o que a API de Ads recebia nesse horário, viraram ~8%.
+Projetando para o dia inteiro, dá **algo entre 37 e 47 mil chamadas por dia**.
+
+Duas coisas para ler esse número direito:
+
+- **A curva já vinha caindo.** Os 342 mil eram de 27/09. Em 01/10 entrou a
+  primeira parte deste trabalho, que juntou os dois leitores do pixel numa
+  entrada de cache só; em 05/10 o dia já tinha ~180 mil chamadas. Contra os 342
+  mil do começo, a projeção é uma queda de quase 90%.
+- **Ainda não chegou na meta de ~12 mil.** Nas cinco horas, ~7.900 lojas
+  apareceram, e cada uma perguntou ~1,9 vez em média. A "primeira pergunta do
+  dia" de cada loja é esperada; o que não era esperado é a repetição: na
+  última hora, quase 80% das chamadas vinham de lojas que já tinham perguntado
+  antes, quase sempre com mais de 10 minutos de intervalo. Se a config ficasse
+  guardada como planejado, isso não aconteceria. As hipóteses que vou checar
+  com o dia inteiro: a leitura da versão falhando de vez em quando (e caindo no
+  cache antigo de 10 minutos, que não preenche a chave nova), entradas sendo
+  expulsas do memcache por falta de espaço, ou versões mudando mais do que eu
+  imaginava. A correção do tropeço "não existe ≠ não consegui ler" só entrou no
+  cardápio na madrugada de 07/10, então ela ainda não aparece nestas 5 horas.
+
+E o alarme falso? Os avisos "nenhum destino aceitou o lote" dobraram à noite,
+mas vindo do mesmo grupo de ~70 lojas com credencial inválida de sempre. Com
+menos falhas ao buscar a config, mais eventos chegam até a checagem da
+credencial e são descartados lá, com aviso. Não é regressão, é o mesmo problema
+antigo aparecendo mais.

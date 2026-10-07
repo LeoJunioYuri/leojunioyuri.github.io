@@ -1,5 +1,5 @@
 ---
-title: "From 342 thousand to ~12 thousand calls a day: putting a version in the cache key"
+title: "Putting a version in the cache key: from 342 thousand calls a day to ~40 thousand (the goal is 12)"
 description: "The menu asked the Ads API for the store's pixel every 10 minutes, 342 thousand times a day. The fix wasn't a longer cache; it was changing the cache key whenever the data changes. With a simulator to play with."
 date: 2026-10-06
 lang: "en"
@@ -153,5 +153,47 @@ anything the menu delivers.
 
 ## Update: production
 
-_The production number, before and after the October 6 deploy, goes here as
-soon as there's a full day of data to compare._
+**Preliminary result, with only 5 hours of data after the deploy.** The first
+full day (October 7) is only queryable on October 8, and this number gets
+redone then.
+
+What I measured: how many times per hour the menu asked the Ads API for the
+pixel, counted straight from the API's request log. The new menu went live at
+18:27 UTC on October 6. I dropped the deploy hour and compared the next five
+hours (19:00 to 23:00 UTC, Brazil's evening peak) with the same hours on earlier
+days, so the time of day wouldn't pass for a cache effect.
+
+| Hours 19:00–23:00 UTC | Calls | Per hour |
+|---|---|---|
+| Sep 29 (previous Tuesday) | ~99 thousand | ~20 thousand |
+| Oct 5 (day before) | ~58 thousand | ~12 thousand |
+| Oct 6 (after the deploy) | **~15 thousand** | **~3 thousand** |
+
+That's a **~74%** drop against the day before, in the same window. These calls,
+which were ~29% of everything the Ads API received at that time, became ~8%.
+Projected to a full day, that's **somewhere between 37 and 47 thousand calls a
+day**.
+
+Two things to read this number right:
+
+- **The curve was already falling.** The 342 thousand were from September 27.
+  On October 1 the first part of this work shipped, merging the two pixel
+  readers into one cache entry; by October 5 the day was down to ~180 thousand.
+  Against the original 342 thousand, the projection is a drop of almost 90%.
+- **It hasn't reached the ~12 thousand goal yet.** In those five hours, ~7,900
+  stores showed up, and each asked ~1.9 times on average. Each store's "first
+  question of the day" is expected; the repeats weren't: in the last hour,
+  almost 80% of the calls came from stores that had already asked, almost
+  always more than 10 minutes earlier. If the config stayed cached as planned,
+  that wouldn't happen. The hypotheses I'll check with the full day: the
+  version read failing now and then (falling back to the old 10-minute cache,
+  which doesn't fill the new key), entries being evicted from memcache for lack
+  of space, or versions changing more often than I thought. The fix for the
+  "doesn't exist ≠ couldn't read" stumble only reached the menu in the early
+  hours of October 7, so it isn't in these 5 hours yet.
+
+And the false alarm? The "no destination accepted the batch" warnings doubled
+in the evening, but from the same group of ~70 stores with an invalid
+credential as always. With fewer failures fetching the config, more events
+reach the credential check and get dropped there, with a warning. Not a
+regression; the same old problem showing up more often.

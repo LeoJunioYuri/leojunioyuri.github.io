@@ -1,0 +1,139 @@
+---
+title: "Dois mil deploys depois"
+description: "Cada deploy no Cloud Run deixa uma revisão para trás. Elas não custam nada, então ninguém apaga. Um dia a API de listagem devolve 500, e você descobre que tem 373 serviços no mesmo caminho."
+date: 2026-10-07
+lang: "pt"
+category: "engenharia"
+draft: true
+tags: ["Engenharia", "Infra", "Cloud Run", "GitHub Actions", "Lições"]
+translationOf: "en/two-thousand-deploys-later"
+---
+
+No dia 5 de outubro, um script meu parou de funcionar. Ele contava quantas vezes por dia um serviço nosso tinha sido reimplantado, e fazia isso com um comando simples:
+
+```bash
+gcloud run revisions list --service ads-apiv2 --region us-central1
+```
+
+A resposta foi `HTTP 500: Internal error`. Tentei pela API nova, a v2. Mesmo erro. Nenhuma mudança nossa, nenhum incidente aberto no status do Google. O serviço em si estava no ar, respondendo normalmente.
+
+O problema não era do Google. Era volume. E o volume era nosso.
+
+## O que é uma revisão
+
+No Cloud Run, um **serviço** é o que tem nome e URL. Uma **revisão** é uma foto imutável dele: a imagem do container mais a configuração daquele momento, memória, CPU, variáveis de ambiente, número mínimo de instâncias. Cada deploy cria uma revisão nova, e o tráfego passa a apontar para ela. A anterior fica lá, parada.
+
+Revisão parada não roda, não escala, não é cobrada. A [documentação](https://docs.cloud.google.com/run/docs/managing/revisions) diz isso com todas as letras, e diz também que existe um máximo de mil revisões por serviço, com as mais antigas apagadas automaticamente acima disso.
+
+Isso cria um incentivo esquisito. Como revisão antiga não custa nada, ninguém tem motivo para apagar. E como o teto é alto, ninguém chega nele cedo. Quando chega, descobre que a coleta de lixo automática não é tão pontual quanto a frase sugere. Encontramos serviços com 1.100 revisões listáveis, e o `ads-apiv2` passou de mil sem que nada fosse apagado.
+
+## Como chegamos a mil
+
+O `ads-apiv2` recebe cerca de quinze deploys por dia. Não porque alguém mexe nele quinze vezes por dia. Ele vive numa codebase do Firebase Functions junto com outras 78 funções, e o Firebase reimplanta a codebase inteira a cada merge. Qualquer mudança em qualquer função vizinha cria uma revisão nova na API. Por cima disso, por um tempo, uma rotina de escala criava mais três revisões por dia ao mexer no número mínimo de instâncias.
+
+Quinze por dia, setenta dias: mil revisões. O nome da revisão que servia o tráfego naquele dia era `ads-apiv2-02142-ref`. Aquele número no meio é a geração do serviço. Ele tinha sido alterado 2.142 vezes desde que nasceu.
+
+Nada disso aparecia em lugar nenhum. Não existe gráfico de "revisões acumuladas" no console, nem alerta. O primeiro sintoma foi uma API de leitura quebrando.
+
+## A primeira limpeza, à mão
+
+Com a listagem morta, a saída foi reconstruir a lista de revisões pelos logs de auditoria do Cloud Run, que registram cada criação, e cruzar com a data. Dali saíram 728 revisões com mais de trinta dias e sem tráfego. Apaguei em paralelo, quatro por vez:
+
+```bash
+cat delete-plan.txt | xargs -P 4 -I{} gcloud run revisions delete {} --region us-central1 --quiet
+```
+
+A listagem voltou a responder. Sobraram 339 revisões. Problema resolvido para um serviço, por um mês.
+
+A pergunta óbvia veio em seguida: quantos outros serviços estavam no mesmo caminho?
+
+## 373 serviços
+
+O projeto tem 373 serviços no Cloud Run. Boa parte não parece Cloud Run à primeira vista: cada Cloud Function de segunda geração vira um serviço do Cloud Run por baixo, com as mesmas revisões e o mesmo teto. As 79 funções daquela codebase, por exemplo, são 79 serviços, e todas recebem os mesmos quinze deploys por dia.
+
+Num primeiro teste com 14 desses serviços, em modo somente leitura:
+
+| | |
+|---|---|
+| Revisões existentes | 10.854 |
+| Candidatas a exclusão (mais de 30 dias, sem tráfego) | 7.183 |
+| Serviços com mais de mil revisões | 6 |
+
+{/* TODO depois do dry-run completo da frota: total de serviços inspecionados, total de revisões, total de candidatas, quantos acima de 1.000. Fonte: ~/bin ou scratchpad cleanup-summary-full.md */}
+
+Dava para repetir a limpeza manual, mas o problema volta todo mês. O que faltava era um zelador.
+
+## O zelador
+
+É um workflow do GitHub Actions que roda todo dia às quatro da manhã, logo depois da janela noturna de deploys, para não apagar nada debaixo de um deploy em andamento. Ele percorre todos os serviços do projeto e apaga uma revisão só quando **todas** estas condições valem:
+
+1. Foi criada há mais de 30 dias.
+2. Não recebe tráfego. Isso inclui a revisão que está servindo, a última que ficou pronta, a última criada, e qualquer uma com tag, mesmo a 0%.
+3. Não está entre as 20 mais recentes do serviço.
+
+As três regras são redundantes de propósito. Qualquer uma delas sozinha já evitaria apagar a revisão errada na maioria dos casos. Juntas, evitam nos casos que a gente não pensou.
+
+Tem um teto de 3.000 exclusões por execução, somando a frota inteira, e a ordem é da mais antiga para a mais nova. O teto existe por dois motivos. A API de administração do Cloud Run tem cota, e eu não quero descobrir qual é às quatro da manhã. E se houver um bug na seleção, ele apaga no máximo 3.000 revisões antes de alguém olhar a tabela do dia seguinte. Com a ordem fixa, o teto sempre corta pelo lado antigo, que é o lado barato de errar.
+
+Ao final, o job escreve uma tabela no resumo da execução: serviço, revisões, candidatas, apagadas, mantidas, erros. É o único lugar onde esse número existe.
+
+## A surpresa: a API paginada também quebra
+
+O script não usa `gcloud run revisions list`, porque esse é justamente o comando que morre acima de mil revisões. Ele usa a API v1, no formato do Knative, pedindo 200 revisões por página e seguindo o token de continuação. Essa tinha funcionado para reconstruir a lista do `ads-apiv2`.
+
+No primeiro teste contra a frota real, 14 dos primeiros 43 serviços foram pulados com `HTTP 500 ao listar revisões (página 1)`. Serviços grandes, todos. Fui reproduzir à mão, variando o tamanho da página e repetindo cada chamada:
+
+| Serviço | Página | 1ª chamada | 2ª chamada |
+|---|---|---|---|
+| acquisitionmanagerdrawworker | 200 | 200 OK | 500 |
+| acquisitionmanagerdrawworker | 50 | 500 | 200 OK |
+| acquisitionmanagerdrawworker | 10 | 500 | 200 OK |
+| adcreationjobworker | 200 | 200 OK | 500 |
+| adcreationjobworker | 50 | 200 OK | 500 |
+| adcreationjobworker | 10 | 500 | 200 OK |
+
+Metade das chamadas falha. O tamanho da página não importa. Toda chamada leva perto de 5,5 segundos, sucesso ou erro, o que sugere que alguma coisa do lado de lá está varrendo o conjunto inteiro antes de devolver a página, e às vezes não chega ao fim a tempo.
+
+A correção é a mais chata e a mais eficaz: tentar de novo. Até cinco tentativas por página, com espera crescente, e só para falha de rede, 429 e 5xx. Um 404 ou 403 de verdade continua falhando na hora, porque repetir não muda nada. Com isso, os mesmos 14 serviços listaram sem nenhum aviso, com seis páginas repetidas no total.
+
+A lição aqui não é sobre retry. É sobre o teste. O script tinha sido exercitado contra `gcloud` e `curl` falsos, em cinco cenários, e passou em todos. Os falsos nunca devolveram 500 pela metade das vezes, porque eu não sabia que a API fazia isso. Um dry-run contra o sistema real, que só lista e não apaga, achou em dez minutos o que os mocks não achariam nunca.
+
+## O mínimo de permissão
+
+O workflow roda com uma service account que já existia para outra tarefa do CD. Antes de dar permissão nova, fui olhar o que ela tinha: um único papel, de leitura e escrita de objetos num bucket de estado do deploy. Nenhuma permissão de Cloud Run, nem de leitura.
+
+O atalho seria dar `roles/run.developer`, que cobre tudo. Mas `run.developer` também permite fazer deploy, e essa service account pode ser assumida por qualquer workflow do repositório via Workload Identity Federation. Dar deploy a um zelador de revisões é dar deploy ao repositório inteiro.
+
+O que ela ganhou foi `roles/run.viewer`, para listar e ler, mais um papel custom com uma única permissão:
+
+```bash
+gcloud iam roles create cloudRunRevisionJanitor \
+  --project brendi-app \
+  --permissions run.revisions.delete
+```
+
+Um detalhe que custou uma tentativa: a política do projeto tinha bindings condicionais, e nesse caso o `gcloud` se recusa a adicionar um binding sem você dizer explicitamente `--condition=None`. É uma proteção boa. Ele quer ter certeza de que você não esqueceu de uma condição.
+
+## Falhar alto
+
+Automação que roda sozinha de madrugada tem um modo de falha específico: rodar, não fazer nada, e ficar verde. Faltou permissão? Verde. API fora? Verde. Ninguém olha, e seis meses depois a listagem quebra de novo.
+
+Então o job só fica vermelho em duas situações: quando não consegue listar os serviços, ou quando **todas** as exclusões tentadas falham. Esse segundo caso é exatamente o sintoma de permissão faltando, e ele precisa doer. Já um serviço isolado com erro vira um aviso e uma linha na tabela, e o resto da frota segue. Um serviço instável não pode travar os outros 372.
+
+## O que o GitHub não deixa
+
+Faltava o último teste: rodar o workflow de verdade, como a service account, em modo de leitura, antes de mergear. Não dá. O `workflow_dispatch` só funciona se o arquivo do workflow já existir na branch padrão. A [documentação](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_dispatch) é direta sobre isso, e o `gh workflow run` devolve um 404 educado.
+
+A sequência vira: testar local em dry-run com a minha conta, mergear, disparar o workflow à mão em dry-run assim que ele existir na `main`, conferir a tabela, e só então deixar o agendamento das quatro da manhã apagar. Se algo estiver errado nesse intervalo, `gh workflow disable` resolve.
+
+{/* TODO depois do primeiro run real: data, quantas apagadas, quanto tempo levou, listagem do ads-apiv2 e dos workers respondendo; depois de alguns dias, a curva de drenagem (revisões totais por dia) */}
+
+## O que fica
+
+**Recurso que não custa nada acumula em silêncio.** Revisão parada, snapshot antigo, imagem no registry, log sem retenção. Se não tem conta, não tem dono, e se não tem dono, só o limite do provedor vai te avisar.
+
+**Teste contra o sistema real antes de confiar nos mocks.** Mocks reproduzem o que você já sabe. Um dry-run que só lê custa quase nada e encontra o que você não sabia.
+
+**Permissão mínima é barato de fazer agora e caro de fazer depois.** Um papel custom com uma permissão leva um comando. Tirar `run.developer` de uma service account que dez workflows já usam leva uma semana.
+
+**Automação que roda sozinha precisa falhar alto.** O pior resultado de um job de limpeza não é apagar demais. É ficar verde sem apagar nada.

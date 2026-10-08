@@ -4,7 +4,7 @@ description: "Every time you ship a new version, Cloud Run keeps the old one. Th
 date: 2026-10-07
 lang: "en"
 category: "engenharia"
-draft: true
+draft: false
 tags: ["Engineering", "Infra", "Cloud Run", "GitHub Actions", "Lessons"]
 translationOf: "pt/dois-mil-deploys-depois"
 ---
@@ -139,7 +139,7 @@ One last test was missing: run the job for real, as the robot account, in rehear
 
 So the order becomes: test here on my machine in rehearsal mode with my own account, merge, trigger the job by hand in rehearsal mode as soon as it exists on the main branch, check the table, and only then let the four-in-the-morning schedule delete. If something is wrong in that window, one command turns the job off.
 
-{/* TODO after the first real run: date, how many deleted, how long it took, ads-apiv2 and workers listing again; after a few days, the drain curve (total revisions per day) */}
+As I write this, the job hasn't run for real yet. When it does, I'll come back here with the result of the first day and the curve of revisions falling over the following weeks.
 
 ## What stays
 

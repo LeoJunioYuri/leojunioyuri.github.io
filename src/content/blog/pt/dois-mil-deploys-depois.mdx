@@ -60,7 +60,7 @@ Fiz um dry-run da frota inteira, em modo somente leitura. Ele conseguiu inspecio
 | Serviços com mais de mil revisões | 63 |
 | Maior serviço | 1.103 revisões |
 
-Extrapolando para os 373, a frota tem perto de 230 mil revisões, e umas 160 mil poderiam sumir hoje sem ninguém notar. Com um teto de 3.000 exclusões por dia, isso leva quase dois meses para drenar.
+Extrapolando para os 373, a frota tem perto de 230 mil revisões, e umas 160 mil poderiam sumir hoje sem ninguém notar. Com um teto de 3.000 exclusões por dia, isso leva quase dois meses para drenar. Por isso o backlog vai ser atacado em rodadas manuais, com teto de 10 mil e oito exclusões em paralelo, e o agendamento diário fica com o teto baixo para o regime permanente, quando sobram só as revisões de um dia de deploy.
 
 O número 1.103 merece atenção. Nenhum dos 222 serviços passou dele, e vários estavam entre 1.080 e 1.103. Ou seja, a coleta de lixo do Cloud Run existe. Ela só age perto de 1.100, e a API de listagem já quebra antes de chegar lá.
 
@@ -79,6 +79,14 @@ As três regras são redundantes de propósito. Qualquer uma delas sozinha já e
 Tem um teto de 3.000 exclusões por execução, somando a frota inteira, e a ordem é da mais antiga para a mais nova. O teto existe por dois motivos. A API de administração do Cloud Run tem cota, e eu não quero descobrir qual é às quatro da manhã. E se houver um bug na seleção, ele apaga no máximo 3.000 revisões antes de alguém olhar a tabela do dia seguinte. Com a ordem fixa, o teto sempre corta pelo lado antigo, que é o lado barato de errar.
 
 Ao final, o job escreve uma tabela no resumo da execução: serviço, revisões, candidatas, apagadas, mantidas, erros. É o único lugar onde esse número existe.
+
+## Não cabe num laço
+
+A primeira versão percorria os serviços um a um. Antes de soltar na frota, fiz a conta: 373 serviços, média de 3,6 páginas de 200 revisões cada, 5,5 segundos por chamada, metade delas repetida. Dá mais de três horas só para listar, antes de apagar qualquer coisa. O job tinha 150 minutos de timeout.
+
+A inspeção passou a rodar seis serviços por vez, cada um em processo próprio, escrevendo o que encontrou em arquivos. Uma segunda fase, sequencial, junta as candidatas da frota inteira, ordena pela data e apaga. Separar as fases também é o que permite o teto ser global: a ordem é da revisão mais antiga de toda a frota, não de cada serviço.
+
+Nos seis serviços do teste, a inspeção caiu de 216 para 62 segundos, limitada pelo serviço mais lento. Na frota, a estimativa é de 40 minutos. A conta levou um minuto e evitou descobrir o timeout às quatro da manhã.
 
 ## A surpresa: a API paginada também quebra
 

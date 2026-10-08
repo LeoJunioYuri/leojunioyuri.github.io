@@ -60,7 +60,7 @@ I ran a read-only dry run across the whole fleet. It managed to inspect 222 of t
 | Services with more than a thousand revisions | 63 |
 | Largest service | 1,103 revisions |
 
-Extrapolating to all 373, the fleet holds close to 230 thousand revisions, and some 160 thousand could disappear today without anyone noticing. With a cap of 3,000 deletions a day, that takes almost two months to drain.
+Extrapolating to all 373, the fleet holds close to 230 thousand revisions, and some 160 thousand could disappear today without anyone noticing. With a cap of 3,000 deletions a day, that takes almost two months to drain. So the backlog will be attacked in manual runs, with a cap of 10,000 and eight deletions in parallel, and the daily schedule keeps the low cap for steady state, when all that's left is one day's worth of deploys.
 
 The number 1,103 deserves attention. None of the 222 services went past it, and several sat between 1,080 and 1,103. So Cloud Run's garbage collection does exist. It just only acts near 1,100, and the list API breaks before you get there.
 
@@ -79,6 +79,14 @@ The three rules are redundant on purpose. Any one of them alone would avoid dele
 There's a cap of 3,000 deletions per run, across the whole fleet, and the order is oldest first. The cap exists for two reasons. The Cloud Run admin API has a quota, and I don't want to find out what it is at four in the morning. And if there's a bug in the selection, it deletes at most 3,000 revisions before someone looks at the next day's table. With a fixed order, the cap always trims from the old side, which is the cheap side to be wrong on.
 
 At the end, the job writes a table to the run summary: service, revisions, candidates, deleted, kept, errors. It's the only place that number exists.
+
+## It doesn't fit in a loop
+
+The first version walked the services one by one. Before letting it loose on the fleet, I did the math: 373 services, an average of 3.6 pages of 200 revisions each, 5.5 seconds per call, half of them retried. That's more than three hours just to list, before deleting anything. The job had a 150-minute timeout.
+
+Inspection now runs six services at a time, each in its own process, writing what it finds to files. A second, sequential phase merges the candidates from the whole fleet, sorts them by date and deletes. Splitting the phases is also what makes the cap global: the order is the oldest revision across the entire fleet, not per service.
+
+On the six test services, inspection dropped from 216 to 62 seconds, bounded by the slowest service. Fleet-wide, the estimate is 40 minutes. The math took a minute and saved us from discovering the timeout at four in the morning.
 
 ## The surprise: the paginated API breaks too
 

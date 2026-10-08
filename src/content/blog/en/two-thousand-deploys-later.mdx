@@ -1,0 +1,152 @@
+---
+title: "Two thousand deploys later"
+description: "Every time you ship a new version, Cloud Run keeps the old one. They cost nothing, so nobody deletes them. One day the command that lists them stops working, and you find out 373 services are on the same road."
+date: 2026-10-07
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "Infra", "Cloud Run", "GitHub Actions", "Lessons"]
+translationOf: "pt/dois-mil-deploys-depois"
+---
+
+On October 5th, a script of mine stopped working. It counted how many times a day one of our services had gotten a new version, and it did that with a simple command:
+
+```bash
+gcloud run revisions list --service ads-apiv2 --region us-central1
+```
+
+The answer was `HTTP 500: Internal error`. That's the generic "something broke on the server" error. I tried the newer version of the same API. Same error. We hadn't changed anything, and Google's status page showed no problem. The service itself was up and answering requests normally.
+
+The problem wasn't Google's. It was volume. And the volume was ours.
+
+## What a revision is
+
+In Cloud Run, the Google service that runs our containers, a **service** is the thing with a name and an address. A **revision** is a snapshot of it at one moment: the packaged code plus the configuration at that time, how much memory, how much CPU, which environment variables, how many machines stay on. Every time you ship a new version, Cloud Run creates a revision and starts sending traffic to it. The previous one stays there, idle.
+
+An idle revision doesn't run, doesn't use machines, doesn't show up on the bill. The [documentation](https://docs.cloud.google.com/run/docs/managing/revisions) says so explicitly. It also says there is a maximum of 1,000 revisions per service, and that beyond that the oldest ones are deleted on their own.
+
+This creates an odd incentive. Since old revisions cost nothing, nobody has a reason to delete them. And since the ceiling is high, nobody reaches it early. When you do, you find out the automatic cleanup isn't as punctual as that sentence suggests. We found 63 services with more than a thousand revisions, and the list command broke on `ads-apiv2` before the automatic cleanup did anything at all.
+
+## How we got to a thousand
+
+`ads-apiv2` gets a new version about fifteen times a day. Not because anyone touches it fifteen times a day. It's part of a bundle of 79 functions that Firebase always publishes together. Any change to any of the other 78 creates a new revision of it too. On top of that, for a while, a routine that adjusted the minimum number of machines kept on created three more revisions a day.
+
+Fifteen a day, seventy days: a thousand revisions. The revision serving traffic that day was named `ads-apiv2-02142-ref`. The number in the middle counts how many times the service had been changed since it was born: 2,142.
+
+None of this showed up anywhere. There is no "accumulated revisions" chart in Google's console, no alert. The first sign was a read command breaking.
+
+## The first cleanup, by hand
+
+With the list command broken, the way out was to build the list another way. Cloud Run records every revision it creates in the audit logs, so the list could be rebuilt from there and crossed with the date. Out came 728 revisions older than thirty days with no traffic. I deleted them four at a time:
+
+```bash
+cat delete-plan.txt | xargs -P 4 -I{} gcloud run revisions delete {} --region us-central1 --quiet
+```
+
+The list command worked again. 339 revisions were left. Problem solved for one service, for one month.
+
+The obvious question came next: how many other services were on the same road?
+
+## 373 services
+
+The project has 373 Cloud Run services. A good share of them don't look like Cloud Run at first glance. Every second-generation Cloud Function is, underneath, a Cloud Run service, with the same revisions and the same ceiling. The 79 functions in that bundle, for instance, are 79 services, and all of them get the same fifteen versions a day.
+
+I ran a rehearsal across the whole fleet: the script only looks and counts, deleting nothing. It managed to inspect 222 of the 373 services. The other 151 hit a bug in the script itself, which I'll get to. In those 222 alone:
+
+| | |
+|---|---|
+| Existing revisions | 139,139 |
+| Could be deleted today (over 30 days, no traffic) | 94,334 |
+| Services with more than a thousand revisions | 63 |
+| Largest service | 1,103 revisions |
+
+Scaling that up to all 373, the fleet holds close to 230 thousand revisions, and some 160 thousand could disappear today without anyone noticing. With a cap of 3,000 deletions a day, that takes almost two months to drain. So the pile will be attacked in manual runs, with a cap of 10,000 and eight deletions at a time. The daily job keeps the low cap for everyday use, when all that's left is one day's worth of work.
+
+The number 1,103 deserves attention. None of the 222 services went past it, and several sat between 1,080 and 1,103. So Cloud Run's automatic cleanup does exist. It just only acts near 1,100, and the list command breaks before you get there.
+
+We could have repeated the manual cleanup, but the problem comes back every month. What was missing was a janitor.
+
+## The janitor
+
+It's a scheduled job on GitHub Actions. It runs every day at four in the morning, right after the nightly publishing window, so it never deletes anything while a publish is happening. It goes through every service in the project and deletes a revision only when **all** of these hold:
+
+1. It was created more than 30 days ago.
+2. It gets no traffic. That includes the revision currently serving, the latest one that became ready, the latest one created, and anything marked with a tag, even one receiving nothing.
+3. It's not among the 20 most recent revisions of the service.
+
+The three rules overlap on purpose. Any one alone would avoid deleting the wrong revision in most cases. Together, they avoid it in the cases we didn't think of.
+
+There's a cap of 3,000 deletions per run, across the whole fleet, and the order is oldest first. The cap exists for two reasons. The Cloud Run API has a limit on calls per minute, and I don't want to find out what it is at four in the morning. And if there's a mistake in choosing what to delete, it deletes at most 3,000 before someone looks at the next day's table. With a fixed order, the cap always trims from the old side, which is the cheap side to be wrong on.
+
+At the end, the job writes a table to the run summary: service, revisions, candidates, deleted, kept, errors. It's the only place that number exists.
+
+## It doesn't fit in a loop
+
+The first version of the script went through the services one by one. Before letting it loose on the fleet, I did the math. There are 373 services. Each needs, on average, 3.6 requests of 200 revisions to list everything. Each request takes 5.5 seconds, and half of them have to be repeated. That's more than three hours just to list, before deleting anything. The job had a two-and-a-half-hour limit.
+
+Inspection now runs six services at a time, each in its own process, writing down what it finds in files. A second step, this one truly one by one, merges the candidates from the whole fleet, sorts them by date and deletes. Splitting the steps is also what lets the cap apply to the whole fleet: the order is the oldest revision across all services, not the oldest of each one.
+
+On the six test services, inspection dropped from 216 to 62 seconds, held back by the slowest service. Fleet-wide, the estimate is 40 minutes. The math took a minute and saved us from discovering the time limit at four in the morning.
+
+## The surprise: listing in pages breaks too
+
+The script doesn't use `gcloud run revisions list`, because that's precisely the command that dies above a thousand revisions. It uses the older version of the API, which lets you ask for revisions in pages of 200, with a marker to request the next one. That's how the `ads-apiv2` list had been rebuilt.
+
+In the first test against the real fleet, 14 of the first 43 services were skipped with the same error 500, right on the first page. Large services, all of them. I went to reproduce it by hand, varying the page size and repeating each request:
+
+| Service | Page size | 1st request | 2nd request |
+|---|---|---|---|
+| acquisitionmanagerdrawworker | 200 | OK | error 500 |
+| acquisitionmanagerdrawworker | 50 | error 500 | OK |
+| acquisitionmanagerdrawworker | 10 | error 500 | OK |
+| adcreationjobworker | 200 | OK | error 500 |
+| adcreationjobworker | 50 | OK | error 500 |
+| adcreationjobworker | 10 | error 500 | OK |
+
+Half the requests fail. Page size doesn't matter. Every request takes close to 5.5 seconds, whether it works or not. That suggests Google scans the entire set of revisions before returning any page, and sometimes doesn't finish in time.
+
+The fix is the most boring and the most effective one: try again. Up to five times per page, waiting a little longer each time. And only when it makes sense: a network drop, "too many calls", and errors on the server side. A "not found" or "no permission" still fails immediately, because repeating changes nothing. With that, the same 14 services listed without a single warning, with six pages retried in total.
+
+The second surprise came from the credential. To talk to Google, the script asks `gcloud` for a temporary credential, good for one hour. But `gcloud` hands back the one it already has stored, and that one may be minutes from expiring. The script renewed its credential every 40 minutes, counted from its own request, not from when the credential was created. In the fleet rehearsal, 143 services were skipped with "credential expired" before the first renewal. The fix is to trust no clock at all. When the answer is "credential expired", the script asks for a new one and retries the page right away.
+
+The lesson here isn't about trying again. It's about the test. The script had been tested against fake versions of `gcloud` and `curl`, in five scenarios, and passed all of them. The fakes never returned error 500 half the time, because I didn't know the API did that. A rehearsal against the real system, one that only lists and never deletes, found in ten minutes what the pretend tests would never have found.
+
+## Least privilege
+
+The job runs as a robot account that already existed for another task in our publishing process. Before granting anything new, I looked at what it had: a single role, to read and write files in one storage bucket. No Cloud Run permission at all, not even read.
+
+The shortcut would be the `run.developer` role, which covers everything. But it also allows publishing new versions, and this robot account can be used by any automation in the repository. Giving publishing power to a revision janitor is giving publishing power to the whole repository.
+
+What it got was the `run.viewer` role, to list and read, plus a custom-made role with exactly one permission:
+
+```bash
+gcloud iam roles create cloudRunRevisionJanitor \
+  --project brendi-app \
+  --permissions run.revisions.delete
+```
+
+One detail that cost an attempt: some of the project's permission rules have conditions attached, and in that case `gcloud` refuses to add a new rule unless you explicitly say `--condition=None`, "no condition". It's a good guard. It wants to be sure you didn't forget one.
+
+## Fail loud
+
+Automation that runs by itself at night has its own way of failing: it runs, does nothing, and shows up green. Missing permission? Green. Google down? Green. Nobody looks, and six months later the list command breaks again.
+
+So the job only goes red in two situations: when it can't list the services, or when **every** deletion it tried fails. That second case is exactly what a missing permission looks like, and it needs to hurt. A single service with an error, on the other hand, becomes a warning and a row in the table, and the rest of the fleet moves on. One flaky service can't block the other 372.
+
+## What GitHub won't let you do
+
+One last test was missing: run the job for real, as the robot account, in rehearsal mode, before merging the code into the main branch. You can't. GitHub only lets you trigger a job by hand if its file is already on the main branch. The [documentation](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_dispatch) is direct about it, and the command returns a polite "not found".
+
+So the order becomes: test here on my machine in rehearsal mode with my own account, merge, trigger the job by hand in rehearsal mode as soon as it exists on the main branch, check the table, and only then let the four-in-the-morning schedule delete. If something is wrong in that window, one command turns the job off.
+
+As I write this, the job hasn't run for real yet. When it does, I'll come back here with the result of the first day and the curve of revisions falling over the following weeks.
+
+## What stays
+
+**What costs nothing piles up in silence.** Idle revisions, old disk copies, stale images in the registry, logs nobody deletes. If it doesn't show up on the bill, it has no owner. And if it has no owner, only the provider's limit will warn you.
+
+**Test against the real system before trusting the pretend tests.** They reproduce what you already know. A rehearsal that only reads costs almost nothing and finds what you didn't know.
+
+**Least privilege is cheap now and expensive later.** A custom-made role with one permission is one command. Removing a broad role from an account ten automations already use is a week.
+
+**Automation that runs on its own needs to fail loud.** The worst outcome of a cleanup job isn't deleting too much. It's staying green while deleting nothing.

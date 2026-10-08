@@ -1,0 +1,152 @@
+---
+title: "Dois mil deploys depois"
+description: "Cada vez que você coloca uma versão nova no ar, o Cloud Run guarda a anterior. Elas não custam nada, então ninguém apaga. Um dia o comando que lista as versões para de funcionar, e você descobre que tem 373 serviços no mesmo caminho."
+date: 2026-10-07
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Engenharia", "Infra", "Cloud Run", "GitHub Actions", "Lições"]
+translationOf: "en/two-thousand-deploys-later"
+---
+
+No dia 5 de outubro, um script meu parou de funcionar. Ele contava quantas vezes por dia um serviço nosso tinha ganhado uma versão nova, e fazia isso com um comando simples:
+
+```bash
+gcloud run revisions list --service ads-apiv2 --region us-central1
+```
+
+A resposta foi `HTTP 500: Internal error`. Esse é o erro genérico de "quebrou do lado do servidor". Tentei pela versão mais nova da mesma API. Mesmo erro. Não tínhamos mudado nada, e a página de status do Google não mostrava nenhum problema. O serviço em si estava no ar, respondendo normalmente.
+
+O problema não era do Google. Era volume. E o volume era nosso.
+
+## O que é uma revisão
+
+No Cloud Run, o serviço do Google que roda nossos containers, um **serviço** é o que tem nome e endereço. Uma **revisão** é uma foto dele num certo momento: o código empacotado mais a configuração daquela hora, quanta memória, quanto processador, quais variáveis de ambiente, quantas máquinas ficam sempre ligadas. Cada vez que você publica uma versão nova, o Cloud Run cria uma revisão e passa a mandar o tráfego para ela. A anterior fica lá, parada.
+
+Revisão parada não roda, não gasta máquina, não aparece na conta. A [documentação](https://docs.cloud.google.com/run/docs/managing/revisions) diz isso com todas as letras. Diz também que existe um máximo de mil revisões por serviço, e que acima disso as mais antigas são apagadas sozinhas.
+
+Isso cria um incentivo esquisito. Como revisão antiga não custa nada, ninguém tem motivo para apagar. E como o teto é alto, ninguém chega nele cedo. Quando chega, descobre que a limpeza automática não é tão pontual quanto a frase sugere. Encontramos 63 serviços com mais de mil revisões, e o comando de listar quebrou no `ads-apiv2` antes de a limpeza automática fazer qualquer coisa.
+
+## Como chegamos a mil
+
+O `ads-apiv2` ganha uma versão nova cerca de quinze vezes por dia. Não porque alguém mexe nele quinze vezes por dia. Ele faz parte de um pacote de 79 funções que o Firebase sempre publica junto. Qualquer mudança em qualquer uma das outras 78 cria uma revisão nova nele também. Por cima disso, durante um tempo, uma rotina que ajustava o número mínimo de máquinas ligadas criava mais três revisões por dia.
+
+Quinze por dia, setenta dias: mil revisões. A revisão que atendia o tráfego naquele dia se chamava `ads-apiv2-02142-ref`. O número do meio conta quantas vezes o serviço foi alterado desde que nasceu: 2.142.
+
+Nada disso aparecia em lugar nenhum. Não existe um gráfico de "revisões acumuladas" no painel do Google, nem um alerta. O primeiro sinal foi um comando de leitura quebrando.
+
+## A primeira limpeza, à mão
+
+Com o comando de listar quebrado, a saída foi montar a lista de outro jeito. O Cloud Run registra cada revisão criada nos logs de auditoria, então dava para reconstruir a lista por ali e cruzar com a data. Saíram 728 revisões com mais de trinta dias e sem tráfego. Apaguei quatro por vez:
+
+```bash
+cat delete-plan.txt | xargs -P 4 -I{} gcloud run revisions delete {} --region us-central1 --quiet
+```
+
+O comando de listar voltou a funcionar. Sobraram 339 revisões. Problema resolvido para um serviço, por um mês.
+
+A pergunta óbvia veio em seguida: quantos outros serviços estavam no mesmo caminho?
+
+## 373 serviços
+
+O projeto tem 373 serviços no Cloud Run. Boa parte não parece Cloud Run à primeira vista. Cada Cloud Function de segunda geração, por baixo, é um serviço do Cloud Run, com as mesmas revisões e o mesmo teto. As 79 funções daquele pacote, por exemplo, são 79 serviços, e todas ganham as mesmas quinze versões por dia.
+
+Rodei um ensaio na frota inteira: o script só olha e conta, sem apagar nada. Ele conseguiu inspecionar 222 dos 373 serviços. Os outros 151 esbarraram num bug do próprio script, que conto adiante. Só nesses 222:
+
+| | |
+|---|---|
+| Revisões existentes | 139.139 |
+| Que poderiam ser apagadas hoje (mais de 30 dias, sem tráfego) | 94.334 |
+| Serviços com mais de mil revisões | 63 |
+| Maior serviço | 1.103 revisões |
+
+Fazendo a proporção para os 373, a frota tem perto de 230 mil revisões, e umas 160 mil poderiam sumir hoje sem ninguém notar. Com um teto de 3.000 exclusões por dia, isso leva quase dois meses para esvaziar. Por isso a montanha acumulada vai ser atacada em rodadas manuais, com teto de 10 mil e oito exclusões ao mesmo tempo. O job diário fica com o teto baixo para o dia a dia, quando sobram só as revisões de um dia de trabalho.
+
+O número 1.103 merece atenção. Nenhum dos 222 serviços passou dele, e vários estavam entre 1.080 e 1.103. Ou seja, a limpeza automática do Cloud Run existe. Ela só age perto de 1.100, e o comando de listar já quebra antes de chegar lá.
+
+Dava para repetir a limpeza manual, mas o problema volta todo mês. O que faltava era um zelador.
+
+## O zelador
+
+É um job agendado no GitHub Actions. Roda todo dia às quatro da manhã, logo depois da janela noturna de publicações, para não apagar nada enquanto uma publicação está acontecendo. Ele passa por todos os serviços do projeto e apaga uma revisão só quando **todas** estas condições valem:
+
+1. Foi criada há mais de 30 dias.
+2. Não recebe tráfego. Isso inclui a revisão que está atendendo, a última que ficou pronta, a última criada, e qualquer uma marcada com uma etiqueta, mesmo sem receber nada.
+3. Não está entre as 20 mais recentes do serviço.
+
+As três regras se sobrepõem de propósito. Qualquer uma sozinha já evitaria apagar a revisão errada na maioria dos casos. Juntas, evitam nos casos em que a gente não pensou.
+
+Tem um teto de 3.000 exclusões por rodada, somando a frota inteira, e a ordem é da mais antiga para a mais nova. O teto existe por dois motivos. A API do Cloud Run tem um limite de chamadas por minuto, e eu não quero descobrir qual é às quatro da manhã. E se houver um erro na escolha do que apagar, ele apaga no máximo 3.000 antes de alguém olhar a tabela do dia seguinte. Com a ordem fixa, o teto sempre corta pelo lado antigo, que é o lado barato de errar.
+
+No fim, o job escreve uma tabela no resumo da execução: serviço, revisões, candidatas, apagadas, mantidas, erros. É o único lugar onde esse número existe.
+
+## Não cabe num laço
+
+A primeira versão do script passava pelos serviços um por um. Antes de soltar na frota, fiz a conta. São 373 serviços. Cada um precisa, em média, de 3,6 pedidos de 200 revisões para listar tudo. Cada pedido leva 5,5 segundos, e metade deles precisa ser repetido. Dá mais de três horas só para listar, antes de apagar qualquer coisa. O job tinha duas horas e meia de limite.
+
+A inspeção passou a rodar seis serviços ao mesmo tempo, cada um num processo próprio, anotando o que encontrou em arquivos. Uma segunda etapa, essa sim um por um, junta as candidatas da frota inteira, ordena pela data e apaga. Separar as etapas também é o que permite o teto valer para a frota toda: a ordem é da revisão mais antiga de todos os serviços, não da mais antiga de cada um.
+
+Nos seis serviços do teste, a inspeção caiu de 216 para 62 segundos, presa ao serviço mais lento. Na frota, a estimativa é de 40 minutos. A conta levou um minuto e evitou descobrir o limite de tempo às quatro da manhã.
+
+## A surpresa: listar em páginas também quebra
+
+O script não usa o `gcloud run revisions list`, porque esse é justamente o comando que morre acima de mil revisões. Ele usa a versão antiga da API, que aceita pedir as revisões em páginas de 200, com um marcador para pedir a próxima. Foi assim que a lista do `ads-apiv2` tinha sido reconstruída.
+
+No primeiro teste contra a frota real, 14 dos primeiros 43 serviços foram pulados com o mesmo erro 500, já na primeira página. Serviços grandes, todos. Fui reproduzir à mão, variando o tamanho da página e repetindo cada pedido:
+
+| Serviço | Tamanho da página | 1º pedido | 2º pedido |
+|---|---|---|---|
+| acquisitionmanagerdrawworker | 200 | OK | erro 500 |
+| acquisitionmanagerdrawworker | 50 | erro 500 | OK |
+| acquisitionmanagerdrawworker | 10 | erro 500 | OK |
+| adcreationjobworker | 200 | OK | erro 500 |
+| adcreationjobworker | 50 | OK | erro 500 |
+| adcreationjobworker | 10 | erro 500 | OK |
+
+Metade dos pedidos falha. O tamanho da página não importa. Todo pedido leva perto de 5,5 segundos, dê certo ou não. Isso sugere que o Google varre o conjunto inteiro de revisões antes de devolver qualquer página, e às vezes não termina a tempo.
+
+A correção é a mais chata e a mais eficaz: tentar de novo. Até cinco vezes por página, esperando um pouco mais a cada tentativa. E só quando faz sentido: queda de rede, "muitas chamadas" e erros do lado do servidor. Um "não encontrado" ou "sem permissão" continua falhando na hora, porque repetir não muda nada. Com isso, os mesmos 14 serviços listaram sem nenhum aviso, com seis páginas repetidas no total.
+
+A segunda surpresa veio da credencial. Para falar com o Google, o script pede uma credencial temporária ao `gcloud`, que vale uma hora. Só que o `gcloud` devolve a que já tem guardada, e ela pode estar a minutos de vencer. O script renovava a credencial a cada 40 minutos contados a partir do próprio pedido, não de quando ela foi criada. No ensaio da frota, 143 serviços foram pulados com "credencial vencida" antes da primeira renovação. A correção é não confiar em relógio nenhum. Quando a resposta é "credencial vencida", o script pede outra e repete a página na hora.
+
+A lição aqui não é sobre tentar de novo. É sobre o teste. O script tinha sido testado contra versões falsas do `gcloud` e do `curl`, em cinco cenários, e passou em todos. As versões falsas nunca devolveram erro 500 na metade das vezes, porque eu não sabia que a API fazia isso. Um ensaio contra o sistema real, que só lista e não apaga, achou em dez minutos o que os testes de mentira não achariam nunca.
+
+## O mínimo de permissão
+
+O job roda com uma conta de robô que já existia para outra tarefa do nosso processo de publicação. Antes de dar permissão nova, fui olhar o que ela tinha: um único papel, de ler e escrever arquivos num balde de estado da publicação. Nenhuma permissão de Cloud Run, nem de leitura.
+
+O atalho seria dar o papel `run.developer`, que cobre tudo. Mas ele também permite publicar versões novas, e essa conta de robô pode ser usada por qualquer automação do repositório. Dar poder de publicação a um zelador de revisões é dar poder de publicação ao repositório inteiro.
+
+O que ela ganhou foi o papel `run.viewer`, para listar e ler, mais um papel feito sob medida com uma única permissão:
+
+```bash
+gcloud iam roles create cloudRunRevisionJanitor \
+  --project brendi-app \
+  --permissions run.revisions.delete
+```
+
+Um detalhe que custou uma tentativa: algumas regras de permissão do projeto têm condições, e nesse caso o `gcloud` se recusa a adicionar uma regra nova sem você dizer explicitamente `--condition=None`, "sem condição". É uma proteção boa. Ele quer ter certeza de que você não esqueceu de uma.
+
+## Falhar alto
+
+Automação que roda sozinha de madrugada tem um jeito próprio de falhar: rodar, não fazer nada, e aparecer verde. Faltou permissão? Verde. Google fora do ar? Verde. Ninguém olha, e seis meses depois o comando de listar quebra de novo.
+
+Então o job só fica vermelho em duas situações: quando não consegue listar os serviços, ou quando **todas** as exclusões que tentou falham. Esse segundo caso é exatamente a cara de permissão faltando, e ele precisa doer. Já um serviço isolado com erro vira um aviso e uma linha na tabela, e o resto da frota segue. Um serviço instável não pode travar os outros 372.
+
+## O que o GitHub não deixa
+
+Faltava o último teste: rodar o job de verdade, com a conta de robô, em modo de ensaio, antes de juntar o código à branch principal. Não dá. O GitHub só deixa disparar um job à mão se o arquivo dele já estiver na branch principal. A [documentação](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_dispatch) é direta sobre isso, e o comando devolve um "não encontrado" educado.
+
+A ordem vira: testar aqui na minha máquina em modo de ensaio com a minha conta, juntar o código, disparar o job à mão em modo de ensaio assim que ele existir na branch principal, conferir a tabela, e só então deixar o agendamento das quatro da manhã apagar. Se algo estiver errado nesse intervalo, um comando desliga o job.
+
+Enquanto escrevo, o job ainda não rodou de verdade. Quando rodar, volto aqui com o resultado do primeiro dia e com a curva das revisões caindo ao longo das semanas.
+
+## O que fica
+
+**O que não custa nada acumula em silêncio.** Revisão parada, cópia antiga de disco, imagem velha no registro, log que ninguém apaga. Se não aparece na conta, não tem dono. E se não tem dono, só o limite do provedor vai te avisar.
+
+**Teste contra o sistema real antes de confiar nos testes de mentira.** Eles reproduzem o que você já sabe. Um ensaio que só lê custa quase nada e encontra o que você não sabia.
+
+**Permissão mínima é barato agora e caro depois.** Um papel sob medida com uma permissão leva um comando. Tirar um papel largo de uma conta que dez automações já usam leva uma semana.
+
+**Automação que roda sozinha precisa falhar alto.** O pior resultado de um job de limpeza não é apagar demais. É ficar verde sem apagar nada.

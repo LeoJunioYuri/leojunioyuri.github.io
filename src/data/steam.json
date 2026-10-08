@@ -1,29 +1,29 @@
 {
-  "updatedAt": "2026-10-07T22:25:37.757Z",
+  "updatedAt": "2026-10-08T03:30:20.932Z",
   "games": [
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
       "appid": 292030,
-      "minutes2weeks": 76,
-      "minutesTotal": 5214,
+      "minutes2weeks": 172,
+      "minutesTotal": 5310,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
       "url": "https://store.steampowered.com/app/292030"
     },
     {
-      "name": "Call of Duty®: Modern Warfare® II",
-      "appid": 3595230,
-      "minutes2weeks": 63,
-      "minutesTotal": 1164,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/3595230/4e557bc86b950518cf3d8bd8ebec5f91d867bb9b.jpg",
-      "url": "https://store.steampowered.com/app/3595230"
+      "name": "Counter-Strike 2",
+      "appid": 730,
+      "minutes2weeks": 30,
+      "minutesTotal": 103623,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
+      "url": "https://store.steampowered.com/app/730"
     }
   ],
   "topGames": [
     {
       "name": "Counter-Strike 2",
       "appid": 730,
-      "minutes2weeks": 0,
-      "minutesTotal": 103593,
+      "minutes2weeks": 30,
+      "minutesTotal": 103623,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
       "url": "https://store.steampowered.com/app/730"
     },
@@ -46,8 +46,8 @@
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
       "appid": 292030,
-      "minutes2weeks": 76,
-      "minutesTotal": 5214,
+      "minutes2weeks": 172,
+      "minutesTotal": 5310,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
       "url": "https://store.steampowered.com/app/292030"
     },

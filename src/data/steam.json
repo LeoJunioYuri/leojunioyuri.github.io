@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T03:30:20.932Z",
+  "updatedAt": "2026-10-08T12:26:37.140Z",
   "games": [
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
@@ -12,8 +12,8 @@
     {
       "name": "Counter-Strike 2",
       "appid": 730,
-      "minutes2weeks": 30,
-      "minutesTotal": 103623,
+      "minutes2weeks": 33,
+      "minutesTotal": 103626,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
       "url": "https://store.steampowered.com/app/730"
     }
@@ -22,8 +22,8 @@
     {
       "name": "Counter-Strike 2",
       "appid": 730,
-      "minutes2weeks": 30,
-      "minutesTotal": 103623,
+      "minutes2weeks": 33,
+      "minutesTotal": 103626,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
       "url": "https://store.steampowered.com/app/730"
     },
@@ -84,78 +84,5 @@
       "url": "https://store.steampowered.com/app/1286830"
     }
   ],
-  "wishlist": [
-    {
-      "name": "Sekiro™: Shadows Die Twice - GOTY Edition",
-      "appid": 814380,
-      "url": "https://store.steampowered.com/app/814380",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662"
-    },
-    {
-      "name": "Life is Strange: Before the Storm",
-      "appid": 554620,
-      "url": "https://store.steampowered.com/app/554620",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/554620/header.jpg?t=1773409621"
-    },
-    {
-      "name": "Lords Of The Fallen™ 2014",
-      "appid": 265300,
-      "url": "https://store.steampowered.com/app/265300",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265300/header.jpg?t=1728377554"
-    },
-    {
-      "name": "Teenage Mutant Ninja Turtles™: Out of the Shadows",
-      "appid": 228560,
-      "url": "https://store.steampowered.com/app/228560",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/228560/header.jpg?t=1684348603"
-    },
-    {
-      "name": "Call of Duty®: Black Ops II",
-      "appid": 202970,
-      "url": "https://store.steampowered.com/app/202970",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/202970/header.jpg?t=1780962925"
-    },
-    {
-      "name": "FINAL FANTASY VII REVELATION",
-      "appid": 4354570,
-      "url": "https://store.steampowered.com/app/4354570",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354570/e1750093047ef96e99879977810c9b4c774bab68/header.jpg?t=1791260852"
-    },
-    {
-      "name": "007 First Light",
-      "appid": 3768760,
-      "url": "https://store.steampowered.com/app/3768760",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/c5b553fd05ba41aefa6daeddac95849a10c93022/header_alt_assets_4.jpg?t=1791285093"
-    },
-    {
-      "name": "Assassin's Creed Black Flag Resynced",
-      "appid": 3751950,
-      "url": "https://store.steampowered.com/app/3751950",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3751950/9b046115b1663a4be2b252712328e4f6c162da68/header.jpg?t=1787915122"
-    },
-    {
-      "name": "Drakantos",
-      "appid": 2454980,
-      "url": "https://store.steampowered.com/app/2454980",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2454980/header.jpg?t=1788282563"
-    },
-    {
-      "name": "Life is Strange: Reunion",
-      "appid": 2624870,
-      "url": "https://store.steampowered.com/app/2624870",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2624870/09c486f1ebf7c30ebf3abf5df054833b03c3367d/header.jpg?t=1777999087"
-    },
-    {
-      "name": "The Elder Scrolls IV: Oblivion Remastered",
-      "appid": 2623190,
-      "url": "https://store.steampowered.com/app/2623190",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1786648304"
-    },
-    {
-      "name": "Metro: Last Light Redux",
-      "appid": 287390,
-      "url": "https://store.steampowered.com/app/287390",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/287390/header.jpg?t=1725444535"
-    }
-  ]
+  "wishlist": []
 }

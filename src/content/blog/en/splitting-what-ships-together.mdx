@@ -1,0 +1,106 @@
+---
+title: "Splitting what ships together"
+description: "Almost every slow request on our ads API happened right after a deploy, and every merge deployed 79 functions. The fix was to break the package into four without deleting a single function, and to teach CD to read imports."
+date: 2026-10-15
+lang: "en"
+category: "engenharia"
+draft: true
+tags: ["Engineering", "Infra", "Firebase", "Cloud Run", "CI/CD", "Lessons"]
+translationOf: "pt/separar-o-que-sobe-junto"
+---
+
+At the end of September I found out that 92 to 97% of the slow requests on our ads API, the ones over 10 seconds, happened right after a deploy. It wasn't the database or a heavy route. It was the freshly published API, still cold, serving the queue that had built up.
+
+And the API was published all the time. Every merge in the ads area published 79 functions at once, the API included, even when the change was in a worker that sends WhatsApp messages.
+
+## Why every merge touched the API
+
+In Firebase, functions are grouped into **codebases**. A codebase is the deploy package: everything in it ships together. Our `ads` codebase had 79 functions: the API the store owner's dashboard calls, the campaign workers, finance, and our two AI agents, Anderson and Kleber.
+
+Each function is a service on Cloud Run. Every time a service gets a new version, it starts on new, cold machines that still have to load the code. The first requests wait for that boot. That's the **cold start**. On a service that gets traffic all day, each version swap turns into a few minutes of queueing.
+
+With 79 functions in the same package, the API swapped versions about 14 times a day. Most of those swaps had nothing to do with it.
+
+## The idea: four packages
+
+Break `ads` into four codebases, so each merge ships only the piece that changed:
+
+| Codebase | What's in it | Functions |
+|---|---|---|
+| `ads-api` | the dashboard API and the analytics API | 2 |
+| `ads-workers` | campaigns, finance, media | 41 |
+| `anderson` | the Anderson agent | 16 |
+| `kleber` | the Kleber agent | 20 |
+
+I didn't move a single file. The code stayed in one directory, which became a kind of library. Each new codebase is a shell of half a dozen files that says "I export these functions". Moving code across a thousand files while changing the deploy at the same time would be asking for it to break in two ways at once.
+
+## The fear: deleting 79 functions
+
+The real risk wasn't the code. It was the deploy reading the change as "these 79 functions left the `ads` codebase, so delete them, and these 79 joined four others, so create them". Deleting a function takes its task queue, its schedule and the URL other systems call along with it. On a service with traffic, that's an outage.
+
+Reading the firebase-tools code, the deploy tool, the answer looked good. A function's name doesn't depend on its codebase: `ads-apiv2` is `ads-apiv2` in any package. And the tool matches what exists in production with what you want to publish by name, before it looks at the codebase. So changing packages would be an update, not a delete-and-create.
+
+"Looked good" isn't enough for 79 functions in production. The obvious route would be Firebase's own rehearsal, `--dry-run`. But it builds and validates the package and stops before computing the plan. It wouldn't say anything about what would be deleted.
+
+So I wrote a test that runs the real planner. It takes a snapshot of the production function list, builds what the four shells want to publish and calls the same internal functions firebase-tools uses to decide what to create, update and delete. The test requires 0 creates, 0 deletes and 79 updates, and it also covers the crooked case: someone re-running an old deploy from before the split.
+
+On the day of the real deploy, the log showed 79 "Successful update operation". No creates, no deletes. The 54 queues and 27 schedules stayed as they were, including one queue that was paused and stayed paused.
+
+## Who decides what ships
+
+With four packages, CD has to answer a new question: this file changed, which package ships?
+
+Folders can't answer it. The API uses code that lives in the workers' folder, and the workers use code from the API's folder. A Kleber file can be executed by the API.
+
+The import graph decides. For each changed file, CD starts at each codebase's entry point and follows the imports. If it reaches the file, that codebase ships. Type-only imports don't count, because they vanish at compile time and don't change the published code.
+
+The golden rule is the one we already used for the shared library: when in doubt, all four ship. An import that can't be followed, a file that isn't code, a change to `package.json`: all four. Shipping too much costs a deploy. Shipping too little leaves old code in production without anyone noticing.
+
+Simulated over the last 503 commits, the API would ship in 78% of them, no longer 100%.
+
+## The API still imported the agents
+
+78% was still a lot, and the reason was in the graph. The `/anderson` and `/kleber` routes lived in the API, and to serve them it imported both agents' code. Any change to Anderson reached the API through the imports.
+
+So we created a service for each agent and had the API forward those routes to them, without keeping the code locally. The URL the store owner calls didn't change. With that, the simulation dropped to 62%.
+
+The forwarding is where most of the traps showed up.
+
+## The stumbles
+
+**The request body arrives already read.** In production, the functions runtime reads and parses the request body before our code runs. My forwarder read the body again, found nothing and sent every POST empty to the agent's service. The tests passed, because they set up a server without that runtime in front. Code review caught it. The fix was to forward the bytes the runtime had already read, and the new test simulates the runtime.
+
+**Cookies became one.** Forwarding the response headers one by one, several `Set-Cookie` headers were joined into a single header that browsers can't parse. No route used cookies yet, but Kleber's approval page is exactly the kind of screen that gets one someday.
+
+**The merge that brought code back to life.** There were three stacked PRs. After the first one landed on main as a single commit, I updated the third with the new base. Git brought back, without any conflict, a block that the first PR itself had removed after review. To git, that block had been "added on one side only". It only showed up because I checked, file by file, that everything outside the PR matched main.
+
+**The retry that would resend everything.** When a deploy fails on a function, CD retries just that one, finding its codebase by the start of its name. With four codebases whose functions all start with `ads-`, a worker failure would have made the retry resend all 79, and the API would swap versions. The fix was to read the codebase from firebase-tools' own log, which prints `kleber:ads-kleberX(us-central1)`.
+
+## Contract, not implementation
+
+The case that taught me the most was a string. The API needed `'ai-on-demand-enhanced'`, a file path prefix. The constant lived in the handler of the worker that enhances photos with AI. In JavaScript, importing a constant from a file runs the whole file and everything it imports. For CD, touching anything along that path redeploys the API.
+
+The rule that stuck: whoever only needs to **know** something about the other side (a queue name, a constant, the shape of a message) imports a **contract**, a small file with no dependencies. Whoever needs to **run** something from the other side imports the implementation and accepts the coupling. If the API runs that code, it really should ship when it changes.
+
+## The result
+
+{/* TODO Oct 15: fill in from the ads-apiv2 dashboard, before (Oct 1–7) × after (Oct 9–14), weekdays. */}
+
+| | Before | After |
+|---|---|---|
+| New API versions per day | ~14 | _to fill_ |
+| Requests over 10 s per day | _to fill_ | _to fill_ |
+| Of those, in a deploy window | 92–97% | _to fill_ |
+| Cold starts per day | _to fill_ | _to fill_ |
+
+_Paragraph on what the numbers show and what muddies the comparison: the minimum-instances test that ran the same week, and changes to the shared library, which still ship every codebase._
+
+## What stays with me
+
+**Prove it with the real tool, not with reasoning.** Reading firebase-tools gave me the hypothesis. The test that calls its planner gave me the proof, and it keeps running on every PR.
+
+**Deploy coupling follows code coupling.** Splitting the packages took the API from 100% to 78%. The rest only dropped when it stopped importing what it doesn't run.
+
+**When in doubt, ship everything.** A system that decides what to publish has to err on the side of publishing too much. The error on the other side is silent.
+
+**A test that builds the wrong environment passes on the path production never takes.** The empty body only stayed out of production because someone read the code thinking about how it actually runs.

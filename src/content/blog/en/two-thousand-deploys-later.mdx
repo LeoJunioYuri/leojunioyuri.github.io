@@ -2,6 +2,7 @@
 title: "Two thousand deploys later"
 description: "Every time you ship a new version, Cloud Run keeps the old one. They cost nothing, so nobody deletes them. One day the command that lists them stops working, and you find out 373 services are on the same road."
 date: 2026-10-07
+updated: 2026-10-08
 lang: "en"
 category: "engenharia"
 draft: false
@@ -139,7 +140,24 @@ One last test was missing: run the job for real, as the robot account, in rehear
 
 So the order becomes: test here on my machine in rehearsal mode with my own account, merge, trigger the job by hand in rehearsal mode as soon as it exists on the main branch, check the table, and only then let the four-in-the-morning schedule delete. If something is wrong in that window, one command turns the job off.
 
-As I write this, the job hasn't run for real yet. When it does, I'll come back here with the result of the first day and the curve of revisions falling over the following weeks.
+## The first run
+
+The code landed on the main branch on the night of October 7th. The four-in-the-morning schedule ran the next day, before I triggered the manual rehearsal I had planned. The result, in 49 minutes:
+
+| | |
+|---|---|
+| Services inspected | 374 |
+| Revisions in the fleet | 231,580 |
+| Eligible for deletion | 163,224 |
+| Deleted | 2,954, plus 46 the job counted as failures |
+| Services skipped | 2, with error 500 even after five attempts |
+| Pages requested again | 151 |
+
+The proportion I had worked out from the 222 services gave 230 thousand revisions and 160 thousand candidates. Close enough. Inspection across six processes took 16 minutes, less than half the estimate. Deletions took 33 minutes for 3,000, four at a time.
+
+Two things to fix. The 46 "failures" were deletions that took longer than the two-minute limit I had given the command. I went to check: the revisions are gone, the job just counted wrong. And the two skipped services are large ones, with over a thousand revisions, where five attempts weren't enough for a page to come through. The idea of raising it to eight attempts was right.
+
+The curve of revisions falling over the following weeks comes in a later update.
 
 ## What stays
 

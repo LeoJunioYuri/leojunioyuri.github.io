@@ -2,6 +2,7 @@
 title: "Dois mil deploys depois"
 description: "Cada vez que você coloca uma versão nova no ar, o Cloud Run guarda a anterior. Elas não custam nada, então ninguém apaga. Um dia o comando que lista as versões para de funcionar, e você descobre que tem 373 serviços no mesmo caminho."
 date: 2026-10-07
+updated: 2026-10-08
 lang: "pt"
 category: "engenharia"
 draft: false
@@ -139,7 +140,24 @@ Faltava o último teste: rodar o job de verdade, com a conta de robô, em modo d
 
 A ordem vira: testar aqui na minha máquina em modo de ensaio com a minha conta, juntar o código, disparar o job à mão em modo de ensaio assim que ele existir na branch principal, conferir a tabela, e só então deixar o agendamento das quatro da manhã apagar. Se algo estiver errado nesse intervalo, um comando desliga o job.
 
-Enquanto escrevo, o job ainda não rodou de verdade. Quando rodar, volto aqui com o resultado do primeiro dia e com a curva das revisões caindo ao longo das semanas.
+## O primeiro run
+
+O código entrou na branch principal na noite de 7 de outubro. O agendamento das quatro da manhã rodou no dia seguinte, antes de eu disparar o ensaio manual que tinha planejado. Resultado, em 49 minutos:
+
+| | |
+|---|---|
+| Serviços inspecionados | 374 |
+| Revisões na frota | 231.580 |
+| Que podiam ser apagadas | 163.224 |
+| Apagadas | 2.954, mais 46 que o job contou como falha |
+| Serviços pulados | 2, por erro 500 mesmo depois de cinco tentativas |
+| Páginas pedidas de novo | 151 |
+
+A proporção que eu tinha feito a partir dos 222 serviços dava 230 mil revisões e 160 mil candidatas. Chegou perto o bastante. A inspeção em seis processos levou 16 minutos, menos da metade da estimativa. As exclusões levaram 33 minutos para 3.000, quatro por vez.
+
+Duas coisas para corrigir. As 46 "falhas" eram exclusões que demoraram mais que o limite de dois minutos que eu tinha dado ao comando. Fui conferir: as revisões sumiram, o job é que contou errado. E os dois serviços pulados são grandes, com mais de mil revisões, onde cinco tentativas não bastaram para uma página chegar. A ideia de subir para oito tentativas estava certa.
+
+A curva das revisões caindo ao longo das semanas vem numa próxima atualização.
 
 ## O que fica
 

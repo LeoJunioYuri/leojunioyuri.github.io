@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-09T12:15:34.245Z",
+  "updatedAt": "2026-10-09T21:59:19.647Z",
   "tracks": [
     {
-      "name": "The Enigma Of Life",
-      "artist": "Sirenia",
-      "url": "https://open.spotify.com/track/7rkKcNZzDlHFwTmNSBWIZW",
-      "image": "https://i.scdn.co/image/ab67616d0000485171258c657d501dc407e93405",
-      "playedAt": "2026-10-09T05:02:17.804Z"
+      "name": "Unbroken",
+      "artist": "Glenn Stafford, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/0alqO0TRjX5Q8saLqXZib5",
+      "image": "https://i.scdn.co/image/ab67616d00004851d6565316a5ddeedbf92942fa",
+      "playedAt": "2026-10-09T20:54:29.830Z"
     },
     {
-      "name": "Mother Gaia",
+      "name": "Afraid to Shoot Strangers - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/6QKhecJ2JuajCTPTtYkKUQ",
+      "image": "https://i.scdn.co/image/ab67616d000048510dda9c11454b9053d07f585a",
+      "playedAt": "2026-10-09T20:53:28.010Z"
+    },
+    {
+      "name": "A Call To Arms",
+      "artist": "Jason Hayes, Glenn Stafford, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/4DwYTtVEDSdHSiGW80xXKH",
+      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
+      "playedAt": "2026-10-09T20:52:13.856Z"
+    },
+    {
+      "name": "Return to Arms",
+      "artist": "Glenn Stafford, Jason Hayes, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/1oDrhovJk5niI6pzDR8qEh",
+      "image": "https://i.scdn.co/image/ab67616d000048519ebf1df2f4da5f1ba3ef17ae",
+      "playedAt": "2026-10-09T20:47:55.254Z"
+    },
+    {
+      "name": "Dead Embryonic Cells",
+      "artist": "Sepultura",
+      "url": "https://open.spotify.com/track/3erQAddOalef7tmVpAZ3BV",
+      "image": "https://i.scdn.co/image/ab67616d000048516ee5427674e1b32a79f7567a",
+      "playedAt": "2026-10-09T18:00:03.910Z"
+    },
+    {
+      "name": "Return to Serenity",
+      "artist": "Testament",
+      "url": "https://open.spotify.com/track/5awljpWNO5TpXCyjpvCBbs",
+      "image": "https://i.scdn.co/image/ab67616d00004851b718dc05fd20724b277f1ac2",
+      "playedAt": "2026-10-09T17:55:11.212Z"
+    },
+    {
+      "name": "Children of the Grave - 2009 Remaster",
+      "artist": "Black Sabbath",
+      "url": "https://open.spotify.com/track/0ElAcOj8tudMA6X6KZ7SMO",
+      "image": "https://i.scdn.co/image/ab67616d0000485195326acf47fb8dd45e61c8d3",
+      "playedAt": "2026-10-09T17:48:39.883Z"
+    },
+    {
+      "name": "The Kiss Of Judas",
       "artist": "Stratovarius",
-      "url": "https://open.spotify.com/track/22hqEyYuLBid1ZzXITt4iS",
-      "image": "https://i.scdn.co/image/ab67616d00004851b0ae81f14787f57881a9ee7f",
-      "playedAt": "2026-10-09T04:56:03.247Z"
-    },
-    {
-      "name": "The Promise",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/1IuSihd1wzbgcg9QE2lxVg",
-      "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
-      "playedAt": "2026-10-09T04:47:44.335Z"
-    },
-    {
-      "name": "The Crow, the Owl and the Dove",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6udzPCAaSWZ1dIE8VwX67z",
-      "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
-      "playedAt": "2026-10-09T04:43:48.026Z"
-    },
-    {
-      "name": "Mary-Lou - Acoustic Version",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/2LgzC9Sewc0s8P1iXfOGGC",
-      "image": "https://i.scdn.co/image/ab67616d000048510abf7179c56b5a0e6ac50c87",
-      "playedAt": "2026-10-09T04:39:37.165Z"
-    },
-    {
-      "name": "The Misery",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/4SNB4o39irpFkBN9rROVbE",
-      "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69",
-      "playedAt": "2026-10-09T04:34:31.452Z"
-    },
-    {
-      "name": "Earth",
-      "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/7L2YlrpcKhqeYZQDDD2AYR",
-      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
-      "playedAt": "2026-10-09T02:04:24.335Z"
-    },
-    {
-      "name": "Earth",
-      "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/7L2YlrpcKhqeYZQDDD2AYR",
-      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
-      "playedAt": "2026-10-09T02:04:24.335Z"
+      "url": "https://open.spotify.com/track/0InmnVzfO9s37VU7UAktSx",
+      "image": "https://i.scdn.co/image/ab67616d0000485148d0961740d9c83932ac2473",
+      "playedAt": "2026-10-09T17:43:06.085Z"
     }
   ],
   "topTracks": {
@@ -83,59 +83,59 @@
       },
       {
         "rank": 4,
+        "name": "The Misery",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4SNB4o39irpFkBN9rROVbE",
+        "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69"
+      },
+      {
+        "rank": 5,
         "name": "Victoria's Secret",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/3jA4IA75ZNJFgsYIxXXjLM",
         "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "name": "No Lonelier Star",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "name": "Unshatter",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
         "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
       },
       {
-        "rank": 7,
+        "rank": 8,
         "name": "Stressed Out",
         "artist": "Twenty One Pilots",
         "url": "https://open.spotify.com/track/3CRDbSIZ4r5MsZ0YwxuEkn",
         "image": "https://i.scdn.co/image/ab67616d000048512df0d98a423025032d0db1f7"
       },
       {
-        "rank": 8,
+        "rank": 9,
         "name": "Pale Tortured Blue",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 9,
+        "rank": 10,
         "name": "FullMoon",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 10,
+        "rank": 11,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 11,
-        "name": "The Misery",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/4SNB4o39irpFkBN9rROVbE",
-        "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69"
       },
       {
         "rank": 12,

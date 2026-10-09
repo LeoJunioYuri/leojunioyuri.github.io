@@ -2,6 +2,7 @@
 title: "De 342 mil para ~12 mil chamadas por dia: cache com versão na chave"
 description: "O cardápio perguntava o pixel da loja à API de Ads a cada 10 minutos, 342 mil vezes por dia. A saída não foi um cache mais longo, foi mudar a chave do cache quando o dado muda. Com um simulador para brincar."
 date: 2026-10-06
+updated: 2026-10-09
 lang: "pt"
 category: "engenharia"
 draft: false
@@ -11,6 +12,7 @@ translationOf: "en/versioned-cache-key"
 
 import PixelConfigChamadasDia from "@/components/charts/PixelConfigChamadasDia.astro";
 import CacheVersaoSimulador from "@/components/diagrams/CacheVersaoSimulador.astro";
+import PixelConfigSerieDiaria from "@/components/charts/PixelConfigSerieDiaria.astro";
 
 Toda vez que alguém abre o cardápio de uma loja na Brendi, o cardápio precisa
 saber **qual pixel da Meta disparar**: o código que conta visita, carrinho e
@@ -160,5 +162,55 @@ do que o cardápio entrega.
 
 ## Atualização: produção
 
-_O número de produção, antes e depois do deploy de 06/10, entra aqui assim que
-houver um dia inteiro de dados para comparar._
+_Atualizado em 09/10/2026._
+
+O número de produção chegou, e bateu com a previsão. Na quinta 08/10, segundo
+dia inteiro com a versão na chave, o servidor do cardápio chamou a rota do
+pixel **12.637 vezes**. O esperado lá em cima era ~12 mil.
+
+Um passo que o post não contou: antes da versão na chave, entrou um PR que
+juntou numa entrada só, por loja, o cache do pixel do navegador e o da CAPI.
+Eles eram dois, e já explico por quê. No gráfico ele aparece como PR1. O PR2 foi
+o lado de quem grava (incrementar a versão), sem mudar comportamento, e o PR3, o
+lado de quem lê.
+
+<PixelConfigSerieDiaria lang="pt" />
+
+| | Antes | Depois | Variação |
+|---|---|---|---|
+| Domingo contra domingo, depois do PR1 | 332.376 (27/09) | 203.185 (04/10) | −39% |
+| Quinta contra quinta, depois da versão na chave | 287.046 (01/10) | 12.637 (08/10) | −95,6% |
+| Contra o domingo 20/09, antes de tudo | 606,9 mil | 12.637 (08/10) | −98% |
+| Chamadas acima de 5 s por dia | 2.361 (27/09) | 165 (08/10) | −93% |
+| Fatia da rota nas requests da API de Ads | 42% | 4,8% (08/10) | |
+| Só do cardápio | ~41% | ~3% (08/10) | |
+
+Na quarta 07/10, primeiro dia inteiro, foram 20.414. A fatia conta a rota
+inteira, que também recebe as chamadas de conversão de compra do serviço de
+pedidos: em 08/10 foram 19.625 das 409.832 requests da API de Ads (12.637 do
+cardápio, 6.988 dos pedidos). O total da API também caiu nesse período por
+outros motivos, então a fatia mostra o peso da rota, não que toda a queda do
+total veio daqui.
+
+**Por que os 10 minutos não seguravam.** No domingo 20/09, a rota tinha
+recebido 606,9 mil chamadas. Subir o tempo de cache de 60 segundos para 10
+minutos derrubou só 44%, e a meta era 90%. Olhando a distância entre chamadas
+consecutivas da mesma loja, 30% vinham menos de 5 segundos depois da anterior,
+com um pico entre 3,0 e 3,4 segundos. Eram três coisas. O pixel do navegador e
+a CAPI guardavam a mesma resposta em duas chaves, e cada uma buscava por conta
+própria. No cliente, eventos na fila de "pixel pendente" eram despachados ~3
+segundos depois mesmo quando o pixel terminava desligado, e isso disparava uma
+segunda consulta. E, mesmo sem bugs, 12 mil lojas com TTL de 10 minutos dão um
+piso de ~209 mil buscas por dia. O PR1 corrigiu os dois bugs e parou no piso
+(−39%, o previsto). Só a versão na chave quebrou o piso.
+
+**O serviço que eu não criei.** A outra ideia na mesa era um "serviço de pixel"
+separado, num Cloud Run próprio. As chamadas acima de 5 segundos caíam
+justamente nas horas em que a API de Ads inteira travava por causa de outras
+rotas, então isolar parecia tentador. Descartei: continuaria sendo um salto de
+rede na abertura do cardápio, mais um serviço para operar, lendo o mesmo banco.
+Mudaria onde a carga cai, não quanta carga existe.
+
+**O que ainda não está bom.** Dois scripts de manutenção, rodados de um laptop,
+mudam a config sem incrementar a versão. Se rodarem, a config pode ficar velha
+por até ~22 horas.

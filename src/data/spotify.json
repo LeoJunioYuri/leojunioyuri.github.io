@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-10-09T03:35:47.878Z",
+  "updatedAt": "2026-10-09T12:15:34.245Z",
   "tracks": [
+    {
+      "name": "The Enigma Of Life",
+      "artist": "Sirenia",
+      "url": "https://open.spotify.com/track/7rkKcNZzDlHFwTmNSBWIZW",
+      "image": "https://i.scdn.co/image/ab67616d0000485171258c657d501dc407e93405",
+      "playedAt": "2026-10-09T05:02:17.804Z"
+    },
+    {
+      "name": "Mother Gaia",
+      "artist": "Stratovarius",
+      "url": "https://open.spotify.com/track/22hqEyYuLBid1ZzXITt4iS",
+      "image": "https://i.scdn.co/image/ab67616d00004851b0ae81f14787f57881a9ee7f",
+      "playedAt": "2026-10-09T04:56:03.247Z"
+    },
+    {
+      "name": "The Promise",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/1IuSihd1wzbgcg9QE2lxVg",
+      "image": "https://i.scdn.co/image/ab67616d00004851cffd8a3f2887d8691c50c0ff",
+      "playedAt": "2026-10-09T04:47:44.335Z"
+    },
+    {
+      "name": "The Crow, the Owl and the Dove",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6udzPCAaSWZ1dIE8VwX67z",
+      "image": "https://i.scdn.co/image/ab67616d00004851dbfe9a51b813ddc881d21dce",
+      "playedAt": "2026-10-09T04:43:48.026Z"
+    },
+    {
+      "name": "Mary-Lou - Acoustic Version",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/2LgzC9Sewc0s8P1iXfOGGC",
+      "image": "https://i.scdn.co/image/ab67616d000048510abf7179c56b5a0e6ac50c87",
+      "playedAt": "2026-10-09T04:39:37.165Z"
+    },
+    {
+      "name": "The Misery",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/4SNB4o39irpFkBN9rROVbE",
+      "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69",
+      "playedAt": "2026-10-09T04:34:31.452Z"
+    },
     {
       "name": "Earth",
       "artist": "Jesper Kyd, Assassin's Creed",
@@ -9,53 +51,11 @@
       "playedAt": "2026-10-09T02:04:24.335Z"
     },
     {
-      "name": "Rise",
-      "artist": "Hans Zimmer",
-      "url": "https://open.spotify.com/track/5NFAE8XxEjBrpNu4tEvhqG",
-      "image": "https://i.scdn.co/image/ab67616d00004851203e47c555c8ef1285875d42",
-      "playedAt": "2026-10-09T01:12:29.429Z"
-    },
-    {
-      "name": "Onwards",
-      "artist": "Hans Zimmer",
-      "url": "https://open.spotify.com/track/2X6fuFsDCAUhWZ9tY2mxry",
-      "image": "https://i.scdn.co/image/ab67616d00004851dcfd9151d08d8b2d57162c17",
-      "playedAt": "2026-10-09T00:40:43.529Z"
-    },
-    {
-      "name": "City of Rome",
+      "name": "Earth",
       "artist": "Jesper Kyd, Assassin's Creed",
-      "url": "https://open.spotify.com/track/4m5gJuQlo2byPHRQamL6dd",
-      "image": "https://i.scdn.co/image/ab67616d00004851b25f472dbe302bb5c3bd2592",
-      "playedAt": "2026-10-09T00:38:15.099Z"
-    },
-    {
-      "name": "Geralt Of Rivia",
-      "artist": "Marcin Przybyłowicz",
-      "url": "https://open.spotify.com/track/5tmhUzJuP7XwqCHglyqnt8",
-      "image": "https://i.scdn.co/image/ab67616d00004851df756f52b91b4dcd656760b0",
-      "playedAt": "2026-10-09T00:32:41.940Z"
-    },
-    {
-      "name": "Crysis 2 Intro",
-      "artist": "Hans Zimmer",
-      "url": "https://open.spotify.com/track/6ft5XTTQWUqNag2gKxmxDp",
-      "image": "https://i.scdn.co/image/ab67616d0000485189f43a7f99466fc08bc50947",
-      "playedAt": "2026-10-09T00:30:19.455Z"
-    },
-    {
-      "name": "Journey To The Cave",
-      "artist": "Nicholas Hooper",
-      "url": "https://open.spotify.com/track/76wi5yBGOcmZhjxdCBNQYg",
-      "image": "https://i.scdn.co/image/ab67616d00004851137bed71e7717e47854010fc",
-      "playedAt": "2026-10-09T00:25:40.050Z"
-    },
-    {
-      "name": "Kaer Morhen",
-      "artist": "Marcin Przybyłowicz",
-      "url": "https://open.spotify.com/track/761SMhVKJlJlUCUveNcq1m",
-      "image": "https://i.scdn.co/image/ab67616d00004851df756f52b91b4dcd656760b0",
-      "playedAt": "2026-10-09T00:22:31.284Z"
+      "url": "https://open.spotify.com/track/7L2YlrpcKhqeYZQDDD2AYR",
+      "image": "https://i.scdn.co/image/ab67616d0000485197dd973df77a343bd38bcff7",
+      "playedAt": "2026-10-09T02:04:24.335Z"
     }
   ],
   "topTracks": {
@@ -132,17 +132,17 @@
       },
       {
         "rank": 11,
-        "name": "Would've, Could've, Should've",
-        "artist": "Taylor Swift",
-        "url": "https://open.spotify.com/track/3pUa0ZxdSeaJXm0EIydD3F",
-        "image": "https://i.scdn.co/image/ab67616d000048514a97c76d7b4f6530f439c249"
+        "name": "The Misery",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4SNB4o39irpFkBN9rROVbE",
+        "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69"
       },
       {
         "rank": 12,
-        "name": "cardigan",
-        "artist": "Taylor Swift",
-        "url": "https://open.spotify.com/track/4R2kfaDFhslZEMJqAFNpdd",
-        "image": "https://i.scdn.co/image/ab67616d0000485195f754318336a07e85ec59bc"
+        "name": "Paid in Full",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
+        "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
       }
     ],
     "medium": [

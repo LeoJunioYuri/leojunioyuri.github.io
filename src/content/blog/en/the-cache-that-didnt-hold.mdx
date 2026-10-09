@@ -30,8 +30,11 @@ the numbers showed afterwards. Spoiler: both predictions landed, and the
 
 On Sep 27 I went through the ads API's request logs in BigQuery, route by route.
 One line dominated: the internal route that serves the pixel config, called by
-the menu server **~342 thousand times a day**. That was **42% of all requests**
-to the ads API (836.7 thousand a day), for data that almost never changes.
+the menu server **~342 thousand times a day**. Adding the ~12 thousand calls
+from the order service, which uses the same route for purchase conversions, the
+route served ~354 thousand: **42% of all requests** to the ads API (836.7
+thousand a day). The menu alone was already 41%. All of that for data that
+almost never changes.
 
 Typical latency wasn't scary: p50 of 13 ms, p95 of 20 ms. The problem was in the
 tail. About **2.4 thousand calls a day took more than 5 seconds**, and they
@@ -154,11 +157,14 @@ On Thursday Oct 8, the second full day with PR3, there were **12,637**.
 | Calls per day, Thursday vs Thursday | 287,046 (Oct 1) | 12,637 (Oct 8) | −95.6% |
 | Vs Sunday Sep 20, before any of this | 606.9k | 12,637 (Oct 8) | −98% |
 | Calls over 5 s per day | 2,361 (Sep 27) | 165 (Oct 8) | −93% |
-| Route's share of ads API requests | 42% | 4.8% (Oct 8) | |
+| Whole route's share of ads API requests | 42% (Sep 27) | 4.8% (Oct 8) | |
+| Menu-only share | ~41% (Sep 27) | ~3% (Oct 8) | |
 
-One caveat on the last row: the ads API's total request count also dropped in
-this period, for other reasons. The share shows the route's weight; it doesn't
-mean the whole drop in the total came from here.
+The whole route includes the order service's purchase-conversion calls. On Oct
+8 it was 19,625 of the ads API's 409,832 requests: 12,637 from the menu and
+6,988 from orders. One caveat on the shares: the ads API's total request count
+also dropped in this period, for other reasons. The share shows the route's
+weight; it doesn't mean the whole drop in the total came from here.
 
 ## What still isn't good
 

@@ -30,8 +30,10 @@ de 10 minutos que eu achava que resolvia não chegava nem perto.
 
 Em 27/09 fui olhar os logs de request da API de ads no BigQuery, rota por rota.
 Uma linha dominava: a rota interna que entrega a config do pixel, chamada pelo
-servidor do cardápio **~342 mil vezes por dia**. Eram **42% de todas as
-requests** da API de ads (836,7 mil por dia), para um dado que quase nunca muda.
+servidor do cardápio **~342 mil vezes por dia**. Somando as ~12 mil chamadas
+do serviço de pedidos, que usa a mesma rota para a conversão de compra, a rota
+respondia ~354 mil: **42% de todas as requests** da API de ads (836,7 mil por
+dia). Só o cardápio já era 41%. Tudo isso para um dado que quase nunca muda.
 
 A latência típica não assustava: p50 de 13 ms, p95 de 20 ms. O problema estava
 na cauda. Cerca de **2,4 mil chamadas por dia passavam de 5 segundos**, e elas
@@ -155,11 +157,14 @@ Na quinta 08/10, segundo dia inteiro com o PR3, foram **12.637**.
 | Chamadas por dia, quinta contra quinta | 287.046 (01/10) | 12.637 (08/10) | −95,6% |
 | Contra o domingo 20/09, antes de tudo | 606,9 mil | 12.637 (08/10) | −98% |
 | Chamadas acima de 5 s por dia | 2.361 (27/09) | 165 (08/10) | −93% |
-| Fatia da rota nas requests da API de ads | 42% | 4,8% (08/10) | |
+| Fatia da rota inteira nas requests da API de ads | 42% (27/09) | 4,8% (08/10) | |
+| Fatia só do cardápio | ~41% (27/09) | ~3% (08/10) | |
 
-Um cuidado com a última linha: o total de requests da API de ads também caiu
-nesse período, por outros motivos. A fatia mostra o peso da rota; ela não quer
-dizer que toda a queda do total veio daqui.
+A rota inteira inclui as chamadas do serviço de pedidos para a conversão de
+compra. Em 08/10 foram 19.625 das 409.832 requests da API de ads: 12.637 do
+cardápio e 6.988 dos pedidos. Um cuidado com as fatias: o total de requests da
+API de ads também caiu nesse período, por outros motivos. A fatia mostra o peso
+da rota; ela não quer dizer que toda a queda do total veio daqui.
 
 ## O que ainda não está bom
 

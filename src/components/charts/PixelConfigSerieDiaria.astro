@@ -38,7 +38,7 @@ const t =
         pr2: "PR2 merged, no behavior change",
         partial: "partial day",
         legend: { before: "10-min cache, two keys", pr1: "after PR1", pr3: "after PR3" },
-        cap: "Calendar days in Brasília time. That's why Sep 27 closes at 332k, slightly off from the ~342k of the original measurement. Traffic has a weekly shape (Sunday is the peak, Monday is lower), so compare the same weekday: Sunday vs Sunday after PR1 (−39%, as predicted) and Thursday vs Thursday after PR3 (−95.6%).",
+        cap: "Calendar days in Brasília time. That's why Sep 27 closes at 332k: the ~342k at the start of the post is the same day in UTC. Traffic has a weekly shape (Sunday is the peak, Monday is lower), so compare the same weekday: Sunday vs Sunday after PR1 (−39%, as predicted) and Thursday vs Thursday after PR3 (−95.6%).",
         dateFmt: (d: string) => {
           const [dd, mm] = d.split("/");
           return `${mm}/${dd}`;
@@ -52,7 +52,7 @@ const t =
         pr2: "PR2 mergeado, sem mudança de comportamento",
         partial: "dia parcial",
         legend: { before: "cache de 10 min, duas chaves", pr1: "depois do PR1", pr3: "depois do PR3" },
-        cap: "Dias do calendário de Brasília. Por isso 27/09 fecha em 332 mil, um pouco diferente dos ~342 mil da medição original. O tráfego tem cara de semana (domingo é o pico, segunda é mais baixa), então compare o mesmo dia da semana: domingo contra domingo depois do PR1 (−39%, como previsto) e quinta contra quinta depois do PR3 (−95,6%).",
+        cap: "Dias do calendário de Brasília. Por isso 27/09 fecha em 332 mil: os ~342 mil do começo do post são o mesmo dia em UTC. O tráfego tem cara de semana (domingo é o pico, segunda é mais baixa), então compare o mesmo dia da semana: domingo contra domingo depois do PR1 (−39%, como previsto) e quinta contra quinta depois do PR3 (−95,6%).",
         dateFmt: (d: string) => d,
       };
 

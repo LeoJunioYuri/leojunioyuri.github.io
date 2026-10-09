@@ -1,0 +1,168 @@
+---
+/** Config do pixel no cardápio: duas chaves + busca dobrada (antes) contra uma chave com versão + incremento na escrita (depois). */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t =
+  lang === "en"
+    ? {
+        title: "Pixel config in the menu, before and after",
+        before: "Before",
+        after: "After",
+        menu: "Menu",
+        menuSub: "server",
+        keyBrowser: "key: browser pixel",
+        keyCapi: "key: CAPI",
+        keySub: "10 min each",
+        adsApi: "Ads API",
+        adsApiSub: "pixel-config route",
+        pg: "Postgres",
+        pgSub: "2–3 queries",
+        fetch: "fetch",
+        retry: "+1 fetch ~3 s later",
+        beforeNote: "Same data, two entries, two fetches. A queued \"pending\" event repeated the fetch ~3 s later.",
+        version: "store version",
+        versionSub: "memcache · 24h",
+        entry: "one key: store + version",
+        entrySub: "~22h fresh · 23h max",
+        adsApiAfter: "Ads API",
+        miss: "miss only",
+        write: "write that changes",
+        write2: "the pixel",
+        bump: "version + 1",
+        save: "saves first",
+        afterNote: "New version = new key. The old entry just stops being read.",
+      }
+    : {
+        title: "Config do pixel no cardápio, antes e depois",
+        before: "Antes",
+        after: "Depois",
+        menu: "Cardápio",
+        menuSub: "servidor",
+        keyBrowser: "chave: pixel do navegador",
+        keyCapi: "chave: CAPI",
+        keySub: "10 min cada",
+        adsApi: "API de ads",
+        adsApiSub: "rota de config do pixel",
+        pg: "Postgres",
+        pgSub: "2–3 queries",
+        fetch: "busca",
+        retry: "+1 busca ~3 s depois",
+        beforeNote: "Mesmo dado, duas entradas, duas buscas. Um evento na fila \"pendente\" repetia a busca ~3 s depois.",
+        version: "versão da loja",
+        versionSub: "memcache · 24h",
+        entry: "uma chave: loja + versão",
+        entrySub: "~22h fresca · 23h no máx.",
+        adsApiAfter: "API de ads",
+        miss: "só no miss",
+        write: "escrita que muda",
+        write2: "o pixel",
+        bump: "versão + 1",
+        save: "salva primeiro",
+        afterNote: "Versão nova = chave nova. A entrada antiga só para de ser lida.",
+      };
+---
+
+<figure
+  class="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]"
+>
+  <figcaption
+    class="border-b border-[var(--border)] px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[var(--muted)]"
+  >
+    {t.title}
+  </figcaption>
+  <div class="p-4 sm:p-6">
+    <svg viewBox="0 0 760 370" class="h-auto w-full" role="img" aria-label={t.title}>
+      <defs>
+        <marker id="cc-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--muted)"></path>
+        </marker>
+        <marker id="cc-arrow-accent" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="var(--accent)"></path>
+        </marker>
+      </defs>
+      <style>
+        .cc-box { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+        .cc-acc { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+        .cc-lbl { fill: var(--fg); font: 600 12px var(--font-sans, sans-serif); }
+        .cc-sub { fill: var(--muted); font: 400 11px var(--font-sans, sans-serif); }
+        .cc-row { fill: var(--muted); font: 600 11px var(--font-sans, sans-serif); letter-spacing: .08em; text-transform: uppercase; }
+        .cc-flow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+        .cc-hot { stroke: var(--accent); stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+        .cc-hot-lbl { fill: var(--accent); font: 600 11px var(--font-sans, sans-serif); }
+        .cc-note { fill: var(--muted); font: italic 400 11px var(--font-sans, sans-serif); }
+      </style>
+
+      <!-- ANTES -->
+      <text class="cc-row" x="10" y="22">{t.before}</text>
+      <rect class="cc-box" x="10" y="55" width="120" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="70" y="77" text-anchor="middle">{t.menu}</text>
+      <text class="cc-sub" x="70" y="94" text-anchor="middle">{t.menuSub}</text>
+
+      <rect class="cc-box" x="170" y="35" width="185" height="38" rx="8"></rect>
+      <text class="cc-lbl" x="262" y="52" text-anchor="middle">{t.keyBrowser}</text>
+      <text class="cc-sub" x="262" y="66" text-anchor="middle">{t.keySub}</text>
+      <rect class="cc-box" x="170" y="87" width="185" height="38" rx="8"></rect>
+      <text class="cc-lbl" x="262" y="104" text-anchor="middle">{t.keyCapi}</text>
+      <text class="cc-sub" x="262" y="118" text-anchor="middle">{t.keySub}</text>
+      <path class="cc-flow" d="M130,74 L170,56" marker-end="url(#cc-arrow)"></path>
+      <path class="cc-flow" d="M130,86 L170,104" marker-end="url(#cc-arrow)"></path>
+
+      <rect class="cc-box" x="460" y="55" width="150" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="535" y="77" text-anchor="middle">{t.adsApi}</text>
+      <text class="cc-sub" x="535" y="94" text-anchor="middle">{t.adsApiSub}</text>
+      <path class="cc-hot" d="M355,54 L460,72" marker-end="url(#cc-arrow-accent)"></path>
+      <path class="cc-hot" d="M355,106 L460,88" marker-end="url(#cc-arrow-accent)"></path>
+      <text class="cc-hot-lbl" x="405" y="52" text-anchor="middle">{t.fetch}</text>
+      <text class="cc-hot-lbl" x="405" y="118" text-anchor="middle">{t.fetch}</text>
+      <text class="cc-hot-lbl" x="405" y="140" text-anchor="middle">{t.retry}</text>
+
+      <rect class="cc-box" x="650" y="55" width="100" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="700" y="77" text-anchor="middle">{t.pg}</text>
+      <text class="cc-sub" x="700" y="94" text-anchor="middle">{t.pgSub}</text>
+      <path class="cc-flow" d="M610,80 H650" marker-end="url(#cc-arrow)"></path>
+
+      <text class="cc-note" x="10" y="168">{t.beforeNote}</text>
+
+      <line x1="10" y1="186" x2="750" y2="186" stroke="var(--border)" stroke-dasharray="3 4"></line>
+
+      <!-- DEPOIS -->
+      <text class="cc-row" x="10" y="214">{t.after}</text>
+      <rect class="cc-box" x="10" y="235" width="120" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="70" y="257" text-anchor="middle">{t.menu}</text>
+      <text class="cc-sub" x="70" y="274" text-anchor="middle">{t.menuSub}</text>
+
+      <rect class="cc-box" x="155" y="235" width="130" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="220" y="257" text-anchor="middle">{t.version}</text>
+      <text class="cc-sub" x="220" y="274" text-anchor="middle">{t.versionSub}</text>
+
+      <rect class="cc-acc" x="310" y="235" width="185" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="402" y="257" text-anchor="middle">{t.entry}</text>
+      <text class="cc-sub" x="402" y="274" text-anchor="middle">{t.entrySub}</text>
+
+      <rect class="cc-box" x="565" y="235" width="90" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="610" y="264" text-anchor="middle">{t.adsApiAfter}</text>
+
+      <rect class="cc-box" x="675" y="235" width="75" height="50" rx="10"></rect>
+      <text class="cc-lbl" x="712" y="264" text-anchor="middle">{t.pg}</text>
+
+      <path class="cc-flow" d="M130,260 H155" marker-end="url(#cc-arrow)"></path>
+      <path class="cc-flow" d="M285,260 H310" marker-end="url(#cc-arrow)"></path>
+      <path class="cc-hot" d="M495,260 H565" marker-end="url(#cc-arrow-accent)"></path>
+      <text class="cc-hot-lbl" x="530" y="252" text-anchor="middle">{t.miss}</text>
+      <path class="cc-flow" d="M655,260 H675" marker-end="url(#cc-arrow)"></path>
+
+      <rect class="cc-acc" x="155" y="312" width="130" height="40" rx="8"></rect>
+      <text class="cc-lbl" x="220" y="328" text-anchor="middle">{t.write}</text>
+      <text class="cc-lbl" x="220" y="343" text-anchor="middle">{t.write2}</text>
+      <path class="cc-flow" d="M220,312 V285" marker-end="url(#cc-arrow)"></path>
+      <text class="cc-sub" x="228" y="302">{t.bump}</text>
+      <path class="cc-flow" d="M285,332 H712 V285" marker-end="url(#cc-arrow)"></path>
+      <text class="cc-sub" x="560" y="326" text-anchor="middle">{t.save}</text>
+
+      <text class="cc-note" x="310" y="362">{t.afterNote}</text>
+    </svg>
+  </div>
+</figure>

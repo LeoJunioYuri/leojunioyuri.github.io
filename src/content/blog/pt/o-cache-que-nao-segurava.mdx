@@ -1,0 +1,192 @@
+---
+title: "O cache que não segurava"
+description: "A rota que entrega o pixel da Meta ao cardápio era 42% do tráfego da nossa API de ads, mesmo com cache de 10 minutos. Como medimos por que ele não segurava, por que não criamos um serviço novo e o caminho de 332 mil para 12,6 mil chamadas por dia."
+date: 2026-10-09
+lang: "pt"
+category: "engenharia"
+draft: true
+tags: ["Engenharia", "Cache", "System Design", "Performance", "Lições"]
+translationOf: "en/the-cache-that-didnt-hold"
+---
+
+import CacheChaveUnica from "@/components/diagrams/CacheChaveUnica.astro";
+import PixelConfigSerieDiaria from "@/components/charts/PixelConfigSerieDiaria.astro";
+
+Toda vez que alguém abre o cardápio de uma loja na Brendi, o servidor do
+cardápio precisa saber qual pixel da Meta aquela loja usa. O pixel do navegador
+precisa dos IDs do pixel. A API de Conversões da Meta (a CAPI, que manda os
+eventos pelo servidor) precisa dos IDs e de um token de acesso. Quem sabe tudo
+isso é a API de ads, que monta a resposta a partir do Postgres com duas ou três
+queries, juntando uma tabela do domínio de loja e uma do domínio de ads.
+
+Há alguns dias escrevi sobre a
+[versão na chave do cache](/writing/cache-com-versao-na-chave), que foi a peça
+final. Este post é o caminho até ela: como achamos o problema, por que o cache
+que já existia não segurava, o serviço que eu decidi não criar e o que os
+números mostraram depois. Adianto o fim: as duas previsões bateram, e o cache
+de 10 minutos que eu achava que resolvia não chegava nem perto.
+
+## Onde estava o tráfego
+
+Em 27/09 fui olhar os logs de request da API de ads no BigQuery, rota por rota.
+Uma linha dominava: a rota interna que entrega a config do pixel, chamada pelo
+servidor do cardápio **~342 mil vezes por dia**. Eram **42% de todas as
+requests** da API de ads (836,7 mil por dia), para um dado que quase nunca muda.
+
+A latência típica não assustava: p50 de 13 ms, p95 de 20 ms. O problema estava
+na cauda. Cerca de **2,4 mil chamadas por dia passavam de 5 segundos**, e elas
+não estavam espalhadas. Caíam exatamente nas horas em que a API de ads inteira
+travava, com o event loop parado por causa de outras rotas, que não tinham nada
+a ver com pixel. A abertura do cardápio estava refém de código que nem sabia que
+ela existia.
+
+## O cache que já existia
+
+Esse tráfego não era novidade. No domingo anterior, 20/09, a rota tinha
+recebido **606,9 mil chamadas**. Eu já tinha mexido no cache do cardápio,
+aumentando o tempo em que a resposta conta como fresca de 60 segundos para 10
+minutos. Caiu para 341,9 mil: **−44%**.
+
+Parece bom até lembrar qual era a meta: **−90%**. Um cache de 10 minutos para um
+dado que muda raramente deveria ter feito muito mais. Alguma coisa não estava
+segurando.
+
+## Por que o cache não segurava
+
+Contar chamadas diz quanto. Não diz por quê. O que destravou foi olhar a
+**distância entre chamadas consecutivas para a mesma loja**. Se o cache
+funcionasse, quase todas estariam a 10 minutos ou mais da anterior.
+
+Não estavam. **30% das chamadas consecutivas da mesma loja vinham menos de 5
+segundos depois da anterior**, e esse grupo tinha um pico estranho entre **3,0
+e 3,4 segundos**. Concentrado demais para ser acaso. Puxando o fio, apareceram
+três motivos.
+
+**Duas chaves para o mesmo dado.** O pixel do navegador e a CAPI guardavam a
+mesma resposta em entradas separadas do cache. Cada uma vencia no seu tempo e
+buscava de novo por conta própria. O mesmo fato, buscado duas vezes.
+
+**O evento que voltava 3 segundos depois.** No cliente, enquanto o estado do
+pixel era "pendente", os eventos iam para uma fila, esvaziada uns 3 segundos
+depois. Só que a fila era esvaziada mesmo quando o pixel terminava como
+"desligado", e isso disparava uma segunda consulta ao servidor. Os 3,0–3,4
+segundos eram o intervalo desse flush.
+
+**O piso que nenhum ajuste fino quebra.** Esse é estrutural. Com cerca de 12 mil
+lojas e um cache de 10 minutos, o mínimo possível é uma busca por loja a cada
+janela de 10 minutos em que aquela loja teve visita. Com o tráfego real, esse
+piso dava **~209 mil por dia**. Mesmo com os dois bugs corrigidos, o cache de 10
+minutos nunca chegaria na meta.
+
+Os dois primeiros eram bugs. O terceiro era o desenho. E ele também dizia que
+"aumentar o TTL" não era a resposta: um TTL maior troca chamadas por pixel
+errado durante horas quando o lojista muda a config.
+
+## O serviço que eu não criei
+
+A primeira ideia na mesa foi tirar isso da API de ads: um "serviço de pixel"
+próprio, num Cloud Run separado. Isolaria a rota dos travamentos das outras e
+aliviaria a API de ads.
+
+Descartei, por enquanto. Um serviço separado continua sendo um salto de rede na
+abertura do cardápio. Traz um serviço novo para operar, com deploy, alerta e
+plantão. E lê o mesmo banco. Ele muda **onde** a carga cai, não **quanta** carga
+existe. A chamada mais barata é a que não acontece, então a aposta foi deixar o
+cache correto e invalidá-lo quando o dado muda.
+
+## Três PRs
+
+**PR1: uma entrada por loja (mergeado em 01/10).** Uma única entrada de cache
+por loja passou a servir o pixel do navegador e a CAPI. O token fica só no
+servidor; o navegador recebe apenas os IDs públicos do pixel. Em volta disso:
+
+- **stale-while-revalidate**: depois de vencer, a entrada continua sendo servida
+  enquanto uma busca nova roda em segundo plano;
+- **cache negativo**: "esta loja não tem pixel ligado" também é uma resposta, e
+  também vai para o cache;
+- **single-flight**: dentro do mesmo processo, várias requests da mesma loja
+  esperam uma única busca;
+- **marcador de falha de 5 segundos**: se a API de ads está fora, ninguém
+  insiste nela durante 5 segundos;
+- **timeout de 1 segundo** na chamada.
+
+No cliente, a fila passou a ser descartada quando o pixel é definitivamente
+desligado, em vez de disparar outra consulta.
+
+A previsão para o PR1 era chegar perto do piso: **−39%**.
+
+**PR2: quem grava avisa (mergeado em 05/10, sem mudança de comportamento).**
+Toda escrita que muda a config efetiva do pixel passou a incrementar uma versão
+por loja no memcache, o mesmo padrão que já usávamos para os slugs das lojas. O
+incremento é explícito em cada ponto de escrita, porque a regra do time é que
+repositórios não disparam efeito colateral e utilitários não importam clientes.
+O preço dessa escolha: quem criar um caminho de escrita novo precisa lembrar de
+incrementar.
+
+**PR3: quem lê usa a versão (mergeado em 06/10).** O cardápio lê a versão e a
+coloca na chave do cache. Como a chave muda quando o dado muda, a entrada pode
+viver **~22 horas fresca e 23 horas no máximo**, sempre abaixo das 24 horas da
+chave de versão. Assim, uma versão que vence (e volta para v0) nunca encontra
+uma entrada v0 velha. Se a leitura da versão falha, o cardápio volta para o
+comportamento do PR1: 10 minutos fresco, 30 no máximo. O detalhe de cada uma
+dessas regras está no [post anterior](/writing/cache-com-versao-na-chave).
+
+<CacheChaveUnica lang="pt" />
+
+Agentes de código ajudaram bastante, nas consultas de log e nos PRs. O desenho,
+a decisão de não criar o serviço e o "pode seguir" de cada etapa ficaram comigo.
+
+## Os números
+
+Chamadas por dia do servidor do cardápio à rota de config do pixel:
+
+<PixelConfigSerieDiaria lang="pt" />
+
+**O PR1 bateu a previsão.** Domingo contra domingo, de 332.376 (27/09) para
+203.185 (04/10): **−39%**, o número previsto. O PR1 levou o cache até o piso do
+TTL de 10 minutos e parou ali, como a conta dizia que pararia. A queda de 05/10
+é segunda-feira, não o PR2.
+
+**O PR3 também.** A previsão era ~12 mil por dia, cerca de uma busca por loja.
+Na quinta 08/10, segundo dia inteiro com o PR3, foram **12.637**.
+
+| | Antes | Depois | Variação |
+|---|---|---|---|
+| Chamadas por dia, quinta contra quinta | 287.046 (01/10) | 12.637 (08/10) | −95,6% |
+| Contra o domingo 20/09, antes de tudo | 606,9 mil | 12.637 (08/10) | −98% |
+| Chamadas acima de 5 s por dia | 2.361 (27/09) | 165 (08/10) | −93% |
+| Fatia da rota nas requests da API de ads | 42% | 4,8% (08/10) | |
+
+Um cuidado com a última linha: o total de requests da API de ads também caiu
+nesse período, por outros motivos. A fatia mostra o peso da rota; ela não quer
+dizer que toda a queda do total veio daqui.
+
+## O que ainda não está bom
+
+- **Dois scripts de manutenção** que rodam de um laptop mudam a config sem
+  incrementar a versão. Se rodarem, a config pode ficar velha por até ~22
+  horas. É conhecido e aceito por enquanto, mas é exatamente o tipo de buraco
+  que o incremento explícito abre.
+- **O incremento depende de memória.** Um caminho de escrita novo que esquecer
+  de incrementar vira pixel velho por quase um dia. Hoje a rede de proteção é o
+  review.
+- **As chamadas lentas não zeraram.** A rota continua dentro da mesma API e
+  sujeita aos mesmos travamentos. A diferença é que agora passa por ela uma
+  fração pequena do tráfego de antes.
+
+## O que eu levo disso
+
+- **Meça antes de confiar na config do cache.** Eu tinha "10 minutos" no código
+  e −44% na prática.
+- **Olhe a distribuição dos intervalos, não só a contagem.** O pico em 3
+  segundos apontou o bug antes de qualquer leitura de código.
+- **Uma chave por fato.** Duas entradas para o mesmo dado dobram a conta sem
+  ninguém perceber.
+- **Faça a conta do piso.** Se o desenho tem um mínimo, nenhum ajuste fino passa
+  dele.
+- **Invalidar no evento ganha de TTL curto.** TTL curto é adivinhar quando o
+  dado muda; incrementar a versão é saber.
+- **O fallback deve ser chato.** Quando a versão não pode ser lida, o cardápio
+  volta para o que já rodava antes.
+- **Serviço separado não é a resposta padrão para carga.** Antes de mover a
+  chamada, pergunte se ela precisa existir.

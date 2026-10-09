@@ -1,0 +1,190 @@
+---
+title: "The cache that didn't hold"
+description: "The route that hands the menu its Meta pixel was 42% of our ads API's traffic, even with a 10-minute cache. How we measured why it didn't hold, why we didn't build a new service, and the path from 332 thousand to 12.6 thousand calls a day."
+date: 2026-10-09
+lang: "en"
+category: "engenharia"
+draft: true
+tags: ["Engineering", "Caching", "System Design", "Performance", "Lessons"]
+translationOf: "pt/o-cache-que-nao-segurava"
+---
+
+import CacheChaveUnica from "@/components/diagrams/CacheChaveUnica.astro";
+import PixelConfigSerieDiaria from "@/components/charts/PixelConfigSerieDiaria.astro";
+
+Every time someone opens a store's menu at Brendi, the menu server needs to know
+which Meta pixel that store uses. The browser pixel needs the pixel IDs. Meta's
+Conversions API (CAPI, which sends events from the server) needs the IDs and an
+access token. The one that knows all of this is the ads API, which builds the
+answer from Postgres with two or three queries, joining a table from the store
+domain and one from the ads domain.
+
+A few days ago I wrote about
+[putting a version in the cache key](/en/writing/versioned-cache-key), which was
+the final piece. This post is the road there: how we found the problem, why the
+cache we already had didn't hold, the service I decided not to build, and what
+the numbers showed afterwards. Spoiler: both predictions landed, and the
+10-minute cache I thought solved it wasn't even close.
+
+## Where the traffic was
+
+On Sep 27 I went through the ads API's request logs in BigQuery, route by route.
+One line dominated: the internal route that serves the pixel config, called by
+the menu server **~342 thousand times a day**. That was **42% of all requests**
+to the ads API (836.7 thousand a day), for data that almost never changes.
+
+Typical latency wasn't scary: p50 of 13 ms, p95 of 20 ms. The problem was in the
+tail. About **2.4 thousand calls a day took more than 5 seconds**, and they
+weren't spread out. They landed exactly at the hours when the whole ads API
+stalled, with the event loop blocked by other routes that had nothing to do with
+pixels. Opening the menu was held hostage by code that didn't even know it
+existed.
+
+## The cache we already had
+
+This traffic wasn't news. The Sunday before, Sep 20, the route had received
+**606.9 thousand calls**. I had already tweaked the menu's cache, raising the
+time a response counts as fresh from 60 seconds to 10 minutes. It dropped to
+341.9 thousand: **−44%**.
+
+Sounds good until you remember the goal: **−90%**. A 10-minute cache for data
+that rarely changes should have done much more. Something wasn't holding.
+
+## Why the cache didn't hold
+
+Counting calls tells you how many. It doesn't tell you why. What unlocked it was
+looking at the **gap between consecutive calls for the same store**. If the
+cache worked, almost all of them would be 10 minutes or more after the previous
+one.
+
+They weren't. **30% of consecutive calls for the same store came less than 5
+seconds after the previous one**, and that group had an odd spike between **3.0
+and 3.4 seconds**. Too concentrated to be chance. Pulling the thread, three
+causes came up.
+
+**Two keys for the same data.** The browser pixel and CAPI cached the same
+response in separate cache entries. Each expired on its own clock and fetched
+again on its own. The same fact, fetched twice.
+
+**The event that came back 3 seconds later.** On the client, while the pixel
+state was "pending", events went into a queue that was flushed about 3 seconds
+later. But the queue was flushed even when the pixel ended up "disabled", and
+that triggered a second lookup on the server. The 3.0–3.4 seconds were that
+flush interval.
+
+**The floor no fine-tuning breaks.** This one is structural. With about 12
+thousand stores and a 10-minute cache, the minimum possible is one fetch per
+store per 10-minute window in which that store had a visit. With real traffic,
+that floor came to **~209 thousand a day**. Even with both bugs fixed, the
+10-minute cache would never reach the goal.
+
+The first two were bugs. The third was the design. And it also said that
+"raise the TTL" wasn't the answer: a longer TTL trades calls for hours of the
+wrong pixel whenever a merchant changes the config.
+
+## The service I didn't build
+
+The first idea on the table was to pull this out of the ads API: a dedicated
+"pixel service" on its own Cloud Run. It would isolate the route from the other
+routes' stalls and take load off the ads API.
+
+I turned it down, for now. A separate service is still a network hop on menu
+load. It brings a new service to operate, with deploys, alerts and on-call. And
+it reads the same database. It changes **where** the load lands, not **how
+much** load there is. The cheapest call is the one that doesn't happen, so the
+bet was to make the cache correct and invalidate it when the data changes.
+
+## Three PRs
+
+**PR1: one entry per store (merged Oct 1).** A single cache entry per store now
+serves both the browser pixel and CAPI. The token stays on the server only; the
+browser gets only the public pixel IDs. Around that:
+
+- **stale-while-revalidate**: once expired, the entry keeps being served while a
+  fresh fetch runs in the background;
+- **negative caching**: "this store has no pixel enabled" is also an answer, and
+  it also goes into the cache;
+- **single-flight**: within the same process, concurrent requests for the same
+  store wait on a single fetch;
+- **5-second failure marker**: if the ads API is down, nobody hammers it for 5
+  seconds;
+- **1-second timeout** on the call.
+
+On the client, the queue is now dropped when the pixel is definitively
+disabled, instead of triggering another lookup.
+
+The prediction for PR1 was to get close to the floor: **−39%**.
+
+**PR2: writers announce (merged Oct 5, no behavior change).** Every write that
+changes a store's effective pixel config now bumps a per-store version in
+memcache, the same pattern we already used for store slugs. The bump is explicit
+at each write call site, because the team rule is that repositories don't fire
+side effects and utils don't import clients. The price of that choice: whoever
+adds a new write path has to remember to bump.
+
+**PR3: readers use the version (merged Oct 6).** The menu reads the version and
+puts it in the cache key. Since the key changes when the data changes, the entry
+can live **~22 hours fresh and 23 hours at most**, always below the version
+key's 24 hours. That way, a version that expires (and falls back to v0) can
+never meet a stale v0 entry. If reading the version fails, the menu falls back
+to PR1's behavior: 10 minutes fresh, 30 at most. The details of each of these
+rules are in the [previous post](/en/writing/versioned-cache-key).
+
+<CacheChaveUnica lang="en" />
+
+AI coding agents helped a lot, with the log queries and the PRs. The design, the
+decision not to build the service, and the go-ahead at each step stayed with me.
+
+## The numbers
+
+Daily calls from the menu server to the pixel-config route:
+
+<PixelConfigSerieDiaria lang="en" />
+
+**PR1 hit the prediction.** Sunday vs Sunday, from 332,376 (Sep 27) to 203,185
+(Oct 4): **−39%**, the predicted number. PR1 took the cache down to the
+10-minute TTL's floor and stopped there, as the math said it would. The drop on
+Oct 5 is a Monday, not PR2.
+
+**So did PR3.** The prediction was ~12 thousand a day, about one fetch per store.
+On Thursday Oct 8, the second full day with PR3, there were **12,637**.
+
+| | Before | After | Change |
+|---|---|---|---|
+| Calls per day, Thursday vs Thursday | 287,046 (Oct 1) | 12,637 (Oct 8) | −95.6% |
+| Vs Sunday Sep 20, before any of this | 606.9k | 12,637 (Oct 8) | −98% |
+| Calls over 5 s per day | 2,361 (Sep 27) | 165 (Oct 8) | −93% |
+| Route's share of ads API requests | 42% | 4.8% (Oct 8) | |
+
+One caveat on the last row: the ads API's total request count also dropped in
+this period, for other reasons. The share shows the route's weight; it doesn't
+mean the whole drop in the total came from here.
+
+## What still isn't good
+
+- **Two maintenance scripts** run from a laptop change the config without
+  bumping the version. If they run, the config can be stale for up to ~22
+  hours. It's known and accepted for now, but it's exactly the kind of hole
+  explicit bumps open.
+- **The bump depends on memory.** A new write path that forgets to bump means a
+  stale pixel for almost a day. Today the safety net is code review.
+- **Slow calls didn't go to zero.** The route still lives inside the same API
+  and is subject to the same stalls. The difference is that only a small
+  fraction of the old traffic goes through it now.
+
+## What I'm taking from this
+
+- **Measure before trusting a cache config.** I had "10 minutes" in the code and
+  −44% in practice.
+- **Look at the gap distribution, not just the count.** The spike at 3 seconds
+  pointed at the bug before I read any code.
+- **One key per fact.** Two entries for the same data double the bill without
+  anyone noticing.
+- **Do the floor math.** If the design has a minimum, no fine-tuning gets below
+  it.
+- **Event-driven invalidation beats short TTLs.** A short TTL is guessing when
+  the data changes; bumping a version is knowing.
+- **Keep the fallback boring.** When the version can't be read, the menu goes
+  back to what was already running.
+- **A separate service is not the default answer to load.** Before moving the
+  call, ask whether it needs to exist.

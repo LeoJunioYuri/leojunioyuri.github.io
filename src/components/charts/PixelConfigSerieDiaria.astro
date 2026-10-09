@@ -1,0 +1,120 @@
+---
+/** Chamadas diárias cardápio → rota de config do pixel (BRT), 27/09–08/10, com marcos do PR1 e do PR3. */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+type Phase = "before" | "pr1" | "pr3";
+type Day = { date: string; dow: number; n: number; phase: Phase; note?: "pr2" | "pr3-partial" };
+type Marker = { marker: "pr1" | "pr3" };
+
+// Calendário de Brasília. dow: 0 = domingo.
+const series: Array<Day | Marker> = [
+  { date: "27/09", dow: 0, n: 332376, phase: "before" },
+  { date: "28/09", dow: 1, n: 253979, phase: "before" },
+  { date: "29/09", dow: 2, n: 258015, phase: "before" },
+  { date: "30/09", dow: 3, n: 277866, phase: "before" },
+  { date: "01/10", dow: 4, n: 287046, phase: "before" },
+  { marker: "pr1" },
+  { date: "02/10", dow: 5, n: 225551, phase: "pr1" },
+  { date: "03/10", dow: 6, n: 216109, phase: "pr1" },
+  { date: "04/10", dow: 0, n: 203185, phase: "pr1" },
+  { date: "05/10", dow: 1, n: 155115, phase: "pr1", note: "pr2" },
+  { marker: "pr3" },
+  { date: "06/10", dow: 2, n: 78952, phase: "pr3", note: "pr3-partial" },
+  { date: "07/10", dow: 3, n: 20414, phase: "pr3" },
+  { date: "08/10", dow: 4, n: 12637, phase: "pr3" },
+];
+
+const t =
+  lang === "en"
+    ? {
+        title: "Menu server → pixel-config route, calls per day",
+        dows: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        pr1: "PR1: one entry per store (merged 10/01)",
+        pr3: "PR3: version in the key (merged the afternoon of 10/06)",
+        pr2: "PR2 merged, no behavior change",
+        partial: "partial day",
+        legend: { before: "10-min cache, two keys", pr1: "after PR1", pr3: "after PR3" },
+        cap: "Calendar days in Brasília time. That's why Sep 27 closes at 332k, slightly off from the ~342k of the original measurement. Traffic has a weekly shape (Sunday is the peak, Monday is lower), so compare the same weekday: Sunday vs Sunday after PR1 (−39%, as predicted) and Thursday vs Thursday after PR3 (−95.6%).",
+        dateFmt: (d: string) => {
+          const [dd, mm] = d.split("/");
+          return `${mm}/${dd}`;
+        },
+      }
+    : {
+        title: "Servidor do cardápio → rota de config do pixel, chamadas por dia",
+        dows: ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
+        pr1: "PR1: uma entrada por loja (mergeado em 01/10)",
+        pr3: "PR3: versão na chave (mergeado na tarde de 06/10)",
+        pr2: "PR2 mergeado, sem mudança de comportamento",
+        partial: "dia parcial",
+        legend: { before: "cache de 10 min, duas chaves", pr1: "depois do PR1", pr3: "depois do PR3" },
+        cap: "Dias do calendário de Brasília. Por isso 27/09 fecha em 332 mil, um pouco diferente dos ~342 mil da medição original. O tráfego tem cara de semana (domingo é o pico, segunda é mais baixa), então compare o mesmo dia da semana: domingo contra domingo depois do PR1 (−39%, como previsto) e quinta contra quinta depois do PR3 (−95,6%).",
+        dateFmt: (d: string) => d,
+      };
+
+const max = 332376;
+const fmt = (n: number) => n.toLocaleString(lang === "en" ? "en-US" : "pt-BR");
+const isMarker = (r: Day | Marker): r is Marker => "marker" in r;
+---
+
+<figure class="ps">
+  <p class="ps-title">{t.title}</p>
+  <div class="ps-legend" aria-hidden="true">
+    <span><i class="ps-sw before"></i>{t.legend.before}</span>
+    <span><i class="ps-sw pr1"></i>{t.legend.pr1}</span>
+    <span><i class="ps-sw pr3"></i>{t.legend.pr3}</span>
+  </div>
+  {
+    series.map((r) =>
+      isMarker(r) ? (
+        <div class="ps-marker">
+          <span>{r.marker === "pr1" ? t.pr1 : t.pr3}</span>
+        </div>
+      ) : (
+        <div class="ps-row">
+          <span class="ps-label">
+            <span class="ps-dow">{t.dows[r.dow]}</span> {t.dateFmt(r.date)}
+          </span>
+          <div class="ps-track">
+            <div class:list={["ps-fill", r.phase]} style={`width:${Math.max((r.n / max) * 100, 0.8).toFixed(1)}%`} />
+            {r.note && <span class="ps-note">{r.note === "pr2" ? t.pr2 : t.partial}</span>}
+          </div>
+          <span class="ps-val">{fmt(r.n)}</span>
+        </div>
+      ),
+    )
+  }
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .ps{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .ps-title{font-size:13px;font-weight:600;margin:0 0 10px}
+  .ps-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:11px;color:var(--muted);margin-bottom:14px}
+  .ps-legend span{display:inline-flex;align-items:center;gap:6px}
+  .ps-sw{display:inline-block;width:12px;height:10px;border-radius:2px}
+  .ps-row{display:grid;grid-template-columns:76px 1fr 72px;gap:12px;align-items:center;margin-bottom:6px}
+  .ps-label{font-family:var(--font-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+  .ps-dow{display:inline-block;width:2.4em}
+  .ps-track{position:relative;height:18px;background:var(--border);border-radius:2px}
+  .ps-fill{height:100%;border-radius:2px}
+  .ps-fill.before,.ps-sw.before{background:var(--muted)}
+  .ps-fill.pr1,.ps-sw.pr1{background:var(--accent);opacity:.55}
+  .ps-fill.pr3,.ps-sw.pr3{background:var(--accent)}
+  .ps-note{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:10px;font-style:italic;color:var(--muted);white-space:nowrap}
+  .ps-val{font-family:var(--font-mono);font-size:12px;text-align:right}
+  .ps-marker{display:flex;align-items:center;gap:8px;margin:10px 0 10px 88px;font-size:11px;font-weight:600;color:var(--accent)}
+  .ps-marker::before,.ps-marker::after{content:"";flex:1;border-top:1px dashed var(--accent);opacity:.7}
+  .ps-marker::before{flex:0 0 12px}
+  figcaption{font-size:12px;color:var(--muted);margin-top:12px}
+  @media (max-width:560px){
+    .ps{padding:16px}
+    .ps-row{grid-template-columns:64px 1fr 60px;gap:8px}
+    .ps-val{font-size:11px}
+    .ps-note{display:none}
+    .ps-marker{margin-left:0}
+  }
+</style>

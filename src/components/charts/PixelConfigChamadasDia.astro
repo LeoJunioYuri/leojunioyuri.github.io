@@ -6,10 +6,10 @@ interface Props {
 }
 const { lang } = Astro.props;
 
-// Medido em 27/09/2026. `measured` fica null até a medição de produção entrar no post.
+// Antes: 27/09/2026. Medido: 08/10/2026 (dia em horário de Brasília), dois dias após o deploy de 06/10.
 const before = 342000;
 const expected = 12000;
-const measured: number | null = null;
+const measured: number | null = 12637;
 
 const t =
   lang === "en"
@@ -18,14 +18,14 @@ const t =
         before: "Before (10-min cache)",
         expected: "Expected (24h + version)",
         measured: "Measured in production",
-        cap: "Before: measured on Sep 27. Expected: about one fetch per store per day, plus one extra after each pixel change. The production number replaces the estimate in the update at the end of the post.",
+        cap: "Before: measured on Sep 27. Expected: about one fetch per store per day, plus one extra after each pixel change. Measured: Oct 8, two days after the Oct 6 deploy — details in the update at the end of the post.",
       }
     : {
         title: "Chamadas cardápio → ads-apiv2 (pixel-config) por dia",
         before: "Antes (cache de 10 min)",
         expected: "Esperado (24h + versão)",
         measured: "Medido em produção",
-        cap: "Antes: medido em 27/09. Esperado: cerca de uma busca por loja por dia, mais uma a cada troca de pixel. O número de produção substitui a estimativa na atualização no fim do post.",
+        cap: "Antes: medido em 27/09. Esperado: cerca de uma busca por loja por dia, mais uma a cada troca de pixel. Medido: 08/10, dois dias depois do deploy de 06/10 — detalhes na atualização no fim do post.",
       };
 const fmt = (n: number) => n.toLocaleString(lang === "en" ? "en-US" : "pt-BR");
 const rows = [

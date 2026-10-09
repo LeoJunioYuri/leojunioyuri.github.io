@@ -2,6 +2,7 @@
 title: "From 342 thousand to ~12 thousand calls a day: putting a version in the cache key"
 description: "The menu asked the Ads API for the store's pixel every 10 minutes, 342 thousand times a day. The fix wasn't a longer cache; it was changing the cache key whenever the data changes. With a simulator to play with."
 date: 2026-10-06
+updated: 2026-10-09
 lang: "en"
 category: "engenharia"
 draft: false
@@ -11,6 +12,7 @@ translationOf: "pt/cache-com-versao-na-chave"
 
 import PixelConfigChamadasDia from "@/components/charts/PixelConfigChamadasDia.astro";
 import CacheVersaoSimulador from "@/components/diagrams/CacheVersaoSimulador.astro";
+import PixelConfigSerieDiaria from "@/components/charts/PixelConfigSerieDiaria.astro";
 
 Every time someone opens a store's menu at Brendi, the menu needs to know
 **which Meta pixel to fire**: the code that reports visits, carts and
@@ -153,5 +155,55 @@ anything the menu delivers.
 
 ## Update: production
 
-_The production number, before and after the October 6 deploy, goes here as
-soon as there's a full day of data to compare._
+_Updated on October 9, 2026._
+
+The production number is in, and it matched the prediction. On Thursday Oct 8,
+the second full day with the version in the key, the menu server called the
+pixel route **12,637 times**. The expectation above was ~12 thousand.
+
+One step this post didn't tell: before the version in the key, a PR went in
+that merged the browser pixel's cache and CAPI's cache into a single entry per
+store. They used to be two, and I'll get to why. In the chart it shows up as
+PR1. PR2 was the writer side (bumping the version), with no behavior change, and
+PR3 the reader side.
+
+<PixelConfigSerieDiaria lang="en" />
+
+| | Before | After | Change |
+|---|---|---|---|
+| Sunday vs Sunday, after PR1 | 332,376 (Sep 27) | 203,185 (Oct 4) | −39% |
+| Thursday vs Thursday, after the version in the key | 287,046 (Oct 1) | 12,637 (Oct 8) | −95.6% |
+| Vs Sunday Sep 20, before any of this | 606.9k | 12,637 (Oct 8) | −98% |
+| Calls over 5 s per day | 2,361 (Sep 27) | 165 (Oct 8) | −93% |
+| Route's share of Ads API requests | 42% | 4.8% (Oct 8) | |
+| Menu only | ~41% | ~3% (Oct 8) | |
+
+On Wednesday Oct 7, the first full day, there were 20,414. The share counts the
+whole route, which also serves purchase-conversion calls from the order
+service: on Oct 8 that was 19,625 of the Ads API's 409,832 requests (12,637 from
+the menu, 6,988 from orders). The API's total also dropped in this period for
+other reasons, so the share shows the route's weight, not that the whole drop in
+the total came from here.
+
+**Why 10 minutes didn't hold.** On Sunday Sep 20, the route had received 606.9
+thousand calls. Raising the cache time from 60 seconds to 10 minutes cut only
+44%, and the goal was 90%. Looking at the gap between consecutive calls for the
+same store, 30% came less than 5 seconds after the previous one, with a spike
+between 3.0 and 3.4 seconds. It was three things. The browser pixel and CAPI
+cached the same response under two keys, and each fetched on its own. On the
+client, events queued while the pixel was "pending" were flushed ~3 seconds
+later even when the pixel ended up disabled, and that triggered a second
+lookup. And, even without bugs, 12 thousand stores with a 10-minute TTL make a
+floor of ~209 thousand fetches a day. PR1 fixed both bugs and stopped at the
+floor (−39%, as predicted). Only the version in the key broke through it.
+
+**The service I didn't build.** The other idea on the table was a separate
+"pixel service" on its own Cloud Run. The calls over 5 seconds landed exactly
+at the hours when the whole Ads API stalled because of other routes, so
+isolating it was tempting. I turned it down: it would still be a network hop on
+menu load, one more service to operate, reading the same database. It would
+change where the load lands, not how much load there is.
+
+**What still isn't good.** Two maintenance scripts, run from a laptop, change
+the config without bumping the version. If they run, the config can be stale
+for up to ~22 hours.

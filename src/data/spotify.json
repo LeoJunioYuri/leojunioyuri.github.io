@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-10T03:16:41.926Z",
+  "updatedAt": "2026-10-10T11:33:10.168Z",
   "tracks": [
+    {
+      "name": "Forever Yours",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/78KCEQgmrf24gCHHxBReUj",
+      "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9",
+      "playedAt": "2026-10-10T09:53:42.594Z"
+    },
+    {
+      "name": "Slaying The Dreamer",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/7ir7Qpo6EapUpsikdQSXeW",
+      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
+      "playedAt": "2026-10-10T09:49:51.419Z"
+    },
+    {
+      "name": "Dead To The World",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/3lY7foOrKVtDoYKUJXmkML",
+      "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9",
+      "playedAt": "2026-10-10T09:45:19.191Z"
+    },
+    {
+      "name": "End Of All Hope",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5wO7hTEOnwLt4NX1nbA16k",
+      "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9",
+      "playedAt": "2026-10-10T09:36:41.479Z"
+    },
+    {
+      "name": "Bless The Child",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6Z2MwbeouGY1vsLiJfviti",
+      "image": "https://i.scdn.co/image/ab67616d000048517dc7ccc9efe21a79a25b0bc9",
+      "playedAt": "2026-10-10T09:32:47.658Z"
+    },
+    {
+      "name": "Through the Roof of the World",
+      "artist": "Neal Acree, Glenn Stafford, David Arkenstone, Grant Kirkhope, Jake Lefkowitz, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/6pTj4R9ScfG3GLmkl90CDk",
+      "image": "https://i.scdn.co/image/ab67616d000048515818e0ef475cd50ac3815822",
+      "playedAt": "2026-10-10T09:26:19.328Z"
+    },
+    {
+      "name": "Before the Storm",
+      "artist": "Glenn Stafford, Neal Acree, Sam Cardon, David Arkenstone, Clint Bajakian, Jason Hayes, World of Warcraft, Blizzard Entertainment",
+      "url": "https://open.spotify.com/track/1KybTUUPPt8pYXQ0EqEOcS",
+      "image": "https://i.scdn.co/image/ab67616d000048519ebf1df2f4da5f1ba3ef17ae",
+      "playedAt": "2026-10-10T03:41:33.441Z"
+    },
     {
       "name": "Kingdoms Will Burn",
       "artist": "Russell Brower, Neal Acree, Sam Cardon, Glenn Stafford, Edo Guidotti, Jason Hayes, World of Warcraft, Blizzard Entertainment",
       "url": "https://open.spotify.com/track/6Oy6aEbYq1L8HUENxFFMRg",
       "image": "https://i.scdn.co/image/ab67616d0000485199c85a789b9fea1f6dad6ed8",
       "playedAt": "2026-10-10T03:14:50.232Z"
-    },
-    {
-      "name": "A Siege of Worlds",
-      "artist": "Russell Brower, Neal Acree, Eimear Noone, Edo Guidotti, Tracy Bush, Sam Cardon, Jason Hayes, Clint Bajakian, Craig Stuart Garfinkle, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2c4BeZZ080F2UB1XF7gB9M",
-      "image": "https://i.scdn.co/image/ab67616d000048514e5aabc01363f67b101dd952",
-      "playedAt": "2026-10-10T02:48:29.346Z"
-    },
-    {
-      "name": "Heart of Pandaria",
-      "artist": "Russell Brower, Neal Acree, Sam Cardon, Edo Guidotti, Jeremy Soule, Derek Duke, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/6R9gDKz9OZr4xcvQh5ptu4",
-      "image": "https://i.scdn.co/image/ab67616d000048510a6257954ca7ad7a2937bd11",
-      "playedAt": "2026-10-10T02:36:23.151Z"
-    },
-    {
-      "name": "The Shattering",
-      "artist": "Russell Brower, Derek Duke, Glenn Stafford, Neal Acree, David Arkenstone, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/4PxMl3ZRcFbaXvJy9YiCFV",
-      "image": "https://i.scdn.co/image/ab67616d00004851a903a4b330dca3e6fab05558",
-      "playedAt": "2026-10-10T02:28:25.650Z"
-    },
-    {
-      "name": "Bloodflower",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/4BtVjkj3QpWYFgbcCss37B",
-      "image": "https://i.scdn.co/image/ab67616d00004851f24b55007d21c0e15ec149f8",
-      "playedAt": "2026-10-10T02:15:51.417Z"
-    },
-    {
-      "name": "The Marriage of Attaris",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/150SZokvQFBcYPBZt9Gzfo",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-10-10T01:06:11.502Z"
-    },
-    {
-      "name": "Claw Marks on the Throne",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5ogNoYToS7QEkfSYBy5LyL",
-      "image": "https://i.scdn.co/image/ab67616d000048516508eefc94890bf7df4b5eff",
-      "playedAt": "2026-10-10T00:57:17.161Z"
-    },
-    {
-      "name": "The Sethian",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/6w7h94URhGOI6H7G3NgMTT",
-      "image": "https://i.scdn.co/image/ab67616d000048516508eefc94890bf7df4b5eff",
-      "playedAt": "2026-10-10T00:51:34.429Z"
     }
   ],
   "topTracks": {
@@ -176,23 +176,23 @@
       },
       {
         "rank": 5,
+        "name": "Dishearten",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 6,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "name": "Pale Tortured Blue",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 7,
-        "name": "Dishearten",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {

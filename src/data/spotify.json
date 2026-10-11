@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-10-11T16:58:58.711Z",
+  "updatedAt": "2026-10-11T21:12:15.599Z",
   "tracks": [
+    {
+      "name": "Turn The Page",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/1aXFBWnnPFRKUN7vuIA5h0",
+      "image": "https://i.scdn.co/image/ab67616d0000485175e6375e11550746705a9645",
+      "playedAt": "2026-10-11T21:03:08.290Z"
+    },
+    {
+      "name": "Highwayman",
+      "artist": "The White Buffalo",
+      "url": "https://open.spotify.com/track/3yxXllHczPEhxuJO2IimH3",
+      "image": "https://i.scdn.co/image/ab67616d000048512c3d8eecf94a333e1bd91505",
+      "playedAt": "2026-10-11T17:29:39.136Z"
+    },
+    {
+      "name": "Bad Company - 2015 Remaster",
+      "artist": "Bad Company",
+      "url": "https://open.spotify.com/track/36vTL8WP4ZoD1bbUaW0V3E",
+      "image": "https://i.scdn.co/image/ab67616d000048519adafd7f9d57380d1d0373af",
+      "playedAt": "2026-10-11T17:25:21.034Z"
+    },
+    {
+      "name": "Wish I Had an Angel",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6IKk2Z7LO59UDnVEw8JCBj",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-10-11T17:13:23.884Z"
+    },
     {
       "name": "Coming Home - 2015 Remaster",
       "artist": "Iron Maiden",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/6NvjefGOBXHhY8iCv8NiEN",
       "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
       "playedAt": "2026-10-11T15:16:50.544Z"
-    },
-    {
-      "name": "What Goes Around.../...Comes Around (Interlude)",
-      "artist": "Justin Timberlake",
-      "url": "https://open.spotify.com/track/3pD0f7hSJg2XdQ6udw5Tey",
-      "image": "https://i.scdn.co/image/ab67616d00004851c6ba98fd3f3b396a6c6f7091",
-      "playedAt": "2026-10-11T15:12:57.046Z"
-    },
-    {
-      "name": "How You Remind Me",
-      "artist": "Nickelback",
-      "url": "https://open.spotify.com/track/0gmbgwZ8iqyMPmXefof8Yf",
-      "image": "https://i.scdn.co/image/ab67616d00004851699a422d25adc550dc5aa11c",
-      "playedAt": "2026-10-11T15:05:25.948Z"
-    },
-    {
-      "name": "Hijo de la Luna",
-      "artist": "Haggard",
-      "url": "https://open.spotify.com/track/7kBal299Qijq4uSXdOD4IP",
-      "image": "https://i.scdn.co/image/ab67616d000048516d7469d309111b5ccb846865",
-      "playedAt": "2026-10-11T14:59:01.898Z"
-    },
-    {
-      "name": "San Sebastian",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/6wwRk0KJRq6xsd76FMLzkB",
-      "image": "https://i.scdn.co/image/ab67616d000048510abf7179c56b5a0e6ac50c87",
-      "playedAt": "2026-10-11T14:54:38.091Z"
     }
   ],
   "topTracks": {

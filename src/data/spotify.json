@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-10-11T21:12:15.599Z",
+  "updatedAt": "2026-10-12T03:12:50.181Z",
   "tracks": [
+    {
+      "name": "Imortal",
+      "artist": "Sandy e Junior",
+      "url": "https://open.spotify.com/track/5b7F1UQeVZjEHS79hyapjJ",
+      "image": "https://i.scdn.co/image/ab67616d00004851de473228f3c6ca04a054eb49",
+      "playedAt": "2026-10-11T22:16:48.543Z"
+    },
     {
       "name": "Turn The Page",
       "artist": "Metallica",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/09zHgSxmOLR3SvP1339Vc3",
       "image": "https://i.scdn.co/image/ab67616d00004851b78d6cde8e6bb6d57ef16095",
       "playedAt": "2026-10-11T15:20:16.073Z"
-    },
-    {
-      "name": "Killing My Dreams",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/6NvjefGOBXHhY8iCv8NiEN",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-10-11T15:16:50.544Z"
     }
   ],
   "topTracks": {
@@ -311,10 +311,10 @@
       },
       {
         "rank": 12,
-        "name": "Sonne",
-        "artist": "Rammstein",
-        "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
-        "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
+        "name": "Over Each Other",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       }
     ]
   }

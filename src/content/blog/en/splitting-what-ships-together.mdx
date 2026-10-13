@@ -1,6 +1,6 @@
 ---
 title: "Splitting what ships together"
-description: "Almost every slow request on our ads API happened right after a deploy, and every merge deployed 79 functions. The fix was to break the package into four without deleting a single function, and to teach CD to read imports."
+description: "Almost every slow request on our ads API happened right after a deploy, and every merge deployed 79 functions. I broke the package into four without deleting a single function, and the API still shipped in 9 out of 10 deploys. The reason was coupling."
 date: 2026-10-15
 lang: "en"
 category: "engenharia"
@@ -20,6 +20,21 @@ In Firebase, functions are grouped into **codebases**. A codebase is the deploy 
 Each function is a service on Cloud Run. Every time a service gets a new version, it starts on new, cold machines that still have to load the code. The first requests wait for that boot. That's the **cold start**. On a service that gets traffic all day, each version swap turns into a few minutes of queueing.
 
 With 79 functions in the same package, the API swapped versions about 14 times a day. Most of those swaps had nothing to do with it.
+
+## Before: treating the symptom
+
+This wasn't the first attempt. In August, before I tied the slow requests to deploys, we went after the symptom. The API got a minimum number of always-on instances (`minInstances`), more CPU, a tuned concurrency limit, and it started preloading the module graph when the container boots, before the first request arrives.
+
+On the chart, it worked. Measured on Cloud Run:
+
+| | Aug 14–21 | Aug 23–30 |
+|---|---|---|
+| API p99 | 15.8 s | 0.9 s |
+| API cold starts per week | 2,044 | 1,507 |
+
+And it cost money. One idle instance with 2 vCPU and 2 GiB runs about US$ 26 a month. Adding up all the minimums we spread across services, about US$ 75 a month, every month.
+
+The p99 collapsed, but cold starts only dropped by a quarter. A minimum instance protects you from traffic spikes, not from deploys. Every new version replaces all instances, including the always-on ones, and the new ones start cold. With about 14 deploys a day, the minimum relieved the pain. It didn't fix it.
 
 ## The idea: four packages
 
@@ -82,25 +97,73 @@ The case that taught me the most was a string. The API needed `'ai-on-demand-enh
 
 The rule that stuck: whoever only needs to **know** something about the other side (a queue name, a constant, the shape of a message) imports a **contract**, a small file with no dependencies. Whoever needs to **run** something from the other side imports the implementation and accepts the coupling. If the API runs that code, it really should ship when it changes.
 
+## The split shipped, and the problem stayed
+
+The split went to production on Oct 8. I measured Oct 9 to 13, and the window is short: a single normal weekday (Oct 9), a weekend and a public holiday (Oct 12). It shows the direction, not numbers you can bank on.
+
+The API still shipped in 26 of the 29 deploys in the ads area, about 90%. Well above the simulation's 62%, which counted commits rather than deploys. On Oct 9, 92% of requests over 10 s still fell in a deploy window. Before the split, that share was between 89 and 97%. Splitting the packages barely changed how often the API swaps versions.
+
+What improved was the size of each cold start. Each new API version used to produce about 163 slow requests; now it's about 82. That matches what changed: the boot got smaller, from 1,256 to 962 loaded modules, and the agents' traffic moved off the API to their own services. Each deploy now hurt half as much. But it kept hurting almost as often.
+
+## Why: coupling
+
+I went to look at what was actually making the API ship.
+
+The API's import graph reaches 463 of the 1,157 files in the ads library, 40% of it. The API's shell exports 2 functions, but drags almost half the library behind it.
+
+Of the 26 commits since the split that redeployed the API, 19 (73%) changed the API's own code. Those are legitimate: the API changed, it has to ship. The other 7 changed only code outside the API that it imports. It's the same problem as the constant in the previous section, in other places: an API route importing a module from somewhere else to use a small piece of it.
+
+And there was a bug in CD. When a file in the shared folder changed, the common code several services use, CD didn't consult the import graph. It saw that the ads library depended on that folder and shipped all four packages that consume it. That accounted for about 25% of the API's redeploys. The clearest example was a change to the HTTP client other services use to call the ads area. Inside ads, only the Anderson routes import that client. All four packages shipped.
+
+It was the "when in doubt, all four ship" rule applied to something that wasn't in doubt. The graph knew the answer; CD just didn't ask.
+
+## How we're fixing it
+
+Two changes, both in open PRs as I write this (Oct 13).
+
+**Teaching CD to read the shared folder.** When a file in the shared folder changes, CD now looks for the files in the ads library that import the changed module and uses them as the starting point in the graph. From there it's the same question as before: starting at each package's entry point, do the imports reach them? I replayed 5 real merges with the new rule:
+
+| Merge | Before | With the fix |
+|---|---|---|
+| 1 | 4 packages | Anderson only |
+| 2 | 4 packages | 3 |
+| 3 | 4 packages | 4 (real coupling: about 30 files, spread across all four, import the module) |
+| 4 | 4 packages | Anderson and Kleber |
+| 5 | 4 packages | 3 |
+
+That's 7 fewer package deploys out of 20, and the API stopped shipping in 2 of the 5. Every fallback path still goes to "ship everything". If CD can't resolve the graph, it errs toward more deploys, never fewer.
+
+**Cutting three imports.** Three API routes pulled in modules that exist for background tasks: Anderson's memory, which came in through the layer that stores menu rules; an Anderson observation helper, which came in through diagnosis; and gamification state, which came in through the gamification service. In all three, the API only needed a small piece. That piece moved to a neutral module both sides import, and the API stopped reaching the rest.
+
+## What we expect
+
+Together, the math comes to about 35 to 45% fewer API redeploys. The CD fix removes about 25%. The cuts remove about 12% at the floor, or about 20% if we later split out a bigger module that's still in the way.
+
+It won't reach 100%, and it shouldn't. The floor is the API actually changing. Of the 463 files it reaches, 271 are the store owner dashboard's API itself. When someone changes the dashboard, the API has to ship. Going further means breaking the dashboard API itself into pieces, and that's a much bigger project.
+
 ## The result
 
-{/* TODO Oct 15: fill in from the ads-apiv2 dashboard, before (Oct 1–7) × after (Oct 9–14), weekdays. */}
+{/* TODO ~Oct 21: fill in after one full working week with both changes in production (CD fix + import cuts). Source: ads-apiv2 on Cloud Run. Before = Oct 1–7, weekdays. Confirm 89–97% holds for Oct 1–7. Adjust `date` before publishing. */}
 
-| | Before | After |
+| | Before (Oct 1–7) | After |
 |---|---|---|
 | New API versions per day | ~14 | _to fill_ |
 | Requests over 10 s per day | _to fill_ | _to fill_ |
-| Of those, in a deploy window | 92–97% | _to fill_ |
+| % of those in a deploy window | 89–97% | _to fill_ |
 | Cold starts per day | _to fill_ | _to fill_ |
 
-_Paragraph on what the numbers show and what muddies the comparison: the minimum-instances test that ran the same week, and changes to the shared library, which still ship every codebase._
+_Paragraph to write with the numbers: whether the drop in redeploys landed within the expected 35–45%, what can be attributed to each change (both land the same week, so separating them is hard) and whether slow requests per new version stayed around 82._
 
 ## What stays with me
 
+**Splitting the deploy package doesn't split the code.** Four shells, one library. The API kept shipping because it kept importing 40% of the library.
+
+**Coupling only shows up when you measure who ships together.** Nobody decided the API depended on Anderson's memory. It did, a few imports away, and only counting deploys showed it.
+
+**Treating the symptom buys time, and bills you every month.** `minInstances` knocked the p99 down in August and held things together until the split. But it costs about US$ 75 a month and doesn't protect you from a deploy, which replaces every instance.
+
 **Prove it with the real tool, not with reasoning.** Reading firebase-tools gave me the hypothesis. The test that calls its planner gave me the proof, and it keeps running on every PR.
 
-**Deploy coupling follows code coupling.** Splitting the packages took the API from 100% to 78%. The rest only dropped when it stopped importing what it doesn't run.
-
-**When in doubt, ship everything.** A system that decides what to publish has to err on the side of publishing too much. The error on the other side is silent.
+**When in doubt, ship everything. But only when in doubt.** Erring on the side of publishing too much is still the right rule, because the error on the other side is silent. The shared-folder bug was treating as doubt a question the graph could answer.
 
 **A test that builds the wrong environment passes on the path production never takes.** The empty body only stayed out of production because someone read the code thinking about how it actually runs.

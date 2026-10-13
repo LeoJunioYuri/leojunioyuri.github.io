@@ -101,7 +101,7 @@ A regra que ficou: quem só precisa **saber** algo do outro (um nome de fila, um
 
 O split foi para produção em 08/10. Medi de 09 a 13/10, e a janela é curta: um único dia útil normal (09/10), um fim de semana e um feriado (12/10). Dá para ver a direção, não para cravar números.
 
-A API ainda entrou em 26 dos 29 deploys da área de anúncios, uns 90%. Bem acima dos 62% da simulação, que contava commits e não deploys. No dia 09/10, 92% das requests acima de 10 s caíram numa janela de deploy. Antes do split, essa fatia ficava entre 89 e 97%. Separar os pacotes quase não mudou quantas vezes a API troca de versão.
+A API ainda entrou em 26 dos 29 deploys da área de anúncios, uns 90%. No dia 09/10, 92% das requests acima de 10 s caíram numa janela de deploy. Antes do split, essa fatia ficava entre 89 e 97%. Separar os pacotes quase não mudou quantas vezes a API troca de versão.
 
 O que melhorou foi o tamanho de cada cold start. Cada versão nova da API gerava umas 163 requests lentas; agora gera umas 82. Bate com o que mudou: o boot ficou menor, de 1.256 para 962 módulos carregados, e o tráfego dos agentes saiu da API e foi para os serviços próprios. Cada deploy passou a doer metade. Mas continuou doendo quase o mesmo número de vezes.
 
@@ -113,7 +113,7 @@ O grafo de imports da API alcança 463 dos 1.157 arquivos da biblioteca de anún
 
 Dos 26 commits desde o split que redeployaram a API, 19 (73%) mexeram no código da própria API. Esses são legítimos: a API mudou, tem que subir. Os outros 7 mexeram só em código de fora que ela importa. É o mesmo problema da constante da seção anterior, em outros lugares: uma rota da API importando um módulo de outra parte para usar um pedaço pequeno dele.
 
-E tinha um bug no CD. Quando mudava um arquivo da pasta compartilhada, o código comum que vários serviços usam, o CD não consultava o grafo de imports. Ele via que a biblioteca de anúncios dependia daquela pasta e subia os quatro pacotes que a consomem. Isso respondeu por uns 25% dos redeploys da API. O exemplo mais claro foi uma mudança no cliente HTTP que outros serviços usam para chamar a área de anúncios. Dentro de anúncios, só as rotas do Anderson importam esse cliente. Subiram os quatro pacotes.
+E tinha um bug no CD. Quando mudava um arquivo da pasta compartilhada, o código comum que vários serviços usam, o CD não consultava o grafo de imports. Ele via que a biblioteca de anúncios dependia daquela pasta e subia os quatro pacotes que a consomem. Isso respondeu por uns 25% dos redeploys da API, e esses ficam quase todos fora dos 26 commits acima: neles, o código de anúncios alterado nem alcançava a API, e ela subiu só por causa da pasta compartilhada. As duas causas se somam, mas as porcentagens não, porque cada uma foi medida sobre uma base diferente. O exemplo mais claro foi uma mudança no cliente HTTP que outros serviços usam para chamar a área de anúncios. Dentro de anúncios, só as rotas do Anderson importam esse cliente. Subiram os quatro pacotes.
 
 Era a regra "na dúvida, sobem as quatro" aplicada a algo que não era dúvida. O grafo sabia responder; o CD só não perguntava.
 
@@ -161,9 +161,3 @@ _Parágrafo a escrever com os números: se a queda de redeploys ficou dentro dos
 **Acoplamento só aparece quando você mede quem sobe junto.** Ninguém decidiu que a API dependia da memória do Anderson. Ela dependia, a alguns imports de distância, e só a contagem de deploys mostrou.
 
 **Tratar o sintoma compra tempo, e cobra todo mês.** O `minInstances` derrubou o p99 em agosto e segurou a situação até o split. Mas custa uns US$ 75 por mês e não protege do deploy, que troca todas as instâncias.
-
-**Prove com a ferramenta de verdade, não com o raciocínio.** Ler o código do firebase-tools me deu a hipótese. O teste que chama o planejador dele me deu a prova, e ela continua rodando em todo PR.
-
-**Na dúvida, suba tudo. Mas só na dúvida.** Errar para o lado de publicar de mais continua sendo a regra certa, porque o erro do outro lado é silencioso. O bug da pasta compartilhada era tratar como dúvida uma pergunta que o grafo sabia responder.
-
-**Teste que monta o ambiente errado passa no caminho que a produção não percorre.** O corpo vazio só não foi para o ar porque alguém leu o código pensando em como ele roda de verdade.

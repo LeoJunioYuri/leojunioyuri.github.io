@@ -1,0 +1,185 @@
+---
+title: "Toda feature flag da empresa estava desligada, e ninguém viu"
+description: "A cota de feature flags do PostHog estourou e todas as flags de todos os projetos passaram a responder \"desligado\", com HTTP 200 e nenhum erro. A caça ao consumidor levou ao cardápio, e o cardápio levou a uma segunda história: a cauda de latência do checkout."
+date: 2026-10-16
+lang: "pt"
+category: "engenharia"
+draft: true
+tags: ["Engenharia", "Feature Flags", "PostHog", "Performance", "Observabilidade", "Lições"]
+translationOf: "en/every-feature-flag-was-off"
+---
+
+Em 08/09/2026 a gente liberou, por feature flag, uma mudança no pixel do
+cardápio: carimbar cada pedido novo pra que a compra fosse contada mais tarde,
+no aceite, em vez de na criação. Rollout gradual, por loja. Flag ligada no
+PostHog.
+
+Uma hora depois, olhei o resultado: **0 carimbos em 551 pedidos**.
+
+Nenhum erro no log. Nenhum alerta. A flag estava ligada no painel. O código
+estava no ar. Simplesmente nada acontecia.
+
+---
+
+## O incidente: falhar com sucesso
+
+O PostHog cobra feature flags por requisição. O primeiro milhão do mês é de
+graça, e o teto de gasto que a gente tinha configurado era **US$ 0**. Ou seja:
+1 milhão de requisições, e acabou.
+
+Naquele dia o período já estava em **2,52 milhões**.
+
+O que eu não sabia é como o PostHog se comporta quando a cota estoura. Ele não
+devolve 429, nem 402, nem 500. Os endpoints de flags (`/decide` e `/flags`)
+respondem **200**, com um campo `quotaLimited: ["feature_flags"]` e um **mapa de
+flags vazio**. E a cota é da organização, então isso valia para todos os 12
+projetos: cardápio, dashboard, anúncios, tudo.
+
+Do lado de quem consome, "mapa vazio" é indistinguível de "flag desligada":
+
+- no navegador, o `posthog-js` responde `isFeatureEnabled` com `undefined`, que
+  qualquer `if` lê como falso;
+- no backend, o nosso cliente devolvia `false`.
+
+Nenhum dos dois loga nada, porque do ponto de vista deles nada deu errado. A
+resposta foi 200.
+
+Então, durante sabe-se lá quanto tempo, **toda feature flag da empresa estava
+desligada**. Todo rollout gradual "ligado" era um no-op. A gente só descobriu
+porque, por acaso, a mudança daquele dia tinha uma métrica binária e fácil de
+contar: o carimbo aparecia no pedido ou não aparecia.
+
+## O consumidor: um SDK pedindo o que nunca lia
+
+Subir o teto resolvia o sintoma (subi pra US$ 500 no mesmo dia), mas a pergunta
+de verdade era: **quem estava fazendo 2,5 milhões de requisições de flag?**
+
+A resposta foi o cardápio. Ele inicializa o `posthog-js` pra **todo visitante**:
+a amostragem só decide quem tem eventos capturados, não quem inicializa o SDK. E
+cada inicialização dispara, por padrão, uma requisição de flags. Cobrada.
+
+Quantas flags o cardápio lia no navegador? **Nenhuma.** O helper de flag do
+cliente não tinha um único ponto de uso. Eram cerca de **315 mil requisições
+por dia**, pagas, pra buscar um mapa que ninguém abria.
+
+A correção é uma linha na inicialização:
+
+```ts
+posthog.init(token, {
+  // ...
+  advanced_disable_feature_flags: true,
+});
+```
+
+Gravação de sessão e o resto da configuração remota continuam funcionando; só a
+avaliação de flags deixa de acontecer. De quebra, é uma chamada de rede a menos
+por visitante, numa página que recebe muito tráfego.
+
+No mesmo PR, a leitura de flag que o servidor faz no checkout passou a ficar em
+cache por loja por 60 minutos em vez de 5. Ela também era cobrada, e o cache
+curto quase não ajudava.
+
+### O que mudou na conta
+
+Pela API de billing do PostHog:
+
+| | antes do fix | outubro |
+|---|---|---|
+| requisições de flag por dia | ~315 mil | ~107 mil |
+
+Uma queda de **66%**.
+
+Mas não voltou pra baixo do plano gratuito, e eu prefiro dizer isso logo. A
+projeção de outubro é de **~3,14 milhões** de requisições, o que dá uns
+**US$ 150 por mês** na tabela atual (o primeiro milhão grátis, o segundo a
+US$ 0,0001 por requisição, o resto a US$ 0,000045). Ainda tem consumidor
+grande por aí, e com os dados que temos no lado da infraestrutura não consegui
+atribuir quem é. Esse é o próximo corte.
+
+## A segunda parte: a cauda do checkout
+
+Investigar o cardápio por causa das flags me fez olhar de novo pra uma frente
+que já estava aberta desde agosto na mesma superfície: a **cauda de latência**.
+São histórias diferentes. Eu conto as duas juntas porque aconteceram na mesma
+página, no mesmo mês, e porque uma coisa ensina sobre a outra: o cardápio é uma
+página de muito tráfego, e tudo o que ele faz em toda visita custa
+caro.
+
+Entre agosto e setembro saíram, entre outras coisas:
+
+- **Pixel do navegador fora do caminho crítico da renderização no servidor.** A
+  resposta do cardápio esperava a configuração do pixel antes de sair. Agora
+  ela sai sem ele, e o navegador busca a configuração depois de hidratar.
+- **Criação do pedido instrumentada e paralelizada.** No almoço de um dia
+  normal de agosto, o p95 de criar um pedido era de **8,15 s**: **154 de 1.977
+  pedidos** passavam de 8 segundos. A criação fazia seis passos de I/O
+  estritamente em sequência; os que eram leituras puras passaram a rodar em
+  paralelo, e cada pedido agora loga o tempo de cada etapa, pra que a próxima
+  rodada seja guiada por número e não por palpite.
+- **Um timeout menor que a própria cauda.** O cardápio desistia da criação
+  depois de **8 s**, mas o p95 do serviço que cria o pedido era de **10,3 s**.
+  Na cauda, o cardápio abortava *enquanto o pedido ainda estava sendo criado*:
+  o cliente via erro e o pedido existia. O timeout foi pra **25 s**, e quando
+  o cliente tenta de novo um pedido idêntico que já foi criado, o cardápio
+  devolve o pedido existente como sucesso em vez de "pedido duplicado".
+- **O redirecionamento dos links de anúncio ganhou cache.** Link de anúncio
+  aponta pro id da loja, e o cardápio redireciona pro endereço atual. Essa
+  consulta rodava a cada clique pago, sem cache e com o erro engolido: quando a
+  API da loja ficava lenta, o id era tratado como endereço e o cliente via
+  "página não encontrada" de uma loja que existe. Agora a resposta fica em
+  cache, e se a API da loja falhar sem nada em cache, o cardápio responde
+  **503 "tente novamente"** em vez de 404.
+- **Imagem que não existe passou a ter cache do "não existe".** Cada imagem
+  de produto ausente era buscada de novo a cada visita, e logava um erro
+  completo a cada renderização. O 404 agora volta com cinco minutos de cache e
+  loga como aviso.
+
+### Os números
+
+Medido no Cloud Run, para o serviço do cardápio **inteiro**, em três semanas
+fechadas:
+
+| | 18–25/08 | 09–16/09 | 06–13/10 |
+|---|---|---|---|
+| p50 | 28 ms | 59 ms | 68 ms |
+| p95 | 527 ms | 277 ms | 307 ms |
+| p99 | 1.449 ms | 685 ms | 758 ms |
+| 5xx | 0,005% | 0,093% | 0,020% |
+| horas de instância por semana | 3.210 | 1.862 | 2.473 |
+
+O volume semanal foi de 154 milhões para 132 milhões de requisições no
+período. De agosto a outubro, o **p99 caiu 48%** e as **horas de instância
+caíram 23%**.
+
+## As ressalvas
+
+Esses números são bons, mas não são limpos, e não quero vendê-los como se
+fossem.
+
+- **O p50 subiu**, de 28 para 68 ms. A explicação mais provável é uma mudança
+  na mistura de requisições (o que chega ao serviço, não o quanto cada coisa
+  demora), mas eu não isolei isso. Fica como hipótese.
+- **O 5xx está 4× acima de agosto.** Parte disso é intencional: trocar 404 por
+  503 quando a API da loja falha transforma um erro escondido num erro
+  contado. Mas não separei quanto do aumento vem daí.
+- **Não medi por rota.** Tudo acima é o serviço inteiro. Não isolei a
+  latência do checkout nem do redirecionamento; as mudanças apontam pra cauda,
+  e a cauda do serviço caiu, mas a ligação rota a rota não está provada.
+- **As flags não explicam a latência.** Desligar o fetch de flags tirou uma
+  chamada de rede de cada visita, mas não atribuo nenhum número da tabela a
+  isso. São duas histórias na mesma página, não causa e efeito.
+
+## O que eu levo disso
+
+- **Serviço de terceiro que falha "com sucesso" precisa de alarme próprio.**
+  Um 200 com mapa vazio não dispara nada. Vale checar `quotaLimited` na
+  resposta, ou acompanhar o uso pela API de billing, antes que um rollout vire
+  no-op em silêncio.
+- **SDK em página de alto tráfego liga só o que usa.** O padrão de uma
+  biblioteca é pensado pro caso geral. No cardápio, o padrão custava 315 mil
+  requisições por dia.
+- **Teto de gasto em US$ 0 é um kill switch silencioso.** Ele protege a
+  fatura, e desliga o produto sem avisar. Se for pra ter teto, que ele venha
+  com um alerta antes de bater.
+- **Timeout menor que a cauda do que ele protege cria o erro que deveria
+  evitar.** O cliente via erro num pedido que tinha dado certo.

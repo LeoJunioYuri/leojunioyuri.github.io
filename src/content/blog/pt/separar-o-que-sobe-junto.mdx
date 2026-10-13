@@ -1,0 +1,106 @@
+---
+title: "Separar o que sobe junto"
+description: "Quase todas as requests lentas da nossa API de anúncios aconteciam logo depois de um deploy, e todo merge deployava 79 functions. A saída foi quebrar o pacote em quatro sem apagar nenhuma function, e ensinar o CD a ler os imports."
+date: 2026-10-15
+lang: "pt"
+category: "engenharia"
+draft: true
+tags: ["Engenharia", "Infra", "Firebase", "Cloud Run", "CI/CD", "Lições"]
+translationOf: "en/splitting-what-ships-together"
+---
+
+No fim de setembro eu descobri que 92 a 97% das requests lentas da nossa API de anúncios, as que passavam de 10 segundos, aconteciam logo depois de um deploy. Não era o banco nem uma rota pesada: era a API recém-publicada, ainda fria, atendendo a fila que tinha se formado.
+
+E a API era publicada o tempo todo. Todo merge na área de anúncios publicava 79 functions de uma vez, inclusive ela, mesmo quando a mudança era num worker que manda mensagem de WhatsApp.
+
+## Por que todo merge mexia na API
+
+No Firebase, as functions são agrupadas em **codebases**. A codebase é o pacote de deploy: tudo que está nela sobe junto. A nossa codebase `ads` tinha 79 functions: a API que o painel do lojista chama, os workers de campanha, o financeiro, e os dois agentes de IA, o Anderson e o Kleber.
+
+Cada function é um serviço no Cloud Run. Cada vez que um serviço ganha uma versão nova, ele começa com máquinas novas, frias, que ainda precisam carregar o código. As primeiras requests esperam esse boot. Isso é o **cold start**. Num serviço que recebe tráfego o dia inteiro, cada troca de versão vira alguns minutos de fila.
+
+Com 79 functions no mesmo pacote, a API trocava de versão umas 14 vezes por dia. A maioria dessas trocas não tinha nada a ver com ela.
+
+## A ideia: quatro pacotes
+
+Quebrar `ads` em quatro codebases, para cada merge subir só o pedaço que mudou:
+
+| Codebase | O que tem | Functions |
+|---|---|---|
+| `ads-api` | a API do painel e a de analytics | 2 |
+| `ads-workers` | campanhas, financeiro, mídia | 41 |
+| `anderson` | o agente Anderson | 16 |
+| `kleber` | o agente Kleber | 20 |
+
+Eu não mudei nenhum arquivo de lugar. O código continuou num diretório só, que virou uma espécie de biblioteca. Cada codebase nova é uma casca de meia dúzia de arquivos que diz "eu exporto estas functions". Mover código em mil arquivos ao mesmo tempo que se muda o deploy seria pedir para dar errado de duas formas juntas.
+
+## O medo: apagar 79 functions
+
+O risco real não era o código. Era o deploy entender a mudança como "estas 79 functions saíram da codebase `ads`, então apague, e estas 79 entraram em outras quatro, então crie". Apagar uma function leva junto a fila de tarefas dela, o agendamento e a URL que outros sistemas chamam. Num serviço com tráfego, é queda.
+
+Lendo o código do firebase-tools, a ferramenta de deploy, a resposta parecia boa. O nome da function não depende da codebase: `ads-apiv2` continua `ads-apiv2` em qualquer pacote. E a ferramenta casa o que existe em produção com o que você quer publicar pelo nome, antes de olhar a codebase. Então mudar de pacote seria uma atualização, não um apaga-e-cria.
+
+"Parecia" não basta para 79 functions em produção. O caminho óbvio seria o ensaio do próprio Firebase, o `--dry-run`. Só que ele monta e valida o pacote e para antes de calcular o plano. Ele não diria nada sobre o que seria apagado.
+
+Então escrevi um teste que roda o planejador de verdade. Ele pega uma foto da lista de functions de produção, monta o que as quatro cascas querem publicar e chama as mesmas funções internas que o firebase-tools usa para decidir o que criar, atualizar e apagar. O teste exige 0 criações, 0 exclusões e 79 atualizações, e cobre também o caso torto: alguém re-rodar um deploy antigo, de antes da quebra.
+
+No dia do deploy de verdade, o log mostrou 79 "Successful update operation". Nenhuma criação, nenhuma exclusão. As 54 filas e os 27 agendamentos ficaram como estavam, inclusive uma fila que estava pausada e continuou pausada.
+
+## Quem decide o que sobe
+
+Com quatro pacotes, o CD precisa responder uma pergunta nova: mudou este arquivo, qual pacote sobe?
+
+Pela pasta não dá. A API usa código que mora na pasta dos workers, e os workers usam código da pasta da API. Um arquivo do Kleber pode ser executado pela API.
+
+O que decide é o grafo de imports. Para cada arquivo alterado, o CD parte do ponto de entrada de cada codebase e segue os imports. Se chegar no arquivo, aquela codebase sobe. Import só de tipo não conta, porque some na compilação e não muda o código publicado.
+
+A regra de ouro é a mesma que já usávamos para a biblioteca comum: na dúvida, sobem as quatro. Import que não dá para seguir, arquivo que não é código, mudança no `package.json`: as quatro. Subir de mais custa um deploy. Subir de menos deixa código velho em produção sem ninguém perceber.
+
+Simulando sobre os últimos 503 commits, a API subiria em 78% deles, não mais em 100%.
+
+## A API ainda importava os agentes
+
+78% ainda era muito, e o motivo estava no grafo. As rotas `/anderson` e `/kleber` moravam na API, e para atendê-las ela importava o código dos dois agentes. Qualquer mudança no Anderson chegava na API pelos imports.
+
+Então criamos um serviço para cada agente e fizemos a API repassar essas rotas para eles, sem manter o código local. A URL que o lojista chama não mudou. Com isso a simulação caiu para 62%.
+
+O repasse foi onde mais apareceram armadilhas.
+
+## Os tropeços
+
+**O corpo do request já chega lido.** Em produção, o runtime das functions lê e interpreta o corpo do request antes do nosso código rodar. O meu repasse lia o corpo de novo, não achava nada e mandava todo POST vazio para o serviço do agente. Os testes passavam, porque montavam um servidor sem esse runtime na frente. Quem pegou foi o review. A correção foi repassar os bytes que o runtime já tinha lido, e o teste novo simula o runtime.
+
+**Cookies viravam um só.** Repassando os headers da resposta um a um, vários `Set-Cookie` se juntavam num header só, que o navegador não entende. Nenhuma rota usava cookie ainda, mas a página de aprovação do Kleber é exatamente o tipo de tela que um dia ganha um.
+
+**O merge que ressuscitou código.** Eram três PRs empilhados. Depois que o primeiro entrou na main como um commit só, atualizei o terceiro com a main. O git trouxe de volta, sem conflito nenhum, um trecho que o próprio primeiro PR tinha removido depois do review. Para o git, aquele trecho tinha sido "adicionado de um lado só". Só apareceu porque conferi arquivo por arquivo que tudo fora do PR estava igual à main.
+
+**O retry que reenviaria tudo.** Quando o deploy falha numa function, o CD tenta de novo só nela, achando a codebase pelo começo do nome. Com quatro codebases cujas functions todas começam com `ads-`, a falha de um worker faria o retry reenviar as 79, e a API trocaria de versão. A correção foi ler a codebase do log do próprio firebase-tools, que imprime `kleber:ads-kleberX(us-central1)`.
+
+## Contrato, não implementação
+
+O caso que mais me ensinou foi uma string. A API precisava de `'ai-on-demand-enhanced'`, um prefixo de caminho de arquivo. A constante morava no handler do worker que melhora fotos com IA. Para o JavaScript, importar uma constante de um arquivo executa o arquivo inteiro e tudo que ele importa. Para o CD, mexer em qualquer coisa nesse caminho redeploya a API.
+
+A regra que ficou: quem só precisa **saber** algo do outro (um nome de fila, uma constante, o formato de uma mensagem) importa um **contrato**, um arquivo pequeno sem dependências. Quem precisa **executar** algo do outro importa a implementação e aceita o acoplamento. Se a API roda aquele código, ela tem mesmo que subir quando ele muda.
+
+## O resultado
+
+{/* TODO 15/10: preencher com o painel do ads-apiv2, antes (01–07/10) × depois (09–14/10), dias úteis. */}
+
+| | Antes | Depois |
+|---|---|---|
+| Versões novas da API por dia | ~14 | _a preencher_ |
+| Requests acima de 10 s por dia | _a preencher_ | _a preencher_ |
+| Dessas, em janela de deploy | 92–97% | _a preencher_ |
+| Cold starts por dia | _a preencher_ | _a preencher_ |
+
+_Parágrafo sobre o que os números mostram e o que atrapalha a comparação: o teste de máquinas mínimas que rodou na mesma semana e as mudanças na biblioteca comum, que continuam subindo todas as codebases._
+
+## O que fica
+
+**Prove com a ferramenta de verdade, não com o raciocínio.** Ler o código do firebase-tools me deu a hipótese. O teste que chama o planejador dele me deu a prova, e ela continua rodando em todo PR.
+
+**Acoplamento de deploy segue o acoplamento de código.** Separar os pacotes levou a API de 100% para 78%. O resto só caiu quando ela parou de importar o que não executa.
+
+**Na dúvida, suba tudo.** Um sistema que decide o que publicar precisa errar para o lado de publicar de mais. O erro do outro lado é silencioso.
+
+**Teste que monta o ambiente errado passa no caminho que a produção não percorre.** O corpo vazio só não foi para o ar porque alguém leu o código pensando em como ele roda de verdade.

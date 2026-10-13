@@ -1,5 +1,5 @@
 ---
-title: "O Mongo estava errado em 11 de 14 lojas"
+title: "De 100 ms para 3 ms: o índice que a migração esqueceu"
 description: "O faturamento de 30 dias que decide quem entra no tráfego pago vinha de um espelho que perdia pedidos. Troquei a fonte sem fallback, a query nova custou ~100 ms por chamada no Postgres, e um índice do formato certo levou isso para ~3 ms."
 date: 2026-10-15
 lang: "pt"

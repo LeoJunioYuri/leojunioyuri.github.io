@@ -1,5 +1,5 @@
 ---
-title: "Mongo was wrong in 11 of 14 stores"
+title: "From 100 ms to 3 ms: the index the migration forgot"
 description: "The 30-day revenue that decides who gets into paid traffic came from a mirror that was losing orders. I switched the source with no fallback, the new query cost ~100 ms per call on Postgres, and an index in the right shape took that to ~3 ms."
 date: 2026-10-15
 lang: "en"

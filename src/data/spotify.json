@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-14T10:49:23.164Z",
+  "updatedAt": "2026-10-14T16:08:42.866Z",
   "tracks": [
     {
-      "name": "The Rest of the Sun Belongs to Me",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/2a3iMjLxtdMQehSFwGn0Su",
-      "image": "https://i.scdn.co/image/ab67616d00004851976d2515265268a6c1d1fe6f",
-      "playedAt": "2026-10-14T07:21:33.713Z"
+      "name": "The Fallen One",
+      "artist": "HammerFall",
+      "url": "https://open.spotify.com/track/4oHeZmCVEoiv8wPexQ1aqq",
+      "image": "https://i.scdn.co/image/ab67616d00004851c74508076e95a160cf40643f",
+      "playedAt": "2026-10-14T16:01:10.811Z"
     },
     {
-      "name": "Still Loving You",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/0yrrcJAkQ6VBJiaT41kc9S",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba02066a26076f927f01c915",
-      "playedAt": "2026-10-14T07:15:41.369Z"
-    },
-    {
-      "name": "Mary-Lou - Acoustic Version",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/2LgzC9Sewc0s8P1iXfOGGC",
-      "image": "https://i.scdn.co/image/ab67616d000048510abf7179c56b5a0e6ac50c87",
-      "playedAt": "2026-10-14T07:11:06.656Z"
-    },
-    {
-      "name": "No Dream Can Heal a Broken Heart",
-      "artist": "Sonata Arctica",
-      "url": "https://open.spotify.com/track/2W3Mt3joVp8ihbD2UO5leW",
-      "image": "https://i.scdn.co/image/ab67616d00004851f3e06455a13192ea129dacbb",
-      "playedAt": "2026-10-14T07:06:00.908Z"
-    },
-    {
-      "name": "What Have You Done (feat. Keith Caputo)",
-      "artist": "Within Temptation, Keith Caputo",
-      "url": "https://open.spotify.com/track/2OHeJR6Cfvm42512gonFRh",
-      "image": "https://i.scdn.co/image/ab67616d000048515d22cd316736c66d068a71e2",
-      "playedAt": "2026-10-14T06:58:48.495Z"
-    },
-    {
-      "name": "Sancta Terra",
+      "name": "Blank Infinity",
       "artist": "Epica",
-      "url": "https://open.spotify.com/track/2fmVfcXaKrDNHa3ZKeILob",
-      "image": "https://i.scdn.co/image/ab67616d000048511b2cbc41b7cae00adda0a746",
-      "playedAt": "2026-10-14T06:53:34.625Z"
+      "url": "https://open.spotify.com/track/2rPsmAJlNau7tYSTAwLdiV",
+      "image": "https://i.scdn.co/image/ab67616d000048513cf1b9f791a1d853bd31c372",
+      "playedAt": "2026-10-14T15:56:46.734Z"
     },
     {
-      "name": "Never Forever",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/1gtiboFlPYIuaJSeF3fZk6",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-10-14T06:48:36.492Z"
+      "name": "Fade to Black",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/4xG6zay5XkvdH9DpYpNMMv",
+      "image": "https://i.scdn.co/image/ab67616d000048510abf7179c56b5a0e6ac50c87",
+      "playedAt": "2026-10-14T15:52:02.686Z"
     },
     {
-      "name": "Phoenix",
-      "artist": "Stratovarius",
-      "url": "https://open.spotify.com/track/11hzUUH6C38J419ZWa8h5G",
-      "image": "https://i.scdn.co/image/ab67616d00004851b0ae81f14787f57881a9ee7f",
-      "playedAt": "2026-10-14T06:45:15.106Z"
+      "name": "Replica",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/2A4rfHIusMPUyTN2RAgsKw",
+      "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6",
+      "playedAt": "2026-10-14T15:45:31.958Z"
+    },
+    {
+      "name": "Abandoned, Pleased, Brainwashed, Exploited",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/1Q6Q8zMvQn570MNd3JX8bS",
+      "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69",
+      "playedAt": "2026-10-14T15:40:36.245Z"
+    },
+    {
+      "name": "Shy",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/1JKnXimBkpgfAeohZVLk3W",
+      "image": "https://i.scdn.co/image/ab67616d000048510abf7179c56b5a0e6ac50c87",
+      "playedAt": "2026-10-14T15:34:57.889Z"
+    },
+    {
+      "name": "Don't Say a Word",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/6khWZRJMRkIL6sZIeogVYn",
+      "image": "https://i.scdn.co/image/ab67616d00004851a2c697b5be89befbd57152c8",
+      "playedAt": "2026-10-14T15:30:41.569Z"
+    },
+    {
+      "name": "Tallulah",
+      "artist": "Sonata Arctica",
+      "url": "https://open.spotify.com/track/33F4l7xj1cEeiqyUCfHlvw",
+      "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15",
+      "playedAt": "2026-10-14T15:24:52.056Z"
     }
   ],
   "topTracks": {
@@ -69,17 +69,17 @@
       },
       {
         "rank": 2,
-        "name": "The Sentinel",
-        "artist": "Judas Priest",
-        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
-        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
-      },
-      {
-        "rank": 3,
         "name": "Paid in Full",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
         "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
+      },
+      {
+        "rank": 3,
+        "name": "The Sentinel",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       },
       {
         "rank": 4,
@@ -97,52 +97,52 @@
       },
       {
         "rank": 6,
-        "name": "The Emptiness Machine",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 7,
-        "name": "No Lonelier Star",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 8,
-        "name": "Unshatter",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
-        "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
-      },
-      {
-        "rank": 9,
-        "name": "FullMoon",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
-        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
-      },
-      {
-        "rank": 10,
         "name": "Last Drop Falls",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/0d7hsFTBpokWSU115U0xx6",
         "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15"
       },
       {
+        "rank": 7,
+        "name": "The Emptiness Machine",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 8,
+        "name": "No Lonelier Star",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 9,
+        "name": "Unshatter",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
+        "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
+      },
+      {
+        "rank": 10,
+        "name": "FullMoon",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
+        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+      },
+      {
         "rank": 11,
+        "name": "Replica",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/2A4rfHIusMPUyTN2RAgsKw",
+        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+      },
+      {
+        "rank": 12,
         "name": "Chemtrails Over The Country Club",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
         "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d"
-      },
-      {
-        "rank": 12,
-        "name": "I Have a Right",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/4CmtxfLMOwBvrrE7OFBzCq",
-        "image": "https://i.scdn.co/image/ab67616d00004851aab605f00560cbe1ba6b3afc"
       }
     ],
     "medium": [

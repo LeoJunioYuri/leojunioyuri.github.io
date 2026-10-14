@@ -1,0 +1,225 @@
+---
+title: "From 5 million to 27 thousand calls a night: the timeout that invented customers"
+description: "The biggest writer on our customers table wasn't orders: it was a nightly contacts job. A 500 ms timeout that silently returned 'not found' rewrote ~490 thousand rows a night. Three steps later, 5.1 million requests became 26.8 thousand."
+date: 2026-10-14
+lang: "en"
+category: "engenharia"
+draft: true
+tags: ["Engineering", "Postgres", "Performance", "Databases", "Lessons"]
+translationOf: "pt/cinco-milhoes-de-chamadas-por-noite"
+---
+
+I went looking at who was writing to the customers table expecting to find
+orders. Every delivered order updates that store's customer, so it seemed
+obvious they'd be the heaviest load.
+
+They weren't. The biggest writer was a job that runs overnight, syncs the
+stores' contact lists and, the vast majority of the time, has nothing new to
+write.
+
+## The symptom
+
+I pulled one week (Sep 21–28) from Query Insights on the primary Postgres. It
+only keeps the ~145 most expensive queries, so the totals below are for those,
+not the whole database. But for what matters here, it's enough:
+
+| writes on the customers table | per day |
+|---|---|
+| execution time | 169 s |
+| share of database execution time | 9.6% |
+| calls | ~990 thousand |
+| share of database lock time | 18% |
+
+And of those writes, **52% came from a single place**: the nightly contacts
+job.
+
+Traffic told the same story. In the overnight window when the job ran, the
+customer API received **~5.1 million requests**, at a pace of ~1.76 million per
+hour. The rest of the day, the pace sat between 100 thousand and 660 thousand
+per hour.
+
+Five million calls to, almost always, reach the same conclusion: this contact
+already exists and hasn't changed.
+
+## The cause
+
+The job walked through contacts in pages and, for each one, asked the customer
+API: "does this customer exist?". If yes, it took the normal update path, which
+only touches what changed. If not, it created one.
+
+The problem was in the "if not". The HTTP client for that call had a **500 ms
+timeout that silently returned `null`**. No error, no failure log: to the
+caller, a timeout and "not found" were the same answer.
+
+And the timeout fired more often than it should:
+
+- **No keep-alive.** Every request opened a new TCP connection and did a new
+  TLS handshake.
+- **100 parallel GETs per page.** A hundred connections being born at once, on
+  a small worker.
+
+Server-side, p95 was between 51 and 242 ms, with room to spare. But the clock
+that mattered was the client's, which includes queueing, connecting and the
+handshake. In the tail, 500 ms blew up, and **~10% of contacts that already
+existed fell into the "create" branch**.
+
+That branch didn't crash. It found the existing row and ran a full `UPDATE`:
+name, phone, type, all overwritten with whatever came from the contact, without
+the guards the normal update path had.
+
+Result: **~490 thousand rows rewritten per night, for only ~263 real inserts.**
+
+Two details helped close the diagnosis:
+
+- **The failure was random.** The ids that fell into that branch only repeated
+  ~14% between two consecutive nights. If it were phone formatting or bad data,
+  they'd always be the same. They weren't: it was the latency tail picking
+  victims at random.
+- **What I couldn't measure.** How many names were actually overwritten with a
+  worse value. There's no history for those columns, and the updated-at
+  timestamp isn't stamped automatically. I know the branch ran ~490 thousand
+  times a night; I don't know how many times it broke something.
+
+## The fix, in three steps
+
+### 1. "Create" only fills gaps
+
+The first step was the cheapest and the most urgent, because it was the one
+that could damage data: when the "create" branch finds an existing row, it now
+only fills empty fields and doesn't overwrite what's already there. It shipped
+at the end of September.
+
+| night | job write time |
+|---|---|
+| Sep 28 (before) | 85.0 s |
+| Oct 5 (after) | 36.1 s |
+
+That branch's `UPDATE` still ran ~442 thousand times a night. But only ~1.9
+thousand rows actually changed. The timeout was still lying; now the lie only
+cost time, not data.
+
+### 2. Don't write what didn't change
+
+The second step ended up hitting a different writer. Our WhatsApp support bot
+writes a JSON field of extra customer info every time it validates the
+customer's name. Most of the time, the new JSON was identical to the old one.
+
+In Postgres, an `UPDATE` that writes the same values isn't free: it creates a
+new row version, writes to the transaction log and holds the row lock all the
+same. So we started comparing first and only writing when the field changed.
+
+Comparing Wednesday to Sunday, Sep 30–Oct 4 against Oct 7–11:
+
+| | before | after | change |
+|---|---|---|---|
+| calls | 1.35M | 359k | −73% |
+| execution time | 241 s | 71 s | −71% |
+
+Adding up the first two steps, the whole customers table looked like this:
+
+| week of | writes (s/day) |
+|---|---|
+| Sep 22 | 164 |
+| Sep 29 | 103 |
+| Oct 6 | 78 |
+
+Rows written per day: from **~1.0 million to 362 thousand**.
+
+### 3. Read and write in batches
+
+The first two steps removed the damage and the wasted writes. But the job was
+still asking 5 million questions, one per contact, over HTTP.
+
+The third step, merged on Oct 9, replaced that with batches: for each page of
+contacts, one read that fetches all the ones that already exist and one write
+that inserts the new ones and updates only those that changed. The "does it
+exist?" question stopped going over the network, and the lying timeout went
+with it.
+
+Comparing the night of Monday, Oct 12, with the two previous Mondays (Oct 12 was
+a holiday in Brazil, but the job's volume was normal):
+
+| | Sep 28 | Oct 5 | Oct 12 |
+|---|---|---|---|
+| requests to the customer API in the job window | 5.10M | 5.18M | 26.8k |
+| write seconds in the window | 85.0 | 36.1 | 1.7 |
+
+The worker's median duration dropped from ~2.5 s to 1.9 s.
+
+That night's tally: **4.97 million contacts processed**. Of those, 4.92 million
+already existed, 33.8 thousand were updated, 12.9 thousand inserted, 5.5
+thousand were invalid and **zero failed**.
+
+In other words: 99% of the work was confirming that nothing had changed. Now
+that confirmation costs one query per page, not a hundred HTTP requests.
+
+## Under the hood
+
+Why do 5 million "GET + maybe UPDATE" weigh so much, if each one is fast?
+
+**Every request pays the full toll.** Without keep-alive, each GET opens a TCP
+connection (one round trip), negotiates TLS (one or two more), sends the HTTP
+request, waits for the server to grab a connection from the pool, run the query
+and come back. The query itself is the cheap part. Multiplied by 5 million, the
+toll becomes the cost.
+
+**Every `UPDATE` is a real write, even if the values are the same.** Postgres
+doesn't update in place: it writes a new version of the row and marks the old
+one dead (that's how MVCC keeps reads and writes from blocking each other).
+That means a transaction log record, possibly new index entries, work for
+vacuum later, and a row lock for as long as the transaction lasts. Writing
+"John" over "John" costs almost the same as writing a new name.
+
+**A batch trades N round trips for one.** For one page of contacts:
+
+```sql
+-- 1 read for the whole page, instead of N GETs
+SELECT phone, name, type
+FROM customers
+WHERE store_id = $1
+  AND phone = ANY($2);   -- $2 = array with the page's phone numbers
+```
+
+```sql
+-- 1 write for the whole page: insert the new ones,
+-- update only rows with a real difference
+INSERT INTO customers (store_id, phone, name, type)
+SELECT * FROM unnest($1::text[], $2::text[], $3::text[], $4::text[])
+ON CONFLICT (store_id, phone) DO UPDATE
+SET name = COALESCE(customers.name, EXCLUDED.name),
+    type = COALESCE(customers.type, EXCLUDED.type)
+WHERE (customers.name, customers.type)
+      IS DISTINCT FROM
+      (COALESCE(customers.name, EXCLUDED.name),
+       COALESCE(customers.type, EXCLUDED.type));
+```
+
+(Simplified and with generic names; the real rule for when to update has more
+cases.)
+
+Two things do the work here:
+
+- **`= ANY($array)`** lets the database resolve the whole page in one pass
+  through the index, with a single plan and a single round trip.
+- **The `WHERE` on `DO UPDATE`** turns a conflict with no difference into a
+  no-op: the row gets no new version, no write happens. It's step 2 built into
+  the query itself. And the `COALESCE` is step 1: only fill what's empty.
+
+The math changes by orders of magnitude: from ~5 million requests, each with
+its own connection and transaction, to one read and one write per page, which
+only writes what changed.
+
+## What stays with me
+
+- **A timeout that returns `null` becomes business logic.** Nobody decided
+  that "the API was slow" should mean "the customer doesn't exist, overwrite
+  it". But that's what the code did, ~490 thousand times a night. A timeout
+  needs to fail loud, or at least be distinguishable from "not found".
+- **Measure who writes before optimizing.** I would have bet on orders. The
+  biggest writer was a job that almost never had anything to write, and the
+  second was a bot rewriting an identical JSON.
+- **The win wasn't capacity, and that's fine.** The database was idle: ~6%
+  average CPU, on 16 vCPUs. None of this was taking anything down. What got
+  better was lock time on a hot table, wasted traffic and, above all, data
+  correctness: a contact no longer overwrites a good customer record because
+  the network hiccuped.

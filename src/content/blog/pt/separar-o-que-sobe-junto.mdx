@@ -1,6 +1,6 @@
 ---
 title: "Separar o que sobe junto"
-description: "Quase todas as requests lentas da nossa API de anúncios aconteciam logo depois de um deploy, e todo merge deployava 79 functions. A saída foi quebrar o pacote em quatro sem apagar nenhuma function, e ensinar o CD a ler os imports."
+description: "Quase todas as requests lentas da nossa API de anúncios aconteciam logo depois de um deploy, e todo merge deployava 79 functions. Quebrei o pacote em quatro sem apagar nenhuma function, e a API continuou subindo em 9 de cada 10 deploys. O motivo era acoplamento."
 date: 2026-10-15
 lang: "pt"
 category: "engenharia"
@@ -20,6 +20,21 @@ No Firebase, as functions são agrupadas em **codebases**. A codebase é o pacot
 Cada function é um serviço no Cloud Run. Cada vez que um serviço ganha uma versão nova, ele começa com máquinas novas, frias, que ainda precisam carregar o código. As primeiras requests esperam esse boot. Isso é o **cold start**. Num serviço que recebe tráfego o dia inteiro, cada troca de versão vira alguns minutos de fila.
 
 Com 79 functions no mesmo pacote, a API trocava de versão umas 14 vezes por dia. A maioria dessas trocas não tinha nada a ver com ela.
+
+## Antes: tratar o sintoma
+
+Não foi a primeira tentativa. Em agosto, antes de eu ligar as requests lentas aos deploys, a gente atacou o sintoma. A API ganhou um mínimo de instâncias sempre ligadas (`minInstances`), mais CPU, um limite de concorrência ajustado, e passou a pré-carregar o grafo de módulos no boot do container, antes da primeira request chegar.
+
+No gráfico, funcionou. Medido no Cloud Run:
+
+| | 14–21/08 | 23–30/08 |
+|---|---|---|
+| p99 da API | 15,8 s | 0,9 s |
+| Cold starts da API por semana | 2.044 | 1.507 |
+
+E custou. Uma instância parada de 2 vCPU e 2 GiB sai por uns US$ 26 por mês. Somando todos os mínimos que espalhamos pelos serviços, uns US$ 75 por mês, todo mês.
+
+O p99 despencou, mas os cold starts caíram só um quarto. Instância mínima protege do pico de tráfego, não do deploy. Cada versão nova substitui todas as instâncias, inclusive as que ficavam sempre ligadas, e as novas começam frias. Com uns 14 deploys por dia, o mínimo aliviava. Não resolvia.
 
 ## A ideia: quatro pacotes
 
@@ -82,25 +97,67 @@ O caso que mais me ensinou foi uma string. A API precisava de `'ai-on-demand-enh
 
 A regra que ficou: quem só precisa **saber** algo do outro (um nome de fila, uma constante, o formato de uma mensagem) importa um **contrato**, um arquivo pequeno sem dependências. Quem precisa **executar** algo do outro importa a implementação e aceita o acoplamento. Se a API roda aquele código, ela tem mesmo que subir quando ele muda.
 
+## O split saiu, e o problema continuou
+
+O split foi para produção em 08/10. Medi de 09 a 13/10, e a janela é curta: um único dia útil normal (09/10), um fim de semana e um feriado (12/10). Dá para ver a direção, não para cravar números.
+
+A API ainda entrou em 26 dos 29 deploys da área de anúncios, uns 90%. No dia 09/10, 92% das requests acima de 10 s caíram numa janela de deploy. Antes do split, essa fatia ficava entre 89 e 97%. Separar os pacotes quase não mudou quantas vezes a API troca de versão.
+
+O que melhorou foi o tamanho de cada cold start. Cada versão nova da API gerava umas 163 requests lentas; agora gera umas 82. Bate com o que mudou: o boot ficou menor, de 1.256 para 962 módulos carregados, e o tráfego dos agentes saiu da API e foi para os serviços próprios. Cada deploy passou a doer metade. Mas continuou doendo quase o mesmo número de vezes.
+
+## Por que: acoplamento
+
+Fui olhar o que, de fato, fazia a API subir.
+
+O grafo de imports da API alcança 463 dos 1.157 arquivos da biblioteca de anúncios, 40% dela. A casca da API exporta 2 functions, mas puxa quase metade da biblioteca atrás.
+
+Dos 26 commits desde o split que redeployaram a API, 19 (73%) mexeram no código da própria API. Esses são legítimos: a API mudou, tem que subir. Os outros 7 mexeram só em código de fora que ela importa. É o mesmo problema da constante da seção anterior, em outros lugares: uma rota da API importando um módulo de outra parte para usar um pedaço pequeno dele.
+
+E tinha um bug no CD. Quando mudava um arquivo da pasta compartilhada, o código comum que vários serviços usam, o CD não consultava o grafo de imports. Ele via que a biblioteca de anúncios dependia daquela pasta e subia os quatro pacotes que a consomem. Isso respondeu por uns 25% dos redeploys da API, e esses ficam quase todos fora dos 26 commits acima: neles, o código de anúncios alterado nem alcançava a API, e ela subiu só por causa da pasta compartilhada. As duas causas se somam, mas as porcentagens não, porque cada uma foi medida sobre uma base diferente. O exemplo mais claro foi uma mudança no cliente HTTP que outros serviços usam para chamar a área de anúncios. Dentro de anúncios, só as rotas do Anderson importam esse cliente. Subiram os quatro pacotes.
+
+Era a regra "na dúvida, sobem as quatro" aplicada a algo que não era dúvida. O grafo sabia responder; o CD só não perguntava.
+
+## Como estamos resolvendo
+
+São duas mudanças, as duas em PRs abertos enquanto escrevo (13/10).
+
+**Ensinar o CD a ler a pasta compartilhada.** Quando um arquivo da pasta compartilhada muda, o CD agora procura quais arquivos da biblioteca de anúncios importam o módulo alterado e usa esses arquivos como ponto de partida no grafo. Daí em diante a pergunta é a mesma de antes: partindo da entrada de cada pacote, os imports chegam lá? Reproduzi 5 merges reais com a regra nova:
+
+| Merge | Antes | Com a correção |
+|---|---|---|
+| 1 | 4 pacotes | só o Anderson |
+| 2 | 4 pacotes | 3 |
+| 3 | 4 pacotes | 4 (acoplamento real: uns 30 arquivos, espalhados pelos quatro, importam o módulo) |
+| 4 | 4 pacotes | Anderson e Kleber |
+| 5 | 4 pacotes | 3 |
+
+São 7 deploys de pacote a menos em 20, e a API deixou de subir em 2 dos 5. Todos os caminhos de fallback continuam indo para "sobe tudo". Se o CD não conseguir resolver o grafo, ele erra para o lado de mais deploy, nunca de menos.
+
+**Cortar três imports.** Três rotas da API puxavam módulos que existem para tarefas em segundo plano: a memória do Anderson, que chegava pela camada que guarda as regras de cardápio; um helper de observação do Anderson, que chegava pelo diagnóstico; e o estado de gamificação, que chegava pelo serviço de gamificação. Nos três casos, a API só precisava de uma parte pequena. Essa parte foi para um módulo neutro, que os dois lados importam, e a API parou de alcançar o resto.
+
+## O que esperamos
+
+Juntando as duas, a conta dá uns 35 a 45% menos redeploys da API. A correção do CD tira uns 25%. Os cortes tiram uns 12% no piso, ou uns 20% se depois separarmos um módulo maior que ainda está no caminho.
+
+Não vai chegar a 100%, e nem deveria. O piso é a API mudando de verdade. Dos 463 arquivos que ela alcança, 271 são a própria API do painel do lojista. Quando alguém mexe no painel, a API tem que subir. Ir além disso significa quebrar a API do painel em pedaços, e isso é um projeto bem maior.
+
 ## O resultado
 
-{/* TODO 15/10: preencher com o painel do ads-apiv2, antes (01–07/10) × depois (09–14/10), dias úteis. */}
+{/* TODO ~21/10: preencher depois de uma semana útil inteira com as duas mudanças em produção (correção do CD + cortes de import). Fonte: Cloud Run do ads-apiv2. Antes = 01–07/10, dias úteis. Confirmar se 89–97% vale para 01–07/10. Ajustar `date` antes de publicar. */}
 
-| | Antes | Depois |
+| | Antes (01–07/10) | Depois |
 |---|---|---|
 | Versões novas da API por dia | ~14 | _a preencher_ |
 | Requests acima de 10 s por dia | _a preencher_ | _a preencher_ |
-| Dessas, em janela de deploy | 92–97% | _a preencher_ |
+| % delas em janela de deploy | 89–97% | _a preencher_ |
 | Cold starts por dia | _a preencher_ | _a preencher_ |
 
-_Parágrafo sobre o que os números mostram e o que atrapalha a comparação: o teste de máquinas mínimas que rodou na mesma semana e as mudanças na biblioteca comum, que continuam subindo todas as codebases._
+_Parágrafo a escrever com os números: se a queda de redeploys ficou dentro dos 35–45% esperados, o que dá para atribuir a cada mudança (as duas entram na mesma semana, então separar é difícil) e se as requests lentas por versão nova continuaram perto de 82._
 
 ## O que fica
 
-**Prove com a ferramenta de verdade, não com o raciocínio.** Ler o código do firebase-tools me deu a hipótese. O teste que chama o planejador dele me deu a prova, e ela continua rodando em todo PR.
+**Separar o pacote de deploy não separa o código.** Quatro cascas, uma biblioteca só. A API continuou subindo porque continuou importando 40% da biblioteca.
 
-**Acoplamento de deploy segue o acoplamento de código.** Separar os pacotes levou a API de 100% para 78%. O resto só caiu quando ela parou de importar o que não executa.
+**Acoplamento só aparece quando você mede quem sobe junto.** Ninguém decidiu que a API dependia da memória do Anderson. Ela dependia, a alguns imports de distância, e só a contagem de deploys mostrou.
 
-**Na dúvida, suba tudo.** Um sistema que decide o que publicar precisa errar para o lado de publicar de mais. O erro do outro lado é silencioso.
-
-**Teste que monta o ambiente errado passa no caminho que a produção não percorre.** O corpo vazio só não foi para o ar porque alguém leu o código pensando em como ele roda de verdade.
+**Tratar o sintoma compra tempo, e cobra todo mês.** O `minInstances` derrubou o p99 em agosto e segurou a situação até o split. Mas custa uns US$ 75 por mês e não protege do deploy, que troca todas as instâncias.

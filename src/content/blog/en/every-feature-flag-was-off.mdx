@@ -1,0 +1,185 @@
+---
+title: "Failing with success"
+description: "Our PostHog feature-flag quota ran out and every flag in every project started answering \"off\", with HTTP 200 and no error. Hunting the consumer led to the menu, and the menu led to a second story: the checkout latency tail."
+date: 2026-10-16
+lang: "en"
+category: "engenharia"
+draft: true
+tags: ["Engineering", "Feature Flags", "PostHog", "Performance", "Observability", "Lessons"]
+translationOf: "pt/toda-feature-flag-desligada"
+---
+
+On 09/08/2026 we shipped a change to the menu's pixel behind a feature flag:
+stamp every new order so the purchase would be counted later, when the store
+accepts it, instead of when it is created. Gradual rollout, per store. Flag
+turned on in PostHog.
+
+An hour later I checked the result: **0 stamps across 551 orders**.
+
+No error in the logs. No alert. The flag was on in the dashboard. The code was
+live. Nothing was happening.
+
+---
+
+## The incident: failing with success
+
+PostHog bills feature flags per request. The first million each month is
+free, and the spending cap we had configured was **US$ 0**. In other words:
+1 million requests, and that's it.
+
+That day the billing period was already at **2.52 million**.
+
+What I didn't know was how PostHog behaves when the quota runs out. It doesn't
+return 429, or 402, or 500. The flag endpoints (`/decide` and `/flags`) answer
+**200**, with a `quotaLimited: ["feature_flags"]` field and an **empty flag
+map**. And the quota belongs to the organization, so this applied to all 12
+projects: menu, dashboard, ads, everything.
+
+From the consumer's side, "empty map" is indistinguishable from "flag off":
+
+- in the browser, `posthog-js` answers `isFeatureEnabled` with `undefined`,
+  which any `if` reads as false;
+- on the backend, our client returned `false`.
+
+Neither logs anything, because as far as they're concerned nothing went
+wrong. The response was a 200.
+
+So, for who knows how long, **every feature flag in the company was off**.
+Every gradual rollout that was "on" was a no-op. We only found out because,
+by luck, that day's change had a binary, easy-to-count metric: the stamp was
+either on the order or it wasn't.
+
+## The consumer: an SDK fetching what it never read
+
+Raising the cap fixed the symptom (I raised it to US$ 500 the same day), but
+the real question was: **who was making 2.5 million flag requests?**
+
+The answer was the menu. It initializes `posthog-js` for **every visitor**:
+sampling only decides whose events get captured, not who initializes the SDK.
+And every initialization fires, by default, a flag request. A billed one.
+
+How many flags did the menu read in the browser? **None.** The client-side
+flag helper didn't have a single call site. That was roughly **315 thousand
+requests a day**, paid for, to fetch a map nobody opened.
+
+The fix is one line in the init:
+
+```ts
+posthog.init(token, {
+  // ...
+  advanced_disable_feature_flags: true,
+});
+```
+
+Session recording and the rest of the remote config keep working; only flag
+evaluation stops. As a bonus, it's one less network call per visitor, on a
+page that gets a lot of traffic.
+
+In the same PR, the flag read the server does at checkout started being cached
+per store for 60 minutes instead of 5. It was billed too, and the short cache
+barely helped.
+
+### What changed on the bill
+
+From PostHog's billing API:
+
+| | before the fix | October |
+|---|---|---|
+| flag requests per day | ~315 thousand | ~107 thousand |
+
+A **66%** drop.
+
+But it didn't get back under the free tier, and I'd rather say so up front.
+October is projected at **~3.14 million** requests, which comes to about
+**US$ 150 a month** at the current pricing (first million free, the second
+at US$ 0.0001 per request, the rest at US$ 0.000045). There's still a big
+consumer out there, and with the data we have on the infrastructure side I
+couldn't attribute it. That's the next cut.
+
+## Part two: the checkout tail
+
+Digging into the menu because of the flags made me look again at a front that
+had been open since August on the same surface: the **latency tail**. These
+are different stories. I'm telling them together because they happened on
+the same page, in the same month, and because one teaches something about the
+other: the menu is a high-traffic page, and everything it does on every visit
+gets expensive.
+
+Between August and September we shipped, among other things:
+
+- **Browser pixel out of the server-rendering critical path.** The menu
+  response used to wait for the pixel config before going out. Now it goes
+  out without it, and the browser fetches the config after hydration.
+- **Order creation instrumented and parallelized.** At lunch on a normal day
+  in August, the p95 to create an order was **8.15 s**: **154 of 1,977
+  orders** took longer than 8 seconds. Creation ran six I/O steps strictly in
+  sequence; the ones that were pure reads now run in parallel, and every
+  order now logs how long each step took, so the next round is driven by
+  numbers rather than guesses.
+- **A timeout shorter than its own tail.** The menu gave up on creation after
+  **8 s**, but the p95 of the service that creates the order was **10.3 s**.
+  On the tail, the menu aborted *while the order was still being created*:
+  the customer saw an error and the order existed. The timeout went to
+  **25 s**, and when the customer retries an identical order that was already
+  created, the menu returns the existing order as a success instead of
+  "duplicate order".
+- **The ad-link redirect got a cache.** Ad links point at the store's id, and
+  the menu redirects to its current address. That lookup ran on every paid
+  click, with no cache and a swallowed error: when the store API slowed down,
+  the id was treated as an address and the customer saw "page not found" for
+  a store that exists. Now the answer is cached, and if the store API fails
+  with nothing cached, the menu answers **503 "try again"** instead of 404.
+- **Missing images now cache the "missing".** Every absent product image was
+  fetched again on every visit and logged a full error on every render. The
+  404 now comes back with a five-minute cache and logs as a warning.
+
+### The numbers
+
+Measured on Cloud Run, for the **entire** menu service, over three closed
+weeks:
+
+| | Aug 18–25 | Sep 9–16 | Oct 6–13 |
+|---|---|---|---|
+| p50 | 28 ms | 59 ms | 68 ms |
+| p95 | 527 ms | 277 ms | 307 ms |
+| p99 | 1,449 ms | 685 ms | 758 ms |
+| 5xx | 0.005% | 0.093% | 0.020% |
+| instance-hours per week | 3,210 | 1,862 | 2,473 |
+
+Weekly volume went from 154 million to 132 million requests over the period.
+From August to October, **p99 dropped 48%** and **instance-hours dropped
+23%**.
+
+## The caveats
+
+These numbers are good, but they aren't clean, and I don't want to sell them
+as if they were.
+
+- **p50 went up**, from 28 to 68 ms. The most likely explanation is a change
+  in the request mix (what reaches the service, not how long each thing
+  takes), but I didn't isolate it. It stays a hypothesis.
+- **5xx is 4× the August level.** Part of that is intentional: swapping 404
+  for 503 when the store API fails turns a hidden error into a counted one.
+  But I didn't separate how much of the increase comes from that.
+- **I didn't measure per route.** Everything above is the whole service. I
+  didn't isolate checkout or redirect latency; the changes target the tail,
+  and the service's tail came down, but the route-by-route link isn't proven.
+- **The flags don't explain the latency.** Turning off the flag fetch removed
+  one network call from every visit, but I don't attribute any number in the
+  table to it. These are two stories on the same page, not cause and effect.
+
+## What I'm taking from this
+
+- **A third-party service that fails "with success" needs its own alarm.** A
+  200 with an empty map triggers nothing. Check `quotaLimited` in the
+  response, or track usage through the billing API, before a rollout silently
+  becomes a no-op.
+- **An SDK on a high-traffic page should turn on only what it uses.** A
+  library's defaults are designed for the general case. On the menu, the
+  default cost 315 thousand requests a day.
+- **A US$ 0 spending cap is a silent kill switch.** It protects the bill, and
+  turns the product off without telling you. If there's going to be a cap, it
+  should come with an alert before it's hit.
+- **A timeout shorter than the tail of what it guards creates the error it
+  was meant to prevent.** The customer saw an error on an order that had gone
+  through.

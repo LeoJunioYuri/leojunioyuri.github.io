@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-10-15T15:56:33.984Z",
+  "updatedAt": "2026-10-15T20:41:09.671Z",
   "tracks": [
+    {
+      "name": "9 Crimes",
+      "artist": "Damien Rice",
+      "url": "https://open.spotify.com/track/5GZEeowhvSieFDiR8fQ2im",
+      "image": "https://i.scdn.co/image/ab67616d00004851822529ba4d82fad5467fb378",
+      "playedAt": "2026-10-15T18:56:36.208Z"
+    },
+    {
+      "name": "Bye Bye Beautiful",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6K03JHEberhdFjgZvFYcfs",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-10-15T17:36:51.963Z"
+    },
     {
       "name": "Faster",
       "artist": "Within Temptation",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/7Chqf4yGnQlLWAWic9b0ET",
       "image": "https://i.scdn.co/image/ab67616d0000485116d52d18fcd5e310f2e2ffb1",
       "playedAt": "2026-10-15T13:24:16.012Z"
-    },
-    {
-      "name": "Shoemaker",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5xITcnqoMdILDBNCwHGr5v",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-10-15T13:14:39.338Z"
-    },
-    {
-      "name": "Killing My Dreams",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/6NvjefGOBXHhY8iCv8NiEN",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-10-15T13:09:19.812Z"
     }
   ],
   "topTracks": {

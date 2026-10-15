@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-10-15T02:18:21.791Z",
+  "updatedAt": "2026-10-15T10:32:04.056Z",
   "tracks": [
+    {
+      "name": "Physical",
+      "artist": "Dua Lipa",
+      "url": "https://open.spotify.com/track/3AzjcOeAmA57TIOr9zF1ZW",
+      "image": "https://i.scdn.co/image/ab67616d00004851c88bae7846e62a8ba59ee0bd",
+      "playedAt": "2026-10-15T05:21:54.612Z"
+    },
+    {
+      "name": "Complicated",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/5xEM5hIgJ1jjgcEBfpkt2F",
+      "image": "https://i.scdn.co/image/ab67616d00004851f7ec724fbf97a30869d06240",
+      "playedAt": "2026-10-15T05:21:41.542Z"
+    },
+    {
+      "name": "Never Say Never",
+      "artist": "Justin Bieber, Jaden",
+      "url": "https://open.spotify.com/track/5GYbkDveRD2I8M5ZJ14hWn",
+      "image": "https://i.scdn.co/image/ab67616d0000485149130b16d4190db1d6822e59",
+      "playedAt": "2026-10-15T05:15:37.345Z"
+    },
+    {
+      "name": "As Long As You Love Me",
+      "artist": "Justin Bieber, Big Sean",
+      "url": "https://open.spotify.com/track/0pwYLVXVknPSGUQb39cePC",
+      "image": "https://i.scdn.co/image/ab67616d000048516c20c4638a558132ba95bc39",
+      "playedAt": "2026-10-15T04:50:48.865Z"
+    },
+    {
+      "name": "Moonlight (Light Mix)",
+      "artist": "Down Low",
+      "url": "https://open.spotify.com/track/2q0ROv8aAzeoUCzCNpOZWy",
+      "image": "https://i.scdn.co/image/ab67616d0000485197ff621034f028b4146da1b1",
+      "playedAt": "2026-10-15T03:35:50.638Z"
+    },
     {
       "name": "My World",
       "artist": "O.C.",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/7KZs2C1UGjrIfVXXuvtb20",
       "image": "https://i.scdn.co/image/ab67616d000048512fc5548485c214ab53477a96",
       "playedAt": "2026-10-15T00:45:27.508Z"
-    },
-    {
-      "name": "Moonlight (Light Mix)",
-      "artist": "Down Low",
-      "url": "https://open.spotify.com/track/2q0ROv8aAzeoUCzCNpOZWy",
-      "image": "https://i.scdn.co/image/ab67616d0000485197ff621034f028b4146da1b1",
-      "playedAt": "2026-10-15T00:39:54.463Z"
-    },
-    {
-      "name": "Gettin' It (feat. Parliament Funkadelic)",
-      "artist": "Too $hort, Parliament Funkadelic",
-      "url": "https://open.spotify.com/track/5K5dQsYdSdo2LKdepxbYAd",
-      "image": "https://i.scdn.co/image/ab67616d0000485139abdab31997fcb39b773670",
-      "playedAt": "2026-10-15T00:35:46.670Z"
-    },
-    {
-      "name": "In And Out Of Love",
-      "artist": "Rivo, Armin van Buuren, Sharon Den Adel",
-      "url": "https://open.spotify.com/track/64fEHUyea9EqtAkmwqxFrr",
-      "image": "https://i.scdn.co/image/ab67616d00004851f95d6179ebb16d09b4553f10",
-      "playedAt": "2026-10-15T00:30:04.982Z"
-    },
-    {
-      "name": "Lovers on the Sun (feat. Sam Martin)",
-      "artist": "David Guetta, Sam Martin",
-      "url": "https://open.spotify.com/track/2rgtCOVK2tpfao2VjURn84",
-      "image": "https://i.scdn.co/image/ab67616d00004851720d368aa9ea6335ca40a6f8",
-      "playedAt": "2026-10-14T23:54:24.480Z"
-    },
-    {
-      "name": "In And Out Of Love",
-      "artist": "Armin van Buuren, Sharon Den Adel",
-      "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
-      "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00",
-      "playedAt": "2026-10-14T23:51:00.426Z"
     }
   ],
   "topTracks": {
@@ -155,45 +155,45 @@
       },
       {
         "rank": 2,
-        "name": "Rivers Between Us",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 3,
         "name": "Far Horizons",
         "artist": "Jeremy Soule, The Elder Scrolls",
         "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
         "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "name": "The Sentinel",
         "artist": "Judas Priest",
         "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
         "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       },
       {
-        "rank": 5,
-        "name": "Dishearten",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5SeVyh5yl3jKM8buqroY2R",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 6,
+        "rank": 4,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 7,
-        "name": "Pale Tortured Blue",
+        "rank": 5,
+        "name": "Rivers Between Us",
         "artist": "Draconian",
-        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 6,
+        "name": "Letter To Dana",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
+        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+      },
+      {
+        "rank": 7,
+        "name": "The Emptiness Machine",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
         "rank": 8,
@@ -204,24 +204,24 @@
       },
       {
         "rank": 9,
-        "name": "Letter To Dana",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
-        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
-      },
-      {
-        "rank": 10,
-        "name": "The Emptiness Machine",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 11,
         "name": "The Wretched Tide",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3iNTdddNRIBlGFlo3IXMRQ",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 10,
+        "name": "Pale Tortured Blue",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 11,
+        "name": "Paid in Full",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
+        "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
       },
       {
         "rank": 12,

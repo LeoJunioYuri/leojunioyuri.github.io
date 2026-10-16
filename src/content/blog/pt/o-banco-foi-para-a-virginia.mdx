@@ -1,0 +1,183 @@
+---
+title: "O banco foi para a Virgínia: de 4 viagens para 1 por pergunta"
+description: "Migramos o banco do Ads para o Supabase na AWS, e as funções ficaram no Google Cloud em Iowa. Cada ida e volta passou a custar 29 ms, e cada pergunta fazia quatro. A mediana da API do agente foi de 0,3 s para 1,06 s. Sete táticas para viajar menos, com um simulador para brincar."
+date: 2026-10-16
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Engenharia", "Postgres", "Performance", "Latência", "Lições"]
+translationOf: "en/the-database-moved-to-virginia"
+---
+
+import LatenciaBancoRemoto from "@/components/charts/LatenciaBancoRemoto.astro";
+import ViagensBancoSimulador from "@/components/diagrams/ViagensBancoSimulador.astro";
+
+Na quinta, 15/10, terminamos de migrar o banco do tráfego pago da Brendi: 39
+tabelas saíram do AlloyDB, no Google Cloud, para um Postgres no **Supabase**,
+que roda na **AWS, na Virgínia** (us-east-1). As funções que leem e escrevem
+nesse banco continuaram onde estavam: no **Google Cloud, em Iowa**
+(us-central1).
+
+No dia seguinte, a API que o Anderson (nosso agente de tráfego pago) usa para
+ler e mexer nos anúncios das lojas estava irreconhecível. A mediana tinha ido de
+**0,3 s para 1,06 s**, e o p95 de **1,7 s para 8,2 s**.
+
+O banco estava ótimo. CPU baixa, queries rápidas, nenhum erro. O que tinha
+mudado era outra coisa: **a distância**.
+
+## A conta que ninguém faz
+
+Entre Iowa e a Virgínia, uma mensagem vai e volta em uns **29 ms**. Não tem
+índice nem cache que mude isso: é a velocidade da luz na fibra mais os
+roteadores do caminho. Quando o banco mora no mesmo datacenter, essa ida e
+volta custa menos de 1 ms, e por isso ninguém conta quantas viagens o código
+faz.
+
+Pois é: o nosso código fazia **quatro** viagens por pergunta.
+
+```
+BEGIN                               ← viagem 1
+SET LOCAL statement_timeout = 30000 ← viagem 2
+SELECT ...                          ← viagem 3 (a pergunta de verdade)
+COMMIT                              ← viagem 4
+```
+
+Esse padrão tinha um bom motivo. Os bancos da Brendi ficam atrás de um
+*pooler* em modo transação (PgBouncer, aqui Supavisor), que empresta uma
+conexão real do Postgres só pelo tempo de uma transação. Nesse modo não dá para
+configurar a sessão, então o jeito de dar um tempo limite para cada consulta era
+abrir uma transação, configurar o limite **dentro** dela e fechar. No mesmo
+datacenter, as quatro viagens custavam ~1 ms. Na Virgínia, custam **~116 ms**.
+E era exatamente isso que o smoke do banco media: um `SELECT 1` levava 116 ms.
+
+E isso é por pergunta. Uma chamada do agente faz várias. Para montar o contexto
+da loja, por exemplo, ele faz 5 ou 6 perguntas ao banco. Com só **2 conexões
+abertas** por instância, as perguntas faziam fila. Pior: abrir uma conexão nova
+(TCP, TLS e a troca de senha) custa outras **150 a 300 ms** atravessando o país,
+e o código fechava a conexão depois de **20 s** parada.
+
+Monte o cenário antigo no simulador e veja para onde o tempo vai. Depois aperte
+"Mesmo datacenter": o código antigo, com o banco perto, gastava ~18 ms. O
+código não piorou. O mundo em volta dele mudou.
+
+<ViagensBancoSimulador lang="pt" />
+
+## Três ideias, sete táticas
+
+Não dá para encurtar a viagem. Dá para viajar menos, viajar junto e não viajar
+duas vezes pelo mesmo motivo.
+
+### Viajar menos
+
+**1. Uma pergunta, uma viagem.** O Postgres já roda um comando solto dentro de
+uma transação implícita: se der certo, confirma; se der errado, desfaz. O
+`BEGIN` e o `COMMIT` em volta de **um** comando não protegiam nada. O tempo
+limite saiu do código e virou configuração do usuário do banco
+(`ALTER ROLE ... SET statement_timeout = '60s'`), que vale para toda conexão.
+Quatro viagens viraram uma: **116 → ~29 ms** por pergunta.
+
+**2. Quando precisa de transação, abrir e configurar no mesmo envelope.** Nos
+caminhos de dinheiro (PIX, recarga, renovação semanal), vários comandos têm que
+confirmar ou desfazer juntos, e às vezes esperam uma trava (*lock*). Ali eu
+quis manter o limite de 30 s. A saída foi mandar as duas linhas numa mensagem
+só:
+
+```sql
+BEGIN; SET LOCAL statement_timeout = 30000
+```
+
+Uma mensagem com vários comandos, sem parâmetros, é aceita pelo protocolo
+simples do Postgres, e a transação continua aberta depois dela. O resultado é
+uma viagem a menos por transação, com a proteção onde ela importa.
+
+**3. Três perguntas viram uma.** Para saber se a loja está num período de
+crédito pré-pago, o código perguntava, uma depois da outra: "tem bônus de
+aceleração?", "e de setup?", "e de trial?". Agora pergunta uma vez,
+`external_id = ANY($1)`, e aplica a ordem de prioridade no código. São três
+viagens (doze, no esquema antigo) que viraram uma.
+
+### Viajar junto
+
+**4. Perguntas independentes em paralelo.** A busca de memórias do agente fazia
+duas consultas, uma por semelhança e outra pelas mais recentes. Uma não depende
+da outra, então agora vão juntas (`Promise.all`): duas viagens viram o tempo de
+uma.
+
+**5. Mais conexões.** Cada instância da API atende até 40 chamadas ao mesmo
+tempo, e tinha **2** conexões com o banco. Agora são **8**. Isso pede uma conta
+do outro lado: o *pooler* do Supabase limita quantos clientes se conectam. São
+8 × 10 instâncias = no máximo 80 clientes. E, em modo transação, a conexão real
+do Postgres só fica ocupada durante a pergunta, que agora dura uma viagem.
+
+### Não viajar duas vezes pelo mesmo motivo
+
+**6. Não desligar o telefone.** A conexão parada passou a viver **2 minutos**
+em vez de 20 segundos. Entre uma mensagem do lojista e a próxima, a conexão
+ainda está lá.
+
+**7. Uma busca pesada, mesmo quando muitos pedem ao mesmo tempo.** O agente
+compara a loja com um benchmark anônimo de todas as lojas: uma varredura de 28
+dias de métricas, guardada em cache. Numa instância recém-ligada, o cache está
+vazio, e se 20 conversas chegam juntas, as 20 disparavam a mesma varredura.
+Agora a primeira dispara e as outras esperam a mesma resposta (um mapa de
+"buscas em andamento" por chave). Se a busca falha, nada fica guardado; se
+alguém invalida a chave no meio, o resultado velho não entra no cache.
+(Nesta API, o cache compartilhado em memcache entrou na mesma noite, então ali
+isso virou rede de segurança.)
+
+## Os cuidados
+
+A ideia cabe numa frase. O trabalho está no que pode dar errado em volta dela.
+
+**Devolver ou destruir a conexão.** Se o *banco* respondeu com erro (chave
+duplicada, tempo esgotado), a conversa com ele está em ordem e a conexão pode
+voltar para o pool. Se o erro foi de *rede* (o cliente desistiu de esperar, a
+conexão caiu), não dá para saber em que ponto a conversa parou, e a conexão é
+destruída. Distinguir os dois evita reabrir conexão à toa, que custa 150 a
+300 ms.
+
+**O tempo limite mora em dois lugares.** O comando solto tem o limite do
+usuário do banco (60 s) e o do cliente (35 s). As transações têm 30 s. Dois
+detalhes chatos: conexões que o *pooler* já tinha aberto antes da mudança
+continuam com o limite antigo até serem recicladas, e um comando cortado pelo
+cliente pode continuar rodando no servidor até o limite dele.
+
+**A mesma biblioteca move dinheiro.** O cliente do banco é o mesmo da renovação
+semanal e do PIX. Por isso a PR só entrou depois de testes do caminho de erro,
+do caminho de transação e do caminho somente leitura. A prova de verdade veio na
+manhã seguinte: a repescagem da renovação rodou para **180 lojas** no cliente
+novo, **sem nenhum erro de banco**. Os erros que sobraram vieram da API da Meta,
+uma outra história.
+
+## Os números
+
+<LatenciaBancoRemoto lang="pt" />
+
+- **Uma pergunta ao banco** (o smoke): **116 → 33 ms**, medido em produção com a
+  conexão já aberta. A primeira chamada, com conexão nova, deu 313 ms. É o custo
+  que a tática 6 evita.
+- **A API do agente**: a mediana caiu de **1.058 ms para 602 ms**. Esse número é
+  **preliminar**: são 153 requisições de madrugada, e o cache compartilhado
+  entrou na mesma noite, então a queda não é só desta mudança. Atualizo com uma
+  semana de tráfego normal.
+- **Estimativas por caminho** (a conta das viagens, ainda não medidas uma a
+  uma): o contexto da loja deve ir de ~350–470 ms para ~30–60 ms de espera pelo
+  banco, e a busca de memórias de ~230 ms para ~30 ms, fora o tempo do modelo
+  que gera o embedding.
+
+Mesmo no melhor caso, a API não volta aos 0,3 s de antes da migração só com
+isso. Uma viagem de 29 ms continua sendo 29 vezes uma viagem de 1 ms. Se o
+banco vai ficar na Virgínia, a próxima conversa é sobre mover as funções para
+perto dele, ou o contrário.
+
+## A lição
+
+Num [post anterior](/writing/o-banco-levou-a-culpa), o banco levou a culpa de
+um timeout que era um sort. Aqui ele levou a culpa de novo, e de novo era
+inocente.
+
+Quando o banco está longe, a primeira pergunta não é "qual query está lenta?".
+O `EXPLAIN` não mostra viagem. A primeira pergunta é **"quantas viagens cada
+chamada faz?"**. E quando um banco muda de região, ou de nuvem, essa conta
+devia estar no plano de migração antes do primeiro byte copiado, não na manhã
+seguinte.

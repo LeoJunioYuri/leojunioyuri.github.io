@@ -1,0 +1,190 @@
+---
+/**
+ * Simulador: quanto tempo uma chamada do agente passa esperando o banco, dados a distância (ms por
+ * ida e volta), as viagens por pergunta, quantas perguntas e quantas conexões abertas.
+ */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t =
+  lang === "en"
+    ? {
+        title: "Simulator: one agent call, N questions to a database far away",
+        rtt: "Distance (ms per round trip)",
+        trips: "Round trips per question",
+        questions: "Independent questions in the call",
+        pool: "Open connections",
+        cold: "Connections already open (warm)",
+        presetBefore: "As it was",
+        presetAfter: "As it is now",
+        presetSame: "Same datacenter",
+        total: "Time waiting for the database",
+        lane: "conn.",
+        open: "open",
+        legendOpen: "opening a connection (TLS + password)",
+        legendTrip: "one round trip",
+        compare: "With the old setup (4 trips, 2 connections, cold) at this distance:",
+        cap: "Simplified model: every question is independent and the database answers instantly; only the distance counts. Questions wait in line when there are fewer connections than questions. Opening a connection is modelled as ~6 round trips (TCP, TLS and the password exchange), about 180 ms at 29 ms.",
+      }
+    : {
+        title: "Simulador: uma chamada do agente, N perguntas a um banco longe",
+        rtt: "Distância (ms por ida e volta)",
+        trips: "Viagens por pergunta",
+        questions: "Perguntas independentes na chamada",
+        pool: "Conexões abertas",
+        cold: "Conexões já abertas (quentes)",
+        presetBefore: "Como era",
+        presetAfter: "Como ficou",
+        presetSame: "Mesmo datacenter",
+        total: "Tempo esperando o banco",
+        lane: "con.",
+        open: "abrir",
+        legendOpen: "abrindo conexão (TLS + senha)",
+        legendTrip: "uma ida e volta",
+        compare: "Com o arranjo antigo (4 viagens, 2 conexões, frias) nesta distância:",
+        cap: "Modelo simplificado: toda pergunta é independente e o banco responde na hora; só a distância conta. Perguntas fazem fila quando há menos conexões que perguntas. Abrir conexão está modelado como ~6 idas e voltas (TCP, TLS e a troca de senha), uns 180 ms a 29 ms.",
+      };
+---
+
+<figure class="vbs" data-vbs>
+  <p class="vbs-title">{t.title}</p>
+  <div class="vbs-presets">
+    <button type="button" data-preset="before">{t.presetBefore}</button>
+    <button type="button" data-preset="after">{t.presetAfter}</button>
+    <button type="button" data-preset="same">{t.presetSame}</button>
+  </div>
+  <div class="vbs-grid">
+    <label>{t.rtt} <b data-out="rtt"></b>
+      <input type="range" min="1" max="120" step="1" data-in="rtt" />
+    </label>
+    <label>{t.trips} <b data-out="trips"></b>
+      <input type="range" min="1" max="4" step="1" data-in="trips" />
+    </label>
+    <label>{t.questions} <b data-out="questions"></b>
+      <input type="range" min="1" max="12" step="1" data-in="questions" />
+    </label>
+    <label>{t.pool} <b data-out="pool"></b>
+      <input type="range" min="1" max="8" step="1" data-in="pool" />
+    </label>
+    <label class="vbs-check"><input type="checkbox" data-in="warm" /> {t.cold}</label>
+  </div>
+  <p class="vbs-total">{t.total}: <b data-total></b></p>
+  <div class="vbs-lanes" data-lanes></div>
+  <p class="vbs-legend">
+    <span class="vbs-sw open"></span> {t.legendOpen}
+    <span class="vbs-sw trip"></span> {t.legendTrip}
+  </p>
+  <p class="vbs-compare">{t.compare} <b data-old></b></p>
+  <figcaption>{t.cap}</figcaption>
+</figure>
+
+<script is:inline define:vars={{ t }}>
+  (() => {
+    const root = document.querySelector("[data-vbs]:not([data-ready])");
+    if (!root) return;
+    root.setAttribute("data-ready", "");
+    const OPEN_TRIPS = 6;
+    const PRESETS = {
+      before: { rtt: 29, trips: 4, questions: 6, pool: 2, warm: false },
+      after: { rtt: 29, trips: 1, questions: 6, pool: 8, warm: true },
+      same: { rtt: 1, trips: 4, questions: 6, pool: 2, warm: false },
+    };
+    const input = (k) => root.querySelector(`[data-in="${k}"]`);
+    const read = () => ({
+      rtt: Number(input("rtt").value),
+      trips: Number(input("trips").value),
+      questions: Number(input("questions").value),
+      pool: Number(input("pool").value),
+      warm: input("warm").checked,
+    });
+    const set = (s) => {
+      for (const k of ["rtt", "trips", "questions", "pool"]) input(k).value = s[k];
+      input("warm").checked = s.warm;
+      render();
+    };
+
+    // Cada conexão atende uma pergunta por vez; as perguntas vão para a conexão que libera primeiro.
+    const simulate = (s) => {
+      const used = Math.min(s.pool, s.questions);
+      const lanes = Array.from({ length: used }, () => ({ end: s.warm ? 0 : OPEN_TRIPS * s.rtt, blocks: [] }));
+      if (!s.warm) lanes.forEach((l) => l.blocks.push({ kind: "open", start: 0, len: OPEN_TRIPS * s.rtt }));
+      for (let q = 0; q < s.questions; q++) {
+        const lane = lanes.reduce((a, b) => (b.end < a.end ? b : a));
+        for (let i = 0; i < s.trips; i++) {
+          lane.blocks.push({ kind: "trip", start: lane.end, len: s.rtt, q: q + 1 });
+          lane.end += s.rtt;
+        }
+      }
+      return { lanes, total: Math.max(...lanes.map((l) => l.end)) };
+    };
+
+    const fmt = (ms) => (ms >= 1000 ? `${(ms / 1000).toFixed(2)} s` : `${Math.round(ms)} ms`);
+
+    const render = () => {
+      const s = read();
+      root.querySelector('[data-out="rtt"]').textContent = `${s.rtt} ms`;
+      root.querySelector('[data-out="trips"]').textContent = s.trips;
+      root.querySelector('[data-out="questions"]').textContent = s.questions;
+      root.querySelector('[data-out="pool"]').textContent = s.pool;
+      const { lanes, total } = simulate(s);
+      const old = simulate({ ...s, trips: 4, pool: 2, warm: false }).total;
+      root.querySelector("[data-total]").textContent = fmt(total);
+      root.querySelector("[data-old]").textContent = fmt(old);
+      const scale = Math.max(total, old);
+      root.querySelector("[data-lanes]").innerHTML = lanes
+        .map(
+          (l, i) =>
+            `<div class="vbs-lane"><span class="vbs-lane-name">${t.lane} ${i + 1}</span><div class="vbs-track">${l.blocks
+              .map(
+                (b) =>
+                  `<span class="vbs-blk ${b.kind}" style="left:${(b.start / scale) * 100}%;width:${(b.len / scale) * 100}%" title="${b.kind === "open" ? t.open : "#" + b.q}"></span>`
+              )
+              .join("")}</div></div>`
+        )
+        .join("");
+    };
+
+    const mark = (name) =>
+      root.querySelectorAll("[data-preset]").forEach((b) => b.classList.toggle("active", b.dataset.preset === name));
+    root.querySelectorAll("[data-in]").forEach((el) => el.addEventListener("input", () => { mark(null); render(); }));
+    root.querySelectorAll("[data-preset]").forEach((b) =>
+      b.addEventListener("click", () => { mark(b.dataset.preset); set(PRESETS[b.dataset.preset]); })
+    );
+    mark("before");
+    set(PRESETS.before);
+  })();
+</script>
+
+<style is:global>
+  .vbs{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .vbs-title{font-size:13px;font-weight:600;margin:0 0 12px}
+  .vbs-presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .vbs-presets button{font:600 12px var(--font-sans);padding:7px 12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);border-radius:4px;cursor:pointer}
+  .vbs-presets button.active{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+  .vbs-presets button:focus-visible,.vbs input:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+  .vbs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px}
+  .vbs-grid label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+  .vbs-grid label b{font-family:var(--font-mono);color:var(--fg)}
+  .vbs-grid input[type=range]{width:100%;accent-color:var(--accent)}
+  .vbs-grid .vbs-check{flex-direction:row;align-items:center;gap:8px;grid-column:1/-1}
+  .vbs-total{font-size:14px;margin:16px 0 8px}
+  .vbs-total b{font-family:var(--font-mono);font-size:18px}
+  .vbs-lanes{display:flex;flex-direction:column;gap:6px}
+  .vbs-lane{display:grid;grid-template-columns:48px 1fr;gap:8px;align-items:center}
+  .vbs-lane-name{font-size:11px;color:var(--muted);font-family:var(--font-mono)}
+  .vbs-track{position:relative;height:18px;background:var(--surface);border:1px solid var(--border);border-radius:2px;overflow:hidden}
+  .vbs-blk{position:absolute;top:2px;bottom:2px;border-radius:2px;box-sizing:border-box}
+  .vbs-blk.trip{background:var(--accent);border-right:1px solid var(--bg)}
+  .vbs-blk.open{background:var(--muted)}
+  .vbs-legend{font-size:11px;color:var(--muted);margin:10px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .vbs-sw{display:inline-block;width:12px;height:10px;border-radius:2px;margin-left:8px}
+  .vbs-sw:first-child{margin-left:0}
+  .vbs-sw.open{background:var(--muted)}
+  .vbs-sw.trip{background:var(--accent)}
+  .vbs-compare{font-size:12px;color:var(--muted);margin:10px 0 0}
+  .vbs-compare b{font-family:var(--font-mono);color:var(--fg)}
+  .vbs figcaption{font-size:12px;color:var(--muted);margin-top:12px}
+  @media (max-width:560px){.vbs-grid{grid-template-columns:1fr}}
+</style>

@@ -1,0 +1,181 @@
+---
+title: "The database moved to Virginia: from 4 round trips to 1 per question"
+description: "We moved the Ads database to Supabase on AWS, and the functions stayed on Google Cloud in Iowa. Every round trip started costing 29 ms, and every question made four. The agent API's median went from 0.3 s to 1.06 s. Seven tactics to travel less, with a simulator to play with."
+date: 2026-10-16
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "Postgres", "Performance", "Latency", "Lessons"]
+translationOf: "pt/o-banco-foi-para-a-virginia"
+---
+
+import LatenciaBancoRemoto from "@/components/charts/LatenciaBancoRemoto.astro";
+import ViagensBancoSimulador from "@/components/diagrams/ViagensBancoSimulador.astro";
+
+On Thursday, Oct 15, we finished moving Brendi's paid-traffic database: 39
+tables left AlloyDB, on Google Cloud, for a Postgres on **Supabase**, which runs
+on **AWS in Virginia** (us-east-1). The functions that read and write that
+database stayed where they were: on **Google Cloud, in Iowa** (us-central1).
+
+The next day, the API that Anderson (our paid-traffic agent) uses to read and
+change stores' ads was unrecognizable. The median had gone from **0.3 s to
+1.06 s**, and the p95 from **1.7 s to 8.2 s**.
+
+The database was fine. Low CPU, fast queries, no errors. Something else had
+changed: **the distance**.
+
+## The math nobody does
+
+Between Iowa and Virginia, a message goes and comes back in about **29 ms**. No
+index or cache changes that: it's the speed of light in fiber plus the routers
+along the way. When the database lives in the same datacenter, that round trip
+costs under 1 ms, which is why nobody counts how many round trips the code
+makes.
+
+Well: our code made **four** per question.
+
+```
+BEGIN                               ← round trip 1
+SET LOCAL statement_timeout = 30000 ← round trip 2
+SELECT ...                          ← round trip 3 (the actual question)
+COMMIT                              ← round trip 4
+```
+
+That pattern had a good reason. Brendi's databases sit behind a *pooler* in
+transaction mode (PgBouncer, here Supavisor), which lends a real Postgres
+connection only for the length of one transaction. In that mode you can't
+configure the session, so the way to give each query a time limit was to open a
+transaction, set the limit **inside** it, and close it. In the same datacenter,
+the four round trips cost ~1 ms. In Virginia, they cost **~116 ms**. That is
+exactly what the database smoke check measured: a `SELECT 1` took 116 ms.
+
+And that's per question. An agent call makes several. To build the store's
+context, for example, it asks the database 5 or 6 questions. With only **2 open
+connections** per instance, the questions waited in line. Worse: opening a new
+connection (TCP, TLS and the password exchange) costs another **150 to 300 ms**
+across the country, and the code closed a connection after **20 s** idle.
+
+Set up the old scenario in the simulator and see where the time goes. Then press
+"Same datacenter": the old code, with the database nearby, spent ~18 ms. The
+code didn't get worse. The world around it changed.
+
+<ViagensBancoSimulador lang="en" />
+
+## Three ideas, seven tactics
+
+You can't shorten the trip. You can travel less, travel together, and avoid
+making the same trip twice.
+
+### Travel less
+
+**1. One question, one round trip.** Postgres already runs a lone statement
+inside an implicit transaction: if it succeeds, it commits; if it fails, it
+rolls back. The `BEGIN` and `COMMIT` around **one** statement protected nothing.
+The time limit left the code and became a setting of the database user
+(`ALTER ROLE ... SET statement_timeout = '60s'`), which applies to every
+connection. Four round trips became one: **116 → ~29 ms** per question.
+
+**2. When you need a transaction, open and configure it in the same envelope.**
+On the money paths (PIX, top-ups, the weekly renewal), several statements must
+commit or roll back together, and sometimes wait on a lock. There I wanted to
+keep the 30 s limit. The way out was to send both lines in one message:
+
+```sql
+BEGIN; SET LOCAL statement_timeout = 30000
+```
+
+A message with several statements and no parameters is accepted by Postgres'
+simple query protocol, and the transaction stays open after it. One round trip
+less per transaction, with the safeguard where it matters.
+
+**3. Three questions become one.** To know whether a store is in a prepaid
+credit window, the code asked, one after another: "is there an acceleration
+bonus?", "a setup one?", "a trial one?". Now it asks once,
+`external_id = ANY($1)`, and applies the priority order in code. Three round
+trips (twelve, under the old scheme) became one.
+
+### Travel together
+
+**4. Independent questions in parallel.** The agent's memory search ran two
+queries, one by similarity and one for the most recent. Neither depends on the
+other, so now they go together (`Promise.all`): two round trips take the time of
+one.
+
+**5. More connections.** Each API instance serves up to 40 calls at once, and it
+had **2** connections to the database. Now it has **8**. That calls for some math
+on the other side: Supabase's pooler caps how many clients can connect. It's
+8 × 10 instances = 80 clients at most. And in transaction mode, a real Postgres
+connection is only busy during the question, which now lasts one round trip.
+
+### Don't make the same trip twice
+
+**6. Don't hang up the phone.** An idle connection now lives **2 minutes**
+instead of 20 seconds. Between one merchant message and the next, the
+connection is still there.
+
+**7. One heavy fetch, even when many ask at once.** The agent compares the store
+with an anonymous benchmark of all stores: a scan of 28 days of metrics, kept in
+a cache. On a freshly started instance the cache is empty, and if 20
+conversations arrived together, all 20 fired the same scan. Now the first one
+fires it and the others wait for the same answer (a map of "fetches in flight"
+per key). If the fetch fails, nothing is cached; if someone invalidates the key
+mid-fetch, the stale result stays out of the cache. (On this API the shared
+memcache cache shipped the same night, so there this became a safety net.)
+
+## The care
+
+The idea fits in one sentence. The work is in everything that can go wrong
+around it.
+
+**Return or destroy the connection.** If the *database* answered with an error
+(duplicate key, timeout), the conversation with it is in order and the
+connection can go back to the pool. If the error came from the *network* (the
+client gave up waiting, the connection dropped), there's no telling where the
+conversation stopped, and the connection is destroyed. Telling the two apart
+avoids reopening connections for nothing, at 150 to 300 ms each.
+
+**The time limit lives in two places.** A lone statement has the database user's
+limit (60 s) and the client's (35 s). Transactions have 30 s. Two annoying
+details: connections the pooler had already opened before the change keep the
+old limit until they're recycled, and a statement the client cuts off may keep
+running on the server until the server's own limit.
+
+**The same library moves money.** The database client is the same one the
+weekly renewal and PIX use. That's why the PR only went in after tests of the
+error path, the transaction path and the read-only path. The real proof came the
+next morning: the renewal's retry round ran for **180 stores** on the new client
+with **no database errors**. The errors that remained came from Meta's API,
+which is another story.
+
+## The numbers
+
+<LatenciaBancoRemoto lang="en" />
+
+- **One question to the database** (the smoke check): **116 → 33 ms**, measured
+  in production with the connection already open. The first call, on a new
+  connection, took 313 ms. That's the cost tactic 6 avoids.
+- **The agent API**: the median dropped from **1,058 ms to 602 ms**. That number
+  is **preliminary**: it's 153 overnight requests, and the shared cache shipped
+  the same night, so the drop isn't all this change. I'll update it after a week
+  of normal traffic.
+- **Per-path estimates** (round-trip math, not yet measured one by one): the
+  store context should go from ~350–470 ms to ~30–60 ms of waiting on the
+  database, and the memory search from ~230 ms to ~30 ms, not counting the model
+  that computes the embedding.
+
+Even at best, this alone doesn't bring the API back to the 0.3 s it had before
+the migration. A 29 ms round trip is still 29 times a 1 ms one. If the database
+is staying in Virginia, the next conversation is about moving the functions next
+to it, or the other way around.
+
+## The lesson
+
+In an [earlier post](/en/writing/the-database-took-the-blame), the database took
+the blame for a timeout that was really a sort. Here it took the blame again,
+and again it was innocent.
+
+When the database is far away, the first question isn't "which query is slow?".
+`EXPLAIN` doesn't show round trips. The first question is **"how many round
+trips does each call make?"**. And when a database changes region, or cloud,
+that math belongs in the migration plan before the first byte is copied, not on
+the morning after.

@@ -1,0 +1,91 @@
+---
+/** Latência medida: uma pergunta ao banco (smoke) e a mediana da API do agente, antes e depois. */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+// Smoke (SELECT 1 com a conexão quente): 116 ms antes, 33 ms depois (16/10, três chamadas; a
+// primeira, fria, 313 ms). API: mediana (p50) do Cloud Run por janela, em UTC.
+const smoke = { before: 116, after: 33 };
+const api = { preMigration: 300, postMigration: 1058, postFix: 602 };
+
+const t =
+  lang === "en"
+    ? {
+        smokeTitle: "One question to the database (SELECT 1, warm connection)",
+        smokeBefore: "Before (4 round trips)",
+        smokeAfter: "After (1 round trip)",
+        apiTitle: "Agent API, median latency",
+        apiPre: "Before the migration",
+        apiPost: "After the migration",
+        apiFix: "After the fix (preliminary)",
+        cap: "Smoke: measured on Oct 16, after the deploy. API: Cloud Run p50 — Oct 13–15 (1,180 requests), Oct 15 18:00 to Oct 16 04:12 UTC (1,038), and Oct 16 04:15 to 12:22 UTC (153, overnight, and the shared cache also shipped that night).",
+      }
+    : {
+        smokeTitle: "Uma pergunta ao banco (SELECT 1, conexão quente)",
+        smokeBefore: "Antes (4 viagens)",
+        smokeAfter: "Depois (1 viagem)",
+        apiTitle: "API do agente, latência mediana",
+        apiPre: "Antes da migração",
+        apiPost: "Depois da migração",
+        apiFix: "Depois da correção (preliminar)",
+        cap: "Smoke: medido em 16/10, depois do deploy. API: p50 do Cloud Run — 13 a 15/10 (1.180 requisições), 15/10 18h a 16/10 04h12 UTC (1.038) e 16/10 04h15 a 12h22 UTC (153, de madrugada, e o cache compartilhado também entrou naquela noite).",
+      };
+const fmt = (ms: number) => `${ms.toLocaleString(lang === "en" ? "en-US" : "pt-BR")} ms`;
+const groups = [
+  {
+    title: t.smokeTitle,
+    max: smoke.before,
+    rows: [
+      { label: t.smokeBefore, ms: smoke.before, kind: "muted" },
+      { label: t.smokeAfter, ms: smoke.after, kind: "accent" },
+    ],
+  },
+  {
+    title: t.apiTitle,
+    max: api.postMigration,
+    rows: [
+      { label: t.apiPre, ms: api.preMigration, kind: "muted" },
+      { label: t.apiPost, ms: api.postMigration, kind: "muted" },
+      { label: t.apiFix, ms: api.postFix, kind: "dashed" },
+    ],
+  },
+];
+---
+
+<figure class="lbr">
+  {
+    groups.map((g) => (
+      <div class="lbr-group">
+        <p class="lbr-title">{g.title}</p>
+        {g.rows.map((r) => (
+          <div class="lbr-row">
+            <span class="lbr-label">{r.label}</span>
+            <div class="lbr-track">
+              <div class:list={["lbr-fill", r.kind]} style={`width:${(r.ms / g.max) * 100}%`} />
+            </div>
+            <span class="lbr-val">{fmt(r.ms)}</span>
+          </div>
+        ))}
+      </div>
+    ))
+  }
+  <figcaption>{t.cap}</figcaption>
+</figure>
+<style>
+  .lbr{margin:1.5rem 0;padding:20px 24px;border:1px solid var(--border);background:var(--bg)}
+  .lbr-group + .lbr-group{margin-top:18px}
+  .lbr-title{font-size:13px;font-weight:600;margin:0 0 12px}
+  .lbr-row{display:grid;grid-template-columns:200px 1fr 80px;gap:12px;align-items:center;margin-bottom:10px}
+  .lbr-label{font-size:12px;color:var(--muted)}
+  .lbr-track{height:22px;background:var(--border);border-radius:2px}
+  .lbr-fill{height:100%;border-radius:2px}
+  .lbr-fill.muted{background:var(--muted)}
+  .lbr-fill.accent{background:var(--accent)}
+  .lbr-fill.dashed{background:transparent;border:2px dashed var(--accent);box-sizing:border-box}
+  .lbr-val{font-family:var(--font-mono);font-size:12px;text-align:right}
+  figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+  @media (max-width:560px){.lbr-row{grid-template-columns:1fr 72px}.lbr-label{grid-column:1/-1}}
+</style>

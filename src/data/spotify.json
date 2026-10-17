@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-10-17T02:03:52.711Z",
+  "updatedAt": "2026-10-17T09:52:24.462Z",
   "tracks": [
+    {
+      "name": "This Is Gospel",
+      "artist": "Panic! At The Disco",
+      "url": "https://open.spotify.com/track/3yZQk5PC52CCmT4ZaTIKvv",
+      "image": "https://i.scdn.co/image/ab67616d000048513d01f39642426b65217fbe21",
+      "playedAt": "2026-10-17T04:25:38.599Z"
+    },
+    {
+      "name": "Airplanes (feat. Hayley Williams of Paramore)",
+      "artist": "B.o.B, Hayley Williams",
+      "url": "https://open.spotify.com/track/6lV2MSQmRIkycDScNtrBXO",
+      "image": "https://i.scdn.co/image/ab67616d00004851caa23612279c2d059a0d3a82",
+      "playedAt": "2026-10-17T02:08:02.078Z"
+    },
+    {
+      "name": "Bite Me",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/6dfwRetlyLPBoQzdufbOWj",
+      "image": "https://i.scdn.co/image/ab67616d0000485195132c6d6870e847bd7e0565",
+      "playedAt": "2026-10-17T02:05:01.129Z"
+    },
     {
       "name": "Circus",
       "artist": "Britney Spears",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/1nZzRJbFvCEct3uzu04ZoL",
       "image": "https://i.scdn.co/image/ab67616d00004851937af329667311f4b2831616",
       "playedAt": "2026-10-17T01:46:29.010Z"
-    },
-    {
-      "name": "My Happy Ending",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/6sqNctd7MlJoKDOxPVCAvU",
-      "image": "https://i.scdn.co/image/ab67616d000048519c291af4bf0c3071847f2b80",
-      "playedAt": "2026-10-17T01:42:52.371Z"
-    },
-    {
-      "name": "Whataya Want from Me",
-      "artist": "Adam Lambert",
-      "url": "https://open.spotify.com/track/2rDwdvBma1O1eLzo29p2cr",
-      "image": "https://i.scdn.co/image/ab67616d00004851fe0d9870d6d8e18c3a00c658",
-      "playedAt": "2026-10-17T01:38:49.438Z"
-    },
-    {
-      "name": "Complicated",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/5xEM5hIgJ1jjgcEBfpkt2F",
-      "image": "https://i.scdn.co/image/ab67616d00004851f7ec724fbf97a30869d06240",
-      "playedAt": "2026-10-17T01:34:53.557Z"
     }
   ],
   "topTracks": {

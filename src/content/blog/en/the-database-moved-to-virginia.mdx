@@ -2,6 +2,7 @@
 title: "The database moved to Virginia: from 4 round trips to 1 per question"
 description: "We moved the Ads database to Supabase on AWS, and the functions stayed on Google Cloud in Iowa. Every round trip started costing 29 ms, and every question made four. The agent API's median went from 0.3 s to 1.06 s. Seven tactics to travel less, with a simulator to play with."
 date: 2026-10-16
+updated: 2026-10-19
 lang: "en"
 category: "engenharia"
 draft: false
@@ -16,6 +17,11 @@ On Thursday, Oct 15, we finished moving Brendi's paid-traffic database: 39
 tables left AlloyDB, on Google Cloud, for a Postgres on **Supabase**, which runs
 on **AWS in Virginia** (us-east-1). The functions that read and write that
 database stayed where they were: on **Google Cloud, in Iowa** (us-central1).
+
+The move itself was the calm part. Before the window, we rehearsed the copy on
+real data: all 39 tables copied and checked row by row, in 8.5 minutes. During
+the window, paid traffic went into maintenance and the old database was frozen
+and kept intact, in case we had to go back.
 
 The next day, the API that Anderson (our paid-traffic agent) uses to read and
 change stores' ads was unrecognizable. The median had gone from **0.3 s to
@@ -156,8 +162,8 @@ which is another story.
   connection, took 313 ms. That's the cost tactic 6 avoids.
 - **The agent API**: the median dropped from **1,058 ms to 602 ms**. That number
   is **preliminary**: it's 153 overnight requests, and the shared cache shipped
-  the same night, so the drop isn't all this change. I'll update it after a week
-  of normal traffic.
+  the same night, so the drop isn't all this change. Three days later, the
+  number held: see the [update](#update-three-days-of-normal-traffic).
 - **Per-path estimates** (round-trip math, not yet measured one by one): the
   store context should go from ~350–470 ms to ~30–60 ms of waiting on the
   database, and the memory search from ~230 ms to ~30 ms, not counting the model
@@ -179,3 +185,25 @@ When the database is far away, the first question isn't "which query is slow?".
 trips does each call make?"**. And when a database changes region, or cloud,
 that math belongs in the migration plan before the first byte is copied, not on
 the morning after.
+
+## Update: three days of normal traffic
+
+_Updated on Oct 19, 2026._
+
+The fix held. Over three days of normal traffic, Oct 16 to 18, the agent API's
+median settled at **598 ms** (2,786 requests), almost half of the 1,058 ms on
+migration day. The p95 dropped from **8.1 s to 4.1 s**. Day by day, the median
+barely moved: 588, 608 and 627 ms.
+
+| Window | Requests | Median | p95 |
+|---|---|---|---|
+| Before the migration (Oct 14) | 1,181 | 301 ms | 1.8 s |
+| After the migration (Oct 15 18:00 to Oct 16 04:12 UTC) | 1,038 | 1,058 ms | 8.1 s |
+| Three days after the fix (Oct 16 12:22 UTC to Oct 19) | 2,786 | 598 ms | 4.1 s |
+
+What's left between that and the 301 ms from before is the distance, as the
+round-trip math predicted: at 29 ms a trip, every trip you cut helps, but none
+of them disappears. The database and the functions are staying where they are,
+so the next gains come from the same place: count the trips on each path and cut
+the ones left over. One caveat: the shared cache shipped the same night, and I
+didn't separate the two effects.

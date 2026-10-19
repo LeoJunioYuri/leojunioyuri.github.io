@@ -36,6 +36,15 @@ bilíngue).
   decide, cria e otimiza campanhas dos clientes de ponta a ponta. _(IA ·
   Produto)_ ⭐ liga com a página /now
 
+- **O dono sobe antes de quem chama** — numa migração em duas entregas, a
+  primeira subiu pela metade: o serviço que chama já estava na versão nova, o
+  dono da rota não. O motivo foi uma permissão de secret que só a conta do
+  pipeline de deploy precisava, e ninguém tinha testado com ela. O extrato ficou
+  quebrado por ~1h40. Lições: garantir a ordem do deploy (dono antes do
+  consumidor) e testar o acesso com a conta que de fato vai rodar. Liga com
+  "Separar o que sobe junto" e "O banco foi para a Virgínia". _(Engenharia ·
+  Lições)_
+
 ## 📈 Growth & Startup
 
 - **O dicionário não-oficial de uma startup** — GWoW, ICP, e os termos que a

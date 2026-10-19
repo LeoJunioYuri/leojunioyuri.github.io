@@ -2,6 +2,7 @@
 title: "O banco foi para a Virgínia: de 4 viagens para 1 por pergunta"
 description: "Migramos o banco do Ads para o Supabase na AWS, e as funções ficaram no Google Cloud em Iowa. Cada ida e volta passou a custar 29 ms, e cada pergunta fazia quatro. A mediana da API do agente foi de 0,3 s para 1,06 s. Sete táticas para viajar menos, com um simulador para brincar."
 date: 2026-10-16
+updated: 2026-10-19
 lang: "pt"
 category: "engenharia"
 draft: false
@@ -17,6 +18,11 @@ tabelas saíram do AlloyDB, no Google Cloud, para um Postgres no **Supabase**,
 que roda na **AWS, na Virgínia** (us-east-1). As funções que leem e escrevem
 nesse banco continuaram onde estavam: no **Google Cloud, em Iowa**
 (us-central1).
+
+A troca em si foi a parte tranquila. Antes da janela, ensaiamos a cópia com os
+dados reais: as 39 tabelas copiadas e conferidas linha a linha, em 8,5 minutos.
+Na janela, o tráfego pago ficou em manutenção e o banco antigo foi travado e
+preservado intacto, para o caso de precisarmos voltar.
 
 No dia seguinte, a API que o Anderson (nosso agente de tráfego pago) usa para
 ler e mexer nos anúncios das lojas estava irreconhecível. A mediana tinha ido de
@@ -158,8 +164,8 @@ uma outra história.
   que a tática 6 evita.
 - **A API do agente**: a mediana caiu de **1.058 ms para 602 ms**. Esse número é
   **preliminar**: são 153 requisições de madrugada, e o cache compartilhado
-  entrou na mesma noite, então a queda não é só desta mudança. Atualizo com uma
-  semana de tráfego normal.
+  entrou na mesma noite, então a queda não é só desta mudança. Três dias depois,
+  o número se confirmou: veja a [atualização](#atualização-três-dias-de-tráfego-normal).
 - **Estimativas por caminho** (a conta das viagens, ainda não medidas uma a
   uma): o contexto da loja deve ir de ~350–470 ms para ~30–60 ms de espera pelo
   banco, e a busca de memórias de ~230 ms para ~30 ms, fora o tempo do modelo
@@ -181,3 +187,25 @@ O `EXPLAIN` não mostra viagem. A primeira pergunta é **"quantas viagens cada
 chamada faz?"**. E quando um banco muda de região, ou de nuvem, essa conta
 devia estar no plano de migração antes do primeiro byte copiado, não na manhã
 seguinte.
+
+## Atualização: três dias de tráfego normal
+
+_Atualizado em 19/10/2026._
+
+A correção se sustentou. Com três dias de tráfego normal, de 16 a 18/10, a
+mediana da API do agente ficou em **598 ms** (2.786 requisições), quase metade
+dos 1.058 ms do dia da migração. O p95 caiu de **8,1 s para 4,1 s**. Dia a dia,
+a mediana mal se mexeu: 588, 608 e 627 ms.
+
+| Janela | Requisições | Mediana | p95 |
+|---|---|---|---|
+| Antes da migração (14/10) | 1.181 | 301 ms | 1,8 s |
+| Depois da migração (15/10 18h a 16/10 04h12 UTC) | 1.038 | 1.058 ms | 8,1 s |
+| Três dias depois da correção (16/10 12h22 UTC a 19/10) | 2.786 | 598 ms | 4,1 s |
+
+O que sobra até os 301 ms de antes é a distância, como a conta das viagens
+previa: com 29 ms por viagem, cada viagem a menos ajuda, mas nenhuma some. O
+banco e as funções vão continuar onde estão, então os próximos ganhos vêm do
+mesmo lugar: contar as viagens de cada caminho e cortar as que sobram. Uma
+ressalva: o cache compartilhado entrou na mesma noite, e eu não separei o efeito
+de cada um.

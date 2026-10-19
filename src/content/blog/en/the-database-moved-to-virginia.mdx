@@ -174,8 +174,7 @@ which is another story.
 Even at best, this alone doesn't bring the API back to the 0.3 s it had before
 the migration. A 29 ms round trip is still 29 times a 1 ms one. If the database
 is staying in Virginia, the next conversation is about moving the functions next
-to it (Google Cloud has a region in Virginia too, us-east4), or the other way
-around.
+to it, or the other way around.
 
 ## The lesson
 
@@ -193,9 +192,10 @@ the morning after.
 
 _Updated on Oct 19, 2026._
 
-The preliminary number held. From Oct 16 to 18, with normal traffic, the agent
-API's median settled at **598 ms** (2,786 requests), and the p95 at **4.1 s**.
-Day by day, the median barely moved: 588, 608 and 627 ms.
+The fix held. Over three days of normal traffic, Oct 16 to 18, the agent API's
+median settled at **598 ms** (2,786 requests), almost half of the 1,058 ms on
+migration day. The p95 dropped from **8.1 s to 4.1 s**. Day by day, the median
+barely moved: 588, 608 and 627 ms.
 
 | Window | Requests | Median | p95 |
 |---|---|---|---|
@@ -203,14 +203,9 @@ Day by day, the median barely moved: 588, 608 and 627 ms.
 | After the migration (Oct 15 18:00 to Oct 16 04:12 UTC) | 1,038 | 1,058 ms | 8.1 s |
 | Three days after the fix (Oct 16 12:22 UTC to Oct 19) | 2,786 | 598 ms | 4.1 s |
 
-The fix cut the median and the p95 almost in half. And the API is still **twice
-as slow** as before the migration, as the round-trip math predicted: at 29 ms a
-trip, fewer trips help, but the distance doesn't go away. One caveat still
-applies: the shared cache shipped the same night, and I didn't separate the two
-effects.
-
-The next step is the distance. Google Cloud has a region in Virginia too,
-**us-east4**, next door to AWS's us-east-1. If the functions move there, a round
-trip should drop from 29 ms to a few milliseconds. That's still a hypothesis:
-the first test is the same `SELECT 1` smoke check, run from a function in
-us-east4.
+What's left between that and the 301 ms from before is the distance, as the
+round-trip math predicted: at 29 ms a trip, every trip you cut helps, but none
+of them disappears. The database and the functions are staying where they are,
+so the next gains come from the same place: count the trips on each path and cut
+the ones left over. One caveat: the shared cache shipped the same night, and I
+didn't separate the two effects.

@@ -176,8 +176,7 @@ uma outra história.
 Mesmo no melhor caso, a API não volta aos 0,3 s de antes da migração só com
 isso. Uma viagem de 29 ms continua sendo 29 vezes uma viagem de 1 ms. Se o
 banco vai ficar na Virgínia, a próxima conversa é sobre mover as funções para
-perto dele (o Google Cloud tem uma região na própria Virgínia, a us-east4), ou o
-contrário.
+perto dele, ou o contrário.
 
 ## A lição
 
@@ -195,9 +194,10 @@ seguinte.
 
 _Atualizado em 19/10/2026._
 
-O número preliminar se confirmou. De 16 a 18/10, com tráfego normal, a mediana
-da API do agente ficou em **598 ms** (2.786 requisições), e o p95 em **4,1 s**.
-Dia a dia, a mediana mal se mexeu: 588, 608 e 627 ms.
+A correção se sustentou. Com três dias de tráfego normal, de 16 a 18/10, a
+mediana da API do agente ficou em **598 ms** (2.786 requisições), quase metade
+dos 1.058 ms do dia da migração. O p95 caiu de **8,1 s para 4,1 s**. Dia a dia,
+a mediana mal se mexeu: 588, 608 e 627 ms.
 
 | Janela | Requisições | Mediana | p95 |
 |---|---|---|---|
@@ -205,14 +205,9 @@ Dia a dia, a mediana mal se mexeu: 588, 608 e 627 ms.
 | Depois da migração (15/10 18h a 16/10 04h12 UTC) | 1.038 | 1.058 ms | 8,1 s |
 | Três dias depois da correção (16/10 12h22 UTC a 19/10) | 2.786 | 598 ms | 4,1 s |
 
-A correção cortou a mediana e o p95 quase pela metade. E a API continua **duas
-vezes mais lenta** que antes da migração, como a conta das viagens previa: com
-29 ms por viagem, menos viagens ajudam, mas a distância não some. Uma ressalva
-continua valendo: o cache compartilhado entrou na mesma noite, e eu não separei
-o efeito de cada um.
-
-O próximo passo é a distância. O Google Cloud tem uma região na própria
-Virgínia, a **us-east4**, vizinha da us-east-1 da AWS. Se as funções forem para
-lá, a viagem deve cair de 29 ms para poucos milissegundos. Isso ainda é
-hipótese: o primeiro teste é o mesmo `SELECT 1` do smoke, rodando de uma função
-em us-east4.
+O que sobra até os 301 ms de antes é a distância, como a conta das viagens
+previa: com 29 ms por viagem, cada viagem a menos ajuda, mas nenhuma some. O
+banco e as funções vão continuar onde estão, então os próximos ganhos vêm do
+mesmo lugar: contar as viagens de cada caminho e cortar as que sobram. Uma
+ressalva: o cache compartilhado entrou na mesma noite, e eu não separei o efeito
+de cada um.

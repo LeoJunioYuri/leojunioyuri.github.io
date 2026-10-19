@@ -18,8 +18,6 @@ tables left AlloyDB, on Google Cloud, for a Postgres on **Supabase**, which runs
 on **AWS in Virginia** (us-east-1). The functions that read and write that
 database stayed where they were: on **Google Cloud, in Iowa** (us-central1).
 
-{/* TODO(Leo): one sentence on why Virginia (was the region a free choice when the project was created?). */}
-
 The move itself was the calm part. Before the window, we rehearsed the copy on
 real data: all 39 tables copied and checked row by row, in 8.5 minutes. During
 the window, paid traffic went into maintenance and the old database was frozen

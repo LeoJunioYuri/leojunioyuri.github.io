@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-19T17:55:52.905Z",
+  "updatedAt": "2026-10-19T21:52:31.442Z",
   "tracks": [
     {
-      "name": "Fly Away",
-      "artist": "Lenny Kravitz",
-      "url": "https://open.spotify.com/track/1OxcIUqVmVYxT6427tbhDW",
-      "image": "https://i.scdn.co/image/ab67616d00004851f1157b7dcd21bae0c2c75d89",
-      "playedAt": "2026-10-19T15:36:44.209Z"
+      "name": "Sem Explicação (Ao Vivo)",
+      "artist": "Calcinha Preta",
+      "url": "https://open.spotify.com/track/0VfWuGSRCE08QQAev40jVO",
+      "image": "https://i.scdn.co/image/ab67616d0000485117d87cdd3774e157538b587e",
+      "playedAt": "2026-10-19T21:49:10.179Z"
     },
     {
-      "name": "18 and Life",
-      "artist": "Skid Row",
-      "url": "https://open.spotify.com/track/3620P9KJS2PDebJ9ABFitc",
-      "image": "https://i.scdn.co/image/ab67616d00004851bb639863b7b716acf67bfa64",
-      "playedAt": "2026-10-19T15:15:20.534Z"
+      "name": "Manchete dos Jornais",
+      "artist": "Calcinha Preta",
+      "url": "https://open.spotify.com/track/1yNstWFOG0z4CFkJrusyzP",
+      "image": "https://i.scdn.co/image/ab67616d000048510feadb03b09b02564d643132",
+      "playedAt": "2026-10-19T21:45:21.867Z"
     },
     {
-      "name": "Come Undone",
+      "name": "Out of Touch",
+      "artist": "Daryl Hall & John Oates",
+      "url": "https://open.spotify.com/track/4LI7LqBRuXxLyEZ2fCQnit",
+      "image": "https://i.scdn.co/image/ab67616d000048510320feb23e4090969b931fac",
+      "playedAt": "2026-10-19T21:10:48.318Z"
+    },
+    {
+      "name": "Talk",
+      "artist": "Coldplay",
+      "url": "https://open.spotify.com/track/4wzt5Rrk3W98pHXAqutuJw",
+      "image": "https://i.scdn.co/image/ab67616d000048514e0362c225863f6ae2432651",
+      "playedAt": "2026-10-19T21:06:10.081Z"
+    },
+    {
+      "name": "Save a Prayer - 2009 Remaster",
       "artist": "Duran Duran",
-      "url": "https://open.spotify.com/track/0yfNXxlyXdmP0ue1iJijx1",
-      "image": "https://i.scdn.co/image/ab67616d000048515d11c2fe73a7d376d3b06107",
-      "playedAt": "2026-10-19T15:10:50.038Z"
+      "url": "https://open.spotify.com/track/1ff8lsrJ2kuZuofMw81EQo",
+      "image": "https://i.scdn.co/image/ab67616d0000485116c75e2dd2654d7d03f2c556",
+      "playedAt": "2026-10-19T21:00:58.305Z"
     },
     {
-      "name": "Come Undone",
-      "artist": "Duran Duran",
-      "url": "https://open.spotify.com/track/0yfNXxlyXdmP0ue1iJijx1",
-      "image": "https://i.scdn.co/image/ab67616d000048515d11c2fe73a7d376d3b06107",
-      "playedAt": "2026-10-19T15:10:41.444Z"
-    },
-    {
-      "name": "Come Undone",
-      "artist": "Duran Duran",
-      "url": "https://open.spotify.com/track/0yfNXxlyXdmP0ue1iJijx1",
-      "image": "https://i.scdn.co/image/ab67616d000048515d11c2fe73a7d376d3b06107",
-      "playedAt": "2026-10-19T15:07:41.061Z"
-    },
-    {
-      "name": "Under the Bridge",
+      "name": "The Zephyr Song",
       "artist": "Red Hot Chili Peppers",
-      "url": "https://open.spotify.com/track/3d9DChrdc6BOeFsbrZ3Is0",
-      "image": "https://i.scdn.co/image/ab67616d00004851153d79816d853f2694b2cc70",
-      "playedAt": "2026-10-19T13:21:02.734Z"
+      "url": "https://open.spotify.com/track/1ndGB6rvxKYN9seCYO1dTF",
+      "image": "https://i.scdn.co/image/ab67616d00004851de1af2785a83cc660155a0c4",
+      "playedAt": "2026-10-19T19:52:07.819Z"
     },
     {
-      "name": "New Year's Day",
-      "artist": "U2",
-      "url": "https://open.spotify.com/track/2CwMxEXxMiLRrKPLjQLmne",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba171000f58dd9dde2692122",
-      "playedAt": "2026-10-19T13:16:37.223Z"
+      "name": "Be Yourself",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/3zwmW1gM4E8FlHXV5nE16u",
+      "image": "https://i.scdn.co/image/ab67616d0000485107301dd5fedf5ad64cde4882",
+      "playedAt": "2026-10-19T19:48:10.600Z"
     },
     {
-      "name": "Barracuda",
-      "artist": "Heart",
-      "url": "https://open.spotify.com/track/4KfSdst7rW39C0sfhArdrz",
-      "image": "https://i.scdn.co/image/ab67616d0000485166e2e0df78c4ec35a8ed20a0",
-      "playedAt": "2026-10-19T03:49:35.324Z"
+      "name": "Be Yourself",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/3zwmW1gM4E8FlHXV5nE16u",
+      "image": "https://i.scdn.co/image/ab67616d0000485107301dd5fedf5ad64cde4882",
+      "playedAt": "2026-10-19T17:56:47.312Z"
     }
   ],
   "topTracks": {
@@ -90,31 +90,31 @@
       },
       {
         "rank": 5,
-        "name": "The Sentinel",
-        "artist": "Judas Priest",
-        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
-        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
-      },
-      {
-        "rank": 6,
         "name": "Sonne",
         "artist": "Rammstein",
         "url": "https://open.spotify.com/track/3gVhsZtseYtY1fMuyYq06F",
         "image": "https://i.scdn.co/image/ab67616d000048518b2c42026277efc3e058855b"
       },
       {
-        "rank": 7,
+        "rank": 6,
         "name": "Last Drop Falls",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/0d7hsFTBpokWSU115U0xx6",
         "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15"
       },
       {
-        "rank": 8,
+        "rank": 7,
         "name": "Replica",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/2A4rfHIusMPUyTN2RAgsKw",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+      },
+      {
+        "rank": 8,
+        "name": "The Sentinel",
+        "artist": "Judas Priest",
+        "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+        "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2"
       },
       {
         "rank": 9,

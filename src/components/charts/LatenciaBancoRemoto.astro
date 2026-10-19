@@ -9,7 +9,7 @@ const { lang } = Astro.props;
 // Smoke (SELECT 1 com a conexão quente): 116 ms antes, 33 ms depois (16/10, três chamadas; a
 // primeira, fria, 313 ms). API: mediana (p50) do Cloud Run por janela, em UTC.
 const smoke = { before: 116, after: 33 };
-const api = { preMigration: 300, postMigration: 1058, postFix: 602 };
+const api = { preMigration: 300, postMigration: 1058, postFix: 598 };
 
 const t =
   lang === "en"
@@ -20,8 +20,8 @@ const t =
         apiTitle: "Agent API, median latency",
         apiPre: "Before the migration",
         apiPost: "After the migration",
-        apiFix: "After the fix (preliminary)",
-        cap: "Smoke: measured on Oct 16, after the deploy. API: Cloud Run p50 — Oct 13–15 (1,180 requests), Oct 15 18:00 to Oct 16 04:12 UTC (1,038), and Oct 16 04:15 to 12:22 UTC (153, overnight, and the shared cache also shipped that night).",
+        apiFix: "After the fix (Oct 16–19)",
+        cap: "Smoke: measured on Oct 16, after the deploy. API: Cloud Run p50 — Oct 14, São Paulo time (1,181 requests), Oct 15 18:00 to Oct 16 04:12 UTC (1,038), and Oct 16 12:22 UTC to Oct 19 (2,786; the shared cache also shipped on Oct 16).",
       }
     : {
         smokeTitle: "Uma pergunta ao banco (SELECT 1, conexão quente)",
@@ -30,8 +30,8 @@ const t =
         apiTitle: "API do agente, latência mediana",
         apiPre: "Antes da migração",
         apiPost: "Depois da migração",
-        apiFix: "Depois da correção (preliminar)",
-        cap: "Smoke: medido em 16/10, depois do deploy. API: p50 do Cloud Run — 13 a 15/10 (1.180 requisições), 15/10 18h a 16/10 04h12 UTC (1.038) e 16/10 04h15 a 12h22 UTC (153, de madrugada, e o cache compartilhado também entrou naquela noite).",
+        apiFix: "Depois da correção (16 a 19/10)",
+        cap: "Smoke: medido em 16/10, depois do deploy. API: p50 do Cloud Run — 14/10, horário de Brasília (1.181 requisições), 15/10 18h a 16/10 04h12 UTC (1.038) e 16/10 12h22 UTC a 19/10 (2.786; o cache compartilhado também entrou em 16/10).",
       };
 const fmt = (ms: number) => `${ms.toLocaleString(lang === "en" ? "en-US" : "pt-BR")} ms`;
 const groups = [
@@ -49,7 +49,7 @@ const groups = [
     rows: [
       { label: t.apiPre, ms: api.preMigration, kind: "muted" },
       { label: t.apiPost, ms: api.postMigration, kind: "muted" },
-      { label: t.apiFix, ms: api.postFix, kind: "dashed" },
+      { label: t.apiFix, ms: api.postFix, kind: "accent" },
     ],
   },
 ];

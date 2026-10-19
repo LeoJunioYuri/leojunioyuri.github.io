@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-10-18T19:50:26.696Z",
+  "updatedAt": "2026-10-19T02:20:10.992Z",
   "games": [
+    {
+      "name": "God of War",
+      "appid": 1593500,
+      "minutes2weeks": 178,
+      "minutesTotal": 327,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
+      "url": "https://store.steampowered.com/app/1593500"
+    },
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
       "appid": 292030,

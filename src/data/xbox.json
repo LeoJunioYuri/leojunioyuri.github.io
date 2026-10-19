@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-10-18T19:50:30.478Z",
+  "updatedAt": "2026-10-19T02:20:14.270Z",
   "recent": [
+    {
+      "name": "Overwatch",
+      "titleId": "1635723607",
+      "lastPlayed": "2026-10-19T01:15:19.1736224Z",
+      "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKdXirYFFxI_Ppjd8g5DK1M.2p8Dea5.WrF94jnQrkG_H3NPRL7m2yqsvSCoH0of79GFKCkk4NbjnSBWpzhKFq2A--",
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1635723607"
+    },
+    {
+      "name": "God of War",
+      "titleId": "1963776030",
+      "lastPlayed": "2026-10-18T22:47:44.1277771Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1963776030"
+    },
     {
       "name": "Counter-Strike 2",
       "titleId": "2076696971",
@@ -16,14 +32,6 @@
       "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKB7MWtFIsKz0Bcl5Bm_QbvVTB0av3cEcop1T74AItRf0luSd1sCgrMOme8YdievMG_BPgoFuRImKPr2g0Afft8w--",
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1625658903"
-    },
-    {
-      "name": "Overwatch",
-      "titleId": "1635723607",
-      "lastPlayed": "2026-10-07T04:07:39.9219068Z",
-      "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKdXirYFFxI_Ppjd8g5DK1M.2p8Dea5.WrF94jnQrkG_H3NPRL7m2yqsvSCoH0of79GFKCkk4NbjnSBWpzhKFq2A--",
-      "gamerscore": 0,
-      "url": "https://www.xbox.com/games/store/-/1635723607"
     },
     {
       "name": "Call of Duty: Modern Warfare II",
@@ -56,14 +64,6 @@
       "image": null,
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1918682910"
-    },
-    {
-      "name": "Battlefield™ 6",
-      "titleId": "1786930119",
-      "lastPlayed": "2026-06-12T02:24:33.1146734Z",
-      "image": null,
-      "gamerscore": 0,
-      "url": "https://www.xbox.com/games/store/-/1786930119"
     }
   ],
   "topGamerscore": [

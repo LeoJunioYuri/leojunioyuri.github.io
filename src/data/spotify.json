@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-10-19T02:20:09.976Z",
+  "updatedAt": "2026-10-19T11:31:23.882Z",
   "tracks": [
+    {
+      "name": "Breaking the Habit",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/3dxiWIBVJRlqh9xk144rf4",
+      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
+      "playedAt": "2026-10-19T02:58:18.381Z"
+    },
     {
       "name": "Breaking the Habit",
       "artist": "Linkin Park",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
       "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
       "playedAt": "2026-10-18T21:04:38.963Z"
-    },
-    {
-      "name": "Lust For Life (with The Weeknd)",
-      "artist": "Lana Del Rey, The Weeknd",
-      "url": "https://open.spotify.com/track/0mt02gJ425Xjm7c3jYkOBn",
-      "image": "https://i.scdn.co/image/ab67616d0000485195e2fd1accb339fa14878190",
-      "playedAt": "2026-10-18T20:45:31.720Z"
     }
   ],
   "topTracks": {

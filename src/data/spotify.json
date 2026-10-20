@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-10-20T10:36:41.110Z",
+  "updatedAt": "2026-10-20T16:00:02.745Z",
   "tracks": [
+    {
+      "name": "The Last In Line",
+      "artist": "Dio",
+      "url": "https://open.spotify.com/track/5fIZDuxfuM4tANRHZ8Btju",
+      "image": "https://i.scdn.co/image/ab67616d0000485120656ec399a0b212afc31d30",
+      "playedAt": "2026-10-20T14:16:25.198Z"
+    },
+    {
+      "name": "Killers - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/2Ydpa6xB4kD8WRXHYN6T1G",
+      "image": "https://i.scdn.co/image/ab67616d000048512dec15ec59146ae03cbe7fdb",
+      "playedAt": "2026-10-20T14:09:32.258Z"
+    },
+    {
+      "name": "Rime of the Ancient Mariner - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/6K8ROjiPJqyHDJS0sA0dwH",
+      "image": "https://i.scdn.co/image/ab67616d0000485127d333178ab5837fd8eebba9",
+      "playedAt": "2026-10-20T14:04:30.104Z"
+    },
+    {
+      "name": "Far Horizons",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5gN0QgUj2FlvG8LTdkh1YB",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T13:48:16.059Z"
+    },
     {
       "name": "Imperial Throne",
       "artist": "Jeremy Soule, The Elder Scrolls",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/5m7NJWzwr7b6c3ruFLoYKE",
       "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
       "playedAt": "2026-10-20T05:59:43.903Z"
-    },
-    {
-      "name": "From Past to Present",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/5tXgla2j12FUmxWX3dhXeO",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-10-20T05:54:57.889Z"
-    },
-    {
-      "name": "Awake",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/4M3MdSvyOWUI8LsGToRkRl",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-10-20T05:49:53.914Z"
-    },
-    {
-      "name": "Ancient Stones",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/5m7NJWzwr7b6c3ruFLoYKE",
-      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
-      "playedAt": "2026-10-20T05:48:20.494Z"
-    },
-    {
-      "name": "When You're Gone",
-      "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/54JKnDB3CzVu8wNAOM27BI",
-      "image": "https://i.scdn.co/image/ab67616d00004851476cdf5837ae39eee951cc15",
-      "playedAt": "2026-10-20T05:43:12.460Z"
     }
   ],
   "topTracks": {

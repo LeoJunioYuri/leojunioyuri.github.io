@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-20T02:33:42.220Z",
+  "updatedAt": "2026-10-20T10:36:41.110Z",
   "tracks": [
     {
-      "name": "I Will Be",
+      "name": "Imperial Throne",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/0cEHjKgI50sMqi46DTrNDP",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T06:09:46.690Z"
+    },
+    {
+      "name": "Distant Horizons",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5kgsZwbJDvfYu8XVyr8vq2",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T06:07:23.376Z"
+    },
+    {
+      "name": "The City Gates",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5Pz3hPxKVi1CMsqz2IJ2Ip",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T06:03:29.955Z"
+    },
+    {
+      "name": "Ancient Stones",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5m7NJWzwr7b6c3ruFLoYKE",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T05:59:43.903Z"
+    },
+    {
+      "name": "From Past to Present",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5tXgla2j12FUmxWX3dhXeO",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T05:54:57.889Z"
+    },
+    {
+      "name": "Awake",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/4M3MdSvyOWUI8LsGToRkRl",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T05:49:53.914Z"
+    },
+    {
+      "name": "Ancient Stones",
+      "artist": "Jeremy Soule, The Elder Scrolls",
+      "url": "https://open.spotify.com/track/5m7NJWzwr7b6c3ruFLoYKE",
+      "image": "https://i.scdn.co/image/ab67616d00004851bbd54b6904a458f8912bff7f",
+      "playedAt": "2026-10-20T05:48:20.494Z"
+    },
+    {
+      "name": "When You're Gone",
       "artist": "Avril Lavigne",
-      "url": "https://open.spotify.com/track/1ERza8JzFin9c3Keo8XQEX",
+      "url": "https://open.spotify.com/track/54JKnDB3CzVu8wNAOM27BI",
       "image": "https://i.scdn.co/image/ab67616d00004851476cdf5837ae39eee951cc15",
-      "playedAt": "2026-10-20T01:44:43.682Z"
-    },
-    {
-      "name": "Leaden Legacy",
-      "artist": "After Forever, Floor Jansen",
-      "url": "https://open.spotify.com/track/5e7lvc1O66J05KqfeULRWn",
-      "image": "https://i.scdn.co/image/ab67616d00004851164d39c8a950cbcde340a820",
-      "playedAt": "2026-10-20T01:39:33.057Z"
-    },
-    {
-      "name": "Tribal",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5tN4bKhtt6klkkB0GVt9i1",
-      "image": "https://i.scdn.co/image/ab67616d000048514fadb2c3b4790efd1ed1e369",
-      "playedAt": "2026-10-20T01:32:42.515Z"
-    },
-    {
-      "name": "Sweet Curse",
-      "artist": "ReVamp",
-      "url": "https://open.spotify.com/track/4mEKcHXmzC7JC8I1L3MjFT",
-      "image": "https://i.scdn.co/image/ab67616d00004851965029f1f007396fd660b8dd",
-      "playedAt": "2026-10-20T01:28:45.273Z"
-    },
-    {
-      "name": "Run",
-      "artist": "Floor Jansen",
-      "url": "https://open.spotify.com/track/1XGchKdx72STUEPDnJfki2",
-      "image": "https://i.scdn.co/image/ab67616d0000485105639b45dd79959933e05c94",
-      "playedAt": "2026-10-20T01:24:28.022Z"
-    },
-    {
-      "name": "Shallow",
-      "artist": "Floor Jansen",
-      "url": "https://open.spotify.com/track/0sEzCCRxwDyQoi9M43JjUS",
-      "image": "https://i.scdn.co/image/ab67616d00004851452e0931c62448e1568b8212",
-      "playedAt": "2026-10-20T01:18:24.435Z"
-    },
-    {
-      "name": "Run",
-      "artist": "Floor Jansen",
-      "url": "https://open.spotify.com/track/1XGchKdx72STUEPDnJfki2",
-      "image": "https://i.scdn.co/image/ab67616d0000485105639b45dd79959933e05c94",
-      "playedAt": "2026-10-20T01:11:35.799Z"
-    },
-    {
-      "name": "Shallow",
-      "artist": "Tim Akkerman, Floor Jansen",
-      "url": "https://open.spotify.com/track/2NrsPYMPfEJVcQ8fKW87y0",
-      "image": "https://i.scdn.co/image/ab67616d000048517abdba9c0d91c5b2bbd1096a",
-      "playedAt": "2026-10-20T01:07:27.776Z"
+      "playedAt": "2026-10-20T05:43:12.460Z"
     }
   ],
   "topTracks": {

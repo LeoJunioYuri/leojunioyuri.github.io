@@ -1,0 +1,296 @@
+---
+/**
+ * Régua dos 730 dias: arraste do dia 1 (21/10/2024) ao dia 730 (21/10/2026) e veja o que estava no ar,
+ * quantas lojas anunciavam e vendiam via anúncio naquela semana, quantas PRs já tinham entrado
+ * e o que deu errado por perto.
+ *
+ * Séries semanais: acquisition_ads_v2_weekly_store_metrics (V2) + acquisition_ads_store_metrics (V3),
+ * consultadas em 21/10/2026. "Anunciando" = lojas com verba gasta na semana (V2 + V3 somadas no
+ * período em que as duas conviveram). "Vendendo" = lojas com pelo menos uma compra atribuída na
+ * semana; só existe a partir da V3 (17/11/2025). PRs = PRs merged de autoria minha, por mês (GitHub).
+ */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+// [dia desde 21/10/2024, lojas anunciando, lojas vendendo via anúncio]
+const weeks = [[0,6,0],[7,8,0],[14,8,0],[21,9,0],[28,12,0],[35,13,0],[42,17,0],[49,22,0],[56,23,0],[63,19,0],[70,19,0],[77,28,0],[84,42,0],[91,57,0],[98,73,0],[105,103,0],[112,110,0],[119,129,0],[126,141,0],[133,148,0],[140,172,0],[147,181,0],[154,184,0],[161,200,0],[168,219,0],[175,226,0],[182,265,0],[189,249,0],[196,273,0],[203,296,0],[210,314,0],[217,304,0],[224,312,0],[231,335,0],[238,330,0],[245,334,0],[252,304,0],[259,289,0],[266,233,0],[273,252,0],[280,227,0],[287,190,0],[294,187,0],[301,174,0],[308,171,0],[315,158,0],[322,173,0],[329,204,0],[336,225,0],[343,223,0],[350,248,0],[357,264,0],[364,282,0],[371,275,0],[378,226,0],[385,292,0],[392,298,5],[399,289,20],[406,333,28],[413,334,29],[420,341,32],[427,295,27],[434,278,27],[441,299,29],[448,344,42],[455,374,44],[462,421,58],[469,640,115],[476,699,259],[483,555,250],[490,629,262],[497,699,302],[504,670,295],[511,693,294],[518,668,301],[525,684,307],[532,744,345],[539,401,360],[546,400,370],[553,413,382],[560,443,400],[567,483,435],[574,521,470],[581,559,496],[588,592,532],[595,624,569],[602,681,599],[609,742,651],[616,796,722],[623,873,778],[630,950,851],[637,1033,916],[644,1121,998],[651,1193,1047],[658,1259,1096],[665,1377,1223],[672,1480,1295],[679,1545,1386],[686,1630,1449],[693,1745,1549],[700,1830,1609],[707,1941,1722],[714,2020,1776],[721,2171,1894]];
+
+// PRs merged por mês, out/2024 → out/2026 (até o dia 21).
+const prsByMonth = [6,21,15,87,58,30,28,47,26,43,39,24,28,42,52,45,63,62,49,81,206,122,197,332,379];
+
+type Ev = { d: number; kind: "ship" | "bad" | "life"; key?: boolean; pt: string; en: string; ptd: string; end: string };
+const events: Ev[] = [
+  { d: 0, kind: "life", key: true, pt: "Dia 1", en: "Day 1",
+    ptd: "Primeiro dia na Brendi. Seis lojas anunciavam naquela semana, operadas quase à mão.",
+    end: "First day at Brendi. Six stores were advertising that week, run almost by hand." },
+  { d: 29, kind: "ship", pt: "Anúncio criado sozinho", en: "Ads create themselves",
+    ptd: "Conjuntos de anúncio e anúncios passam a ser criados automaticamente a partir do cardápio.",
+    end: "Ad sets and ads start being created automatically from the menu." },
+  { d: 56, kind: "ship", pt: "Saldo pré-pago", en: "Prepaid balance",
+    ptd: "A loja coloca saldo para anunciar, em vez de descontar das vendas da semana. Mais lojas cabem no produto.",
+    end: "Stores top up a balance instead of paying out of the week's sales. More stores fit in the product." },
+  { d: 91, kind: "ship", pt: "Gestão automática", en: "Auto management",
+    ptd: "Primeira versão que pausa e troca anúncio sozinha, por score. Resolvida num pico de energia de madrugada.",
+    end: "First version that pauses and swaps ads by itself, by score. Finished in a 3 a.m. burst of energy." },
+  { d: 252, kind: "ship", key: true, pt: "Cadastros fechados", en: "Signups closed",
+    ptd: "Fechamos os cadastros por dois meses. Muita loja entrava sem estar pronta e saía frustrada. A curva cai de propósito.",
+    end: "We closed signups for two months. Too many stores joined unready and left frustrated. The curve drops on purpose." },
+  { d: 276, kind: "bad", pt: "Retry sem limite", en: "Unbounded retry",
+    ptd: "A tarefa de ajuste de orçamento rodou sem limite de tentativas, com centavos convertidos duas vezes. Corrigido no mesmo dia.",
+    end: "The budget task retried with no cap and converted cents twice. Fixed the same day." },
+  { d: 294, kind: "ship", pt: "Vendas rastreadas", en: "Sales tracked",
+    ptd: "Pela primeira vez o lojista vê pedidos, receita e ticket vindos do anúncio, com auditoria por pedido.",
+    end: "For the first time merchants see orders, revenue and ticket coming from ads, auditable per order." },
+  { d: 317, kind: "ship", pt: "Cadastros reabertos", en: "Signups reopen",
+    ptd: "Reabrimos com vídeo, quiz de 8 perguntas e agendamento. Entra menos gente, e fica mais.",
+    end: "Reopened with a video, an 8-question quiz and a scheduled call. Fewer people join, more stay." },
+  { d: 396, kind: "ship", key: true, pt: "MetaAds V3", en: "MetaAds V3",
+    ptd: "Começa a V3: tráfego para o cardápio em vez de só para o WhatsApp, e cada compra atribuída ao anúncio.",
+    end: "V3 begins: traffic to the menu instead of only to WhatsApp, and every purchase attributed to the ad." },
+  { d: 472, kind: "ship", key: true, pt: "PMF", en: "PMF",
+    ptd: "V3 liberada para 90 lojas, com até 2x mais pedidos por semana nos testes. Em março, a taxa de desistência cai de 32% para 4%.",
+    end: "V3 opens to 90 stores, up to 2x more weekly orders in tests. By March, the disable rate drops from 32% to 4%." },
+  { d: 526, kind: "ship", pt: "Taxa fixa", en: "Flat fee",
+    ptd: "Trocamos 10% sobre o resultado por R$60 fixos por semana. A taxa percentual punia justamente quem ia bem.",
+    end: "We swapped 10% of results for a flat R$60 a week. The percentage fee punished exactly the stores doing well." },
+  { d: 539, kind: "ship", pt: "Fim da V2", en: "V2 sunset",
+    ptd: "Desligamos a V2. A linha de lojas anunciando cai porque as lojas da V2 que não migraram saem da conta.",
+    end: "We shut V2 down. The advertising line drops because V2 stores that didn't migrate leave the count." },
+  { d: 577, kind: "ship", key: true, pt: "Anderson V1", en: "Anderson V1",
+    ptd: "Nasce o Anderson, nosso gestor de tráfego com IA: roda toda semana, decide com um modelo de raciocínio e passa por 7 guardrails antes de tocar na Meta.",
+    end: "Anderson is born, our AI traffic manager: runs weekly, decides with a reasoning model and clears 7 guardrails before touching Meta." },
+  { d: 595, kind: "bad", pt: "Tempestade de IA", en: "AI storm",
+    ptd: "Um schema de tool fora do strict mode jogou 548 lojas no último fallback de modelo, sem nenhum erro visível.",
+    end: "One tool schema outside strict mode pushed 548 stores to the last-resort model, with no visible error." },
+  { d: 602, kind: "bad", pt: "1.600 runs corrompidas", en: "1,600 runs corrupted",
+    ptd: "Uma escrita em massa sem o filtro certo corrompeu ~1.600 execuções do Anderson. Recuperamos tudo pelos transcripts do LLM.",
+    end: "A mass write without the right filter corrupted ~1,600 Anderson runs. We recovered all of them from the LLM transcripts." },
+  { d: 638, kind: "ship", pt: "Chat para todos", en: "Chat for everyone",
+    ptd: "O chat do Anderson chega a 100% das lojas: o dono conversa, o Anderson propõe e o dono confirma.",
+    end: "Anderson's chat reaches 100% of stores: the owner talks, Anderson proposes, the owner confirms." },
+  { d: 639, kind: "bad", pt: "Memória inventada", en: "Made-up memories",
+    ptd: "O extrator de memória inventou fatos sobre os donos. Hoje só entra na memória o que tem citação literal.",
+    end: "The memory extractor made up facts about owners. Now only literally quoted facts enter memory." },
+  { d: 659, kind: "life", key: true, pt: "OpenAI para Devs", en: "OpenAI for Devs",
+    ptd: "Contei a história do Anderson no palco do OpenAI para Devs, no Rio e em Florianópolis.",
+    end: "Told Anderson's story on stage at OpenAI for Devs, in Rio and Florianópolis." },
+  { d: 694, kind: "bad", pt: "WhatsApp banido", en: "WhatsApp banned",
+    ptd: "A conta de WhatsApp do Anderson foi banida. Recriamos numa Business Manager nova, com número próprio.",
+    end: "Anderson's WhatsApp account got banned. We rebuilt it in a new Business Manager, with its own number." },
+  { d: 695, kind: "ship", key: true, pt: "Google e Maps", en: "Google & Maps",
+    ptd: "O Google aprova a API do Perfil da Empresa. Passamos a cuidar do perfil da loja no Google: horários, cardápio, fotos e respostas às avaliações.",
+    end: "Google approves the Business Profile API. We start managing the store's Google profile: hours, menu, photos, review replies." },
+  { d: 701, kind: "ship", pt: "Teste grátis", en: "Free trial",
+    ptd: "Toda loja nova ganha R$200 de mídia e duas semanas sem taxa no cadastro.",
+    end: "Every new store gets R$200 of media and two fee-free weeks at signup." },
+  { d: 724, kind: "ship", pt: "Banco próprio", en: "Own database",
+    ptd: "Cutover do Ads para um banco de aquisição dedicado, com janela de manutenção e deleção do legado.",
+    end: "Ads cuts over to a dedicated acquisition database, with a maintenance window and legacy deletion." },
+  { d: 730, kind: "life", key: true, pt: "Dia 730", en: "Day 730",
+    ptd: "Hoje. 2.171 lojas anunciando, 1.894 vendendo via anúncio na última semana fechada. E contando.",
+    end: "Today. 2,171 stores advertising, 1,894 selling through ads in the last closed week. And counting." },
+];
+
+const t =
+  lang === "en"
+    ? {
+        title: "Drag through the 730 days",
+        day: "Day {n} of 730",
+        adv: "stores advertising that week",
+        sell: "selling through ads",
+        sellNa: "not measured yet",
+        prs: "PRs merged so far (all repos)",
+        live: "Latest",
+        bad: "Went wrong nearby",
+        none: "Nothing on fire. Enjoy it.",
+        hint: "Drag, use the arrow keys, or jump to a milestone.",
+        locale: "en-US",
+        legendAdv: "advertising",
+        legendSell: "selling via ads",
+      }
+    : {
+        title: "Arraste pelos 730 dias",
+        day: "Dia {n} de 730",
+        adv: "lojas anunciando na semana",
+        sell: "vendendo via anúncio",
+        sellNa: "ainda não medido",
+        prs: "PRs merged até aqui (todos os repos)",
+        live: "O último lançamento",
+        bad: "Deu ruim por perto",
+        none: "Nada pegando fogo. Aproveite.",
+        hint: "Arraste, use as setas do teclado ou pule para um marco.",
+        locale: "pt-BR",
+        legendAdv: "anunciando",
+        legendSell: "vendendo via anúncio",
+      };
+
+const evs = events.map((e) => ({
+  d: e.d,
+  kind: e.kind,
+  key: !!e.key,
+  name: lang === "en" ? e.en : e.pt,
+  desc: lang === "en" ? e.end : e.ptd,
+}));
+const W = 640, H = 140, MAXY = 2200;
+const keyEvs = evs.filter((e) => e.key);
+---
+
+<figure class="sd" data-sd>
+  <div class="sd-head">
+    <p class="sd-title">{t.title}</p>
+    <p class="sd-date" data-date></p>
+  </div>
+  <p class="sd-day" data-day></p>
+
+  <div class="sd-stats">
+    <div><b data-adv>0</b><span>{t.adv}</span></div>
+    <div><b data-sell>0</b><span>{t.sell}</span></div>
+    <div><b data-prs>0</b><span>{t.prs}</span></div>
+  </div>
+
+  <svg class="sd-chart" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img" aria-hidden="true">
+    <path class="sd-ghost" data-ghost-adv d="" />
+    <path class="sd-adv" data-path-adv d="" />
+    <path class="sd-sell" data-path-sell d="" />
+    {evs.filter((e) => e.kind === "bad").map((e) => (
+      <line class="sd-badline" x1={(e.d / 730) * W} x2={(e.d / 730) * W} y1="0" y2={H} />
+    ))}
+    <line class="sd-cursor" data-cursor x1="0" x2="0" y1="0" y2={H} />
+  </svg>
+  <div class="sd-legend">
+    <span><i class="adv"></i>{t.legendAdv}</span>
+    <span><i class="sell"></i>{t.legendSell}</span>
+    <span><i class="bad"></i>{t.bad}</span>
+  </div>
+
+  <input class="sd-range" data-range type="range" min="1" max="730" step="1" value="1" aria-label={t.title} />
+
+  <div class="sd-marks">
+    {keyEvs.map((e) => (
+      <button type="button" data-jump={Math.max(1, e.d)}>{e.name}</button>
+    ))}
+  </div>
+
+  <div class="sd-cards">
+    <div class="sd-card">
+      <p class="sd-label">{t.live}</p>
+      <p class="sd-name" data-live-name></p>
+      <p class="sd-desc" data-live-desc></p>
+    </div>
+    <div class="sd-card bad" data-bad-card>
+      <p class="sd-label">{t.bad}</p>
+      <p class="sd-name" data-bad-name></p>
+      <p class="sd-desc" data-bad-desc></p>
+    </div>
+  </div>
+  <figcaption>{t.hint}</figcaption>
+</figure>
+
+<script is:inline define:vars={{ weeks, prsByMonth, evs, t, W, H, MAXY }}>
+  (() => {
+    const root = document.querySelector("[data-sd]:not([data-ready])");
+    if (!root) return;
+    root.setAttribute("data-ready", "");
+    const $ = (s) => root.querySelector(s);
+    const range = $("[data-range]");
+    const START = Date.UTC(2024, 9, 21);
+    const fmt = new Intl.NumberFormat(t.locale);
+    const fmtDate = new Intl.DateTimeFormat(t.locale, { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" });
+
+    const x = (d) => (d / 730) * W;
+    const y = (v) => H - (v / MAXY) * (H - 6);
+    const pathTo = (idx, day) => {
+      const pts = weeks.filter((w) => w[0] <= day);
+      if (!pts.length) return "";
+      return pts.map((w, i) => `${i ? "L" : "M"}${x(w[0]).toFixed(1)},${y(w[idx]).toFixed(1)}`).join("");
+    };
+    $("[data-ghost-adv]").setAttribute("d", pathTo(1, 730));
+
+    // PRs acumuladas: cada mês é distribuído linearmente pelos seus dias.
+    const prsAt = (day) => {
+      const date = new Date(START + day * 864e5);
+      const mi = (date.getUTCFullYear() - 2024) * 12 + date.getUTCMonth() - 9;
+      let acc = 0;
+      for (let i = 0; i < mi && i < prsByMonth.length; i++) acc += prsByMonth[i];
+      if (mi >= prsByMonth.length) return acc;
+      const dim = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0)).getUTCDate();
+      const lastDay = mi === prsByMonth.length - 1 ? 21 : dim;
+      const firstDay = mi === 0 ? 21 : 1;
+      const frac = Math.min(1, Math.max(0, (date.getUTCDate() - firstDay + 1) / (lastDay - firstDay + 1)));
+      return Math.round(acc + prsByMonth[mi] * frac);
+    };
+
+    const render = () => {
+      const day = Number(range.value);
+      const offset = day - 1 === 729 ? 730 : day - 1;
+      $("[data-day]").textContent = t.day.replace("{n}", day);
+      $("[data-date]").textContent = fmtDate.format(new Date(START + offset * 864e5));
+      const wk = [...weeks].reverse().find((w) => w[0] <= offset) || weeks[0];
+      $("[data-adv]").textContent = fmt.format(wk[1]);
+      $("[data-sell]").textContent = wk[2] ? fmt.format(wk[2]) : "—";
+      $("[data-sell]").title = wk[2] ? "" : t.sellNa;
+      $("[data-prs]").textContent = fmt.format(prsAt(offset));
+      $("[data-path-adv]").setAttribute("d", pathTo(1, offset));
+      $("[data-path-sell]").setAttribute("d", pathTo(2, offset));
+      const c = $("[data-cursor]");
+      c.setAttribute("x1", x(offset)); c.setAttribute("x2", x(offset));
+
+      const live = [...evs].reverse().find((e) => e.kind !== "bad" && e.d <= offset) || evs[0];
+      $("[data-live-name]").textContent = live.name;
+      $("[data-live-desc]").textContent = live.desc;
+      const bad = evs.find((e) => e.kind === "bad" && Math.abs(e.d - offset) <= 10);
+      const card = $("[data-bad-card]");
+      card.classList.toggle("on", !!bad);
+      $("[data-bad-name]").textContent = bad ? bad.name : "";
+      $("[data-bad-desc]").textContent = bad ? bad.desc : t.none;
+      range.style.setProperty("--p", `${((day - 1) / 729) * 100}%`);
+    };
+
+    range.addEventListener("input", render);
+    root.querySelectorAll("[data-jump]").forEach((b) =>
+      b.addEventListener("click", () => { range.value = b.dataset.jump; render(); range.focus(); }),
+    );
+    render();
+  })();
+</script>
+
+<style>
+  .sd{margin:2rem 0;padding:20px 22px;border:1px solid var(--border);background:var(--surface);border-radius:6px}
+  .sd p{margin:0}
+  .sd-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .sd-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .sd-date{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+  .sd-day{font-size:clamp(28px,6vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:6px!important;font-variant-numeric:tabular-nums}
+  .sd-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+  .sd-stats div{min-width:0}
+  .sd-stats b{display:block;font-family:var(--font-mono);font-size:clamp(18px,4vw,26px);font-variant-numeric:tabular-nums}
+  .sd-stats span{display:block;font-size:12px;line-height:1.3;color:var(--muted);margin-top:2px}
+  .sd-chart{width:100%;height:120px;display:block;overflow:visible}
+  .sd-ghost{fill:none;stroke:var(--border);stroke-width:2}
+  .sd-adv{fill:none;stroke:var(--muted);stroke-width:2}
+  .sd-sell{fill:none;stroke:var(--accent);stroke-width:2.5}
+  .sd-badline{stroke:var(--accent);stroke-width:1;stroke-dasharray:2 3;opacity:.45}
+  .sd-cursor{stroke:var(--fg);stroke-width:1}
+  .sd-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:11px;color:var(--muted);margin-top:6px}
+  .sd-legend i{display:inline-block;width:14px;height:2px;margin-right:6px;vertical-align:middle;background:var(--muted)}
+  .sd-legend i.sell{background:var(--accent);height:3px}
+  .sd-legend i.bad{background:none;border-top:1px dashed var(--accent)}
+  .sd-range{width:100%;margin:16px 0 10px;accent-color:var(--accent);height:28px;cursor:pointer}
+  .sd-range:focus-visible{outline:2px solid var(--ring);outline-offset:4px}
+  .sd-marks{display:flex;flex-wrap:wrap;gap:6px}
+  .sd-marks button{font:600 11px var(--font-sans);padding:5px 10px;border:1px solid var(--border);background:var(--bg);color:var(--fg);border-radius:999px;cursor:pointer}
+  .sd-marks button:hover{border-color:var(--accent)}
+  .sd-marks button:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+  .sd-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+  .sd-card{padding:12px 14px;border:1px solid var(--border);background:var(--bg);border-radius:4px;min-width:0;min-height:7.5em}
+  .sd-card.bad{opacity:.55}
+  .sd-card.bad.on{opacity:1;border-color:var(--accent)}
+  .sd-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .sd-name{font-weight:700;margin-top:4px!important}
+  .sd-desc{font-size:13px;color:var(--muted);margin-top:4px!important;line-height:1.45}
+  .sd figcaption{font-size:12px;color:var(--muted);margin-top:12px}
+  @media (max-width:560px){.sd{padding:16px}.sd-cards{grid-template-columns:1fr}.sd-stats span{font-size:11px}}
+</style>

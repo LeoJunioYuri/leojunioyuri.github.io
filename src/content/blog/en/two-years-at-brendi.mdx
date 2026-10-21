@@ -1,0 +1,156 @@
+---
+title: "From 6 stores to R$50 million in sales: my 730 days at Brendi"
+description: "Two years building Brendi's customer acquisition system and Anderson, our AI paid-traffic agent. What I shipped, the decisions that mattered most, what broke, and the numbers, including the ones that don't look good in the picture."
+date: 2026-10-21T12:00:00-03:00
+lang: "en"
+category: "carreira"
+pinned: true
+draft: false
+tags: ["Career", "MetaAds", "AI", "Anderson", "Growth", "Lessons"]
+translationOf: "pt/dois-anos-de-brendi"
+---
+
+import SetecentosETrintaDias from "@/components/diagrams/SetecentosETrintaDias.astro";
+import Decisao from "@/components/diagrams/Decisao.astro";
+
+I started at Brendi on October 21, 2024. That week, **six restaurants** were advertising with us, and much of the work was done by hand: create the campaign, swap the creative, check the spreadsheet, send the message.
+
+In the last closed week before today, **2,171 stores** advertised and **1,894** sold at least one order that came from an ad. For most of them, what to pause, what to create and where the money goes is decided by **Anderson**, an AI agent we built.
+
+This isn't a LinkedIn recap. It's the whole notebook: what I shipped, the decisions that mattered most, what went wrong, and the numbers, including the ones that don't look good in the picture.
+
+Start with the ruler. It runs from my day 1 to today.
+
+<SetecentosETrintaDias lang="en" />
+
+---
+
+## The problem we solve
+
+A small delivery restaurant has two ways to get new customers: pay a marketplace a high commission, or learn on their own how to advertise on Meta and Google. The second one takes time, paid-media know-how and money to make mistakes with, and almost no delivery owner has all three.
+
+Brendi's bet is easy to say: **an owner shouldn't need to understand paid traffic to grow.** They add a balance and the system does the rest: builds the ad from the menu, sends traffic to the store's menu, measures every order that came from the ad and cuts what isn't working.
+
+Building that was my job for these two years.
+
+## The numbers
+
+Everything below comes from our acquisition database, queried the day I wrote this. Sales and ROAS only exist from V3 onward (November 2025), because before that we didn't record attributed purchases.
+
+| | |
+|---|---|
+| Stores advertising per week | **6** (Oct 2024) → **2,171** (Oct 2026) |
+| Stores selling via ads per week | **5** (Nov 2025) → **1,894** (Oct 2026) |
+| Stores paying the product fee per week | **~200** (Jan 2026) → **~1,200** (Oct 2026) |
+| Sales attributed to ads, measured on V3 (Nov 25 → Oct 26) | **R$39.2 million**, 616k purchases |
+| Two-year estimate, with V2 and untracked sales | **~R$50 million** |
+| Media spend managed in the same period | **R$3.94 million** |
+| Average ROAS | **~10×**: every R$1 in ads became R$10 in sales |
+| Typical store ROAS (median) | **~3×** in Jan 2026 → **~5×** over the last 4 weeks |
+| Anderson runs since May | **47,643**, across **3,246** stores |
+| PRs I merged | **2,051** at brendi-tech (2,081 counting personal projects) |
+
+One line in that table needs context.
+
+**The measured R$39 million covers less than a year, not two.** It only counts V3, which sends traffic to the menu and measures every purchase. V3 started in November 2025, and almost all of it falls in 2026. In the 13 months before that, on V2, ads led to WhatsApp and we didn't record attributed sales. That period had R$2.5 million in spend and 180k conversations started. Much of what happened there never became a record: orders closed in the chat, over the phone, customers who saw the ad and came back days later straight through the menu. Even on V3, part of the sales slips past the pixel. Adding measured sales, the V2 estimate and what went untracked, I land at **about R$50 million over two years**. That's an estimate, not a measurement: the measured number is R$39.2 million. The gap between the two eras tells its own story: sending traffic to the menu instead of to a conversation changed the order of magnitude of the result.
+
+---
+
+## What I shipped
+
+Grouped by phase, because none of them was planned as clearly as the list makes it look.
+
+**Phase 1 — make it work (Oct 2024 → Jun 2025).** Automatic creation of ad sets and ads. Prepaid balance. The first auto management, pausing ads by score. Daily Meta token validation. AI creative rewrites. Video generated from images. Balance refunds. A new onboarding for everyone.
+
+**Phase 2 — stop growing the wrong way (Jul 2025 → Jan 2026).** We closed signups for two months and reopened with qualification. We tracked sales per order for the first time. We moved revenue out of Firestore and into SQL. We built the coupon Aggressiveness System. We started sending traffic to the menu, not only to WhatsApp.
+
+**Phase 3 — V3 and product-market fit (Feb → Apr 2026).** V3 opened to 90 stores, with up to 2× more weekly orders in tests. Orders from ads started showing up tagged in the merchant dashboard (new or reactivated customer). CAPI for every store. Per-order attribution. A flat fee instead of a percentage. All of V2 removed.
+
+**Phase 4 — Anderson (May 2026 → today).** An AI traffic manager running weekly: chat with the owner, memory, a decision log, A/B tests between versions, champion/challenger, evals with an expert judge. Anderson on WhatsApp, with text, photo, video and voice. Anderson in the owner app, which I also took over.
+
+**Phase 5 — beyond Meta (Aug 2026 → today).** Google & Maps manages the store's Google profile: hours, menu, photos, cover and review replies. We split Social Media from Paid Traffic. Then came Marquinho, our paid-traffic support agent, the free trial at signup, and a database just for acquisition.
+
+---
+
+## The decisions that mattered most
+
+Launches are the visible part. What actually bent the curve was a handful of decisions, and almost all of them looked wrong to someone at the time.
+
+<Decisao lang="en" n={1} when="Dec 2024" title="Owners add a balance instead of paying out of the week's sales"
+  bet="A prepaid balance makes the product independent of a store's sales and fits smaller stores."
+  rejected="Deducting spend straight from the weekly payout, which was simpler and already existed.">
+More stores could join, and the product stopped needing a good week to keep running. It was the first time I understood that a billing model is a product decision, not a finance one.
+</Decisao>
+
+<Decisao lang="en" n={2} when="Jul 2025" title="Close signups for two months"
+  bet="Growing slowly and right beats growing fast with stores that will quit."
+  rejected="Keep accepting everyone and fix support along the way.">
+The ruler above shows the curve dropping on purpose: from 335 stores advertising to 158. When we reopened, with a video, an 8-question quiz and a scheduled call, fewer people joined, and more stayed. It was the hardest decision to defend and the one I'd repeat first.
+</Decisao>
+
+<Decisao lang="en" n={3} when="Oct 2025 → Feb 2026" title="Send traffic to the menu, not to WhatsApp"
+  bet="If the ad goes straight to the menu, every order can be measured, and ordering gets easier."
+  rejected="The old WhatsApp conversation model that most competitors use.">
+In V3 tests, up to 2× more orders per week. More importantly, we started knowing which ads sold. Without that there would be no Anderson, because there'd be nothing to optimize.
+</Decisao>
+
+<Decisao lang="en" n={4} when="Mar 2026" title="Swap the 10% fee for a flat R$60 a week"
+  bet="A fair fee is one that doesn't grow when the store does well."
+  rejected="Keeping the percentage fee, which earned the most exactly from the best-performing stores.">
+I thought the 10% model was unethical: it punished the stores doing well. The disable rate dropped from 32% to 4% in the following weeks. It wasn't only the fee, but the fee came along with everything else, and everything else wouldn't have held on its own.
+</Decisao>
+
+<Decisao lang="en" n={5} when="May 2026" title="An agent with guardrails instead of more rules"
+  bet="A reasoning model, bound by deterministic guardrails, decides better than a rule tree no one can maintain anymore."
+  rejected="Keep fattening the score-based auto management, which worked and was predictable.">
+Anderson was born, with 7 guardrails before any call to Meta. The rule I'm proudest of came later, in memory: "the vector stores what it knows; the rule stores what it can't do." The model can forget an owner's preference. The deterministic veto can't.
+</Decisao>
+
+<Decisao lang="en" n={6} when="Jun → Oct 2026" title="Test the agent against itself, then stop testing"
+  bet="Every new version runs against the current one in half the stores, and only the winner graduates."
+  rejected="Ship to everyone and watch the dashboard.">
+That's what let us change Anderson every week without fear. In October we changed again: with a two-person team and 2,000 stores, A/B was delaying obvious fixes. Now changes go to 100%, with the decision log and evals holding quality. Knowing when to drop a good process is a decision too.
+</Decisao>
+
+<Decisao lang="en" n={7} when="Oct 2026" title="Give Ads its own database and services"
+  bet="Separate the acquisition domain from the rest of the platform, with events instead of direct calls."
+  rejected="Staying in the monolith, where everything ships together and any change elsewhere redeploys our services.">
+Ads went from a bundle of 79 functions that always deployed together to ads-api, ads-workers, anderson and kleber, with a dedicated acquisition database. The cutover happened on October 15 and 16, with a maintenance window. I wrote about part of it in [the database moved to Virginia](/en/writing/the-database-moved-to-virginia).
+</Decisao>
+
+---
+
+## What went wrong
+
+Incidents show up on the ruler as dashed lines. These are the ones that taught me the most.
+
+- **The silent storm (Jun 2026).** A tool schema outside *strict mode* pushed 548 stores to the last fallback model, with no error anywhere. Anderson kept working, just worse. The model used on each run is now a metric with an alert. An invisible downgrade is the worst kind of agent bug.
+- **1,600 corrupted runs (Jun 2026).** A mass write without the right filter. We recovered everything because we kept the transcript of every LLM call. Since then every mass write filters by run id, no exceptions.
+- **The memory that made things up (Jul 2026).** The chat's memory extractor started "remembering" things the owner never said. The fix was a deterministic gate: only facts with a literal quote from the conversation enter memory. In an agent that moves other people's money, creativity in memory is a defect.
+- **The reasoning that never turned on (Jul 2026).** We found out Anderson had never run with high reasoning. The parameter was silently dropped on the way to the API. Months of decisions with half a brain.
+- **WhatsApp banned (Sep 2026).** Anderson's WhatsApp account got banned. We rebuilt it in a new Business Manager with its own number. A third-party platform is borrowed ground.
+- **The vanishing pixel (Aug 2026).** Clearing the CAPI token also wiped the browser pixel: 399 stores without measurement. The rule that came out of it fits in one line: **whoever runs the ad owns the token.**
+
+---
+
+## What I learned
+
+**Price is a customer filter.** V3's product-market fit came as much from billing as from the product. Flat fee, prepaid balance and qualified signup picked the right stores before a single line of Anderson's code.
+
+**Menu conversion explains almost everything.** About 85% of the ROAS gap between stores comes from how well the menu converts, not from the ad. The ad brings people to the door, but the menu is what sells.
+
+**An AI agent in production is 20% model and 80% guardrails, measurement and memory.** The model gets better by itself every quarter. What doesn't get better by itself is knowing what it did, why it did it, and how to undo it.
+
+**Writing is part of the job.** I started this blog to record technical decisions before I forgot why we made them. The posts about [a versioned cache key](/en/writing/versioned-cache-key), [two thousand deploys](/en/writing/two-thousand-deploys-later) and [how we test Anderson](/en/writing/the-draw-came-out-crooked) came out of weeks like the ones on the ruler.
+
+---
+
+## Thank you
+
+To God, for guiding my decisions. To **Daniel Frageri**, for the opportunity, the trust and the lessons through all 730 days. To **Jonathan Borges**, for the mentorship and advice. To **Rogério Soares**, who joined the team this year and is building with me a market that didn't exist for small delivery businesses before. And to the whole Brendi team, for a culture that lets me be who I am.
+
+## What's next
+
+No new features until December. With two people and more than 2,000 stores, the work now is depth: grow with quality, give better support, and keep getting better at measuring **how much each store gets out of its ads**.
+
+Onwards. 🙏

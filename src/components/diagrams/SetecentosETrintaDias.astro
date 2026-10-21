@@ -23,75 +23,526 @@ const prsByMonth = [6,21,15,87,58,30,28,47,26,43,39,24,28,42,52,45,63,62,49,81,2
 
 type Ev = { d: number; kind: "ship" | "bad" | "life"; key?: boolean; pt: string; en: string; ptd: string; end: string };
 const events: Ev[] = [
-  { d: 0, kind: "life", key: true, pt: "Dia 1", en: "Day 1",
-    ptd: "Primeiro dia na Brendi. Seis lojas anunciavam naquela semana, operadas quase à mão.",
-    end: "First day at Brendi. Six stores were advertising that week, run almost by hand." },
-  { d: 29, kind: "ship", pt: "Anúncio criado sozinho", en: "Ads create themselves",
-    ptd: "Conjuntos de anúncio e anúncios passam a ser criados automaticamente a partir do cardápio.",
-    end: "Ad sets and ads start being created automatically from the menu." },
-  { d: 56, kind: "ship", pt: "Saldo pré-pago", en: "Prepaid balance",
-    ptd: "A loja coloca saldo para anunciar, em vez de descontar das vendas da semana. Mais lojas cabem no produto.",
-    end: "Stores top up a balance instead of paying out of the week's sales. More stores fit in the product." },
-  { d: 91, kind: "ship", pt: "Gestão automática", en: "Auto management",
-    ptd: "Primeira versão que pausa e troca anúncio sozinha, por score. Resolvida num pico de energia de madrugada.",
-    end: "First version that pauses and swaps ads by itself, by score. Finished in a 3 a.m. burst of energy." },
-  { d: 252, kind: "ship", key: true, pt: "Cadastros fechados", en: "Signups closed",
-    ptd: "Fechamos os cadastros por dois meses. Muita loja entrava sem estar pronta e saía frustrada. A curva cai de propósito.",
-    end: "We closed signups for two months. Too many stores joined unready and left frustrated. The curve drops on purpose." },
-  { d: 276, kind: "bad", pt: "Retry sem limite", en: "Unbounded retry",
-    ptd: "A tarefa de ajuste de orçamento rodou sem limite de tentativas, com centavos convertidos duas vezes. Corrigido no mesmo dia.",
-    end: "The budget task retried with no cap and converted cents twice. Fixed the same day." },
-  { d: 294, kind: "ship", pt: "Vendas rastreadas", en: "Sales tracked",
-    ptd: "Pela primeira vez o lojista vê pedidos, receita e ticket vindos do anúncio, com auditoria por pedido.",
-    end: "For the first time merchants see orders, revenue and ticket coming from ads, auditable per order." },
-  { d: 317, kind: "ship", pt: "Cadastros reabertos", en: "Signups reopen",
-    ptd: "Reabrimos com vídeo, quiz de 8 perguntas e agendamento. Entra menos gente, e fica mais.",
-    end: "Reopened with a video, an 8-question quiz and a scheduled call. Fewer people join, more stay." },
-  { d: 396, kind: "ship", key: true, pt: "MetaAds V3", en: "MetaAds V3",
-    ptd: "Começa a V3: tráfego para o cardápio em vez de só para o WhatsApp, e cada compra atribuída ao anúncio.",
-    end: "V3 begins: traffic to the menu instead of only to WhatsApp, and every purchase attributed to the ad." },
-  { d: 472, kind: "ship", key: true, pt: "PMF", en: "PMF",
-    ptd: "V3 liberada para 90 lojas, com até 2x mais pedidos por semana nos testes. Em março, a taxa de desistência cai de 32% para 4%.",
-    end: "V3 opens to 90 stores, up to 2x more weekly orders in tests. By March, the disable rate drops from 32% to 4%." },
-  { d: 526, kind: "ship", pt: "Taxa fixa", en: "Flat fee",
-    ptd: "Trocamos 10% sobre o resultado por R$60 fixos por semana. A taxa percentual punia justamente quem ia bem.",
-    end: "We swapped 10% of results for a flat R$60 a week. The percentage fee punished exactly the stores doing well." },
-  { d: 539, kind: "ship", pt: "Fim da V2", en: "V2 sunset",
-    ptd: "Desligamos a V2. A linha de lojas anunciando cai porque as lojas da V2 que não migraram saem da conta.",
-    end: "We shut V2 down. The advertising line drops because V2 stores that didn't migrate leave the count." },
-  { d: 577, kind: "ship", key: true, pt: "Anderson V1", en: "Anderson V1",
-    ptd: "Nasce o Anderson, nosso gestor de tráfego com IA: roda toda semana, decide com um modelo de raciocínio e passa por 7 guardrails antes de tocar na Meta.",
-    end: "Anderson is born, our AI traffic manager: runs weekly, decides with a reasoning model and clears 7 guardrails before touching Meta." },
-  { d: 595, kind: "bad", pt: "Tempestade de IA", en: "AI storm",
-    ptd: "Um schema de tool fora do strict mode jogou 548 lojas no último fallback de modelo, sem nenhum erro visível.",
-    end: "One tool schema outside strict mode pushed 548 stores to the last-resort model, with no visible error." },
-  { d: 602, kind: "bad", pt: "1.600 runs corrompidas", en: "1,600 runs corrupted",
-    ptd: "Uma escrita em massa sem o filtro certo corrompeu ~1.600 execuções do Anderson. Recuperamos tudo pelos transcripts do LLM.",
-    end: "A mass write without the right filter corrupted ~1,600 Anderson runs. We recovered all of them from the LLM transcripts." },
-  { d: 638, kind: "ship", pt: "Chat para todos", en: "Chat for everyone",
-    ptd: "O chat do Anderson chega a 100% das lojas: o dono conversa, o Anderson propõe e o dono confirma.",
-    end: "Anderson's chat reaches 100% of stores: the owner talks, Anderson proposes, the owner confirms." },
-  { d: 639, kind: "bad", pt: "Memória inventada", en: "Made-up memories",
-    ptd: "O extrator de memória inventou fatos sobre os donos. Hoje só entra na memória o que tem citação literal.",
-    end: "The memory extractor made up facts about owners. Now only literally quoted facts enter memory." },
-  { d: 659, kind: "life", key: true, pt: "OpenAI para Devs", en: "OpenAI for Devs",
-    ptd: "Contei a história do Anderson no palco do OpenAI para Devs, no Rio e em Florianópolis.",
-    end: "Told Anderson's story on stage at OpenAI for Devs, in Rio and Florianópolis." },
-  { d: 694, kind: "bad", pt: "WhatsApp banido", en: "WhatsApp banned",
-    ptd: "A conta de WhatsApp do Anderson foi banida. Recriamos numa Business Manager nova, com número próprio.",
-    end: "Anderson's WhatsApp account got banned. We rebuilt it in a new Business Manager, with its own number." },
-  { d: 695, kind: "ship", key: true, pt: "Google e Maps", en: "Google & Maps",
-    ptd: "O Google aprova a API do Perfil da Empresa. Passamos a cuidar do perfil da loja no Google: horários, cardápio, fotos e respostas às avaliações.",
-    end: "Google approves the Business Profile API. We start managing the store's Google profile: hours, menu, photos, review replies." },
-  { d: 701, kind: "ship", pt: "Teste grátis", en: "Free trial",
-    ptd: "Toda loja nova ganha R$200 de mídia e duas semanas sem taxa no cadastro.",
-    end: "Every new store gets R$200 of media and two fee-free weeks at signup." },
-  { d: 724, kind: "ship", pt: "Banco próprio", en: "Own database",
-    ptd: "Cutover do Ads para um banco de aquisição dedicado, com janela de manutenção e deleção do legado.",
-    end: "Ads cuts over to a dedicated acquisition database, with a maintenance window and legacy deletion." },
-  { d: 730, kind: "life", key: true, pt: "Dia 730", en: "Day 730",
-    ptd: "Hoje. 2.171 lojas anunciando, 1.894 vendendo via anúncio na última semana fechada. E contando.",
-    end: "Today. 2,171 stores advertising, 1,894 selling through ads in the last closed week. And counting." },
+  {
+    "d": 0,
+    "kind": "life",
+    "pt": "Dia 1",
+    "en": "Day 1",
+    "ptd": "Primeiro dia na Brendi. Seis lojas anunciavam naquela semana, operadas quase à mão.",
+    "end": "First day at Brendi. Six stores were advertising that week, run almost by hand.",
+    "key": true
+  },
+  {
+    "d": 29,
+    "kind": "ship",
+    "pt": "Anúncio criado sozinho",
+    "en": "Ads create themselves",
+    "ptd": "Conjuntos de anúncio e anúncios passam a ser criados automaticamente a partir do cardápio.",
+    "end": "Ad sets and ads start being created automatically from the menu."
+  },
+  {
+    "d": 43,
+    "kind": "ship",
+    "pt": "Liga e desliga",
+    "en": "On/off switch",
+    "ptd": "O lojista passa a ligar e pausar os próprios anúncios direto pelo painel.",
+    "end": "Merchants can turn their own ads on and off straight from the dashboard."
+  },
+  {
+    "d": 46,
+    "kind": "ship",
+    "pt": "Anúncios em vídeo",
+    "en": "Video ads",
+    "ptd": "Primeira versão da criação automática de anúncios em vídeo.",
+    "end": "First version of automatic video ad creation."
+  },
+  {
+    "d": 46,
+    "kind": "bad",
+    "pt": "Vídeo quebrado",
+    "en": "Broken video",
+    "ptd": "A criação de vídeo falhou no dia do lançamento. Corrigimos o fluxo em poucas horas.",
+    "end": "Video creation broke on launch day. We fixed the flow within hours."
+  },
+  {
+    "d": 56,
+    "kind": "ship",
+    "pt": "Saldo pré-pago",
+    "en": "Prepaid balance",
+    "ptd": "A loja coloca saldo para anunciar, em vez de descontar das vendas da semana. Mais lojas cabem no produto.",
+    "end": "Stores top up a balance instead of paying out of the week's sales. More stores fit in the product."
+  },
+  {
+    "d": 91,
+    "kind": "ship",
+    "pt": "Gestão automática",
+    "en": "Auto management",
+    "ptd": "Primeira versão que pausa e troca anúncio sozinha, por score. Resolvida num pico de energia de madrugada.",
+    "end": "First version that pauses and swaps ads by itself, by score. Finished in a 3 a.m. burst of energy."
+  },
+  {
+    "d": 100,
+    "kind": "bad",
+    "pt": "Verba mal dividida",
+    "en": "Budget split off",
+    "ptd": "A divisão semanal do investimento entre os anúncios estava errada. Refizemos o cálculo e passamos a validar o orçamento mínimo da Meta antes de criar campanha.",
+    "end": "The weekly split of spend across ads was wrong. We rewrote the math and started validating Meta's minimum budget before creating campaigns."
+  },
+  {
+    "d": 100,
+    "kind": "ship",
+    "pt": "Saúde dos anúncios",
+    "en": "Ad health report",
+    "ptd": "Monitoramento diário de cada conta, com alerta para custo por mensagem alto.",
+    "end": "Daily monitoring of every account, with alerts for high cost per message."
+  },
+  {
+    "d": 137,
+    "kind": "ship",
+    "pt": "Criativo com IA",
+    "en": "AI creative",
+    "ptd": "A IA passa a reescrever o texto dos anúncios a partir do cardápio da loja.",
+    "end": "AI starts rewriting ad copy from the store's menu."
+  },
+  {
+    "d": 149,
+    "kind": "ship",
+    "pt": "Onboarding novo",
+    "en": "New onboarding",
+    "ptd": "Um fluxo de entrada novo, com agendamento integrado, liberado para todas as lojas.",
+    "end": "A new signup flow with built-in scheduling, rolled out to every store."
+  },
+  {
+    "d": 161,
+    "kind": "ship",
+    "pt": "Bot entende tráfego",
+    "en": "Bot knows ads",
+    "ptd": "O bot de WhatsApp da Brendi passa a responder dúvidas sobre tráfego pago.",
+    "end": "Brendi's WhatsApp bot starts answering paid-traffic questions."
+  },
+  {
+    "d": 198,
+    "kind": "bad",
+    "pt": "WhatsApp bloqueado",
+    "en": "Blocked WhatsApp",
+    "ptd": "Anúncio levando para WhatsApp bloqueado queimava verba à toa. Passamos a detectar o bloqueio, pausar e avisar o lojista.",
+    "end": "Ads pointing to a blocked WhatsApp burned money. We now detect it, pause and warn the merchant."
+  },
+  {
+    "d": 210,
+    "kind": "ship",
+    "pt": "Vídeo a partir de foto",
+    "en": "Video from a photo",
+    "ptd": "Uma foto do prato vira um anúncio em vídeo, sem o lojista gravar nada.",
+    "end": "A dish photo becomes a video ad, with no filming by the merchant."
+  },
+  {
+    "d": 213,
+    "kind": "ship",
+    "pt": "5 anúncios de saída",
+    "en": "5 ads to start",
+    "ptd": "Toda loja nova já começa com cinco anúncios rodando, para aprender mais rápido o que funciona.",
+    "end": "Every new store starts with five ads live, to learn faster what works."
+  },
+  {
+    "d": 217,
+    "kind": "bad",
+    "pt": "Login do Facebook",
+    "en": "Facebook login",
+    "ptd": "Token vencido travava a reconexão da conta. Reescrevemos a desconexão, a reconexão e as mensagens de erro.",
+    "end": "Expired tokens blocked account reconnection. We rewrote disconnect, reconnect and the error messages."
+  },
+  {
+    "d": 224,
+    "kind": "ship",
+    "pt": "Graph API v22",
+    "en": "Graph API v22",
+    "ptd": "Migração para a versão nova da API da Meta antes do prazo.",
+    "end": "Migrated to the new Meta API version ahead of the deadline."
+  },
+  {
+    "d": 252,
+    "kind": "ship",
+    "pt": "Formatos de IA",
+    "en": "AI ad formats",
+    "ptd": "Suporte aos formatos de anúncio gerados por IA da própria Meta.",
+    "end": "Support for Meta's own AI-generated ad formats."
+  },
+  {
+    "d": 253,
+    "kind": "ship",
+    "pt": "Cadastros fechados",
+    "en": "Signups closed",
+    "ptd": "Fechamos os cadastros por dois meses para arrumar a casa. A curva cai de propósito.",
+    "end": "We closed signups for two months to get the house in order. The curve drops on purpose.",
+    "key": true
+  },
+  {
+    "d": 254,
+    "kind": "ship",
+    "pt": "Reembolso de saldo",
+    "en": "Balance refunds",
+    "ptd": "O lojista pode pedir de volta o saldo que não usou, com um botão.",
+    "end": "Merchants can get unused balance back with one button."
+  },
+  {
+    "d": 275,
+    "kind": "ship",
+    "pt": "Painel novo",
+    "en": "New dashboard",
+    "ptd": "A área de anúncios ganha uma interface redesenhada.",
+    "end": "The ads area gets a redesigned interface."
+  },
+  {
+    "d": 276,
+    "kind": "bad",
+    "pt": "Retry duplicado",
+    "en": "Duplicate retry",
+    "ptd": "A tarefa de orçamento repetiu tentativas sem limite e converteu centavos duas vezes. Corrigimos no mesmo dia e criamos uma trava contra estouro de orçamento.",
+    "end": "The budget task retried with no cap and converted cents twice. Fixed the same day, plus a guard against overspending."
+  },
+  {
+    "d": 294,
+    "kind": "ship",
+    "pt": "Vendas rastreadas",
+    "en": "Sales tracked",
+    "ptd": "Pela primeira vez o lojista vê pedidos, receita e ticket vindos do anúncio, com auditoria por pedido.",
+    "end": "For the first time merchants see orders, revenue and ticket from ads, auditable per order."
+  },
+  {
+    "d": 303,
+    "kind": "bad",
+    "pt": "Depósito travado",
+    "en": "Stuck deposits",
+    "ptd": "Alguns depósitos ficavam presos com status de erro. Criamos a correção automática do status.",
+    "end": "Some deposits got stuck in an error state. We built automatic status repair."
+  },
+  {
+    "d": 310,
+    "kind": "ship",
+    "pt": "Saldo na tela",
+    "en": "Balance on screen",
+    "ptd": "O saldo da conta de anúncios aparece em tempo real no painel.",
+    "end": "The ad account balance shows up live on the dashboard."
+  },
+  {
+    "d": 317,
+    "kind": "ship",
+    "pt": "Cadastros reabertos",
+    "en": "Signups reopen",
+    "ptd": "Reabrimos com vídeo, quiz de 8 perguntas e agendamento. Entra menos gente, e fica mais.",
+    "end": "Reopened with a video, an 8-question quiz and a scheduled call. Fewer people join, more stay."
+  },
+  {
+    "d": 340,
+    "kind": "ship",
+    "pt": "Agressividade",
+    "en": "Aggressiveness",
+    "ptd": "Quatro níveis de cupom para o lojista escolher o quanto quer acelerar.",
+    "end": "Four coupon levels so merchants pick how hard to push."
+  },
+  {
+    "d": 366,
+    "kind": "ship",
+    "pt": "Erros em tempo real",
+    "en": "Live error tracking",
+    "ptd": "Todo erro do módulo de anúncios passa a ser monitorado em tempo real.",
+    "end": "Every error in the ads module is now tracked in real time."
+  },
+  {
+    "d": 396,
+    "kind": "ship",
+    "pt": "MetaAds V3",
+    "en": "MetaAds V3",
+    "ptd": "Começa a V3: tráfego para o cardápio em vez de só para o WhatsApp, e cada compra atribuída ao anúncio.",
+    "end": "V3 begins: traffic to the menu instead of only WhatsApp, and every purchase attributed to the ad.",
+    "key": true
+  },
+  {
+    "d": 427,
+    "kind": "bad",
+    "pt": "Receita pendente",
+    "en": "Pending revenue",
+    "ptd": "Só a última semana pendente era processada. Passamos a processar todas, sem perder nenhuma.",
+    "end": "Only the latest pending week got processed. We now process all of them, none lost."
+  },
+  {
+    "d": 428,
+    "kind": "ship",
+    "pt": "Pedidos por anúncio",
+    "en": "Orders per ad",
+    "ptd": "O lojista vê quais pedidos vieram de cada anúncio.",
+    "end": "Merchants see which orders came from each ad."
+  },
+  {
+    "d": 458,
+    "kind": "bad",
+    "pt": "Imposto no PIX",
+    "en": "Tax on PIX",
+    "ptd": "O imposto da Meta não era aplicado no saldo colocado via PIX. Corrigimos o cálculo.",
+    "end": "Meta's tax wasn't applied to balance added via PIX. We fixed the math."
+  },
+  {
+    "d": 472,
+    "kind": "ship",
+    "pt": "PMF",
+    "en": "PMF",
+    "ptd": "V3 liberada para 90 lojas, com até 2× mais pedidos por semana nos testes. Em março, a desistência cai de 32% para 4%.",
+    "end": "V3 opens to 90 stores, up to 2× more weekly orders in tests. By March, churn drops from 32% to 4%.",
+    "key": true
+  },
+  {
+    "d": 500,
+    "kind": "ship",
+    "pt": "CAPI",
+    "en": "CAPI",
+    "ptd": "O pixel passa a ser alimentado pela API de Conversões da Meta, direto do servidor.",
+    "end": "The pixel is now fed by Meta's Conversions API, straight from the server."
+  },
+  {
+    "d": 504,
+    "kind": "ship",
+    "pt": "Pedido com selo",
+    "en": "Tagged orders",
+    "ptd": "Pedido vindo de anúncio aparece marcado no gestor como cliente novo ou reativado.",
+    "end": "Orders from ads show up tagged as new or returning customers."
+  },
+  {
+    "d": 522,
+    "kind": "bad",
+    "pt": "Tela em branco",
+    "en": "Blank screen",
+    "ptd": "A tela de resultados nova ficou em branco para algumas lojas. Revertemos em minutos e corrigimos a condição de corrida.",
+    "end": "The new results screen went blank for some stores. We reverted in minutes and fixed the race condition."
+  },
+  {
+    "d": 526,
+    "kind": "ship",
+    "pt": "Taxa fixa",
+    "en": "Flat fee",
+    "ptd": "Trocamos 10% sobre o resultado por R$60 fixos por semana. A taxa percentual punia justamente quem ia bem.",
+    "end": "We swapped 10% of results for a flat R$60 a week. The percentage fee punished exactly the stores doing well."
+  },
+  {
+    "d": 539,
+    "kind": "ship",
+    "pt": "Fim da V2",
+    "en": "V2 sunset",
+    "ptd": "Desligamos a V2. A linha de lojas anunciando cai porque as lojas da V2 que não migraram saem da conta.",
+    "end": "We shut V2 down. The advertising line drops because V2 stores that didn't migrate leave the count."
+  },
+  {
+    "d": 563,
+    "kind": "ship",
+    "pt": "Vídeo com Veo",
+    "en": "Video with Veo",
+    "ptd": "Anúncios em vídeo gerados com o Veo 3.1, em três formatos, com checagem de fidelidade ao prato.",
+    "end": "Video ads generated with Veo 3.1, in three formats, with a fidelity check against the real dish."
+  },
+  {
+    "d": 574,
+    "kind": "ship",
+    "pt": "Indique e Ganhe",
+    "en": "Refer and earn",
+    "ptd": "Indicação entre lojistas liberada para todas as lojas.",
+    "end": "Merchant referrals open to every store."
+  },
+  {
+    "d": 577,
+    "kind": "ship",
+    "pt": "Anderson V1",
+    "en": "Anderson V1",
+    "ptd": "Nasce o Anderson, nosso gestor de tráfego com IA: roda toda semana, decide com um modelo de raciocínio e passa por 7 guardrails antes de tocar na Meta.",
+    "end": "Anderson is born, our AI traffic manager: runs weekly, decides with a reasoning model and clears 7 guardrails before touching Meta.",
+    "key": true
+  },
+  {
+    "d": 586,
+    "kind": "ship",
+    "pt": "Anderson para todos",
+    "en": "Anderson for all",
+    "ptd": "O Anderson passa a gerenciar os anúncios de todas as lojas.",
+    "end": "Anderson starts managing ads for every store."
+  },
+  {
+    "d": 595,
+    "kind": "bad",
+    "pt": "Tempestade de IA",
+    "en": "AI storm",
+    "ptd": "Um schema de tool fora do strict mode jogou 548 lojas no modelo reserva, sem erro visível. Hoje o modelo de cada execução é métrica com alerta.",
+    "end": "One tool schema outside strict mode pushed 548 stores to the backup model, with no visible error. Now the model behind every run is an alerted metric."
+  },
+  {
+    "d": 602,
+    "kind": "bad",
+    "pt": "1.600 runs corrompidas",
+    "en": "1,600 runs corrupted",
+    "ptd": "Uma escrita em massa sem o filtro certo corrompeu ~1.600 execuções do Anderson. Recuperamos tudo pelos transcripts do LLM.",
+    "end": "A mass write without the right filter corrupted ~1,600 Anderson runs. We recovered all of them from the LLM transcripts."
+  },
+  {
+    "d": 638,
+    "kind": "ship",
+    "pt": "Chat para todos",
+    "en": "Chat for everyone",
+    "ptd": "O chat do Anderson chega a 100% das lojas: o dono conversa, o Anderson propõe e o dono confirma.",
+    "end": "Anderson's chat reaches 100% of stores: the owner talks, Anderson proposes, the owner confirms."
+  },
+  {
+    "d": 639,
+    "kind": "bad",
+    "pt": "Memória inventada",
+    "en": "Made-up memories",
+    "ptd": "O extrator de memória inventou fatos sobre os donos. Hoje só entra na memória o que tem citação literal.",
+    "end": "The memory extractor made up facts about owners. Now only literally quoted facts enter memory."
+  },
+  {
+    "d": 639,
+    "kind": "ship",
+    "pt": "Credenciais no servidor",
+    "en": "Server-side keys",
+    "ptd": "As credenciais de anúncio saem do navegador e passam a viver só no servidor.",
+    "end": "Ad credentials leave the browser and live only on the server."
+  },
+  {
+    "d": 641,
+    "kind": "bad",
+    "pt": "Rota sem login",
+    "en": "Unauthenticated route",
+    "ptd": "Encontramos uma rota de cupom sem autenticação e fechamos no mesmo dia.",
+    "end": "We found a coupon route without authentication and closed it the same day."
+  },
+  {
+    "d": 653,
+    "kind": "ship",
+    "pt": "Google conectado",
+    "en": "Google connected",
+    "ptd": "Conexão com o Perfil da Empresa no Google: login seguro, tokens cifrados e gestão automática.",
+    "end": "Google Business Profile connection: secure login, encrypted tokens and automatic management."
+  },
+  {
+    "d": 659,
+    "kind": "life",
+    "pt": "OpenAI para Devs",
+    "en": "OpenAI for Devs",
+    "ptd": "Contei a história do Anderson no palco do OpenAI para Devs, no Rio e em Florianópolis.",
+    "end": "Told Anderson's story on stage at OpenAI for Devs, in Rio and Florianópolis.",
+    "key": true
+  },
+  {
+    "d": 661,
+    "kind": "bad",
+    "pt": "Limite estourado",
+    "en": "Limit hit",
+    "ptd": "O limite da conta de pagamentos esgotou e pausou a maior parte das lojas. Ajustamos o limite e criamos monitoramento para isso não se repetir.",
+    "end": "The payment account limit ran out and paused most stores. We raised the limit and added monitoring so it can't repeat."
+  },
+  {
+    "d": 665,
+    "kind": "bad",
+    "pt": "Pixel que sumia",
+    "en": "Vanishing pixel",
+    "ptd": "Limpar o token do CAPI apagava o pixel do navegador em 399 lojas. Regra nova: quem opera o anúncio decide o token.",
+    "end": "Clearing the CAPI token wiped the browser pixel in 399 stores. New rule: whoever runs the ad owns the token."
+  },
+  {
+    "d": 676,
+    "kind": "ship",
+    "pt": "Trilha de auditoria",
+    "en": "Audit trail",
+    "ptd": "Todo desligamento de anúncio registra quem fez e por quê.",
+    "end": "Every ad shutdown records who did it and why."
+  },
+  {
+    "d": 681,
+    "kind": "ship",
+    "pt": "Marquinho",
+    "en": "Marquinho",
+    "ptd": "Nasce o Marquinho, nosso agente de suporte de tráfego pago, no Slack e no WhatsApp.",
+    "end": "Marquinho is born, our paid-traffic support agent, on Slack and WhatsApp."
+  },
+  {
+    "d": 687,
+    "kind": "ship",
+    "pt": "Anderson no WhatsApp",
+    "en": "Anderson on WhatsApp",
+    "ptd": "O dono conversa com o Anderson pelo WhatsApp: texto, foto que vira anúncio e voz.",
+    "end": "Owners talk to Anderson on WhatsApp: text, photos that become ads, and voice."
+  },
+  {
+    "d": 690,
+    "kind": "ship",
+    "pt": "Anderson mexe na verba",
+    "en": "Anderson moves budget",
+    "ptd": "O Anderson passa a ajustar investimento, editar anúncio no ar e impulsionar post do Instagram.",
+    "end": "Anderson can now adjust spend, edit live ads and boost Instagram posts."
+  },
+  {
+    "d": 694,
+    "kind": "bad",
+    "pt": "WhatsApp banido",
+    "en": "WhatsApp banned",
+    "ptd": "A conta de WhatsApp do Anderson foi banida. Recriamos numa Business Manager nova, com número próprio, em poucos dias.",
+    "end": "Anderson's WhatsApp account got banned. We rebuilt it in a new Business Manager with its own number within days."
+  },
+  {
+    "d": 695,
+    "kind": "ship",
+    "pt": "Google e Maps",
+    "en": "Google & Maps",
+    "ptd": "O Google aprova a API do Perfil da Empresa. Passamos a cuidar do perfil da loja no Google: horários, cardápio, fotos e respostas às avaliações.",
+    "end": "Google approves the Business Profile API. We start managing the store's Google profile: hours, menu, photos, review replies.",
+    "key": true
+  },
+  {
+    "d": 701,
+    "kind": "ship",
+    "pt": "Teste grátis",
+    "en": "Free trial",
+    "ptd": "Toda loja nova ganha R$200 de mídia e duas semanas sem taxa no cadastro.",
+    "end": "Every new store gets R$200 of media and two fee-free weeks at signup."
+  },
+  {
+    "d": 702,
+    "kind": "ship",
+    "pt": "Campeão e desafiante",
+    "en": "Champion & challenger",
+    "ptd": "O Anderson V1.5 testa sempre uma versão desafiante contra a campeã, e só a melhor fica.",
+    "end": "Anderson V1.5 always runs a challenger against the champion, and only the better one stays."
+  },
+  {
+    "d": 717,
+    "kind": "ship",
+    "pt": "Anderson v2",
+    "en": "Anderson v2",
+    "ptd": "O dono resolve tudo de Tráfego Pago pelo chat: PIX, liga e desliga, agressividade e agenda.",
+    "end": "Owners handle all of paid traffic in chat: PIX, on/off, aggressiveness and scheduling."
+  },
+  {
+    "d": 722,
+    "kind": "ship",
+    "pt": "Aviso no celular",
+    "en": "Phone alerts",
+    "ptd": "Os avisos do Anderson chegam como notificação no celular do dono.",
+    "end": "Anderson's alerts arrive as push notifications on the owner's phone."
+  },
+  {
+    "d": 724,
+    "kind": "ship",
+    "pt": "Banco próprio",
+    "en": "Own database",
+    "ptd": "Cutover do Ads para um banco de aquisição dedicado, com janela de manutenção e deleção do legado.",
+    "end": "Ads cuts over to a dedicated acquisition database, with a maintenance window and legacy deletion."
+  },
+  {
+    "d": 730,
+    "kind": "life",
+    "pt": "Dia 730",
+    "en": "Day 730",
+    "ptd": "Hoje. 2.171 lojas anunciando, 1.894 vendendo via anúncio na última semana fechada. E contando.",
+    "end": "Today. 2,171 stores advertising, 1,894 selling through ads in the last closed week. And counting.",
+    "key": true
+  }
 ];
 
 const t =

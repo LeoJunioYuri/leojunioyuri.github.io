@@ -1,0 +1,49 @@
+---
+/**
+ * ROAS da loja mediana por mês desde o início da V3 (17/11/2025), com o número de lojas com verba.
+ * Fonte: acquisition_ads_store_metrics, consultado em 21/10/2026. Out/26 vai até o dia 18.
+ */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const data = [
+  { pt: "nov/25", en: "Nov 25", m: 1.33, n: 30 },
+  { pt: "dez/25", en: "Dec 25", m: 1.99, n: 54 },
+  { pt: "jan/26", en: "Jan 26", m: 2.86, n: 85 },
+  { pt: "fev/26", en: "Feb 26", m: 2.75, n: 408 },
+  { pt: "mar/26", en: "Mar 26", m: 4.25, n: 448 },
+  { pt: "abr/26", en: "Apr 26", m: 5.44, n: 517 },
+  { pt: "mai/26", en: "May 26", m: 5.59, n: 642 },
+  { pt: "jun/26", en: "Jun 26", m: 4.88, n: 853 },
+  { pt: "jul/26", en: "Jul 26", m: 4.92, n: 1214 },
+  { pt: "ago/26", en: "Aug 26", m: 4.63, n: 1658 },
+  { pt: "set/26", en: "Sep 26", m: 4.9, n: 2090 },
+  { pt: "out/26", en: "Oct 26", m: 5.57, n: 2325 },
+];
+const max = 6.5;
+const en = lang === "en";
+const t = en
+  ? { title: "ROAS of the median store, by month", stores: "stores", last: "Last closed week: 6.1×" }
+  : { title: "ROAS da loja mediana, por mês", stores: "lojas", last: "Última semana fechada: 6,1×" };
+const fmt = (v: number) => (en ? v.toFixed(1) : v.toFixed(1).replace(".", ","));
+const fmtN = (v: number) => v.toLocaleString(en ? "en-US" : "pt-BR");
+---
+
+<div class="not-prose my-6 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
+  <p class="mb-4 text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{t.title}</p>
+  <div class="space-y-2">
+    {data.map((d) => (
+      <div class="flex items-center gap-3">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--muted);width:48px;flex-shrink:0;">{en ? d.en : d.pt}</span>
+        <div style="flex:1;height:18px;background:var(--bg);border:1px solid var(--border);position:relative;border-radius:2px;min-width:0;">
+          <div style={`position:absolute;inset:0;width:${((d.m / max) * 100).toFixed(1)}%;background:var(--accent);border-radius:2px;opacity:${0.45 + (d.m / max) * 0.55};`} />
+        </div>
+        <span style="font-family:var(--font-mono);font-size:12px;width:36px;flex-shrink:0;text-align:right;color:var(--fg);font-weight:700;">{fmt(d.m)}×</span>
+        <span style="font-family:var(--font-mono);font-size:10px;width:72px;flex-shrink:0;text-align:right;color:var(--muted);">{fmtN(d.n)} {t.stores}</span>
+      </div>
+    ))}
+  </div>
+  <p class="mt-4 text-sm font-semibold text-[var(--accent)]">{t.last}</p>
+</div>

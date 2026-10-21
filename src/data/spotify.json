@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-10-20T20:59:12.037Z",
+  "updatedAt": "2026-10-21T02:27:53.645Z",
   "tracks": [
+    {
+      "name": "Slow, Love, Slow",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/5CT0oFYeGlpqchHtOspo0w",
+      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
+      "playedAt": "2026-10-21T00:01:17.577Z"
+    },
+    {
+      "name": "Dreamer",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/0UN6RE3yGURtt6sv4tl4Cd",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-10-20T23:49:18.444Z"
+    },
+    {
+      "name": "Dreamer",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/0UN6RE3yGURtt6sv4tl4Cd",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-10-20T23:34:24.984Z"
+    },
+    {
+      "name": "The Siren",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/0OVMtCCfQvkO1oXigmM2d8",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-10-20T23:16:01.076Z"
+    },
+    {
+      "name": "Master Passion Greed",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/3JvsKhR1AoN1kCCIVvz756",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-10-20T23:11:15.374Z"
+    },
+    {
+      "name": "Master Passion Greed",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/3JvsKhR1AoN1kCCIVvz756",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-10-20T23:05:12.455Z"
+    },
     {
       "name": "Élan",
       "artist": "Nightwish",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/3POMZFPzYbV6rYXJN1ozXW",
       "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
       "playedAt": "2026-10-20T20:29:53.228Z"
-    },
-    {
-      "name": "Shudder Before the Beautiful",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/50CJMURkzURQwlp4Ht5tp6",
-      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
-      "playedAt": "2026-10-20T20:24:25.246Z"
-    },
-    {
-      "name": "Taikatalvi - Instrumental",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/1KElh7mtm61teD3NeDAC4L",
-      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
-      "playedAt": "2026-10-20T20:15:59.454Z"
-    },
-    {
-      "name": "Imaginaerum",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/2bw2HgtQnrQKNlBThMv1v9",
-      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
-      "playedAt": "2026-10-20T20:13:23.987Z"
-    },
-    {
-      "name": "Song Of Myself",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/2PLJedTkJ8UadomU9Th5Kl",
-      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
-      "playedAt": "2026-10-20T20:07:05.895Z"
-    },
-    {
-      "name": "Last Ride Of The Day",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6c2aL1Jjdy8QCODK2Buqin",
-      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
-      "playedAt": "2026-10-20T19:06:36.372Z"
-    },
-    {
-      "name": "The Crow, The Owl And The Dove",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/4FxeJ4zsDQfzTrYxaQNduC",
-      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
-      "playedAt": "2026-10-20T19:02:05.261Z"
     }
   ],
   "topTracks": {

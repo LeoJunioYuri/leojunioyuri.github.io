@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-20T20:59:13.078Z",
+  "updatedAt": "2026-10-21T02:27:54.911Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 178,
-      "minutesTotal": 327,
+      "minutes2weeks": 268,
+      "minutesTotal": 417,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
     },
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
       "appid": 292030,
-      "minutes2weeks": 134,
+      "minutes2weeks": 95,
       "minutesTotal": 5310,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
       "url": "https://store.steampowered.com/app/292030"
@@ -54,7 +54,7 @@
     {
       "name": "The Witcher 3: Wild Hunt — Remastered",
       "appid": 292030,
-      "minutes2weeks": 134,
+      "minutes2weeks": 95,
       "minutesTotal": 5310,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg",
       "url": "https://store.steampowered.com/app/292030"

@@ -43,7 +43,7 @@ Everything below comes from our acquisition database, queried the day I wrote th
 
 One of these numbers needs context.
 
-**The measured R$39 million covers less than a year, not two.** It only counts V3, which sends traffic to the menu and measures every purchase. V3 started in November 2025, and almost all of it falls in 2026. In the 13 months before that, on V2, ads led to WhatsApp and we didn't record attributed sales. That period had R$2.5 million in spend and 180k conversations started. Much of what happened there never became a record: orders closed in the chat, over the phone, customers who saw the ad and came back days later straight through the menu. Even on V3, part of the sales slips past the pixel. Adding measured sales, the V2 estimate and what went untracked, I land at **about R$50 million over two years**. That's an estimate, not a measurement: the measured number is R$39.2 million. The gap between the two eras tells its own story: sending traffic to the menu instead of to a conversation changed the order of magnitude of the result.
+**The measured R$39 million covers less than a year, not two.** It only counts V3, which sends traffic to the menu and measures every purchase. V3 started testing in November 2025, took on every store in February, and almost all of it falls in 2026. In the 13 months before that, on V1 and V2, ads led to WhatsApp and we didn't record attributed sales. That period had R$2.5 million in spend and 180k conversations started. Much of what happened there never became a record: orders closed in the chat, over the phone, customers who saw the ad and came back days later straight through the menu. Even on V3, part of the sales slips past the pixel. Adding measured sales, the V1 and V2 estimate and what went untracked, I land at **about R$50 million over two years**. That's an estimate, not a measurement: the measured number is R$39.2 million. The gap between the two eras tells its own story: sending traffic to the menu instead of to a conversation changed the order of magnitude of the result.
 
 ### The typical store: from 1.3× to 6.1×
 
@@ -61,11 +61,11 @@ The part I'm proudest of is the right-hand column. Usually, as a paid-traffic pr
 
 Grouped by phase, because none of them was planned as clearly as the list makes it look.
 
-**Phase 1 — make it work (Oct 2024 → Jun 2025).** Automatic creation of ad sets and ads. Prepaid balance. The first auto management, pausing ads by score. Daily Meta token validation. AI creative rewrites. Video generated from images. Balance refunds. A new onboarding for everyone.
+**Phase 1 — V1: make it work (Oct 2024 → Jun 2025).** Automatic creation of ad sets and ads. Prepaid balance. The first auto management, pausing ads by score. Daily Meta token validation. AI creative rewrites. Video generated from images. Balance refunds. A new onboarding for everyone.
 
-**Phase 2 — stop growing the wrong way (Jul 2025 → Jan 2026).** We closed signups for two months and reopened with qualification. We tracked sales per order for the first time. We moved revenue out of Firestore and into SQL. We built the coupon Aggressiveness System. We started sending traffic to the menu, not only to WhatsApp.
+**Phase 2 — V2: stop growing the wrong way (Jul 2025 → Jan 2026).** We closed signups for two months and reopened with qualification. We tracked sales per order for the first time. We moved revenue out of Firestore and into SQL. We built the coupon Aggressiveness System. We started sending traffic to the menu, not only to WhatsApp.
 
-**Phase 3 — V3 and product-market fit (Feb → Apr 2026).** V3 opened to 90 stores, with up to 2× more weekly orders in tests. Orders from ads started showing up tagged in the merchant dashboard (new or reactivated customer). CAPI for every store. Per-order attribution. A flat fee instead of a percentage. All of V2 removed.
+**Phase 3 — V3: product-market fit (Feb → Apr 2026).** V3 tests showed up to 2× more weekly orders, and in February we moved every store onto it. Orders from ads started showing up tagged in the merchant dashboard (new or reactivated customer). CAPI for every store. Per-order attribution. A flat fee instead of a percentage. V2 shut down for good.
 
 **Phase 4 — Anderson (May 2026 → today).** An AI traffic manager running weekly: chat with the owner, memory, a decision log, A/B tests between versions, champion/challenger, evals with an expert judge. Anderson on WhatsApp, with text, photo, video and voice. Anderson in the owner app, which I also took over.
 

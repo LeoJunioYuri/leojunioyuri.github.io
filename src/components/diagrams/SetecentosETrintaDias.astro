@@ -173,8 +173,8 @@ const events: Ev[] = [
     "kind": "ship",
     "pt": "Cadastros fechados",
     "en": "Signups closed",
-    "ptd": "Fechamos os cadastros por dois meses para arrumar a casa. A curva cai de propósito.",
-    "end": "We closed signups for two months to get the house in order. The curve drops on purpose.",
+    "ptd": "Fechamos os cadastros da V1 por dois meses para refazer a interface e arrumar a casa. A curva cai de propósito.",
+    "end": "We closed V1 signups for two months to rebuild the interface and get the house in order. The curve drops on purpose.",
     "key": true
   },
   {
@@ -210,6 +210,14 @@ const events: Ev[] = [
     "end": "For the first time merchants see orders, revenue and ticket from ads, auditable per order."
   },
   {
+    "d": 301,
+    "kind": "ship",
+    "pt": "Banco do Ads",
+    "en": "Ads banking backend",
+    "ptd": "Criamos o backend bancário próprio do Ads e movemos pagamentos e receita para lá, saindo do Firestore.",
+    "end": "We built Ads' own banking backend and moved payments and revenue there, off Firestore."
+  },
+  {
     "d": 303,
     "kind": "bad",
     "pt": "Depósito travado",
@@ -228,10 +236,11 @@ const events: Ev[] = [
   {
     "d": 317,
     "kind": "ship",
-    "pt": "Cadastros reabertos",
-    "en": "Signups reopen",
-    "ptd": "Reabrimos com vídeo, quiz de 8 perguntas e agendamento. Entra menos gente, e fica mais.",
-    "end": "Reopened with a video, an 8-question quiz and a scheduled call. Fewer people join, more stay."
+    "pt": "V2 no ar",
+    "en": "V2 goes live",
+    "ptd": "Relançamos ao público como V2: interface nova, vídeo, quiz de 8 perguntas e agendamento. Entra menos gente, e fica mais.",
+    "end": "We relaunched publicly as V2: new interface, a video, an 8-question quiz and a scheduled call. Fewer people join, more stay.",
+    "key": true
   },
   {
     "d": 340,
@@ -250,12 +259,20 @@ const events: Ev[] = [
     "end": "Every error in the ads module is now tracked in real time."
   },
   {
+    "d": 392,
+    "kind": "ship",
+    "pt": "Testes A/B",
+    "en": "A/B test framework",
+    "ptd": "Lançamos o framework de testes A/B do MetaAds, permitindo comparar estratégias de campanha em lojas reais.",
+    "end": "We launched the MetaAds A/B testing framework to compare campaign strategies on real stores."
+  },
+  {
     "d": 396,
     "kind": "ship",
-    "pt": "MetaAds V3",
-    "en": "MetaAds V3",
-    "ptd": "Começa a V3: tráfego para o cardápio em vez de só para o WhatsApp, e cada compra atribuída ao anúncio.",
-    "end": "V3 begins: traffic to the menu instead of only WhatsApp, and every purchase attributed to the ad.",
+    "pt": "V3 em teste",
+    "en": "V3 in testing",
+    "ptd": "Começam os testes da V3 em algumas lojas: o anúncio leva direto ao cardápio, e cada compra passa a ser atribuída ao anúncio.",
+    "end": "V3 testing starts with a few stores: the ad goes straight to the menu, and every purchase is attributed to the ad.",
     "key": true
   },
   {
@@ -275,6 +292,14 @@ const events: Ev[] = [
     "end": "Merchants see which orders came from each ad."
   },
   {
+    "d": 444,
+    "kind": "ship",
+    "pt": "Functions v2",
+    "en": "Functions v2",
+    "ptd": "Migramos as tarefas do Ads para Cloud Functions de 2ª geração, com checagem diária de saúde das contas.",
+    "end": "We migrated Ads tasks to 2nd-gen Cloud Functions, with a daily ad-account health check."
+  },
+  {
     "d": 458,
     "kind": "bad",
     "pt": "Imposto no PIX",
@@ -283,12 +308,20 @@ const events: Ev[] = [
     "end": "Meta's tax wasn't applied to balance added via PIX. We fixed the math."
   },
   {
-    "d": 472,
+    "d": 476,
     "kind": "ship",
-    "pt": "PMF",
-    "en": "PMF",
-    "ptd": "V3 liberada para 90 lojas, com até 2× mais pedidos por semana nos testes. Em março, a desistência cai de 32% para 4%.",
-    "end": "V3 opens to 90 stores, up to 2× more weekly orders in tests. By March, churn drops from 32% to 4%.",
+    "pt": "Ads sai do Firestore",
+    "en": "Ads leaves Firestore",
+    "ptd": "Migramos configuração, gasto semanal, insights e transações do Ads do Firestore para SQL, base da V3.",
+    "end": "We migrated Ads config, weekly spend, insights and transactions from Firestore to SQL, the foundation of V3."
+  },
+  {
+    "d": 478,
+    "kind": "ship",
+    "pt": "V3 para todos",
+    "en": "V3 for everyone",
+    "ptd": "Os testes mostraram que a V3 era muito melhor, com até 2× mais pedidos por semana. Migramos todas as lojas e desligamos a V2. Em março, a desistência cai de 32% para 4%.",
+    "end": "Tests showed V3 was far better, up to 2× more weekly orders. We migrated every store and shut V2 down. By March, churn drops from 32% to 4%.",
     "key": true
   },
   {
@@ -324,20 +357,20 @@ const events: Ev[] = [
     "end": "We swapped 10% of results for a flat R$60 a week. The percentage fee punished exactly the stores doing well."
   },
   {
-    "d": 539,
-    "kind": "ship",
-    "pt": "Fim da V2",
-    "en": "V2 sunset",
-    "ptd": "Desligamos a V2. A linha de lojas anunciando cai porque as lojas da V2 que não migraram saem da conta.",
-    "end": "We shut V2 down. The advertising line drops because V2 stores that didn't migrate leave the count."
-  },
-  {
     "d": 563,
     "kind": "ship",
     "pt": "Vídeo com Veo",
     "en": "Video with Veo",
     "ptd": "Anúncios em vídeo gerados com o Veo 3.1, em três formatos, com checagem de fidelidade ao prato.",
     "end": "Video ads generated with Veo 3.1, in three formats, with a fidelity check against the real dish."
+  },
+  {
+    "d": 570,
+    "kind": "ship",
+    "pt": "Relatório de saúde",
+    "en": "Daily health report",
+    "ptd": "Lançamos o relatório diário de saúde do Ads: contas, cartões travados, dívida na Meta e pixel, antes do dono perceber.",
+    "end": "We launched the daily Ads health report: accounts, stuck cards, Meta debt and pixel, before the owner notices."
   },
   {
     "d": 574,
@@ -373,12 +406,44 @@ const events: Ev[] = [
     "end": "One tool schema outside strict mode pushed 548 stores to the backup model, with no visible error. Now the model behind every run is an alerted metric."
   },
   {
+    "d": 597,
+    "kind": "ship",
+    "pt": "Link mágico",
+    "en": "Magic-link onboarding",
+    "ptd": "O time passou a gerar um link que configura o tráfego pago da loja quase sozinho, com fila de acompanhamento no backoffice.",
+    "end": "The team can now send a link that sets up a store's paid traffic almost by itself, with a backoffice queue."
+  },
+  {
     "d": 602,
     "kind": "bad",
     "pt": "1.600 runs corrompidas",
     "en": "1,600 runs corrupted",
     "ptd": "Uma escrita em massa sem o filtro certo corrompeu ~1.600 execuções do Anderson. Recuperamos tudo pelos transcripts do LLM.",
     "end": "A mass write without the right filter corrupted ~1,600 Anderson runs. We recovered all of them from the LLM transcripts."
+  },
+  {
+    "d": 616,
+    "kind": "ship",
+    "pt": "Post vira anúncio",
+    "en": "Posts become ads",
+    "ptd": "O dono pode usar um post ou reel do Instagram como criativo, e o anúncio também pode sair como post orgânico.",
+    "end": "Owners can turn an Instagram post or reel into an ad, and ads can also publish as organic posts."
+  },
+  {
+    "d": 630,
+    "kind": "ship",
+    "pt": "Anúncio em segundo plano",
+    "en": "Async ad creation",
+    "ptd": "A criação de anúncios virou um trabalho em segundo plano: o dono fecha o assistente e o anúncio fica pronto sozinho.",
+    "end": "Ad creation became a background job: the owner closes the wizard and the ad finishes on its own."
+  },
+  {
+    "d": 632,
+    "kind": "ship",
+    "pt": "DRE automático",
+    "en": "Automated P&L",
+    "ptd": "O resultado financeiro do tráfego pago passou a fechar sozinho todo dia, com receita por loja e conciliação bancária na planilha.",
+    "end": "The paid-traffic P&L now closes itself daily, with per-store revenue and bank reconciliation in the sheet."
   },
   {
     "d": 638,
@@ -419,6 +484,14 @@ const events: Ev[] = [
     "en": "Google connected",
     "ptd": "Conexão com o Perfil da Empresa no Google: login seguro, tokens cifrados e gestão automática.",
     "end": "Google Business Profile connection: secure login, encrypted tokens and automatic management."
+  },
+  {
+    "d": 655,
+    "kind": "ship",
+    "pt": "Anúncio segue cardápio",
+    "en": "Ads follow the menu",
+    "ptd": "Quando um produto sai do cardápio, o anúncio pausa; quando ele volta, o anúncio volta ao ar sozinho.",
+    "end": "When a product leaves the menu the ad pauses; when it comes back, the ad goes live again on its own."
   },
   {
     "d": 659,
@@ -470,6 +543,14 @@ const events: Ev[] = [
     "end": "Owners talk to Anderson on WhatsApp: text, photos that become ads, and voice."
   },
   {
+    "d": 687,
+    "kind": "ship",
+    "pt": "Compra no aceite",
+    "en": "Purchase on accept",
+    "ptd": "O evento de compra para a Meta passou a sair quando a loja aceita o pedido, não no checkout, deixando o sinal de vendas mais limpo para os anúncios.",
+    "end": "The Meta Purchase event now fires when the store accepts the order, not at checkout, giving ads a cleaner sales signal."
+  },
+  {
     "d": 690,
     "kind": "ship",
     "pt": "Anderson mexe na verba",
@@ -495,6 +576,14 @@ const events: Ev[] = [
     "key": true
   },
   {
+    "d": 699,
+    "kind": "ship",
+    "pt": "App do dono",
+    "en": "Owner app",
+    "ptd": "Lançamos o app do dono no iOS e Android, com o chat do Anderson, cartões de ação e avisos, e passamos na revisão da App Store.",
+    "end": "We shipped the owner app on iOS and Android with Anderson's chat, action cards and notices, and passed App Store review."
+  },
+  {
     "d": 701,
     "kind": "ship",
     "pt": "Teste grátis",
@@ -511,12 +600,44 @@ const events: Ev[] = [
     "end": "Anderson V1.5 always runs a challenger against the champion, and only the better one stays."
   },
   {
+    "d": 702,
+    "kind": "ship",
+    "pt": "Produto vira evento",
+    "en": "Product goes evented",
+    "ptd": "O cardápio chamava a API de Ads de forma síncrona 163 mil vezes por semana. Trocamos por eventos de domínio com reconciliação, e as chamadas caíram para perto de zero.",
+    "end": "The menu called the Ads API synchronously 163k times a week. We replaced it with domain events plus reconciliation, and calls dropped to near zero."
+  },
+  {
+    "d": 708,
+    "kind": "ship",
+    "pt": "Mapa de dependências",
+    "en": "Dependency map",
+    "ptd": "Criamos o Brendi Deps: 60 codebases e 5,7 mil arquivos em 4 segundos, com um globo 3D do acoplamento em cada PR.",
+    "end": "We built Brendi Deps: 60 codebases and 5.7k files scanned in 4 seconds, with a 3D coupling globe on every PR."
+  },
+  {
+    "d": 714,
+    "kind": "ship",
+    "pt": "Graph API v26",
+    "en": "Graph API v26",
+    "ptd": "Subimos para a Graph API v26 e passamos a ler insights com uma chamada por loja via Batch API, acabando com o limite de taxa no sync.",
+    "end": "We moved to Graph API v26 and read insights with one call per store via the Batch API, ending sync rate limits."
+  },
+  {
     "d": 717,
     "kind": "ship",
     "pt": "Anderson v2",
     "en": "Anderson v2",
     "ptd": "O dono resolve tudo de Tráfego Pago pelo chat: PIX, liga e desliga, agressividade e agenda.",
     "end": "Owners handle all of paid traffic in chat: PIX, on/off, aggressiveness and scheduling."
+  },
+  {
+    "d": 717,
+    "kind": "ship",
+    "pt": "Ads em 4 pedaços",
+    "en": "Ads split in four",
+    "ptd": "O Ads saiu de um pacote de 79 funções que subiam sempre juntas e virou quatro serviços próprios: ads-api, workers, Anderson e Kleber.",
+    "end": "Ads left a bundle of 79 functions that always deployed together and became four services of its own: ads-api, workers, Anderson and Kleber."
   },
   {
     "d": 722,
@@ -527,12 +648,36 @@ const events: Ev[] = [
     "end": "Anderson's alerts arrive as push notifications on the owner's phone."
   },
   {
+    "d": 723,
+    "kind": "ship",
+    "pt": "Anderson no Agent Kit",
+    "en": "Anderson on Agent Kit",
+    "ptd": "O Anderson migrou para o runtime de agentes da Brendi, com a análise semanal, criativos e dinheiro rodando lá, primeiro em sombra e depois de verdade.",
+    "end": "Anderson moved onto Brendi's agent runtime: weekly analysis, creatives and money flows run there, first in shadow, then live."
+  },
+  {
     "d": 724,
     "kind": "ship",
     "pt": "Banco próprio",
     "en": "Own database",
     "ptd": "Cutover do Ads para um banco de aquisição dedicado, com janela de manutenção e deleção do legado.",
     "end": "Ads cuts over to a dedicated acquisition database, with a maintenance window and legacy deletion."
+  },
+  {
+    "d": 728,
+    "kind": "ship",
+    "pt": "Teste aos 25 pedidos",
+    "en": "Trial at 25 orders",
+    "ptd": "Quando a loja chega a 25 pedidos na semana, o teste grátis de tráfego pago abre sozinho, e o raio do anúncio segue a área de entrega.",
+    "end": "When a store hits 25 orders a week the free paid-traffic trial opens automatically, and ad radius follows the delivery area."
+  },
+  {
+    "d": 729,
+    "kind": "ship",
+    "pt": "Google Meu Negócio",
+    "en": "Google Business live",
+    "ptd": "O Google Meu Negócio ficou pronto para todas as lojas: cardápio e fotos no Google, respostas a avaliações e desempenho do perfil, incluído na assinatura de tráfego.",
+    "end": "Google Business went live for every store: menu and photos on Google, review replies and profile performance, bundled with paid traffic."
   },
   {
     "d": 730,

@@ -25,8 +25,8 @@ const data = [
 const max = 6.5;
 const en = lang === "en";
 const t = en
-  ? { title: "ROAS of the median store, by month", stores: "stores", last: "Last closed week: 6.1×" }
-  : { title: "ROAS da loja mediana, por mês", stores: "lojas", last: "Última semana fechada: 6,1×" };
+  ? { title: "ROAS of the median store, by month", stores: "stores", last: "Median store, last closed week: 6.1×", avg: "Portfolio average: ~10×" }
+  : { title: "ROAS da loja mediana, por mês", stores: "lojas", last: "Loja mediana na última semana fechada: 6,1×", avg: "Média da carteira: ~10×" };
 const fmt = (v: number) => (en ? v.toFixed(1) : v.toFixed(1).replace(".", ","));
 const fmtN = (v: number) => v.toLocaleString(en ? "en-US" : "pt-BR");
 ---
@@ -45,5 +45,8 @@ const fmtN = (v: number) => v.toLocaleString(en ? "en-US" : "pt-BR");
       </div>
     ))}
   </div>
-  <p class="mt-4 text-sm font-semibold text-[var(--accent)]">{t.last}</p>
+  <div class="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm font-semibold">
+    <span class="text-[var(--accent)]">{t.last}</span>
+    <span class="text-[var(--fg)]">{t.avg}</span>
+  </div>
 </div>

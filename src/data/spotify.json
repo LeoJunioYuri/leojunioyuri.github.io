@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-21T10:48:13.684Z",
+  "updatedAt": "2026-10-21T16:16:54.753Z",
   "tracks": [
     {
-      "name": "Slow, Love, Slow",
+      "name": "Dead Gardens",
       "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5CT0oFYeGlpqchHtOspo0w",
-      "image": "https://i.scdn.co/image/ab67616d000048511a758baeb2627e18c6c8f43a",
-      "playedAt": "2026-10-21T00:01:17.577Z"
-    },
-    {
-      "name": "Dreamer",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/0UN6RE3yGURtt6sv4tl4Cd",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-10-20T23:49:18.444Z"
-    },
-    {
-      "name": "Dreamer",
-      "artist": "Elysion",
-      "url": "https://open.spotify.com/track/0UN6RE3yGURtt6sv4tl4Cd",
-      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
-      "playedAt": "2026-10-20T23:34:24.984Z"
-    },
-    {
-      "name": "The Siren",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/0OVMtCCfQvkO1oXigmM2d8",
+      "url": "https://open.spotify.com/track/5pT5gyOOV98zuL7uak6JYW",
       "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
-      "playedAt": "2026-10-20T23:16:01.076Z"
+      "playedAt": "2026-10-21T15:25:35.660Z"
     },
     {
-      "name": "Master Passion Greed",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3JvsKhR1AoN1kCCIVvz756",
-      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
-      "playedAt": "2026-10-20T23:11:15.374Z"
+      "name": "Frozen",
+      "artist": "Delain",
+      "url": "https://open.spotify.com/track/5SYwjPPkPfedyy9HtTcBWi",
+      "image": "https://i.scdn.co/image/ab67616d00004851f218d21318c4cf8d9632ddfd",
+      "playedAt": "2026-10-21T15:21:07.043Z"
     },
     {
-      "name": "Master Passion Greed",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3JvsKhR1AoN1kCCIVvz756",
-      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
-      "playedAt": "2026-10-20T23:05:12.455Z"
+      "name": "Same Old Song",
+      "artist": "PAIN",
+      "url": "https://open.spotify.com/track/59QR9JTQH2xtbeQchHwJcz",
+      "image": "https://i.scdn.co/image/ab67616d00004851682038384d91c13d048fff5a",
+      "playedAt": "2026-10-21T15:15:42.555Z"
     },
     {
-      "name": "Élan",
+      "name": "Ambiramus",
+      "artist": "Eluveitie",
+      "url": "https://open.spotify.com/track/4wxm46qMm1P7JH1ivm1BQ2",
+      "image": "https://i.scdn.co/image/ab67616d0000485199d9997692e9264812e160fe",
+      "playedAt": "2026-10-21T15:11:43.225Z"
+    },
+    {
+      "name": "Precibus",
+      "artist": "ReVamp",
+      "url": "https://open.spotify.com/track/4rffpHlvxcQKw8HAj61D6o",
+      "image": "https://i.scdn.co/image/ab67616d00004851cb519163039eb8804b97695f",
+      "playedAt": "2026-10-21T15:07:52.370Z"
+    },
+    {
+      "name": "Live or Die (feat. Joakim Brodén)",
+      "artist": "Apocalyptica, Sabaton, Joakim Brodén",
+      "url": "https://open.spotify.com/track/2tSyGmqhFvYongMdFaQNe3",
+      "image": "https://i.scdn.co/image/ab67616d00004851be84f9a3927c382eeec6ed1d",
+      "playedAt": "2026-10-21T15:03:27.274Z"
+    },
+    {
+      "name": "My Walden",
       "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5oAvb7LpUBwQfBtQ6hmS4Q",
+      "url": "https://open.spotify.com/track/3LgWFCHW1eZLZyfylrn88p",
       "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
-      "playedAt": "2026-10-20T20:41:29.809Z"
+      "playedAt": "2026-10-21T14:59:42.331Z"
     },
     {
-      "name": "Weak Fantasy",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3POMZFPzYbV6rYXJN1ozXW",
-      "image": "https://i.scdn.co/image/ab67616d000048518acec727a3aac0133137a041",
-      "playedAt": "2026-10-20T20:29:53.228Z"
+      "name": "Sancta Terra",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/2fmVfcXaKrDNHa3ZKeILob",
+      "image": "https://i.scdn.co/image/ab67616d000048511b2cbc41b7cae00adda0a746",
+      "playedAt": "2026-10-21T14:55:02.770Z"
     }
   ],
   "topTracks": {

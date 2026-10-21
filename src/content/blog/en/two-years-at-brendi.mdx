@@ -12,6 +12,7 @@ translationOf: "pt/dois-anos-de-brendi"
 
 import SetecentosETrintaDias from "@/components/diagrams/SetecentosETrintaDias.astro";
 import Decisao from "@/components/diagrams/Decisao.astro";
+import NumerosCards from "@/components/charts/NumerosCards.astro";
 import RoasMedianoMes from "@/components/charts/RoasMedianoMes.astro";
 
 I started at Brendi on October 21, 2024. That week, **six restaurants** were advertising with us, and much of the work was done by hand: create the campaign, swap the creative, check the spreadsheet, send the message.
@@ -38,20 +39,9 @@ Building that was my job for these two years.
 
 Everything below comes from our acquisition database, queried the day I wrote this. Sales and ROAS only exist from V3 onward (November 2025), because before that we didn't record attributed purchases.
 
-| | |
-|---|---|
-| Stores advertising per week | **6** (Oct 2024) → **2,171** (Oct 2026) |
-| Stores selling via ads per week | **5** (Nov 2025) → **1,894** (Oct 2026) |
-| Stores paying the product fee per week | **~200** (Jan 2026) → **~1,200** (Oct 2026) |
-| Sales attributed to ads, measured on V3 (Nov 25 → Oct 26) | **R$39.2 million**, 616k purchases |
-| Two-year estimate, with V2 and untracked sales | **~R$50 million** |
-| Media spend managed in the same period | **R$3.94 million** |
-| Average ROAS | **~10×**: every R$1 in ads became R$10 in sales |
-| Typical store ROAS (median) | **1.3×** (Nov 2025) → **6.1×** (last week) |
-| Anderson runs since May | **47,643**, across **3,246** stores |
-| PRs I merged | **2,051** at brendi-tech (2,081 counting personal projects) |
+<NumerosCards lang="en" />
 
-One line in that table needs context.
+One of these numbers needs context.
 
 **The measured R$39 million covers less than a year, not two.** It only counts V3, which sends traffic to the menu and measures every purchase. V3 started in November 2025, and almost all of it falls in 2026. In the 13 months before that, on V2, ads led to WhatsApp and we didn't record attributed sales. That period had R$2.5 million in spend and 180k conversations started. Much of what happened there never became a record: orders closed in the chat, over the phone, customers who saw the ad and came back days later straight through the menu. Even on V3, part of the sales slips past the pixel. Adding measured sales, the V2 estimate and what went untracked, I land at **about R$50 million over two years**. That's an estimate, not a measurement: the measured number is R$39.2 million. The gap between the two eras tells its own story: sending traffic to the menu instead of to a conversation changed the order of magnitude of the result.
 

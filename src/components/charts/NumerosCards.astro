@@ -1,0 +1,59 @@
+---
+/**
+ * Grade de números do post de 2 anos. Fonte: banco de aquisição, consultado em 21/10/2026.
+ */
+import type { Lang } from "@/consts";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const en = lang === "en";
+type Card = { v: string; l: string; d: string; hero?: boolean };
+const cards: Card[] = en
+  ? [
+      { v: "~R$50M", l: "in sales in two years", d: "R$39.2M measured on V3 + V2 and untracked sales", hero: true },
+      { v: "~10×", l: "average ROAS", d: "every R$1 in ads became R$10 in sales", hero: true },
+      { v: "6 → 2,171", l: "stores advertising per week", d: "Oct 2024 → Oct 2026" },
+      { v: "5 → 1,894", l: "stores selling via ads per week", d: "Nov 2025 → Oct 2026" },
+      { v: "~200 → ~1,200", l: "stores paying the fee per week", d: "Jan 2026 → Oct 2026" },
+      { v: "1.3× → 6.1×", l: "median store ROAS", d: "Nov 2025 → last closed week" },
+      { v: "R$39.2M", l: "sales measured on V3", d: "616k purchases · Nov 2025 → Oct 2026" },
+      { v: "R$3.94M", l: "media spend managed", d: "same period" },
+      { v: "47,643", l: "Anderson runs", d: "across 3,246 stores since May 2026" },
+      { v: "2,051", l: "PRs merged", d: "at brendi-tech (2,081 with personal projects)" },
+    ]
+  : [
+      { v: "~R$50 mi", l: "em vendas em dois anos", d: "R$39,2 mi medidos na V3 + V2 e venda não rastreada", hero: true },
+      { v: "~10×", l: "de ROAS médio", d: "cada R$1 em anúncio virou R$10 em vendas", hero: true },
+      { v: "6 → 2.171", l: "lojas anunciando por semana", d: "out/2024 → out/2026" },
+      { v: "5 → 1.894", l: "lojas vendendo via anúncio por semana", d: "nov/2025 → out/2026" },
+      { v: "~200 → ~1.200", l: "lojas pagando a taxa por semana", d: "jan/2026 → out/2026" },
+      { v: "1,3× → 6,1×", l: "ROAS da loja mediana", d: "nov/2025 → última semana fechada" },
+      { v: "R$39,2 mi", l: "em vendas medidas na V3", d: "616 mil compras · nov/2025 → out/2026" },
+      { v: "R$3,94 mi", l: "de verba de mídia gerida", d: "no mesmo período" },
+      { v: "47.643", l: "execuções do Anderson", d: "em 3.246 lojas desde maio/2026" },
+      { v: "2.051", l: "PRs merged", d: "na brendi-tech (2.081 com projetos pessoais)" },
+    ];
+---
+
+<div class="nc not-prose">
+  {cards.map((c) => (
+    <div class:list={["nc-card", { hero: c.hero }]}>
+      <p class="nc-v">{c.v}</p>
+      <p class="nc-l">{c.l}</p>
+      <p class="nc-d">{c.d}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .nc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:1.75rem 0}
+  .nc-card{padding:16px 18px;border:1px solid var(--border);background:var(--surface);border-radius:8px;min-width:0}
+  .nc-card.hero{background:var(--accent-soft);border-color:var(--accent)}
+  .nc p{margin:0}
+  .nc-v{font-family:var(--font-mono);font-weight:800;font-size:clamp(20px,4.2vw,26px);letter-spacing:-.02em;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--fg)}
+  .nc-card.hero .nc-v{color:var(--accent);font-size:clamp(26px,5.5vw,34px)}
+  .nc-l{font-weight:600;font-size:14px;margin-top:6px!important;line-height:1.35}
+  .nc-d{font-size:12px;color:var(--muted);margin-top:4px!important;line-height:1.4}
+  @media (max-width:520px){.nc{grid-template-columns:1fr}}
+</style>

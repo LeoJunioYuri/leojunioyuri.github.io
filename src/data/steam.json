@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-21T02:27:54.911Z",
+  "updatedAt": "2026-10-21T10:48:14.644Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 268,
-      "minutesTotal": 417,
+      "minutes2weeks": 299,
+      "minutesTotal": 449,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
     },

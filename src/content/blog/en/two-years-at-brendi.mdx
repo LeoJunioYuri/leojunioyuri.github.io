@@ -50,15 +50,11 @@ Everything below comes from our acquisition database, queried the day I wrote th
 | Anderson runs since May | **47,643**, across **3,246** stores |
 | PRs I merged | **2,051** at brendi-tech (2,081 counting personal projects) |
 
-Three lines in that table come with a warning.
+Two lines in that table need context.
 
 **The measured R$39 million covers less than a year, not two.** It only counts V3, which sends traffic to the menu and measures every purchase. V3 started in November 2025, and almost all of it falls in 2026. In the 13 months before that, on V2, ads led to WhatsApp and we didn't record attributed sales. That period had R$2.5 million in spend and 180k conversations started. Much of what happened there never became a record: orders closed in the chat, over the phone, customers who saw the ad and came back days later straight through the menu. Even on V3, part of the sales slips past the pixel. Adding measured sales, the V2 estimate and what went untracked, I land at **about R$50 million over two years**. That's an estimate, not a measurement: the measured number is R$39.2 million. The gap between the two eras tells its own story: sending traffic to the menu instead of to a conversation changed the order of magnitude of the result.
 
 **The ~10× ROAS isn't any single store's ROAS.** It's the whole portfolio added up, and big stores pull the average up. The store in the middle of the line makes 3.6×. Both numbers are true, but only the second describes what a typical restaurant sees.
-
-**"Attributed sales" doesn't mean "caused sales."** This is Meta's attribution, and it's generous. Between 70% and 78% of the sales we show merchants are *view-through*: the person saw the ad, didn't click, and bought later. Looking at clicks only, Meta counts about 8× more purchases than we can track. In October I ran an analysis on stores that paused their ads, a natural experiment, and the estimated incremental ROAS came out at **~0.75×**, with a huge confidence interval (−0.5 to 1.9) and a biased sample. It isn't the final answer, but it's reason enough for me not to write "we generated R$39 million."
-
-By Meta's attribution, in 2026 alone, R$39 million in sales went through ads we ran. How much of that would have happened anyway is the most important question I still haven't answered properly.
 
 ---
 
@@ -145,8 +141,6 @@ Incidents show up on the ruler as dashed lines. These are the ones that taught m
 
 **Menu conversion explains almost everything.** About 85% of the ROAS gap between stores comes from how well the menu converts, not from the ad. Stores that go from under 5× to over 10× are rare (2% to 3%). The ad brings people to the door, but the menu is what sells.
 
-**Public numbers come from attributed data, never extrapolated.** That's why this post has a bigger warnings section than I'd like.
-
 **An AI agent in production is 20% model and 80% guardrails, measurement and memory.** The model gets better by itself every quarter. What doesn't get better by itself is knowing what it did, why it did it, and how to undo it.
 
 **Writing is part of the job.** I started this blog to record technical decisions before I forgot why we made them. The posts about [a versioned cache key](/en/writing/versioned-cache-key), [two thousand deploys](/en/writing/two-thousand-deploys-later) and [how we test Anderson](/en/writing/the-draw-came-out-crooked) came out of weeks like the ones on the ruler.
@@ -159,6 +153,6 @@ To God, for guiding my decisions. To **Daniel Frageri**, for the opportunity, th
 
 ## What's next
 
-No new features until December. With two people and more than 2,000 stores, the work now is depth: grow with quality, give better support, and really answer the question I left open above, **how much of the result we actually cause**. The goal is 3,000 stores selling per week. At the current pace we'll land somewhere between 2,300 and 2,650 in December. That isn't there yet, and that's exactly what makes next quarter interesting.
+No new features until December. With two people and more than 2,000 stores, the work now is depth: grow with quality, give better support, and keep getting better at measuring **how much each store gets out of its ads**. The goal is 3,000 stores selling per week. At the current pace we'll land somewhere between 2,300 and 2,650 in December. That isn't there yet, and that's exactly what makes next quarter interesting.
 
 Onwards. 🙏

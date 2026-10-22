@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-10-22T10:49:05.272Z",
+  "updatedAt": "2026-10-22T16:15:37.121Z",
   "tracks": [
+    {
+      "name": "Exit Signs",
+      "artist": "LEAP",
+      "url": "https://open.spotify.com/track/6mULitaDKOmZIRIvmg7iSl",
+      "image": "https://i.scdn.co/image/ab67616d000048516ae89a6e2950b8f99bdb779e",
+      "playedAt": "2026-10-22T15:30:35.900Z"
+    },
+    {
+      "name": "Amsterdam",
+      "artist": "Nothing But Thieves",
+      "url": "https://open.spotify.com/track/454I78HEySdcHE8fcVabTb",
+      "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
+      "playedAt": "2026-10-22T15:26:07.263Z"
+    },
+    {
+      "name": "California",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/7oTE1KmtU2ml9zBhv9Reao",
+      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
+      "playedAt": "2026-10-22T15:17:04.988Z"
+    },
     {
       "name": "Innocence",
       "artist": "Tarja",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/454I78HEySdcHE8fcVabTb",
       "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
       "playedAt": "2026-10-22T01:35:11.715Z"
-    },
-    {
-      "name": "Sorry",
-      "artist": "Nothing But Thieves",
-      "url": "https://open.spotify.com/track/6rAXHPd18PZ6W8m9EectzH",
-      "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
-      "playedAt": "2026-10-22T01:02:01.843Z"
-    },
-    {
-      "name": "Another Life",
-      "artist": "Motionless In White",
-      "url": "https://open.spotify.com/track/0YZEYxd1oiqZRFhnnmTKKi",
-      "image": "https://i.scdn.co/image/ab67616d00004851944e11093f0e01c60be5be8f",
-      "playedAt": "2026-10-22T00:50:25.182Z"
-    },
-    {
-      "name": "Waste Your Love",
-      "artist": "LEAP",
-      "url": "https://open.spotify.com/track/6gMxNTnl38Bf6KEM19DnME",
-      "image": "https://i.scdn.co/image/ab67616d000048516ae89a6e2950b8f99bdb779e",
-      "playedAt": "2026-10-22T00:46:44.781Z"
     }
   ],
   "topTracks": {

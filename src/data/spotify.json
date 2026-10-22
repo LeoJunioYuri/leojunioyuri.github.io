@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-10-22T16:15:37.121Z",
+  "updatedAt": "2026-10-22T20:57:43.054Z",
   "tracks": [
+    {
+      "name": "Two Faced",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/6i5qhmmF9UNUBRyrPSGn4m",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-10-22T18:51:47.287Z"
+    },
+    {
+      "name": "Unshatter",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
+      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
+      "playedAt": "2026-10-22T18:48:43.012Z"
+    },
     {
       "name": "Exit Signs",
       "artist": "LEAP",
@@ -42,44 +56,30 @@
       "url": "https://open.spotify.com/track/3GeHyNxwnptGh0yaq9xwSk",
       "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
       "playedAt": "2026-10-22T02:28:05.075Z"
-    },
-    {
-      "name": "The Next Best American Record",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/7vRfxLcDDwgYW2WTrtEgUV",
-      "image": "https://i.scdn.co/image/ab67616d00004851879e9318cb9f4e05ee552ac9",
-      "playedAt": "2026-10-22T01:41:01.480Z"
-    },
-    {
-      "name": "Amsterdam",
-      "artist": "Nothing But Thieves",
-      "url": "https://open.spotify.com/track/454I78HEySdcHE8fcVabTb",
-      "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
-      "playedAt": "2026-10-22T01:35:11.715Z"
     }
   ],
   "topTracks": {
     "short": [
       {
         "rank": 1,
+        "name": "Unshatter",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
+        "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
+      },
+      {
+        "rank": 2,
         "name": "The Misery",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4SNB4o39irpFkBN9rROVbE",
         "image": "https://i.scdn.co/image/ab67616d000048512b7e571002b007ce6f687d69"
       },
       {
-        "rank": 2,
+        "rank": 3,
         "name": "Paid in Full",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
         "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
-      },
-      {
-        "rank": 3,
-        "name": "Unshatter",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
-        "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
       },
       {
         "rank": 4,

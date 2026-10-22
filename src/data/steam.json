@@ -1,28 +1,20 @@
 {
-  "updatedAt": "2026-10-22T02:23:49.885Z",
+  "updatedAt": "2026-10-22T10:49:06.110Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 299,
-      "minutesTotal": 449,
+      "minutes2weeks": 527,
+      "minutesTotal": 676,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
-    },
-    {
-      "name": "Counter-Strike 2",
-      "appid": 730,
-      "minutes2weeks": 33,
-      "minutesTotal": 103626,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
-      "url": "https://store.steampowered.com/app/730"
     }
   ],
   "topGames": [
     {
       "name": "Counter-Strike 2",
       "appid": 730,
-      "minutes2weeks": 33,
+      "minutes2weeks": 0,
       "minutesTotal": 103626,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/730/8dbc71957312bbd3baea65848b545be9eae2a355.jpg",
       "url": "https://store.steampowered.com/app/730"

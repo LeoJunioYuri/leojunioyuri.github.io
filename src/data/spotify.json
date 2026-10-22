@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-10-22T02:23:48.852Z",
+  "updatedAt": "2026-10-22T10:49:05.272Z",
   "tracks": [
+    {
+      "name": "Innocence",
+      "artist": "Tarja",
+      "url": "https://open.spotify.com/track/5W5Fax7yqXkSecAQUWTOsG",
+      "image": "https://i.scdn.co/image/ab67616d000048511caf263c95356b57727fea97",
+      "playedAt": "2026-10-22T02:38:38.029Z"
+    },
+    {
+      "name": "Dead Gardens - Remastered",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/6BjgGSC0hfQAHUztG6N23M",
+      "image": "https://i.scdn.co/image/ab67616d00004851c5aa361ba52af6f8873b0346",
+      "playedAt": "2026-10-22T02:32:33.736Z"
+    },
+    {
+      "name": "Romanticide",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/3GeHyNxwnptGh0yaq9xwSk",
+      "image": "https://i.scdn.co/image/ab67616d00004851c7190a75bf05ad902f52c7a2",
+      "playedAt": "2026-10-22T02:28:05.075Z"
+    },
     {
       "name": "The Next Best American Record",
       "artist": "Lana Del Rey",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/6gMxNTnl38Bf6KEM19DnME",
       "image": "https://i.scdn.co/image/ab67616d000048516ae89a6e2950b8f99bdb779e",
       "playedAt": "2026-10-22T00:46:44.781Z"
-    },
-    {
-      "name": "Will You Love Me When I’m Dead",
-      "artist": "Amira Elfeky",
-      "url": "https://open.spotify.com/track/4z4JQxp5ddY3Z8ETnaPPAK",
-      "image": "https://i.scdn.co/image/ab67616d000048513325aea8461d731bce193163",
-      "playedAt": "2026-10-22T00:43:42.578Z"
-    },
-    {
-      "name": "Somewhere I Belong - Unshatter Film Soundtrack - Live in São Paulo",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/2SdWRiVgpaejWhHzA6R2YA",
-      "image": "https://i.scdn.co/image/ab67616d00004851b78d6cde8e6bb6d57ef16095",
-      "playedAt": "2026-10-22T00:40:28.270Z"
-    },
-    {
-      "name": "Unshatter",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-10-22T00:34:27.431Z"
     }
   ],
   "topTracks": {
@@ -169,17 +169,17 @@
       },
       {
         "rank": 4,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 5,
         "name": "Rivers Between Us",
         "artist": "Draconian",
         "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
         "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 5,
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
         "rank": 6,

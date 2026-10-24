@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-10-23T20:46:45.961Z",
+  "updatedAt": "2026-10-24T02:27:05.288Z",
   "tracks": [
+    {
+      "name": "Termina Comigo Antes - Ao Vivo",
+      "artist": "Gusttavo Lima",
+      "url": "https://open.spotify.com/track/1K8AtBJXcdq5mywMnZuARP",
+      "image": "https://i.scdn.co/image/ab67616d00004851bdcd6097dbec89a603112d74",
+      "playedAt": "2026-10-23T21:44:25.872Z"
+    },
     {
       "name": "The Emptiness Machine",
       "artist": "Linkin Park",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/1NpDnkQO0yWxTtntrC0UNz",
       "image": "https://i.scdn.co/image/ab67616d0000485131548865f7c729290b96c794",
       "playedAt": "2026-10-23T17:25:29.486Z"
-    },
-    {
-      "name": "Bad Blood",
-      "artist": "Taylor Swift",
-      "url": "https://open.spotify.com/track/0TvQLMecTE8utzoNmvXRbK",
-      "image": "https://i.scdn.co/image/ab67616d00004851b7e976d2b35c767f9012cb72",
-      "playedAt": "2026-10-23T17:20:55.306Z"
     }
   ],
   "topTracks": {
@@ -139,10 +139,10 @@
       },
       {
         "rank": 12,
-        "name": "Up From the Bottom",
+        "name": "The Emptiness Machine",
         "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/2SwdMXPvGdciXamSjfoNH9",
-        "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
+        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       }
     ],
     "medium": [

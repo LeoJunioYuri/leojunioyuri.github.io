@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T02:27:05.288Z",
+  "updatedAt": "2026-10-24T09:57:58.436Z",
   "tracks": [
     {
       "name": "Termina Comigo Antes - Ao Vivo",
@@ -183,17 +183,17 @@
       },
       {
         "rank": 6,
-        "name": "Letter To Dana",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
-        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
-      },
-      {
-        "rank": 7,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 7,
+        "name": "Letter To Dana",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
+        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
         "rank": 8,

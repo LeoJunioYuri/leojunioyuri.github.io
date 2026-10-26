@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-26T11:49:57.639Z",
+  "updatedAt": "2026-10-26T17:51:57.258Z",
   "tracks": [
     {
-      "name": "Termina Comigo Antes - Ao Vivo",
-      "artist": "Gusttavo Lima",
-      "url": "https://open.spotify.com/track/1K8AtBJXcdq5mywMnZuARP",
-      "image": "https://i.scdn.co/image/ab67616d00004851bdcd6097dbec89a603112d74",
-      "playedAt": "2026-10-23T21:44:25.872Z"
+      "name": "Pyro",
+      "artist": "Kings of Leon",
+      "url": "https://open.spotify.com/track/0umDVf77ygI5RiVp9OvNDj",
+      "image": "https://i.scdn.co/image/ab67616d00004851496ed45f8f3dddaf410fd86e",
+      "playedAt": "2026-10-26T17:49:16.434Z"
     },
     {
-      "name": "The Emptiness Machine",
+      "name": "My Immortal - Band Version",
+      "artist": "Evanescence",
+      "url": "https://open.spotify.com/track/3PYdxIDuBIuJSDGwfptFx4",
+      "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
+      "playedAt": "2026-10-26T17:44:38.888Z"
+    },
+    {
+      "name": "Herr Mannelig",
+      "artist": "Haggard",
+      "url": "https://open.spotify.com/track/0CK3hcpHOBzl8nbxQ85NFr",
+      "image": "https://i.scdn.co/image/ab67616d00004851f326cac36eb70d0de16680d1",
+      "playedAt": "2026-10-26T17:39:27.082Z"
+    },
+    {
+      "name": "Amaranth",
+      "artist": "Nightwish",
+      "url": "https://open.spotify.com/track/0RsOUnm1wNpbXxZ8a4abOP",
+      "image": "https://i.scdn.co/image/ab67616d000048517988cb5b6506529454590ece",
+      "playedAt": "2026-10-26T17:34:09.839Z"
+    },
+    {
+      "name": "Don't Say a Word",
+      "artist": "Elysion",
+      "url": "https://open.spotify.com/track/5aRVv8wTe1qs4desPEpPoI",
+      "image": "https://i.scdn.co/image/ab67616d000048514aff8b466385464da447eac6",
+      "playedAt": "2026-10-26T17:30:15.381Z"
+    },
+    {
+      "name": "Energize Me",
+      "artist": "After Forever",
+      "url": "https://open.spotify.com/track/3caX2bCmH0GmGnNfFPjd5k",
+      "image": "https://i.scdn.co/image/ab67616d00004851a6b4bfe0328a5117656311ac",
+      "playedAt": "2026-10-26T17:26:18.194Z"
+    },
+    {
+      "name": "Our Solemn Hour",
+      "artist": "Within Temptation",
+      "url": "https://open.spotify.com/track/6KaLRddxDnr9hufQCW3Kzx",
+      "image": "https://i.scdn.co/image/ab67616d000048515d22cd316736c66d068a71e2",
+      "playedAt": "2026-10-26T17:23:07.379Z"
+    },
+    {
+      "name": "Crawling",
       "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-10-23T19:57:21.207Z"
-    },
-    {
-      "name": "From Zero (Intro)",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/1uhces29ApKuQWFdpiUsvH",
-      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
-      "playedAt": "2026-10-23T19:54:10.476Z"
-    },
-    {
-      "name": "Empty Walls",
-      "artist": "Serj Tankian",
-      "url": "https://open.spotify.com/track/6Y2kW1mdHE0znPCjtOdt5m",
-      "image": "https://i.scdn.co/image/ab67616d000048514803dc88ae15cc228778477a",
-      "playedAt": "2026-10-23T18:39:49.230Z"
-    },
-    {
-      "name": "Still into You",
-      "artist": "Paramore",
-      "url": "https://open.spotify.com/track/1yjY7rpaAQvKwpdUliHx0d",
-      "image": "https://i.scdn.co/image/ab67616d00004851532033d0d90736f661c13d35",
-      "playedAt": "2026-10-23T17:36:42.536Z"
-    },
-    {
-      "name": "For Your Entertainment",
-      "artist": "Adam Lambert",
-      "url": "https://open.spotify.com/track/0BmT0BVnYYggf7V4NCtx2B",
-      "image": "https://i.scdn.co/image/ab67616d00004851fe0d9870d6d8e18c3a00c658",
-      "playedAt": "2026-10-23T17:33:07.292Z"
-    },
-    {
-      "name": "It Ends Tonight",
-      "artist": "The All-American Rejects",
-      "url": "https://open.spotify.com/track/38Y8nSvyOuSUv3ZJ1bJXNn",
-      "image": "https://i.scdn.co/image/ab67616d0000485105b9e4f856db958eacdb7cb3",
-      "playedAt": "2026-10-23T17:29:32.937Z"
-    },
-    {
-      "name": "California King Bed",
-      "artist": "Rihanna",
-      "url": "https://open.spotify.com/track/1NpDnkQO0yWxTtntrC0UNz",
-      "image": "https://i.scdn.co/image/ab67616d0000485131548865f7c729290b96c794",
-      "playedAt": "2026-10-23T17:25:29.486Z"
+      "url": "https://open.spotify.com/track/57BrRMwf9LrcmuOsyGilwr",
+      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
+      "playedAt": "2026-10-26T17:18:34.051Z"
     }
   ],
   "topTracks": {
@@ -125,24 +125,24 @@
       },
       {
         "rank": 10,
-        "name": "FullMoon",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/2OcgUwz7uomyLpOi0juero",
-        "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
+        "name": "Up From the Bottom",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/2SwdMXPvGdciXamSjfoNH9",
+        "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
       },
       {
         "rank": 11,
-        "name": "Don't Say a Word",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/6khWZRJMRkIL6sZIeogVYn",
-        "image": "https://i.scdn.co/image/ab67616d00004851a2c697b5be89befbd57152c8"
+        "name": "Chemtrails Over The Country Club",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
+        "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d"
       },
       {
         "rank": 12,
-        "name": "The Emptiness Machine",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+        "name": "Another Life",
+        "artist": "Motionless In White",
+        "url": "https://open.spotify.com/track/0YZEYxd1oiqZRFhnnmTKKi",
+        "image": "https://i.scdn.co/image/ab67616d00004851944e11093f0e01c60be5be8f"
       }
     ],
     "medium": [

@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-10-28T02:58:42.677Z",
+  "updatedAt": "2026-10-28T11:48:58.130Z",
   "tracks": [
+    {
+      "name": "I Want to Know What Love Is - 1999 Remaster",
+      "artist": "Foreigner",
+      "url": "https://open.spotify.com/track/1JLn8RhQzHz3qDqsChcmBl",
+      "image": "https://i.scdn.co/image/ab67616d000048513e030a7e606959674643d274",
+      "playedAt": "2026-10-28T04:11:17.052Z"
+    },
+    {
+      "name": "Runaway",
+      "artist": "Bon Jovi",
+      "url": "https://open.spotify.com/track/0X1sqQ652p1sceKM2nJlIJ",
+      "image": "https://i.scdn.co/image/ab67616d00004851ede118b5f0e159dd18d42b90",
+      "playedAt": "2026-10-28T04:06:11.756Z"
+    },
+    {
+      "name": "Wasting Love - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/2KKLuHN6zDxVnWtFKO8vo4",
+      "image": "https://i.scdn.co/image/ab67616d000048510dda9c11454b9053d07f585a",
+      "playedAt": "2026-10-28T04:02:20.557Z"
+    },
+    {
+      "name": "No More Tears",
+      "artist": "Ozzy Osbourne",
+      "url": "https://open.spotify.com/track/7w6PJe5KBPyvuRYxFkPssC",
+      "image": "https://i.scdn.co/image/ab67616d00004851509342e69eb341df70e5c2e3",
+      "playedAt": "2026-10-28T03:56:29.064Z"
+    },
+    {
+      "name": "The Last In Line",
+      "artist": "Dio",
+      "url": "https://open.spotify.com/track/5fIZDuxfuM4tANRHZ8Btju",
+      "image": "https://i.scdn.co/image/ab67616d0000485120656ec399a0b212afc31d30",
+      "playedAt": "2026-10-28T03:49:03.556Z"
+    },
+    {
+      "name": "Mama, I'm Coming Home",
+      "artist": "Ozzy Osbourne",
+      "url": "https://open.spotify.com/track/0S3gpZzlT9Hb7CCSV2owX7",
+      "image": "https://i.scdn.co/image/ab67616d00004851509342e69eb341df70e5c2e3",
+      "playedAt": "2026-10-28T03:43:19.858Z"
+    },
     {
       "name": "Children of the Grave - 2009 Remaster",
       "artist": "Black Sabbath",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/2wNEcJHnFxoKZIrxjxF5jL",
       "image": "https://i.scdn.co/image/ab67616d000048510a774ec695cc0a967250b966",
       "playedAt": "2026-10-28T01:04:41.012Z"
-    },
-    {
-      "name": "Mama, I'm Coming Home",
-      "artist": "Ozzy Osbourne",
-      "url": "https://open.spotify.com/track/0S3gpZzlT9Hb7CCSV2owX7",
-      "image": "https://i.scdn.co/image/ab67616d00004851509342e69eb341df70e5c2e3",
-      "playedAt": "2026-10-28T00:59:55.820Z"
-    },
-    {
-      "name": "Sweater Weather",
-      "artist": "The Neighbourhood",
-      "url": "https://open.spotify.com/track/2QjOHCTQ1Jl3zawyYOpxh6",
-      "image": "https://i.scdn.co/image/ab67616d000048518265a736a1eb838ad5a0b921",
-      "playedAt": "2026-10-28T00:55:39.459Z"
-    },
-    {
-      "name": "Love In The Dark",
-      "artist": "Adele",
-      "url": "https://open.spotify.com/track/7B5Npv8NjjTCzk8PLpU66h",
-      "image": "https://i.scdn.co/image/ab67616d0000485147ce408fb4926d69da6713c2",
-      "playedAt": "2026-10-28T00:31:48.753Z"
-    },
-    {
-      "name": "Be the One",
-      "artist": "Dua Lipa",
-      "url": "https://open.spotify.com/track/1u5WAP1xPjbQu78BcoXfVx",
-      "image": "https://i.scdn.co/image/ab67616d000048518bd7c90e2316fc02b6416b35",
-      "playedAt": "2026-10-28T00:26:37.732Z"
-    },
-    {
-      "name": "Be the One",
-      "artist": "Dua Lipa",
-      "url": "https://open.spotify.com/track/1u5WAP1xPjbQu78BcoXfVx",
-      "image": "https://i.scdn.co/image/ab67616d000048518bd7c90e2316fc02b6416b35",
-      "playedAt": "2026-10-28T00:24:54.078Z"
-    },
-    {
-      "name": "die first",
-      "artist": "Nessa Barrett",
-      "url": "https://open.spotify.com/track/3TfDUStpnEVIlsNlgcKQgJ",
-      "image": "https://i.scdn.co/image/ab67616d00004851ad63ee1b38de00c58ce39856",
-      "playedAt": "2026-10-28T00:22:47.568Z"
     }
   ],
   "topTracks": {

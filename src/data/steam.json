@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-27T21:35:05.763Z",
+  "updatedAt": "2026-10-28T02:58:43.832Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 527,
-      "minutesTotal": 676,
+      "minutes2weeks": 557,
+      "minutesTotal": 706,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
     }
@@ -108,6 +108,12 @@
       "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/202970/header.jpg?t=1780962925"
     },
     {
+      "name": "Call of Duty®: Modern Warfare® 4",
+      "appid": 4435490,
+      "url": "https://store.steampowered.com/app/4435490",
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/0c492be3204835d71e8b454b6eb1817f8ff68c0d/header.jpg?t=1793144541"
+    },
+    {
       "name": "FINAL FANTASY VII REVELATION",
       "appid": 4354570,
       "url": "https://store.steampowered.com/app/4354570",
@@ -142,12 +148,6 @@
       "appid": 2623190,
       "url": "https://store.steampowered.com/app/2623190",
       "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1786648304"
-    },
-    {
-      "name": "METRO Last Light Redux",
-      "appid": 287390,
-      "url": "https://store.steampowered.com/app/287390",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/287390/eab057a82c52b9d60f383fc2a63e2c4024f0e734/header_alt_assets_1.jpg?t=1792681177"
     }
   ]
 }

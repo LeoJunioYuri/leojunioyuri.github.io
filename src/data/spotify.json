@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-10-29T11:56:36.040Z",
+  "updatedAt": "2026-10-29T17:53:17.296Z",
   "tracks": [
+    {
+      "name": "Supermodels",
+      "artist": "South Arcade",
+      "url": "https://open.spotify.com/track/2JFmXR9RMrZ864QAaZp1qy",
+      "image": "https://i.scdn.co/image/ab67616d000048516312c4c1f9f665c92ca84ffb",
+      "playedAt": "2026-10-29T14:19:38.279Z"
+    },
+    {
+      "name": "Stained",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/0J1IJsMbKWb5g2sJArTkGF",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-10-29T14:09:10.259Z"
+    },
+    {
+      "name": "Overflow",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7diOv6wm3ngF7Vt6ubK0Sf",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-10-29T14:06:04.851Z"
+    },
+    {
+      "name": "Overflow",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/7diOv6wm3ngF7Vt6ubK0Sf",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-10-29T14:02:33.839Z"
+    },
+    {
+      "name": "Ma Meilleure Ennemie ft. Coldplay",
+      "artist": "Stromae, Pomme, Coldplay, Elyanna, Arcane, League of Legends",
+      "url": "https://open.spotify.com/track/1ZHvGQZNz6HLbxhAtu7pin",
+      "image": "https://i.scdn.co/image/ab67616d00004851183fc5de03ccc82fb1154774",
+      "playedAt": "2026-10-29T14:02:15.067Z"
+    },
+    {
+      "name": "Ma Meilleure Ennemie - from the series Arcane League of Legends",
+      "artist": "Stromae, Pomme, Arcane",
+      "url": "https://open.spotify.com/track/4lriIG2vNqwDWzOj2I9rtj",
+      "image": "https://i.scdn.co/image/ab67616d000048512aab4ea84f431ad7d92fecbb",
+      "playedAt": "2026-10-29T13:58:52.686Z"
+    },
+    {
+      "name": "Music of Light",
+      "artist": "Arven",
+      "url": "https://open.spotify.com/track/3FZfnJDoEXODsW6NUszr1v",
+      "image": "https://i.scdn.co/image/ab67616d00004851b24293a6ea6836e01e48c968",
+      "playedAt": "2026-10-29T13:46:33.889Z"
+    },
     {
       "name": "New Evil",
       "artist": "Nocturna",
       "url": "https://open.spotify.com/track/2rDkRLPyZoeUz0Z5nLz4Lr",
       "image": "https://i.scdn.co/image/ab67616d00004851b15a0ea311408ddab5c0d2ff",
       "playedAt": "2026-10-29T06:13:20.361Z"
-    },
-    {
-      "name": "Alga",
-      "artist": "Ignea",
-      "url": "https://open.spotify.com/track/6qj0fD3wwPj4rHUMYYrReU",
-      "image": "https://i.scdn.co/image/ab67616d00004851c7ff0a7f9aa294b8769f3d02",
-      "playedAt": "2026-10-29T06:08:54.495Z"
-    },
-    {
-      "name": "Voices in My Head",
-      "artist": "Lyriel",
-      "url": "https://open.spotify.com/track/5KHUWK7N8sKy8HNgEYkuUB",
-      "image": "https://i.scdn.co/image/ab67616d000048516c34546436d81a0c597d25a6",
-      "playedAt": "2026-10-29T06:02:36.892Z"
-    },
-    {
-      "name": "De Ruef Vo De Bärge",
-      "artist": "Eluveitie",
-      "url": "https://open.spotify.com/track/011wllO5TJ1MWEl5gtrsQ9",
-      "image": "https://i.scdn.co/image/ab67616d0000485125ae6724fbf73d1a2877a220",
-      "playedAt": "2026-10-29T05:58:19.395Z"
-    },
-    {
-      "name": "Paradise (What About Us?) (feat. Tarja)",
-      "artist": "Within Temptation, Tarja",
-      "url": "https://open.spotify.com/track/1PkOm35a0G1r33rVrrK6b0",
-      "image": "https://i.scdn.co/image/ab67616d00004851f393d7a726de8d05207b0854",
-      "playedAt": "2026-10-29T05:54:03.247Z"
-    },
-    {
-      "name": "Challenge",
-      "artist": "Cellar Darling",
-      "url": "https://open.spotify.com/track/6W74nQE85GhWDTCKQnvA9D",
-      "image": "https://i.scdn.co/image/ab67616d00004851c02f13a41ff0fbf4523fc31c",
-      "playedAt": "2026-10-29T05:48:43.093Z"
-    },
-    {
-      "name": "The Rabbit Of The Moon",
-      "artist": "Moonlight Haze",
-      "url": "https://open.spotify.com/track/2Zca3T3JmEk28lMu17h4jS",
-      "image": "https://i.scdn.co/image/ab67616d00004851f18a80c2bc0492240406a8a7",
-      "playedAt": "2026-10-29T05:45:03.688Z"
-    },
-    {
-      "name": "No More Hollywood Endings",
-      "artist": "Battle Beast",
-      "url": "https://open.spotify.com/track/4LlEtj8I2XUhkrXFzBBtFJ",
-      "image": "https://i.scdn.co/image/ab67616d00004851f0d55e973f83cbfe90dded16",
-      "playedAt": "2026-10-29T05:41:11.592Z"
     }
   ],
   "topTracks": {

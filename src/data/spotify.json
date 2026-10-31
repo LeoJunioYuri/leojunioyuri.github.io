@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-10-31T11:23:49.347Z",
+  "updatedAt": "2026-10-31T16:29:18.068Z",
   "tracks": [
+    {
+      "name": "Wasted Years - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/1HM7Vp84E4SMzdrZONg6bH",
+      "image": "https://i.scdn.co/image/ab67616d00004851e113e5fda96f8b219faf6ff0",
+      "playedAt": "2026-10-31T16:13:18.386Z"
+    },
+    {
+      "name": "Hurt You",
+      "artist": "Spiritbox",
+      "url": "https://open.spotify.com/track/6Pd8HUW71iIjalkxJbo8FP",
+      "image": "https://i.scdn.co/image/ab67616d000048513e234c82f96fa4ded8e5ca47",
+      "playedAt": "2026-10-31T06:11:04.711Z"
+    },
     {
       "name": "Riptide",
       "artist": "South Arcade",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/0F9OoR7mjpuU08J39gNRlP",
       "image": "https://i.scdn.co/image/ab67616d00004851b044dbbea905aa65d7beaa3b",
       "playedAt": "2026-10-31T04:38:22.522Z"
-    },
-    {
-      "name": "Masterpiece",
-      "artist": "Motionless In White",
-      "url": "https://open.spotify.com/track/3c9kVsKF68xMzlS0NikVn3",
-      "image": "https://i.scdn.co/image/ab67616d00004851927beb7f612958a2ce60c46c",
-      "playedAt": "2026-10-31T04:34:38.617Z"
-    },
-    {
-      "name": "Up From the Bottom",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/2SwdMXPvGdciXamSjfoNH9",
-      "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76",
-      "playedAt": "2026-10-31T04:31:11.513Z"
     }
   ],
   "topTracks": {

@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-11-01T03:08:31.407Z",
+  "updatedAt": "2026-11-01T12:16:22.386Z",
   "tracks": [
+    {
+      "name": "CASTLE OF GLASS",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/1r1fPuhj9H4VdXr7OK6FL5",
+      "image": "https://i.scdn.co/image/ab67616d00004851987fb4c5ec8790e9f637a4a4",
+      "playedAt": "2026-11-01T05:54:11.402Z"
+    },
+    {
+      "name": "CASTLE OF GLASS",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/1r1fPuhj9H4VdXr7OK6FL5",
+      "image": "https://i.scdn.co/image/ab67616d00004851987fb4c5ec8790e9f637a4a4",
+      "playedAt": "2026-11-01T05:53:50.045Z"
+    },
+    {
+      "name": "Torna a casa",
+      "artist": "Måneskin",
+      "url": "https://open.spotify.com/track/3590AAEoqH50z4UmhMIY85",
+      "image": "https://i.scdn.co/image/ab67616d00004851dbc892b8194e35ca3524e767",
+      "playedAt": "2026-11-01T05:50:24.164Z"
+    },
+    {
+      "name": "CORALINE",
+      "artist": "Måneskin",
+      "url": "https://open.spotify.com/track/7HMz8o0m7ASQ3ImFPfhWTY",
+      "image": "https://i.scdn.co/image/ab67616d000048515aa05015cfa7bd2943c29b21",
+      "playedAt": "2026-11-01T05:46:32.999Z"
+    },
     {
       "name": "Saw You Stand",
       "artist": "Greta Van Fleet",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/32BEasyNQgqXQJKoVa0fUw",
       "image": "https://i.scdn.co/image/ab67616d0000485157b7f789d328c205b4d15893",
       "playedAt": "2026-11-01T01:35:29.196Z"
-    },
-    {
-      "name": "The Fire",
-      "artist": "Chris Stapleton",
-      "url": "https://open.spotify.com/track/4Jn2CdZYqtIsPpIRYB1o47",
-      "image": "https://i.scdn.co/image/ab67616d00004851de2e30cf7205b45a0ba3877f",
-      "playedAt": "2026-11-01T01:34:49.033Z"
-    },
-    {
-      "name": "Something in the Orange",
-      "artist": "Zach Bryan",
-      "url": "https://open.spotify.com/track/3WMj8moIAXJhHsyLaqIIHI",
-      "image": "https://i.scdn.co/image/ab67616d00004851e772398dc2edb9fc416b9cd1",
-      "playedAt": "2026-11-01T01:10:42.897Z"
-    },
-    {
-      "name": "Tennessee Whiskey",
-      "artist": "Chris Stapleton",
-      "url": "https://open.spotify.com/track/3fqwjXwUGN6vbzIwvyFMhx",
-      "image": "https://i.scdn.co/image/ab67616d00004851540fc1d083eac5bcff8dad21",
-      "playedAt": "2026-11-01T01:06:54.396Z"
-    },
-    {
-      "name": "Heading South",
-      "artist": "Zach Bryan",
-      "url": "https://open.spotify.com/track/2Dct3GykKZ58hpWRFfe2Qd",
-      "image": "https://i.scdn.co/image/ab67616d00004851cbb840da8e4bf45aec4503de",
-      "playedAt": "2026-11-01T01:02:00.656Z"
     }
   ],
   "topTracks": {

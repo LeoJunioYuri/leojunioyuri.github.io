@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-11-03T00:10:49.294Z",
+  "updatedAt": "2026-11-03T13:13:32.529Z",
   "tracks": [
+    {
+      "name": "Gutter Ballet",
+      "artist": "Savatage",
+      "url": "https://open.spotify.com/track/5LKm2vMBOtKq12C0padpN2",
+      "image": "https://i.scdn.co/image/ab67616d000048518cda8b13ef9130cb6f7512b7",
+      "playedAt": "2026-11-03T12:48:57.794Z"
+    },
+    {
+      "name": "Where the Rain Grows",
+      "artist": "Helloween",
+      "url": "https://open.spotify.com/track/5vmHsUPrLqEYBln1dTBnUe",
+      "image": "https://i.scdn.co/image/ab67616d0000485199d14b8213a2fde3f6aebfac",
+      "playedAt": "2026-11-03T12:42:36.597Z"
+    },
+    {
+      "name": "I Want Out - 2024 Remaster",
+      "artist": "Helloween",
+      "url": "https://open.spotify.com/track/2lp0PO2D90zcFWy8toVqgn",
+      "image": "https://i.scdn.co/image/ab67616d0000485155d506b10646ae83a2ca13bc",
+      "playedAt": "2026-11-03T12:37:49.297Z"
+    },
+    {
+      "name": "Prayers for the Damned",
+      "artist": "Sixx:A.M.",
+      "url": "https://open.spotify.com/track/2IFdWdGlCdPT99RALN1L2z",
+      "image": "https://i.scdn.co/image/ab67616d00004851a234484352e8ec21a99a0298",
+      "playedAt": "2026-11-03T03:15:22.109Z"
+    },
     {
       "name": "Ordinary Life",
       "artist": "The Weeknd",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/55zTc30BLHsy3HJOspZ96K",
       "image": "https://i.scdn.co/image/ab67616d000048517f89eb18e64f268561d81c42",
       "playedAt": "2026-11-02T22:57:42.874Z"
-    },
-    {
-      "name": "Sleeping Sun",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/64v7AaXu9qmbefvFwOtbvm",
-      "image": "https://i.scdn.co/image/ab67616d00004851ecf31532899b046d5425db77",
-      "playedAt": "2026-11-02T22:54:27.274Z"
-    },
-    {
-      "name": "Stairway to Heaven - Remaster",
-      "artist": "Led Zeppelin",
-      "url": "https://open.spotify.com/track/5CQ30WqJwcep0pYcV4AMNc",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8a11e48c91a982d086afc69",
-      "playedAt": "2026-11-02T22:18:08.900Z"
-    },
-    {
-      "name": "Hangar 18",
-      "artist": "Megadeth",
-      "url": "https://open.spotify.com/track/0KAaslGdPc5I6WxmKe3whe",
-      "image": "https://i.scdn.co/image/ab67616d0000485142be808911785ceb13140edc",
-      "playedAt": "2026-11-02T22:10:05.591Z"
-    },
-    {
-      "name": "Nightmare",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/4UEo1b0wWrtHMC8bVqPiH8",
-      "image": "https://i.scdn.co/image/ab67616d00004851c34064a3c5e4a25892a091f3",
-      "playedAt": "2026-11-02T22:04:50.490Z"
     }
   ],
   "topTracks": {
@@ -125,24 +125,24 @@
       },
       {
         "rank": 10,
-        "name": "Chemtrails Over The Country Club",
-        "artist": "Lana Del Rey",
-        "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
-        "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d"
-      },
-      {
-        "rank": 11,
         "name": "Children of the Grave - 2014 Remaster",
         "artist": "Black Sabbath",
         "url": "https://open.spotify.com/track/5clz8BOBulxx7q2yHxqOCk",
         "image": "https://i.scdn.co/image/ab67616d00004851c199494ba9ea2b73e9208f91"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "The Catalyst",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5bvgRxco3jgSZ3SP8rueDA",
         "image": "https://i.scdn.co/image/ab67616d0000485159211e56a493ac4509457bab"
+      },
+      {
+        "rank": 12,
+        "name": "In And Out Of Love",
+        "artist": "Armin van Buuren, Sharon Den Adel",
+        "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
+        "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00"
       }
     ],
     "medium": [

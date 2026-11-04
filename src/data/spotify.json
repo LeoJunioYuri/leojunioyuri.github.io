@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-11-04T03:51:01.844Z",
+  "updatedAt": "2026-11-04T13:27:04.768Z",
   "tracks": [
     {
-      "name": "Querendo Te Encontrar / Morro De Saudade - Ao Vivo",
-      "artist": "Panda, Humberto & Ronaldo, Ícaro e Gilmar, MJ Records",
-      "url": "https://open.spotify.com/track/1fTYgMrwMXaYZDgda6Gu84",
-      "image": "https://i.scdn.co/image/ab67616d00004851b1fa7e79c7db747ae6f927de",
-      "playedAt": "2026-11-04T03:46:59.034Z"
-    },
-    {
-      "name": "It Takes a Lot to Know a Man",
-      "artist": "Damien Rice",
-      "url": "https://open.spotify.com/track/1lqIkknUGp0TofqKUhxT4W",
-      "image": "https://i.scdn.co/image/ab67616d000048510ca9dfa7c86fa3c3d5b518f3",
-      "playedAt": "2026-11-04T03:37:24.898Z"
-    },
-    {
-      "name": "9 Crimes",
-      "artist": "Damien Rice",
-      "url": "https://open.spotify.com/track/5GZEeowhvSieFDiR8fQ2im",
-      "image": "https://i.scdn.co/image/ab67616d00004851822529ba4d82fad5467fb378",
-      "playedAt": "2026-11-04T03:24:50.731Z"
-    },
-    {
-      "name": "It's All Coming Back to Me Now",
-      "artist": "Céline Dion",
-      "url": "https://open.spotify.com/track/5EQzuYfTZt7B2LqlvTF49l",
-      "image": "https://i.scdn.co/image/ab67616d00004851c6aebd89b2dcda3348649633",
-      "playedAt": "2026-11-03T23:35:46.313Z"
-    },
-    {
-      "name": "It's All Coming Back to Me Now",
-      "artist": "Céline Dion",
-      "url": "https://open.spotify.com/track/5EQzuYfTZt7B2LqlvTF49l",
-      "image": "https://i.scdn.co/image/ab67616d00004851c6aebd89b2dcda3348649633",
-      "playedAt": "2026-11-03T23:35:41.175Z"
-    },
-    {
-      "name": "All By Myself",
-      "artist": "Céline Dion",
-      "url": "https://open.spotify.com/track/0gsl92EMIScPGV1AU35nuD",
-      "image": "https://i.scdn.co/image/ab67616d00004851c6aebd89b2dcda3348649633",
-      "playedAt": "2026-11-03T23:30:55.804Z"
-    },
-    {
-      "name": "The Unforgiven III",
+      "name": "To Live is to Die",
       "artist": "Metallica",
-      "url": "https://open.spotify.com/track/0qbV4e18lWrTTxlswVoLbI",
-      "image": "https://i.scdn.co/image/ab67616d00004851f5802466e1bc84cdf51d97e2",
-      "playedAt": "2026-11-03T23:20:57.650Z"
+      "url": "https://open.spotify.com/track/0MNwV4sXm2AljohIXBRgpj",
+      "image": "https://i.scdn.co/image/ab67616d00004851fe896727e3db1027ed72d885",
+      "playedAt": "2026-11-04T13:24:23.308Z"
     },
     {
-      "name": "The Unforgiven III",
+      "name": "Mama Said - Remastered",
       "artist": "Metallica",
-      "url": "https://open.spotify.com/track/0qbV4e18lWrTTxlswVoLbI",
-      "image": "https://i.scdn.co/image/ab67616d00004851f5802466e1bc84cdf51d97e2",
-      "playedAt": "2026-11-03T23:14:37.134Z"
+      "url": "https://open.spotify.com/track/2pFg7eERlKmCcdI3FlEuAc",
+      "image": "https://i.scdn.co/image/ab67616d000048511f64a7fb81f743272a6dd122",
+      "playedAt": "2026-11-04T13:11:38.187Z"
+    },
+    {
+      "name": "Oceans",
+      "artist": "Seafret",
+      "url": "https://open.spotify.com/track/5eXnC2B5RU5fAhfwvV2ABD",
+      "image": "https://i.scdn.co/image/ab67616d00004851e11e851e3e7e9b09f2fe79be",
+      "playedAt": "2026-11-04T04:27:42.577Z"
+    },
+    {
+      "name": "Sorry",
+      "artist": "Nothing But Thieves",
+      "url": "https://open.spotify.com/track/6rAXHPd18PZ6W8m9EectzH",
+      "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2",
+      "playedAt": "2026-11-04T04:24:06.433Z"
+    },
+    {
+      "name": "Henry, come on",
+      "artist": "Lana Del Rey",
+      "url": "https://open.spotify.com/track/6CYldrsUPBsiPtfLW4xZCl",
+      "image": "https://i.scdn.co/image/ab67616d000048514fb0b47e965f62951205cc5a",
+      "playedAt": "2026-11-04T04:20:31.188Z"
+    },
+    {
+      "name": "Nightcall",
+      "artist": "London Grammar",
+      "url": "https://open.spotify.com/track/4MKO1xltVSQlMMZUfOMEA1",
+      "image": "https://i.scdn.co/image/ab67616d000048518e411f06d11a04c99df55247",
+      "playedAt": "2026-11-04T04:10:58.826Z"
+    },
+    {
+      "name": "Colder Heavens",
+      "artist": "Blanco White",
+      "url": "https://open.spotify.com/track/6Z2pu5Gq0uWJoaYWeWbQpX",
+      "image": "https://i.scdn.co/image/ab67616d00004851cf1b9db77b0081939243d158",
+      "playedAt": "2026-11-04T04:01:46.109Z"
+    },
+    {
+      "name": "Wait",
+      "artist": "M83",
+      "url": "https://open.spotify.com/track/01Q3OyB05mLgH01fpdAMPP",
+      "image": "https://i.scdn.co/image/ab67616d0000485162100064780b1d919a95fcf4",
+      "playedAt": "2026-11-04T03:57:11.627Z"
     }
   ],
   "topTracks": {

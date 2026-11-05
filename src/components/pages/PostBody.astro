@@ -65,6 +65,10 @@ const path = `${lang === "pt" ? "/writing" : "/en/writing"}/${slug}`;
         </time>
         <span aria-hidden="true">·</span>
         <span>{minutes} {t("writing.readingTime")}</span>
+        <span data-view-count class="contents" hidden>
+          <span aria-hidden="true">·</span>
+          <span data-view-count-value></span>
+        </span>
         {
           entry.data.draft && (
             <span class="rounded bg-[var(--accent-soft)] px-1.5 py-0.5 text-xs font-medium text-[var(--accent)]">

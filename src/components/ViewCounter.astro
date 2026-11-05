@@ -32,16 +32,15 @@ const config = {
         src="https://gc.zgo.at/count.js"
       />
       <script is:inline define:vars={{ config }}>
-        // Fills every [data-view-count] and reveals it. Any failure (blocked
-        // request, path with no visits yet) leaves it hidden.
-        const paths = { page: window.goatcounter.path, total: "TOTAL" };
+        // Fills [data-view-count] and reveals it. Any failure (blocked request,
+        // path with no visits yet) leaves it hidden.
+        (async () => {
+          const el = document.querySelector("[data-view-count]");
+          if (!el) return;
 
-        document.querySelectorAll("[data-view-count]").forEach(async (el) => {
           try {
-            const path = paths[el.dataset.viewCount];
-            const res = await fetch(
-              `${config.url}/counter/${encodeURIComponent(path)}.json`,
-            );
+            const path = encodeURIComponent(window.goatcounter.path);
+            const res = await fetch(`${config.url}/counter/${path}.json`);
             if (!res.ok) return;
 
             const { count } = await res.json();
@@ -53,7 +52,7 @@ const config = {
               `${visits.toLocaleString(config.locale)} ${label}`;
             el.hidden = false;
           } catch {}
-        });
+        })();
       </script>
     </>
   )

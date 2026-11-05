@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T04:10:02.464Z",
+  "updatedAt": "2026-11-05T13:41:20.492Z",
   "tracks": [
     {
       "name": "The Emptiness Machine",
@@ -104,45 +104,45 @@
       },
       {
         "rank": 7,
-        "name": "IGYEIH",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 8,
         "name": "Children of the Grave - 2014 Remaster",
         "artist": "Black Sabbath",
         "url": "https://open.spotify.com/track/5clz8BOBulxx7q2yHxqOCk",
         "image": "https://i.scdn.co/image/ab67616d00004851c199494ba9ea2b73e9208f91"
       },
       {
-        "rank": 9,
+        "rank": 8,
         "name": "The Catalyst",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5bvgRxco3jgSZ3SP8rueDA",
         "image": "https://i.scdn.co/image/ab67616d0000485159211e56a493ac4509457bab"
       },
       {
-        "rank": 10,
+        "rank": 9,
         "name": "Afterlife",
         "artist": "Avenged Sevenfold",
         "url": "https://open.spotify.com/track/7zAt4tdL44D3VuzsvM0N8n",
         "image": "https://i.scdn.co/image/ab67616d0000485133c52ca8309741c6999ca742"
       },
       {
-        "rank": 11,
+        "rank": 10,
         "name": "In And Out Of Love",
         "artist": "Armin van Buuren, Sharon Den Adel",
         "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
         "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Last Drop Falls",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/0d7hsFTBpokWSU115U0xx6",
         "image": "https://i.scdn.co/image/ab67616d00004851291c543939d444557269bd15"
+      },
+      {
+        "rank": 12,
+        "name": "What Else Is There?",
+        "artist": "Mortemia, Sirenia, Blackbriar, Zora Cock",
+        "url": "https://open.spotify.com/track/0zbeLVcM8iUBiKq6GxoJU3",
+        "image": "https://i.scdn.co/image/ab67616d000048516375c33502113c25ff00df56"
       }
     ],
     "medium": [
@@ -162,73 +162,73 @@
       },
       {
         "rank": 3,
-        "name": "No Lonelier Star",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 4,
-        "name": "Poppaea",
-        "artist": "Theatre Of Tragedy",
-        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 5,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 6,
-        "name": "Rivers Between Us",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 7,
+        "rank": 4,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 8,
+        "rank": 5,
         "name": "Unshatter",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
         "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
       },
       {
-        "rank": 9,
-        "name": "Paid in Full",
-        "artist": "Sonata Arctica",
-        "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
-        "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
+        "rank": 6,
+        "name": "Poppaea",
+        "artist": "Theatre Of Tragedy",
+        "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
+        "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
       },
       {
-        "rank": 10,
+        "rank": 7,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 11,
-        "name": "By Myself",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/6UzeOH4bRPzKTo2wCXMZmC",
-        "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
+        "rank": 8,
+        "name": "No Lonelier Star",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/6USM3cJWMxoUBfhBMOpRa9",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
-        "rank": 12,
+        "rank": 9,
+        "name": "Rivers Between Us",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/3AUGhZ8AlFRcvDf0LWhlYf",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
+      },
+      {
+        "rank": 10,
+        "name": "Paid in Full",
+        "artist": "Sonata Arctica",
+        "url": "https://open.spotify.com/track/4a9FZDn8ydY1jDrObifbno",
+        "image": "https://i.scdn.co/image/ab67616d000048514149234311d3d90ce0ad9c50"
+      },
+      {
+        "rank": 11,
         "name": "Cut the Bridge",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 12,
+        "name": "Midnight Sky",
+        "artist": "Miley Cyrus",
+        "url": "https://open.spotify.com/track/4i2qxFEVVUi8yOYoxB8TCX",
+        "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d"
       }
     ],
     "long": [

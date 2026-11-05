@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T04:10:05.946Z",
+  "updatedAt": "2026-11-05T13:41:24.458Z",
   "recent": [
     {
       "name": "World of Warcraft",
@@ -476,9 +476,9 @@
       "url": "https://www.xbox.com/games/store/-/913783821"
     },
     {
-      "name": "Sea of Thieves",
+      "name": "Sea of Thieves: 2026 Edition",
       "titleId": "1717113201",
-      "image": "https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcPnMMVV2S.gki47PXDl6PGGLfVedamVWWleAukqfoePX3FvBVvon9tZaoCjnBclvbOj9dspHRPO9yiXrb4rCxaw--",
+      "image": "http://store-images.s-microsoft.com/image/apps.43409.14554784103656548.069efce3-9249-4074-a169-183b727043f8.4edb3e0e-7c73-4abf-8964-4b9dfbd49bf8",
       "gamerscore": 160,
       "gamerscoreTotal": 6310,
       "url": "https://www.xbox.com/games/store/-/1717113201"
@@ -494,7 +494,7 @@
     {
       "name": "Forza Horizon 4",
       "titleId": "1985701699",
-      "image": null,
+      "image": "http://store-images.s-microsoft.com/image/apps.55774.14339303838396367.e3a10a02-b1cd-411e-97aa-9dd8be1c992d.0fd9a9dc-9e16-4dcc-a5d9-b3ca90d23511",
       "gamerscore": 140,
       "gamerscoreTotal": 3610,
       "url": "https://www.xbox.com/games/store/-/1985701699"

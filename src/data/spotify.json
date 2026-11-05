@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-04T22:58:50.193Z",
+  "updatedAt": "2026-11-05T04:10:02.464Z",
   "tracks": [
+    {
+      "name": "The Emptiness Machine",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
+      "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4",
+      "playedAt": "2026-11-05T04:05:09.034Z"
+    },
+    {
+      "name": "Figure.09",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/0rPTPahzhGx9LSzI8XX5OM",
+      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
+      "playedAt": "2026-11-05T03:34:12.245Z"
+    },
     {
       "name": "Always",
       "artist": "The Snuts",
@@ -42,20 +56,6 @@
       "url": "https://open.spotify.com/track/2fAIfPLrPUTW1AmJRR428Q",
       "image": "https://i.scdn.co/image/ab67616d000048512f8974892b3dcc162d1a3686",
       "playedAt": "2026-11-04T21:49:21.402Z"
-    },
-    {
-      "name": "Emma",
-      "artist": "Steven Price",
-      "url": "https://open.spotify.com/track/4TuGt2O2iqrisOsNQNrL0j",
-      "image": "https://i.scdn.co/image/ab67616d00004851242eb64407e94b4a47e52349",
-      "playedAt": "2026-11-04T15:10:08.819Z"
-    },
-    {
-      "name": "The Tree When We Sat Once",
-      "artist": "Mikolai Stroinski",
-      "url": "https://open.spotify.com/track/6B7wSqeVtMrtXbQBgzzVqa",
-      "image": "https://i.scdn.co/image/ab67616d00004851df756f52b91b4dcd656760b0",
-      "playedAt": "2026-11-04T14:18:18.682Z"
     }
   ],
   "topTracks": {
@@ -211,24 +211,24 @@
       },
       {
         "rank": 10,
+        "name": "IGYEIH",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 11,
         "name": "By Myself",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/6UzeOH4bRPzKTo2wCXMZmC",
         "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Cut the Bridge",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/5mFZipkX1HZ4Idz5LOWpzq",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
-      },
-      {
-        "rank": 12,
-        "name": "Midnight Sky",
-        "artist": "Miley Cyrus",
-        "url": "https://open.spotify.com/track/4i2qxFEVVUi8yOYoxB8TCX",
-        "image": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d"
       }
     ],
     "long": [
@@ -248,17 +248,17 @@
       },
       {
         "rank": 3,
-        "name": "Stellar Tombs",
-        "artist": "Draconian",
-        "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
-        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
-      },
-      {
-        "rank": 4,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 4,
+        "name": "Stellar Tombs",
+        "artist": "Draconian",
+        "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
+        "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42"
       },
       {
         "rank": 5,

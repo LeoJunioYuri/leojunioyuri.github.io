@@ -1,0 +1,60 @@
+---
+import { GOATCOUNTER_URL, type Lang } from "@/consts";
+import { useTranslations } from "@/i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const config = {
+  url: GOATCOUNTER_URL,
+  locale: lang === "pt" ? "pt-BR" : "en",
+  one: t("views.one"),
+  other: t("views.other"),
+};
+---
+
+{
+  GOATCOUNTER_URL && (
+    <>
+      {/* One path per page, with or without the trailing slash. */}
+      <script is:inline>
+        window.goatcounter = {
+          path: location.pathname.replace(/\/+$/, "") || "/",
+        };
+      </script>
+      <script
+        is:inline
+        async
+        data-goatcounter={`${GOATCOUNTER_URL}/count`}
+        src="https://gc.zgo.at/count.js"
+      />
+      <script is:inline define:vars={{ config }}>
+        // Fills every [data-view-count] and reveals it. Any failure (blocked
+        // request, path with no visits yet) leaves it hidden.
+        const paths = { page: window.goatcounter.path, total: "TOTAL" };
+
+        document.querySelectorAll("[data-view-count]").forEach(async (el) => {
+          try {
+            const path = paths[el.dataset.viewCount];
+            const res = await fetch(
+              `${config.url}/counter/${encodeURIComponent(path)}.json`,
+            );
+            if (!res.ok) return;
+
+            const { count } = await res.json();
+            const visits = Number(String(count).replace(/\D/g, ""));
+            if (!visits) return;
+
+            const label = visits === 1 ? config.one : config.other;
+            el.querySelector("[data-view-count-value]").textContent =
+              `${visits.toLocaleString(config.locale)} ${label}`;
+            el.hidden = false;
+          } catch {}
+        });
+      </script>
+    </>
+  )
+}

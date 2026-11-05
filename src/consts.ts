@@ -26,5 +26,8 @@ export const SITE = {
   },
 } as const;
 
+/** GoatCounter site URL. Empty turns the view counter off. */
+export const GOATCOUNTER_URL = "";
+
 export type Lang = "pt" | "en";
 export const LANGS: Lang[] = ["pt", "en"];

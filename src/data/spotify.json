@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-11-06T22:30:11.723Z",
+  "updatedAt": "2026-11-07T03:41:07.311Z",
   "tracks": [
     {
-      "name": "Sacrifice",
+      "name": "Love Again",
+      "artist": "Dua Lipa",
+      "url": "https://open.spotify.com/track/4rPkN1FMzQyFNP9cLUGIIB",
+      "image": "https://i.scdn.co/image/ab67616d00004851c88bae7846e62a8ba59ee0bd",
+      "playedAt": "2026-11-06T23:44:52.368Z"
+    },
+    {
+      "name": "Heathens",
+      "artist": "Twenty One Pilots",
+      "url": "https://open.spotify.com/track/6i0V12jOa3mr6uu4WYhUBr",
+      "image": "https://i.scdn.co/image/ab67616d000048512ca3ba8f334ca5a5f0312efb",
+      "playedAt": "2026-11-06T23:40:07.816Z"
+    },
+    {
+      "name": "Undisclosed Desires",
+      "artist": "Muse",
+      "url": "https://open.spotify.com/track/0It6VJoMAare1zdV2wxqZq",
+      "image": "https://i.scdn.co/image/ab67616d00004851b6d4566db0d12894a1a3b7a2",
+      "playedAt": "2026-11-06T23:36:51.432Z"
+    },
+    {
+      "name": "Billionaire (feat. Sam Martin)",
+      "artist": "Kryder, Sam Martin",
+      "url": "https://open.spotify.com/track/5JEn6NzjsY4SB5NItyfpYW",
+      "image": "https://i.scdn.co/image/ab67616d000048515614728d335f449f362642ca",
+      "playedAt": "2026-11-06T23:30:18.516Z"
+    },
+    {
+      "name": "In The Night",
       "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/1nH2PkJL1XoUq8oE6tBZoU",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-11-06T19:59:20.644Z"
+      "url": "https://open.spotify.com/track/25KybV9BOUlvcnv7nN3Pyo",
+      "image": "https://i.scdn.co/image/ab67616d000048517fcead687e99583072cc217b",
+      "playedAt": "2026-11-06T23:27:20.534Z"
     },
     {
-      "name": "Take My Breath",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/2vgUijXOTRMnWXDtvgMp2b",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-11-06T19:56:11.747Z"
+      "name": "Blame (feat. John Newman)",
+      "artist": "Calvin Harris, John Newman",
+      "url": "https://open.spotify.com/track/07nH4ifBxUB4lZcsf44Brn",
+      "image": "https://i.scdn.co/image/ab67616d000048518fba5806a323efd272677c4d",
+      "playedAt": "2026-11-06T23:23:16.180Z"
     },
     {
-      "name": "How Do I Make You Love Me?",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/2Ghp894n1laIf2w98VeAOJ",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-11-06T19:47:55.112Z"
+      "name": "Turn Me On (feat. Nicki Minaj)",
+      "artist": "David Guetta, Nicki Minaj",
+      "url": "https://open.spotify.com/track/6T27IN7Ai94BeDv6PPCmoC",
+      "image": "https://i.scdn.co/image/ab67616d0000485163bf1cd36632031eb3081cb0",
+      "playedAt": "2026-11-06T23:19:42.742Z"
     },
     {
-      "name": "Gasoline",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/3KyKxJ4P3pVCgaZwaq2rUC",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-11-06T19:44:20.916Z"
-    },
-    {
-      "name": "Dawn FM",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/6krYS8KtmNAYyb5uTZiYW4",
-      "image": "https://i.scdn.co/image/ab67616d000048514ab2520c2c77a1d66b9ee21d",
-      "playedAt": "2026-11-06T19:40:48.789Z"
-    },
-    {
-      "name": "Não Troco",
-      "artist": "Hungria",
-      "url": "https://open.spotify.com/track/0eDFrr2qgbIPQSU9YQeAXM",
-      "image": "https://i.scdn.co/image/ab67616d000048510a6745eccba1b472e44c172e",
-      "playedAt": "2026-11-06T19:31:53.810Z"
-    },
-    {
-      "name": "Ordinary Life",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/15k2nBQJ0teDmPZHrOXL2N",
-      "image": "https://i.scdn.co/image/ab67616d000048514718e2b124f79258be7bc452",
-      "playedAt": "2026-11-06T19:26:46.655Z"
-    },
-    {
-      "name": "In the End",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/60a0Rd6pjrkxjPbaKzXjfq",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-11-06T19:22:52.805Z"
+      "name": "Wake Me Up",
+      "artist": "Avicii",
+      "url": "https://open.spotify.com/track/0nrRP2bk19rLc0orkWPQk2",
+      "image": "https://i.scdn.co/image/ab67616d00004851e14f11f796cef9f9a82691a7",
+      "playedAt": "2026-11-06T23:15:46.557Z"
     }
   ],
   "topTracks": {

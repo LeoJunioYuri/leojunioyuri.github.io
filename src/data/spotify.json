@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-11-07T21:12:40.309Z",
+  "updatedAt": "2026-11-08T03:16:01.304Z",
   "tracks": [
+    {
+      "name": "Mama Said - Remastered",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/2pFg7eERlKmCcdI3FlEuAc",
+      "image": "https://i.scdn.co/image/ab67616d000048511f64a7fb81f743272a6dd122",
+      "playedAt": "2026-11-08T02:55:05.658Z"
+    },
     {
       "name": "Ordinary Life",
       "artist": "The Weeknd",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/5vRPXm59z8ewWO6WiJHg3m",
       "image": "https://i.scdn.co/image/ab67616d000048517a12793a027ffd587b93381a",
       "playedAt": "2026-11-07T19:19:08.255Z"
-    },
-    {
-      "name": "Time",
-      "artist": "Creed",
-      "url": "https://open.spotify.com/track/0vUxr7xRF0wLEF9TyzNHH6",
-      "image": "https://i.scdn.co/image/ab67616d00004851024d18f1943e08dbf91208d9",
-      "playedAt": "2026-11-07T19:14:08.958Z"
     }
   ],
   "topTracks": {
@@ -169,31 +169,31 @@
       },
       {
         "rank": 4,
+        "name": "IGYEIH",
+        "artist": "Linkin Park",
+        "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
+        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 5,
         "name": "Letter To Dana",
         "artist": "Sonata Arctica",
         "url": "https://open.spotify.com/track/4zvSqMT8TDZAXiLKbs2YtC",
         "image": "https://i.scdn.co/image/ab67616d00004851c579b15206ab88f6dcad44f6"
       },
       {
-        "rank": 5,
+        "rank": 6,
         "name": "Unshatter",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/6r2JE3s7XVnGfwiWCymyWf",
         "image": "https://i.scdn.co/image/ab67616d0000485185091942613ffa9be596af76"
       },
       {
-        "rank": 6,
+        "rank": 7,
         "name": "Poppaea",
         "artist": "Theatre Of Tragedy",
         "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
         "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982"
-      },
-      {
-        "rank": 7,
-        "name": "IGYEIH",
-        "artist": "Linkin Park",
-        "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
-        "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
         "rank": 8,

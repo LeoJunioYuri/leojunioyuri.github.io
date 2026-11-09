@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-11-08T21:27:36.783Z",
+  "updatedAt": "2026-11-09T03:37:03.913Z",
   "tracks": [
     {
-      "name": "I'm A Believer",
-      "artist": "Smash Mouth",
-      "url": "https://open.spotify.com/track/0C9jZPUv4SuaXkuEQw6L40",
-      "image": "https://i.scdn.co/image/ab67616d000048511c36662f70967a1210a42741",
-      "playedAt": "2026-11-08T17:07:17.070Z"
+      "name": "Hail to the King",
+      "artist": "Avenged Sevenfold",
+      "url": "https://open.spotify.com/track/5anCkDvJ17aznvK5TED5uo",
+      "image": "https://i.scdn.co/image/ab67616d000048510ea1ecb2d5271c2db402b0c2",
+      "playedAt": "2026-11-09T01:09:50.152Z"
     },
     {
-      "name": "Hawaiian Roller Coaster Ride - From \"Lilo & Stitch\"/Soundtrack Version",
-      "artist": "Mark Keali'i Ho'omalu, Kamehameha Schools Children's Chorus",
-      "url": "https://open.spotify.com/track/7J2SpEpsLlEZDxi8WhS4ET",
-      "image": "https://i.scdn.co/image/ab67616d000048514a5227191541ed9e1853d092",
-      "playedAt": "2026-11-08T17:01:56.770Z"
+      "name": "18 and Life",
+      "artist": "Skid Row",
+      "url": "https://open.spotify.com/track/3620P9KJS2PDebJ9ABFitc",
+      "image": "https://i.scdn.co/image/ab67616d00004851bb639863b7b716acf67bfa64",
+      "playedAt": "2026-11-09T01:04:43.808Z"
     },
     {
-      "name": "Life is a Highway",
-      "artist": "Rascal Flatts",
-      "url": "https://open.spotify.com/track/2Fs18NaCDuluPG1DHGw1XG",
-      "image": "https://i.scdn.co/image/ab67616d00004851aa6b03f85a0f2cb16e88ec0c",
-      "playedAt": "2026-11-08T16:58:28.472Z"
+      "name": "The Evil That Men Do - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/0S90LE5Z8FOdbui3tLak6t",
+      "image": "https://i.scdn.co/image/ab67616d00004851eab7b968bf8762355df7d840",
+      "playedAt": "2026-11-09T01:00:53.428Z"
     },
     {
-      "name": "He Mele No Lilo",
-      "artist": "Mark Keali'i Ho'omalu, Kamehameha Schools Children's Chorus",
-      "url": "https://open.spotify.com/track/3G9ZnSjGYyHx7e221v0qse",
-      "image": "https://i.scdn.co/image/ab67616d000048517c362acdd44ef0b3c0ec275f",
-      "playedAt": "2026-11-08T16:53:51.674Z"
+      "name": "The Sentinel",
+      "artist": "Judas Priest",
+      "url": "https://open.spotify.com/track/6noDJ06v7z8bCsBitjxFG2",
+      "image": "https://i.scdn.co/image/ab67616d00004851bc22adfbb796489be45491d2",
+      "playedAt": "2026-11-09T00:56:18.714Z"
     },
     {
-      "name": "Mama Said - Remastered",
+      "name": "Hallowed Be Thy Name - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/469rBLYJUZHMJLtq2Wch3h",
+      "image": "https://i.scdn.co/image/ab67616d000048515c29a88ba5341ca428f0c322",
+      "playedAt": "2026-11-09T00:42:34.806Z"
+    },
+    {
+      "name": "Children of the Grave - 2009 Remaster",
+      "artist": "Black Sabbath",
+      "url": "https://open.spotify.com/track/0ElAcOj8tudMA6X6KZ7SMO",
+      "image": "https://i.scdn.co/image/ab67616d0000485195326acf47fb8dd45e61c8d3",
+      "playedAt": "2026-11-09T00:35:23.199Z"
+    },
+    {
+      "name": "Welcome Home (Sanitarium) - Remastered",
       "artist": "Metallica",
-      "url": "https://open.spotify.com/track/2pFg7eERlKmCcdI3FlEuAc",
-      "image": "https://i.scdn.co/image/ab67616d000048511f64a7fb81f743272a6dd122",
-      "playedAt": "2026-11-08T02:55:05.658Z"
+      "url": "https://open.spotify.com/track/1FPSkRkDlthbAceSIIWc4C",
+      "image": "https://i.scdn.co/image/ab67616d0000485116d6f039fafd389911261ada",
+      "playedAt": "2026-11-09T00:30:06.810Z"
     },
     {
-      "name": "Ordinary Life",
-      "artist": "The Weeknd",
-      "url": "https://open.spotify.com/track/7lsYGc5H5DHktxO7gbB8bN",
-      "image": "https://i.scdn.co/image/ab67616d00004851a048415db06a5b6fa7ec4e1a",
-      "playedAt": "2026-11-07T19:55:56.533Z"
-    },
-    {
-      "name": "Another Love",
-      "artist": "Tom Odell",
-      "url": "https://open.spotify.com/track/3JvKfv6T31zO0ini8iNItO",
-      "image": "https://i.scdn.co/image/ab67616d000048511917a0f3f4152622a040913f",
-      "playedAt": "2026-11-07T19:52:14.135Z"
-    },
-    {
-      "name": "Prayers for the Damned",
-      "artist": "Sixx:A.M.",
-      "url": "https://open.spotify.com/track/2IFdWdGlCdPT99RALN1L2z",
-      "image": "https://i.scdn.co/image/ab67616d00004851a234484352e8ec21a99a0298",
-      "playedAt": "2026-11-07T19:47:58.845Z"
+      "name": "Love Me Harder",
+      "artist": "Ariana Grande, The Weeknd",
+      "url": "https://open.spotify.com/track/5J4ZkQpzMUFojo1CtAZYpn",
+      "image": "https://i.scdn.co/image/ab67616d00004851deec12a28d1e336c5052e9aa",
+      "playedAt": "2026-11-08T22:00:35.770Z"
     }
   ],
   "topTracks": {

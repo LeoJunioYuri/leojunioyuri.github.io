@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-11-10T22:38:24.803Z",
+  "updatedAt": "2026-11-11T03:42:21.659Z",
   "tracks": [
+    {
+      "name": "Aerials",
+      "artist": "System Of A Down",
+      "url": "https://open.spotify.com/track/4e9eGQYsOiBcftrWXwsVco",
+      "image": "https://i.scdn.co/image/ab67616d0000485107bc7d2a745636c356b4d0aa",
+      "playedAt": "2026-11-11T01:29:36.586Z"
+    },
+    {
+      "name": "Like a Stone",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/2xt2piJx6jlFkjS77YiqpL",
+      "image": "https://i.scdn.co/image/ab67616d000048514d94e1251b7e8c5e247de39c",
+      "playedAt": "2026-11-11T01:25:41.070Z"
+    },
+    {
+      "name": "Be Yourself",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/3zwmW1gM4E8FlHXV5nE16u",
+      "image": "https://i.scdn.co/image/ab67616d0000485107301dd5fedf5ad64cde4882",
+      "playedAt": "2026-11-11T01:20:08.680Z"
+    },
+    {
+      "name": "I Am the Highway",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/3bwAS8cN7Xtzvv5UurJOOX",
+      "image": "https://i.scdn.co/image/ab67616d00004851a7292b6863258e889b78d787",
+      "playedAt": "2026-11-11T01:15:29.286Z"
+    },
+    {
+      "name": "I Am the Highway",
+      "artist": "Audioslave",
+      "url": "https://open.spotify.com/track/3bwAS8cN7Xtzvv5UurJOOX",
+      "image": "https://i.scdn.co/image/ab67616d00004851a7292b6863258e889b78d787",
+      "playedAt": "2026-11-11T01:07:08.274Z"
+    },
+    {
+      "name": "Wasted Years - 2015 Remaster",
+      "artist": "Iron Maiden",
+      "url": "https://open.spotify.com/track/1HM7Vp84E4SMzdrZONg6bH",
+      "image": "https://i.scdn.co/image/ab67616d00004851e113e5fda96f8b219faf6ff0",
+      "playedAt": "2026-11-11T01:01:27.819Z"
+    },
     {
       "name": "Another Life",
       "artist": "Motionless In White",
@@ -14,48 +56,6 @@
       "url": "https://open.spotify.com/track/7eRG7KNDIgjIk3nvykmhOT",
       "image": "https://i.scdn.co/image/ab67616d00004851e7fbc0883149094912559f2c",
       "playedAt": "2026-11-10T20:26:30.942Z"
-    },
-    {
-      "name": "The Worst In Me",
-      "artist": "Bad Omens",
-      "url": "https://open.spotify.com/track/3nRwDWuop6A8uaBmf4V73J",
-      "image": "https://i.scdn.co/image/ab67616d00004851ef21fc72f79bbe39944c6dba",
-      "playedAt": "2026-11-10T20:21:57.591Z"
-    },
-    {
-      "name": "Figure.09",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/0rPTPahzhGx9LSzI8XX5OM",
-      "image": "https://i.scdn.co/image/ab67616d000048518b5b6fa1326d996181e71dd7",
-      "playedAt": "2026-11-10T19:59:33.681Z"
-    },
-    {
-      "name": "Buried Alive",
-      "artist": "Avenged Sevenfold",
-      "url": "https://open.spotify.com/track/4veeNpXDK1YRHMTJ1Cppsg",
-      "image": "https://i.scdn.co/image/ab67616d00004851c34064a3c5e4a25892a091f3",
-      "playedAt": "2026-11-10T19:53:22.779Z"
-    },
-    {
-      "name": "Dalaran",
-      "artist": "Russell Brower, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/2ulG1KaHKaEdQmBulQxHg4",
-      "image": "https://i.scdn.co/image/ab67616d00004851354a2bc4726942dca13885ef",
-      "playedAt": "2026-11-10T19:46:31.162Z"
-    },
-    {
-      "name": "A Call To Arms",
-      "artist": "Jason Hayes, Glenn Stafford, World of Warcraft, Blizzard Entertainment",
-      "url": "https://open.spotify.com/track/4DwYTtVEDSdHSiGW80xXKH",
-      "image": "https://i.scdn.co/image/ab67616d0000485118c3b60ae5dd1eeb1544e32a",
-      "playedAt": "2026-11-10T18:15:49.713Z"
-    },
-    {
-      "name": "Wings of Kynareth",
-      "artist": "Jeremy Soule, The Elder Scrolls",
-      "url": "https://open.spotify.com/track/75f0khzHW4FF5Bzb7EkZRx",
-      "image": "https://i.scdn.co/image/ab67616d0000485113d5746aa8f8ec2b8813d306",
-      "playedAt": "2026-11-10T18:13:29.889Z"
     }
   ],
   "topTracks": {
@@ -125,24 +125,24 @@
       },
       {
         "rank": 10,
-        "name": "Afterlife",
-        "artist": "Avenged Sevenfold",
-        "url": "https://open.spotify.com/track/7zAt4tdL44D3VuzsvM0N8n",
-        "image": "https://i.scdn.co/image/ab67616d0000485133c52ca8309741c6999ca742"
-      },
-      {
-        "rank": 11,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 12,
+        "rank": 11,
         "name": "Like A Cowboy",
         "artist": "Wes Brown",
         "url": "https://open.spotify.com/track/5I2FidcQif9kxQqaRnEVs7",
         "image": "https://i.scdn.co/image/ab67616d000048517e9d1983e248b6cfab82808d"
+      },
+      {
+        "rank": 12,
+        "name": "In And Out Of Love",
+        "artist": "Armin van Buuren, Sharon Den Adel",
+        "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
+        "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00"
       }
     ],
     "medium": [

@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-11-13T22:59:36.257Z",
+  "updatedAt": "2026-11-14T03:59:08.761Z",
   "tracks": [
+    {
+      "name": "Take Us Back (From \"The Walking Dead\")",
+      "artist": "Lizz Robinett",
+      "url": "https://open.spotify.com/track/1Rg1Px5hvNigQ2EEfcqnYW",
+      "image": "https://i.scdn.co/image/ab67616d000048514b47b84e7c4150e974209ccc",
+      "playedAt": "2026-11-14T00:59:35.377Z"
+    },
+    {
+      "name": "Souvenir",
+      "artist": "boygenius, Julien Baker, Phoebe Bridgers, Lucy Dacus",
+      "url": "https://open.spotify.com/track/21JL0gpeAYgbSUmzhgSPJz",
+      "image": "https://i.scdn.co/image/ab67616d00004851aaf249e10efa3f8897df2697",
+      "playedAt": "2026-11-13T23:05:12.422Z"
+    },
+    {
+      "name": "Crossfire",
+      "artist": "Brandon Flowers",
+      "url": "https://open.spotify.com/track/6S8r0pRxRUy3OF3UUtNjdN",
+      "image": "https://i.scdn.co/image/ab67616d000048514c968f58fed74b61e824d4c6",
+      "playedAt": "2026-11-13T23:01:23.827Z"
+    },
+    {
+      "name": "When You're Young - Acoustic",
+      "artist": "3 Doors Down",
+      "url": "https://open.spotify.com/track/37aHvaR96bdYP4nv3fGJ7D",
+      "image": "https://i.scdn.co/image/ab67616d00004851146a976bb3697a443f400f80",
+      "playedAt": "2026-11-13T22:56:58.435Z"
+    },
     {
       "name": "Open Your Eyes",
       "artist": "Snow Patrol",
@@ -28,34 +56,6 @@
       "url": "https://open.spotify.com/track/6kwAbEjseqBob48jCus7Sz",
       "image": "https://i.scdn.co/image/ab67616d000048515d199c9f6e6562aafa5aa357",
       "playedAt": "2026-11-13T22:34:34.718Z"
-    },
-    {
-      "name": "chance with you",
-      "artist": "mehro",
-      "url": "https://open.spotify.com/track/7qFtcljd0PZ5kJZos70YjT",
-      "image": "https://i.scdn.co/image/ab67616d00004851b6001fc409be66aba716ee8b",
-      "playedAt": "2026-11-13T22:30:17.023Z"
-    },
-    {
-      "name": "Blue Jeans",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/4RyK6N4IQ85xxLgguQAFH5",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-11-13T22:26:12.675Z"
-    },
-    {
-      "name": "Poppaea",
-      "artist": "Theatre Of Tragedy",
-      "url": "https://open.spotify.com/track/5D6kMbIvTH3KH3UDdiiGh1",
-      "image": "https://i.scdn.co/image/ab67616d00004851af6b567023c685829c273982",
-      "playedAt": "2026-11-13T22:22:26.337Z"
-    },
-    {
-      "name": "Pale Tortured Blue",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/03MQ3zCdrzpYU5Q1xqVcPJ",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-11-13T22:16:33.539Z"
     }
   ],
   "topTracks": {
@@ -76,24 +76,24 @@
       },
       {
         "rank": 3,
-        "name": "Here's to Never Growing Up",
-        "artist": "Avril Lavigne",
-        "url": "https://open.spotify.com/track/0qwcGscxUHGZTgq0zcaqk1",
-        "image": "https://i.scdn.co/image/ab67616d00004851817da73d6641ddbcc0a50363"
-      },
-      {
-        "rank": 4,
         "name": "IGYEIH",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/7M8eZBRTD9QNasEVReEM0H",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 5,
+        "rank": 4,
         "name": "Over Each Other",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/3k4gjmYNJugQRlh2aounZ9",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
+      },
+      {
+        "rank": 5,
+        "name": "Chemtrails Over The Country Club",
+        "artist": "Lana Del Rey",
+        "url": "https://open.spotify.com/track/7bPWdJgx8vek7S5i5yAtvG",
+        "image": "https://i.scdn.co/image/ab67616d00004851ca929c6e766cb8591a286e0d"
       },
       {
         "rank": 6,

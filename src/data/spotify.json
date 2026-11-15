@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-11-15T03:44:46.440Z",
+  "updatedAt": "2026-11-15T13:07:42.369Z",
   "tracks": [
+    {
+      "name": "Anjos (Pra quem tem fé)",
+      "artist": "O Rappa",
+      "url": "https://open.spotify.com/track/1UvWx2hgpxlF7HPbwLSmIY",
+      "image": "https://i.scdn.co/image/ab67616d00004851ba22c87c3148dce9c95ad7bb",
+      "playedAt": "2026-11-15T02:51:07.379Z"
+    },
     {
       "name": "Ainda Gosto Dela",
       "artist": "Skank",
@@ -49,13 +56,6 @@
       "url": "https://open.spotify.com/track/1Rg1Px5hvNigQ2EEfcqnYW",
       "image": "https://i.scdn.co/image/ab67616d000048514b47b84e7c4150e974209ccc",
       "playedAt": "2026-11-14T00:59:35.377Z"
-    },
-    {
-      "name": "Souvenir",
-      "artist": "boygenius, Julien Baker, Phoebe Bridgers, Lucy Dacus",
-      "url": "https://open.spotify.com/track/21JL0gpeAYgbSUmzhgSPJz",
-      "image": "https://i.scdn.co/image/ab67616d00004851aaf249e10efa3f8897df2697",
-      "playedAt": "2026-11-13T23:05:12.422Z"
     }
   ],
   "topTracks": {

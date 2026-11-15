@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-11-14T21:47:16.538Z",
+  "updatedAt": "2026-11-15T03:44:46.440Z",
   "tracks": [
+    {
+      "name": "Ainda Gosto Dela",
+      "artist": "Skank",
+      "url": "https://open.spotify.com/track/2wtnWkmyE2ivwmDyVfJ8N5",
+      "image": "https://i.scdn.co/image/ab67616d00004851d5ca21b956c1d0118f651877",
+      "playedAt": "2026-11-15T00:21:10.851Z"
+    },
+    {
+      "name": "Vamos Fugir",
+      "artist": "Skank",
+      "url": "https://open.spotify.com/track/5a008ecFPEypprh1yOg1bM",
+      "image": "https://i.scdn.co/image/ab67616d000048517e6bac67c798fb0dd60e7fbc",
+      "playedAt": "2026-11-15T00:15:55.700Z"
+    },
+    {
+      "name": "Unchain Utopia",
+      "artist": "Epica",
+      "url": "https://open.spotify.com/track/0KH0Ox65pRJ4F2kCDrm3gt",
+      "image": "https://i.scdn.co/image/ab67616d000048515b638d1717948a63ad548349",
+      "playedAt": "2026-11-15T00:11:43.407Z"
+    },
     {
       "name": "Sensorium",
       "artist": "Epica",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/21JL0gpeAYgbSUmzhgSPJz",
       "image": "https://i.scdn.co/image/ab67616d00004851aaf249e10efa3f8897df2697",
       "playedAt": "2026-11-13T23:05:12.422Z"
-    },
-    {
-      "name": "Crossfire",
-      "artist": "Brandon Flowers",
-      "url": "https://open.spotify.com/track/6S8r0pRxRUy3OF3UUtNjdN",
-      "image": "https://i.scdn.co/image/ab67616d000048514c968f58fed74b61e824d4c6",
-      "playedAt": "2026-11-13T23:01:23.827Z"
-    },
-    {
-      "name": "When You're Young - Acoustic",
-      "artist": "3 Doors Down",
-      "url": "https://open.spotify.com/track/37aHvaR96bdYP4nv3fGJ7D",
-      "image": "https://i.scdn.co/image/ab67616d00004851146a976bb3697a443f400f80",
-      "playedAt": "2026-11-13T22:56:58.435Z"
-    },
-    {
-      "name": "Open Your Eyes",
-      "artist": "Snow Patrol",
-      "url": "https://open.spotify.com/track/5HPj0yTUFEFNia8SWgjq46",
-      "image": "https://i.scdn.co/image/ab67616d000048515da2756220da9b6f17924f8f",
-      "playedAt": "2026-11-13T22:52:37.578Z"
     }
   ],
   "topTracks": {
@@ -139,10 +139,10 @@
       },
       {
         "rank": 12,
-        "name": "What Else Is There?",
-        "artist": "Mortemia, Sirenia, Blackbriar, Zora Cock",
-        "url": "https://open.spotify.com/track/0zbeLVcM8iUBiKq6GxoJU3",
-        "image": "https://i.scdn.co/image/ab67616d000048516375c33502113c25ff00df56"
+        "name": "Unchain Utopia",
+        "artist": "Epica",
+        "url": "https://open.spotify.com/track/0KH0Ox65pRJ4F2kCDrm3gt",
+        "image": "https://i.scdn.co/image/ab67616d000048515b638d1717948a63ad548349"
       }
     ],
     "medium": [

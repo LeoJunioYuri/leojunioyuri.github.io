@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-16T14:15:16.217Z",
+  "updatedAt": "2026-11-17T01:15:54.752Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 177,
+      "minutes2weeks": 123,
       "minutesTotal": 1184,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
@@ -111,7 +111,7 @@
       "name": "Call of Duty®: Modern Warfare® 4",
       "appid": 4435490,
       "url": "https://store.steampowered.com/app/4435490",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/0c492be3204835d71e8b454b6eb1817f8ff68c0d/header.jpg?t=1794339680"
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/0c492be3204835d71e8b454b6eb1817f8ff68c0d/header.jpg?t=1794873974"
     },
     {
       "name": "FINAL FANTASY VII REVELATION",

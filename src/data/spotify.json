@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-11-16T14:15:14.916Z",
+  "updatedAt": "2026-11-17T01:15:53.737Z",
   "tracks": [
+    {
+      "name": "As Long As You Love Me",
+      "artist": "Justin Bieber, Big Sean",
+      "url": "https://open.spotify.com/track/75lo8VozcCLRG9WGG674iD",
+      "image": "https://i.scdn.co/image/ab67616d00004851f1d02a6cec967f8b6b78f76e",
+      "playedAt": "2026-11-17T00:34:10.065Z"
+    },
+    {
+      "name": "Sweet Dreams",
+      "artist": "Beyoncé",
+      "url": "https://open.spotify.com/track/6Q8ljVgg7kR0R5v2aOXHlg",
+      "image": "https://i.scdn.co/image/ab67616d000048512fd16e69054586f25be54f49",
+      "playedAt": "2026-11-17T00:20:44.730Z"
+    },
+    {
+      "name": "Something About Us",
+      "artist": "Daft Punk",
+      "url": "https://open.spotify.com/track/1NeLwFETswx8Fzxl2AFl91",
+      "image": "https://i.scdn.co/image/ab67616d000048511e81bff9807a9e629fce5ade",
+      "playedAt": "2026-11-16T22:58:15.665Z"
+    },
+    {
+      "name": "Instant Crush (feat. Julian Casablancas)",
+      "artist": "Daft Punk, Julian Casablancas",
+      "url": "https://open.spotify.com/track/2cGxRwrMyEAp8dEbuZaVv6",
+      "image": "https://i.scdn.co/image/ab67616d000048519b9b36b0e22870b9f542d937",
+      "playedAt": "2026-11-16T22:53:53.655Z"
+    },
+    {
+      "name": "Heaven and Hell",
+      "artist": "Black Sabbath",
+      "url": "https://open.spotify.com/track/5qxN63QA4Hk1zgdLCsZFE2",
+      "image": "https://i.scdn.co/image/ab67616d00004851a48447e72e8c507054c2ec2e",
+      "playedAt": "2026-11-16T21:11:04.997Z"
+    },
     {
       "name": "Good Things Go",
       "artist": "Linkin Park",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/0uLufckMlMqXtnzw2mDoEC",
       "image": "https://i.scdn.co/image/ab67616d000048516128153b908498f1cd27e161",
       "playedAt": "2026-11-16T00:55:07.300Z"
-    },
-    {
-      "name": "Stellar Tombs",
-      "artist": "Draconian",
-      "url": "https://open.spotify.com/track/5ufXWfJYuflijkhLVyRzgr",
-      "image": "https://i.scdn.co/image/ab67616d000048510096c9e9593512ab8aa8dc42",
-      "playedAt": "2026-11-16T00:33:16.952Z"
-    },
-    {
-      "name": "The Rise of Sodom and Gomorrah",
-      "artist": "Therion",
-      "url": "https://open.spotify.com/track/6e3NycWM7ZokZgeUR1CpNj",
-      "image": "https://i.scdn.co/image/ab67616d00004851f44c29e35047155c1c46651a",
-      "playedAt": "2026-11-16T00:26:30.192Z"
-    },
-    {
-      "name": "I'm Just Ken",
-      "artist": "Ryan Gosling",
-      "url": "https://open.spotify.com/track/3zXIvb4nZ3cTdT8CsbTy3U",
-      "image": "https://i.scdn.co/image/ab67616d00004851f201eaede4f6a6a071e64a83",
-      "playedAt": "2026-11-16T00:18:35.607Z"
-    },
-    {
-      "name": "Dark Paradise",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/6qqdFWe7C4LsBjWbXQdsHA",
-      "image": "https://i.scdn.co/image/ab67616d00004851ebc8cfac8b586bc475b04918",
-      "playedAt": "2026-11-16T00:14:47.239Z"
-    },
-    {
-      "name": "High By The Beach",
-      "artist": "Lana Del Rey",
-      "url": "https://open.spotify.com/track/7g3htkaLz4ETFn0cifwM3y",
-      "image": "https://i.scdn.co/image/ab67616d00004851a3b3f48ca81acacb3ad4ec8a",
-      "playedAt": "2026-11-15T22:38:59.589Z"
     }
   ],
   "topTracks": {

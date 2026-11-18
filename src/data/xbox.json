@@ -1,6 +1,14 @@
 {
-  "updatedAt": "2026-11-17T15:08:00.625Z",
+  "updatedAt": "2026-11-18T00:10:43.487Z",
   "recent": [
+    {
+      "name": "God of War",
+      "titleId": "1963776030",
+      "lastPlayed": "2026-11-17T23:53:11.1120601Z",
+      "image": null,
+      "gamerscore": 0,
+      "url": "https://www.xbox.com/games/store/-/1963776030"
+    },
     {
       "name": "World of Warcraft",
       "titleId": "1664882211",
@@ -8,14 +16,6 @@
       "image": "https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToBAInhxUS6pI0HjtmvshPyKBDd29XwvB8IeLHBOGxr0X773.93tldyMe_l6Dia9sf1HAQZM9fP5Me2EuGVCS3aVMzt93X3fwem0H5Gp67Q9Rw--",
       "gamerscore": 0,
       "url": "https://www.xbox.com/games/store/-/1664882211"
-    },
-    {
-      "name": "God of War",
-      "titleId": "1963776030",
-      "lastPlayed": "2026-11-03T23:38:13.6523528Z",
-      "image": null,
-      "gamerscore": 0,
-      "url": "https://www.xbox.com/games/store/-/1963776030"
     },
     {
       "name": "Overwatch",

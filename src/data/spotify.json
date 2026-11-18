@@ -1,6 +1,41 @@
 {
-  "updatedAt": "2026-11-18T00:10:37.310Z",
+  "updatedAt": "2026-11-18T14:46:00.641Z",
   "tracks": [
+    {
+      "name": "Here's to Never Growing Up",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/0qwcGscxUHGZTgq0zcaqk1",
+      "image": "https://i.scdn.co/image/ab67616d00004851817da73d6641ddbcc0a50363",
+      "playedAt": "2026-11-18T14:07:52.261Z"
+    },
+    {
+      "name": "Rock N Roll",
+      "artist": "Avril Lavigne",
+      "url": "https://open.spotify.com/track/471JGLzHPrgM4lS9mNOEIt",
+      "image": "https://i.scdn.co/image/ab67616d00004851817da73d6641ddbcc0a50363",
+      "playedAt": "2026-11-18T14:03:11.444Z"
+    },
+    {
+      "name": "In And Out Of Love",
+      "artist": "Armin van Buuren, Sharon Den Adel",
+      "url": "https://open.spotify.com/track/1FzbOPWCZiNxnLjAhY1jAR",
+      "image": "https://i.scdn.co/image/ab67616d0000485161dadc433336e3c332288c00",
+      "playedAt": "2026-11-18T13:55:08.668Z"
+    },
+    {
+      "name": "Voyage voyage",
+      "artist": "Desireless",
+      "url": "https://open.spotify.com/track/2d8D7uk3tbAThjRkdfrx9c",
+      "image": "https://i.scdn.co/image/ab67616d000048518f5813c842cb115f3cf1fecd",
+      "playedAt": "2026-11-18T13:52:06.484Z"
+    },
+    {
+      "name": "Aerials",
+      "artist": "System Of A Down",
+      "url": "https://open.spotify.com/track/4e9eGQYsOiBcftrWXwsVco",
+      "image": "https://i.scdn.co/image/ab67616d0000485107bc7d2a745636c356b4d0aa",
+      "playedAt": "2026-11-17T23:47:48.577Z"
+    },
     {
       "name": "Circle With Me",
       "artist": "Spiritbox",
@@ -21,41 +56,6 @@
       "url": "https://open.spotify.com/track/0tWEB6BxbI48XN79QE1JbT",
       "image": "https://i.scdn.co/image/ab67616d0000485125f49ab23f0ec6332efef432",
       "playedAt": "2026-11-17T23:35:47.639Z"
-    },
-    {
-      "name": "Papercut",
-      "artist": "Linkin Park",
-      "url": "https://open.spotify.com/track/1Vej0qeQ3ioKwpI6FUbRv1",
-      "image": "https://i.scdn.co/image/ab67616d00004851e2f039481babe23658fc719a",
-      "playedAt": "2026-11-17T23:32:00.934Z"
-    },
-    {
-      "name": "Another Life",
-      "artist": "Motionless In White",
-      "url": "https://open.spotify.com/track/0YZEYxd1oiqZRFhnnmTKKi",
-      "image": "https://i.scdn.co/image/ab67616d00004851944e11093f0e01c60be5be8f",
-      "playedAt": "2026-11-17T23:28:55.549Z"
-    },
-    {
-      "name": "Snuff",
-      "artist": "Slipknot",
-      "url": "https://open.spotify.com/track/2vPZ4Lklyu75zBR3SgbFNI",
-      "image": "https://i.scdn.co/image/ab67616d00004851e7fbc0883149094912559f2c",
-      "playedAt": "2026-11-17T23:25:29.655Z"
-    },
-    {
-      "name": "Rebellion (feat. Daron Malakian)",
-      "artist": "Linkin Park, Daron Malakian",
-      "url": "https://open.spotify.com/track/3zZ009FB8sc8JghwVrbLFq",
-      "image": "https://i.scdn.co/image/ab67616d000048515721adac031512b903f10d03",
-      "playedAt": "2026-11-17T23:20:53.043Z"
-    },
-    {
-      "name": "Dead Memories",
-      "artist": "Slipknot",
-      "url": "https://open.spotify.com/track/0HAr4QR1xI8nwC7VfzYidu",
-      "image": "https://i.scdn.co/image/ab67616d00004851457163bec7e8e4decf8c6375",
-      "playedAt": "2026-11-17T23:17:08.347Z"
     }
   ],
   "topTracks": {

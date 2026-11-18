@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-18T00:10:38.335Z",
+  "updatedAt": "2026-11-18T14:46:01.735Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 91,
-      "minutesTotal": 1184,
+      "minutes2weeks": 228,
+      "minutesTotal": 1413,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
     }
@@ -60,20 +60,20 @@
       "url": "https://store.steampowered.com/app/444090"
     },
     {
+      "name": "God of War",
+      "appid": 1593500,
+      "minutes2weeks": 228,
+      "minutesTotal": 1413,
+      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
+      "url": "https://store.steampowered.com/app/1593500"
+    },
+    {
       "name": "Mirror's Edge™ Catalyst",
       "appid": 1233570,
       "minutes2weeks": 0,
       "minutesTotal": 1384,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1233570/a5583fa5e07defaeb3a3ade0b4936767265dd660.jpg",
       "url": "https://store.steampowered.com/app/1233570"
-    },
-    {
-      "name": "STAR WARS™: The Old Republic™",
-      "appid": 1286830,
-      "minutes2weeks": 0,
-      "minutesTotal": 1376,
-      "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1286830/cee1e2970e9535767d963bf3c2c4011adb100609.jpg",
-      "url": "https://store.steampowered.com/app/1286830"
     }
   ],
   "wishlist": [
@@ -123,7 +123,7 @@
       "name": "007 First Light",
       "appid": 3768760,
       "url": "https://store.steampowered.com/app/3768760",
-      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/be65391533f072e79699be70ef2d47b7b2ac57ee/header_alt_assets_5.jpg?t=1793979129"
+      "header": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/be65391533f072e79699be70ef2d47b7b2ac57ee/header_alt_assets_5.jpg?t=1794994686"
     },
     {
       "name": "Assassin's Creed Black Flag Resynced",

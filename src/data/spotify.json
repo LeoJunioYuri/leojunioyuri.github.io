@@ -1,61 +1,61 @@
 {
-  "updatedAt": "2026-11-20T06:15:57.714Z",
+  "updatedAt": "2026-11-20T19:24:22.565Z",
   "tracks": [
-    {
-      "name": "Deep Silent Complete",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3Fba4XIaDBLFfKrOcsBjsY",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba96734210acf1312049e569",
-      "playedAt": "2026-11-20T05:55:22.533Z"
-    },
-    {
-      "name": "Crownless",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/5pf8gamghe8jg36VEkcUWO",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba96734210acf1312049e569",
-      "playedAt": "2026-11-20T05:51:25.109Z"
-    },
     {
       "name": "Bare Grace Misery",
       "artist": "Nightwish",
       "url": "https://open.spotify.com/track/7lLwdzVWcDiFHz2mLoXYbv",
       "image": "https://i.scdn.co/image/ab67616d00004851ba96734210acf1312049e569",
-      "playedAt": "2026-11-20T05:46:59.440Z"
+      "playedAt": "2026-11-20T18:03:27.005Z"
     },
     {
-      "name": "Wishmaster",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/4mwiaj9c4V0pW5y8t9mYHa",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba96734210acf1312049e569",
-      "playedAt": "2026-11-20T05:43:08.111Z"
+      "name": "Odd Look",
+      "artist": "Kavinsky, The Weeknd",
+      "url": "https://open.spotify.com/track/3Q6mwJseOFYBJ10d5CXp4o",
+      "image": "https://i.scdn.co/image/ab67616d000048518cc5da5394cb8ccd3646179a",
+      "playedAt": "2026-11-20T17:52:00.026Z"
     },
     {
-      "name": "Two For Tragedy",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/3q1KsIaVl9mpHj8sj4zJM6",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba96734210acf1312049e569",
-      "playedAt": "2026-11-20T05:38:44.077Z"
+      "name": "Physical",
+      "artist": "Dua Lipa",
+      "url": "https://open.spotify.com/track/3AzjcOeAmA57TIOr9zF1ZW",
+      "image": "https://i.scdn.co/image/ab67616d00004851c88bae7846e62a8ba59ee0bd",
+      "playedAt": "2026-11-20T17:39:05.883Z"
     },
     {
-      "name": "Wanderlust",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6SGgqQMil2EmJJvOlcgUkg",
-      "image": "https://i.scdn.co/image/ab67616d00004851ba96734210acf1312049e569",
-      "playedAt": "2026-11-20T05:34:53.446Z"
+      "name": "Chlorine",
+      "artist": "Twenty One Pilots",
+      "url": "https://open.spotify.com/track/23OXdR7YuUBVWh5hSnYJau",
+      "image": "https://i.scdn.co/image/ab67616d00004851d1d301e737da4324479c6660",
+      "playedAt": "2026-11-20T17:35:51.604Z"
     },
     {
-      "name": "High Hopes",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/6ofNSq9zQw7PJ7aY0bMt41",
-      "image": "https://i.scdn.co/image/ab67616d000048511d86014b335da210434922db",
-      "playedAt": "2026-11-20T05:20:42.173Z"
+      "name": "Love Again",
+      "artist": "Dua Lipa",
+      "url": "https://open.spotify.com/track/4rPkN1FMzQyFNP9cLUGIIB",
+      "image": "https://i.scdn.co/image/ab67616d00004851c88bae7846e62a8ba59ee0bd",
+      "playedAt": "2026-11-20T17:27:34.188Z"
     },
     {
-      "name": "Beauty Of The Beast",
-      "artist": "Nightwish",
-      "url": "https://open.spotify.com/track/0kOmBLLlANhna67qyClag8",
-      "image": "https://i.scdn.co/image/ab67616d00004851c8fec123bb092147b0b0edad",
-      "playedAt": "2026-11-20T05:06:04.668Z"
+      "name": "Stressed Out",
+      "artist": "Twenty One Pilots",
+      "url": "https://open.spotify.com/track/3CRDbSIZ4r5MsZ0YwxuEkn",
+      "image": "https://i.scdn.co/image/ab67616d000048512df0d98a423025032d0db1f7",
+      "playedAt": "2026-11-20T17:23:15.691Z"
+    },
+    {
+      "name": "Try Me",
+      "artist": "The Weeknd",
+      "url": "https://open.spotify.com/track/4ppTAJUbNXELZcoUaL90wo",
+      "image": "https://i.scdn.co/image/ab67616d000048511f6a2a40bb692936879db730",
+      "playedAt": "2026-11-20T17:19:39.895Z"
+    },
+    {
+      "name": "After Hours",
+      "artist": "The Weeknd",
+      "url": "https://open.spotify.com/track/2p8IUWQDrpjuFltbdgLOag",
+      "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
+      "playedAt": "2026-11-20T17:15:53.397Z"
     }
   ],
   "topTracks": {
@@ -111,38 +111,38 @@
       },
       {
         "rank": 8,
+        "name": "Save Your Tears",
+        "artist": "The Weeknd",
+        "url": "https://open.spotify.com/track/5QO79kh1waicV47BqGRL3g",
+        "image": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36"
+      },
+      {
+        "rank": 9,
         "name": "Children of the Grave - 2014 Remaster",
         "artist": "Black Sabbath",
         "url": "https://open.spotify.com/track/5clz8BOBulxx7q2yHxqOCk",
         "image": "https://i.scdn.co/image/ab67616d00004851c199494ba9ea2b73e9208f91"
       },
       {
-        "rank": 9,
+        "rank": 10,
         "name": "The Emptiness Machine",
         "artist": "Linkin Park",
         "url": "https://open.spotify.com/track/1EDPVGbyPKJPeGqATwXZvN",
         "image": "https://i.scdn.co/image/ab67616d000048518be9eeb8f19696ef2fd3b6b4"
       },
       {
-        "rank": 10,
+        "rank": 11,
         "name": "Like A Cowboy",
         "artist": "Wes Brown",
         "url": "https://open.spotify.com/track/5I2FidcQif9kxQqaRnEVs7",
         "image": "https://i.scdn.co/image/ab67616d000048517e9d1983e248b6cfab82808d"
       },
       {
-        "rank": 11,
+        "rank": 12,
         "name": "Born To Die",
         "artist": "Lana Del Rey",
         "url": "https://open.spotify.com/track/36RLpWj2hzT7SFUMQSZfst",
         "image": "https://i.scdn.co/image/ab67616d00004851959280fee07d485cb5b56fe7"
-      },
-      {
-        "rank": 12,
-        "name": "Sorry",
-        "artist": "Nothing But Thieves",
-        "url": "https://open.spotify.com/track/6rAXHPd18PZ6W8m9EectzH",
-        "image": "https://i.scdn.co/image/ab67616d000048516ff76d00ab7563327baf49d2"
       }
     ],
     "medium": [

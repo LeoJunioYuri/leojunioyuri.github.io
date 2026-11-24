@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-23T16:48:06.959Z",
+  "updatedAt": "2026-11-24T03:35:34.619Z",
   "games": [
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 501,
-      "minutesTotal": 1686,
+      "minutes2weeks": 615,
+      "minutesTotal": 1799,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
     }
@@ -54,8 +54,8 @@
     {
       "name": "God of War",
       "appid": 1593500,
-      "minutes2weeks": 501,
-      "minutesTotal": 1686,
+      "minutes2weeks": 615,
+      "minutesTotal": 1799,
       "image": "https://media.steampowered.com/steamcommunity/public/images/apps/1593500/8aa5e7e0e55cad682c7f2e65e075c3bc04dfc1cb.jpg",
       "url": "https://store.steampowered.com/app/1593500"
     },

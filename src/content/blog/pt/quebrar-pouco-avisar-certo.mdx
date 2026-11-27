@@ -115,15 +115,6 @@ Tudo isso estraga de novo se ninguém olhar. Deixamos uma tarefa diária que lê
 
 **Conceito:** o que não é medido todo dia volta a piorar devagar, e ninguém percebe.
 
-## 10. Coordenação
-
-Nem tudo foi técnico. Com várias frentes rodando ao mesmo tempo, duas coisas deram errado:
-
-- **Duplicamos trabalho.** Um colega tinha aberto, de manhã, correções para parte do mesmo problema. As nossas entraram primeiro, e as dele ficaram em conflito.
-- **Uma mudança entrou sem revisão.** No repositório de uma ferramenta interna, a branch principal não tinha proteção, e um merge automático juntou na hora, sem esperar a revisão nem o fim dos testes. A mudança estava certa. O processo não estava.
-
-**Lição:** antes de fazer, veja se alguém já está fazendo. Proteja a branch principal. E mudança em código compartilhado pede revisão de quem cuida dele.
-
 ## O que ainda não sabemos
 
 Tudo isso entrou em produção no mesmo dia em que escrevo. O que ainda não sei:
@@ -147,4 +138,4 @@ Volto aqui em 4 de dezembro com esses números.
 - Mensagem de erro precisa dizer o quê e por quê, e precisa chegar.
 - Lint impede o código novo de trazer os problemas de volta.
 - Cache: entenda quando ele falha antes de escolher single-flight, stale-while-revalidate, refresh-ahead ou instância quente. E meça o que não fazer.
-- Vigie todo dia. E coordene antes de sair fazendo.
+- Vigie todo dia.

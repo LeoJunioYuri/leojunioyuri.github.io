@@ -115,15 +115,6 @@ All of this decays again if nobody looks. We set up a daily task that reads the 
 
 **Concept:** what isn't measured every day slowly gets worse again, and nobody notices.
 
-## 10. Coordination
-
-Not everything was technical. With several fronts running at once, two things went wrong:
-
-- **We duplicated work.** A colleague had opened fixes that morning for part of the same problem. Ours landed first, and his ended up in conflict.
-- **A change landed without review.** In the repository of an internal tool, the main branch had no protection, and an auto-merge landed at once, without waiting for review or for the tests to finish. The change was right. The process wasn't.
-
-**Lesson:** before doing something, check whether someone is already on it. Protect the main branch. And a change to shared code needs a review from whoever looks after it.
-
 ## What we don't know yet
 
 All of this went to production the same day I'm writing. What I don't know yet:
@@ -147,4 +138,4 @@ I'll be back on December 4 with those numbers.
 - An error message must say what and why, and it must arrive.
 - Lint keeps new code from bringing the problems back.
 - Cache: understand when it fails before choosing single-flight, stale-while-revalidate, refresh-ahead or a warm instance. And measure what not to do.
-- Watch every day. And coordinate before you start.
+- Watch every day.

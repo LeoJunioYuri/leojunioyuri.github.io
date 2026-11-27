@@ -1,0 +1,150 @@
+---
+title: "Quebrar pouco, avisar certo, se recuperar sozinho"
+description: "Um dia inteiro mexendo na saúde das APIs do time de Ads: severidade de log, um alerta por problema, retentar sem gritar, disjuntor, mensagens que explicam e cache que não faz o dono esperar. Cada dor, a solução e o conceito por trás."
+date: 2026-11-27
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Engenharia", "System Design", "Observabilidade", "Cache", "Confiabilidade", "Lições"]
+translationOf: "en/break-little-warn-right"
+---
+
+Saúde de um sistema não é "não quebrar". Tudo quebra: a API da Meta recusa, o banco pisca, um serviço de terceiro demora. Saúde é **quebrar pouco, avisar certo e se recuperar sozinho**.
+
+Na Brendi, temos uma nota interna de saúde por time. Ela olha quatro coisas na última semana: bugs reportados, grupos de erro novos, a fração de linhas de log que são erro, e alertas. A do time de Ads estava baixa, e no dia 27 de novembro decidimos atacar de uma vez. Este post é o resumo do que mudamos, contado do jeito que eu gostaria de ter aprendido: cada dor, a solução e o conceito por trás.
+
+Um aviso antes: tudo aqui entrou em produção nesse mesmo dia. Os números abaixo vêm das próprias medições que fizemos para decidir cada mudança, não do efeito delas. Volto em 4 de dezembro com os números de uma semana depois.
+
+## 1. Medir antes de agir
+
+A primeira tentação foi esperar. A nota olha os últimos sete dias, e a semana tinha tido uma queda de banco que gerou muitos alertas. Pensei que, quando aquele dia saísse da janela, a nota subiria sozinha.
+
+Fiz a conta com a fórmula da nota e ela não subia quase nada. Duas das quatro partes caem exponencialmente: com uns oito eventos por semana, já estão perto de zero. Tirar metade dos alertas, nesse ponto, não muda nada. O que move a nota é não deixar aparecer erro novo.
+
+**Conceito:** antes de otimizar uma métrica, entenda como ela é calculada. Métricas que saturam rápido punem o volume, e o único remédio é prevenir, não limpar.
+
+## 2. Erro esperado não é erro
+
+Olhei os 22 grupos de erro novos da semana. Nove eram da mesma linha de log, no painel de Ads: a mensagem genérica "a requisição falhou". Cada rota que falhava pela primeira vez virava um grupo novo, porque o agrupador de erros separa pelo caminho do código, não pela mensagem.
+
+E muitas dessas falhas não eram bugs. Eram coisas que acontecem todo dia: a Meta recusa uma mudança, o dono não tem permissão, o banco demora e a fila vai tentar de novo.
+
+A solução teve duas partes:
+
+- **o que é esperado vira aviso** (WARN), com uma resposta clara para quem chamou, como um 409 ("não dá para fazer isso agora") ou um 503 ("tente de novo");
+- **o que sobra como erro passa por um ponto só**, com o nome da rota dentro dos dados do log. Uma rota nova falhando não cria mais um grupo.
+
+**Conceito:** log também é uma interface. ERROR quer dizer "um humano precisa olhar". Se tudo é ERROR, ninguém olha mais nada.
+
+## 3. Um problema, um alerta
+
+No dia 25, o banco que guarda as conversas dos agentes ficou só de leitura por pouco mais de duas horas. Não era nosso, e não tinha o que fazer além de esperar. Mesmo assim, o alerta de "falhas de banco" abriu **14 vezes** em três horas. Ele disparava com seis falhas em cinco minutos, sem esperar nada, separado por serviço. A queda ia e voltava, e cada volta abria um alerta novo.
+
+Mudamos o alerta para só abrir se o problema **durar alguns minutos**, e para ficar aberto mais tempo antes de fechar sozinho. Repetindo a regra nova sobre os 14 dias anteriores, aquela queda teria aberto 3 alertas.
+
+O mesmo valeu para o vigia de deploy, uma rotina que compara cada versão nova de um serviço com a anterior e avisa no Slack se ela piorou. Na semana foram 11 avisos, e cinco deles eram de 1 a 3 erros, ruído estatístico. Passamos a exigir pelo menos 5 erros. Três avisos vieram de um serviço que responde erro de propósito para a fila tentar de novo; tiramos esse serviço do vigia. Com as duas mudanças, os 11 avisos teriam sido 3.
+
+**Conceito:** alerta que toca demais ensina as pessoas a ignorá-lo. Um bom alerta é raro e diz para alguém fazer alguma coisa.
+
+## 4. Retentar sem gritar
+
+Boa parte do nosso trabalho roda em filas de tarefas. Se uma tarefa falha, a fila espera um pouco e tenta de novo, até três vezes. Isso é ótimo. O problema é que cada tentativa que falhava era registrada como erro, inclusive as do meio, que a fila ia refazer de qualquer jeito.
+
+Agora as tentativas do meio registram um aviso, com o tipo do erro, e só a última vira erro.
+
+**Conceito:** se o sistema se recupera sozinho, a falha do meio do caminho não é um incidente. O incidente é quando ele desiste.
+
+## 5. O disjuntor
+
+Durante a mesma queda do banco, cada servidor que tentava gravar uma conversa registrava uma falha, e depois outra, e outra. Num só intervalo foram mais de 900 linhas de erro de um único ponto.
+
+Ali já existia um disjuntor, o *circuit breaker*: depois de algumas falhas seguidas, ele **abre** e o sistema para de tentar por um tempo, em vez de martelar um banco que está fora. O que mudamos foi o barulho: cada falha agora é um aviso com o motivo legível, e só a abertura do disjuntor vira um erro.
+
+Um detalhe que não era só barulho: quando a cobrança de uma ação do agente falhava nesse momento, ela ficava pendente e era liberada sem cobrar depois de 45 minutos. Agora ela tenta de novo, até três vezes em pouco mais de um segundo. É seguro tentar de novo porque a gravação só muda o registro se ele ainda estiver pendente; uma segunda tentativa não cobra duas vezes. O nome disso é *idempotência*.
+
+**Conceito:** o disjuntor da sua casa corta a energia antes de o fio queimar. No software é igual: proteja o resto do sistema quando uma dependência cai, e avise uma vez só.
+
+## 6. Mensagens que explicam
+
+Às 5h30 da manhã, uma consulta nossa quebrou e gerou **603 erros em três minutos**. Todos com a mesma mensagem: "ads mcp failed". O "mcp" é o servidor que dá ferramentas aos nossos agentes de IA. A mensagem não dizia qual ferramenta, nem por quê. Outra mensagem comum era "Failed query", que esconde o erro real do banco.
+
+Três mudanças:
+
+- a linha de erro passou a levar **o nome da ferramenta, o tipo do erro e a primeira linha da causa**;
+- o erro do banco passou a levar o **código** do problema (por exemplo, "banco só de leitura" ou "conexão expirou");
+- uma ferramenta que falha várias vezes seguidas, do mesmo jeito, é **cortada por um tempo**. A rajada de 603 viraria um punhado de erros.
+
+E teve um caso pior que mensagem ruim: mensagem que não chega. Em funções na nuvem, `console.error` sai sem nível de severidade, e a nossa configuração de logs descarta o que chega sem nível. Contei isso com mais detalhe no post anterior, [Aviso que não barra cresce](/writing/aviso-que-nao-barra-cresce).
+
+**Conceito:** um erro sem causa vale quase nada. E vale conferir onde as suas linhas de log vão parar de verdade.
+
+## 7. Lint que barra
+
+O lint é a última linha de defesa antes do código entrar. Neste dia, a correção automática tirou 56% dos avisos, e corrigimos à mão três classes de problema que viram erro em produção: conversões de tipo sem prova, promessas que ninguém espera e `console` no lugar do logger. Essas regras agora barram a mudança.
+
+Está tudo no [post anterior](/writing/aviso-que-nao-barra-cresce). A ligação com este é simples: as seções 2 a 6 limpam o que já existe, e o lint impede que o código novo traga os mesmos problemas de volta.
+
+## 8. Cache: o que acontece quando vence
+
+Eu perguntei: quando o cache vence, todo mundo que chega naquela hora sofre? A resposta, lendo o código, foi sim, e pior do que eu imaginava.
+
+Temos duas camadas de cache. Uma é compartilhada entre os servidores (um memcache) e sobrevive a um deploy. A outra fica na memória de cada servidor e zera toda vez que um servidor novo sobe. Na maioria dos casos, quando uma entrada vencia, **todo pedido que chegava antes de ela ser preenchida de novo ia buscar o dado na origem**: na Meta, no banco, no banco parceiro de pagamentos. Mil donos abrindo a mesma tela no mesmo minuto viram mil chamadas. Isso tem nome: *cache stampede*, a debandada.
+
+A pergunta natural é se um load balancer resolveria. Não resolve. O load balancer distribui pedidos entre servidores, e isso a nuvem já faz. O problema é o cache, e os padrões clássicos são estes:
+
+- **single-flight:** quando a entrada vence, só um pedido vai buscar o dado e os outros esperam por ele. Em vez de mil sofrendo, um.
+- **stale-while-revalidate:** entrega o valor antigo na hora e busca o novo em segundo plano. Ninguém espera.
+- **refresh-ahead:** renova antes de vencer, sem ninguém pedir.
+- **instância quente:** um servidor sempre ligado, com o código já carregado, para que uma versão nova ou uma hora parada não façam alguém pagar o *cold start*, o tempo de subir.
+
+Nós já tínhamos o stale-while-revalidate, mas com uma pegadinha: se a busca em segundo plano levasse mais de 2 segundos, o resultado era jogado fora. As leituras mais lentas, justamente as que mais precisavam, quase nunca renovavam. Ligamos, só no cache de Ads, uma opção para guardar a busca lenta e outra para fazer single-flight entre servidores. O padrão do cache compartilhado, que outros times usam, ficou igual. E o servidor de ferramentas dos agentes ganhou uma instância sempre ligada.
+
+Também medimos o que **não** fazer, e isso foi tão útil quanto:
+
+- **Refresh-ahead não compensou.** Manter quente a lista de anúncios das lojas ativas custaria umas 80 chamadas à Meta para cada espera de dono evitada.
+- **Esticar o prazo da lista de anúncios para 6 horas não compensou.** Parecia reduzir chamadas, mas não reduzia, e várias automações nossas mudam o status dos anúncios milhares de vezes por semana sem apagar esse cache. O dono veria a lista errada por horas.
+- **Deixar o processador sempre ligado, para a renovação em segundo plano não ficar lenta, não compensou.** Na nuvem, o servidor fica com o processador quase desligado quando não há pedido. A renovação atrasa, mas só alguns segundos, porque o próximo pedido chega logo.
+
+E o que compensou foi inesperado. Uma tela do painel demorava uns 9 segundos para abrir, e cada loja só pagava isso uma vez: o cache funcionava. Só que 29% dessas aberturas lentas vinham logo depois de o dono criar um cartão, porque criar o cartão apagava o cache. Agora, depois de criar o cartão, o sistema já relê os dados em segundo plano.
+
+**Conceito:** antes de escolher a técnica, entenda **quando** e **para quem** o cache falha. Às vezes o problema é a debandada; às vezes é a primeira visita; às vezes é o próprio código apagando o cache na hora errada.
+
+## 9. Vigilância automática
+
+Tudo isso estraga de novo se ninguém olhar. Deixamos uma tarefa diária que lê os erros novos e os alertas das últimas 26 horas, diz a causa de cada um (esperado, bug nosso, de outro time, já corrigido) e, quando é nosso e simples, já abre a correção no mesmo dia.
+
+**Conceito:** o que não é medido todo dia volta a piorar devagar, e ninguém percebe.
+
+## 10. Coordenação
+
+Nem tudo foi técnico. Com várias frentes rodando ao mesmo tempo, duas coisas deram errado:
+
+- **Duplicamos trabalho.** Um colega tinha aberto, de manhã, correções para parte do mesmo problema. As nossas entraram primeiro, e as dele ficaram em conflito.
+- **Uma mudança entrou sem revisão.** No repositório de uma ferramenta interna, a branch principal não tinha proteção, e um merge automático juntou na hora, sem esperar a revisão nem o fim dos testes. A mudança estava certa. O processo não estava.
+
+**Lição:** antes de fazer, veja se alguém já está fazendo. Proteja a branch principal. E mudança em código compartilhado pede revisão de quem cuida dele.
+
+## O que ainda não sabemos
+
+Tudo isso entrou em produção no mesmo dia em que escrevo. O que ainda não sei:
+
+- quantos grupos de erro novos vão aparecer por semana, agora que o esperado virou aviso;
+- quantos alertas uma próxima queda de banco vai abrir;
+- se as filas continuam retentando como antes com a mudança de nível dos logs;
+- quanto a espera dos donos caiu com o cache.
+
+Uma parte disso também depende de fora: vários desses erros vinham de uma plataforma compartilhada entre os agentes da empresa, que roda dentro dos nossos serviços. As correções valem para todos os times, mas a próxima queda vai dizer se funcionaram.
+
+Volto aqui em 4 de dezembro com esses números.
+
+## Resumo
+
+- Entenda a métrica antes de otimizá-la.
+- Erro esperado é aviso. ERROR é para quando um humano precisa olhar.
+- Um problema deve abrir um alerta, não catorze.
+- Se a fila vai tentar de novo, a falha do meio não é incidente.
+- Disjuntor protege o resto e avisa uma vez.
+- Mensagem de erro precisa dizer o quê e por quê, e precisa chegar.
+- Lint impede o código novo de trazer os problemas de volta.
+- Cache: entenda quando ele falha antes de escolher single-flight, stale-while-revalidate, refresh-ahead ou instância quente. E meça o que não fazer.
+- Vigie todo dia. E coordene antes de sair fazendo.

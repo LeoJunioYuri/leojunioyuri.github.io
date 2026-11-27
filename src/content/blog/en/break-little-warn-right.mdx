@@ -1,0 +1,150 @@
+---
+title: "Break little, warn right, recover on your own"
+description: "A full day working on the health of the Ads team's APIs: log severity, one alert per problem, retries without noise, circuit breakers, error messages that explain, and caches that don't make the owner wait. Each pain, the fix, and the concept behind it."
+date: 2026-11-27
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "System Design", "Observability", "Cache", "Reliability", "Lessons"]
+translationOf: "pt/quebrar-pouco-avisar-certo"
+---
+
+A healthy system is not one that never breaks. Everything breaks: the Meta API refuses, the database blinks, a third-party service is slow. Health is **breaking little, warning right, and recovering on your own**.
+
+At Brendi, we have an internal health score per team. It looks at four things over the last week: reported bugs, new error groups, the share of log lines that are errors, and alerts. The Ads team's score was low, and on November 27 we decided to tackle it all at once. This post sums up what we changed, told the way I wish I had learned it: each pain, the fix, and the concept behind it.
+
+A caveat first: everything here went to production that same day. The numbers below come from the measurements we made to decide each change, not from their effect. I'll be back on December 4 with the numbers one week later.
+
+## 1. Measure before acting
+
+The first temptation was to wait. The score looks at the last seven days, and the week had included a database outage that raised many alerts. I thought that once that day left the window, the score would climb on its own.
+
+I did the math with the score's formula and it barely moved. Two of the four parts decay exponentially: with about eight events a week, they are already close to zero. Removing half the alerts at that point changes nothing. What moves the score is not letting new errors show up.
+
+**Concept:** before optimizing a metric, understand how it is computed. Metrics that saturate fast punish volume, and the only cure is prevention, not cleanup.
+
+## 2. An expected error is not an error
+
+I looked at the week's 22 new error groups. Nine came from the same log line in the Ads panel: the generic "request failed". Every route that failed for the first time became a new group, because the error grouper splits by code path, not by message.
+
+And many of those failures weren't bugs. They were things that happen every day: Meta refuses a change, the owner lacks permission, the database is slow and the queue will try again.
+
+The fix had two parts:
+
+- **what is expected becomes a warning** (WARN), with a clear answer to the caller, like a 409 ("can't do that right now") or a 503 ("try again");
+- **what remains an error goes through a single point**, with the route name in the log's data. A new route failing no longer creates another group.
+
+**Concept:** logs are an interface too. ERROR means "a human needs to look". If everything is ERROR, nobody looks at anything.
+
+## 3. One problem, one alert
+
+On the 25th, the database that holds the agents' conversations went read-only for a little over two hours. It wasn't ours, and there was nothing to do but wait. Even so, the "database failures" alert opened **14 times** in three hours. It fired on six failures in five minutes, with no waiting, split per service. The outage came and went, and each return opened a new alert.
+
+We changed the alert to open only if the problem **lasts a few minutes**, and to stay open longer before closing on its own. Replaying the new rule over the previous 14 days, that outage would have opened 3 alerts.
+
+The same applied to the deploy watch, a job that compares each new version of a service with the previous one and posts to Slack if it got worse. That week it posted 11 warnings, and five of them were 1 to 3 errors: statistical noise. We now require at least 5 errors. Three warnings came from a service that answers with an error on purpose so the queue retries; we took that service out of the watch. With both changes, the 11 warnings would have been 3.
+
+**Concept:** an alert that rings too often teaches people to ignore it. A good alert is rare and tells someone to do something.
+
+## 4. Retry without shouting
+
+Much of our work runs on task queues. If a task fails, the queue waits a bit and tries again, up to three times. That's great. The problem was that every failed attempt was logged as an error, including the middle ones the queue was going to redo anyway.
+
+Now the middle attempts log a warning with the error's type, and only the last one becomes an error.
+
+**Concept:** if the system recovers on its own, a failure along the way is not an incident. The incident is when it gives up.
+
+## 5. The circuit breaker
+
+During the same database outage, every server trying to save a conversation logged a failure, then another, and another. In a single window there were over 900 error lines from one place.
+
+A circuit breaker was already there: after a few failures in a row, it **opens** and the system stops trying for a while, instead of hammering a database that is down. What we changed was the noise: each failure is now a warning with a readable reason, and only the breaker opening becomes an error.
+
+One detail that wasn't just noise: when billing an agent action failed at that moment, the action stayed pending and was released without charge 45 minutes later. Now it retries, up to three times in a little over a second. Retrying is safe because the write only changes the record if it is still pending; a second attempt never bills twice. That property is called *idempotency*.
+
+**Concept:** the breaker in your house cuts the power before the wire burns. Software is the same: protect the rest of the system when a dependency goes down, and warn once.
+
+## 6. Messages that explain
+
+At 5:30 in the morning, one of our queries broke and produced **603 errors in three minutes**. All with the same message: "ads mcp failed". The "mcp" is the server that gives tools to our AI agents. The message didn't say which tool, or why. Another common message was "Failed query", which hides the database's real error.
+
+Three changes:
+
+- the error line now carries **the tool name, the error type, and the first line of the cause**;
+- database errors now carry the problem's **code** (for example, "database is read-only" or "connection timed out");
+- a tool that fails several times in a row, the same way, is **cut off for a while**. The burst of 603 would have been a handful of errors.
+
+And there was a case worse than a bad message: a message that never arrives. In cloud functions, `console.error` goes out with no severity, and our log setup drops whatever arrives without one. I told that story in more detail in the previous post, [Warnings that don't block grow](/en/writing/warnings-that-dont-block-grow).
+
+**Concept:** an error without a cause is worth almost nothing. And it's worth checking where your log lines actually end up.
+
+## 7. Lint that blocks
+
+Lint is the last line of defense before code lands. That day, automatic fixes removed 56% of the warnings, and we fixed by hand three kinds of problems that become production errors: unproven type assertions, promises nobody waits for, and `console` instead of the logger. Those rules now block the change.
+
+It's all in the [previous post](/en/writing/warnings-that-dont-block-grow). The link to this one is simple: sections 2 to 6 clean up what already exists, and lint keeps new code from bringing the same problems back.
+
+## 8. Cache: what happens when it expires
+
+I asked: when the cache expires, does everyone arriving at that moment suffer? Reading the code, the answer was yes, and worse than I thought.
+
+We have two cache layers. One is shared across servers (a memcache) and survives a deploy. The other lives in each server's memory and resets every time a new server starts. In most cases, when an entry expired, **every request that arrived before it was filled again went to the origin for the data**: Meta, the database, the payments partner. A thousand owners opening the same screen in the same minute became a thousand calls. That has a name: a *cache stampede*.
+
+The natural question is whether a load balancer would fix it. It wouldn't. A load balancer spreads requests across servers, and the cloud already does that. The problem is the cache, and these are the classic patterns:
+
+- **single-flight:** when the entry expires, only one request fetches the data and the others wait for it. One suffers instead of a thousand.
+- **stale-while-revalidate:** serve the old value right away and fetch the new one in the background. Nobody waits.
+- **refresh-ahead:** renew before it expires, without anyone asking.
+- **warm instance:** a server always on, with the code already loaded, so a new version or a quiet hour doesn't make someone pay the *cold start*, the time to boot.
+
+We already had stale-while-revalidate, with a catch: if the background fetch took more than 2 seconds, the result was thrown away. The slowest reads, exactly the ones that needed it most, almost never renewed. We turned on, only in the Ads cache, an option to keep slow fetches and another to do single-flight across servers. The shared cache's defaults, which other teams use, stayed the same. And the agents' tool server got an always-on instance.
+
+We also measured what **not** to do, and that was just as useful:
+
+- **Refresh-ahead didn't pay off.** Keeping the active stores' ad list warm would cost about 80 Meta calls for each owner wait avoided.
+- **Stretching the ad list's lifetime to 6 hours didn't pay off.** It looked like it would cut calls, but it wouldn't, and several of our automations change ad statuses thousands of times a week without clearing that cache. The owner would see the wrong list for hours.
+- **Keeping the CPU always on, so background refreshes aren't slow, didn't pay off.** In the cloud, a server runs with its CPU almost off when there is no request. The refresh is delayed, but only by a few seconds, because the next request arrives soon.
+
+And what did pay off was unexpected. One panel screen took about 9 seconds to open, and each store paid that only once: the cache worked. But 29% of those slow opens came right after the owner created a card, because creating the card cleared the cache. Now, after a card is created, the system re-reads the data in the background.
+
+**Concept:** before picking a technique, understand **when** and **for whom** the cache fails. Sometimes the problem is the stampede; sometimes it's the first visit; sometimes it's your own code clearing the cache at the wrong moment.
+
+## 9. Automated vigilance
+
+All of this decays again if nobody looks. We set up a daily task that reads the new errors and alerts of the last 26 hours, gives the cause of each one (expected, our bug, another team's, already fixed) and, when it's ours and simple, opens the fix the same day.
+
+**Concept:** what isn't measured every day slowly gets worse again, and nobody notices.
+
+## 10. Coordination
+
+Not everything was technical. With several fronts running at once, two things went wrong:
+
+- **We duplicated work.** A colleague had opened fixes that morning for part of the same problem. Ours landed first, and his ended up in conflict.
+- **A change landed without review.** In the repository of an internal tool, the main branch had no protection, and an auto-merge landed at once, without waiting for review or for the tests to finish. The change was right. The process wasn't.
+
+**Lesson:** before doing something, check whether someone is already on it. Protect the main branch. And a change to shared code needs a review from whoever looks after it.
+
+## What we don't know yet
+
+All of this went to production the same day I'm writing. What I don't know yet:
+
+- how many new error groups will show up per week, now that the expected cases are warnings;
+- how many alerts the next database outage will open;
+- whether the queues keep retrying as before with the new log levels;
+- how much owner wait time the cache changes saved.
+
+Part of it also depends on others: several of these errors came from a platform shared by the company's agents, which runs inside our services. The fixes help every team, but the next outage will tell whether they worked.
+
+I'll be back on December 4 with those numbers.
+
+## Summary
+
+- Understand a metric before you optimize it.
+- An expected error is a warning. ERROR is for when a human needs to look.
+- One problem should open one alert, not fourteen.
+- If the queue will retry, the failure along the way is not an incident.
+- A circuit breaker protects the rest and warns once.
+- An error message must say what and why, and it must arrive.
+- Lint keeps new code from bringing the problems back.
+- Cache: understand when it fails before choosing single-flight, stale-while-revalidate, refresh-ahead or a warm instance. And measure what not to do.
+- Watch every day. And coordinate before you start.

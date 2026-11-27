@@ -1,0 +1,106 @@
+---
+title: "Aviso que não barra cresce"
+description: "Ligamos o lint em três domínios do time de Ads com zero erros e quase 2.900 avisos herdados. Em menos de duas semanas, os avisos cresceram até 43%. O que fizemos para o lint passar a barrar, e o que ele não enxergava."
+date: 2026-11-27
+lang: "pt"
+category: "engenharia"
+draft: false
+tags: ["Engenharia", "Lint", "Biome", "TypeScript", "Qualidade", "Lições"]
+translationOf: "en/warnings-that-dont-block-grow"
+---
+
+No dia 16 de novembro, ligamos um linter no backend do time de Ads. Linter é o programa que lê o código antes de ele entrar e aponta o que está errado ou perigoso: uma variável que nunca é usada, uma comparação com `==` em vez de `===`, um valor que o código promete ser de um tipo sem provar. No CI, que é a esteira que roda a cada mudança proposta, o linter pode só avisar ou pode barrar a mudança.
+
+Escolhemos o [Biome](https://biomejs.dev/), um linter rápido escrito em Rust, e ligamos em três domínios: o de Ads, o de um gestor de tráfego por agente e o de Social Media. Somados, uns 3.000 arquivos de TypeScript.
+
+O problema de ligar um linter em código que já existe é sempre o mesmo. Se toda regra barrar, nenhuma mudança passa até alguém consertar o passado. Se nenhuma barrar, ninguém olha. A saída que adotamos é comum: cada regra que o código antigo já quebrava virou **aviso**; cada regra com zero violações virou **erro** desde o primeiro dia. O comentário no arquivo de configuração deixava a intenção explícita:
+
+> uma linha de base para queimar, não uma decisão de que a regra é opcional: conserte os casos, depois apague a linha.
+
+No primeiro dia: zero erros e quase 2.900 avisos.
+
+## Os avisos cresceram
+
+No dia 27, dez e onze dias depois, medi de novo.
+
+| Domínio | Avisos no dia em que entrou | Avisos em 27/11 | Variação |
+|---|---|---|---|
+| Ads + gestor de tráfego | 1.856 (16/11) | 2.302 | +24% |
+| Social Media | 1.008 (17/11) | 1.443 | +43% |
+
+Ninguém escreveu código pior de propósito. O que aconteceu é mais simples: aviso aparece no editor e numa linha do log do CI, e nenhuma das duas coisas impede o merge. Com dezenas de mudanças entrando por dia, muitas escritas por agentes de IA, todo código novo que tropeçava numa regra "de aviso" passava. A linha de base não estava sendo queimada. Estava sendo alimentada.
+
+O mesmo aconteceu, mais rápido ainda, com uma trava que tínhamos ligado no mesmo dia. Ela conta os erros de tipo nos arquivos de teste e falha se o número passar de um limite. Começou com o limite em 249 para Ads. Ainda no dia 16, mudanças que entraram levaram o número a 253, e toda mudança nova em Ads passou a falhar por um erro que não era dela. Baixamos o limite para 232 na mesma tarde e deixamos a trava sem barrar o merge por enquanto, justamente porque um contador único por domínio pune a próxima pessoa, não quem piorou.
+
+A lição não é "avisos são inúteis". É que aviso só funciona como plano de pagamento se alguém paga. Sem isso, é só um jeito educado de aceitar dívida nova.
+
+## O dia de pagar
+
+No dia 27, fizemos quatro limpezas, cada uma numa mudança separada.
+
+**1. O que a máquina conserta sozinha.** Quase metade dos avisos era de uma regra só: importar um tipo do TypeScript como se fosse um valor (`import { X }` em vez de `import type { X }`). Não muda o comportamento, e o Biome sabe corrigir sem risco. Aplicamos só as correções que o próprio Biome marca como seguras e revisamos uma a uma as que ele marca como inseguras.
+
+| Domínio | Avisos antes | Avisos depois |
+|---|---|---|
+| Ads | 2.192 | 781 |
+| Gestor de tráfego | 110 | 60 |
+| Social Media | 1.443 | 791 |
+| **Total** | **3.745** | **1.632 (−56%)** |
+
+As regras que chegaram a zero voltaram a ser erro.
+
+**2. Conversões de tipo forçadas.** Em TypeScript, `valor as Pedido` diz ao compilador "confia, isso é um pedido". O compilador confia. Se não for, quem descobre é o código rodando, em produção. A regra do Biome contra isso explica melhor do que eu: a conversão diz ao compilador o que um valor é em vez de provar.
+
+Tínhamos uns 160 casos no código de produção. O mais perigoso estava no cliente da API da Meta: a função que todas as outras usavam para chamar a API terminava em `return data as T`, e uns 24 lugares dependiam dela. Trocamos as conversões por validação de verdade, com [Zod](https://zod.dev/) (uma biblioteca que confere o formato do dado em tempo de execução) ou com funções que checam o tipo. Ficaram 14 exceções, cada uma com o motivo escrito ao lado. A regra já barra no gestor de tráfego e no Social; em Ads, a última das quatro mudanças, que a liga como erro, ainda estava entrando quando escrevi isto.
+
+**3. Promessas soltas.** Esta foi a que mais me ensinou, e conto na próxima seção.
+
+**4. `console` no lugar do logger.** Também na próxima seção.
+
+## O que o lint não via
+
+### Promessas que ninguém espera
+
+Em JavaScript, uma função `async` devolve uma promessa. Se ninguém espera essa promessa (com `await` ou `.catch`) e ela falha, o erro escapa de qualquer tratamento. No nosso caso, isso vira um "Unhandled error" no log e, às vezes, uma resposta 500 para quem chamou.
+
+O Biome tem uma regra para isso. Rodei nos três domínios e ela achou **zero** casos. Desconfiei. Para saber se uma promessa está solta, o linter precisa entender os tipos do programa inteiro, e o Biome ainda faz isso de forma rasa. Rodei o [oxlint](https://oxc.rs/docs/guide/usage/linter.html) no modo que usa o próprio compilador do TypeScript para entender os tipos. Ele achou **292**.
+
+Quase todos eram do mesmo jeito: 291 rotas HTTP declaradas como `async` e passadas direto para o framework, que não sabe lidar com uma promessa que falha. O conserto foi um embrulho único, `asyncRoute`, que encaminha a falha para o tratamento de erro normal. Para ser honesto: das 26 rotas que podiam de fato falhar, todas já tinham o próprio `try/catch`. Não havia um crash conhecido esperando acontecer. Mas a próxima rota que alguém escrevesse sem `try/catch` teria esse problema, e agora o CI barra. No CI, o oxlint custa de 2 a 8 segundos por domínio.
+
+### Linhas de log que somem
+
+A segunda coisa invisível era pior, porque não aparecia nem nos logs.
+
+Escrever `console.error("falhou")` numa função na nuvem parece registrar um erro. No nosso ambiente, não registra. A linha sai sem nível de severidade, e a configuração que encaminha os logs descarta o que chega sem nível. A linha nunca chega aos logs, nem ao agrupador de erros, nem a um alerta. Descobrimos isso dois dias antes num pacote compartilhado entre os agentes da empresa, quando uma investigação mostrou que rotinas perdidas só apareciam numa tabela de dados bruta.
+
+Nos nossos três domínios, havia 64 `console` em código de produção. Trocamos todos pelo logger da empresa, com o nível certo para cada um, e ligamos a regra `noConsole` como erro, liberada só em scripts e testes. Antes de mandar, procurei nos logs do último mês se algum desses caminhos tinha falhado. Nenhum tinha. Então a troca não esconde nem revela nada hoje: ela garante que, quando falhar, alguém vai ver.
+
+## Trocar um revisor de IA por regras
+
+Um passo dessa história aconteceu antes, em outro repositório da empresa, e mudou como penso o lint.
+
+Lá, um revisor automático com IA comentava nas mudanças propostas. Boa parte dos comentários era do tipo "troque este componente pelo equivalente do nosso design system". Num mês, esse tipo de comentário gerou umas 235 conversas, e 58% delas foram rejeitadas por quem recebeu. Viraram uma regra de lint com uma trava por arquivo: cada arquivo pode ter no máximo o número de usos do componente antigo que tinha no dia em que a regra entrou, e o número só pode cair. A mesma ideia foi usada para conversões de tipo forçadas.
+
+Desde o fim de outubro, os usos do componente antigo caíram cerca de 10% e as conversões, cerca de 7%. Não é rápido. Mas é um número que só desce, e ninguém precisa discutir com um robô para isso.
+
+O que tiro disso: o que é verificação mecânica deve ser lint, determinístico e barato. O que pede julgamento fica para a revisão, humana ou de IA.
+
+## O que não fizemos
+
+Nem todo aviso deve virar erro. Uma regra do Biome reclama de `await` dentro de laço (`for`), porque costuma deixar o código lento sem motivo. No nosso caso, quase todos os laços são de propósito: chamadas à API da Meta, uma de cada vez, por causa do limite de requisições. Ligar a regra como erro exigiria uns 250 comentários de exceção, e a regra seria mais silenciada do que obedecida. Ela continua como aviso, e está tudo bem.
+
+Também ficou de fora uma regra que tentamos escrever para barrar `Logger.error` em falhas que o próprio código já tinha classificado como esperadas (uma recusa da Meta, um dono sem permissão). Escrevemos como plugin do Biome. Ela não tem falsos positivos nos 2.019 arquivos reais. Também não teria pegado nenhum dos três exemplos reais da semana que motivaram a ideia. Por enquanto, essa parte vive como regra escrita na revisão.
+
+## O que ainda não sabemos
+
+Uma coisa precisa ficar clara: **nenhuma regra de lint do time de Ads pegou um incidente antes de ele acontecer.** Todas as ligações entre regra e problema real que encontrei foram feitas depois do fato. As limpezas deste post são de prevenção, e prevenção é difícil de medir.
+
+O que dá para medir é se o número de erros novos em produção cai. Esse é o número que vou acompanhar: quantos grupos de erro novos aparecem por semana nesses três domínios, e se os avisos que sobraram continuam caindo ou voltam a crescer. Volto aqui em duas semanas com esses números.
+
+## Resumo
+
+- Ligar o lint com os casos antigos como aviso é razoável. Deixar como aviso sem prazo não é: em dez a onze dias, os avisos cresceram 24% e 43%.
+- Correção automática segura resolveu mais da metade da dívida num dia.
+- Um linter que não entende tipos pode dizer "zero" onde há 292.
+- `console.error` pode não chegar aos logs. Vale conferir onde as suas linhas vão parar.
+- O que é mecânico vira regra; o que pede julgamento fica com a revisão.

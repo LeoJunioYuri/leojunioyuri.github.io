@@ -1,0 +1,106 @@
+---
+title: "Warnings that don't block grow"
+description: "We turned on a linter in three of the Ads team's domains with zero errors and almost 2,900 inherited warnings. In under two weeks, the warnings grew by up to 43%. What we did to make the linter block, and what it couldn't see."
+date: 2026-11-27
+lang: "en"
+category: "engenharia"
+draft: false
+tags: ["Engineering", "Lint", "Biome", "TypeScript", "Quality", "Lessons"]
+translationOf: "pt/aviso-que-nao-barra-cresce"
+---
+
+On November 16, we turned on a linter in the Ads team's backend. A linter is the program that reads code before it lands and points out what is wrong or risky: a variable that is never used, a `==` comparison instead of `===`, a value the code claims is of some type without proving it. In CI, the pipeline that runs on every proposed change, a linter can either just warn or block the change.
+
+We picked [Biome](https://biomejs.dev/), a fast linter written in Rust, and turned it on in three domains: Ads, an agent-based traffic manager, and Social Media. Together, about 3,000 TypeScript files.
+
+Turning a linter on in existing code always has the same problem. If every rule blocks, no change gets through until someone fixes the past. If no rule blocks, nobody looks. We used the common way out: every rule the old code already broke became a **warning**; every rule with zero violations became an **error** from day one. A comment in the config file made the intent explicit:
+
+> a baseline to burn down, not a decision that the rule is optional: fix the hits, then delete the line.
+
+On day one: zero errors and almost 2,900 warnings.
+
+## The warnings grew
+
+On the 27th, ten and eleven days later, I measured again.
+
+| Domain | Warnings on the day it joined | Warnings on Nov 27 | Change |
+|---|---|---|---|
+| Ads + traffic manager | 1,856 (Nov 16) | 2,302 | +24% |
+| Social Media | 1,008 (Nov 17) | 1,443 | +43% |
+
+Nobody wrote worse code on purpose. What happened is simpler: a warning shows up in the editor and in one line of the CI log, and neither stops a merge. With dozens of changes landing every day, many of them written by AI agents, any new code that tripped a "warning" rule got through. The baseline was not being burned down. It was being fed.
+
+The same happened, even faster, with a check we turned on the same day. It counts the type errors in test files and fails if the count goes above a limit. It started with a limit of 249 for Ads. Still on the 16th, changes that landed pushed the count to 253, and every new Ads change started failing for an error that wasn't its own. We lowered the limit to 232 that afternoon and left the check non-blocking for now, precisely because a single counter per domain punishes the next person, not the one who made it worse.
+
+The lesson is not "warnings are useless". It is that a warning only works as a payment plan if someone pays. Without that, it is just a polite way to accept new debt.
+
+## Payday
+
+On the 27th, we did four clean-ups, each in its own change.
+
+**1. What the machine fixes on its own.** Almost half the warnings came from one rule: importing a TypeScript type as if it were a value (`import { X }` instead of `import type { X }`). It changes no behaviour, and Biome knows how to fix it safely. We applied only the fixes Biome itself marks as safe, and reviewed the ones it marks as unsafe one by one.
+
+| Domain | Warnings before | Warnings after |
+|---|---|---|
+| Ads | 2,192 | 781 |
+| Traffic manager | 110 | 60 |
+| Social Media | 1,443 | 791 |
+| **Total** | **3,745** | **1,632 (−56%)** |
+
+The rules that reached zero became errors again.
+
+**2. Forced type conversions.** In TypeScript, `value as Order` tells the compiler "trust me, this is an order". The compiler trusts you. If it isn't, the running code finds out, in production. Biome's rule against this puts it better than I can: an assertion tells the compiler what a value is instead of proving it.
+
+We had about 160 of these in production code. The riskiest was in the Meta API client: the function every other one used to call the API ended in `return data as T`, and about 24 places depended on it. We replaced the assertions with real validation, using [Zod](https://zod.dev/) (a library that checks the shape of data at runtime) or functions that check the type. Fourteen exceptions remain, each with its reason written next to it. The rule already blocks in the traffic manager and Social; in Ads, the last of the four changes, which makes it an error, was still landing when I wrote this.
+
+**3. Floating promises.** This one taught me the most; it's in the next section.
+
+**4. `console` instead of the logger.** Also in the next section.
+
+## What the linter couldn't see
+
+### Promises nobody waits for
+
+In JavaScript, an `async` function returns a promise. If nobody waits for that promise (with `await` or `.catch`) and it fails, the error escapes any handling. For us, that becomes an "Unhandled error" in the log and sometimes a 500 response to the caller.
+
+Biome has a rule for this. I ran it on the three domains and it found **zero** cases. I didn't believe it. To know whether a promise is floating, a linter has to understand the types of the whole program, and Biome still does that shallowly. I ran [oxlint](https://oxc.rs/docs/guide/usage/linter.html) in the mode that uses the TypeScript compiler itself to understand types. It found **292**.
+
+Almost all of them looked the same: 291 HTTP routes declared `async` and handed straight to the framework, which doesn't know what to do with a promise that fails. The fix was a single wrapper, `asyncRoute`, that forwards the failure to the normal error handling. To be fair: of the 26 routes that could actually fail, all already had their own `try/catch`. There was no known crash waiting to happen. But the next route someone wrote without a `try/catch` would have had the problem, and now CI blocks it. In CI, oxlint costs 2 to 8 seconds per domain.
+
+### Log lines that vanish
+
+The second invisible thing was worse, because it didn't show up even in the logs.
+
+Writing `console.error("failed")` in a cloud function looks like logging an error. In our setup, it isn't. The line goes out with no severity, and the configuration that routes the logs drops anything that arrives without one. The line never reaches the logs, the error grouping, or an alert. We had found this two days earlier in a package shared by the company's agents, when an investigation showed that lost routines only appeared in a raw data table.
+
+In our three domains, there were 64 `console` calls in production code. We replaced all of them with the company's logger, each at the right level, and turned on the `noConsole` rule as an error, allowed only in scripts and tests. Before sending it, I checked the last month of logs for any of those paths failing. None had. So the change neither hides nor reveals anything today: it makes sure that when one fails, someone sees it.
+
+## Replacing an AI reviewer with rules
+
+One step of this story happened earlier, in another company repository, and it changed how I think about linting.
+
+There, an AI-based automatic reviewer commented on proposed changes. Many of its comments were of the kind "replace this component with the equivalent from our design system". In one month, that kind of comment produced about 235 threads, and 58% of them were rejected by the person who got them. They became a lint rule with a per-file cap: each file can have at most the number of uses of the old component it had on the day the rule landed, and the number can only go down. The same idea was used for forced type conversions.
+
+Since late October, uses of the old component fell about 10% and the conversions about 7%. It isn't fast. But it is a number that only goes down, and nobody has to argue with a bot for it.
+
+What I take from this: what is a mechanical check should be lint, deterministic and cheap. What needs judgment stays with review, human or AI.
+
+## What we didn't do
+
+Not every warning should become an error. One Biome rule complains about `await` inside a loop, because it usually makes code slow for no reason. In our case, almost all of those loops are on purpose: calls to the Meta API, one at a time, because of rate limits. Making the rule an error would take about 250 exception comments, and the rule would be silenced more often than obeyed. It stays a warning, and that's fine.
+
+We also left out a rule we tried to write to block `Logger.error` on failures the code had already classified as expected (a refusal from Meta, an owner without permission). We wrote it as a Biome plugin. It has no false positives across 2,019 real files. It also would not have caught any of the three real examples from that week that motivated it. For now, that part lives as a written review rule.
+
+## What we don't know yet
+
+One thing needs to be clear: **no lint rule of the Ads team caught an incident before it happened.** Every link I found between a rule and a real problem was made after the fact. The clean-ups in this post are prevention, and prevention is hard to measure.
+
+What can be measured is whether the number of new errors in production goes down. That is the number I will follow: how many new error groups show up per week in these three domains, and whether the remaining warnings keep falling or start growing again. I'll be back in two weeks with those numbers.
+
+## Summary
+
+- Turning a linter on with the old cases as warnings is reasonable. Leaving them as warnings with no deadline isn't: in ten to eleven days, the warnings grew 24% and 43%.
+- Safe automatic fixes cleared more than half the debt in one day.
+- A linter that doesn't understand types can say "zero" where there are 292.
+- `console.error` may never reach your logs. It's worth checking where your lines end up.
+- What is mechanical becomes a rule; what needs judgment stays with review.

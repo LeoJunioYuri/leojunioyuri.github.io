@@ -1,6 +1,27 @@
 {
-  "updatedAt": "2026-11-28T00:49:21.513Z",
+  "updatedAt": "2026-11-28T14:43:22.133Z",
   "tracks": [
+    {
+      "name": "With You - Live In Texas",
+      "artist": "Linkin Park",
+      "url": "https://open.spotify.com/track/0YLKCq0pqNE6pF0OuioD9I",
+      "image": "https://i.scdn.co/image/ab67616d00004851fb25458af0290a7f31ee73b5",
+      "playedAt": "2026-11-28T04:17:15.935Z"
+    },
+    {
+      "name": "The God That Failed - Remastered 2021",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/6SUS59EDam0USXk05d9ZAH",
+      "image": "https://i.scdn.co/image/ab67616d0000485176c60d2128c8e4649b85f2b2",
+      "playedAt": "2026-11-28T04:08:57.018Z"
+    },
+    {
+      "name": "Welcome Home (Sanitarium) - Remastered",
+      "artist": "Metallica",
+      "url": "https://open.spotify.com/track/1FPSkRkDlthbAceSIIWc4C",
+      "image": "https://i.scdn.co/image/ab67616d0000485116d6f039fafd389911261ada",
+      "playedAt": "2026-11-28T04:03:48.029Z"
+    },
     {
       "name": "Time / Reload - Live from New York",
       "artist": "Swedish House Mafia, Tommy Trash",
@@ -35,27 +56,6 @@
       "url": "https://open.spotify.com/track/7fLzbEOBOae9lUnOwr7Tse",
       "image": "https://i.scdn.co/image/ab67616d000048511813115ff10c5f5ae028321d",
       "playedAt": "2026-11-28T00:09:35.912Z"
-    },
-    {
-      "name": "Déjà Vu",
-      "artist": "Pitty",
-      "url": "https://open.spotify.com/track/64RaXiW92dbX2uQ0pY6rkj",
-      "image": "https://i.scdn.co/image/ab67616d000048515a3401f25405fc727b2d58ee",
-      "playedAt": "2026-11-28T00:02:17.191Z"
-    },
-    {
-      "name": "A Cera",
-      "artist": "O Surto",
-      "url": "https://open.spotify.com/track/5w50Ywn17sXpDFDhe0Sxtw",
-      "image": "https://i.scdn.co/image/ab67616d0000485168ac9a4f7f5e32697a72d1ff",
-      "playedAt": "2026-11-27T23:57:37.293Z"
-    },
-    {
-      "name": "O que sobrou do céu",
-      "artist": "O Rappa",
-      "url": "https://open.spotify.com/track/1A47ISHc08cBeIA3hifQXn",
-      "image": "https://i.scdn.co/image/ab67616d000048517c33a0320b19db0e14ecdc5f",
-      "playedAt": "2026-11-27T23:50:06.097Z"
     }
   ],
   "topTracks": {
